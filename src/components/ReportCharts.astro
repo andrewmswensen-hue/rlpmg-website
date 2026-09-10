@@ -1,0 +1,227 @@
+---
+/**
+ * The nine charts from the 2026 Columbus SFR Market Report.
+ *
+ * On the old site these shipped as base64-encoded SVG inside <img src="data:...">,
+ * which is how you get a chart into a Divi code module but costs you three
+ * things: it cannot inherit the theme, it is invisible to a screen reader, and
+ * the base64 padding makes every chart about a third larger than the markup it
+ * encodes. Here they are plain inline SVG using the site's colour tokens, each
+ * with a <title> so the shape is announced rather than skipped.
+ *
+ * The numbers are unchanged from the published report.
+ */
+interface Props { name: string }
+const { name } = Astro.props;
+
+const NAVY = 'var(--color-navy)';
+const NAVY_L = '#2a5b7a';
+const CRIMSON = 'var(--color-crimson)';
+const MAROON = 'var(--color-maroon)';
+const LINE = 'var(--color-line)';
+const FAINT = 'var(--color-faint)';
+const MUTED = 'var(--color-muted)';
+const GOLD = '#b8801c';
+---
+{name === 'price' && (
+  <svg viewBox="0 0 720 220" role="img" aria-labelledby="c-price-t">
+    <title id="c-price-t">Median home price, Columbus MLS against the national average, 2021 to first half 2026. Columbus rises from about $270,000 to $350,000 while the national figure rises from about $360,000 to $441,000.</title>
+    <g stroke={LINE} stroke-width="1">
+      <line x1="60" y1="30" x2="700" y2="30" /><line x1="60" y1="75" x2="700" y2="75" />
+      <line x1="60" y1="120" x2="700" y2="120" /><line x1="60" y1="165" x2="700" y2="165" />
+    </g>
+    <g font-family="var(--font-sans)" font-size="11" fill={FAINT} text-anchor="end">
+      <text x="52" y="34">$500K</text><text x="52" y="79">$400K</text>
+      <text x="52" y="124">$300K</text><text x="52" y="169">$200K</text>
+    </g>
+    <g font-family="var(--font-sans)" font-size="11" fill={MUTED} text-anchor="middle">
+      <text x="90" y="192">2021</text><text x="212" y="192">2022</text><text x="334" y="192">2023</text>
+      <text x="456" y="192">2024</text><text x="578" y="192">2025</text><text x="686" y="192">2026 H1</text>
+    </g>
+    <polyline fill="none" stroke={CRIMSON} stroke-width="2.5" stroke-linejoin="round" points="90,96 212,81 334,80 456,72 578,67 694,57" />
+    <polyline fill="none" stroke={NAVY} stroke-width="2.5" stroke-linejoin="round" points="90,136 212,122 334,118 456,111 578,104 694,98" />
+    <g fill={CRIMSON}>
+      <circle cx="90" cy="96" r="3.5" /><circle cx="212" cy="81" r="3.5" /><circle cx="334" cy="80" r="3.5" />
+      <circle cx="456" cy="72" r="3.5" /><circle cx="578" cy="67" r="3.5" /><circle cx="694" cy="57" r="4" />
+    </g>
+    <g fill={NAVY}>
+      <circle cx="90" cy="136" r="3.5" /><circle cx="212" cy="122" r="3.5" /><circle cx="334" cy="118" r="3.5" />
+      <circle cx="456" cy="111" r="3.5" /><circle cx="578" cy="104" r="3.5" /><circle cx="694" cy="98" r="4" />
+    </g>
+    <g font-family="var(--font-sans)" font-size="11" font-weight="700">
+      <text x="694" y="48" text-anchor="end" fill={CRIMSON}>$441K national</text>
+      <text x="688" y="115" text-anchor="end" fill={NAVY}>$350K Columbus</text>
+    </g>
+  </svg>
+)}
+
+{name === 'rents' && (
+  <svg viewBox="0 0 720 200" role="img" aria-labelledby="c-rents-t">
+    <title id="c-rents-t">Average monthly rent, Columbus against national. Average apartment $1,365 against $1,720. Three-bedroom apartment $1,725 against $2,248.</title>
+    <text x="0" y="40" font-family="var(--font-sans)" font-size="13" font-weight="700" fill={NAVY}>Avg apt rent</text>
+    <rect x="140" y="22" width="253" height="26" rx="3" fill={NAVY} />
+    <rect x="140" y="52" width="326" height="26" rx="3" fill={CRIMSON} />
+    <text x="400" y="40" font-family="var(--font-sans)" font-size="12" font-weight="700" fill={NAVY}>$1,365</text>
+    <text x="473" y="70" font-family="var(--font-sans)" font-size="12" font-weight="700" fill={CRIMSON}>$1,720</text>
+    <text x="0" y="128" font-family="var(--font-sans)" font-size="13" font-weight="700" fill={NAVY}>3BR apt rent</text>
+    <rect x="140" y="110" width="316" height="26" rx="3" fill={NAVY} />
+    <rect x="140" y="140" width="426" height="26" rx="3" fill={CRIMSON} />
+    <text x="463" y="128" font-family="var(--font-sans)" font-size="12" font-weight="700" fill={NAVY}>$1,725</text>
+    <text x="573" y="158" font-family="var(--font-sans)" font-size="12" font-weight="700" fill={CRIMSON}>$2,248</text>
+    <line x1="140" y1="178" x2="640" y2="178" stroke={LINE} />
+    <g font-family="var(--font-sans)" font-size="10" fill={FAINT} text-anchor="middle">
+      <text x="140" y="194">$0</text><text x="240" y="194">$500</text><text x="340" y="194">$1,000</text>
+      <text x="440" y="194">$1,500</text><text x="540" y="194">$2,000</text><text x="640" y="194">$2,500</text>
+    </g>
+  </svg>
+)}
+
+{name === 'occupancy' && (
+  <svg viewBox="0 0 300 170" role="img" aria-labelledby="c-occ-t">
+    <title id="c-occ-t">Occupancy. Columbus well-managed properties above 95 percent, national single-family rental 93.9 percent.</title>
+    <g transform="translate(80,85)">
+      <circle r="55" fill="none" stroke={LINE} stroke-width="14" />
+      <circle r="55" fill="none" stroke={NAVY} stroke-width="14" stroke-dasharray="328 345" transform="rotate(-90)" />
+      <text y="-2" text-anchor="middle" font-family="var(--font-serif)" font-weight="600" font-size="23" fill={MAROON}>95%+</text>
+      <text y="17" text-anchor="middle" font-family="var(--font-sans)" font-weight="700" font-size="9.5" fill={MUTED} letter-spacing="1.5">COLUMBUS</text>
+    </g>
+    <g transform="translate(220,85)">
+      <circle r="55" fill="none" stroke={LINE} stroke-width="14" />
+      <circle r="55" fill="none" stroke={CRIMSON} stroke-width="14" stroke-dasharray="324 345" transform="rotate(-90)" />
+      <text y="-2" text-anchor="middle" font-family="var(--font-serif)" font-weight="600" font-size="23" fill={MAROON}>93.9%</text>
+      <text y="17" text-anchor="middle" font-family="var(--font-sans)" font-weight="700" font-size="9.5" fill={MUTED} letter-spacing="1.5">NATIONAL</text>
+    </g>
+  </svg>
+)}
+
+{name === 'rentgrowth' && (
+  <svg viewBox="0 0 300 170" role="img" aria-labelledby="c-rg-t">
+    <title id="c-rg-t">Year-over-year rent growth 2026. Columbus high estimate plus 4.0 percent, national single-family rental plus 2.6 percent, Columbus low estimate plus 2.2 percent.</title>
+    <rect x="40" y="30" width="48" height="100" rx="3" fill={NAVY} />
+    <text x="64" y="24" text-anchor="middle" font-family="var(--font-sans)" font-size="13" font-weight="700" fill={NAVY}>+4.0%</text>
+    <text x="64" y="148" text-anchor="middle" font-family="var(--font-sans)" font-size="10" font-weight="700" fill={MUTED}>Columbus</text>
+    <text x="64" y="160" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill={FAINT}>(high est.)</text>
+    <rect x="120" y="67" width="48" height="63" rx="3" fill={CRIMSON} />
+    <text x="144" y="60" text-anchor="middle" font-family="var(--font-sans)" font-size="13" font-weight="700" fill={CRIMSON}>+2.6%</text>
+    <text x="144" y="148" text-anchor="middle" font-family="var(--font-sans)" font-size="10" font-weight="700" fill={MUTED}>Nat’l SFR</text>
+    <text x="144" y="160" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill={FAINT}>(Arbor)</text>
+    <rect x="200" y="80" width="48" height="50" rx="3" fill={MAROON} />
+    <text x="224" y="74" text-anchor="middle" font-family="var(--font-sans)" font-size="13" font-weight="700" fill={MAROON}>+2.2%</text>
+    <text x="224" y="148" text-anchor="middle" font-family="var(--font-sans)" font-size="10" font-weight="700" fill={MUTED}>Columbus</text>
+    <text x="224" y="160" text-anchor="middle" font-family="var(--font-sans)" font-size="9" fill={FAINT}>(low est.)</text>
+    <line x1="20" y1="130" x2="280" y2="130" stroke={LINE} />
+  </svg>
+)}
+
+{name === 'bifurcation' && (
+  <svg viewBox="0 0 680 130" role="img" aria-labelledby="c-bif-t">
+    <title id="c-bif-t">Rent growth by price point, April 2026. Low-priced rentals plus 0.6 percent, higher-priced rentals plus 2.1 percent.</title>
+    <text x="0" y="28" font-family="var(--font-sans)" font-size="13" font-weight="700" fill={NAVY}>Low-priced rentals</text>
+    <rect x="180" y="15" width="60" height="24" rx="3" fill={CRIMSON} />
+    <text x="250" y="33" font-family="var(--font-sans)" font-size="14" font-weight="700" fill={CRIMSON}>+0.6%</text>
+    <text x="0" y="80" font-family="var(--font-sans)" font-size="13" font-weight="700" fill={NAVY}>Higher-priced rentals</text>
+    <rect x="180" y="67" width="210" height="24" rx="3" fill={NAVY} />
+    <text x="400" y="85" font-family="var(--font-sans)" font-size="14" font-weight="700" fill={NAVY}>+2.1%</text>
+    <line x1="180" y1="108" x2="620" y2="108" stroke={LINE} />
+    <g font-family="var(--font-sans)" font-size="10" fill={FAINT}>
+      <text x="180" y="122">0%</text><text x="280" y="122">1%</text><text x="380" y="122">2%</text>
+      <text x="480" y="122">3%</text><text x="580" y="122">4%</text>
+    </g>
+  </svg>
+)}
+
+{name === 'caprates' && (
+  <svg viewBox="0 0 680 200" role="img" aria-labelledby="c-cap-t">
+    <title id="c-cap-t">Typical cap rate ranges by Columbus neighbourhood category. Urban value 7 to 10 percent, first-ring suburbs 6 to 8 percent, southern growth 5 to 7 percent, premium suburbs 4 to 6 percent.</title>
+    <g stroke={LINE}>
+      <line x1="50" y1="30" x2="670" y2="30" /><line x1="50" y1="65" x2="670" y2="65" />
+      <line x1="50" y1="100" x2="670" y2="100" /><line x1="50" y1="135" x2="670" y2="135" />
+      <line x1="50" y1="170" x2="670" y2="170" />
+    </g>
+    <g font-family="var(--font-sans)" font-size="10" fill={FAINT} text-anchor="end">
+      <text x="44" y="34">12%</text><text x="44" y="69">9%</text><text x="44" y="104">6%</text>
+      <text x="44" y="139">3%</text><text x="44" y="174">0%</text>
+    </g>
+    <rect x="100" y="53" width="90" height="117" fill={MAROON} /><rect x="100" y="53" width="90" height="35" fill={CRIMSON} />
+    <text x="145" y="47" text-anchor="middle" font-family="var(--font-sans)" font-size="13" font-weight="700" fill={MAROON}>7-10%</text>
+    <rect x="225" y="76" width="90" height="94" fill={NAVY} /><rect x="225" y="76" width="90" height="24" fill={NAVY_L} />
+    <text x="270" y="70" text-anchor="middle" font-family="var(--font-sans)" font-size="13" font-weight="700" fill={NAVY}>6-8%</text>
+    <rect x="350" y="88" width="90" height="82" fill={NAVY} /><rect x="350" y="88" width="90" height="23" fill={NAVY_L} />
+    <text x="395" y="82" text-anchor="middle" font-family="var(--font-sans)" font-size="13" font-weight="700" fill={NAVY}>5-7%</text>
+    <rect x="475" y="100" width="90" height="70" fill="#8a0427" /><rect x="475" y="100" width="90" height="24" fill={CRIMSON} />
+    <text x="520" y="94" text-anchor="middle" font-family="var(--font-sans)" font-size="13" font-weight="700" fill={MAROON}>4-6%</text>
+    <g font-family="var(--font-sans)" font-size="10.5" font-weight="700" fill={MUTED} text-anchor="middle">
+      <text x="145" y="188">URBAN</text><text x="270" y="188">FIRST-RING</text>
+      <text x="395" y="188">SOUTHERN</text><text x="520" y="188">PREMIUM</text>
+    </g>
+  </svg>
+)}
+
+{name === 'population' && (
+  <svg viewBox="0 0 310 150" role="img" aria-labelledby="c-pop-t">
+    <title id="c-pop-t">Columbus metro population growth, 2021 to 2026, rising steadily to about 2.24 million.</title>
+    <defs>
+      <linearGradient id="popGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#123143" stop-opacity="0.25" />
+        <stop offset="100%" stop-color="#123143" stop-opacity="0.02" />
+      </linearGradient>
+    </defs>
+    <line x1="30" y1="110" x2="300" y2="110" stroke={LINE} />
+    <polygon points="40,90 85,80 130,68 175,55 220,42 265,30 265,110 40,110" fill="url(#popGrad)" />
+    <polyline fill="none" stroke={NAVY} stroke-width="2.5" stroke-linejoin="round" points="40,90 85,80 130,68 175,55 220,42 265,30" />
+    <g fill={NAVY}>
+      <circle cx="40" cy="90" r="3" /><circle cx="85" cy="80" r="3" /><circle cx="130" cy="68" r="3" />
+      <circle cx="175" cy="55" r="3" /><circle cx="220" cy="42" r="3" /><circle cx="265" cy="30" r="4" />
+    </g>
+    <text x="265" y="21" text-anchor="middle" font-family="var(--font-sans)" font-size="11" font-weight="700" fill={MAROON}>2.24M</text>
+    <g font-family="var(--font-sans)" font-size="9" fill={FAINT} text-anchor="middle">
+      <text x="40" y="128">’21</text><text x="85" y="128">’22</text><text x="130" y="128">’23</text>
+      <text x="175" y="128">’24</text><text x="220" y="128">’25</text><text x="265" y="128">’26</text>
+    </g>
+  </svg>
+)}
+
+{name === 'economy' && (
+  <svg viewBox="0 0 310 150" role="img" aria-labelledby="c-econ-t">
+    <title id="c-econ-t">Illustrative mix of the Columbus metro economy across five employer pillars: healthcare, financial services, education, government and technology.</title>
+    <g transform="translate(80,75)">
+      <circle r="50" fill="none" stroke={MAROON} stroke-width="22" stroke-dasharray="87.96 314" transform="rotate(-90)" />
+      <circle r="50" fill="none" stroke={CRIMSON} stroke-width="22" stroke-dasharray="69.11 314" stroke-dashoffset="-87.96" transform="rotate(-90)" />
+      <circle r="50" fill="none" stroke={NAVY} stroke-width="22" stroke-dasharray="56.55 314" stroke-dashoffset="-157.07" transform="rotate(-90)" />
+      <circle r="50" fill="none" stroke={NAVY_L} stroke-width="22" stroke-dasharray="50.26 314" stroke-dashoffset="-213.62" transform="rotate(-90)" />
+      <circle r="50" fill="none" stroke={GOLD} stroke-width="22" stroke-dasharray="50.26 314" stroke-dashoffset="-263.88" transform="rotate(-90)" />
+    </g>
+    <g font-family="var(--font-sans)" font-size="10" fill={MUTED} font-weight="600">
+      <rect x="160" y="15" width="10" height="10" rx="2" fill={MAROON} /><text x="176" y="24">Healthcare</text>
+      <rect x="160" y="34" width="10" height="10" rx="2" fill={CRIMSON} /><text x="176" y="43">Financial services</text>
+      <rect x="160" y="53" width="10" height="10" rx="2" fill={NAVY} /><text x="176" y="62">Education</text>
+      <rect x="160" y="72" width="10" height="10" rx="2" fill={NAVY_L} /><text x="176" y="81">Government</text>
+      <rect x="160" y="91" width="10" height="10" rx="2" fill={GOLD} /><text x="176" y="100">Technology</text>
+    </g>
+  </svg>
+)}
+
+{name === 'mortgage' && (
+  <svg viewBox="0 0 680 160" role="img" aria-labelledby="c-mort-t">
+    <title id="c-mort-t">Thirty-year fixed mortgage rate, first quarter 2025 through the 2026 forecast, easing from about 6.9 percent to about 6.4 percent.</title>
+    <g stroke={LINE}>
+      <line x1="50" y1="30" x2="650" y2="30" /><line x1="50" y1="75" x2="650" y2="75" /><line x1="50" y1="120" x2="650" y2="120" />
+    </g>
+    <g font-family="var(--font-sans)" font-size="10" fill={FAINT} text-anchor="end">
+      <text x="44" y="34">7.5%</text><text x="44" y="79">6.5%</text><text x="44" y="124">5.5%</text>
+    </g>
+    <polyline fill="none" stroke={NAVY} stroke-width="2.5" stroke-linejoin="round" points="90,59 170,62 250,71 330,73 410,73 490,75" />
+    <polyline fill="none" stroke={CRIMSON} stroke-width="2.5" stroke-dasharray="5,4" stroke-linejoin="round" points="490,75 570,77 640,80" />
+    <g fill={NAVY}>
+      <circle cx="90" cy="59" r="3.5" /><circle cx="170" cy="62" r="3.5" /><circle cx="250" cy="71" r="3.5" />
+      <circle cx="330" cy="73" r="3.5" /><circle cx="410" cy="73" r="3.5" /><circle cx="490" cy="75" r="3.5" />
+    </g>
+    <g fill={CRIMSON}><circle cx="570" cy="77" r="3.5" /><circle cx="640" cy="80" r="4.5" /></g>
+    <text x="490" y="66" font-family="var(--font-sans)" font-size="10" font-weight="700" fill={NAVY} text-anchor="middle">6.5%</text>
+    <text x="640" y="71" font-family="var(--font-sans)" font-size="10" font-weight="700" fill={CRIMSON} text-anchor="middle">~6.4%</text>
+    <g font-family="var(--font-sans)" font-size="10" fill={MUTED} text-anchor="middle">
+      <text x="90" y="142">Q1 ’25</text><text x="170" y="142">Q2 ’25</text><text x="250" y="142">Q3 ’25</text><text x="330" y="142">Q4 ’25</text>
+      <text x="410" y="142">Q1 ’26</text><text x="490" y="142">Q2 ’26</text><text x="570" y="142">Q3 ’26</text><text x="640" y="142">Q4 ’26</text>
+    </g>
+  </svg>
+)}

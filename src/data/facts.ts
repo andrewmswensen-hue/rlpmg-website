@@ -46,6 +46,13 @@ export const company = {
   unitsManagedNumeric: 706,
   activeDoorsVerified: { count: 706, asOf: '2026-09-09', source: 'Airtable Units, Property Is Active' },
   brokerOfRecord: { name: 'Peter Lohmann', title: 'Principal Broker and CEO' },
+  /**
+   * Headcount, published by RLPM itself in the 2026 Columbus SFR Market Report.
+   * The owner/vendor fact pack asks finance to confirm it and to split out how
+   * many are in-house maintenance technicians. Until then this is RLPM's own
+   * published figure rather than an estimate.
+   */
+  headcount: { total: 33, asOf: '2026 market report', techniciansConfirmed: false },
   propertyTypes: 'single-family homes and small multifamily properties',
   /** Google reviews. Confirmed by Andrew 2026-09-09: 556 live. Publish "550+" so
    *  the claim does not go stale between updates. */
@@ -109,6 +116,11 @@ export const pricing = {
     { name: 'Notice posting', amount: 'Labor rate', note: 'No charge to post a 3-day or 30-day notice to vacate.' },
     { name: 'Owner property visit', amount: 'Labor rate', note: 'Key pickup at our office is free.' },
     { name: 'Key copies', amount: '$2.50 each', note: 'We keep two working copies of every unit.' },
+    { name: 'Key recovery', amount: 'Labor plus materials', note: 'If a property is handed over without a working key, we contact the resident, collect it, copy it and return the original.' },
+    { name: 'Utility setup', amount: '$30 per utility', note: 'Putting service into the owner name between residents, and confirming the incoming resident has moved it into theirs.' },
+    { name: 'Utility bill pay', amount: '$10 per bill', note: 'Flat rate for any utility bill we handle and pay on the property\u2019s behalf.' },
+    { name: 'Utilities not active on arrival', amount: '$55 per hour', note: 'If our team arrives to inspect a new unit and the utilities are not on as expected.' },
+    { name: 'Vacant unit inspection', amount: '$20 each', note: 'Biweekly during the leasing period, weekly in winter.' },
     { name: 'Equipment rental', amount: '$1 to $120 per day', note: 'Heating, drying and air-cleaning equipment. Varies by unit.' },
     { name: 'Lawsuit defense', amount: '$75 per hour', note: 'Time spent on any lawsuit other than a normal eviction.' },
     { name: 'Other activities', amount: '$90 per hour', note: 'Work beyond day-to-day management and not otherwise listed.' },
@@ -323,6 +335,8 @@ export const rentPolicy = {
   ownerDisbursementDay: 10,
   disbursementNote: 'about 2 to 3 business days to appear in your account',
   monthToMonthIncreasePct: 20,
+  /** The automatic renewal increase written into the standard RL lease. */
+  renewalIncreasePct: 2.5,
 } as const;
 
 export const mission =

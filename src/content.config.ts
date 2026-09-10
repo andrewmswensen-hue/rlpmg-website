@@ -54,15 +54,4 @@ const faqs = defineCollection({
   }),
 });
 
-/** The two large migrated documents: the Client Handbook and the market report. */
-const longform = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/longform' }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    slug: z.string(),
-    updatedDate: z.coerce.date().optional(),
-  }),
-});
-
-export const collections = { blog, cities, faqs, longform };
+export const collections = { blog, cities, faqs };

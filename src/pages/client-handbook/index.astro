@@ -1,60 +1,666 @@
 ---
-import { getEntry, render } from 'astro:content';
+/**
+ * The Client Handbook.
+ *
+ * This page was custom-coded on the old rlpmg.com and the WordPress import
+ * flattened it into plain markdown, which threw away the hero, the sticky
+ * contents, the fee tables, the numbered escalation steps and the core-value
+ * cards. Andrew, 2026-09-10: put the original structure back and restyle it
+ * to match the new site.
+ *
+ * So the content is the original, section for section, in the original order.
+ * What changed is the styling (Source Serif display, Inter body, rounded
+ * cards, the new colour tokens) and one structural rule of this rebuild:
+ * every number is read from facts.ts rather than typed here, so the handbook
+ * and the pricing page can never disagree.
+ *
+ * Zero JavaScript. The contents list is anchor links and nothing else.
+ */
 import Base from '../../layouts/Base.astro';
-import Cta from '../../components/Cta.astro';
 import Verified from '../../components/Verified.astro';
-import { company } from '../../data/facts';
-import { longDate } from '../../lib/format';
-import { metaDescription, pageTitle } from '../../lib/blog';
+import { company, pricing, rentPolicy, coreValues, usd } from '../../data/facts';
+import '../../styles/report.css';
 
-const entry = await getEntry('longform', 'client-handbook');
-if (!entry) throw new Error('missing longform entry: client-handbook');
-const { Content, headings } = await render(entry);
-const d = entry.data;
+const m = pricing.maintenance;
+const e = pricing.eviction;
+const fee = (name: string) => pricing.otherFees.find((f) => f.name === name);
+
+const title = `Client Handbook | ${company.name}`;
+const description =
+  'How we work, in one place: rent disbursement, the owner portal, maintenance rates, the leasing process, fair housing standards, and the complete fee schedule.';
 const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Client handbook', path: '/client-handbook/' }];
-const toc = headings.filter((h) => h.depth === 2);
+
+const toc = [
+  ['rent', 'Rent Disbursement'],
+  ['contact', 'Contact Information'],
+  ['portal', 'Online Account Access'],
+  ['balance', 'Property Account Balance'],
+  ['reserve', 'Maintenance Reserve'],
+  ['vacant-utils', 'Vacant at Handover: Utilities'],
+  ['eviction', 'Rent Payments and Eviction'],
+  ['leasing', 'Vacancies and Leasing'],
+  ['fairhousing', 'Fair Housing and Screening'],
+  ['renewals', 'Lease Renewals and Rent Increases'],
+  ['maintenance', 'Maintenance and Repairs'],
+  ['utilities', 'Utility Setup and Billing'],
+  ['office', 'Office Information'],
+  ['fees', 'Additional Services and Fees'],
+  ['values', 'Our Core Values'],
+];
+
+const contacts = [
+  { h: 'General questions', role: 'Customer Service Lead', email: 'info@rlpmg.com', ext: '103', tel: '6149322158', num: '614-932-2158',
+    p: 'Handles general client and resident questions and can connect you with the right person if more expertise is needed.' },
+  { h: 'Leasing', role: 'Leasing Lead', email: 'info@rlpmg.com', ext: '127', tel: '6144561939', num: '614-456-1939',
+    p: 'Handles listing and showing units for rent, collecting applications, and scheduling move-ins.' },
+  { h: 'Turns', role: 'Vacant Unit Manager', email: 'projects@rlpmg.com', ext: '106', tel: '6145914355', num: '614-591-4355',
+    p: 'Handles vacant unit maintenance including turnover and prep for move-in.' },
+  { h: 'Maintenance', role: 'Occupied Maintenance Supervisor', email: 'oncall@rlpmg.com', ext: '115', tel: '6146787877', num: '614-678-7877',
+    p: 'Handles general maintenance questions, maintenance-related billing questions, and interacts with the Field Services Team.' },
+];
+
+const escalation = [
+  `<b>On or about the 15th,</b> we prepare and post 3-day notices on the doors of residents who have still not paid. The notice specifies that they have 3 business days to pay in full or move out. We include a statement showing the past 3 months of account activity, including the current amount due.`,
+  `<b>Three business days after that,</b> we file for eviction with our attorneys, who in turn file with the county.`,
+  `The county will set a <b>hearing date for 2 to 3 weeks</b> after the filing.`,
+  `Typically, we receive judgment in our favor at the hearing and proceed with scheduling a setout with the bailiff if required.`,
+];
+
+const evictionFees = [
+  ['Attorney fee', usd(e.attorneyFee), 'Paid to the eviction attorney for filing the eviction and court appearances, up to two.'],
+  ['Court filing fee', usd(e.countyFilingFee), 'Known as the Eviction Complaint. Paid to Franklin County.'],
+  ['Eviction fee', usd(e.rlpmProcessFee), `Paid to ${company.shortName} for handling the eviction process including appearances, up to two.`],
+  ['Tag and setout fee (if required)', usd(e.tagAndSetoutFee), 'Paid to Franklin County. For posting a red tag on the resident’s door if they have not vacated after the eviction judgment is granted. Includes appearance by the bailiff at the setout if required.'],
+  ['Setout fee (if required)', usd(e.setoutFee), `Paid to ${company.shortName} if a setout is needed. Includes scheduling the setout with the bailiff, scheduling the locksmith and clean-out crew, and appearing at the setout.`],
+];
 ---
-<Base title={pageTitle(d.title, company.name)} description={metaDescription(d.description)} {breadcrumbs}
-      dateModified={d.updatedDate?.toISOString()}>
-  <section class="pt-14 pb-8">
-    <div class="wrap max-w-[820px]">
-      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
-        <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Client handbook</span>
-      </nav>
-      <h1 class="text-[clamp(30px,3.9vw,46px)] tracking-[-.02em]">{d.title}</h1>
-      <p class="text-[19px] text-muted mt-5 max-w-[42em]">{d.description}</p>
-    </div>
-  </section>
+<Base {title} {description} {breadcrumbs} bodyClass="rl-report">
 
-  {toc.length > 2 && (
-    <section class="pb-10">
-      <div class="wrap max-w-[820px]">
-        <nav class="card !bg-wash-soft" aria-labelledby="toc-h">
-          <h2 id="toc-h" class="text-[19px] mb-3">On this page</h2>
-          <ol class="grid gap-x-8 gap-y-1 sm:grid-cols-2 list-decimal pl-5">
-            {toc.map((h) => (
-              <li class="text-[15px]">
-                <a href={`#${h.slug}`} class="no-underline text-navy hover:text-crimson">{h.text}</a>
-              </li>
-            ))}
-          </ol>
-        </nav>
-      </div>
-    </section>
-  )}
-
-  <section class="pb-14">
-    <div class="wrap max-w-[820px]">
-      <div class="prose-rl"><Content /></div>
-      <div class="mt-11 pt-6 border-t border-line">
-        <Verified date="2026-09-09" />
-        {d.updatedDate && (
-          <p class="text-[13px] text-faint mt-1">Source document last updated {longDate(d.updatedDate)}.</p>
-        )}
+  <!-- HERO -->
+  <header class="r-hero" style="--r-hero-img: url('/images/reports/hero-row-homes.jpg');">
+    <div class="r-hero-top">
+      <div class="wrap">
+        <span class="r-hero-label">{company.name}</span>
+        <span class="r-hero-label" style="color:rgb(255 255 255 / .82);">Owner&rsquo;s Guide &middot; 2026 Edition</span>
       </div>
     </div>
-  </section>
+    <div class="wrap">
+      <div class="r-hero-rule"></div>
+      <div class="r-hero-kicker">Everything you need to work with us</div>
+      <h1>Client Handbook</h1>
+      <span class="r-hero-year">2026</span>
+      <p class="r-hero-sub">
+        Our mission is simple: to help property owners be successful with their real estate investments.
+        This handbook explains how we work, our services, policies, fees, and the people behind them.
+      </p>
 
-  <Cta heading="Questions this did not answer?"
-       body="Call us or ask for a free rent evaluation. We will give you a straight answer either way." />
+      <div class="r-hero-metrics">
+        <div class="r-metric">
+          <div class="v">{rentPolicy.ownerDisbursementDay}th</div>
+          <div class="l">Rent disbursed</div>
+          <div class="c">Electronically, every month</div>
+        </div>
+        <div class="r-metric">
+          <div class="v">24/7</div>
+          <div class="l">Owner portal</div>
+          <div class="c">Reports, leases and documents</div>
+        </div>
+        <div class="r-metric">
+          <div class="v">{company.phone}</div>
+          <div class="l">Our office</div>
+          <div class="c">Press 0 to reach the team</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- DOWNLOAD -->
+  <div class="r-dl">
+    <a class="btn btn-primary" href="/downloads/rl-client-handbook-2026.pdf" download>
+      &darr;&nbsp; Download the PDF
+    </a>
+    <p class="r-dl-sub">Prefer a printable copy? Download the full handbook as a PDF.</p>
+  </div>
+
+  <div class="r-body">
+
+    <!-- CONTENTS -->
+    <nav class="r-toc" aria-label="Handbook contents">
+      <div class="r-toc-title">In this handbook</div>
+      <ol>{toc.map(([id, label]) => <li><a href={`#${id}`}>{label}</a></li>)}</ol>
+    </nav>
+
+    <main>
+
+      <section class="r-section" style="border-top:0;">
+        <span class="eyebrow">Welcome</span>
+        <p class="r-lead">
+          Thank you for selecting {company.name} for your Columbus property management needs.
+          We appreciate your business.
+        </p>
+        <p>
+          Please read this handbook carefully. It contains important information about our services, policies
+          and processes. Use the contents on the left, or scroll, to jump to any section. If anything is
+          unclear, please let us know. We are always happy to help.
+        </p>
+      </section>
+
+      <section class="r-section" id="rent">
+        <span class="eyebrow">Section 01</span>
+        <h2 class="r-h2">Rent Disbursement</h2>
+        <span class="r-rule"></span>
+        <p>
+          We disburse funds electronically on the <b>{rentPolicy.ownerDisbursementDay}th of each month.</b>
+          It takes about 2 to 3 business days to appear in your account. You will receive an automated email
+          when the funds are issued.
+        </p>
+      </section>
+
+      <section class="r-section" id="contact">
+        <span class="eyebrow">Section 02</span>
+        <h2 class="r-h2">Contact Information</h2>
+        <span class="r-rule"></span>
+        <p>
+          After your client onboarding is complete, <b>you will be assigned to a Property Manager who is your
+          primary point of contact at RL.</b> If your assigned Property Manager is ever unreachable, you can
+          always call our office at <b>{company.phone}</b> and <b>press 0</b> to connect with a member of our
+          team. You can also email us at <b>{company.email}</b> to make sure your request is seen and addressed
+          promptly.
+        </p>
+        <p>
+          If you need to reach a specific staff member, their direct numbers are below. If they are unable to
+          assist directly, we will make sure you get the answer from the right person.
+        </p>
+
+        <h3 class="r-h3">Who to contact</h3>
+        <div class="r-cards">
+          {contacts.map((c) => (
+            <div class="r-mini">
+              <h5>{c.h}</h5>
+              <p class="role">{c.role}</p>
+              <p>
+                {c.email}<br />
+                Ext. {c.ext} &middot; Direct: <a href={`tel:${c.tel}`}>{c.num}</a><br />
+                {c.p}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="r-section" id="portal">
+        <span class="eyebrow">Section 03</span>
+        <h2 class="r-h2">Online Account Access</h2>
+        <span class="r-rule"></span>
+        <p>
+          To log in to your owner portal, scroll to the bottom of our website and click Owner Login, or go
+          directly to <a href="https://rlp.managebuilding.com/Manager" rel="noopener">rlp.managebuilding.com/Manager</a>.
+        </p>
+        <p>The owner portal is your go-to place for the latest information about your property, including:</p>
+        <ul class="prose-rl">
+          <li>Reports, such as rent roll, income (profit and loss) statements, and balance sheets</li>
+          <li>Downloadable PDF copies of your Property Management Agreement</li>
+          <li>Downloadable PDF copies of all leases</li>
+          <li>Downloadable PDF copies of all invoices and bills, including maintenance</li>
+          <li>Whether your residents have paid rent</li>
+          <li>The status of security deposits</li>
+        </ul>
+        <p>
+          Many clients find the owner portal is one of their favourite features, because it gives them access
+          to critical information instantly. If you have any questions about navigating it, or you forget your
+          username or password, get in touch. The portal is a built-in feature of the property management
+          software we use in the office, so it is always up to date.
+        </p>
+      </section>
+
+      <section class="r-section" id="balance">
+        <span class="eyebrow">Section 04</span>
+        <h2 class="r-h2">Your Property Account Balance</h2>
+        <span class="r-rule"></span>
+        <p>
+          Each property you have under management is allocated its own financial account in our system. As rent
+          comes in, or as you make owner contributions, the dollar amount goes up. As funds are disbursed to
+          you, or come out to pay maintenance and repairs, it goes down. The cash belonging to that specific
+          property at any given point is the property balance.
+        </p>
+        <div class="r-callout">
+          <b>Note:</b> this account is property-specific. If you have a duplex, both units share one account.
+        </div>
+        <p>
+          If your property account balance ever goes into the negative, we may ask you to make an owner
+          contribution to restore it. This is a State of Ohio regulatory requirement.
+        </p>
+      </section>
+
+      <section class="r-section" id="reserve">
+        <span class="eyebrow">Section 05</span>
+        <h2 class="r-h2">Your Maintenance Reserve</h2>
+        <span class="r-rule"></span>
+        <p>
+          To make sure we can act quickly when something needs fixing, we set a target amount, or minimum
+          threshold, for your property account balance. This is your maintenance reserve. The amount varies by
+          the type and number of properties you have with us, and runs from
+          {' '}<b>{usd(pricing.reserves.min)} to {usd(pricing.reserves.max)} per unit</b> depending on plan.
+          Ideally the balance in each property account never goes below it. This is not a separate account,
+          just a target dollar amount.
+        </p>
+        <p>
+          When we disburse to you, we issue all the money available in the property account down to the
+          maintenance reserve. If you have $1,500 in your property account on the
+          {' '}{rentPolicy.ownerDisbursementDay}th and the reserve is {usd(pricing.reserves.min)}, you receive
+          the difference. If the balance is below the reserve, there is no disbursement that month.
+        </p>
+      </section>
+
+      <section class="r-section" id="vacant-utils">
+        <span class="eyebrow">Section 06</span>
+        <h2 class="r-h2">If Your Unit Is Vacant at Handover</h2>
+        <span class="r-rule"></span>
+        <p>
+          When we take over a vacant property, the only bill we automatically take over paying on your behalf
+          right away is the water bill, typically issued by the City of Columbus. We handle updating the city
+          by providing a copy of your management agreement, and the bills start coming to our office. There is
+          a <b>{fee('Utility bill pay')?.amount} bill-pay fee per bill.</b> If you keep receiving water bills,
+          let us know.
+        </p>
+        <p>
+          If you would like us to handle the other utility bills while the property is vacant, update the
+          billing address on file with the provider to:
+        </p>
+        <div class="r-address">
+          [your name]<br />
+          <b>c/o {company.name}</b><br />
+          {company.address.street}<br />
+          {company.address.city}, {company.address.region} {company.address.postalCode}
+        </div>
+      </section>
+
+      <section class="r-section" id="eviction">
+        <span class="eyebrow">Section 07</span>
+        <h2 class="r-h2">Rent Payments and Eviction</h2>
+        <span class="r-rule"></span>
+        <p>
+          Rent is due by the {rentPolicy.dueDate}. In practice many residents pay between the
+          {' '}{rentPolicy.practicalWindow}. If applicable, late fees are assessed. If a resident has not paid
+          after {rentPolicy.lateFeesAfter}, here is the timetable of escalation. At any point in this process
+          the resident can pay the balance in full to cancel the pending eviction.
+        </p>
+
+        <div class="r-list">
+          {escalation.map((step, i) => (
+            <div class="r-list-row">
+              <div class="r-step">{i + 1}</div>
+              <div set:html={step}></div>
+            </div>
+          ))}
+        </div>
+
+        <h3 class="r-h3">Cost of a normal eviction</h3>
+        <p class="r-muted">Subject to change without notice.</p>
+        <div class="r-table-wrap">
+          <table class="r-table">
+            <thead>
+              <tr><th style="width:26%">Fee</th><th style="width:18%">Amount</th><th style="width:56%">Paid to and notes</th></tr>
+            </thead>
+            <tbody>
+              {evictionFees.map(([n, a, note]) => (
+                <tr><td class="label">{n}</td><td class="num">{a}</td><td>{note}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="r-section" id="leasing">
+        <span class="eyebrow">Section 08</span>
+        <h2 class="r-h2">Vacancies and Leasing</h2>
+        <span class="r-rule"></span>
+        <p>
+          {company.name} has a system for turning over rental property. It begins as soon as we receive notice
+          of a move-out, or become aware of a vacancy. A turn is what we call the process of turning over a
+          vacant unit and making it ready to rent again. Here is what to expect before, during and after one.
+        </p>
+
+        <h3 class="r-h3" style="color:var(--color-maroon); font-size:18px;">In advance of the vacancy, if we receive notice</h3>
+        <ul class="prose-rl">
+          <li>Communicate with the residents as to their exact move-out date.</li>
+          <li>Provide the residents detailed move-out instructions.</li>
+          <li>Arrange for the appropriate utilities to be placed into the property owner&rsquo;s name, care of our office.</li>
+          <li>Perform a pre-moveout inspection within 30 to 60 days of a scheduled vacancy to assess the unit&rsquo;s condition. A detailed turn scope is prepared with cost estimates for necessary repairs and improvements.</li>
+        </ul>
+
+        <h3 class="r-h3" style="color:var(--color-maroon); font-size:18px;">Once vacant</h3>
+        <ul class="prose-rl">
+          <li>A lock box is placed at the property.</li>
+          <li>We immediately secure the property, with locks re-keyed by a professional locksmith and windows and doors locked, and perform a move-out inspection. If the unit has a pest infestation, these steps are delayed until treatments have successfully eradicated the pests.</li>
+          <li>Any remaining items or garbage are removed and disposed of by our hauling vendor.</li>
+          <li>A list of items to be repaired and a price estimate is generated, which is the scope.</li>
+          <li>The scope is sent to the owner for final review and approval.</li>
+          <li>Owner remits funds, which is required to begin work at the property.</li>
+          <li>Once the owner has approved the turnover work and provided funding, our maintenance team makes the unit rent-ready. This proactive process helps minimise vacancy time. Alternatively, the owner may handle the rent-ready work themselves, on supported plans.</li>
+        </ul>
+
+        <h3 class="r-h3" style="color:var(--color-maroon); font-size:18px;">Listing</h3>
+        <ul class="prose-rl">
+          <li>At our discretion, if work is underway and a completion date is fairly well known, we may list the unit in order to generate leads.</li>
+          <li>Professional photos are taken.</li>
+          <li>The property is listed for rent on over 50 rental listing websites including Zillow, Realtor, Trulia, Zumper and HotPads.</li>
+        </ul>
+
+        <h3 class="r-h3" style="color:var(--color-maroon); font-size:18px;">After listing</h3>
+        <ul class="prose-rl">
+          <li>Leads, by phone and email, are organised and followed up with.</li>
+          <li>Prospective residents who express interest are pre-screened on the phone, and if qualified we schedule a showing.</li>
+          <li>At the showing, prospective residents are told to fill out an application online.</li>
+          <li>Once we receive a complete application from all adults who plan to live at the property, including proof of income and rental history, we process it and either approve or deny.</li>
+          <li>If approved, a lease signing is scheduled.</li>
+          <li>At the lease signing we collect the security deposit. If they plan to move in right away, we collect first month&rsquo;s rent and give them the keys.</li>
+          <li>After a lease is signed, we de-list the property and notify the owner.</li>
+          <li>We confirm that the residents have placed the utilities into their name.</li>
+          <li>If your property has been listed for rent for <b>longer than 60 days,</b> we proactively credit management fees to your account as appropriate. This keeps things fair and transparent when a property experiences an extended vacancy.</li>
+          <li>If a resident moves in mid-month, we typically collect a full month&rsquo;s rent at move-in. Any prorated rent for the partial first month is applied to the second month, so the second payment may be lower than the first.</li>
+          <li>Vacant unit inspections are conducted biweekly during the leasing period and weekly in winter for <b>{fee('Vacant unit inspection')?.amount}.</b></li>
+        </ul>
+      </section>
+
+      <section class="r-section" id="fairhousing">
+        <span class="eyebrow">Section 09</span>
+        <h2 class="r-h2">Fair Housing Compliance and Resident Screening</h2>
+        <span class="r-rule"></span>
+        <p>
+          Owning and leasing rental property comes with important legal responsibilities. Fair housing laws
+          exist to ensure equal access to housing and to protect both residents and property owners through
+          consistent, non-discriminatory practices.
+        </p>
+        <p>
+          Our leasing and screening processes are designed to comply with federal, state and local fair housing
+          laws while helping place qualified residents who respect the property and meet lease obligations.
+        </p>
+
+        <h3 class="r-h3">Fair housing laws</h3>
+        <p>
+          At the federal level, the Fair Housing Act of 1968 prohibits discrimination in housing based on the
+          following protected classes:
+        </p>
+        <ul class="prose-rl">
+          <li>Race</li><li>Color</li><li>National origin</li><li>Religion</li>
+          <li>Sex, including sexual orientation and gender identity</li>
+          <li>Disability</li>
+          <li>Familial status, including pregnancy and households with children</li>
+        </ul>
+        <p>In addition to federal protections:</p>
+        <ul class="prose-rl">
+          <li>Ohio law adds protections related to military status.</li>
+          <li>The City of Columbus includes protections for sexual orientation, gender identity, and source of income, including lawful housing assistance programs such as Section 8.</li>
+        </ul>
+        <div class="r-callout navy">
+          These protections apply to advertising, showings, screening decisions, leasing, and ongoing property
+          management.
+        </div>
+
+        <h3 class="r-h3">Section 8 housing</h3>
+        <p>
+          We comply with Section 8 and source-of-income housing laws in all applicable jurisdictions, including
+          Columbus, Bexley, Reynoldsburg and Westerville. Where required, CMHA voucher holders are permitted to
+          apply and are screened using the same objective, written criteria as all applicants. Approval or
+          denial decisions are based solely on documented screening standards, not the source of income.
+        </p>
+
+        <h3 class="r-h3">Our resident screening standards</h3>
+        <p>
+          All applicants are screened using the same written criteria and process. Our screening includes a
+          review of:
+        </p>
+        <ul class="prose-rl">
+          <li>Credit history</li>
+          <li>Criminal background, as permitted by law</li>
+          <li>Rental history, including prior evictions and landlord references</li>
+          <li>Employment and income verification, such as pay stubs or bank statements</li>
+        </ul>
+        <p>
+          All adult occupants must submit a complete application and supporting documentation before a leasing
+          decision is made. Approval or denial decisions are based solely on objective, documented screening
+          criteria, not personal characteristics or subjective judgment.
+        </p>
+
+        <h3 class="r-h3">Our commitment to fair housing compliance</h3>
+        <p>Fair housing compliance is not optional, and it is not treated as a checkbox. We are committed to:</p>
+        <ul class="prose-rl">
+          <li>Applying the same screening standards to every applicant</li>
+          <li>Using consistent advertising, showing and leasing practices</li>
+          <li>Staying informed of changes to federal, Ohio and Columbus fair housing regulations</li>
+          <li>Protecting property owners from avoidable legal risk through compliant processes</li>
+        </ul>
+        <p>
+          By following clear standards and documented procedures, we help reduce liability, prevent
+          discrimination claims, and create a professional, transparent leasing process.
+        </p>
+      </section>
+
+      <section class="r-section" id="renewals">
+        <span class="eyebrow">Section 10</span>
+        <h2 class="r-h2">Lease Renewals and Rent Increases</h2>
+        <span class="r-rule"></span>
+        <p>
+          The standard RL lease automatically renews on expiration unless the resident or the broker give 30
+          days written notice. The automatic renewal includes a
+          {' '}<b>{rentPolicy.renewalIncreasePct}% rent increase.</b> Property owners may request a larger
+          increase: notify our office at least 90 days before renewal if you prefer one, noting it may increase
+          the risk of a non-renewal. Residents may elect to sign a new clean lease renewal, but it is not
+          required and not pursued by default. In either case a lease renewal fee is charged to the owner on
+          the date the lease renews.
+        </p>
+        <p>
+          Residents may elect to go month-to-month at the end of the initial lease term. Our lease requires a
+          {' '}<b>{rentPolicy.monthToMonthIncreasePct}% rent increase</b> if they choose this, and we do allow
+          it. A lease renewal fee is not charged when the lease goes month-to-month. However, if the resident
+          remains month-to-month for 12 consecutive months at the higher rate, a lease renewal fee is charged
+          at that time. The same applies for a Section 8 resident for whom we secured a rate increase from CMHA.
+        </p>
+        <div class="r-callout">
+          <b>Prefer longer leases?</b> Most property owners prefer 2-year or 3-year leases for stability. Let
+          us know if that is you, so we can note it on your account.
+        </div>
+      </section>
+
+      <section class="r-section" id="maintenance">
+        <span class="eyebrow">Section 11</span>
+        <h2 class="r-h2">Maintenance and Repairs</h2>
+        <span class="r-rule"></span>
+        <p>
+          Requests for maintenance and repairs come to our office from the residents and are handled by our
+          maintenance department.
+        </p>
+        <p>
+          Many requests are handled by our internal maintenance team, who are direct employees of
+          {' '}{company.name}. The maintenance labour rate in {m.rateYear} for our employees is
+          {' '}<b>{usd(m.inHouseHourly)} per hour plus a {usd(m.tripCharge)} trip charge per visit</b> during
+          normal business hours. Materials are generally provided at cost. There is no minimum charge. In the
+          rare event our maintenance employees work after hours or at weekends, the labour rate is
+          {' '}{pricing.afterHours.weekdayEveningAndSaturday}x for weekday evenings and Saturdays, and
+          {' '}{pricing.afterHours.sunday}x for Sundays.
+        </p>
+        <p>
+          Other work is contracted out. The total cost of contracted work, services and purchases required for
+          property repair, operation, maintenance or improvement is subject to a
+          {' '}<b>{m.vendorProjectFeePct}% project management fee on vendor costs up to
+          {' '}{usd(m.vendorProjectFeeAppliesUpTo)}, capped at {usd(m.vendorProjectFeeCap)} per project.</b>
+          This fee does not apply to work done by our internal maintenance team, or to work done for property
+          turns.
+        </p>
+
+        <h3 class="r-h3">Key maintenance rates</h3>
+        <div class="r-table-wrap">
+          <table class="r-table">
+            <thead><tr><th style="width:42%">Item</th><th style="width:58%">Rate</th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="label">Internal labour, business hours</td>
+                <td>{usd(m.inHouseHourly)} per hour plus a {usd(m.tripCharge)} trip charge per visit, materials at cost</td>
+              </tr>
+              <tr>
+                <td class="label">After-hours labour</td>
+                <td>{pricing.afterHours.weekdayEveningAndSaturday}x for weekday evenings and Saturdays, {pricing.afterHours.sunday}x for Sundays</td>
+              </tr>
+              <tr>
+                <td class="label">Vendor project management fee</td>
+                <td>{m.vendorProjectFeePct}% on vendor costs up to {usd(m.vendorProjectFeeAppliesUpTo)}, maximum {usd(m.vendorProjectFeeCap)} per project</td>
+              </tr>
+              <tr>
+                <td class="label">Vendor fee on property turns</td>
+                <td>
+                  {m.turnTiers[0].pct}% on turns up to {usd(m.turnTiers[0].upTo!)},
+                  {' '}{m.turnTiers[1].pct}% from {usd(m.turnTiers[0].upTo! + 1)} to {usd(m.turnTiers[1].upTo!)},
+                  {' '}{m.turnTiers[2].pct}% above that
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p>
+          Residents are given a 24-hour maintenance emergency number to call if something serious happens. The
+          call centre is authorised to dispatch certain repair companies if there is a true safety or building
+          integrity issue.
+        </p>
+      </section>
+
+      <section class="r-section" id="utilities">
+        <span class="eyebrow">Section 12</span>
+        <h2 class="r-h2">Utility Setup and Billing</h2>
+        <span class="r-rule"></span>
+        <p>
+          By default we transfer water and sewer, electric and gas service into the property owner&rsquo;s name
+          once a unit becomes vacant. The utility setup fee for handling this is
+          {' '}<b>{fee('Utility setup')?.amount}.</b> That covers the time spent dealing with the utility
+          companies to get service into the owner&rsquo;s name between residents, typically AEP and Columbia
+          Gas, which have become much harder to deal with for property owners and managers. It also covers
+          checking and confirming that incoming residents set up service in their own name, and following up so
+          any overlapping usage is correctly prorated and billed to the resident.
+        </p>
+        <p>
+          Utility bills handled and paid by our company on behalf of your property carry a flat
+          {' '}<b>{fee('Utility bill pay')?.amount} bill-pay fee.</b>
+        </p>
+        <p>
+          For new units under management, utilities must be active for us to inspect and approve the property
+          for leasing. If our team visits and finds them not active as expected, a trip fee of
+          {' '}<b>{fee('Utilities not active on arrival')?.amount}</b> applies for the time spent resolving it.
+        </p>
+      </section>
+
+      <section class="r-section" id="office">
+        <span class="eyebrow">Section 13</span>
+        <h2 class="r-h2">Office Information</h2>
+        <span class="r-rule"></span>
+        <p>
+          Our office at <b>{company.address.street}, {company.address.city}, {company.address.region}
+          {' '}{company.address.postalCode}</b> is open by appointment only. Please call or email in advance
+          if you would like to visit and we will be happy to schedule a time.
+        </p>
+        <p>
+          RL Property Management Group, Inc. is a licensed real estate brokerage in the State of Ohio. If you
+          need to make an owner contribution, please make the check out to <b>{company.name}</b> and mail it to
+          the address below.
+        </p>
+        <div class="r-address">
+          <b>RL Property Management Group, Inc.</b><br />
+          {company.address.street}<br />
+          {company.address.city}, {company.address.region} {company.address.postalCode}<br />
+          <a href={`tel:${company.phoneE164}`}>{company.phone}</a> &middot; {company.email}
+        </div>
+      </section>
+
+      <section class="r-section" id="fees">
+        <span class="eyebrow">Section 14</span>
+        <h2 class="r-h2">Additional Services and Other Fees</h2>
+        <span class="r-rule"></span>
+        <p>
+          Below is the full list of additional services we offer and the fees that apply. Many are optional or
+          situational, so you will only ever be charged for what applies to your property.
+        </p>
+        <div class="r-table-wrap">
+          <table class="r-table r-fees">
+            <thead>
+              <tr><th style="width:28%">Service</th><th style="width:20%">Fee</th><th style="width:52%">What is involved</th></tr>
+            </thead>
+            <tbody>
+              {pricing.otherFees.map((f) => (
+                <tr><td class="label">{f.name}</td><td class="num">{f.amount}</td><td>{f.note}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="r-note">
+          Every figure on this page is read from one file, so the handbook, the pricing page and the fee
+          schedule cannot drift apart. See the <a href="/pricing/">pricing page</a> for the three plans and
+          what each includes.
+        </p>
+      </section>
+
+      <section class="r-section" id="values">
+        <span class="eyebrow">Section 15</span>
+        <h2 class="r-h2">Our Core Values</h2>
+        <span class="r-rule"></span>
+        <p>
+          At {company.name} we understand that owning rental properties can be both rewarding and challenging.
+          That is why our purpose is simple: <b>to help property owners be successful with their real estate
+          investments.</b> The following six core values are not slogans on a wall. They are guiding principles
+          we live by, and they keep us aligned as a team so we can deliver the care, attention and results our
+          clients and residents deserve.
+        </p>
+
+        {coreValues.map((v, i) => (
+          <div class="r-value">
+            <div class="n">{i + 1}</div>
+            <div class="b">
+              <h4>{v.name}</h4>
+              <p>{v.detail}</p>
+            </div>
+          </div>
+        ))}
+
+        <p class="r-pull">Living our values. Serving our purpose.</p>
+        <p>
+          Together, these values form the backbone of how we help property owners succeed with their real
+          estate investments. They guide how we approach challenges, make decisions and deliver results,
+          creating an experience that is reliable, thoughtful and tailored to your needs.
+        </p>
+      </section>
+
+      <section class="r-section" id="help" style="border-bottom:0;">
+        <span class="eyebrow">We are here to help</span>
+        <h2 class="r-h2">Questions About Anything in This Handbook?</h2>
+        <span class="r-rule"></span>
+        <p>
+          Your assigned Property Manager is your first point of contact. For anything else, our team is a call
+          or an email away.
+        </p>
+
+        <div class="r-cta-grid">
+          <div class="box">
+            <h3>Log in to your owner portal</h3>
+            <p>Access reports, leases, invoices and rent status any time. It is always up to date.</p>
+            <a class="btn btn-on-dark" href="https://rlp.managebuilding.com/Manager" rel="noopener">Owner login &rarr;</a>
+          </div>
+          <div class="box">
+            <h3>Reach our team</h3>
+            <p>Call the office and press 0, or email us and we will route your request to the right person.</p>
+            <a class="btn btn-on-dark" href={`mailto:${company.email}`}>Email us &rarr;</a>
+          </div>
+        </div>
+
+        <div class="r-cta-contact">
+          <span class="phone">{company.phone}</span> &middot; {company.email}<br />
+          {company.address.street}, {company.address.city}, {company.address.region} {company.address.postalCode}
+        </div>
+        <p class="r-note" style="text-align:center;">
+          Thank you for selecting {company.name}. RL Property Management Group, Inc. is a licensed Ohio real
+          estate brokerage.
+        </p>
+        <div class="mt-8"><Verified date="2026-09-10" /></div>
+      </section>
+
+    </main>
+  </div>
 </Base>

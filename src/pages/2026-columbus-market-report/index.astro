@@ -1,60 +1,711 @@
 ---
-import { getEntry, render } from 'astro:content';
+/**
+ * The 2026 Columbus Single-Family Rental Market Report.
+ *
+ * Same story as the Client Handbook: this was custom-coded on the old site and
+ * the WordPress import flattened it, losing the hero, the sticky contents, the
+ * nine charts, the neighbourhood cards, the regulatory sections and the FAQ.
+ * Andrew, 2026-09-10: put it back, restyled to the new site.
+ *
+ * Content is the original. Three figures in the source now read from facts.ts
+ * instead of being typed here, because the original contradicted what the rest
+ * of the site publishes:
+ *
+ *   - unit count. The report said "~750". The published figure is 700+.
+ *   - plan names. The report said Passive / Standard / Premium. The CIO
+ *     renamed them Plan One / Two / Three.
+ *   - the office city. The report's CTA said Gahanna; the canonical address
+ *     is Columbus.
+ *
+ * Headcount (33) went the other way: the report is the only place RLPM has
+ * published it, so it is now in facts.ts sourced to this report.
+ */
 import Base from '../../layouts/Base.astro';
-import Cta from '../../components/Cta.astro';
 import Verified from '../../components/Verified.astro';
-import { company } from '../../data/facts';
-import { longDate } from '../../lib/format';
-import { metaDescription, pageTitle } from '../../lib/blog';
+import ReportCharts from '../../components/ReportCharts.astro';
+import { company, pricing, usd, areas } from '../../data/facts';
+import '../../styles/report.css';
 
-const entry = await getEntry('longform', '2026-columbus-market-report');
-if (!entry) throw new Error('missing longform entry: 2026-columbus-market-report');
-const { Content, headings } = await render(entry);
-const d = entry.data;
+const title = 'Columbus Single-Family Rental Market Report 2026';
+const description =
+  'An operator’s view of the Columbus single-family rental market: rent trends, neighbourhood yields, the new rental registry, the triennial reassessment, and the 2026 investor playbook.';
 const breadcrumbs = [{ name: 'Home', path: '/' }, { name: '2026 market report', path: '/2026-columbus-market-report/' }];
-const toc = headings.filter((h) => h.depth === 2);
+
+const toc = [
+  ['summary', 'Executive Summary'], ['market', 'Housing Market Overview'],
+  ['rental', 'Rental Market Performance'], ['nbhds', 'Best Neighborhoods'],
+  ['economy', 'Economic and Employment Drivers'], ['regulatory', 'Regulatory Updates'],
+  ['outlook', '2026 Investment Outlook'], ['faq', 'Frequently Asked Questions'],
+  ['cta', 'Ready to Invest'], ['sources', 'Methodology and Sources'],
+  ['about', 'About RL Property Management'],
+];
+
+const glance = [
+  ['$350K', 'Median home price', 'MLS, May 2026'],
+  ['+4.3%', 'YoY price growth', 'Columbus REALTORS'],
+  ['29 to 49', 'Days on market', 'H1 seasonal range'],
+  ['95%+', 'Occupancy', 'Well-managed properties'],
+  ['7 to 10%', 'Value-market cap rates', 'Whitehall, Eastmoor, Blacklick'],
+  ['$1,725', 'Avg 3BR rent', 'Columbus apartments'],
+];
+
+const metrics = [
+  ['Median home sale price', '$350,000', 'About 20% below the national median'],
+  ['YoY price growth', '+4.3%', 'National +1.8% (NAR, June)'],
+  ['Median days on market', '29 to 49 days', 'Seasonal H1 range'],
+  ['Months of supply', '2.0 months', 'Balanced is 6 months'],
+  ['Avg apartment rent', '$1,365', 'About 22% below the national average'],
+  ['3BR apartment rent', '$1,725', 'Single-family typically higher'],
+  ['YoY rent growth', '+2.2% to +4.0%', 'National SFR +2.6% (Arbor)'],
+  ['Projected occupancy', '95%+ well-managed', 'National SFR about 93.9%'],
+];
+
+const nbhds = [
+  { n: 1, h: 'High-yield value neighborhoods', cap: '7 to 10%', profile: 'Highest yield', capLabel: 'Cap rate',
+    meta: '<b>Neighborhoods:</b> Whitehall &middot; Eastmoor &middot; Blacklick &middot; Reynoldsburg &middot; Newark &nbsp;|&nbsp; <b>Best for:</b> Monthly cash flow, active management',
+    p: 'For investors prioritising monthly cash flow, these east-side and value-tier submarkets offer the strongest rent-to-price ratios in our service area. Whitehall and Eastmoor combine affordable entry points with steady workforce-tenant demand, while Blacklick and Reynoldsburg pair lower purchase prices with reliable east-side rental demand. Newark, on the Intel corridor, is an emerging value market worth watching on a longer horizon.' },
+  { n: 2, h: 'Emerging suburban corridors', cap: '6 to 8%', profile: 'Balanced', capLabel: 'Cap rate',
+    meta: '<b>Neighborhoods:</b> Morse Road and SR 161 (Northland, Gahanna, Westerville) &middot; Hamilton Road corridor &middot; Lincoln Village &middot; Reynoldsburg &nbsp;|&nbsp; <b>Best for:</b> Entry-level, 1 to 5-unit portfolios',
+    p: 'First-ring suburbs offer the cleanest balance of affordability and rental demand. <b>Reynoldsburg deserves particular attention in 2026:</b> the city has seen notable year-over-year sales activity increases, and its affordable entry points combined with solid rental demand make it a sweet spot for investors building a Columbus portfolio.' },
+  { n: 3, h: 'Southern growth areas', cap: '5 to 7%', profile: 'Stable', capLabel: 'Cap rate',
+    meta: '<b>Neighborhoods:</b> Grove City &middot; Canal Winchester &middot; Lancaster &middot; Groveport &middot; Teays Valley school district &nbsp;|&nbsp; <b>Best for:</b> Tenant stability, long lease terms',
+    p: 'Columbus’s southern suburbs continue to offer strong fundamentals for investors prioritising tenant stability. Larger lots, lower property taxes than north-side suburbs, and school districts that attract family renters who stay for multiple lease terms. Proximity to Honda’s Marysville manufacturing complex, area data-centre operations, and Anduril’s Arsenal-1 plant near Rickenbacker all add to workforce housing demand.' },
+  { n: 4, h: 'Affluent suburbs, appreciation plays', cap: '4 to 6%', profile: 'Appreciation', capLabel: 'Cap rate',
+    meta: '<b>Neighborhoods:</b> Dublin &middot; Powell &middot; New Albany &middot; Upper Arlington &middot; Lewis Center (Olentangy schools) &nbsp;|&nbsp; <b>Best for:</b> Long horizon, appreciation plus premium tenants',
+    p: 'For investors focused on long-term appreciation and premium tenants, the traditional Columbus prestige suburbs remain best in class. Dublin’s median home price sits around <b>$615,000.</b> Cash flow is thin, because higher entry prices and higher property taxes compress initial yields, but lease renewal rates are the highest in the metro, vacancy is minimal, and appreciation has been steady for decades.' },
+  { n: 5, h: 'Employer-driven growth plays', cap: 'Variable', profile: '5 to 10 yr', capLabel: 'Strategy',
+    meta: '<b>Neighborhoods:</b> Marysville (Honda) &middot; Sunbury (Delaware County) &middot; Johnstown (adjacent to the Intel site) &nbsp;|&nbsp; <b>Best for:</b> Patient capital, 5 to 10-year horizons',
+    p: 'One change from last year’s report: <b>the Licking County story has shifted.</b> With Intel’s production start pushed to 2030 or 2031, the short-term speculation window on New Albany and Johnstown agricultural land has closed. Land that jumped tenfold in value between 2022 and 2024 is now priced for patient capital rather than quick flips. Investors still drawn to employer-growth plays should look at Marysville, Sunbury and Johnstown, but on multi-year horizons rather than quarterly cycles.' },
+];
+
+const checklist = [
+  'Register every rental unit on the Columbus Rental Registry (new for 2026)',
+  'Provide the annual affidavit of code compliance with the registry submission',
+  'Review your June 2026 triennial assessment notice, about a 9% average residential increase',
+  'File Board of Revision complaints by March 31, 2027 if values appear overstated',
+  'Update screening criteria to comply with the source-of-income ordinance',
+  'Apply screening criteria consistently to every applicant regardless of income source',
+  'Offer the security deposit installment option, three or six months, to new residents',
+  'If operating a short-term rental: verify the City of Columbus permit, background check and lodging tax compliance',
+  'Review lease agreements against 2026 Columbus ordinances and Ohio Revised Code Chapter 5321',
+  'Document quarterly property inspections, which support the registry compliance affidavit',
+];
+
+const playbook = [
+  ['Emerging cash-flow', 'Reynoldsburg · Whitehall · Eastmoor · Blacklick', 'Attractive entry points before prices fully reflect demand'],
+  ['Workforce housing', 'Grove City · Groveport · Canal Winchester', 'Strong rents, reliable tenant demand, attractive yields'],
+  ['Long-term appreciation', 'Marysville · Sunbury · Johnstown', 'Employer-driven growth on multi-year horizons'],
+  ['Premium hold assets', 'Dublin · Powell · New Albany · Upper Arlington · Lewis Center', 'Low-volatility appreciation for decade-plus horizons'],
+];
+
+const faq = [
+  { q: 'Is Columbus a good market for single-family rental investors in 2026?',
+    a: 'Yes, with the understanding that 2026 rewards disciplined acquisition rather than momentum-driven buying. Columbus continues to outperform the national average on rent growth and occupancy, median home prices are roughly 20% below the national median, and the metro’s diversified economy provides recession resilience. Returns are more moderate than the 2021 to 2023 boom years, but sustainable.' },
+  { q: 'How did Intel’s delay affect the Columbus real estate market?',
+    a: 'The production start was pushed from 2025 to 2030 or 2031, which removed a near-term catalyst but did not change long-term fundamentals. Land speculation near New Albany and Johnstown has cooled significantly, but construction at the Intel site continues and the employment impact, more than 3,000 direct jobs once operational, remains on track on a longer timeline.' },
+  { q: 'What is the typical cap rate for Columbus single-family rentals in 2026?',
+    a: 'Value-tier neighborhoods such as Whitehall, Eastmoor and Blacklick typically generate 7% to 10%. First-ring suburbs such as Reynoldsburg, Gahanna and Westerville typically generate 6% to 8%. Premium suburbs such as Dublin, Powell and New Albany typically generate 4% to 6% and are bought primarily for appreciation. National SFR cap rates rose to 7.4% in early 2026 per Arbor.' },
+  { q: 'Are property taxes in Columbus higher than the national average?',
+    a: 'Yes. Franklin County’s effective property tax rate is approximately 1.67% of market value, ranked 252nd of 3,143 US counties. The median property tax bill is around $2,592 annually on a home valued at the county median. Investors underwriting Columbus properties should account for carrying costs meaningfully higher than Sun Belt markets.' },
+  { q: 'How will the 2026 Franklin County triennial update affect property taxes?',
+    a: 'The triennial update adjusts assessed values based on sales from the past three years. Assessment notices were mailed in June 2026, about a 9% average residential increase, with informal review from July through September and final values taking effect for tax year 2026 bills paid in 2027. Review new valuations carefully and file Board of Revision complaints by March 31, 2027 if values appear overstated.' },
+  { q: 'How quickly do single-family homes lease in Columbus in 2026?',
+    a: 'Well-priced single-family rentals in desirable Columbus submarkets lease in 14 to 21 days on average once rent-ready. Homes priced above market or in poor condition can sit 45 days or more. We track our own days-on-market figure on the scorecard.' },
+  { q: 'How much cash reserve should I have for a Columbus rental property?',
+    a: `Most experienced Columbus investors target a reserve of roughly six months of rent per property to cover maintenance, turnover costs and unexpected capital expenses. We require a maintenance reserve of ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit depending on the plan, which sits on top of the owner’s broader liquidity cushion. Reserves matter most in the first year of ownership, when surprise repairs and initial turns tend to cluster.` },
+  { q: 'Should I accept housing vouchers in Columbus?',
+    a: 'Columbus adopted source-of-income protection in March 2021, effective that July, so landlords cannot refuse an applicant solely because they use a Housing Choice Voucher. Voucher tenants still have to meet consistent, non-discriminatory screening criteria. Many investors find that voucher tenants produce reliable, government-backed rent payments once properly screened, though the program adds inspection and paperwork requirements that benefit from professional management.' },
+  { q: 'What is the difference between managing a Columbus property yourself and hiring a manager?',
+    a: 'Self-management can work for hands-on investors with one or two nearby properties, time to handle resident calls, and familiarity with Ohio landlord-tenant law. Professional management becomes valuable at scale, from about three units, for out-of-state investors, for owners who want to reclaim their time, or when dealing with evictions, fair housing compliance and the new rental registry. The real comparison is not fees against free. It is what your time is worth, and what a missed lease-up week or a bad placement actually costs.' },
+];
+
+const sources = [
+  ['Columbus REALTORS.', 'Monthly MLS data for Columbus and Central Ohio including sales, median prices, inventory and days on market.'],
+  ['RentCafe and Yardi Matrix.', 'Columbus rental market trends including unit-level rent averages and year-over-year growth.'],
+  ['Arbor Realty Trust, Q2 2026 SFR Report.', 'National single-family rental metrics: cap rates, occupancy, rent growth and investor trends.'],
+  ['MMG Real Estate Advisors.', 'Columbus multifamily market forecast, construction pipeline and rent growth projections.'],
+  ['Redfin.', 'Columbus city-proper median sale prices and market competitiveness data.'],
+  ['Axios Columbus.', '2026 Columbus market updates including vacancy and rent trends.'],
+  ['Franklin County Auditor.', 'Property assessment data, triennial update schedules and Board of Revision procedures.'],
+  ['Franklin County Law Library.', 'Columbus landlord-tenant ordinances and current regulatory framework.'],
+  ['WOSU Public Media and NBC4.', 'Columbus City Council coverage including the April 2026 rental registry passage.'],
+  ['Engineering News-Record, CNBC, Manufacturing Dive.', 'Intel New Albany semiconductor project timeline updates.'],
+];
+
+const schemaNodes = [{
+  '@type': 'Report',
+  '@id': `${company.url}/2026-columbus-market-report/#report`,
+  name: title,
+  about: 'Columbus, Ohio single-family rental market',
+  datePublished: '2026-07-01',
+  dateModified: '2026-09-10',
+  author: { '@id': `${company.url}/#organization` },
+  publisher: { '@id': `${company.url}/#organization` },
+}];
 ---
-<Base title={pageTitle(d.title, company.name)} description={metaDescription(d.description)} {breadcrumbs}
-      dateModified={d.updatedDate?.toISOString()}>
-  <section class="pt-14 pb-8">
-    <div class="wrap max-w-[820px]">
-      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
-        <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">2026 market report</span>
-      </nav>
-      <h1 class="text-[clamp(30px,3.9vw,46px)] tracking-[-.02em]">{d.title}</h1>
-      <p class="text-[19px] text-muted mt-5 max-w-[42em]">{d.description}</p>
-    </div>
-  </section>
+<Base {title} {description} {breadcrumbs} {schemaNodes} faq={faq} bodyClass="rl-report"
+      datePublished="2026-07-01T00:00:00Z" dateModified="2026-09-10T00:00:00Z">
 
-  {toc.length > 2 && (
-    <section class="pb-10">
-      <div class="wrap max-w-[820px]">
-        <nav class="card !bg-wash-soft" aria-labelledby="toc-h">
-          <h2 id="toc-h" class="text-[19px] mb-3">On this page</h2>
-          <ol class="grid gap-x-8 gap-y-1 sm:grid-cols-2 list-decimal pl-5">
-            {toc.map((h) => (
-              <li class="text-[15px]">
-                <a href={`#${h.slug}`} class="no-underline text-navy hover:text-crimson">{h.text}</a>
-              </li>
-            ))}
-          </ol>
-        </nav>
-      </div>
-    </section>
-  )}
-
-  <section class="pb-14">
-    <div class="wrap max-w-[820px]">
-      <div class="prose-rl"><Content /></div>
-      <div class="mt-11 pt-6 border-t border-line">
-        <Verified date="2026-09-09" />
-        {d.updatedDate && (
-          <p class="text-[13px] text-faint mt-1">Source document last updated {longDate(d.updatedDate)}.</p>
-        )}
+  <header class="r-hero" style="--r-hero-img: url('/images/reports/autumn-street.jpg');">
+    <div class="r-hero-top">
+      <div class="wrap">
+        <span class="r-hero-label">{company.name}</span>
+        <span class="r-hero-label" style="color:rgb(255 255 255 / .82);">Investor Report &middot; H1 2026 Update</span>
       </div>
     </div>
-  </section>
+    <div class="wrap">
+      <div class="r-hero-rule"></div>
+      <div class="r-hero-kicker">A data-driven market update</div>
+      <h1>Columbus Single-Family Rental Market</h1>
+      <span class="r-hero-year">2026</span>
+      <p class="r-hero-sub">
+        An operator&rsquo;s view of the Columbus, Ohio metro single-family rental market: rent trends,
+        neighbourhood yields, regulatory shifts, and the 2026 investor playbook.
+      </p>
+      <div class="r-hero-metrics">
+        <div class="r-metric"><div class="v">$1,725</div><div class="l">Avg 3BR rent</div><div class="c">Columbus apartments, mid-2026</div></div>
+        <div class="r-metric"><div class="v">95%+</div><div class="l">Occupancy</div><div class="c">Well-managed properties</div></div>
+        <div class="r-metric"><div class="v">+2.2-4%</div><div class="l">YoY rent growth</div><div class="c">Outperforming the national average</div></div>
+      </div>
+    </div>
+  </header>
 
-  <Cta heading="Questions this did not answer?"
-       body="Call us or ask for a free rent evaluation. We will give you a straight answer either way." />
+  <div class="r-dl">
+    <a class="btn btn-primary" href="/downloads/2026-columbus-sfr-market-report.pdf" download>
+      &darr;&nbsp; Download the PDF
+    </a>
+    <p class="r-dl-sub">Get the full report as a printable PDF.</p>
+  </div>
+
+  <div class="r-body">
+
+    <nav class="r-toc" aria-label="Report contents">
+      <div class="r-toc-title">In this report</div>
+      <ol>{toc.map(([id, label]) => <li><a href={`#${id}`}>{label}</a></li>)}</ol>
+    </nav>
+
+    <main>
+
+      <section class="r-section" id="summary" style="border-top:0;">
+        <span class="eyebrow">Section 01</span>
+        <h2 class="r-h2">Executive Summary</h2>
+        <span class="r-rule"></span>
+        <p>
+          Columbus remains one of the strongest single-family rental markets in the Midwest entering 2026, but
+          the investor playbook looks different than it did in 2025. Intel&rsquo;s New Albany semiconductor
+          project has delayed production start from 2025 to 2030 or 2031. The Columbus rental registry passed
+          in April 2026, introducing new compliance requirements for every residential rental in the city.
+          Franklin County&rsquo;s 2026 triennial update delivered updated assessed values in June, raising
+          residential valuations by about 9% on average.
+        </p>
+        <p>
+          Through these shifts, market fundamentals remain intact. Median home prices reached $350,000 across
+          the Columbus and Central Ohio Regional MLS by May 2026, roughly 20% below the national median.
+          Year-over-year price growth has moderated to a healthy 4.3%. Rent growth continues to outperform the
+          national average, and occupancy in well-managed properties remains above 95%. Inventory has improved
+          meaningfully, climbing to roughly 5,200 homes and pushing months of supply to 2.0, giving disciplined
+          investors more room to underwrite properly and negotiate from strength.
+        </p>
+        <p>
+          The 2026 opportunity is different from the 2021 to 2023 boom. This is a year that rewards careful
+          acquisition, realistic underwriting and operational excellence rather than momentum-driven buying.
+        </p>
+
+        <div class="r-glance">
+          <h3 class="r-glance-title">At a glance &middot; Columbus SFR market, H1 2026</h3>
+          {glance.map(([v, l, c]) => (
+            <div><div class="v">{v}</div><div class="l">{l}</div><div class="c">{c}</div></div>
+          ))}
+        </div>
+      </section>
+
+      <section class="r-section" id="market">
+        <span class="eyebrow">Section 02</span>
+        <h2 class="r-h2">Columbus Housing Market Overview</h2>
+        <div style="color:var(--color-crimson); font-weight:700; font-size:14px;">H1 2026 snapshot</div>
+        <span class="r-rule"></span>
+
+        <div class="r-split">
+          <div>
+            <p>
+              Columbus&rsquo;s housing market enters 2026 in a more balanced posture than it held through most
+              of 2024 and 2025. According to the Columbus REALTORS May 2026 local market update, median sale
+              price across the Columbus and Central Ohio Regional MLS reached <b>$350,000</b> in May, up 4.3%
+              year-over-year after firming steadily through the first half from $319,900 in January. Inventory
+              improved to 5,223 homes for sale, up roughly 8% year-over-year, and months of supply rose to 2.0,
+              still well below the six-month threshold that defines a balanced market.
+            </p>
+            <p>
+              Days on market followed the usual seasonal path. Homes took 46 to 49 days to sell in the winter
+              months, then compressed to 29 days by May as the spring market arrived, though that still ran
+              slightly longer than a year earlier as inventory built. Buyers have more breathing room, but
+              sellers still receive an average of nearly 99% of their original list price.
+            </p>
+          </div>
+          <div class="r-figure">
+            <img src="/images/reports/autumn-street.jpg" alt="A tree-lined residential street in suburban Columbus in autumn" width="1400" height="1050" loading="lazy" decoding="async" />
+            <div class="tag">Suburban Columbus</div>
+          </div>
+        </div>
+
+        <div class="r-chart">
+          <p class="r-chart-title">Median home price, Columbus and Central Ohio MLS</p>
+          <p class="r-chart-sub">Year over year, with national comparison</p>
+          <ReportCharts name="price" />
+          <div class="r-legend">
+            <span><span class="dot" style="background:var(--color-navy)"></span>Columbus MLS</span>
+            <span><span class="dot" style="background:var(--color-crimson)"></span>National average</span>
+          </div>
+          <p class="r-chart-cap">
+            Columbus median sale prices remain roughly 20% below the national median. Year-over-year price
+            growth has moderated from double-digit pandemic highs to the 3 to 5% range, the hallmark of a
+            healthy, sustainable market. Sources: Columbus REALTORS, NAR.
+          </p>
+        </div>
+
+        <p class="r-pull">
+          Columbus&rsquo;s median sale price is roughly 20% below the national median. The affordability
+          advantage is the story that keeps working.
+        </p>
+
+        <p>
+          For investors, this is the environment that rewards patience over speed. Properties that would have
+          drawn five offers in 48 hours in 2022 now sit on the market long enough to underwrite properly,
+          negotiate, and close without paying top of market.
+        </p>
+      </section>
+
+      <section class="r-section" id="rental">
+        <span class="eyebrow">Section 03</span>
+        <h2 class="r-h2">Rental Market Performance</h2>
+        <span class="r-rule"></span>
+        <p>
+          The Columbus single-family rental market continues to outperform national averages on both rent
+          growth and occupancy. Average apartment rent in Columbus reached $1,365 as of mid-2026, up about 2%
+          year-over-year, while three-bedroom unit rents average $1,725. Single-family detached rentals
+          typically command higher rents than comparable apartments, with three-bedroom homes in desirable
+          Columbus submarkets leasing in the <b>$1,750 to $2,200</b> range depending on condition and
+          neighbourhood.
+        </p>
+        <p>
+          Arbor&rsquo;s Q2 2026 SFR report shows national occupancy at 93.9% and cap rates rising to 7.4%, a
+          tenth straight quarterly increase, as home-price appreciation slowed, while national SFR rents grew
+          2.6% year-over-year. Columbus fundamentals compare favourably on both occupancy and rent growth.
+        </p>
+
+        <div class="r-chart">
+          <p class="r-chart-title">Columbus against national rents, mid-year 2026</p>
+          <p class="r-chart-sub">Average monthly rent by unit type</p>
+          <ReportCharts name="rents" />
+          <div class="r-legend">
+            <span><span class="dot" style="background:var(--color-navy)"></span>Columbus</span>
+            <span><span class="dot" style="background:var(--color-crimson)"></span>National</span>
+          </div>
+          <p class="r-chart-cap">
+            Columbus rents remain significantly below national averages across unit types, the affordability
+            advantage that keeps tenant demand strong. Sources: RentCafe, Arbor Q2 2026.
+          </p>
+        </div>
+
+        <div class="r-chart-2">
+          <div class="r-chart wash">
+            <p class="r-chart-title">Occupancy, Columbus against national</p>
+            <p class="r-chart-sub">Well-managed SFR portfolios</p>
+            <ReportCharts name="occupancy" />
+            <p class="r-chart-cap" style="text-align:center;">Columbus well-managed properties consistently exceed national SFR occupancy.</p>
+          </div>
+          <div class="r-chart wash">
+            <p class="r-chart-title">YoY rent growth, 2026</p>
+            <p class="r-chart-sub">Columbus against national benchmarks</p>
+            <ReportCharts name="rentgrowth" />
+            <p class="r-chart-cap" style="text-align:center;">Columbus rent growth brackets the national SFR average.</p>
+          </div>
+        </div>
+
+        <h3 class="r-h3">Key market metrics</h3>
+        <div class="r-table-wrap">
+          <table class="r-table">
+            <thead>
+              <tr><th style="width:36%">Metric</th><th style="width:28%">Columbus H1 2026</th><th style="width:36%">National context</th></tr>
+            </thead>
+            <tbody>
+              {metrics.map(([k, v, n]) => (
+                <tr><td class="label">{k}</td><td class="num">{v}</td><td>{n}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="r-note">
+          Sources: Columbus REALTORS MLS (May 2026), RentCafe and Yardi Matrix (mid-2026), Arbor Q2 2026 SFR
+          Report, MMG Real Estate Advisors, Redfin, Axios Columbus 2026.
+        </p>
+
+        <p class="r-pull">
+          The 2026 Columbus rental story is steady outperformance. Not thrilling, not disappointing. Just
+          consistently better than the national baseline.
+        </p>
+
+        <div class="r-chart">
+          <p class="r-chart-title">Rental demand is bifurcating by price point</p>
+          <p class="r-chart-sub">Year-over-year rent growth, April 2026, national SFR</p>
+          <ReportCharts name="bifurcation" />
+          <p class="r-chart-cap">
+            Columbus investors targeting workforce rentals should expect more modest rent growth than
+            high-end suburban properties in the coming year. Source: Cotality.
+          </p>
+        </div>
+      </section>
+
+      <section class="r-section wash" id="nbhds">
+        <span class="eyebrow">Section 04</span>
+        <h2 class="r-h2">Best Neighborhoods for Investment in 2026</h2>
+        <span class="r-rule"></span>
+        <p>
+          Not every part of Columbus behaves the same way, and investor strategy should match neighbourhood
+          fundamentals. Below are the five categories to watch in 2026, with typical return profiles and
+          operational considerations.
+        </p>
+
+        <div class="r-chart">
+          <p class="r-chart-title">Typical cap rate ranges by Columbus neighbourhood category</p>
+          <p class="r-chart-sub">Low and high range for each type</p>
+          <ReportCharts name="caprates" />
+          <p class="r-chart-cap">
+            Urban cash-flow neighbourhoods generate the highest yields but require active management. Premium
+            suburbs generate lower current yields but trade on appreciation.
+          </p>
+        </div>
+
+        {nbhds.map((n) => (
+          <div class="r-nbhd">
+            <div class="n">{n.n}</div>
+            <div class="b">
+              <h4>{n.h}</h4>
+              <div class="meta" set:html={n.meta}></div>
+              <p set:html={n.p}></p>
+            </div>
+            <div class="cap">
+              <div class="k">{n.capLabel}</div>
+              <div class="v" style={n.cap === 'Variable' ? 'font-size:16px;' : ''}>{n.cap}</div>
+              <div class="p">{n.profile}</div>
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <section class="r-section" id="economy">
+        <span class="eyebrow">Section 05</span>
+        <h2 class="r-h2">Economic and Employment Drivers</h2>
+        <span class="r-rule"></span>
+        <p>The fundamentals supporting Columbus rental demand remain firmly intact, even with the Intel timeline shift.</p>
+
+        <div class="r-chart-2">
+          <div class="r-chart wash">
+            <p class="r-chart-title">Population growth</p>
+            <p class="r-chart-sub">Columbus adds about 20,000 residents a year</p>
+            <ReportCharts name="population" />
+            <p class="r-chart-cap">
+              Central Ohio population growth has outpaced the state average for over a decade. The metro added
+              roughly 21,000 residents in the past year to about 2.24 million, over half from international
+              migration.
+            </p>
+          </div>
+          <div class="r-chart wash">
+            <p class="r-chart-title">Diversified metro economy</p>
+            <p class="r-chart-sub">Columbus&rsquo;s recession-resistant employer mix</p>
+            <ReportCharts name="economy" />
+            <p class="r-chart-cap">Illustrative sector mix, five distinct employer pillars, no single-employer dependency.</p>
+          </div>
+        </div>
+
+        <div class="r-cards">
+          <div class="r-mini"><h5>Healthcare</h5><p>OhioHealth &middot; Nationwide Children&rsquo;s &middot; OSU Wexner Medical Center</p></div>
+          <div class="r-mini"><h5>Financial services</h5><p>JPMorgan Chase &middot; Nationwide Insurance &middot; Huntington Bank</p></div>
+          <div class="r-mini"><h5>Education and government</h5><p>The Ohio State University, the largest metro employer &middot; Ohio state agencies</p></div>
+          <div class="r-mini"><h5>Technology and manufacturing</h5><p>Google &middot; Meta &middot; AWS data centres &middot; Honda (Marysville) &middot; Anduril Industries</p></div>
+        </div>
+
+        <h3 class="r-h3" style="color:var(--color-maroon);">Intel: patience, not panic</h3>
+        <p>
+          Intel&rsquo;s roughly $20 billion first-phase semiconductor project in New Albany remains set for a
+          2030 to 2031 production start, down from the original 2025 target. Construction continues: through
+          2025, contractor Bechtel logged more than 9.4 million work hours on site, with active hiring into
+          2026. Once operational, the first two fabs are projected to create about 3,000 permanent Intel jobs
+          plus roughly 7,000 construction jobs and thousands of ancillary positions.
+        </p>
+
+        <p class="r-dark">
+          Columbus doesn&rsquo;t depend on any single employer. That is why it has been one of the most
+          recession-resistant rental markets in the country.
+        </p>
+
+        <img src="/images/reports/employer-map.jpg" alt="Map of Central Ohio showing the locations of major employers across the metro"
+             width="1400" height="1058" loading="lazy" decoding="async"
+             style="width:100%; height:auto; border:1px solid var(--color-line); border-radius:var(--radius-card); margin-top:26px;" />
+      </section>
+
+      <section class="r-section wash" id="regulatory">
+        <span class="eyebrow">Section 06</span>
+        <h2 class="r-h2">Regulatory Updates Landlords Need to Know</h2>
+        <span class="r-rule"></span>
+        <p>
+          Four major regulatory shifts are reshaping the Columbus rental landscape in 2026. Investors who stay
+          current on these changes protect profitability and avoid costly compliance issues.
+        </p>
+
+        <div class="r-callout">
+          <b>Disclaimer.</b> The information in this section is current as of July 2026 and is informational
+          only. This is not legal advice. Consult a qualified Ohio attorney for specific situations.
+        </div>
+
+        <div class="r-reg">
+          <h3><span class="rn">01 &middot;</span> Columbus rental registry, passed April 2026</h3>
+          <p>
+            The biggest regulatory change of 2026. Columbus City Council passed the residential rental registry
+            ordinance on <b>April 20, 2026</b> by an 8 to 1 vote, creating Columbus City Code Chapter 4515,
+            administered by the Department of Building and Zoning Services. Every residential rental dwelling
+            unit within the city must now be registered annually, with owners providing:
+          </p>
+          <ul class="prose-rl">
+            <li>Name, address, email and telephone number of the owner or ownership entity</li>
+            <li>Number of rental dwelling units and average rent</li>
+            <li>A local operator and named emergency contact</li>
+            <li>An annual affidavit affirming that critical building systems comply with local housing, building, health and fire codes</li>
+            <li>Any inspection documentation from the past year</li>
+          </ul>
+          <p>
+            An annual registration fee of $15 per unit applies, capped at $1,500 per property. Rather than
+            proactive individual-unit inspections, which faced constitutional concerns, the ordinance pairs
+            annual registration with routine inspections of common areas and critical building systems roughly
+            every three years. Individual-unit inspections are triggered only when a property is placed in
+            conditional status. Operating without valid registration carries a civil penalty of about $2 per
+            unit per day. Implementation details, meaning the registration portal, the first filing deadline
+            and the enforcement start date, are still being finalised by Building and Zoning Services.
+          </p>
+          <p class="r-note">
+            Registration is our job to track, not yours. We file the county auditor registration as your
+            designated agent during onboarding and handle the municipal filings and renewals.
+            See <a href="/services/compliance/">how compliance works</a>.
+          </p>
+        </div>
+
+        <div class="r-reg">
+          <h3><span class="rn">02 &middot;</span> Franklin County 2026 triennial update</h3>
+          <p>
+            Three years after the 2023 sexennial reappraisal drove residential values up 41% on average, with
+            some school districts seeing increases above 60%, the 2026 triennial update landed in June 2026.
+            Tentative updated values were mailed and posted online in June, showing an average residential
+            increase of about 9%, far milder than the 2023 jump. Informal review sessions ran July through
+            September 2026. <b>Final values are set in December 2026 and take effect for tax year 2026 bills
+            paid in 2027.</b>
+          </p>
+          <p>
+            Unlike the 2023 sexennial, which was a full reappraisal, the triennial update uses mass appraisal
+            methods based on sales from the past three years. Investors who acquired properties after 2023
+            should pay particular attention to the new valuations and file Board of Revision complaints by
+            <b> March 31, 2027</b> if values appear overstated.
+          </p>
+        </div>
+
+        <div class="r-reg">
+          <h3><span class="rn">03 &middot;</span> Source-of-income protection</h3>
+          <p>
+            Columbus adopted source-of-income protection in March 2021, effective that July. It makes it
+            unlawful to refuse an applicant, or change the price or terms, because part of the rent will be
+            paid by a Housing Choice Voucher, child support, spousal support or public assistance. Screening
+            criteria must apply consistently to every applicant regardless of income source. Investors who have
+            not updated their screening protocols should review them against current Columbus requirements.
+          </p>
+        </div>
+
+        <div class="r-reg">
+          <h3><span class="rn">04 &middot;</span> Security deposits and short-term rentals</h3>
+          <p>
+            New Columbus residents have the right to pay security deposits in installments over three or six
+            months, which affects initial cash flow planning. Short-term rental operators continue to face
+            increased scrutiny: a City of Columbus permit is required, lodging excise taxes apply with combined
+            rates commonly between 9% and 15%, and several suburbs including Upper Arlington and Westerville
+            have significantly limited or banned short-term letting.
+          </p>
+        </div>
+
+        <h3 class="r-h3">2026 compliance quick checklist</h3>
+        <div class="r-list">
+          {checklist.map((c) => (
+            <div class="r-list-row"><div class="r-box"></div><div>{c}</div></div>
+          ))}
+        </div>
+      </section>
+
+      <section class="r-section" id="outlook">
+        <span class="eyebrow">Section 07</span>
+        <h2 class="r-h2">2026 Investment Outlook</h2>
+        <span class="r-rule"></span>
+        <p>
+          Columbus enters 2026 as one of the most stable real estate markets in the Midwest. Home values are
+          projected to rise 2% to 5% through the year, driven by steady population growth, low construction
+          starts limiting new supply, and continued in-migration from higher-cost metros. MMG Real Estate
+          Advisors projects Columbus rent growth to approach 4% in 2026, continuing to outperform the national
+          average.
+        </p>
+
+        <div class="r-chart">
+          <p class="r-chart-title">Mortgage rate trend, 30-year fixed</p>
+          <p class="r-chart-sub">NAR chief economist Lawrence Yun, 2026 forecast</p>
+          <ReportCharts name="mortgage" />
+          <div class="r-legend">
+            <span><span class="dot" style="background:var(--color-navy)"></span>Actual</span>
+            <span><span class="dot" style="background:var(--color-crimson)"></span>Forecast</span>
+          </div>
+          <p class="r-chart-cap">
+            Any meaningful decline below 6% would likely accelerate buying activity and push Columbus prices
+            higher faster than the current forecast suggests.
+          </p>
+        </div>
+
+        <h3 class="r-h3">The 2026 investor playbook</h3>
+        <div class="r-table-wrap">
+          <table class="r-table r-playbook">
+            <thead>
+              <tr><th style="width:22%">Strategy</th><th style="width:36%">Target neighborhoods</th><th style="width:42%">Profile</th></tr>
+            </thead>
+            <tbody>
+              {playbook.map(([s, t, p]) => (
+                <tr><td class="strategy">{s}</td><td>{t}</td><td>{p}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <p class="r-pull">
+          2026 rewards disciplined acquisition. The days of paying 2022 prices and trusting momentum to bail
+          you out are over.
+        </p>
+        <p>
+          With more inventory on the market than at any point in the past five years, 2026 presents genuine
+          opportunities for strategic investors willing to underwrite carefully, negotiate thoughtfully and
+          hold for the long term. The key shift is to buy on current cash flow and realistic appreciation
+          projections, not on speculation about Intel timelines or employer announcements that may or may not
+          materialise on schedule.
+        </p>
+      </section>
+
+      <section class="r-section wash" id="faq">
+        <span class="eyebrow">Section 08</span>
+        <h2 class="r-h2">Frequently Asked Questions</h2>
+        <span class="r-rule"></span>
+        {faq.map((f, i) => (
+          <details class="r-faq" open={i === 0}>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </section>
+
+      <section class="r-section" id="cta">
+        <span class="eyebrow">Section 09</span>
+        <h2 class="r-h2">Ready to Invest in Columbus?</h2>
+        <span class="r-rule"></span>
+
+        <div class="r-cta-hero">
+          <img src="/images/reports/hero-row-homes.jpg" alt="A row of managed rental homes in Columbus" width="1600" height="1067" loading="lazy" decoding="async" />
+          <div class="ov">
+            <div>
+              <h2>Serving Columbus investors since {company.founded}.</h2>
+              <p>{company.unitsManaged} units managed &middot; {areas.length} communities &middot; Columbus-based team</p>
+            </div>
+          </div>
+        </div>
+
+        <p>
+          Our clients include long-term investors, accidental landlords, first-time buyers, and out-of-state
+          owners managing Columbus portfolios remotely. We specialise in single-family homes and small
+          multifamily properties across the Columbus metro.
+        </p>
+
+        <h3 class="r-h3" style="color:var(--color-maroon);">What makes us different</h3>
+        <ul class="prose-rl">
+          <li><b>{usd(pricing.leasingFee)} leasing fees</b> on all three plans. Most Columbus managers charge 50% to 100% of the first month&rsquo;s rent every time a resident turns over. We charge nothing.</li>
+          <li><b>Flat-rate pricing.</b> Three plans, {pricing.plans.map((p) => `${p.name} ${usd(p.monthly)}`).join(' · ')} per unit per month, with every other fee published.</li>
+          <li><b>A live scorecard.</b> Days on market, renewal rate, occupancy and rent collection, <a href="/key-performance-indicators/">published openly</a> and refreshed quarterly.</li>
+          <li><b>In-house maintenance.</b> {usd(pricing.maintenance.inHouseHourly)} per hour plus a {usd(pricing.maintenance.tripCharge)} trip charge, with quarterly inspections in every plan.</li>
+          <li><b>Local depth.</b> Based in Columbus, managing {company.unitsManaged} units across the metro.</li>
+        </ul>
+
+        <div class="r-cta-grid">
+          <div class="box">
+            <h3>Schedule a consultation</h3>
+            <p>Discuss your property, your goals, and whether we are the right fit for your portfolio.</p>
+            <a class="btn btn-on-dark" href="/property-management-consultation/">Free consultation &rarr;</a>
+          </div>
+          <div class="box">
+            <h3>Get a rent estimate</h3>
+            <p>A data-driven rent estimate based on current Columbus market conditions.</p>
+            <a class="btn btn-on-dark" href="/free-rent-evaluation/">Free rent evaluation &rarr;</a>
+          </div>
+        </div>
+
+        <div class="r-cta-contact">
+          <span class="phone">{company.salesPhone}</span> &middot; {company.email}<br />
+          {company.address.street}, {company.address.city}, {company.address.region} {company.address.postalCode}
+        </div>
+      </section>
+
+      <section class="r-section wash" id="sources">
+        <span class="eyebrow">Section 10</span>
+        <h2 class="r-h2">Methodology and Sources</h2>
+        <span class="r-rule"></span>
+        <p>
+          This report synthesises publicly available market data, government-source statistics and industry
+          research current as of July 2026, with the regulatory section refreshed in September 2026. All
+          figures reflect the most recent data available at the time of publication. Market conditions change,
+          so verify current metrics before making acquisition decisions.
+        </p>
+        <h3 class="r-h3" style="color:var(--color-maroon); font-size:18px;">Primary data sources</h3>
+        {sources.map(([b, t]) => <div class="r-source"><b>{b}</b> {t}</div>)}
+      </section>
+
+      <section class="r-section" id="about" style="border-bottom:0;">
+        <span class="eyebrow">Section 11</span>
+        <h2 class="r-h2">About {company.name}</h2>
+        <span class="r-rule"></span>
+
+        <img class="r-logo" src="/images/reports/logo-standard-dark.png" alt={company.name} width="520" height="470" loading="lazy" decoding="async" />
+
+        <p>
+          {company.name} is a Columbus, Ohio residential property management company founded in
+          {' '}{company.founded}. We manage <b>{company.unitsManaged} single-family homes and small multifamily
+          properties</b> across the Columbus metro, with a team of {company.headcount.total} and a
+          specialisation in serving intentional, long-term investors.
+        </p>
+        <p>
+          We are at {company.address.street}, {company.address.city}, {company.address.region}
+          {' '}{company.address.postalCode}, and can be reached at <b>{company.phone}</b> or
+          {' '}<b>{company.email}</b>.
+        </p>
+
+        <div class="r-cards">
+          <div class="r-mini"><h5>Founded</h5><p>{company.founded} &middot; Columbus, Ohio</p></div>
+          <div class="r-mini"><h5>Portfolio</h5><p>{company.unitsManaged} units across the metro</p></div>
+          <div class="r-mini"><h5>Team</h5><p>{company.headcount.total} people &middot; in-house maintenance</p></div>
+          <div class="r-mini"><h5>Specialty</h5><p>{company.propertyTypes}</p></div>
+        </div>
+
+        <h3 class="r-h3" style="font-size:17px; color:var(--color-maroon);">Report disclaimer</h3>
+        <p class="r-note">
+          This report is for informational purposes only and does not constitute investment, legal, tax or
+          financial advice. Real estate investments carry risk, including the potential loss of principal.
+          Market data reflects conditions as of mid-2026 and is subject to change. Regulatory information is
+          informational only; consult a qualified Ohio attorney for specific compliance questions. Past
+          performance does not guarantee future results. Investors should conduct independent due diligence
+          and consult qualified professionals before making any investment decisions.
+        </p>
+        <p class="r-note">
+          &copy; 2026 RL Property Management Group, Inc. All rights reserved. Licensed Ohio real estate brokerage.
+        </p>
+        <div class="mt-8"><Verified date="2026-09-10" /></div>
+      </section>
+
+    </main>
+  </div>
 </Base>

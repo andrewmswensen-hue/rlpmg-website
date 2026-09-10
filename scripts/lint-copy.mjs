@@ -44,8 +44,13 @@ for (const f of [...await walk('src/pages', ['.astro', '.ts']), ...await walk('s
   const s = await readFile(f, 'utf8');
   const lines = s.split('\n');
   lines.forEach((l, i) => {
+    // Literal characters, and the HTML entities for the same thing. The entity
+    // form slipped a dash into the market report's hero, so check both.
     if (l.includes('—') || l.includes('–')) {
       errors.push(`${f}:${i + 1}: em or en dash`);
+    }
+    if (/&(m|n)dash;|&#(8212|8211|x201[34]);/i.test(l)) {
+      errors.push(`${f}:${i + 1}: em or en dash, HTML entity`);
     }
   });
 }
