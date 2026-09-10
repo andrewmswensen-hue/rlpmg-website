@@ -83,7 +83,7 @@ export const pricing = {
   otherFees: [
     { name: 'Ownership entity change', amount: '$250', note: 'New agreement prepared, plus year-to-date financials for the previous entity.' },
     { name: 'New unit pre-signature inspection', amount: '$300', note: 'Credited toward onboarding if a management agreement is signed.' },
-    { name: 'Property photography', amount: '$250 to $450', note: 'Professional photography for new vacant units and units that have undergone a turn. Effective October 1, 2026.' },
+    { name: 'Property photography', amount: '$250 to $450', note: 'New vacant units and units that have had major cosmetic work. Billed at vendor cost plus our standard markup, by property size. Existing photos keep being used at no charge while they still represent the property, and the photos are yours to keep. Effective October 1, 2026.' },
     { name: 'Delinquent tenant setup', amount: '$300', note: 'Applies when taking over an occupied unit whose resident owes more than $300.' },
     { name: 'Turn scope', amount: '$250', note: 'Applies only if you take our turn scope and then have the work done by someone else.' },
     { name: 'Insurance claim oversight', amount: '$1,250', note: 'End to end claim handling. The 15% project management fee is waived on insurance claim work.' },

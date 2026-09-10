@@ -13,7 +13,7 @@ const description =
 const heroStats = kpis.metrics.filter((m) => ['dom', 'collectedBy5', 'renewal', 'repairDays'].includes(m.id));
 
 const services = [
-  { h: 'Marketing and leasing', p: 'Professional photography, syndication to every major portal, and self-guided showings that fill units in a median of 11 days.', href: '/services/marketing-and-leasing/', cta: 'How leasing works' },
+  { h: 'Marketing and leasing', p: 'Syndication to every major rental portal, self-guided showings, and pricing set against our own Columbus portfolio data.', href: '/services/marketing-and-leasing/', cta: 'How leasing works' },
   { h: 'Resident screening', p: 'Credit, criminal, income, rental history and eviction checks, applied consistently and within fair housing law.', href: '/services/tenant-screening/', cta: 'Our screening criteria' },
   { h: 'Maintenance', p: `In-house technicians at ${usd(pricing.maintenance.inHouseHourly)} an hour, vetted vendors, quarterly inspections, and 24/7 emergency coverage.`, href: '/services/maintenance/', cta: 'Maintenance details' },
   { h: 'Rent collection', p: 'Online payment, automated late notices, and owner direct deposit. 96% of rent lands by the 5th.', href: '/services/rent-collection/', cta: 'How we collect' },
@@ -40,7 +40,7 @@ const faq = [
   { q: 'What does RL Property Management charge?',
     a: `Flat monthly management is ${usd(pricing.plans[0].monthly)} per unit on the Passive plan, ${usd(pricing.plans[1].monthly)} on Standard, and ${usd(pricing.plans[2].monthly)} on Premium. There is no leasing fee on any plan, lease renewals are ${usd(pricing.leaseRenewalFee)}, and there is no startup fee on occupied units.` },
   { q: 'Does RL Property Management charge a leasing fee?',
-    a: 'No. Placing a resident costs nothing on every plan, including professional photography, listing syndication, showings and screening. Most Columbus managers charge half a month of rent for the same work.' },
+    a: 'No. Placing a resident costs nothing on every plan, including listing syndication, showings, applicant screening and lease preparation. Most Columbus managers charge about half a month of rent for the same work.' },
   { q: 'What areas does RL Property Management serve?',
     a: `RL Property Management serves ${areas.length} communities across the Columbus, Ohio metro, including Columbus, Dublin, Upper Arlington, Westerville, Worthington, Gahanna, Hilliard, Powell, New Albany, Bexley, Grove City, Reynoldsburg and Pickerington.` },
   { q: 'How quickly does RL Property Management fill a vacancy?',
