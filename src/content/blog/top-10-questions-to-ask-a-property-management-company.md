@@ -2,7 +2,7 @@
 title: "Top 10 Questions to Ask When Hiring a Property Management Company"
 description: "Don’t Hire the Wrong Property Manager Hiring a property management company is one of the most important decisions you can make as a rental property owner. The right partner can protect your asset, boost your returns, and free up your time. But the wrong one? They can cost you thousands in missed ren"
 pubDate: "2025-04-09T10:00:08Z"
-updatedDate: "2025-04-10T16:17:38Z"
+updatedDate: "2026-09-10T00:00:00Z"
 slug: "top-10-questions-to-ask-a-property-management-company"
 wpId: 16140
 heroImage: "https://rlpmg.com/wp-content/uploads/2025/04/AdobeStock_538004261-scaled.jpeg"
@@ -36,6 +36,7 @@ It starts with asking the right questions. Below are the top 10 questions every 
 - [How transparent are you about fees and vendor charges?](#question-8)
 - [What happens if I want to end the agreement early?](#question-9)
 - [Can you share examples of how you’ve helped clients improve ROI?](#question-10)
+- [Five more questions worth asking](#five-more-questions-worth-asking)
 
 ## 1. What is your pricing structure, and what’s included?
 
@@ -86,9 +87,13 @@ A great property manager doesn’t just fill vacancies, they place the **right**
 
 ## 5. What maintenance services do you offer, and at what cost?
 
-Maintenance is one of the most common pain points for landlords, and a major differentiator among property managers. Ask how [maintenance is handled](/blog/what-are-the-advantages-of-hiring-a-property-management-company-for-maintenance-and-repairs/), who does the work, and how pricing is structured.
+Maintenance is the largest expense category most rental owners have, and it is a major differentiator among property managers. Ask how maintenance is handled, who does the work, and how pricing is structured.
 
 Some companies have in-house maintenance teams; others outsource to third-party vendors. Both can be effective if managed well, but you’ll want to know if labor is billed hourly, if there’s a trip fee, and whether there’s a **markup on parts or materials.**
+
+In-house teams have two structural advantages worth asking about. They can handle a range of work that would otherwise require a specialty trade and its minimum charge, and they can batch jobs at nearby properties, which cuts trip charges and shortens response times. Outsourced models can match that, but only with strong vendor relationships and real scheduling discipline. Ask which one you are getting.
+
+One honest caveat: handing maintenance to a management company means giving up day-to-day control of it. The manager will not make every call the way the owner would have. Owners who want to approve every dollar before it is spent should say so during the interview and find out whether the company can work that way, because that mismatch is one of the most common reasons these relationships end badly.
 
 Also ask about **after-hours protocols**. Who handles emergencies? Is there a 24/7 hotline for tenants? How quickly do they respond, and do they notify you?
 
@@ -155,6 +160,20 @@ Look for **data-backed stories**: case studies, before-and-after numbers, or tur
 You want a partner who thinks strategically, acts proactively, and measures success by how well your property performs, not just whether the lights stay on.
 
 A PM company that can speak to ROI improvement is one that aligns with your long-term investment goals.
+
+## Five More Questions Worth Asking
+
+The ten above cover how the relationship will work. These five cover the company itself, and each one takes about a minute to ask.
+
+**Are you licensed and insured?** Work with a company that holds a real estate brokerage license and carries insurance, and verify the license through the state licensing lookup rather than taking the answer at face value.
+
+**How long have you managed rentals, how many units do you manage now, and how many people work there?** Bigger is not automatically better. Experience means processes that were refined the hard way, and scale means there is someone to answer the phone. But a company carrying more units than its staff can cover is exactly where an owner and their residents get lost. Ask who specifically handles leasing, maintenance, and accounting, and what happens when that person is out.
+
+**What does the management agreement actually cover?** Leasing, rent collection, and maintenance are the headline services. The agreement is where everything else lives: how financial transactions are tracked, what the monthly statement and year-end reporting include, how much the manager can spend without approval, and what notice is required to end the relationship. Read it before signing, not after.
+
+**What is your average tenant tenure?** Occupancy length is the most honest proxy available for how residents are treated. Long tenancies mean fewer turns, and fewer turns is where an owner’s returns actually come from. Ask for the number, not an adjective.
+
+**Do you own rental property yourself?** Managers with their own units have sat on the other side of the same decisions. It guarantees nothing, but it does change how someone weighs a repair bill against a resident’s patience.
 
 ## The Right Questions Lead to the Right Partner
 

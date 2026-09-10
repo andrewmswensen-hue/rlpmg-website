@@ -29,7 +29,7 @@ Generally, as long as you have good photos, a good description of the property a
 
 ## What’s in Your Wheelhouse?
 
-Big apartment companies with hundreds and hundreds of units are likely doing more digital marketing (they’re also the ones out there who are more likely [offering incentives to applicants.](/blog/strategies-to-reduce-vacancy-in-your-rental-properties-consider-offering-incentives/) They have a dedicated staff to manage their marketing efforts.
+Big apartment companies with hundreds and hundreds of units are likely doing more digital marketing (they’re also the ones out there who are more likely [offering incentives to applicants.](/blog/4-ways-a-property-management-company-can-reduce-your-vacancy-rate/) They have a dedicated staff to manage their marketing efforts.
 
 If this is in your wheelhouse and makes sense financially, go for it, but for many individual property owners, extra digital marketing is not necessary as long as the marketing you are doing is being done well.
 

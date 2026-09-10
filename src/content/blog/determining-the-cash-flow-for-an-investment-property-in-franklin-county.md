@@ -23,7 +23,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2021/08/scott-graham-5fNmWej4tAA-unsplash-min1-300x200.jpg)If you’re looking to buy an investment property in the greater Columbus area, one of the biggest questions you likely have is how much money will the property make? On a monthly basis, what can you expect your cash flow to be?
 
-When looking at [cash flow](/blog/will-your-rental-property-cash-flow-free-tool/), there are two major components to consider. First there is the income side, and then there are expenses.
+When looking at [cash flow](/blog/what-to-consider-when-calculating-cash-flow-for-a-rental-property/), there are two major components to consider. First there is the income side, and then there are expenses.
 
 In this post, we’ll walk through some important categories investors need to consider when they’re trying to predict cash flow or return on an investment property in Ohio.
 

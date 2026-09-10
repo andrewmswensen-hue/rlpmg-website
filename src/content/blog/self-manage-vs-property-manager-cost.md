@@ -2,7 +2,7 @@
 title: "Self-Managing vs. Hiring a Property Manager: The Real Cost Comparison"
 description: "Management fees are easy to price. The cost of doing it yourself is not, because most of it rarely reaches a spreadsheet. Here is the Columbus math, as of September 2026, with both columns filled in. TL;DR Professional management in Columbus runs $117 to $184 per unit per month on a flat-rate plan,"
 pubDate: "2026-09-09T08:38:20Z"
-updatedDate: "2026-09-08T14:56:53Z"
+updatedDate: "2026-09-10T00:00:00Z"
 slug: "self-manage-vs-property-manager-cost"
 wpId: 16934
 heroImage: "https://rlpmg.com/wp-content/uploads/2026/09/Sept-blog-self-managing-analysis.jpeg"
@@ -19,11 +19,11 @@ Professional management in Columbus runs $117 to $184 per unit per month on a fl
 
 Key Takeaways
 
-- Flat-rate management on a $1,400 Columbus rental runs about $1,529 (Passive), $1,769 (Standard), or $2,333 (Premium) a year, including the $125 accounting fee and a $0 leasing fee.
+- Flat-rate management on a $1,400 Columbus rental runs about $1,529 (Plan One), $1,769 (Plan Two), or $2,333 (Plan Three) a year, including the $125 accounting fee and a $0 leasing fee.
 - Columbus rental registration runs October 1 through December 31, 2026, at $15 per unit annually, with no exemption for single-family homes and no phase-in by portfolio size.
 - Flat pricing tends to win in years a unit turns. Percentage pricing tends to win in a long, quiet tenancy. Price both against your actual turnover rate.
 - Well-priced Columbus single-family rentals lease in 14 to 21 days once rent-ready. Each vacant day on a $1,400 unit costs about $46, so a saved week is worth roughly $322.
-- A Franklin County possession action costs $149 to file (effective August 1, 2026), about $448 all in through RL Property Management. Six weeks of lost rent is the larger number.
+- A Franklin County possession action costs $123 to file, $273 in hard costs with the attorney fee, and $472 all in through RL Property Management. Six weeks of lost rent is the larger number.
 
 In This Article
 
@@ -31,17 +31,18 @@ In This Article
 2. [What does self-managing actually cost?](#hidden-costs)
 3. [The Columbus rental registry adds a new job to your list](#rental-registry)
 4. [What does one eviction cost in Franklin County?](#eviction-math)
-5. [The ROI math most owners skip](#roi-math)
-6. [When self-managing fits, and when it stops fitting](#when-it-fits)
-7. [Frequently Asked Questions](#faq)
+5. [What the same math looks like on ten doors](#ten-doors)
+6. [The ROI math most owners skip](#roi-math)
+7. [When self-managing fits, and when it stops fitting](#when-it-fits)
+8. [Frequently Asked Questions](#faq)
 
 ## What does professional management cost in Columbus?
 
-Start with the side that has a price tag on it. RL Property Management prices management as a flat dollar amount per unit rather than a percentage of rent: Passive at $117 a month, Standard at $137, Premium at $184. Scope and the maintenance approval limit separate them ($1,500 per item on Passive, $750 on Standard, $350 on Premium). Standard adds HOA and COA support; Premium adds pre-listing support and use of your own vendors.
+Start with the side that has a price tag on it. RL Property Management prices management as a flat dollar amount per unit rather than a percentage of rent: Plan One at $117 a month, Plan Two at $137, Plan Three at $184. Scope and the maintenance approval limit separate them ($1,500 per item on Plan One, $750 on Plan Two, $350 on Plan Three). Plan Two adds HOA and COA support; Plan Three adds pre-listing support and use of your own vendors.
 
 Leasing is $0 on all three plans, which matters more than it sounds.
 
-| Cost line (one unit, $1,400/mo rent) | Passive | Standard | Premium |
+| Cost line (one unit, $1,400/mo rent) | Plan One | Plan Two | Plan Three |
 |---|---|---|---|
 | Management fee (12 months) | $1,404 | $1,644 | $2,208 |
 | Annual accounting & technology fee | $125 | $125 | $125 |
@@ -53,7 +54,7 @@ Two costs sit outside that table: a one-time $300 onboarding fee when a unit com
 
 ### Flat rate versus percentage: which one is cheaper depends on the year
 
-Most Columbus management companies price as a percentage of collected rent plus a separate leasing fee. [Evernest Columbus publishes](https://www.columbuspropertymanagement.co/pricing) an 8% management fee, tenant placement at 50% of one month’s rent ($500 minimum), a $250 renewal fee, and a $149 annual property condition report. Run those on the same $1,400 rental and the answer flips with [turnover](/blog/rental-property-turnover-cost-columbus/): about $2,193 in a year the unit turns, roughly $1,743 in a renewal year. Set those against the Standard column above. Neither model is a trick. They are two bets about how often your unit changes hands, and scopes differ between companies, so compare what each plan includes before comparing what each charges.
+Most Columbus management companies price as a percentage of collected rent plus a separate leasing fee. Evernest Columbus publishes an 8% management fee, tenant placement at 50% of one month’s rent ($500 minimum), a $250 renewal fee, and a $149 annual property condition report. Run those on the same $1,400 rental and the answer flips with [turnover](/blog/rental-property-turnover-cost-columbus/): about $2,193 in a year the unit turns, roughly $1,743 in a renewal year. Set those against the Standard column above. Neither model is a trick. They are two bets about how often your unit changes hands, and scopes differ between companies, so compare what each plan includes before comparing what each charges.
 
 > **Flat pricing wins in the years a unit turns. Percentage pricing wins in a long, quiet tenancy. Know which year you are in.**
 
@@ -85,6 +86,16 @@ Ohio landlord-tenant law is specific, and the penalties attach to the specifics.
 
 Fair Housing sits in the same category: screening criteria applied inconsistently across applicants creates exposure a $137 monthly fee looks small against. *Informational only, not legal advice, as of September 2026. Ohio law changes, and specific situations call for a qualified attorney.*
 
+### The handoff jobs nobody warns you about
+
+The costs above are the ones an owner can at least anticipate. These are the ones that surface the week a management agreement ends or a first tenancy begins, and each of them is somebody’s job now.
+
+- **Renter’s insurance monitoring.** Requiring a policy is easy. Knowing when it lapses is not. Ask to be added to the resident’s policy as an *additional interested party* so the carrier notifies you if coverage is cancelled. The reason is money: when damage comes from resident negligence, a lit candle or an overflowing tub, you claim against their policy instead of your own.
+- **Water, specifically in Columbus.** Residents on a Tenant Direct Water Billing Agreement receive the City of Columbus bill and pay it directly. Two things follow. Redirect the city’s notifications to yourself so you learn about a delinquency early, and take a final meter reading on move-out day and submit it, because the city can be slow to issue a final bill and an unpaid city water balance reverts to the property owner.
+- **Rent collection mechanics.** Residents paying online through a manager’s portal lose that portal the day the agreement ends. Something has to replace it before the 1st.
+- **The security deposit account.** Deposits are held in a separate non-interest-bearing trust account, not mixed with your own money. Ohio courts are unforgiving about deposits, and the exposure is double the wrongfully withheld amount plus the tenant’s attorney fees.
+- **The county rental registration.** Franklin County requires rental owners to keep contact and parcel information on file with the auditor, and it is separate from the new Columbus city registry described in the next section. Both apply to a Columbus rental. Neither reminds you.
+
 Then the part no statement holds. Water heaters fail at 11 p.m. Self-managing means you are the call center.
 
 > **About 3.5% of RL Property Management rentals escalate to eviction, litigation, or a significant dispute. Screening is where that number gets decided.**
@@ -113,16 +124,38 @@ One more wrinkle: this is a second filing, not a replacement. [ORC 5323.02](http
 
 ## What does one eviction cost in Franklin County?
 
-Eviction is the cost self-managing owners overestimate in drama and underestimate in cash. Franklin County Municipal Court raised its civil filing fees effective **August 1, 2026**. The current [clerk’s cost schedule](https://www.fcmcclerk.com/documents/civil/civilcost.pdf) lists $149.00 for a one-cause filing (possession only) and $186.00 for two causes (possession plus money damages), each covering up to three defendants or addresses.
+Eviction is the cost self-managing owners overestimate in drama and underestimate in cash. The Franklin County Municipal Court eviction complaint filing fee is $123. Filing a second cause for money damages costs more; the [clerk’s cost schedule](https://www.fcmcclerk.com/documents/civil/civilcost.pdf) carries the current figure.
 
-| Line item | Possession only | Possession + money |
-|---|---|---|
-| FCMC filing fee (effective 8/1/2026) | $149 | $186 |
-| Local attorney cost | $100 | $100 |
-| RLPM management fee for the process | $199 | $199 |
-| Client cost, all in (recovery pursued from the resident) | $448 | $485 |
+| Line item | Amount |
+|---|---|
+| Franklin County eviction complaint filing fee | $123 |
+| Local attorney cost (filing plus up to two appearances) | $150 |
+| RLPM management fee for the process | $199 |
+| Client cost, all in, before any set-out (recovery pursued from the resident) | $472 |
+| Franklin County tag and set-out fee, if required | $80 |
+| RLPM set-out coordination, if required | $250 |
 
 Roughly three steps, about six weeks, using local counsel. The hard costs are not the [expensive part.](/blog/eviction-cost-ohio/) Six weeks of a non-paying resident on a $1,400 unit is about $1,930 in rent before the turn, and a self-managing owner absorbs the filing, the hearing, the set-out, and the paperwork risk of a defective notice. Columbus also has a Pay to Stay provision (CCC 4551.06, tender of payment by third parties) barring refusal of a tender of past-due rent plus reasonable late fees based on who is paying it.
+
+## What the same math looks like on ten doors
+
+One door is a decision about a hobby. Ten doors is a decision about a job, and the numbers stop being close.
+
+Run the same categories across a ten-door Columbus portfolio at an average rent of $1,600 and the self-managed column can exceed $35,000 a year. Professional management on the same portfolio, at roughly $150 per door per month including typical maintenance spend, runs about $18,000. Both figures are estimates rather than measurements, and the second one is the more solid of the two, because it is mostly a published fee.
+
+Where the $35,000 comes from:
+
+- **Your time, the largest line by far.** At the calculator’s default of five hours per door per month and $50 an hour, ten doors is 600 hours and $30,000 a year. Substitute your own rate. If your day job pays $75,000 to $150,000, the arithmetic rate is $36 to $72 an hour before you decide what a Saturday is worth on top.
+- **Vacancy.** At $1,600 rent, each vacant day is about $53. Ten doors averaging ten empty days each is $5,300 a year, and self-managed units tend to sit longer because of pricing from asking-price comps, narrower listing reach, and slower responses to inquiries.
+- **Turnover.** Roughly three move-outs a year across ten doors, at $2,500 to $4,000 each once lost rent, cleaning, repairs, photography, advertising and leasing time are counted. That is $7,500 to $12,000 annually.
+- **Software and bookkeeping.** Property management software runs $300 to $1,200 or more a year, and the bookkeeping behind income tracking, expense categorization, 1099s and tax prep is hours nobody logs.
+- **Insurance.** Premiums are often higher on self-managed properties, because carriers price management practice as risk. Documented inspections and compliance protocols are part of what an underwriter is looking at.
+- **Legal exposure.** One eviction is $472 through a manager. One Fair Housing complaint, even one you win, is thousands in fees and weeks of attention.
+- **Staff and contractors.** If you already pay a part-time assistant, a handyman on retainer, or a bookkeeper, those dollars belong in the self-managed column too.
+
+The pattern worth noticing: the largest line is the one that never appears on a P&L. An owner who tracks every repair invoice to the dollar and does not track a single hour is comparing a measured column against an unmeasured one, and then concluding the unmeasured one is cheaper.
+
+Run your own version in the [self-management calculator](/self-management-calculator/) rather than taking these figures as yours.
 
 ## The ROI math most owners skip
 
@@ -136,7 +169,7 @@ Most self-managing owners compare the management fee against $0 and stop. The mo
 
 > **Owners who hire a cleaner for $150 a month priced two Saturday hours and decided. Management is the same trade with legal deadlines attached.**
 
-Run your own version in the [self-management calculator](/self-management-calculator/), or read the longer breakdown of [what it really costs to self-manage a rental in Columbus](/blog/cost-of-self-managing-rental-property-columbus/).
+Run your own version in the [self-management calculator](/self-management-calculator/), then check it against the ten-door breakdown above.
 
 ## When self-managing fits, and when it stops fitting
 
@@ -168,7 +201,15 @@ If the property sits inside Columbus city limits and does not fall under one of 
 
 **What does an eviction cost in Franklin County in 2026?**
 
-The court filing fee is $149 for possession only or $186 with money damages, effective August 1, 2026. Through RL Property Management the all-in client cost is about $448, with recovery from the resident pursued where possible.
+The Franklin County eviction complaint filing fee is $123, and the attorney fee adds $150, so hard costs are $273. Through RL Property Management the all-in client cost is $472, with recovery from the resident pursued where possible. A set-out, if one is needed, adds $80 to the county and $250 to RLPM.
+
+**How many hours a month does self-managing take per unit?**
+
+Estimates range from four to ten hours per unit per month, and the honest answer is that it depends on the age of the property, how stable the tenancy is, and whether you are in a turnover cycle. Five hours per door is a reasonable planning average. Track one real month before trusting any of these numbers, including that one.
+
+**Should I sell instead?**
+
+That is a different question, and it comes first. Decide whether to keep the property at all before deciding who manages it. If you are weighing it, [rent or sell: what is the best move?](/blog/rent-or-sell/) works through the financial and the emotional side. Once the home becomes an asset, it has to be judged as one, against what the equity would earn somewhere else.
 
 **How long does it take to lease a Columbus rental?**
 
@@ -182,7 +223,7 @@ A 20-minute consultation covers your rent, your turnover history, and what manag
 
 Or [get a free rent evaluation](/free-rent-evaluation/) · 614.212.6903
 
-RL Property Management has managed Columbus-area rentals since 2013, oversees about 740 units, and posts its operating metrics on a [live KPI scorecard](/key-performance-indicators/). Still comparing? [Here is the 2026 rundown of Columbus property management companies](/blog/top-property-management-companies-columbus-ohio/).
+RL Property Management has managed Columbus-area rentals since 2013, oversees more than 700 units, and posts its operating metrics on a [live KPI scorecard](/key-performance-indicators/). Still comparing? [Here is the 2026 rundown of Columbus property management companies](/blog/top-property-management-companies-columbus-ohio/).
 
 ### Sources & Suggested External Links
 
@@ -192,6 +233,6 @@ RL Property Management has managed Columbus-area rentals since 2013, oversees ab
 - [Ohio Revised Code 5321.16](https://codes.ohio.gov/ohio-revised-code/section-5321.16), security deposit interest, 30-day itemization, and tenant damages
 - [Ohio Revised Code 5321.04](https://codes.ohio.gov/ohio-revised-code/section-5321.04), landlord obligations and the 24-hour entry notice presumption
 - [Ohio Revised Code 5323.02](https://codes.ohio.gov/ohio-revised-code/section-5323.02), county auditor rental property filing requirement
-- [Evernest Columbus published pricing](https://www.columbuspropertymanagement.co/pricing), percentage-based management and placement fee comparison
+- Evernest Columbus published pricing, percentage-based management and placement fee comparison
 - [2026 Columbus Single-Family Rental Market Report](/2026-columbus-market-report/), rental lease-up times, occupancy, rent ranges
 - [RL Property Management live KPI scorecard](/key-performance-indicators/), current days on market, time to turn, renewal and occupancy rates

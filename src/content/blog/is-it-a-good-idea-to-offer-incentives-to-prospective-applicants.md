@@ -22,7 +22,7 @@ tags:
 
 Don’t.
 
-Even if it takes a little longer to find a good applicant, it’s worth the extra time you may need to [seek out a high-quality tenants](/blog/strategies-to-reduce-vacancy-in-your-rental-properties-seek-out-high-quality-tenants/). That said, it doesn’t necessarily mean you can’t offer incentives if a property has been sitting vacant for more than a few weeks and it helps you close a deal on a good resident. Just do so with the big picture in mind.
+Even if it takes a little longer to find a good applicant, it’s worth the extra time you may need to [seek out a high-quality tenants](/blog/4-ways-a-property-management-company-can-reduce-your-vacancy-rate/). That said, it doesn’t necessarily mean you can’t offer incentives if a property has been sitting vacant for more than a few weeks and it helps you close a deal on a good resident. Just do so with the big picture in mind.
 
 ## Should You or Shouldn’t You Offer Incentives?
 

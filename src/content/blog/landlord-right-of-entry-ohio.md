@@ -55,7 +55,7 @@ One provision up, [ORC 5321.04(A)(7)](https://codes.ohio.gov/ohio-revised-code/s
 
 > **The right to inspect your property is real. The obligation to respect the tenant’s home is also real.**
 
-Routine inspections work better on a schedule than on impulse. Across the roughly 740 units RLPM manages in Central Ohio, quarterly inspections are written into the lease, noticed ahead of time, and documented against a fixed scope: detectors, appliances, resident responsibilities, and overall condition. More on that program is in our [quarterly inspections article](/blog/quarterly-property-inspections-columbus-rental/) (August); the lease language behind it is in this [lease agreements blog](/blog/columbus-rental-lease-checklist/) and the [Columbus rental lease checklist](/blog/columbus-rental-lease-checklist/).
+Routine inspections work better on a schedule than on impulse. Across the roughly more than 700 units RLPM manages in Central Ohio, quarterly inspections are written into the lease, noticed ahead of time, and documented against a fixed scope: detectors, appliances, resident responsibilities, and overall condition. More on that program is in our [quarterly inspections article](/blog/quarterly-property-inspections-columbus-rental/) (August); the lease language behind it is in this [lease agreements blog](/blog/columbus-rental-lease-checklist/) and the [Columbus rental lease checklist](/blog/columbus-rental-lease-checklist/).
 
 ## Can an Ohio tenant refuse to let the landlord in?
 

@@ -50,7 +50,7 @@ The Columbus version builds from the vacancy clock, and the rental inputs are pu
 | Typical lease-up (4 to 6 weeks once rent-ready) | 12 | 28 to 42 | 40 to 54 | $2,301 to $3,107 |
 | Past the 60-day mark |  |  | 60+ | $3,452+ |
 
-Those are empty days only, and they assume rent starts the day a lease is signed. It rarely does. Add the make-ready (paint, cleaning, flooring, the punch list a departing resident leaves behind), utilities held on through the vacancy, marketing, and any concession it takes to close the lease, and a Central Ohio single-family turnover lands between roughly $3,000 and $5,000 in RLPM’s experience across about 740 units. That is an operating range from Columbus work, not an industry statistic.
+Those are empty days only, and they assume rent starts the day a lease is signed. It rarely does. Add the make-ready (paint, cleaning, flooring, the punch list a departing resident leaves behind), utilities held on through the vacancy, marketing, and any concession it takes to close the lease, and a Central Ohio single-family turnover lands between roughly $3,000 and $5,000 in RLPM’s experience across more than 700 units. That is an operating range from Columbus work, not an industry statistic.
 
 > **Pushing for an extra $75 a month that triggers a move-out costs roughly $3,500 in turnover. That is nearly four years of the extra rent.**
 

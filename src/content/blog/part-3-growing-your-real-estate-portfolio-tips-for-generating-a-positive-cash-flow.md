@@ -26,7 +26,7 @@ tags:
 
 In our previous two blog posts, we discussed specific steps you can take to [reduce a propertyâ€™s fixed costs](/blog/part-1-growing-your-real-estate-portfolio-how-to-manage-fixed-costs/) and [manage unexpected costs](/blog/part-2-growing-your-real-estate-portfolio-managing-unexpected-expenses/) to grow your bottom line.
 
-By reducing expenses and maintaining a quality property, you will be able to attract the best tenants, the ones that take care of your property and are more likely to renew (thus reducing vacancy and [increasing Net Operating Income](/blog/how-to-improve-your-propertys-noi/)).
+By reducing expenses and maintaining a quality property, you will be able to attract the best tenants, the ones that take care of your property and are more likely to renew (thus reducing vacancy and [increasing Net Operating Income](/blog/should-you-hire-a-property-management-company-to-increase-noi/)).
 
 Moreover, building sustainable processes to help you maximize NOI over the long run will enable you to consistently grow your portfolio and take advantage of the compounding effects time has on a real estate portfolio.
 
@@ -36,7 +36,7 @@ NOI is an essential metric for real estate property owners not only because itâ€
 
 - **Lease to good tenants**, Good tenants cost less money. Why? Because they are more likely to extend their stay in your unit (and thereby reduce your vacancy rate). They are also less likely to damage your property or cause other problems that may lead to expensive repairs.
 - **Do as the data says**, To control your spending while still offering a quality product to tenants, you must track your expenses diligently and evaluate that data regularly. Knowing where your greatest expenses are occurring can help you make better decisions going forward.
-- **Manage maintenance costs**, Repairs and upgrades are necessary expenses that eat into your operational budget. Devise a strategy to [streamline maintenance costs](/blog/how-optimizing-maintenance-boosts-noi/) and optimize the way you spend and save on repairs.
+- **Manage maintenance costs**, Repairs and upgrades are necessary expenses that eat into your operational budget. Devise a strategy to [streamline maintenance costs](/blog/should-you-hire-a-property-management-company-to-increase-noi/) and optimize the way you spend and save on repairs.
 
 Lastly, you should consider hiring a professional property management company. Despite sounding counter-intuitive, hiring experienced professionals who know the market and industry best practices can help you save money. Many, like ours at RL Property Management in Columbus, will also manage and run reports for you which you can then draw on as you make ownership decisions going forward.
 

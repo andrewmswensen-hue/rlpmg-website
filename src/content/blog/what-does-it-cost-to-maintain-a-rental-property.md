@@ -18,7 +18,7 @@ tags:
   - "property management"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2023/03/daniel-watson-8vBpYpTGo90-unsplash-min-300x199.jpg)Predicting cash flow on a rental property requires you to make certain [assumptions about income and expenses](/blog/how-to-predict-cash-flow-for-a-rental-property/). Whereas predicting income can be more straightforward, understanding expenses can feel rather ambiguous. We often get asked if there is a good rule of thumb for predicting operating costs on a property. Unfortunately, there’s not one blanket formula for estimating costs, but there are some smart ways to think about maintenance expenses.
+![](https://rlpmg.com/wp-content/uploads/2023/03/daniel-watson-8vBpYpTGo90-unsplash-min-300x199.jpg)Predicting cash flow on a rental property requires you to make certain [assumptions about income and expenses](/blog/what-to-consider-when-calculating-cash-flow-for-a-rental-property/). Whereas predicting income can be more straightforward, understanding expenses can feel rather ambiguous. We often get asked if there is a good rule of thumb for predicting operating costs on a property. Unfortunately, there’s not one blanket formula for estimating costs, but there are some smart ways to think about maintenance expenses.
 
 ## First, What DOESN’T Work When Calculating Operating Costs
 

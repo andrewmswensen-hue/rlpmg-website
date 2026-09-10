@@ -106,13 +106,13 @@ In Columbus’s increasingly competitive rental market, consistency and transpar
 
 ### The Trade-Off
 
-Setting rent collection policies is a balancing act between empathy and enforcement. When landlords lean **too leniently**, tenants begin to **normalize paying late**, viewing due dates as soft guidelines rather than obligations. Over time, that flexibility disrupts **cash flow**, delays maintenance schedules, and can stretch out [eviction timelines](/blog/columbus-ohio-eviction-process-for-landlords/), especially in a tight housing court system like Franklin County’s.
+Setting rent collection policies is a balancing act between empathy and enforcement. When landlords lean **too leniently**, tenants begin to **normalize paying late**, viewing due dates as soft guidelines rather than obligations. Over time, that flexibility disrupts **cash flow**, delays maintenance schedules, and can stretch out [eviction timelines](/blog/eviction-cost-ohio/), especially in a tight housing court system like Franklin County’s.
 
 On the other hand, being **too strict** can send the wrong message. Tenants who feel mistrusted or micromanaged may interpret rigid policies as hostility, leading to resentment or early lease breaks. The best approach combines structure with fairness: enforce the rules, but communicate them with professionalism and consistency.
 
 **“When tenants know the rules won’t bend, they stop testing the limits.”**
 
-### Columbus Property Management Trends
+### a typical percentage-based manager Trends
 
 In the **Columbus rental market**, professional managers are increasingly standardizing **3-day grace periods**. This timeframe allows for weekends or minor banking delays while reinforcing that rent is due on time, every time.
 

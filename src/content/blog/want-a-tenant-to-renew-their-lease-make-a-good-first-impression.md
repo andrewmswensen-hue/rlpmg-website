@@ -19,13 +19,13 @@ tags:
   - "vacancy rate"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2023/01/pawel-czerwinski-lWBZ01XRRoI-unsplash-300x200.jpg)You’ve done all the right things to [secure a high-quality tenant.](/blog/strategies-to-reduce-vacancy-in-your-rental-properties-seek-out-high-quality-tenants/)You have a great resident in your property who pays their rent on time, is not disruptive and follows the rules. Now, the question is, how do you keep them?
+![](https://rlpmg.com/wp-content/uploads/2023/01/pawel-czerwinski-lWBZ01XRRoI-unsplash-300x200.jpg)You’ve done all the right things to [secure a high-quality tenant.](/blog/4-ways-a-property-management-company-can-reduce-your-vacancy-rate/)You have a great resident in your property who pays their rent on time, is not disruptive and follows the rules. Now, the question is, how do you keep them?
 
 ## Ways to Retain a Resident at Renewal
 
 While surprising to some, studies suggest that most residents already make up their minds about renewal within the first several weeks of moving into a property.
 
-Even if they end up staying a year, or two, or [whatever the lease term is,](/blog/an-important-strategy-to-reduce-vacancy-in-your-rental-properties/) they’ve pretty much made up their minds within the first few weeks of getting the keys as to whether they’re going to stay long-term.
+Even if they end up staying a year, or two, or [whatever the lease term is,](/blog/4-ways-a-property-management-company-can-reduce-your-vacancy-rate/) they’ve pretty much made up their minds within the first few weeks of getting the keys as to whether they’re going to stay long-term.
 
 This puts a lot of pressure on you as a property manager or landlord to do everything you can early (and often) to maximize your chances of getting them to renew.
 

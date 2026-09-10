@@ -2,7 +2,7 @@
 title: "How to Screen Tenants in Ohio Without Breaking Fair Housing Law (2026 Update)"
 description: "Applications are coming in. You need to pick the right tenant, but one screening mistake can cost you thousands in legal fees, lost rent, or both. With HUD pulling its fair housing guidance just days ago, here’s what Ohio landlords actually need to know right now. Disclaimer: This article is informa"
 pubDate: "2026-04-28T10:56:33Z"
-updatedDate: "2026-06-02T15:56:18Z"
+updatedDate: "2026-09-10T00:00:00Z"
 slug: "tenant-screening-ohio-fair-housing-2026"
 wpId: 16638
 heroImage: "https://rlpmg.com/wp-content/uploads/2026/04/Tenant-Screening-Checklist-featured-image.png"
@@ -33,10 +33,11 @@ In This Article
 1. [What Just Changed: HUD’s April 2026 Fair Housing Guidance Withdrawal](#hud-withdrawal)
 2. [The Basics: What Fair Housing Actually Requires in Screening](#fair-housing-basics)
 3. [What We Actually Check and Why](#rlpm-criteria)
-4. [Rental Application Fraud Is Surging: Here’s What to Watch For](#application-fraud)
-5. [AI in Screening: What’s Changing and What to Watch](#ai-screening)
-6. [Common Screening Mistakes That Cost Columbus Landlords](#common-mistakes)
-7. [Frequently Asked Questions](#faq)
+4. [Red Flags in a Rental Application](#red-flags-in-a-rental-application)
+5. [Rental Application Fraud Is Surging: Here’s What to Watch For](#application-fraud)
+6. [AI in Screening: What’s Changing and What to Watch](#ai-screening)
+7. [Common Screening Mistakes That Cost Columbus Landlords](#common-mistakes)
+8. [Frequently Asked Questions](#faq)
 
 ## What Just Changed: HUD’s April 2026 Fair Housing Guidance Withdrawal
 
@@ -54,7 +55,7 @@ What this means for Ohio landlords: if your screening policies were legally soun
 
 ## The Basics: What Fair Housing Actually Requires in Screening
 
-Fair housing law operates at three levels in Columbus, and landlords need to comply with all of them.
+Fair housing law operates at three levels in Columbus, and landlords need to comply with all of them. The federal Fair Housing Act was signed in April 1968 as part of the Civil Rights Act of 1968, and the list of protected classes has grown at every level of government since, most recently at the municipal level. The Section 8 Housing Choice Voucher program followed in 1974 under the United States Housing Act, which is the background to the source-of-income protections now in force across much of Central Ohio.
 
 **Federal protected classes** (under the [Fair Housing Act](https://www.hud.gov/helping-americans/fair-housing-act-overview)): race, color, national origin, religion, sex (including sexual orientation and gender identity), familial status, and disability.
 
@@ -76,13 +77,39 @@ RLPM’s screening criteria are designed to be defensible, documented, and appli
 
 **Criminal history: no violent criminal convictions.** This is an individualized standard, not a blanket ban. The focus is on violent offenses, which are directly relevant to the safety of other residents and the property. This approach aligns with the general legal principle (even post-withdrawal) that screening policies should consider the nature and severity of the offense rather than automatically disqualifying all applicants with any criminal record.
 
-**Rental history: no evictions in the past 5 years.** Eviction history is one of the strongest predictors of future tenancy problems. RLPM verifies rental history through landlord references and eviction court records, not just applicant-provided information (more on why that matters in the fraud section below).
+**Rental history: no evictions in the past 5 years.** Eviction history is one of the strongest predictors of future tenancy problems. RLPM verifies rental history through landlord references and eviction court records, not just applicant-provided information (more on why that matters in the fraud section below). Where possible that means the current landlord and a previous one, since a current landlord who wants a resident gone has a reason to be generous and a previous landlord does not.
 
-**Credit history: no serious or recurring credit issues.** This is evaluated in context, not as a rigid score cutoff. The goal is to identify patterns (collections, judgments, chronic delinquency) that indicate financial instability, not to penalize a single late payment from three years ago.
+**Credit history: no serious or recurring credit issues.** This is evaluated in context, not as a rigid score cutoff. The goal is to identify patterns (collections, judgments, chronic delinquency) that indicate financial instability, not to penalize a single late payment from three years ago. Credit is weighed as a payment-behavior signal rather than a character judgment, which is exactly why the pattern matters more than the score.
 
 **Security deposit: 1-2 months’ rent, calibrated by credit.** This sliding scale protects the owner while keeping the door open for applicants whose credit isn’t perfect but whose overall profile is strong. It’s a risk management tool, not a barrier.
 
 Every criterion is applied the same way to every applicant. That consistency is what makes the process legally defensible. It’s also what makes it fair.
+
+## Red Flags in a Rental Application
+
+None of the items below is a reason to decline on its own, and none of them should be checked for one applicant and skipped for another. They are prompts to verify more carefully. The decision itself still has to rest on the written criteria above, applied the same way to everyone.
+
+**In the application itself:**
+
+- **Income that does not reconcile.** One pay stub is not verification. Ask for two to three months of pay history and confirm it with the employer.
+- **Employment that cannot be verified.** A general HR line that goes nowhere is a dead end. Ask for a direct supervisor or manager who can confirm the role and the pay.
+- **Frequent moves.** Four addresses in three years is not disqualifying, but it is worth understanding before signing a 12-month lease.
+- **Evictions or judgments, including dismissed ones.** A dismissed case was still filed. Pull the full rental history rather than relying on what was disclosed.
+- **Blanks and vagueness.** Missing phone numbers, a landlord listed with no address, skipped sections. Sometimes carelessness, sometimes omission, always worth a question.
+
+**In the conversation:**
+
+- Answers that contradict the application.
+- A detailed personal story offered early, in place of documentation.
+- Evasiveness about previous landlords.
+- Resistance to the background check, or an attempt to redirect away from it.
+- **Urgency.** “I can pay the whole deposit today if you approve me right now” is a pressure tactic, and the applicant asking for the process to be skipped usually has a reason. Applicants eager to pay well above the asking rent deserve the same second look: the renters most willing to overpay are often the ones who have been declined elsewhere.
+
+A polished interview does not make someone a good resident, and a nervous one does not make them a bad one. What matters is whether the answers hold up against the documents.
+
+**In the references:** one useful test on a landlord reference call is to ask the person to confirm the applicant’s move-out date. A real landlord knows it or can look it up in a few seconds. A friend improvising usually hesitates or guesses.
+
+> **Patterns matter more than any single item. Trust the pattern, verify the documents, and write down the reason for whatever you decide.**
 
 ## Rental Application Fraud Is Surging: Here’s What to Watch For
 
@@ -137,6 +164,10 @@ Columbus protects 12 classes: the seven federal classes (race, color, national o
 **Can I reject an applicant who has an eviction on their record?**
 
 Yes, if your policy is applied consistently to all applicants and the eviction falls within your stated lookback period. RLPM’s standard is no evictions in the past 5 years. The key is consistency: if you make exceptions for some applicants, you need to document why and ensure the exception isn’t based on a protected characteristic.
+
+**What are the biggest red flags on a rental application?**
+
+Income that cannot be verified with two to three months of pay history, employment with no reachable supervisor, several addresses in a short span, evictions or judgments (including dismissed cases), incomplete sections, and pressure to approve immediately. Treat each one as a reason to verify more carefully, not as an automatic denial, and apply the same checks to every applicant.
 
 **How do I verify that a landlord reference is legitimate?**
 

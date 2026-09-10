@@ -24,7 +24,7 @@ No one wants to have to post an eviction notice on a resident’s door, but some
 
 ## Steps Toward Eviction in Ohio
 
-Evictions follow a fairly standard process, which we’ll discuss below. At RL Property Management, we [handle evictions for our clients](/blog/do-property-management-companies-handle-the-tenant-eviction-process/) and charge a one-time flat fee to process them. Our attorney group also charges a flat fee, and there are some additional costs in terms of the court. In total, the [estimated eviction cost for property owners](/blog/how-to-handle-evictions-how-much-do-they-cost/) is approximately $400 when all is said and done.
+Evictions follow a fairly standard process, which we’ll discuss below. At RL Property Management, we [handle evictions for our clients](/blog/eviction-cost-ohio/) and charge a one-time flat fee to process them. Our attorney group also charges a flat fee, and there are some additional costs in terms of the court. In total, the [estimated eviction cost for property owners](/blog/eviction-cost-ohio/) is approximately $400 when all is said and done.
 
 ## In terms of timeline, here is what you can expect when it comes to the eviction process.
 

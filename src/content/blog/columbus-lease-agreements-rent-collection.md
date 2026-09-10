@@ -123,7 +123,7 @@ When your lease is airtight, you can move through the legal process confidently,
 
 ### What Causes Evictions to Fall Apart?
 
-Unfortunately, many [eviction](/blog/columbus-ohio-eviction-process-for-landlords/) cases collapse because of simple documentation errors or unclear lease terms. Common mistakes include:
+Unfortunately, many [eviction](/blog/eviction-cost-ohio/) cases collapse because of simple documentation errors or unclear lease terms. Common mistakes include:
 
 - **Missing signatures** or outdated versions of the lease
 - **Vague rent timelines** (“rent due around the 1st”)

@@ -83,7 +83,7 @@ A professional property manager like RL Property Management reviews leases for l
 
 ## Offer Short-Term Solutions When It Makes Sense
 
-Even the most reliable tenants can hit a rough patch. Sometimes showing a little flexibility now can save you major costs later, like court fees, vacancy losses, or turnover expenses. When handled correctly, short-term solutions can protect your cash flow while preserving a positive tenant relationship. (**NOTE**: [RL Property Management adheres to a very straightforward rent collection and eviction policy.](/blog/how-to-handle-evictions-how-much-do-they-cost/) We do not practice (or recommend) grace periods, payment extensions, partial rental agreements, or any of the options listed below. However, if you are an independent landlord who needs added flexibility, the options below may be worth considering.)
+Even the most reliable tenants can hit a rough patch. Sometimes showing a little flexibility now can save you major costs later, like court fees, vacancy losses, or turnover expenses. When handled correctly, short-term solutions can protect your cash flow while preserving a positive tenant relationship. (**NOTE**: [RL Property Management adheres to a very straightforward rent collection and eviction policy.](/blog/eviction-cost-ohio/) We do not practice (or recommend) grace periods, payment extensions, partial rental agreements, or any of the options listed below. However, if you are an independent landlord who needs added flexibility, the options below may be worth considering.)
 
 ### Grace Now, Payoff Later
 

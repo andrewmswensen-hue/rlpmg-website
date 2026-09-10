@@ -2,7 +2,7 @@
 title: "How Overpricing Your Columbus Rental Creates the Vacancy It Was Supposed to Prevent"
 description: "The clock on a vacant unit starts the moment a tenant gives notice, and in today’s Columbus rental market, it costs more than most owners expect. Here’s what the numbers say about pricing, vacancy, and the gap between the two. TL;DR Franklin County’s rental market shifted in May 2026: available inve"
 pubDate: "2026-06-09T19:56:29Z"
-updatedDate: "2026-06-30T19:03:09Z"
+updatedDate: "2026-09-10T00:00:00Z"
 slug: "rental-pricing-vacancy-columbus"
 wpId: 16769
 heroImage: "https://rlpmg.com/wp-content/uploads/2026/06/RLPM-BLog-vacant-properties.png"
@@ -34,7 +34,8 @@ In This Article
 3. [The Vacancy Math: What an Extra 65 Days Actually Costs](#vacancy-math)
 4. [This Market Is Different From the Last Few Years](#market-context)
 5. [How to Price Your Columbus Rental Accurately](#how-to-price)
-6. [Frequently Asked Questions](#faq)
+6. [How Should You Price a Lease Renewal?](#how-should-you-price-a-lease-renewal)
+7. [Frequently Asked Questions](#faq)
 
 ## What Columbus’s May 2026 Rental Data Is Actually Telling Owners
 
@@ -71,6 +72,8 @@ Placing the wrong tenant creates a different kind of vacancy problem: an early e
 ### Lease expirations landing in slow seasons
 
 October through February are slower leasing months in Columbus. A unit priced at peak-summer comps in November is being compared against competing inventory by renters who have somewhat more leverage than they did three months prior. Seasonal adjustment matters, and ignoring it compounds the days-on-market problem.
+
+When a lease does end in the slow window, plan for it rather than react to it. Price to the season instead of to June comps, make the marketing work harder (better photos, more targeted listings), and consider a one-time incentive or a more flexible pet policy to widen the applicant pool. A shorter lease term is also worth considering, because it puts the next expiration back in the summer window. The off-season is the cheapest time to make an upgrade the unit has needed, since the work is not costing peak-season leasing days.
 
 ### What the RLPM team is hearing from new clients
 
@@ -130,9 +133,25 @@ Accurate pricing is not about setting the number as low as possible. It is about
 
 Active listings from the past 30 days are the relevant benchmark. Closed leases from 12 months ago reflect a different market, often by a meaningful margin. Given that Franklin County’s median rent fell 3.14% year-over-year, using older data means pricing into a gap that no longer exists. Neighborhood variation also matters enormously: the difference between comparable properties in Westerville and Reynoldsburg, or between Hilliard and Canal Winchester, can be $150 to $200/month at the same bedroom count. Citywide medians are a starting point, not a price.
 
+Pull at least three comparables with the same bedroom and bathroom count and similar square footage, then look at what they are actually renting for. A listing that has been sitting for weeks is not a comp. It is an asking price nobody has accepted, and treating it as market evidence is how an overpriced listing talks the next owner into overpricing too.
+
 ### Account for unit-specific variables
 
 School district, parking, garage, interior condition, appliance age, pet policy, and proximity to major employers all affect what a specific unit commands relative to a general market average. A renovated unit in a strong school district can sustain a premium. A dated unit in a competitive submarket cannot.
+
+Over-improving for the location is the other side of this. A unit finished well above what the block supports does not collect a rent the neighborhood cannot pay, so the extra money spent on finishes does not come back at lease signing. Match the finish level to the comps, not to what the owner would want in their own house.
+
+### Pricing high does not attract better residents
+
+A common assumption is that a high asking rent filters for high-quality applicants. It does the opposite. Applicants with strong credit, verifiable income, and no eviction history are the most price-aware renters in the market. They are comparing every listing in the range, and they will not pay a premium for a unit they can match a few streets over. The applicants willing to pay well above market are often the ones who have been declined elsewhere and need a lease signed quickly.
+
+An asking rent set well above the comps narrows the pool to exactly the applicants a [screening process](/blog/tenant-screening-ohio-fair-housing-2026/) is designed to catch. Pricing at market, or slightly under it, produces more applications and a better set of them to choose from. It also holds up over time: a resident who eventually realizes they are paying above market starts shopping at renewal.
+
+### Fair market rent is a benchmark, not a price
+
+Fair market rent (FMR) is a figure the U.S. Department of Housing and Urban Development publishes every year for each metro area and non-metro county. It is the 40th percentile of gross rents for standard-quality units, and the calculation excludes subsidized units, low-quality units, and anything built in the last two years. FMRs include core utilities such as water and electricity, but not optional services. HUD uses them to set payment standards for housing voucher programs, and current and prior years are published on [HUD’s website](https://www.huduser.gov/portal/datasets/fmr.html).
+
+FMR is a useful sanity check on a countywide number. It is not the price for one house. A Franklin County FMR does not know whether a unit has a garage, sits in a strong school district, or was renovated last year. Use it to frame the range, then price off current comparables in the specific neighborhood.
 
 ### Why the data source matters
 
@@ -154,6 +173,22 @@ In practice, during summer peak season, this cadence rarely needs to trigger mor
 
 > **A $50 reduction made in week two is almost always cheaper than the vacancy days you are buying by waiting.**
 
+## How Should You Price a Lease Renewal?
+
+Set the renewal somewhere between the current rent and full market rent, and never pass through a multi-year market swing in a single increase. A renewal is not the same calculation as a vacant listing. On a vacancy, the market sets the number. On a renewal, the choice is between a known resident at a slight discount and an unknown one at market, with a turn and a vacancy in between.
+
+That gap is where owners lose money. If the market has moved 20% since the resident signed two years ago, a 20% renewal increase reads as opportunistic, and residents who feel squeezed will shop around even when moving costs them more than staying. The owner then absorbs the turn, the vacancy, and the risk of an unknown replacement.
+
+Three numbers belong in the decision before the renewal offer goes out:
+
+- **The cost of the turn.** A Columbus turnover runs [$3,000 to $5,000 all in](/blog/rental-property-turnover-cost-columbus/) once vacancy loss, repairs, cleaning, and re-leasing are counted.
+- **The cost of the vacancy days.** At $2,000/month, every 30 days empty is $2,000, on top of the turn.
+- **The value of a known resident.** Someone who pays on time and takes care of the property is a known quantity. Every new placement carries screening risk, no matter how good the process is.
+
+Run those against the increase. A $50/month increase collects $600 over a 12-month lease. A resident who leaves over it costs several thousand. That math is why the right renewal number is usually below full market rent, and why a resident who counters is worth taking seriously rather than refusing on principle.
+
+The exception is a renewal that has drifted far below market after several years of no adjustment. Even then, staging the increase over two renewals, or pairing it with an improvement the resident actually wanted, holds the tenancy together better than one large correction.
+
 Pricing a rental property well is one of the highest-leverage decisions an owner makes at each turnover. It sets the vacancy window, the quality of applicant pool, and the income baseline for the next 12 months. In a market where renters have more choices than they did two years ago, getting that number right from the start, and having a clear plan for adjusting it if needed, is what separates a 25-day vacancy from a 90-day one.
 
 If the current Franklin County market data or a structured rent analysis would help inform that decision for a specific property, a [free rent evaluation](/free-rent-evaluation/) is a straightforward starting point.
@@ -171,6 +206,18 @@ On a $2,000/month rental, 60 vacant days represent approximately $4,000 in lost 
 **Is it better to price a rental lower and lease faster, or hold out for higher rent?**
 
 In most cases, pricing to lease within three to four weeks produces better annual income than holding out for a higher number that extends the vacancy window. The math depends on the specific price gap and projected vacancy duration, but on a $2,000/month unit, a 90-day vacancy versus a 25-day one represents a $4,458 income gap that a $150/month premium takes nearly 30 months to recover, assuming perfect occupancy throughout.
+
+**How much should you raise the rent at a lease renewal?**
+
+Enough to keep pace with the market without triggering a move-out, which almost always means a number between the current rent and full market rent. Weigh the increase against the cost of a turn, $3,000 to $5,000 in Columbus, plus the vacancy days that follow it. A large catch-up increase after a multi-year market run usually costs more than it collects.
+
+**What is fair market rent, and is it what I should charge?**
+
+Fair market rent is HUD’s annual estimate of the 40th percentile of gross rents for standard-quality units in a metro area or non-metro county, used to set payment standards for housing voucher programs. It is a benchmark, not a price for a specific property. Set the actual asking rent from current comparable listings and transactions in the specific neighborhood.
+
+**Does asking a higher rent attract better tenants?**
+
+No. Applicants with strong credit, verifiable income, and clean rental history compare listings closely and skip the ones priced above the comps. Applicants willing to pay well above market are more often the ones who have been declined elsewhere. Pricing at or slightly below market produces a larger and stronger applicant pool.
 
 **What are the most common causes of extended rental vacancies in Columbus?**
 

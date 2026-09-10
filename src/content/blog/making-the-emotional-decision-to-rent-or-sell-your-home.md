@@ -17,7 +17,7 @@ tags:
   - "property management"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2023/04/andrew-seaman-ey5zZOkYL0Q-unsplash-min-300x300.jpg)Choosing to sell your home or rent it out for income requires you to make a [financial calculation](/blog/how-to-predict-cash-flow-for-a-rental-property/), but more than that, it also requires you to make some emotional decisions. Before sitting down with a spreadsheet to run the numbers, first have a heart-to-heart with yourself and really think through these two things.
+![](https://rlpmg.com/wp-content/uploads/2023/04/andrew-seaman-ey5zZOkYL0Q-unsplash-min-300x300.jpg)Choosing to sell your home or rent it out for income requires you to make a [financial calculation](/blog/what-to-consider-when-calculating-cash-flow-for-a-rental-property/), but more than that, it also requires you to make some emotional decisions. Before sitting down with a spreadsheet to run the numbers, first have a heart-to-heart with yourself and really think through these two things.
 
 ## Can you detach emotionally from the house?
 

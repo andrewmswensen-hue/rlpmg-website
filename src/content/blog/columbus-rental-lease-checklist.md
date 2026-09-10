@@ -157,7 +157,7 @@ A few specific protections built into RLPM’s lease:
 
 - **Pet damage coverage up to $4,000 (starting 2026)** if an approved pet causes damage beyond normal wear and tear that exceeds the security deposit. Funded by a monthly pet administration fee paid by the resident, this coverage extends protection well past what a typical pet deposit can absorb.
 - **Quarterly inspection authorization** built into the lease, giving the property manager the documented right to conduct routine inspections of smoke detectors, appliances, resident responsibilities, and overall condition. Issues caught at month four don’t become emergencies at month fourteen.
-- **Maintenance approval thresholds tied to plan level** ($1,500 per item on Passive, $750 on Standard, $350 on Premium), giving owners control over discretionary spending while keeping habitability work moving without delay.
+- **Maintenance approval thresholds tied to plan level** ($1,500 per item on Plan One, $750 on Plan Two, $350 on Plan Three), giving owners control over discretionary spending while keeping habitability work moving without delay.
 - **Consistent application across every property** RLPM manages, which is itself a Fair Housing protection. The single largest screening and lease compliance risk for individual landlords is inconsistency: applying a clause to one tenant and not another. Standardized lease language and standardized application close that gap.
 
 Across all three RLPM plans, **the leasing fee is $0.** There’s no fee charged when a new lease is signed, which removes the perverse incentive to churn tenants and aligns the management company with long-term tenancies, which is what the lease itself is designed to support.

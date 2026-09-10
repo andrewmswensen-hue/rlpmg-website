@@ -26,7 +26,7 @@ tags:
 
 Newer real estate investors are always excited by depreciation, they feel it is tax-free money being given to them for an asset appreciating in value. But more seasoned investors know that every component of a property will break at some point, and it will need to get fixed.
 
-To prepare for those expenses, it’s helpful to have a general maintenance philosophy so you can [optimize processes.](/blog/how-optimizing-maintenance-boosts-noi/) Then you want to put that philosophy into action.
+To prepare for those expenses, it’s helpful to have a general maintenance philosophy so you can [optimize processes.](/blog/should-you-hire-a-property-management-company-to-increase-noi/) Then you want to put that philosophy into action.
 
 The first step in preparing for unexpected expenses is to list all the components of a property. Take an inventory and account for everything from the roof to the plumbing, electrical, and all the way down to the drywall.
 

@@ -19,7 +19,7 @@ tags:
   - "property management"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2024/04/Assessing-the-Value-of-Multi-Family-Properties-in-Columbus-300x200.jpg)Part of what makes investing in real estate so intriguing for newbie investors (and seasoned veterans alike) is its dynamic nature. Property values are not stagnant, and in the case of multi-family rental properties, owners have the power to exert direct control over [improving their property’s valuation.](/blog/how-to-improve-noi-for-sfr-and-multifamily-properties/)
+![](https://rlpmg.com/wp-content/uploads/2024/04/Assessing-the-Value-of-Multi-Family-Properties-in-Columbus-300x200.jpg)Part of what makes investing in real estate so intriguing for newbie investors (and seasoned veterans alike) is its dynamic nature. Property values are not stagnant, and in the case of multi-family rental properties, owners have the power to exert direct control over [improving their property’s valuation.](/blog/should-you-hire-a-property-management-company-to-increase-noi/)
 
 If you have plans to jump into the real estate market in Franklin County, Ohio, it’s incumbent upon you to understand the valuation process for multi-family properties. In contrast to single-family residences, the market value for rental properties is determined a little differently.
 
@@ -38,11 +38,11 @@ The formula for assessing value looks like this:
 
 **Current Market Value = NOI / Cap Rate**
 
-The expense calculation for NOI doesn’t include debt service or loan payments. Rather, it’s all related to [operational expenses](/blog/ways-to-reduce-operational-expenses-and-increase-noi/) because different owners use a variety of capital structures to finance their properties. Excluding loans and interest rates when determining a property’s value makes it easier to compare multiple properties.
+The expense calculation for NOI doesn’t include debt service or loan payments. Rather, it’s all related to [operational expenses](/blog/should-you-hire-a-property-management-company-to-increase-noi/) because different owners use a variety of capital structures to finance their properties. Excluding loans and interest rates when determining a property’s value makes it easier to compare multiple properties.
 
 ## Strategies to Improve NOI in a Multi-Family Property
 
-Because a multi-family property’s value hinges on its net operating income, it pays to do everything you can to [boost NOI.](/blog/5-smart-decisions-that-boost-noi/) This includes the following:
+Because a multi-family property’s value hinges on its net operating income, it pays to do everything you can to [boost NOI.](/blog/should-you-hire-a-property-management-company-to-increase-noi/) This includes the following:
 
 - Ensuring that rent rates are in line with the market
 - Standardizing whenever and wherever possible

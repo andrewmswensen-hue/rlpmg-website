@@ -17,7 +17,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2022/11/How-to-Find-a-Property-Management-Company-in-Columbus-300x200.jpg)Investing in rental properties is thrilling and dynamic. It also can be a lot of work, especially as your portfolio grows. To be successful with your investment, it can help (though it’s certainly not required) to have a dedicated team managing your properties.
 
-While many owners enjoy managing their properties themselves, if you don’t have the time, interest or resources to do it yourself, turning to an experienced and local property management team can help you further [improve your cash flow](/blog/finding-your-flow-calculating-cash-flow-for-your-investment-property/) and NOI. Here are some ways to sleuth out the best property management company to help you achieve your investment goals.
+While many owners enjoy managing their properties themselves, if you don’t have the time, interest or resources to do it yourself, turning to an experienced and local property management team can help you further [improve your cash flow](/blog/what-to-consider-when-calculating-cash-flow-for-a-rental-property/) and NOI. Here are some ways to sleuth out the best property management company to help you achieve your investment goals.
 
 ## Where to Find Property Management Companies in Franklin County
 

@@ -18,7 +18,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2023/08/Should-You-Rent-or-Sell-Your-Home-in-Columbus-300x200.jpg)Investing in real estate has always been a reliable way to generate wealth. As Andrew Carnegie is known to say, “Ninety percent of all millionaires become so through owning real estate.” Yet like any investment, there is risk and uncertainty.
 
-One can never know for sure what kind of return they will yield, so when thinking about moving on from your current home, you may ponder if you should hang on to it and rent it, or sell it for an immediate cash return. Not only is this a [financial calculation,](/blog/how-to-predict-cash-flow-for-a-rental-property/) but it’s also [an emotional one.](/blog/making-the-emotional-decision-to-rent-or-sell-your-home/)
+One can never know for sure what kind of return they will yield, so when thinking about moving on from your current home, you may ponder if you should hang on to it and rent it, or sell it for an immediate cash return. Not only is this a [financial calculation,](/blog/what-to-consider-when-calculating-cash-flow-for-a-rental-property/) but it’s also [an emotional one.](/blog/making-the-emotional-decision-to-rent-or-sell-your-home/)
 
 Below we’ll share a few considerations you should consider as you prepare to make your decision.
 

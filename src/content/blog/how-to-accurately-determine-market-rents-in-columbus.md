@@ -25,7 +25,7 @@ Setting market rents shouldn’t be tough and it shouldn’t feel like a puzzle.
 
 There’s a lot at stake when it comes to setting your rental rates. After all, what you charge for rent has a big influence on the type of tenants you will attract as well as the NOI you generate from your investment. What’s more, you can’t change rent rates once a tenant signs a lease.
 
-Because net operating income is a calculation of income minus expenses, the more you can increase your revenue by setting competitive rent rates, the better for your bottom line (for more about improving your property’s NOI, [read this article.](/blog/how-to-improve-your-propertys-noi/)
+Because net operating income is a calculation of income minus expenses, the more you can increase your revenue by setting competitive rent rates, the better for your bottom line (for more about improving your property’s NOI, [read this article.](/blog/should-you-hire-a-property-management-company-to-increase-noi/)
 
 Below we break down what you need to know as you determine the right rent rate for your Columbus investment property.
 
