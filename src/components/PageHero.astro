@@ -1,10 +1,17 @@
 ---
+import Photo from './Photo.astro';
 /**
  * Standard page opening: breadcrumb, eyebrow, H1, the direct answer, and CTAs.
  *
  * `answer` is the most important prop on the site. It must stand alone if an
  * answer engine quotes only that sentence, so it names the thing, the place and
  * a number, and it stays under 40 words.
+ *
+ * Pass `image` to put a photo beside the text. It is optional on purpose: an
+ * image earns its place by showing the reader something the words cannot, and
+ * most pages here are better without one. When given, the hero becomes a two
+ * column grid on desktop and stacks on mobile, and the photo loads eagerly
+ * because it is above the fold.
  */
 interface Props {
   eyebrow?: string;
@@ -14,16 +21,20 @@ interface Props {
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
   wide?: boolean;
+  image?: { src: string; alt: string; widths: number[]; ratio: number };
 }
 const {
   eyebrow, title, answer, breadcrumbs = [],
   primaryCta = { label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' },
   secondaryCta,
   wide = false,
+  image,
 } = Astro.props;
 ---
 <section class="pt-14 pb-10">
-  <div class={`wrap ${wide ? 'max-w-[1000px]' : 'max-w-[880px]'}`}>
+  <div class={image ? 'wrap grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,42%)] lg:items-center'
+                    : `wrap ${wide ? 'max-w-[1000px]' : 'max-w-[880px]'}`}>
+  <div>
     {breadcrumbs.length > 0 && (
       <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
         {breadcrumbs.map((b, i) => (
@@ -43,5 +54,14 @@ const {
       <a href={primaryCta.href} class="btn btn-primary">{primaryCta.label}</a>
       {secondaryCta && <a href={secondaryCta.href} class="btn btn-ghost">{secondaryCta.label}</a>}
     </div>
+  </div>
+    {image && (
+      <div class="rounded-[18px] overflow-hidden border border-line aspect-[4/3] lg:aspect-[5/4]"
+           style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 14px 36px rgb(18 49 67 / .10)">
+        <Photo src={image.src} alt={image.alt} widths={image.widths} ratio={image.ratio} eager
+               sizes="(max-width: 1024px) 92vw, 42vw"
+               imgClass="w-full h-full object-cover" />
+      </div>
+    )}
   </div>
 </section>

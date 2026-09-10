@@ -64,7 +64,11 @@ export function organizationNode() {
     },
     employee: { '@id': `${SITE}/team/#peter-lohmann` },
     founder: { '@id': `${SITE}/team/#peter-lohmann` },
-    logo: { '@type': 'ImageObject', '@id': `${SITE}/#logo`, url: abs('/images/logo.png') },
+    logo: {
+      '@type': 'ImageObject', '@id': `${SITE}/#logo`,
+      url: abs('/images/brand/logo-wide-dark.png'), width: 512, height: 93,
+      caption: `${company.name} logo`,
+    },
     image: { '@id': `${SITE}/#logo` },
     sameAs: Object.values(company.social),
     hasOfferCatalog: {

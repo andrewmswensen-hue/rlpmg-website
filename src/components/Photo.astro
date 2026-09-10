@@ -1,0 +1,51 @@
+---
+/**
+ * A responsive photo.
+ *
+ * Every image on this site goes through here so the rules are applied once
+ * rather than remembered twenty times:
+ *
+ *  - webp only, generated at three widths by scripts/build-images.mjs
+ *  - a real srcset plus sizes, so a phone never downloads the 2000px file
+ *  - width and height always present, so nothing shifts as the image arrives
+ *    (layout shift is the cheapest Core Web Vitals point to lose)
+ *  - lazy and async by default; pass `eager` for an above-the-fold hero, which
+ *    also sets fetchpriority so it does not queue behind the fonts
+ *  - alt is required by the type. A decorative image passes alt="" explicitly.
+ *
+ * The intrinsic ratio is passed rather than read from disk, because Astro
+ * builds this at request time and reading image headers per render is slow.
+ */
+interface Props {
+  src: string;              // slug under /images/photos, no width or extension
+  alt: string;
+  widths: number[];         // the renditions that exist on disk
+  ratio: number;            // intrinsic width / height
+  sizes?: string;
+  eager?: boolean;
+  class?: string;
+  imgClass?: string;
+}
+const {
+  src, alt, widths, ratio,
+  sizes = '(max-width: 760px) 100vw, 50vw',
+  eager = false, class: cls = '', imgClass = '',
+} = Astro.props;
+
+const base = `/images/photos/${src}`;
+const fallback = widths[Math.min(1, widths.length - 1)];
+const w = widths[widths.length - 1];
+const h = Math.round(w / ratio);
+---
+<img
+  src={`${base}-${fallback}.webp`}
+  srcset={widths.map((n) => `${base}-${n}.webp ${n}w`).join(', ')}
+  {sizes}
+  {alt}
+  width={w}
+  height={h}
+  loading={eager ? 'eager' : 'lazy'}
+  decoding={eager ? 'sync' : 'async'}
+  fetchpriority={eager ? 'high' : undefined}
+  class={`${cls} ${imgClass}`.trim()}
+/>
