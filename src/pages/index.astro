@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
+import Stars from '../components/Stars.astro';
 import Faq from '../components/Faq.astro';
 import { company, pricing, kpis, areas, areaUrl, usd } from '../data/facts';
 import { partitionAreas } from '../lib/areas';
@@ -10,10 +11,11 @@ import { serviceNode } from '../lib/schema';
 const title = 'Columbus, Ohio Property Management | RL Property Management';
 const description =
   `Columbus property management with published pricing and no leasing fee. ${company.unitsManaged} units under ` +
-  `management, a ${usd(pricing.leasingFee)} leasing fee, and a performance scorecard we update quarterly.`;
+  `management, a ${usd(pricing.leasingFee)} leasing fee, and a performance scorecard we update monthly.`;
 
 const { linked: linkedAreas, unlinked: namedAreas } = partitionAreas(areas, areaUrl);
 
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)!.value;
 const heroStats = kpis.metrics.filter((m) => ['dom', 'collectedBy5', 'renewal', 'repairDays'].includes(m.id));
 
 const services = [
@@ -23,6 +25,23 @@ const services = [
   { h: 'Rent collection', p: 'Online payment, automated late notices, and owner direct deposit. 96% of rent lands by the 5th.', href: '/services/rent-collection/', cta: 'How we collect' },
   { h: 'Owner reporting', p: 'Monthly statements, year-end reporting, and a real-time owner portal so you are never guessing.', href: '/services/owner-reporting/', cta: 'See a sample' },
   { h: 'Compliance and evictions', p: 'A custom lease reviewed by counsel, Ohio landlord-tenant compliance, and eviction handling when it is needed.', href: '/services/evictions/', cta: 'The process' },
+];
+
+/**
+ * The plan. Andrew asked for this after seeing a competitor's version, and it
+ * earns its place: the most common reason an owner stalls is not price, it is
+ * not knowing what happens after they call. Four steps, no jargon, and the
+ * third one names the decision point rather than glossing over it.
+ */
+const howItWorks = [
+  { h: 'Free consultation',
+    p: 'Tell us about the property, what you want out of it, and how involved you want to be. No charge and no obligation.' },
+  { h: 'Rent evaluation',
+    p: 'We price it against our own Columbus portfolio, not a public index, and tell you what it should rent for and what it needs first.' },
+  { h: 'Pick a plan',
+    p: `Three plans, ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month. You see the whole cost, including what we do not charge for, before you sign.` },
+  { h: 'We take it from here',
+    p: 'Marketing, showings, screening, the lease, rent collection and maintenance. You get monthly statements and a portal that is always current.' },
 ];
 
 const tools = [
@@ -48,7 +67,7 @@ const faq = [
   { q: 'What areas does RL Property Management serve?',
     a: `RL Property Management serves ${areas.length} communities across the Columbus, Ohio metro, including Columbus, Dublin, Upper Arlington, Westerville, Worthington, Gahanna, Hilliard, Powell, New Albany, Bexley, Grove City, Reynoldsburg and Pickerington.` },
   { q: 'How quickly does RL Property Management fill a vacancy?',
-    a: `Median days on market across the portfolio is 11 days, and median time to turn a unit is 12 days, as of ${kpis.asOfLabel}.` },
+    a: `Median days on market across the portfolio is ${kpi('dom')} days, and median time to turn a unit is ${kpi('turn')} days, as of ${kpis.asOfLabel}.` },
   { q: 'How does RL Property Management bill repairs?',
     a: `In-house work is billed at ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, plus materials. Third-party vendor work is billed at vendor cost plus a ${pricing.maintenance.vendorProjectFeePct}% project management fee on vendor costs up to ${usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)}, capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project.` },
   { q: 'What insurance does RL Property Management require?',
@@ -68,22 +87,46 @@ const schemaNodes = [serviceNode({
       <div>
         <span class="eyebrow">Columbus, Ohio &nbsp;·&nbsp; Licensed brokerage since {company.founded}</span>
         <h1 class="text-[clamp(38px,5vw,60px)] leading-[1.06] tracking-[-.022em]">
-          Rental property management, run like a business.
+          Columbus property management, run like a business.
         </h1>
         <p class="text-[20px] text-muted mt-5 mb-2.5 max-w-[32em]">
           We manage {company.unitsManaged} single-family and small multifamily rentals across the
-          Columbus metro. Flat pricing from {usd(pricing.plans[0].monthly)} a unit, and no leasing fee.
+          Columbus metro. Flat pricing from {usd(pricing.plans[0].monthly)} per unit, and no leasing fee.
         </p>
         <p class="text-[15.5px] text-faint mb-7">
           {company.brokerOfRecord.name}, {company.brokerOfRecord.title}.
         </p>
-        <div class="flex flex-wrap gap-3 mb-7">
-          <a href="/free-rent-evaluation/" class="btn btn-primary">Get a free rent evaluation</a>
+        <div class="flex flex-wrap gap-3 mb-4">
+          <a href="/property-management-consultation/" class="btn btn-primary">Schedule a free consultation</a>
           <a href="/pricing/" class="btn btn-ghost">See our pricing</a>
         </div>
-        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-[14.5px] text-muted">
+        <p class="text-[15px] mb-7">
+          <a href="/homes-for-rent/" class="text-crimson font-semibold no-underline hover:underline">
+            Looking to rent? See available homes &rarr;
+          </a>
+        </p>
+
+        <!--
+          Address, phone and hours in the hero. An owner deciding whether to
+          call wants to know you are a real office in their city before they
+          scroll, and it is the strongest local signal on the page.
+        -->
+        <div class="border-t border-line pt-5 grid gap-2 text-[14.5px] text-muted sm:grid-cols-2">
+          <p class="m-0">
+            <span class="font-semibold text-navy">Office</span><br />
+            {company.address.street}<br />
+            {company.address.city}, {company.address.region} {company.address.postalCode}
+          </p>
+          <p class="m-0">
+            <span class="font-semibold text-navy">Call us</span><br />
+            <a href={`tel:${company.phoneE164}`} class="text-crimson font-semibold no-underline hover:underline">{company.phone}</a><br />
+            {company.officeHoursNote}
+          </p>
+        </div>
+
+        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-[14.5px] text-muted mt-6">
           <li class="flex items-center gap-2"><span class="text-crimson font-extrabold" aria-hidden="true">✓</span> {company.unitsManaged} units managed</li>
-          <li class="flex items-center gap-2"><span class="text-crimson font-extrabold" aria-hidden="true">✓</span> 11-day median vacancy</li>
+          <li class="flex items-center gap-2"><span class="text-crimson font-extrabold" aria-hidden="true">✓</span> {kpi('dom')}-day median time to lease</li>
           <li class="flex items-center gap-2"><span class="text-crimson font-extrabold" aria-hidden="true">✓</span> {usd(pricing.leasingFee)} leasing fee</li>
         </ul>
       </div>
@@ -91,40 +134,25 @@ const schemaNodes = [serviceNode({
       <div class="relative grid place-items-center">
         <div class="w-full max-w-[400px] aspect-square rounded-full border-[3px] border-crimson overflow-hidden"
              style="box-shadow:0 14px 36px rgb(18 49 67 / .12)">
-          <Photo src="suburban-street-homes" widths={[700, 1100, 1600]} ratio={3 / 2} eager
+          <Photo src="hero-home-square" widths={[520, 800, 1100]} ratio={1} eager
                  sizes="(max-width: 900px) 88vw, 400px"
-                 alt="A row of brick and siding single-family homes with front porches on a suburban Columbus street"
+                 alt="A red brick single-family rental home with a covered front porch, on a suburban Columbus street lined with similar houses"
                  imgClass="w-full h-full object-cover" />
         </div>
         <div class="absolute bottom-4 right-[6%] bg-white border border-line rounded-full px-4.5 py-2.5 flex items-center gap-2"
              style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
-          <span class="text-crimson text-[17px] font-extrabold">{company.reviews.rating}</span>
-          <span class="text-[13px] font-bold text-navy">from {company.reviews.display} Google reviews</span>
+          <Stars rating={company.reviews.rating} />
+          <span class="text-[13px] font-bold text-navy">
+            {company.reviews.rating} out of 5
+            <span class="font-normal text-muted">&middot; {company.reviews.display} Google reviews</span>
+          </span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SCORECARD STRIP -->
-  <section class="band-tight band-wash" aria-labelledby="kpi-h">
-    <div class="wrap">
-      <h2 id="kpi-h" class="sr-only">Performance scorecard</h2>
-      <div class="grid gap-5 grid-cols-2 lg:grid-cols-4">
-        {heroStats.map((m) => (
-          <div class="card text-center !py-6">
-            <div class="font-sans text-[clamp(30px,3.2vw,40px)] font-extrabold text-crimson tracking-[-.035em] leading-none">{m.value}</div>
-            <div class="text-[13.5px] text-muted mt-2">{m.label}</div>
-          </div>
-        ))}
-      </div>
-      <p class="text-center text-[13px] text-faint mt-5">
-        As of {kpis.asOfLabel}. <a href="/key-performance-indicators/" class="text-crimson font-semibold no-underline hover:underline">See the full scorecard</a>
-      </p>
-    </div>
-  </section>
-
   <!-- SERVICES -->
-  <section class="band">
+  <section class="band band-wash">
     <div class="wrap">
       <div class="max-w-[660px] mx-auto text-center mb-11">
         <span class="eyebrow">What we do</span>
@@ -145,14 +173,52 @@ const schemaNodes = [serviceNode({
     </div>
   </section>
 
+  <!-- HOW IT WORKS -->
+  <section class="band" aria-labelledby="how-h">
+    <div class="wrap">
+      <div class="max-w-[660px] mb-12">
+        <span class="eyebrow">How it works</span>
+        <h2 id="how-h" class="text-[clamp(28px,3.3vw,40px)]">From first call to placed resident</h2>
+        <p class="mt-3.5 text-[17.5px] text-muted">
+          Four steps, and you know the rent number and the full cost before you commit to anything.
+        </p>
+      </div>
+
+      <ol class="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 relative">
+        <!--
+          The connector is a single line behind the numbered markers, drawn only
+          on the wide layout where the steps sit in a row. It is decorative, so
+          it is hidden from assistive technology and the list still reads as an
+          ordered list of four steps.
+        -->
+        <div class="hidden lg:block absolute left-[12.5%] right-[12.5%] top-[26px] h-px bg-line" aria-hidden="true"></div>
+        {howItWorks.map((step, i) => (
+          <li class="relative text-center">
+            <div class="w-[52px] h-[52px] mx-auto rounded-full border-2 border-crimson bg-white
+                        grid place-items-center font-serif text-[20px] font-semibold text-navy relative z-10">
+              {i + 1}
+            </div>
+            <h3 class="text-[20px] mt-5 mb-2.5">{step.h}</h3>
+            <p class="text-[15px] text-muted m-0 mx-auto max-w-[26em]">{step.p}</p>
+          </li>
+        ))}
+      </ol>
+
+      <div class="text-center mt-12">
+        <a href="/property-management-consultation/" class="btn btn-primary">Schedule a free consultation</a>
+      </div>
+    </div>
+  </section>
+
   <!-- PRICING -->
   <section class="band band-wash" aria-labelledby="pricing-h">
     <div class="wrap">
       <div class="max-w-[660px] mx-auto text-center mb-11">
         <span class="eyebrow">Clear pricing</span>
-        <h2 id="pricing-h" class="text-[clamp(28px,3.3vw,40px)]">A flat fee, not a slice of your rent</h2>
+        <h2 id="pricing-h" class="text-[clamp(28px,3.3vw,40px)]">A flat rate, not a slice of your rent</h2>
         <p class="mt-3.5 text-[17.5px] text-muted">
-          Published on the website, the same for everyone, with no leasing fee on any plan.
+          Published on the website, the same for everyone. A percentage manager earns more every time
+          your rent goes up. We do not, so raising your rent is purely your gain.
         </p>
       </div>
       <div class="grid gap-6 lg:grid-cols-3">
@@ -172,10 +238,17 @@ const schemaNodes = [serviceNode({
           </div>
         ))}
       </div>
-      <p class="text-center mt-7 text-[15px] text-muted">
-        No startup fee on occupied units. Volume pricing for portfolios.
-        <a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline"> See the full fee schedule →</a>
-      </p>
+      <div class="max-w-[760px] mx-auto text-center mt-10">
+        <p class="text-[17px] text-navy font-medium">
+          Most Columbus managers charge half a month of rent every time they place a resident. On a
+          {' '}{kpis.metrics.find((m) => m.id === 'avgRent')!.value} unit that is roughly $825 gone with each
+          turnover. We charge {usd(pricing.leasingFee)}, on every plan, every time.
+        </p>
+        <p class="text-[15px] text-muted mt-3">
+          No startup cost on occupied units, and portfolio owners are quoted at a discount.
+          <a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline"> See exactly what management costs &rarr;</a>
+        </p>
+      </div>
     </div>
   </section>
 
@@ -184,17 +257,27 @@ const schemaNodes = [serviceNode({
     <div class="wrap grid gap-13 lg:grid-cols-2 lg:items-center">
       <div>
         <span class="eyebrow">Our scorecard</span>
-        <h2 class="text-[clamp(28px,3.3vw,40px)]">We publish our numbers, quarterly.</h2>
+        <h2 class="text-[clamp(28px,3.3vw,40px)]">We publish our numbers, monthly.</h2>
         <p class="text-[17.5px] text-muted mt-4 mb-6">
           Most managers will tell you they are responsive and thorough. We would rather show you the
           median number of days a repair stays open, and update it whether the number flatters us or not.
         </p>
         <a href="/key-performance-indicators/" class="btn btn-navy">See the full scorecard</a>
+
+        <div class="grid grid-cols-2 gap-4 mt-9">
+          {heroStats.map((m) => (
+            <div class="border-l-2 border-crimson pl-4">
+              <div class="font-sans text-[30px] font-extrabold text-navy tracking-[-.035em] leading-none">{m.value}</div>
+              <div class="text-[13.5px] text-muted mt-1.5">{m.label}</div>
+            </div>
+          ))}
+        </div>
+        <p class="text-[13px] text-faint mt-5 mb-0">As of {kpis.asOfLabel}.</p>
       </div>
       <div class="rounded-[18px] overflow-hidden aspect-[4/3] border border-line">
-        <Photo src="technician-appliance" widths={[640, 1000, 1400]} ratio={3 / 2}
+        <Photo src="new-townhomes" widths={[640, 1000, 1400]} ratio={3 / 2}
                sizes="(max-width: 900px) 92vw, 46vw"
-               alt="A maintenance technician kneeling to repair a dishwasher, with an open tool case on the kitchen floor"
+               alt="A row of newly built townhomes with garages on a quiet residential street"
                imgClass="w-full h-full object-cover" />
       </div>
     </div>

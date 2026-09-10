@@ -1,0 +1,39 @@
+---
+/**
+ * Google-style star rating.
+ *
+ * Google renders a 4.3 as four and a half stars, rounding to the nearest half,
+ * and shows the exact figure in text beside it. Doing the same here means the
+ * badge matches what someone sees on the Google listing itself.
+ *
+ * The stars are decorative because the rating is already stated in text right
+ * next to them; announcing both would just read the same thing twice.
+ */
+interface Props { rating: number; size?: number }
+const { rating, size = 15 } = Astro.props;
+const rounded = Math.round(rating * 2) / 2;
+const full = Math.floor(rounded);
+const half = rounded % 1 !== 0;
+const D = 'M8 1.4l2 4.1 4.5.7-3.3 3.2.8 4.5L8 11.8 4 13.9l.8-4.5L1.5 6.2 6 5.5z';
+---
+<span class="inline-flex items-center gap-[2px] shrink-0" aria-hidden="true">
+  {Array.from({ length: 5 }).map((_, i) => (
+    <svg width={size} height={size} viewBox="0 0 16 16">
+      {i < full ? (
+        <path d={D} fill="#f5a623" />
+      ) : i === full && half ? (
+        <>
+          <defs>
+            <linearGradient id={`half-${i}-${size}`}>
+              <stop offset="50%" stop-color="#f5a623" />
+              <stop offset="50%" stop-color="#dde5eb" />
+            </linearGradient>
+          </defs>
+          <path d={D} fill={`url(#half-${i}-${size})`} />
+        </>
+      ) : (
+        <path d={D} fill="#dde5eb" />
+      )}
+    </svg>
+  ))}
+</span>
