@@ -1,0 +1,103 @@
+---
+import Base from '../../../../layouts/Base.astro';
+import PostCard from '../../../../components/PostCard.astro';
+import Cta from '../../../../components/Cta.astro';
+import { categoryIndex, metaDescription, pageTitle } from '../../../../lib/blog';
+import { company } from '../../../../data/facts';
+
+/**
+ * Category archives, paginated.
+ *
+ * These were single pages listing every post in the category. Owner Education
+ * has 325 of them, which produced a 454KB page: slow, and unreadable. Astro's
+ * paginate puts page one at the existing /blog/category/<slug>/ URL, so nothing
+ * loses its search equity, and pages beyond the first are noindexed so they do
+ * not compete with the category itself.
+ */
+export async function getStaticPaths({ paginate }) {
+  const cats = await categoryIndex();
+  const all = [...cats.entries()];
+  return all.flatMap(([slug, c]) =>
+    paginate(c.posts, {
+      params: { category: slug },
+      props: { name: c.name, slug, all },
+      pageSize: 24,
+    }),
+  );
+}
+
+const { page } = Astro.props;
+const { name, slug, all } = Astro.props;
+const others = all
+  .filter(([s]) => s !== slug)
+  .sort((a, b) => b[1].posts.length - a[1].posts.length)
+  .slice(0, 10);
+
+const isFirst = page.currentPage === 1;
+const title = isFirst
+  ? pageTitle(`${name} in Columbus`, company.name)
+  : `${name}, page ${page.currentPage} | ${company.name}`;
+const description = metaDescription(
+  `${page.total} ${page.total === 1 ? 'article' : 'articles'} on ${name.toLowerCase()} for rental property ` +
+  `owners in Columbus, Ohio, from a licensed Ohio brokerage.`,
+);
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Insights', path: '/blog/' },
+  { name, path: `/blog/category/${slug}/` },
+];
+---
+<Base {title} {description} {breadcrumbs} noindex={!isFirst}>
+  <section class="pt-14 pb-8">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+        <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span>
+        <a href="/blog/" class="no-underline hover:text-crimson">Insights</a> <span aria-hidden="true">/</span>
+        <span aria-current="page">{name}</span>
+      </nav>
+      <span class="eyebrow">Insights</span>
+      <h1 class="text-[clamp(30px,3.8vw,44px)] tracking-[-.02em]">{name}</h1>
+      <p class="text-[19px] text-muted mt-4 max-w-[40em]">
+        {page.total} {page.total === 1 ? 'article' : 'articles'} on {name.toLowerCase()}, written by the team
+        that manages {company.unitsManaged} rental units across the Columbus metro.
+        {page.lastPage > 1 && ` Page ${page.currentPage} of ${page.lastPage}.`}
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-14">
+    <div class="wrap">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {page.data.map((p) => <PostCard post={p} />)}
+      </div>
+
+      {page.lastPage > 1 && (
+        <nav class="flex flex-wrap items-center justify-between gap-4 mt-11 pt-7 border-t border-line" aria-label="Pagination">
+          {page.url.prev ? <a href={page.url.prev} class="btn btn-ghost">← Newer</a> : <span></span>}
+          <span class="font-sans text-[14px] text-faint">Page {page.currentPage} of {page.lastPage}</span>
+          {page.url.next ? <a href={page.url.next} class="btn btn-ghost">Older →</a> : <span></span>}
+        </nav>
+      )}
+    </div>
+  </section>
+
+  <section class="band-tight band-wash">
+    <div class="wrap">
+      <h2 class="text-[21px] mb-4">Other topics</h2>
+      <ul class="flex flex-wrap gap-2.5">
+        {others.map(([s, c]) => (
+          <li>
+            <a href={`/blog/category/${s}/`}
+               class="inline-flex items-baseline gap-2 bg-white border border-line rounded-full px-4 py-2 no-underline
+                      text-[14.5px] font-medium text-navy hover:border-crimson hover:text-crimson">
+              {c.name}<span class="text-[12px] text-faint">{c.posts.length}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <Cta heading="Wondering what your Columbus rental should earn?"
+       body="A free, data-backed rent evaluation using our own portfolio numbers and current market comps." />
+</Base>

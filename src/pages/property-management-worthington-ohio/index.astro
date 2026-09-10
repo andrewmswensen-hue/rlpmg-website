@@ -1,0 +1,418 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { rentByMarketAndBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Worthington, Ohio. Target query: "property management worthington ohio".
+ *
+ * The differentiating fact for Worthington is design review. Properties inside
+ * the city's Architectural Review District need a Certificate of Appropriateness
+ * from the Architectural Review Board before exterior changes, which puts part of
+ * a turn on a board calendar rather than a contractor calendar. Combine that with
+ * a median year built of 1963 and you get a market where exterior work is both
+ * more likely and slower to approve than anywhere else we manage.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - Worthington Architectural Review Board: seven members, hears requests for
+ *    approval of exterior changes to buildings and property in the Architectural
+ *    Review District, generally meets the second and fourth Thursday of each
+ *    month at the Louis J.R. Goorey Worthington Municipal Building, 6550 N. High
+ *    St., applies the Worthington Design Guidelines, appeals go to City Council,
+ *    planning contact planning@worthington.org: worthington.org/162
+ *    /Architectural-Review-Board. An Architectural Review District Map is
+ *    published on the city website.
+ *  - Chapter 1177 of the Worthington Codified Ordinances governs the
+ *    Architectural District, including standards of review and the Certificate of
+ *    Appropriateness: codelibrary.amlegal.com/codes/worthington/latest
+ *    /worthington_oh/0-0-0-24369. The host refuses automated fetching, so the
+ *    chapter's exemptions and its exact list of triggering work are NOT verified
+ *    and are marked SOURCE NEEDED rather than guessed.
+ *  - Water supplied by the City of Columbus, which maintains the main water lines
+ *    in Worthington: worthington.org/319/Water. Sewer under contract with
+ *    Columbus, Worthington Codified Ordinances Chapter 929: worthington.org/317
+ *    /Sewer. Worthington appears on the Columbus Water & Sewer Contract
+ *    Communities list: columbus.gov.
+ *  - Court jurisdiction follows the county under R.C. 1901.02. Worthington is
+ *    entirely in Franklin County, so Franklin County Municipal Court, eviction
+ *    division, 375 S. High St., 3rd floor, Columbus, OH 43215.
+ *  - Owner filing with the county auditor: R.C. 5323.02, penalty R.C. 5323.99.
+ *  - Median year structure built 1963: US Census, ACS 2024 5-year estimates.
+ *  - Federal lead disclosure for pre-1978 target housing: 24 CFR Part 35 subpart
+ *    A and 40 CFR Part 745 subpart F.
+ *
+ * Rent figures are our own portfolio medians and qualify for Worthington at 3
+ * bedrooms only (sample of 5). No 2 bedroom or 4 bedroom figure is published,
+ * because the sample does not support one. No door counts, no per-market DOM.
+ */
+
+const CITY = 'Worthington';
+const PATH = '/property-management-worthington-ohio/';
+const MEDIAN_YEAR_BUILT = 1963;
+
+const title = 'Property Management in Worthington, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Worthington, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Properties in the Architectural Review District need board approval before exterior work.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Worthington', path: PATH },
+];
+
+const rent = rentByMarketAndBedroom[CITY];
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Worthington unit turns`,
+  'Exterior work inside the Architectural Review District needs board approval first',
+  'Worthington is entirely in Franklin County, so evictions are heard at 375 S. High St.',
+  `Median rent across the units we manage in Worthington: ${usd(rent['3'].median)} for a 3 bedroom`,
+  `Median Worthington home was built in ${MEDIAN_YEAR_BUILT} (US Census, ACS 2024 5-year estimates)`,
+];
+
+const faq = [
+  { q: 'What is the Worthington Architectural Review District, and is my rental in it?',
+    a: 'The Architectural Review District is the part of Worthington where exterior changes to a building or its property need approval from the city Architectural Review Board before the work happens. It is centred on the older core around High Street and the Village Green, and the City of Worthington publishes an Architectural Review District Map showing the exact boundary. Most Worthington houses sit outside it. If yours sits inside it, that changes how you plan any exterior turn work.' },
+  { q: 'What does the Worthington Architectural Review Board actually review?',
+    a: 'Exterior changes to buildings and property inside the district. The board has seven members, generally meets on the second and fourth Thursday of each month at the Worthington Municipal Building, 6550 N. High St., and applies the published Worthington Design Guidelines. Approval takes the form of a Certificate of Appropriateness under Chapter 1177 of the Worthington Codified Ordinances. An appeal from a board decision goes to City Council.' },
+  { q: 'How does design review change a turn on a Worthington rental?',
+    a: 'It puts part of your schedule on a board calendar instead of a contractor calendar. A board that meets twice a month means an exterior item raised at the wrong point in the month waits for the next meeting, and the work waits with it. So on a district property we separate the interior scope, which we can start immediately, from anything touching the exterior, which gets submitted first and scheduled around the meeting date. Owners who find this out mid-turn lose weeks of rent to it.' },
+  { q: 'Which court hears an eviction in Worthington, Ohio?',
+    a: 'Franklin County Municipal Court, at 375 S. High St., 3rd floor, Columbus, OH 43215. Worthington sits entirely inside Franklin County, so unlike Dublin or Westerville there is no county line question here and every Worthington address files in the same place. Jurisdiction follows the county under Ohio Revised Code 1901.02.' },
+  { q: 'Do I have to register my Worthington rental property with anyone?',
+    a: 'Yes, with the Franklin County Auditor, not with the city. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number and the parcel number with the county auditor, and to update it within 60 days of any change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99, which the Franklin County Auditor states as $150 per tax year. A manager can file as the owner designated agent, and we do.' },
+  { q: 'Who provides water and sewer in Worthington?',
+    a: 'The City of Columbus supplies water to Worthington and maintains the main water lines in the city, and sanitary sewer runs under a contract with Columbus set out in Chapter 929 of the Worthington Codified Ordinances. Electricity is distributed by AEP Ohio and natural gas by Columbia Gas of Ohio. On our standard lease the resident holds every utility account in their own name, and we check the water account at move-out because in Ohio unpaid water and sewer can follow the property rather than the person.' },
+  { q: 'What does a rental in Worthington, Ohio rent for?',
+    a: `Across the units we manage in Worthington, the median rent is ${usd(rent['3'].median)} for a 3 bedroom. That is our own portfolio median, not a market survey. We do not publish a 2 bedroom or 4 bedroom figure for Worthington, because we do not manage enough of either here for a median to mean anything, and a number built on two units is not a number.` },
+  { q: 'How much does property management cost in Worthington?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Because the fee is a fixed dollar amount, a Worthington house renting at ${usd(rent['3'].median)} costs the same to manage as one renting at ${usd(1200)}. A manager charging 10% of collected rent would take about ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year on that same house.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Worthington, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Worthington, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Worthington, Ohio"
+    answer={`${company.name} manages single-family and small multifamily rentals in Worthington for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee. Exterior work inside the Architectural Review District needs board approval first.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Worthington, at a glance" />
+
+  <!-- DESIGN REVIEW. The single most useful thing on this page. -->
+  <section class="band-tight" aria-labelledby="arb-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="arb-h" class="text-[clamp(26px,3.2vw,38px)]">Does Worthington restrict exterior work on a rental property?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Inside the Architectural Review District, yes. Worthington runs a seven-member Architectural Review Board
+        that hears requests for approval of exterior changes to buildings and property within that district, and
+        approval takes the form of a Certificate of Appropriateness under Chapter 1177 of the Worthington
+        Codified Ordinances. The board applies the published Worthington Design Guidelines. An appeal from a board
+        decision goes to City Council, not to a court.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Most Worthington houses are outside the district. The district covers the older core, and the city
+        publishes an Architectural Review District Map that settles the question for a specific parcel. That map
+        is the first thing to check before you buy a Worthington rental, and the first thing we check before we
+        scope a turn on one.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Worthington Architectural Review Board, the facts an owner needs</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Question</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Answer</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Who decides</th>
+              <td class="p-3.5 border border-line align-top text-muted">The Architectural Review Board, seven members, City of Worthington</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">What is reviewed</th>
+              <td class="p-3.5 border border-line align-top text-muted">Exterior changes to buildings and property inside the Architectural Review District</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">The approval</th>
+              <td class="p-3.5 border border-line align-top text-muted">A Certificate of Appropriateness, under Chapter 1177 of the Codified Ordinances</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">The standard applied</th>
+              <td class="p-3.5 border border-line align-top text-muted">The published Worthington Design Guidelines</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">When it meets</th>
+              <td class="p-3.5 border border-line align-top text-muted">Generally the second and fourth Thursday of each month, Worthington Municipal Building, 6550 N. High St.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">If you are refused</th>
+              <td class="p-3.5 border border-line align-top text-muted">Appeal to Worthington City Council</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="text-[21px] mt-9 mb-3">What that does to a turn, in weeks</h3>
+      <p class="text-[16.5px] text-muted">
+        A board that meets twice a month is a schedule you do not control. On an ordinary rental, a contractor
+        quotes exterior work and starts it. On a district property, the same work waits for a submission, a
+        meeting date and a decision, and a request that misses one meeting waits for the next. Every week of that
+        is a week the unit is not earning. This is the single most common way a Worthington turn runs long, and
+        it is entirely avoidable.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        So on a district property we do the sequencing differently. Interior scope, which nobody has to approve,
+        starts immediately and runs on its own track. Anything touching the exterior gets identified at the
+        inspection, before the previous resident is even out, and submitted against the next meeting date rather
+        than the next available contractor. And where a repair can be done in kind, matching what is already
+        there, we quote it that way first, because matching materials is what the guidelines steer toward anyway.
+      </p>
+      <p class="text-[16px] text-muted mt-6">
+        [SOURCE NEEDED: confirm from Worthington Codified Ordinances Chapter 1177 the exact categories of work
+        that require a Certificate of Appropriateness, whether ordinary maintenance and repair in kind is
+        exempt, whether paint colour and fencing are covered, and whether an application fee applies.]
+      </p>
+      <p class="text-[16px] text-muted mt-4">
+        [SOURCE NEEDED: confirm whether Worthington operates any administrative or staff-level approval path for
+        minor exterior work that avoids a full board hearing, and the typical time from application to decision.]
+      </p>
+    </div>
+  </section>
+
+  <!-- COURT -->
+  <section class="band band-wash" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">If it goes wrong</span>
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Worthington, Ohio?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Franklin County Municipal Court, at 375 S. High St., 3rd floor, Columbus, OH 43215. Worthington sits
+        entirely inside Franklin County, so every Worthington address answers to the same court. That is worth
+        saying plainly, because two of the markets next door do not work that way: Dublin spans three counties and
+        Westerville spans two, and in both of those the correct court depends on the parcel.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Before any court sees the case, Ohio requires a three-day notice to leave the premises under R.C. 1923.04,
+        carrying specific statutory language, served by certified mail, handed to the resident, or left at the
+        property. Wrong wording gets the case dismissed and you start again three weeks later. The resident who
+        stopped paying in month three is not usually the resident who fights the case, but the notice is where
+        the case is won or lost either way.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The cost is knowable in advance. The hard cost is {usd(pricing.eviction.hardCostTotal)}, being
+        {' '}{usd(pricing.eviction.countyFilingFee)} to the county and {usd(pricing.eviction.attorneyFee)} to the
+        eviction attorney for the filing and up to two appearances. We charge
+        {' '}{usd(pricing.eviction.rlpmProcessFee)} to run the process, so a typical case totals
+        {' '}{usd(pricing.eviction.typicalTotal)} before any setout. About {pricing.eviction.disputeRatePct}% are
+        contested. The whole sequence is on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION AND UTILITIES -->
+  <section class="band-tight" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Worthington rental, and who provides the utilities?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        You register with the Franklin County Auditor, not with the city, and it is free. Ohio Revised Code
+        5323.02 requires every owner of residential rental property to file their name, address and telephone
+        number, plus the property street address and permanent parcel number, with the auditor of the county the
+        property sits in, within 60 days of acquiring it and within 60 days of any change. Miss it and the auditor
+        can place a special assessment on the property under R.C. 5323.99. The Franklin County Auditor states
+        $150 per tax year. Owners holding title through an LLC or a trust also have to name the responsible
+        officer, member or trustee, which is the line most often left blank.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Worthington, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who customarily pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Columbus, which maintains the main lines in Worthington</td>
+              <td class="p-3.5 border border-line text-muted">Resident, in their own name, on our standard lease</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Sanitary sewer</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Under contract with Columbus, per Codified Ordinances Chapter 929</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        Why the water line matters more than it looks: in Ohio, unpaid water and sewer can attach to the parcel
+        rather than to the person who ran up the balance, so a resident who leaves owing a water bill can leave it
+        with you. We put every account in the resident name at lease signing and check them again at move-out,
+        before a deposit is settled.
+      </p>
+      <p class="text-[16px] text-muted mt-5">
+        [SOURCE NEEDED: confirm whether the City of Worthington separately requires residential rental
+        registration, a rental licence or periodic rental inspection, and at what fee. The R.C. 5323 county
+        auditor filing applies either way.]
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Worthington?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Older houses on a tight street grid, and that age is the through line of everything on this page. The
+        median Worthington home was built in {MEDIAN_YEAR_BUILT}, according to US Census ACS 2024 5-year
+        estimates, roughly two decades older than the typical Westerville house. Old Worthington around the
+        Village Green holds the early nineteenth-century stock the Architectural Review District exists to
+        protect. Everything north and east of it is largely post-war, with ranches and split-levels from the
+        1950s and 1960s making up much of what we actually manage.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        A {MEDIAN_YEAR_BUILT} median means most Worthington rentals were built before 1978, so the federal
+        lead-based paint disclosure rules apply to them. In practical terms that is a signed disclosure and the
+        EPA pamphlet at every lease, plus a contractor rule that governs who is allowed to disturb painted
+        surfaces during a turn. We treat pre-1978 disclosure as standard on this side of the metro, and the full
+        explanation of what it costs and what it changes is on the
+        {' '}<a href="/property-management-upper-arlington-ohio/" class="text-crimson font-semibold no-underline hover:underline">Upper Arlington page</a>,
+        where the stock is older still.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The maintenance profile follows from the age. Cast iron and galvanized drain lines, original clay sewer
+        laterals with tree roots in them, plaster rather than drywall, two-prong receptacles in rooms nobody has
+        touched since the Kennedy administration, and radiators or ductwork retrofitted into houses that were not
+        designed for them. None of that is a reason to avoid Worthington. It is a reason to hold a real reserve.
+        Ours run {usd(pricing.reserves.min)} to {usd(pricing.reserves.max)} per unit depending on plan, and on a
+        1960s house we would rather be at the top of that range than the bottom.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">Where in Worthington we work</h3>
+      <p class="text-[16.5px] text-muted">
+        Old Worthington and the Village Green, Colonial Hills, Worthington Estates, Medick Estates, Rush Creek,
+        the High Street corridor, Wilson Bridge Road, and the streets running back off Olentangy River Road toward
+        the river. Houses across the city feed the Worthington City School District. The Olentangy River, the
+        Worthington Farmers Market on the Green and the Thomas Worthington and Worthington Kilbourne campuses are
+        the landmarks residents navigate by. Demand here skews toward households that want an older house on a
+        walkable street and will stay several years to keep it, which is why renewal matters more in Worthington
+        than turnover speed does.
+      </p>
+    </div>
+  </section>
+
+  <!-- RENT AND PRICING -->
+  <section class="band-tight" aria-labelledby="rent-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Worthington rental earn, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Across the units we manage in Worthington, the median rent is {usd(rent['3'].median)} for a three bedroom.
+        That is our own portfolio median, not a market survey. We publish no 2 bedroom or 4 bedroom figure for
+        Worthington, because we do not manage enough of either here to make a median honest, and we would rather
+        show a gap than dress a public rent index up as our own data.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        The three plans differ in exactly one variable: how large a repair we can approve without calling you
+        first. On an older Worthington house that variable does real work. A higher approval limit means a failed
+        sixty-year-old sewer lateral gets dealt with the day it is found rather than the day you happen to check
+        your email.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        A manager charging 10% of collected rent on a {usd(rent['3'].median)} Worthington house takes about
+        {' '}{usd(Math.round(rent['3'].median * 0.1) * 12)} a year, plus roughly
+        {' '}{usd(Math.round(rent['3'].median / 2))} again every time the unit turns. Our middle plan is
+        {' '}{usd(pricing.plans[1].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}. We never
+        charge a leasing fee, which is the one absolute claim on this page and the only one we can prove.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
+        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at
+        $250 to $450.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Worthington rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band-wash" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Worthington property management questions</h2>
+      <Faq items={faq} heading="Worthington property management questions" id="worthington-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-upper-arlington-ohio/', label: 'Upper Arlington property management', note: 'Southwest, older still, and the pre-1978 rules in full.' },
+    { href: '/property-management-westerville-ohio/', label: 'Westerville property management', note: 'East, newer stock and a municipal electric utility.' },
+    { href: '/property-management-dublin-ohio/', label: 'Dublin property management', note: 'West, larger lots and a three-county eviction problem.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with every neighbourhood we work.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Worthington rental should earn"
+    body="Tell us the address and we will price it against the units we already manage in Worthington and the comparable listings live right now. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

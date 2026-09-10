@@ -1,0 +1,338 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { rentByBedroom, rentByMarketAndBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Gahanna, Ohio. Target query: "property management gahanna ohio".
+ *
+ * The differentiating fact is proximity: our office address sits in the 43230
+ * ZIP code, which is the Gahanna ZIP. Stated factually and once. The second
+ * differentiator is the opposite of the Dublin and Reynoldsburg pages: Gahanna
+ * is wholly inside Franklin County, so there is exactly one court and exactly
+ * one auditor, and that is worth saying plainly to an owner who has been reading
+ * about county lines all afternoon.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - Court jurisdiction follows the county under R.C. 1901.02:
+ *    codes.ohio.gov/ohio-revised-code/section-1901.02. Franklin County Municipal
+ *    Court eviction division address and courtroom:
+ *    franklincountymunicourt.org/Courts/Eviction-Court.
+ *  - Owner filing with the county auditor: R.C. 5323.02, penalty R.C. 5323.99.
+ *    Franklin County Auditor states $150 per tax year.
+ *  - Three-day notice to leave the premises: R.C. 1923.04.
+ *  - Gahanna appears on the City of Columbus water and sewer contract community
+ *    list. columbus.gov Water and Sewer Contract Communities. Columbus states the
+ *    property owner is ultimately responsible for all charges.
+ *  - AEP Ohio distributes electricity across central Ohio; Columbia Gas of Ohio
+ *    is the central Ohio gas distributor. Per docs/area-research-verified.md.
+ *  - Office address: src/data/facts.ts, company.address, 43230.
+ *  - Crossroads Commerce Center sits at Cross Pointe Road and Taylor Station Road.
+ *    drk-realty.com/flex/office/800-crossroads-commerce-center.
+ *
+ * Gahanna has NO qualifying entry in rentByMarketAndBedroom, so no Gahanna rent
+ * median is published as ours. Portfolio-wide medians are labelled portfolio-wide.
+ * No door counts, no per-market days on market.
+ */
+
+const PATH = '/property-management-gahanna-ohio/';
+
+const title = 'Property Management in Gahanna, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Gahanna, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Gahanna is wholly in Franklin County, and our office sits in the 43230 ZIP.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Gahanna', path: PATH },
+];
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Gahanna unit turns`,
+  'Gahanna is entirely within Franklin County: one court, one auditor',
+  'Evictions are filed at 375 S. High St., Columbus, Courtroom 11B',
+  'Gahanna buys City of Columbus water under contract',
+  `Our office is at ${company.address.street}, in the ${company.address.postalCode} ZIP code`,
+];
+
+const faq = [
+  { q: 'What county is Gahanna, Ohio in?',
+    a: 'Gahanna is entirely within Franklin County, Ohio. Unlike Dublin, Reynoldsburg and the Blacklick area, there is no county line running through the city, so every Gahanna parcel answers to the same court and the same county auditor. That is a genuine simplification for an owner and it is the reason Gahanna paperwork is faster than an equivalent Reynoldsburg file.' },
+  { q: 'Which court hears an eviction in Gahanna, Ohio?',
+    a: 'Franklin County Municipal Court, at 375 S. High St., Columbus, OH 43215, where the eviction division sits in Courtroom 11B. Ohio Revised Code 1901.02 fixes the court to the county, and because all of Gahanna is in Franklin County there is no address-by-address question here. Before a case is filed, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, with specific statutory language.' },
+  { q: 'Do I have to register my Gahanna rental property with anyone?',
+    a: 'Yes, with the Franklin County Auditor, not with the City of Gahanna. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number along with the property address and permanent parcel number, within 60 days of acquiring the property and again within 60 days of any change. There is no fee to file. Failing to file draws a special assessment under R.C. 5323.99, a statutory range of $50 to $150, and the Franklin County Auditor states $150 per tax year. We file as the owner designated agent as part of onboarding.' },
+  { q: 'Does the City of Gahanna require a rental licence or inspection?',
+    a: '[SOURCE NEEDED: confirm against the Gahanna codified ordinances whether the City of Gahanna operates a residential rental registration, rental licence or periodic rental inspection programme, and the fee.] Whatever the city requires sits on top of the Ohio R.C. 5323 county auditor filing rather than replacing it.' },
+  { q: 'Who provides water and sewer in Gahanna, Ohio?',
+    a: 'Gahanna is a City of Columbus water and sewer contract community, so the water in a Gahanna rental comes from the Columbus system. That matters financially, because Columbus states the property owner is ultimately responsible for all charges even where a tenant billing agreement is in place. Electricity is distributed by AEP Ohio and natural gas by Columbia Gas of Ohio. On our standard lease the resident holds every utility account in their own name.' },
+  { q: 'Is RL Property Management actually based in Gahanna?',
+    a: `Our office is at ${company.address.street}, in the ${company.address.postalCode} ZIP code, which is the Gahanna ZIP, at the Cross Pointe Road and Taylor Station Road corner. The mailing city of record on our address is ${company.address.city}. [SOURCE NEEDED: confirm whether the 750 Cross Pointe Rd parcel sits inside the City of Gahanna corporate limits or inside the City of Columbus.] Office hours are by appointment. Being close does not by itself make anyone a better manager, but it does mean key pickup and an in-person walkthrough are short trips rather than a scheduling problem.` },
+  { q: 'What does a rental in Gahanna, Ohio rent for?',
+    a: `We do not publish a Gahanna-specific rent median, because our sample in Gahanna is below the five-unit threshold we set for publishing a market-level number, and we will not dress a public rent index up as our own rent roll. Across our whole portfolio the median is ${usd(rentByBedroom['3'].median)} for a 3 bedroom and ${usd(rentByBedroom['2'].median)} for a 2 bedroom. [SOURCE NEEDED: US Census ACS 2024 5-year median gross rent for Gahanna, Ohio.] A rent evaluation on your specific address is free and takes about a day.` },
+  { q: 'How much does property management cost in Gahanna?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. The three plans differ in one variable, the per-item repair approval limit: ${usd(pricing.plans[0].repairApprovalLimit)}, ${usd(pricing.plans[1].repairApprovalLimit)} and ${usd(pricing.plans[2].repairApprovalLimit)}. Because the fee is a fixed dollar figure, raising your rent does not raise our fee.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Gahanna, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Gahanna, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Gahanna, Ohio"
+    answer={`${company.name} manages single-family and small multifamily rentals in Gahanna for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee. Gahanna is wholly in Franklin County, so one court hears every eviction.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Gahanna, at a glance" />
+
+  <!-- ONE COUNTY. The useful inverse of the Dublin and Reynoldsburg problem. -->
+  <section class="band-tight" aria-labelledby="county-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="county-h" class="text-[clamp(26px,3.2vw,38px)]">What county is Gahanna in, and which court hears an eviction?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Gahanna is entirely within Franklin County, and an eviction is filed at Franklin County Municipal Court,
+        375 S. High St., Columbus, where the eviction division sits in Courtroom 11B. That single sentence is
+        worth more than it looks. Several of Gahanna's immediate neighbours are split by county lines. Reynoldsburg
+        to the south lies in Franklin, Licking and Fairfield counties. The Blacklick area to the southeast runs
+        across the Franklin and Licking line. New Albany to the north extends into Licking County. In Gahanna
+        there is nothing to check: one court, one county auditor, one set of court costs.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Ohio Revised Code 1901.02 is what fixes each municipal court to a territory, which is why the answer is
+        never "the nearest courthouse". Before any case is filed, Ohio requires a three-day notice to leave the
+        premises under R.C. 1923.04, carrying specific statutory language and served by certified mail, handed to
+        the resident, or left at the property. Wrong wording, wrong service, dismissed case, and you start again
+        about three weeks later with the rent still unpaid.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The hard cost of an eviction here is {usd(pricing.eviction.hardCostTotal)}:
+        {' '}{usd(pricing.eviction.countyFilingFee)} to Franklin County for the eviction complaint and
+        {' '}{usd(pricing.eviction.attorneyFee)} to the eviction attorney for the filing plus up to two appearances.
+        We charge {usd(pricing.eviction.rlpmProcessFee)} to run the process, so a typical total is
+        {' '}{usd(pricing.eviction.typicalTotal)} before any setout. If a setout is required, add
+        {' '}{usd(pricing.eviction.tagAndSetoutFee)} to the county and {usd(pricing.eviction.setoutFee)} to us.
+        The full sequence is on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band band-wash" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Compliance</span>
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Gahanna rental property?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Yes, with the Franklin County Auditor, not with the City of Gahanna. Ohio Revised Code 5323.02 requires
+        every owner of residential rental property to file their name, address and telephone number, plus the
+        property street address and permanent parcel number, with the auditor of the county where the property
+        sits. There is no fee. The filing is due within 60 days of acquiring the property, and any change has to
+        be updated within 60 days. Miss it and the auditor can place a special assessment on the property under
+        R.C. 5323.99. The statutory range is $50 to $150 and the Franklin County Auditor states $150 per tax year.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The statute lets an owner designate a property manager as the agent who files, and that is part of
+        onboarding here. Owners holding title through an LLC or a trust have to name the responsible officer,
+        member or trustee. That is the line that gets skipped most often, usually by an owner who set the LLC up
+        online and never read past the first page of the auditor form.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        [SOURCE NEEDED: confirm against the Gahanna codified ordinances whether the City of Gahanna separately
+        requires residential rental registration, a rental licence or periodic rental inspection, and at what fee.]
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band-tight" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in Gahanna, and who pays them?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Gahanna is a City of Columbus water and sewer contract community, so the water and sanitary sewer in a
+        Gahanna rental come from the Columbus system under contract. Electricity is distributed by AEP Ohio and
+        natural gas by Columbia Gas of Ohio, the two utilities that serve central Ohio.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Gahanna, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who customarily pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water and sewer</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Columbus, under contract</td>
+              <td class="p-3.5 border border-line text-muted">Resident, in their own name, on our standard lease</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        The exposure to understand: Columbus states that the property owner is ultimately responsible for all
+        charges, even where a tenant billing agreement puts the bill in the resident's name. So a resident who
+        leaves owing a water balance can leave that balance attached to your parcel, and you will find out about
+        it at the worst possible moment, usually at closing. We put the accounts in the resident name at lease
+        signing and check them again at move-out, before the deposit is settled.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK AND OUR OFFICE -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Gahanna?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Mostly detached single-family houses on subdivision lots, with condominium and small multifamily stock
+        concentrated near the Hamilton Road and Morse Road corridors. Gahanna grew outward from an
+        early-nineteenth-century village core along Big Walnut Creek, so the housing runs from a small historic
+        centre near Creekside through decades of postwar and late-century subdivision to newer building on the
+        northern and eastern edges. [SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for
+        Gahanna, Ohio.]
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        For an owner the practical consequence is that two Gahanna houses a mile apart can be twenty-five years
+        apart in mechanical age, and the reserve you need behind them is not the same. We set a reserve of
+        {' '}{usd(pricing.reserves.min)} to {usd(pricing.reserves.max)} per unit depending on plan, and on an
+        older Gahanna house we would rather set it at the top of that band than have you approving a furnace by
+        text message in February.
+      </p>
+
+      <h3 class="text-[21px] mt-9 mb-3">Our office is in the 43230 ZIP</h3>
+      <p class="text-[16.5px] text-muted">
+        {company.address.street}, in the {company.address.postalCode} ZIP code, at the Cross Pointe Road and
+        Taylor Station Road corner near Interstate 270 and John Glenn Columbus International Airport. The mailing
+        city of record on our address is {company.address.city}. [SOURCE NEEDED: confirm whether the
+        750 Cross Pointe Rd parcel is inside the City of Gahanna corporate limits or the City of Columbus.]
+        {' '}{company.officeHoursNote}. Key pickup at our office is free, and there is no charge to post a
+        three-day or thirty-day notice to vacate. Proximity is not a strategy and we are not going to claim it
+        makes us better managers. It does mean a Gahanna owner collecting keys, or a Gahanna resident dropping
+        off a document, is making a short trip.
+      </p>
+
+      <h3 class="text-[21px] mt-9 mb-3">Where in Gahanna we work</h3>
+      <p class="text-[16.5px] text-muted">
+        The Creekside and Olde Gahanna core, the Hamilton Road corridor, Granville Street, Havens Corners Road,
+        Stygler Road, Clotts Road, Morse Road and the Taylor Station Road area on the southern edge.
+        Gahanna-Jefferson Public Schools serves the city, and Big Walnut Creek, Creekside and Friendship Park are
+        the landmarks residents navigate by. School district and park access are the two things Gahanna
+        applicants ask about first, which is why both belong in the listing text rather than only in the
+        photographs.
+      </p>
+    </div>
+  </section>
+
+  <!-- RENT AND PRICING -->
+  <section class="band-tight" aria-labelledby="rent-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Gahanna rental earn, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        We are not publishing a Gahanna rent median, and here is the honest reason: our sample of managed units in
+        Gahanna is below the five-unit threshold we set before we will call a number a market median. Publishing
+        one anyway would mean either inventing it or quoting a public rent index and letting you assume it came
+        off our rent roll. Across our whole portfolio the median is {usd(rentByBedroom['3'].median)} for a three
+        bedroom and {usd(rentByBedroom['2'].median)} for a two bedroom, and the nearest market where we do publish
+        our own figure is Reynoldsburg at {usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)} for a three
+        bedroom. Gahanna generally prices above Reynoldsburg. [SOURCE NEEDED: US Census ACS 2024 5-year median
+        gross rent for Gahanna, Ohio.]
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        Three plans, one variable between them: how much we can spend on a single repair before we stop and ask
+        you. There is no featured plan and no upsell, because the right answer depends on how involved you want to
+        be, not on which one earns us more. A manager charging 10% of collected rent on a
+        {' '}{usd(rentByBedroom['3'].median)} house takes about {usd(Math.round(rentByBedroom['3'].median * 0.1) * 12)}
+        {' '}a year and roughly {usd(Math.round(rentByBedroom['3'].median / 2))} again at each turn. Our lowest plan
+        is {usd(pricing.plans[0].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
+        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at
+        $250 to $450.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Gahanna rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band-wash" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Gahanna property management questions</h2>
+      <Faq items={faq} heading="Gahanna property management questions" id="gahanna-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-new-albany-ohio/', label: 'New Albany property management', note: 'North, newer stock and recorded deed restrictions.' },
+    { href: '/property-management-blacklick-ohio/', label: 'Blacklick property management', note: 'Southeast, unincorporated township rather than a city.' },
+    { href: '/property-management-reynoldsburg-ohio/', label: 'Reynoldsburg property management', note: 'South, and split across three counties.' },
+    { href: '/property-management-westerville-ohio/', label: 'Westerville property management', note: 'Northwest, with its own municipal electric utility.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Gahanna rental should earn"
+    body="Tell us the address and we will price it against the comparable listings live right now and the units we manage nearby. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>
