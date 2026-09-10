@@ -47,6 +47,6 @@ There are a few recommendations we can glean from this data:
 - Water leaks are very common. Replacing supply lines to sinks, clothes washers and refrigerators on a preventative basis is recommended.
 - We make residents responsible for local drain clogs. Main line clogs, both inside the house and underground are handled by our 24/7 plumbing vendors. We do recommend having your main sewer line camera inspected before buying a property, and regularly cleaned based on the lines condition thereafter. Some main sewer lines have recurring root intrusion or heavy interior wall wear/buildup which we have seen require an annual drain cleaning. This really depends on the condition of the line, with some newer lines, probably not needing regular cleanings at all.
 
-**If you are looking for a property management team that has several decades of experience dealing with nothing but property management including the topics described above, do not hesitate to reach out to RL Property Management Group.**
+**If you are looking for a team that does nothing but property management including the topics described above, do not hesitate to reach out to RL Property Management Group.**
 
-**RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**
+** Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**

@@ -24,6 +24,6 @@ Here are 5 key lease clauses that you should ensure are clear and present in eve
 4. Fees? What fees can be charged, and how much are they. The obvious one is a late fee. There can be countless other fees for various issues such as bounced payment fee, 3-day posting fee, lease break fee, general lease violation fee, etc.
 5. Pets? Your lease should be crystal clear about how many pets (if any) the tenant is allowed to have. We recommend not screening pets by weight or breed as this is hard to confirm and even harder to track. Your lease should spell out all the issues surrounding pets.
 
-**If you are looking for a property management team that has several decades of experience dealing with nothing but property management including the issues described above, do not hesitate to reach out to RL Property Management Group.**[**Contact Us Here.**](/columbus-property-management)
+**If you are looking for a team that does nothing but property management including the issues described above, do not hesitate to reach out to RL Property Management Group.**[**Contact Us Here.**](/columbus-property-management)
 
-**RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**
+** Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**

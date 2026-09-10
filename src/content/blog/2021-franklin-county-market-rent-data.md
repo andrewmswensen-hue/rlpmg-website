@@ -194,6 +194,4 @@ The same data sorted by the average rent per square foot ($/sf) in each zip code
 
 43215 1.75
 
-If you are looking for a property management team that has several decades of experience dealing with nothing but property management including the topics described above, do not hesitate to reach out to RL Property Management Group.
-
-RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.
+If you are looking for a team that does nothing but property management including the topics described above, do not hesitate to reach out to RL Property Management Group. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.

@@ -46,9 +46,7 @@ An overview of our thoughts on pets is as follows:
 - Be extremely clear in your lease about all things pets. Extremely….
 - Minimize the use of carpet in your rental. Luxury vinyl plank and real hardwoods are great choices.
 
-If you are looking for a property management team that has several decades of experience dealing with issues like these, do not hesitate to reach out to RL Property Management Group.
-
-RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed for reliability and performance.
+If you are looking for a property management team that has more than a decade of experience dealing with issues like these, do not hesitate to reach out to RL Property Management Group. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed for reliability and performance.
 
 {{youtube:SZo4dQ3Ca3s}}
 

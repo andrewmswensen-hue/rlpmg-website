@@ -55,6 +55,4 @@ Updated: March 5, 2019
 38. How do you check for lease violations and which lease violations do you check for?
 39. How do you ensure the furnace filter gets replaced?
 
-If you are looking for residential property management services in Franklin county Ohio, please reach out to us. We’d love to chat and see if our services (which are designed for reliability and performance) are a good fit for your needs.
-
-RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed for reliability and performance.
+If you are looking for residential property management services in Franklin county Ohio, please reach out to us. We’d love to chat and see if our services (which are designed for reliability and performance) are a good fit for your needs. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed for reliability and performance.

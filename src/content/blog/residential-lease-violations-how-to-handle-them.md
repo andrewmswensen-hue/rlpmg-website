@@ -44,6 +44,4 @@ We usually observe and document these violations when completing our companies s
 
 RL Property Management has a well documented process to handle several dozen common lease violations. RL utilizes many intermediate steps not listed above to deal with various circumstances we’ve encountered in the past. Unfortunately, lease violations for issues other than non-payment of rent cannot be handled in a “one size fits all” way.
 
-If you are looking for a property management team that has several decades of experience solving issues like above, do not hesitate to reach out to RL Property Management Group. [Contact Us.](/columbus-property-management)
-
-RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.
+If you are looking for a property management team that has more than a decade of experience solving issues like above, do not hesitate to reach out to RL Property Management Group. [Contact Us.](/columbus-property-management) Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.

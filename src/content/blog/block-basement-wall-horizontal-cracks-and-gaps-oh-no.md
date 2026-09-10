@@ -41,6 +41,6 @@ If you don’t have water coming through the walls I would continue to monitor t
 
 The correct way to repair this problem is to completely remove bowed sections of basement block wall and re-build them stronger (grouted steel reinforcement inside the block), then install new exterior drainage piping, and then backfill on the exterior with granular soil. If you are going to go through this trouble, it is worth installing a solid, well built and well designed drainage system around the exterior perimeter of the basement wall.
 
-**If you are looking for a property management team that has several decades of experience dealing with nothing but property management including the issues described above, do not hesitate to reach out to RL Property Management Group. Contact Us Here.**
+**If you are looking for a team that does nothing but property management including the issues described above, do not hesitate to reach out to RL Property Management Group. Contact Us Here.**
 
-**RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**
+** Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**

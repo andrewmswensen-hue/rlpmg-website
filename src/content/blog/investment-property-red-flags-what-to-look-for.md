@@ -64,8 +64,6 @@ In this video we identify several areas for consideration including:
  - Main water meter, good working main water shut-off valve, proper support for piping and meter, water service line age and freezing and clogging and flow capacity
  - Main drain piping stack and sewer lines, Problems with clay pipe, galvanized piping, have main sewer line camera-ed and cleaned.
 
-If you are looking for a team that has several decades of experience identifying and dealing with issues like these, do not hesitate to reach out to us.
-
-RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed for reliability and performance.
+If you are looking for a team that has more than a decade of experience identifying and dealing with issues like these, do not hesitate to reach out to us. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed for reliability and performance.
 
 {{youtube:KE5ssZaoUeE}}

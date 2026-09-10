@@ -22,6 +22,6 @@ Our recommendation is sub-metering, for the following reasons:
 
 Many duplexes and multifamily properties in Columbus already have either sub-meters for both sides, or a “master-deduct” system where there is 1 sub-meter for 1 side and they subtract that usage from the main city meter to determine the other side (not ideal though, see above for the reasons). Rarely (very rarely) you will actually find a duplex that has 2 city meters. If you buy a duplex, take a careful look and you may find an old sub-meter that is hooked up and either inoperable or simply not in use. Get that up and running; you’ll be happy you did.
 
-**If you are looking for a property management team that has several decades of experience dealing with nothing but property management including the issues described above, do not hesitate to reach out to RL Property Management Group.**[**Contact Us.**](/columbus-property-management/)
+**If you are looking for a team that does nothing but property management including the issues described above, do not hesitate to reach out to RL Property Management Group.**[**Contact Us.**](/columbus-property-management/)
 
-**RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**
+** Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**

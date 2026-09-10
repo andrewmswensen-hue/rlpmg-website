@@ -27,8 +27,6 @@ We receive many questions about security deposits. In the video below we answer 
   - RL Property Management sends a final “invoice” to past residents showing them any outstanding balance.
   - If unpaid, any outstanding balance would have to be collected through the legal system.
 
-If you are looking for a team that has several decades of experience identifying and dealing with issues like these, do not hesitate to reach out to us.
-
-RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed for reliability and performance.
+If you are looking for a team that has more than a decade of experience identifying and dealing with issues like these, do not hesitate to reach out to us. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed for reliability and performance.
 
 {{youtube:c-_7-6l3EV8}}

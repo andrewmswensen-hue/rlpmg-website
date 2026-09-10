@@ -327,7 +327,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
           <p class="text-[13px] text-faint m-0">
             We do not sell or share your information. See our
             {' '}<a href="/privacy-policy/" class="text-crimson font-semibold no-underline hover:underline">privacy policy</a>.
-            Prefer to talk now? Call {company.phone}.
+            Prefer to talk now? Call {company.salesPhone}.
           </p>
         </div>
       </form>
@@ -354,6 +354,6 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
     heading="Bring the addresses, leave with a number"
     body="No deck, no pressure, and nothing to sign on the call. If we are not the right manager for your property, we will say so."
     primary={{ label: 'Request a consultation', href: '#consultation-form' }}
-    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+    secondary={{ label: `Call ${company.salesPhone}`, href: `tel:${company.phoneE164}` }}
   />
 </Base>

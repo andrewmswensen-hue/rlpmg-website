@@ -35,6 +35,6 @@ Both approaches are needed in the market and usually you (as the owner) will pre
 
 For more help on choosing a property manager, see our previous blog post on “[How to Pick a Property Manager](/blog/how-to-pick-a-property-management-company-5-key-steps/)”.
 
-*If you are looking for a property management team that has several decades of experience dealing with issues like these, do not hesitate to reach out to RL Property Management Group.*[*Contact us here.*](/columbus-property-management/)
+*If you are looking for a property management team that has more than a decade of experience dealing with issues like these, do not hesitate to reach out to RL Property Management Group.*[*Contact us here.*](/columbus-property-management/)
 
-*RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.*
+* Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.*

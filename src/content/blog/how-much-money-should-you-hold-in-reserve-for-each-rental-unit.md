@@ -27,6 +27,6 @@ This article will discuss this topic in more detail. Key points to consider are 
 - Remember that all capital expenses add to your tax basis for the property. This works to reduce your capital gain and depreciation recapture tax.
 - Spending big money on your unit can be painful, but keep in mind that you are not throwing money to the wind. You end up with a brand new component at the property that is going to serve you and the renters well for many years to come.
 
-**If you are looking for a property management team that has several decades of experience dealing with nothing but property management including the issues described above, do not hesitate to reach out to RL Property Management Group.**[**Contact Us Here.**](/columbus-property-management)
+**If you are looking for a team that does nothing but property management including the issues described above, do not hesitate to reach out to RL Property Management Group.**[**Contact Us Here.**](/columbus-property-management)
 
-**RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**
+** Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**

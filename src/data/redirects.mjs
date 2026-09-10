@@ -21,7 +21,7 @@ export const redirects = {
   '/we-pay-for-referrals-form/': { status: 301, destination: '/agent-referrals/' },  // form folded into the referrals page
   '/we-buy-property-management-contracts-companies-form/': { status: 301, destination: '/sell-your-property-management-company/' },  // real page instead of a bare form
 
-  // Consolidated blog posts (53 merged into a stronger canonical)
+  // Consolidated blog posts (56 merged into a stronger canonical)
   '/blog/5-smart-decisions-that-boost-noi/': { status: 301, destination: '/blog/should-you-hire-a-property-management-company-to-increase-noi/' },
   '/blog/6-aspects-that-define-a-good-tenant/': { status: 301, destination: '/blog/tenant-screening-ohio-fair-housing-2026/' },
   '/blog/7-ways-your-property-management-company-should-increase-your-noi/': { status: 301, destination: '/blog/should-you-hire-a-property-management-company-to-increase-noi/' },
@@ -46,6 +46,9 @@ export const redirects = {
   '/blog/how-to-improve-noi-for-sfr-and-multifamily-properties/': { status: 301, destination: '/blog/should-you-hire-a-property-management-company-to-increase-noi/' },
   '/blog/how-to-improve-your-propertys-noi/': { status: 301, destination: '/blog/should-you-hire-a-property-management-company-to-increase-noi/' },
   '/blog/how-to-increase-noi-and-reduce-operational-expenses/': { status: 301, destination: '/blog/should-you-hire-a-property-management-company-to-increase-noi/' },
+  '/blog/how-to-pick-a-property-management-company-5-key-steps/': { status: 301, destination: '/blog/how-to-pick-a-property-management-company/' },
+  '/blog/how-to-pick-a-property-management-company-episode-3/': { status: 301, destination: '/blog/how-to-pick-a-property-management-company/' },
+  '/blog/how-to-pick-a-property-management-company-episode-4-call-5-companies/': { status: 301, destination: '/blog/how-to-pick-a-property-management-company/' },
   '/blog/how-to-predict-cash-flow-for-a-rental-property/': { status: 301, destination: '/blog/what-to-consider-when-calculating-cash-flow-for-a-rental-property/' },
   '/blog/how-to-reduce-tenant-turnover-columbus-ohio/': { status: 301, destination: '/blog/rental-property-turnover-cost-columbus/' },
   '/blog/how-to-set-rent-rates-on-a-vacant-property/': { status: 301, destination: '/blog/rental-pricing-vacancy-columbus/' },
@@ -255,9 +258,9 @@ export const liveUrls = [
   ['/blog/how-to-keep-operating-costs-down-on-your-rental-property/', '/blog/how-to-keep-operating-costs-down-on-your-rental-property/'],
   ['/blog/how-to-maintain-smooth-and-professional-tenant-relations-as-a-property-owner/', '/blog/how-to-maintain-smooth-and-professional-tenant-relations-as-a-property-owner/'],
   ['/blog/how-to-minimize-expensive-property-repairs/', '/blog/how-to-minimize-expensive-property-repairs/'],
-  ['/blog/how-to-pick-a-property-management-company-5-key-steps/', '/blog/how-to-pick-a-property-management-company-5-key-steps/'],
-  ['/blog/how-to-pick-a-property-management-company-episode-3/', '/blog/how-to-pick-a-property-management-company-episode-3/'],
-  ['/blog/how-to-pick-a-property-management-company-episode-4-call-5-companies/', '/blog/how-to-pick-a-property-management-company-episode-4-call-5-companies/'],
+  ['/blog/how-to-pick-a-property-management-company-5-key-steps/', '/blog/how-to-pick-a-property-management-company/'],
+  ['/blog/how-to-pick-a-property-management-company-episode-3/', '/blog/how-to-pick-a-property-management-company/'],
+  ['/blog/how-to-pick-a-property-management-company-episode-4-call-5-companies/', '/blog/how-to-pick-a-property-management-company/'],
   ['/blog/how-to-pick-a-property-management-company/', '/blog/how-to-pick-a-property-management-company/'],
   ['/blog/how-to-predict-cash-flow-for-a-rental-property/', '/blog/what-to-consider-when-calculating-cash-flow-for-a-rental-property/'],
   ['/blog/how-to-reduce-tenant-turnover-columbus-ohio/', '/blog/rental-property-turnover-cost-columbus/'],

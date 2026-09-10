@@ -30,6 +30,6 @@ Carbon monoxide is created when common fuels such as natural gas burn incomplete
 
 Our goal at RL Property Management Group is to ensure that all of our residents are protected with the correct number, type and placement of detectors.
 
-**If you are looking for a property management team that has several decades of experience dealing with nothing but property management including the issues described above, do not hesitate to reach out to RL Property Management Group.**[**Contact Us Here.**](/columbus-property-management)
+**If you are looking for a team that does nothing but property management including the issues described above, do not hesitate to reach out to RL Property Management Group.**[**Contact Us Here.**](/columbus-property-management)
 
-**RL Property Management Group, the only property management company in Columbus started and run by engineers. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**
+** Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.**

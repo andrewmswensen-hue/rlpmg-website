@@ -18,8 +18,19 @@ export const company = {
   founded: 2013,
   url: 'https://rlpmg.com',
   email: 'info@rlpmg.com',
+  /**
+   * Two lines, two jobs, confirmed by Andrew 2026-09-10. Both belong on the site.
+   *  - `phone` is the main office line. Use it for residents, vendors, general
+   *    contact, the footer, and the LocalBusiness schema, which should carry the
+   *    one number a directory or a map result would show.
+   *  - `salesPhone` is the sales line. Use it on owner and investor conversion
+   *    surfaces: rent evaluation, consultation, pricing, the investors page.
+   * Do not mix them. Attribution depends on the split.
+   */
   phone: '(614) 725-3059',
   phoneE164: '+16147253059',
+  salesPhone: '(614) 212-6903',
+  salesPhoneE164: '+16142126903',
   license: 'Licensed real estate brokerage in the State of Ohio',
   officeHoursNote: 'Office hours by appointment only',
   address: {

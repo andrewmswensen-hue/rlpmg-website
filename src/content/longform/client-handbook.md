@@ -5,7 +5,7 @@ slug: "client-handbook"
 updatedDate: "2026-08-21T18:30:28Z"
 ---
 
-============================================================ RL PROPERTY MANAGEMENT : CLIENT HANDBOOK (WEB VERSION),,,,,,,,,,  HOW TO USE: Paste this ENTIRE block (from the
+============================================================ RL PROPERTY MANAGEMENT : CLIENT HANDBOOK (WEB VERSION),,,,,,,,,, HOW TO USE: Paste this ENTIRE block (from the
 
 RL Property Management
 
