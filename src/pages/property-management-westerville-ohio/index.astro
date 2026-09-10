@@ -106,7 +106,10 @@ const schemaNodes = [
     areaServed: {
       '@type': 'City',
       name: 'Westerville, Ohio',
-      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+      containedInPlace: [
+        { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+        { '@type': 'AdministrativeArea', name: 'Delaware County, Ohio' },
+      ],
     },
   },
 ];
@@ -135,12 +138,12 @@ const schemaNodes = [
         this metro, and it is the thing a manager who works the whole region will get wrong on your property.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Everywhere else we work, a resident sets up electric with AEP Ohio, gas with Columbia Gas of Ohio, and
-        water with the city or with Columbus, in three separate calls to three separate companies. In Westerville
-        the city bills electric, water, sewer and refuse together on one municipal utility account, run out of the
-        Utility Billing office at 21 S. State Street. Westerville also opened its own water treatment plant in
-        1901 and remains a member community of American Municipal Power, the nonprofit joint-action agency that
-        supplies wholesale power to Ohio municipal systems.
+        Everywhere else we work, a resident sets up electric with AEP Ohio, gas with Columbia Gas of Ohio and
+        water with the city or with Columbus, in three calls to three companies. In Westerville the city bills
+        electric, water, sewer and refuse together on one municipal utility account, run out of the Utility
+        Billing office at 21 S. State Street. Westerville opened its own water treatment plant in 1901 and is a
+        member community of American Municipal Power, the nonprofit joint-action agency that supplies wholesale
+        power to Ohio municipal systems.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -178,19 +181,18 @@ const schemaNodes = [
       </div>
       <h3 class="text-[21px] mt-9 mb-3">What the one-account structure actually does to a turn</h3>
       <p class="text-[16.5px] text-muted">
-        It cuts both ways, and the direction depends entirely on whether somebody is watching the account. When it
-        works, a resident makes one call and four utilities move on the same day. When it does not, one missed
-        transfer leaves electric, water, sewer and refuse all sitting in your name, and you find out three weeks
-        later on a bill you were not expecting. The same thing happens in reverse at move-out: a resident who
-        closes the account early leaves a vacant house without power in February, which is how a burst pipe
-        becomes a claim.
+        It cuts both ways, and the direction depends on whether somebody is watching the account. When it works,
+        a resident makes one call and four utilities move on the same day. When it does not, one missed transfer
+        leaves electric, water, sewer and refuse all sitting in your name, and you find out three weeks later on
+        a bill you were not expecting. The same thing happens in reverse at move-out: a resident who closes the
+        account early leaves a vacant house without power in February, which is how a burst pipe becomes a claim.
       </p>
       <p class="text-[16.5px] text-muted mt-5">
-        So we do three specific things on a Westerville property. We confirm the account transfer date against the
-        lease start date rather than trusting a resident who says it is handled. We keep the account in the owner
-        name through the vacancy, deliberately, so heat and power stay on while the unit is being turned and shown.
-        And we check the account again at move-out before we settle a deposit, because in Ohio unpaid water and
-        sewer can follow the property rather than the person who ran up the balance.
+        So we do three things on a Westerville property. We confirm the transfer date against the lease start
+        date rather than trusting a resident who says it is handled. We keep the account in the owner name
+        through the vacancy, deliberately, so heat and power stay on while the unit is turned and shown. And we
+        check it again at move-out before we settle a deposit, because in Ohio unpaid water and sewer can follow
+        the property rather than the person who ran up the balance.
       </p>
       <p class="text-[16px] text-muted mt-5">
         [SOURCE NEEDED: confirm which parts of Westerville are served by the City of Westerville water system and
@@ -245,8 +247,8 @@ const schemaNodes = [
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Owners who hold title through an LLC or a trust also have to name the responsible officer, member or
-        trustee. That is the line most often left blank, and a filing missing it is not a filing. The statute lets
-        an owner designate a property manager as the agent who files, and that is part of onboarding here.
+        trustee, which is the line most often left blank. The statute lets an owner designate a property manager
+        as the agent who files, and that is part of onboarding here.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         [SOURCE NEEDED: confirm against the Westerville codified ordinances whether the City of Westerville
@@ -278,12 +280,11 @@ const schemaNodes = [
         Arlington and much of Worthington do not reach the typical Westerville rental.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        What that means for a budget: plan for mechanical replacement rather than cosmetic surprise. A furnace or
-        an air handler that is on its second unit will need a third one on your watch, and the difference between
-        an owner who planned for it and one who did not is whether the call comes as a scheduled replacement in
-        September or as an 11pm no-heat call in January. Our in-house maintenance rate is
-        {' '}{usd(pricing.maintenance.inHouseHourly)} per hour with a {usd(pricing.maintenance.tripCharge)} trip
-        charge and no minimum, and after-hours work is billed at
+        What that means for a budget: plan for mechanical replacement rather than cosmetic surprise. A furnace on
+        its second unit will need a third on your watch, and the difference between an owner who planned for it
+        and one who did not is whether the call comes as a scheduled replacement in September or an 11pm no-heat
+        call in January. In-house maintenance is {usd(pricing.maintenance.inHouseHourly)} per hour with a
+        {' '}{usd(pricing.maintenance.tripCharge)} trip charge and no minimum, and after hours it is
         {' '}{pricing.afterHours.weekdayEveningAndSaturday} times the rate on weekday evenings and Saturdays and
         {' '}{pricing.afterHours.sunday} times on Sundays. Which is a good argument for the September appointment.
       </p>
@@ -291,10 +292,9 @@ const schemaNodes = [
       <p class="text-[16.5px] text-muted">
         Uptown Westerville, the Otterbein University blocks, Highlands, Spring Grove, the Cleveland Avenue and
         Sunbury Road corridors, Huber Village, Westar, and the newer sections north and east toward the Delaware
-        County line. Houses across the city feed the Westerville City School District. Hoover Reservoir sits on
-        the eastern edge, Alum Creek runs through the middle, and the Westerville Sports Complex and the Hoff
-        Woods and Highlands park system are the landmarks residents navigate by. Otterbein keeps a steady base of
-        staff and graduate demand that does not track the family rental cycle.
+        County line. Houses across the city feed the Westerville City School District, and Hoover Reservoir and
+        Alum Creek are the landmarks residents navigate by. Otterbein keeps a base of staff and graduate demand
+        that does not track the family rental cycle.
       </p>
     </div>
   </section>
@@ -320,11 +320,8 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16.5px] text-muted mt-7">
-        The three plans differ in one variable: how large a repair we can approve without calling you first. That
-        is the whole difference. Nothing else changes between them.
-      </p>
-      <p class="text-[16.5px] text-muted mt-5">
-        A manager charging 10% of collected rent on a {usd(rent['3'].median)} Westerville house takes about
+        The three plans differ in one variable: how large a repair we can approve without calling you first.
+        Nothing else changes between them. A manager charging 10% of collected rent on a {usd(rent['3'].median)} Westerville house takes about
         {' '}{usd(Math.round(rent['3'].median * 0.1) * 12)} a year, plus roughly
         {' '}{usd(Math.round(rent['3'].median / 2))} again every time the unit turns. Our middle plan is
         {' '}{usd(pricing.plans[1].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}. The gap

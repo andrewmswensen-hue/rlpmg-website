@@ -1,0 +1,412 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { rentByMarketAndBedroom, rentByBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Grandview Heights, Ohio. Target query: "property management grandview heights ohio".
+ *
+ * The differentiating fact is the same shape as Bexley and the details are
+ * different: Grandview Heights is a separate incorporated city, roughly a
+ * square mile, hemmed in by Columbus and by the Village of Marble Cliff. Own
+ * council, own codified ordinances, own building and zoning department, own
+ * mayor's court, own school district. The housing is small and old, and the
+ * unit type that dominates our own book there is the one bedroom.
+ *
+ * RENT DATA CARE. rentByMarketAndBedroom['Grandview Heights'] contains exactly
+ * ONE entry: 1 bedroom, median 1255, sample 10. That is the only figure this
+ * page may present as ours, and it must be labelled as a ONE BEDROOM median
+ * across the units we manage there. There is no 2, 3 or 4 bedroom entry, so the
+ * page says so out loud rather than implying the 1 bedroom figure is a city
+ * median for all housing.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - Eviction jurisdiction follows the county: R.C. 1901.02. Franklin County
+ *    Municipal Court, 375 S. High St., Columbus, OH 43215, Eviction Court in
+ *    Courtroom 11B. franklincountymunicourt.org.
+ *  - Grandview Heights Mayor's Court is a limited jurisdiction court for traffic
+ *    and misdemeanour matters arising inside the city. Confirmed across Franklin
+ *    County mayor's court directories, 2026-09-09.
+ *  - Owner filing with the county auditor: R.C. 5323.02, statewide. Penalty
+ *    R.C. 5323.99, $50 to $150; Franklin County Auditor states $150 per tax year.
+ *  - Water and sewer: the City of Grandview Heights states that water and sewer
+ *    service is provided by the City of Columbus and that customers are billed
+ *    directly by Columbus, with water issues directed to 614.645.7788 ext. 5.
+ *    grandviewheights.gov/362/New-Residents and /90/Service, fetched 2026-09-09.
+ *    The Grandview Heights Service Department maintains the local sewers,
+ *    streets, streetlights and traffic signals and runs trash and recycling.
+ *  - Short-term rentals: Grandview Heights requires an STR application, a permit,
+ *    and a team inspection by the Building Inspector and the Electrical Inspector
+ *    before renting; the STR registration runs 12 months.
+ *    grandviewheights.gov/424/Short-Term-Rentals-STR.
+ *  - Columbus states the property owner is ultimately responsible for all water
+ *    and sewer charges even under a Tenant Billing Agreement.
+ *  - AEP Ohio for electricity, Columbia Gas of Ohio for natural gas.
+ *
+ * NOT VERIFIED, marked in the copy:
+ *  - Whether Grandview Heights operates a LONG-TERM residential rental
+ *    registration, licence or periodic inspection programme, and any fee.
+ *  - Census median year structure built for Grandview Heights.
+ */
+
+const CITY = 'Grandview Heights';
+const PATH = '/property-management-grandview-heights-ohio/';
+
+const rent = rentByMarketAndBedroom[CITY];
+const oneBed = rent['1'];
+
+const title = 'Property Management in Grandview Heights, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Grandview Heights, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ` +
+  `${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. ` +
+  `Grandview Heights is its own city with its own code, and Columbus ordinances do not apply there.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Grandview Heights', path: PATH },
+];
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Grandview Heights unit turns`,
+  'A separate incorporated city in Franklin County, not a Columbus neighborhood',
+  'Columbus ordinances do not govern a Grandview Heights rental; the city writes its own',
+  'Evictions go to Franklin County Municipal Court, 375 S. High St., Columbus',
+  `Median rent for a one bedroom across the units we manage in ${CITY}: ${usd(oneBed.median)}`,
+];
+
+const whoDecides = [
+  {
+    thing: 'Zoning, additions, exterior work, permits and inspections',
+    who: 'City of Grandview Heights',
+    detail: 'Grandview Heights Building and Zoning issues permits and schedules inspections directly. Inspection requests made online by 2:45pm are scheduled for the next business day; by phone the cutoff is 12:30pm.',
+  },
+  {
+    thing: 'Short-term rentals',
+    who: 'City of Grandview Heights',
+    detail: 'An approved short-term rental application produces a permit, then a team inspection by the Building Inspector and the Electrical Inspector before you may rent. The registration runs 12 months.',
+  },
+  {
+    thing: 'Property maintenance and zoning enforcement',
+    who: 'City of Grandview Heights',
+    detail: 'Its own zoning and property maintenance function. A violation notice comes from the city, and it is answered at the city.',
+  },
+  {
+    thing: 'Traffic and minor misdemeanour matters arising in the city',
+    who: 'Grandview Heights Mayor’s Court',
+    detail: 'A limited jurisdiction court. It does not hear evictions and it does not hear landlord and tenant money claims.',
+  },
+  {
+    thing: 'Eviction, and any landlord or tenant civil claim',
+    who: 'Franklin County Municipal Court',
+    detail: 'A county function under R.C. 1901.02. Filed at 375 S. High St., Columbus, OH 43215, Eviction Court in Courtroom 11B.',
+  },
+  {
+    thing: 'Rental owner registration under R.C. 5323.02',
+    who: 'Franklin County Auditor',
+    detail: 'A state duty discharged at the county. No fee, and due within 60 days of any change.',
+  },
+  {
+    thing: 'Water and sewer service and billing',
+    who: 'City of Columbus',
+    detail: 'Grandview Heights states that water and sewer are provided by Columbus and that customers are billed directly by Columbus. The city maintains the local sewers, streets and streetlights.',
+  },
+];
+
+const faq = [
+  { q: 'Is Grandview Heights part of Columbus?',
+    a: 'No. Grandview Heights is a separate incorporated city in Franklin County, roughly a square mile, bordered by Columbus on most sides and by the Village of Marble Cliff on the west. It has its own mayor and council, its own codified ordinances, its own building and zoning department, its own mayor’s court and its own school district. A Columbus ordinance does not govern a Grandview Heights rental. Marble Cliff is a separate village again, so an address a block west can sit under a third set of rules.' },
+  { q: 'Which court hears an eviction in Grandview Heights, Ohio?',
+    a: 'Franklin County Municipal Court, at 375 S. High St., Columbus, OH 43215, where Eviction Court sits in Courtroom 11B. Eviction jurisdiction follows the county under Ohio Revised Code 1901.02, so the city being independent does not create a local eviction court. Grandview Heights Mayor’s Court hears traffic and minor misdemeanour matters arising inside the city and has no jurisdiction over a forcible entry and detainer action or a claim for unpaid rent.' },
+  { q: 'What does a rental in Grandview Heights rent for?',
+    a: `Across the units we manage in Grandview Heights, the median rent for a one bedroom is ${usd(oneBed.median)}. That is our own portfolio median for one bedrooms only, not a market survey and not a figure for the whole city. We do not publish a two, three or four bedroom median for Grandview Heights because our sample at those bedroom counts is below the five-unit threshold we hold ourselves to. For a specific address, ask for a rent evaluation.` },
+  { q: 'Do I have to register a rental property in Grandview Heights?',
+    a: 'Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file their name, address and telephone number and the property street address and permanent parcel number with the auditor of the county the property sits in, and to update it within 60 days of any change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99, statutory range $50 to $150, with the Franklin County Auditor stating $150 per tax year. A property manager can file as the owner designated agent, and we do.' },
+  { q: 'Does Grandview Heights have its own rental registration or inspection programme?',
+    a: 'For short-term rentals, yes. An approved short-term rental application produces a permit and then a team inspection by the city Building Inspector and Electrical Inspector before you may rent, and the registration runs 12 months. [SOURCE NEEDED: confirm with Grandview Heights Building and Zoning whether the city operates a registration, licence or periodic inspection programme for long-term residential rentals, and any fee.] The Franklin County Auditor filing under R.C. 5323 applies either way.' },
+  { q: 'Who provides water and sewer in Grandview Heights?',
+    a: 'The City of Columbus. Grandview Heights states that water and sewer service is provided by Columbus and that customers are billed directly by Columbus, with water issues directed to 614.645.7788 extension 5. The Grandview Heights Service Department maintains the local sewers, streets, streetlights and traffic signals and runs trash, recycling and yard waste collection. Electricity is AEP Ohio and natural gas is Columbia Gas of Ohio.' },
+  { q: 'What kind of rental property is in Grandview Heights?',
+    a: 'Small and old. The city is about a square mile and was largely built out early in the twentieth century, so the rental stock is dominated by older houses on narrow lots, two-family doubles, and small apartment buildings, with detached garages reached from alleys. One and two bedroom units make up a large share of what actually rents. Grandview Yard on the eastern edge added newer mixed-use construction in the last fifteen years, which is the exception rather than the rule. [SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Grandview Heights, Ohio.]' },
+  { q: 'How much does property management cost in Grandview Heights?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. A flat fee is worth more on a small unit than on a large one. On a one bedroom at ${usd(oneBed.median)}, a manager charging 10% of collected rent takes about ${usd(Math.round(oneBed.median * 0.1) * 12)} a year, plus roughly ${usd(Math.round(oneBed.median / 2))} again each time it turns. Our first plan is ${usd(pricing.plans[0].monthly * 12)} a year and the placement is ${usd(pricing.leasingFee)}. Photography is not included in the leasing fee and is billed separately at $250 to $450.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Grandview Heights, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Grandview Heights, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Grandview Heights, Ohio"
+    answer={`${company.name} manages houses, doubles and small apartment buildings in Grandview Heights for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee. Grandview Heights writes its own code, not Columbus.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Grandview Heights, at a glance" />
+
+  <!-- THE HOOK: a square mile of independent city inside Columbus. -->
+  <section class="band-tight" aria-labelledby="indep-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="indep-h" class="text-[clamp(26px,3.2vw,38px)]">Is Grandview Heights part of Columbus?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        No. Grandview Heights is a separate incorporated city of roughly a square mile in Franklin County, with
+        Columbus on most of its border and the Village of Marble Cliff on the west. It has its own mayor and
+        council, its own codified ordinances, its own building and zoning department, its own service department,
+        its own mayor's court and its own school district. If you own a rental here and you answer a question by
+        reading a Columbus ordinance, you have read the wrong ordinance.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        This is a small enough footprint that owners genuinely lose track of the line. Grandview Avenue,
+        Fifth Avenue and Goodale Boulevard all continue into Columbus. Marble Cliff, a separate village again,
+        starts a few blocks west of Grandview Avenue. Three municipal codes inside a fifteen minute walk. What
+        follows is which of them decides what, and which questions are answered at the county instead.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Which authority decides what for a Grandview Heights, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">The question</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who decides</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">What that means in practice</th>
+            </tr>
+          </thead>
+          <tbody>
+            {whoDecides.map((r) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">{r.thing}</th>
+                <td class="p-3.5 border border-line align-top font-semibold text-navy">{r.who}</td>
+                <td class="p-3.5 border border-line align-top text-muted">{r.detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVICTION AND REGISTRATION -->
+  <section class="band band-wash" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Compliance and enforcement</span>
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Grandview Heights?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Franklin County Municipal Court, at 375 S. High St., Columbus, OH 43215, where Eviction Court sits in
+        Courtroom 11B. Eviction jurisdiction in Ohio follows the county under R.C. 1901.02, not the municipality,
+        so an independent city does not get its own eviction docket. Grandview Heights Mayor's Court is a limited
+        jurisdiction court for traffic and minor misdemeanour matters that arise inside the city. It cannot hear a
+        forcible entry and detainer action, which is the legal name for an eviction, and it cannot hear a claim for
+        unpaid rent.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The case starts before the court does. Ohio requires a three-day notice to leave the premises under
+        R.C. 1923.04, with specific statutory language, served by certified mail, handed to the resident, or left
+        at the property. Wrong wording, dismissed case, three more weeks with no rent. Our costs are published:
+        {' '}{usd(pricing.eviction.countyFilingFee)} to the county, {usd(pricing.eviction.attorneyFee)} to the
+        attorney and {usd(pricing.eviction.rlpmProcessFee)} to us, set out on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">Do you have to register a Grandview Heights rental?</h3>
+      <p class="text-[16.5px] text-muted">
+        Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires every owner of residential rental
+        property to file their name, address and telephone number, plus the property street address and permanent
+        parcel number, with the auditor of the county the property sits in, and to update within 60 days of any
+        change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99, a statutory
+        range of $50 to $150, with the Franklin County Auditor stating $150 per tax year. Owners holding title
+        through an LLC or a trust have to name the responsible member, officer or trustee. A manager may file as
+        the owner designated agent, and we do.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        On top of that, the city regulates short-term rentals itself: an approved application produces a permit,
+        then a team inspection by the Building Inspector and the Electrical Inspector before you may rent, and the
+        registration runs 12 months.
+        {' '}[SOURCE NEEDED: confirm with Grandview Heights Building and Zoning whether the city operates a
+        registration, licence or periodic inspection programme for long-term residential rentals, and any fee.]
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK -->
+  <section class="band-tight" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Grandview Heights?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Small and old, overwhelmingly. A square mile that was largely built out early in the twentieth century has
+        no room for subdivisions, so the rental stock is older houses on narrow lots, two-family doubles, and small
+        apartment buildings, with detached garages reached from alleys rather than driveways. One and two bedroom
+        units carry a large share of the rental market here. Grandview Yard, the mixed-use redevelopment on the
+        eastern edge, added newer construction in the last fifteen years and is the visible exception.
+        {' '}[SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Grandview Heights, Ohio.]
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Small and old changes the economics in ways owners underestimate. A one bedroom turns more often than a
+        four bedroom, because the people who rent one bedrooms move for jobs and relationships rather than for
+        school districts. Every turn is a vacancy, a clean, a paint and a listing. That is precisely why the
+        leasing fee line matters more here than anywhere: a manager who charges half a month's rent to place a
+        resident is charging you again every time a short tenancy ends, and short tenancies are the norm in this
+        kind of stock. Ours is {usd(pricing.leasingFee)}, every time.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The building age brings the rest: original service lines, plaster walls, older sewer laterals, boilers in
+        some buildings, and roofs and windows on a replacement cycle rather than a repair cycle. Alley access
+        means a contractor's truck sometimes cannot get where it needs to be, which is a scheduling problem before
+        it is a cost problem. Price a reserve before you buy rather than after the first February. The
+        {' '}<a href="/tools/maintenance-reserve-calculator/" class="text-crimson font-semibold no-underline hover:underline">maintenance reserve calculator</a>
+        {' '}does that arithmetic and costs nothing.
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band band-wash" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Utilities</span>
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in Grandview Heights, and who pays them?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Water and sewer come from the City of Columbus, and Columbus bills the customer directly. Grandview
+        Heights says so plainly on its own new residents page and points water issues to 614.645.7788 extension 5.
+        The Grandview Heights Service Department maintains the local sewers, streets, streetlights and traffic
+        signals and runs trash, recycling and yard waste. Electricity is distributed by AEP Ohio and natural gas by
+        Columbia Gas of Ohio.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Grandview Heights, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who customarily pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water and sewer</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Columbus, billed directly by Columbus</td>
+              <td class="p-3.5 border border-line text-muted">Resident, in their own name, on our standard lease</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Trash, recycling, yard waste</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Grandview Heights Service Department</td>
+              <td class="p-3.5 border border-line text-muted">City service, not a separate resident account</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        Two things follow for an owner. First, Columbus states that the property owner is ultimately responsible
+        for all water and sewer charges, even where a Tenant Billing Agreement puts the account in the resident's
+        name, so an unpaid balance can end up attached to your parcel. Second, in a two-family double with one
+        water meter, the water bill is structurally yours unless the lease says otherwise and the rent is set with
+        that in mind. Older Grandview doubles are frequently single-metered. That is a question to answer before
+        you sign a lease, not after.
+      </p>
+    </div>
+  </section>
+
+  <!-- RENT AND PRICING -->
+  <section class="band-tight" aria-labelledby="rent-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Grandview Heights rental earn, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Across the units we manage in Grandview Heights, the median rent for a one bedroom is {usd(oneBed.median)}.
+        That figure is a one bedroom median from our own portfolio, and it is the only Grandview Heights figure we
+        will publish as ours. We hold to a five-unit minimum before we publish a market and bedroom median, and our
+        two, three and four bedroom samples in this city do not clear it. Anyone quoting you a tidy city-wide
+        average is quoting a public index, not their own book. For context only, our portfolio-wide median across
+        the Columbus metro is {usd(rentByBedroom['1'].median)} for a one bedroom and
+        {' '}{usd(rentByBedroom['2'].median)} for a two bedroom.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        On a {usd(oneBed.median)} one bedroom, a manager charging 10% of collected rent takes about
+        {' '}{usd(Math.round(oneBed.median * 0.1) * 12)} a year and roughly {usd(Math.round(oneBed.median / 2))}
+        {' '}again every time the unit turns. Our first plan is {usd(pricing.plans[0].monthly * 12)} a year and the
+        placement is {usd(pricing.leasingFee)}. In a market of small units that turn often, the leasing fee is
+        usually the bigger half of that gap, not the monthly.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
+        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at $250
+        to $450.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Grandview rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band-wash" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Grandview Heights property management questions</h2>
+      <Faq items={faq} heading="Grandview Heights property management questions" id="grandview-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The city on three sides, and a different rulebook.' },
+    { href: '/property-management-bexley-ohio/', label: 'Bexley property management', note: 'The other independent city inside Columbus, with the same trap.' },
+    { href: '/property-management-upper-arlington-ohio/', label: 'Upper Arlington property management', note: 'North, larger lots, also its own city.' },
+    { href: '/property-management-columbus-ohio/short-north/', label: 'Short North property management', note: 'East across the Olentangy, small units and fast turns.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Grandview Heights rental should earn"
+    body="Tell us the address and we will price it against comparable listings live right now and against the units we already manage in Grandview Heights. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Talk to us about a portfolio', href: '/property-management-consultation/' }}
+  />
+</Base>

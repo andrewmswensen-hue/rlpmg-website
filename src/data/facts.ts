@@ -124,7 +124,21 @@ export const pricing = {
    */
   eviction: {
     attorneyFee: 150,          // paid to the eviction attorney, filing plus up to 2 appearances
-    countyFilingFee: 123,      // "Eviction Complaint", paid to Franklin County
+    /**
+     * FRANKLIN COUNTY ONLY. This is the Franklin County Municipal Court
+     * "Eviction Complaint" filing fee. Delaware, Fairfield, Licking, Madison,
+     * Union and Pickaway courts each set their own, and none of them are known
+     * here. Never present this figure as the fee for a non-Franklin market.
+     */
+    countyFilingFee: 123,
+    countyFilingFeeAppliesTo: 'Franklin County',
+    /**
+     * [SOURCE NEEDED: eviction complaint filing fees for Delaware, Fairfield,
+     * Licking, Union, Madison and Pickaway county municipal courts. Without
+     * these, every area page outside Franklin County has to leave the filing
+     * cost blank, which is the one number an owner in those markets most wants.]
+     */
+    otherCountyFilingFees: null,
     hardCostTotal: 273,        // attorney + county, billed to the owner
     rlpmProcessFee: 199,       // paid to RLPM to run the process, up to 2 appearances
     tagAndSetoutFee: 80,       // paid to Franklin County, if required
@@ -168,17 +182,24 @@ export const kpis = {
  * `existingUrl` marks the seven that already rank on the live site; those keep
  * their exact URLs so their search equity carries over untouched.
  */
+/**
+ * `county` is what an owner needs in order to know which municipal court hears
+ * an eviction and which auditor takes the R.C. 5323.02 filing. Several of these
+ * places straddle a county line, and for those the honest answer is that it
+ * depends on the parcel. Those entries name every county involved rather than
+ * picking one and being wrong for part of the city.
+ */
 export const areas = [
   { name: 'Columbus',          slug: 'columbus',          county: 'Franklin' },
-  { name: 'Dublin',            slug: 'dublin',            county: 'Franklin' },
+  { name: 'Dublin',            slug: 'dublin',            county: 'Franklin, Delaware and Union' },
   { name: 'Upper Arlington',   slug: 'upper-arlington',   county: 'Franklin', existingUrl: '/property-management-upper-arlington-ohio/' },
   { name: 'Westerville',       slug: 'westerville',       county: 'Franklin', existingUrl: '/property-management-westerville-ohio/' },
   { name: 'Worthington',       slug: 'worthington',       county: 'Franklin', existingUrl: '/property-management-worthington-ohio/' },
   { name: 'Gahanna',           slug: 'gahanna',           county: 'Franklin' },
   { name: 'Hilliard',          slug: 'hilliard',          county: 'Franklin', existingUrl: '/property-management-hilliard-ohio/' },
   { name: 'Powell',            slug: 'powell',            county: 'Delaware', existingUrl: '/property-management-powell-ohio/' },
-  { name: 'Reynoldsburg',      slug: 'reynoldsburg',      county: 'Franklin', existingUrl: '/property-management-reynoldsburg-ohio/' },
-  { name: 'Canal Winchester',  slug: 'canal-winchester',  county: 'Franklin', existingUrl: '/property-management-canal-winchester/' },
+  { name: 'Reynoldsburg',      slug: 'reynoldsburg',      county: 'Franklin, Licking and Fairfield', existingUrl: '/property-management-reynoldsburg-ohio/' },
+  { name: 'Canal Winchester',  slug: 'canal-winchester',  county: 'Franklin and Fairfield', existingUrl: '/property-management-canal-winchester/' },
   { name: 'New Albany',        slug: 'new-albany',        county: 'Franklin' },
   { name: 'Bexley',            slug: 'bexley',            county: 'Franklin' },
   { name: 'Grove City',        slug: 'grove-city',        county: 'Franklin' },

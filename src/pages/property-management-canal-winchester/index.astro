@@ -1,0 +1,401 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { rentByMarketAndBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Canal Winchester, Ohio. Target query: "property management canal winchester".
+ *
+ * NOTE ON THE URL. This page lives at /property-management-canal-winchester/
+ * with NO -ohio suffix, unlike every other city page on this site. That is
+ * deliberate: the live page already ranks at that exact URL and the search
+ * equity carries over only if the URL is left alone. See the areaUrl() comment
+ * in src/data/facts.ts.
+ *
+ * The differentiating fact is that Canal Winchester straddles the Franklin and
+ * Fairfield county line. Which court hears an eviction, and which county auditor
+ * holds the R.C. 5323.02 owner filing, both depend on the specific parcel.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - "Canal Winchester is a city in Fairfield and Franklin counties in the U.S.
+ *    state of Ohio": en.wikipedia.org/wiki/Canal_Winchester,_Ohio.
+ *  - Court jurisdiction follows the county under R.C. 1901.02.
+ *  - Franklin County Municipal Court eviction division, 375 S. High St., 3rd
+ *    floor, Columbus, OH 43215, Courtroom 11B:
+ *    franklincountymunicourt.org/Courts/Eviction-Court.
+ *  - Fairfield County Municipal Court, 136 W. Main St., Lancaster, OH 43130.
+ *    Hears evictions, civil claims to $15,000:
+ *    ohiolegalhelp.org/resource/fairfield-county-municipal-court and fcmcourt.org.
+ *  - Owner filing with the county auditor: R.C. 5323.02, penalty R.C. 5323.99.
+ *    Franklin County Auditor states $150 per tax year.
+ *  - The City of Canal Winchester runs its own water system: "a 2 Million
+ *    Gallons per Day (MGD) ion-exchange water treatment facility and water
+ *    distribution system that consists of over 51 miles of water mains, 3 water
+ *    towers and over 3,195 service connections":
+ *    canalwinchesterohio.gov/170/Water. The city bills water, sanitary sewer and
+ *    storm water bimonthly, due February, April, June, August, October and
+ *    December, and service is put in a name at City Hall with photo ID and a
+ *    lease or closing statement: canalwinchesterohio.gov/160/Utility-Billing.
+ *  - Canal Winchester is NOT on the City of Columbus water and sewer contract
+ *    community list: columbus.gov Water & Sewer Contract Communities.
+ *  - Electric distribution AEP Ohio, natural gas Columbia Gas of Ohio.
+ *  - Median year structure built 2001: US Census, ACS 2024 5-year estimates.
+ *
+ * Rent: rentByMarketAndBedroom has qualifying Canal Winchester entries at 2
+ * bedrooms (sample 5) and 3 bedrooms (sample 8). No door counts, no per-market
+ * days on market.
+ */
+
+const CITY = 'Canal Winchester';
+const PATH = '/property-management-canal-winchester/';
+
+const title = 'Property Management in Canal Winchester, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Canal Winchester rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. The city sits on the Franklin and Fairfield county line, which decides your court.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Canal Winchester', path: PATH },
+];
+
+const rent = rentByMarketAndBedroom[CITY];
+
+const keyFacts = [
+  'Canal Winchester sits in both Franklin County and Fairfield County',
+  'Which court hears an eviction depends on the specific parcel, not the city',
+  'The city runs its own water plant, so this is not a Columbus water address',
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Canal Winchester unit turns`,
+  `Median rent across the units we manage in Canal Winchester: ${usd(rent['3'].median)} for a 3 bedroom`,
+];
+
+const courts = [
+  {
+    county: 'Franklin County',
+    court: 'Franklin County Municipal Court',
+    where: '375 S. High St., 3rd floor, Columbus, OH 43215. Eviction Court sits in Courtroom 11B.',
+    note: 'This covers the northern and western part of the city, the side that grew out from Columbus and Groveport.',
+  },
+  {
+    county: 'Fairfield County',
+    court: 'Fairfield County Municipal Court',
+    where: '136 W. Main St., Lancaster, OH 43130. Hears evictions and civil claims to $15,000.',
+    note: 'This covers the southern and eastern part of the city, and Lancaster is about a twenty-five mile drive from downtown Columbus.',
+  },
+];
+
+const faq = [
+  { q: 'What county is Canal Winchester, Ohio in?',
+    a: 'Both Franklin and Fairfield. Canal Winchester is a city in Fairfield and Franklin counties, and the line runs through the built-up part of the city rather than around it. Two houses a few streets apart can sit in different counties, which means different courts, different county auditors, different treasurers and different tax bills. The only reliable way to settle it is the permanent parcel number and which county auditor has the property on its books.' },
+  { q: 'Which court hears an eviction in Canal Winchester?',
+    a: 'It depends on which county the parcel is in. A Franklin County parcel is filed at Franklin County Municipal Court, 375 S. High St., 3rd floor, Columbus, where Eviction Court sits in Courtroom 11B. A Fairfield County parcel is filed at Fairfield County Municipal Court, 136 W. Main St., Lancaster, which hears evictions and civil claims to $15,000. Jurisdiction follows the county under Ohio Revised Code 1901.02. A case filed in the wrong court is not transferred as a courtesy: you lose the filing fee and the hearing date and start again.' },
+  { q: 'How do I find out which county my Canal Winchester rental is in?',
+    a: 'Check the parcel. Look the address up on the Franklin County Auditor site and then on the Fairfield County Auditor site. The one that returns your permanent parcel number is the county you file in, register in and pay taxes to. Do not go by the mailing address, the school district or the zip code, because none of those track the county line. We confirm the county on every Canal Winchester property at onboarding and write it into the file, so nobody has to guess at the point when a case is urgent.' },
+  { q: 'Where do I register a Canal Winchester rental property?',
+    a: 'With the auditor of whichever county the parcel is in. Ohio Revised Code 5323.02 requires the owner of residential rental property to file owner name, address and telephone number plus the property address and parcel number with the county auditor, within 60 days, updated within 60 days of any change. There is no fee. For a Franklin County parcel that is the Franklin County Auditor, which states a penalty of $150 per tax year for failing to file. [SOURCE NEEDED: the Fairfield County Auditor rental registration process, filing address and penalty practice for a Fairfield County parcel.]' },
+  { q: 'Who provides water and sewer in Canal Winchester?',
+    a: 'The City of Canal Winchester itself. The city operates a 2 million gallon per day ion-exchange water treatment facility feeding over 51 miles of water mains, 3 water towers and more than 3,195 service connections, and it bills water, sanitary sewer and storm water together on a bimonthly cycle due in February, April, June, August, October and December. Electricity is distributed by AEP Ohio and natural gas by Columbia Gas of Ohio. Canal Winchester is not on the City of Columbus water and sewer contract community list, so the Columbus rule that holds an owner ultimately responsible for a resident water balance does not govern this city.' },
+  { q: 'How do I put the utilities in a new resident name in Canal Winchester?',
+    a: 'In person at City Hall. The city requires someone to come to City Hall during business hours with a photo ID and a lease or closing statement to put utility service in a name. That is a real scheduling constraint on a move-in day, and it is one of the small things a manager working from a Columbus template gets wrong, because Columbus lets you do it without an office visit. We handle it as part of the move-in sequence.' },
+  { q: 'What does a rental in Canal Winchester rent for?',
+    a: `Across the units we manage in Canal Winchester, the median rent is ${usd(rent['2'].median)} for a two bedroom and ${usd(rent['3'].median)} for a three bedroom. Those are our own portfolio medians, not a market survey. We are not publishing a median at other bedroom counts here, because the sample is under five units and a median built on three houses is not a number anyone should price against.` },
+  { q: 'How much does property management cost in Canal Winchester?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Because the fee is a fixed dollar amount, a house renting at ${usd(rent['3'].median)} costs the same to manage as one renting at ${usd(1200)}. A manager charging 10% of collected rent would take roughly ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year on that same house. Photography is not included in the ${usd(pricing.leasingFee)} leasing fee and is billed separately at $250 to $450.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Canal Winchester, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Canal Winchester, Ohio',
+      containedInPlace: [
+        { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+        { '@type': 'AdministrativeArea', name: 'Fairfield County, Ohio' },
+      ],
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Canal Winchester, Ohio"
+    answer={`${company.name} manages single-family and small multifamily rentals in Canal Winchester for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee. The city sits on a county line, so your parcel decides your court.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Canal Winchester, at a glance" />
+
+  <!-- THE COUNTY LINE PROBLEM. The single most useful thing on this page. -->
+  <section class="band-tight" aria-labelledby="county-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="county-h" class="text-[clamp(26px,3.2vw,38px)]">What county is Canal Winchester in, and which court hears an eviction?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Canal Winchester is in two counties. It is a city in Fairfield and Franklin counties, and the line runs
+        through the built-up part of town rather than neatly around it. So there is no single answer to which
+        court hears a Canal Winchester eviction. The answer is decided by the parcel, and two rentals a few
+        streets apart can end up in different courthouses twenty-five miles from each other.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Eviction court by county for Canal Winchester, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">If your parcel is in</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">You file at</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Where, and what it covers</th>
+            </tr>
+          </thead>
+          <tbody>
+            {courts.map((c) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top whitespace-nowrap">{c.county}</th>
+                <td class="p-3.5 border border-line align-top font-semibold text-navy">{c.court}</td>
+                <td class="p-3.5 border border-line align-top text-muted">{c.where} {c.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[17.5px] text-muted mt-6">
+        Jurisdiction follows the county under Ohio Revised Code 1901.02, and a case filed in the wrong court is
+        not moved along as a courtesy. You lose the filing fee, you lose the hearing date, and a resident who
+        stopped paying in month three stays another three weeks while you refile. This is the failure mode for
+        Canal Winchester specifically, because the city reads as a Columbus suburb, the mailing address says
+        Canal Winchester, and a manager running a Franklin County template will file at High Street without
+        checking the parcel.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">How to settle it in five minutes</h3>
+      <p class="text-[16.5px] text-muted">
+        Look the address up on the Franklin County Auditor site, then on the Fairfield County Auditor site.
+        Whichever one returns your permanent parcel number is the county that governs the property: its court
+        hears the eviction, its auditor holds the rental registration, its treasurer sends the tax bill, and its
+        recorder holds the deed. Do not use the mailing address, the zip code or the school district as a proxy,
+        because none of the three track the county line. We confirm and record the county on every Canal
+        Winchester property during onboarding, so the answer is already in the file on the day it matters.
+      </p>
+      <p class="text-[16px] text-muted mt-6">
+        Before either court sees the case, Ohio requires a three-day notice to leave the premises under R.C.
+        1923.04, carrying specific statutory language, served by certified mail, handed to the resident, or left
+        at the property. Wrong wording, dismissed case, start again. On cost, our published schedule lists a
+        {' '}{usd(pricing.eviction.countyFilingFee)} county filing fee, and that figure is the Franklin County
+        Eviction Complaint fee.
+        [SOURCE NEEDED: the current Fairfield County Municipal Court eviction filing deposit, and how a Fairfield
+        County filing is billed on an owner statement.] The rest of the process, including the
+        {' '}{usd(pricing.eviction.attorneyFee)} attorney fee and our {usd(pricing.eviction.rlpmProcessFee)}
+        {' '}process fee, is written out on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band band-wash" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Compliance</span>
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Where do you register a Canal Winchester rental property?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        With the auditor of the county your parcel is in, which is the same fork as the court. Ohio Revised Code
+        5323.02 requires every owner of residential rental property to file their name, address and telephone
+        number, plus the property street address and permanent parcel number, with that county auditor. There is
+        no fee, the filing is due within 60 days, and any change has to be updated within 60 days. Owners
+        holding through an LLC or a trust also have to name the responsible officer, member or trustee, which is
+        the detail that gets skipped most often.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        For a Franklin County parcel, that is the Franklin County Auditor, which states a penalty of $150 per tax
+        year for failing to file. The statutory range under R.C. 5323.99 is $50 to $150, assessed against the
+        property and appealable to the county board of revision.
+        [SOURCE NEEDED: the Fairfield County Auditor residential rental registration process, filing address and
+        penalty practice, for the Fairfield County side of Canal Winchester.]
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The statute lets an owner designate a property manager as the agent who files, and that is part of
+        onboarding here rather than a form we email you and hope you return.
+        [SOURCE NEEDED: confirm against the City of Canal Winchester codified ordinances whether the city
+        separately requires residential rental registration, a rental licence or periodic rental inspection, and
+        at what fee.]
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band-tight" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in Canal Winchester, and who pays them?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The city does, for water and sewer. Canal Winchester operates its own 2 million gallon per day
+        ion-exchange water treatment facility, feeding more than 51 miles of water mains, 3 water towers and over
+        3,195 service connections. Water, sanitary sewer and storm water arrive on one city bill, issued
+        bimonthly and due in February, April, June, August, October and December. Electricity is distributed by
+        AEP Ohio and natural gas by Columbia Gas of Ohio.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Canal Winchester, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who customarily pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water, sanitary sewer, storm water</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Canal Winchester, on its own system</td>
+              <td class="p-3.5 border border-line text-muted">Resident, in their own name, on our standard lease</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        Two practical notes. First, the city requires an in-person visit to City Hall during business hours,
+        with a photo ID and a lease or closing statement, to put utility service in a name. That is a real
+        scheduling constraint on move-in day, and it is the kind of thing a manager running a Columbus playbook
+        forgets until the resident calls with no water. Second, Canal Winchester is not on the City of Columbus
+        water and sewer contract community list, so the Columbus rule making the property owner ultimately
+        responsible for all charges under a Tenant Billing Agreement does not reach this city.
+        [SOURCE NEEDED: confirm whether the City of Canal Winchester holds the property owner responsible for a
+        departed resident unpaid water and sewer balance, and whether it certifies arrears to the tax duplicate.]
+        Until that is confirmed, we do what we do everywhere: account in the resident name at lease signing,
+        verified again at move-out before the deposit is settled.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT WE MANAGE -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Canal Winchester?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Newer subdivision stock wrapped around a small nineteenth-century canal town. The median Canal Winchester
+        home was built in 2001, per US Census ACS 2024 5-year estimates, the same median as Powell and a full
+        generation later than Worthington at 1963. Most of what we manage here is detached three and four bedroom
+        houses from the late 1990s and 2000s, plus townhouses and condominiums, with a thin slice of older
+        housing in the original village around High and Waterloo.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        A 2001 median means the whole city is arriving at its first big replacement cycle at once. The original
+        furnace, condenser, water heater and roof on a house of that age are at or near the end of a first
+        service life, so capital items come in clusters rather than one at a time. Owners who bought here for a
+        clean, newer house and low early maintenance are the ones most surprised by two or three four-figure
+        items landing inside a couple of years. We record the age of every major system at onboarding so those
+        replacements sit on your calendar instead of arriving at 11pm in February.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The second pattern here is the association. A lot of this stock was platted with recorded deed
+        restrictions on parking, fencing and lawn condition, and the violation notice goes to the owner of
+        record rather than to the resident. We route those to the resident with a cure date instead of letting
+        them stack up until the association escalates.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">Where in Canal Winchester we work</h3>
+      <p class="text-[16.5px] text-muted">
+        The historic village around High Street and Waterloo Street, Gender Road, Winchester Boulevard, Diley
+        Road, Lithopolis Road, Groveport Road and Hill Road, plus the newer sections east and south. Most houses
+        here feed the Canal Winchester Local School District, though the city boundary and the district boundary
+        are not the same shape. The US 33 corridor is what puts these houses inside a twenty-five minute commute
+        of downtown Columbus and of the Rickenbacker logistics area.
+      </p>
+    </div>
+  </section>
+
+  <!-- RENT AND PRICING -->
+  <section class="band-tight" aria-labelledby="rent-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Canal Winchester rental earn, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Across the units we manage in Canal Winchester, the median rent is {usd(rent['2'].median)} for a two
+        bedroom and {usd(rent['3'].median)} for a three bedroom. Those are our own portfolio medians, not a
+        market survey, and we say so because plenty of local pages quote a public rent index as if it were their
+        own book. We are not publishing a median at other bedroom counts here, because the sample is under five
+        units and we do not publish a median we would not price against ourselves.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        At a {usd(rent['3'].median)} rent, a manager charging 10% of collected rent takes about
+        {' '}{usd(Math.round(rent['3'].median * 0.1) * 12)} a year, plus roughly
+        {' '}{usd(Math.round(rent['3'].median / 2))} again every time the unit turns. Our middle plan is
+        {' '}{usd(pricing.plans[1].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}. Lease
+        renewal is {usd(pricing.leaseRenewalFee)}. The three plans differ in exactly one variable: how much we
+        can spend on a single repair before we stop and call you.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
+        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at
+        $250 to $450.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Canal Winchester rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band-wash" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Canal Winchester property management questions</h2>
+      <Faq items={faq} heading="Canal Winchester property management questions" id="canal-winchester-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-reynoldsburg-ohio/', label: 'Reynoldsburg property management', note: 'North on the east side, older stock, median year built 1984.' },
+    { href: '/property-management-blacklick-ohio/', label: 'Blacklick property management', note: 'North on the east side, newer stock and a mix of school districts.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with the full Franklin County process.' },
+    { href: '/property-management-grove-city-ohio/', label: 'Grove City property management', note: 'West across the south side, similar rents and stock.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Canal Winchester rental should earn"
+    body="Tell us the address and we will price it against the units we already manage in Canal Winchester and the comparable listings live right now. We will also tell you which county your parcel is in. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

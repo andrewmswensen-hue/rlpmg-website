@@ -1,0 +1,436 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, kpis, usd } from '../../data/facts';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Upper Arlington, Ohio. Target query: "property management upper arlington ohio".
+ *
+ * The differentiating fact for Upper Arlington is age. The median home here was
+ * built in 1959, the oldest stock of any suburb we write a page for, which means
+ * the typical Upper Arlington rental is pre-1978 target housing and carries
+ * federal lead-based paint disclosure obligations at every lease, plus a
+ * contractor rule that governs who may disturb painted surfaces during a turn.
+ * That is a real cost line and a real legal exposure, and no competitor page
+ * for this city mentions either.
+ *
+ * NO PORTFOLIO RENT MEDIAN IS PUBLISHED HERE. Upper Arlington has no qualifying
+ * entry in rentByMarketAndBedroom (no bedroom count reaches the 5-unit minimum),
+ * so markets.ts is deliberately not imported. The page uses the ACS 2024 5-year
+ * median gross rent of $1,588, labelled as Census, and says plainly why we have
+ * no number of our own to show.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - Median year structure built 1959: US Census, ACS 2024 5-year estimates.
+ *  - Median gross rent $1,588: US Census, ACS 2024 5-year estimates.
+ *  - Lead Disclosure Rule, Section 1018 of Title X (Residential Lead-Based Paint
+ *    Hazard Reduction Act of 1992), implemented at 24 CFR Part 35 subpart A and
+ *    40 CFR Part 745 subpart F. Target housing means most housing built before
+ *    1978. Requires the EPA-approved pamphlet, disclosure of known lead-based
+ *    paint and hazards, delivery of available records and reports, and a signed
+ *    Lead Warning Statement attached to the lease. It does not require testing
+ *    or abatement.
+ *  - Renovation, Repair and Painting Rule, 40 CFR Part 745 subpart E: pre-1978
+ *    housing, work disturbing more than 6 square feet of painted surface in an
+ *    interior room, more than 20 square feet on the exterior, or any window
+ *    replacement or demolition, must be done by an EPA-certified firm using
+ *    certified renovators and lead-safe work practices:
+ *    epa.gov/lead/lead-renovation-repair-and-painting-program.
+ *  - Ohio's RRP program is administered by US EPA rather than by the state.
+ *    The Ohio Department of Health approves lead safe renovator training courses
+ *    and licenses lead professionals under Ohio Revised Code Chapter 3742:
+ *    ohhn.org/renovation/ and odh.ohio.gov.
+ *  - Water and sewer supplied by the City of Columbus Division of Water, with
+ *    Upper Arlington maintaining local sanitary sewer and stormwater lines;
+ *    refuse collected by Local Waste Services under city contract; an opt-out
+ *    Electric Aggregation Program has run since January 2024:
+ *    upperarlingtonoh.gov/430/Utilities-Billing. Upper Arlington appears on the
+ *    Columbus Water & Sewer Contract Communities list: columbus.gov.
+ *  - Court jurisdiction follows the county under R.C. 1901.02. Upper Arlington
+ *    is entirely in Franklin County, so Franklin County Municipal Court,
+ *    eviction division, 375 S. High St., 3rd floor, Columbus, OH 43215.
+ *  - Owner filing with the county auditor: R.C. 5323.02, penalty R.C. 5323.99.
+ *
+ * No door counts, no per-market days on market.
+ */
+
+const PATH = '/property-management-upper-arlington-ohio/';
+const MEDIAN_YEAR_BUILT = 1959;
+const CENSUS_MEDIAN_GROSS_RENT = 1588;
+
+const title = 'Property Management in Upper Arlington, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Upper Arlington, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. The median home here was built in ${MEDIAN_YEAR_BUILT}, so pre-1978 lead rules apply.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Upper Arlington', path: PATH },
+];
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time an Upper Arlington unit turns`,
+  `Median home built in ${MEDIAN_YEAR_BUILT} (US Census, ACS 2024 5-year estimates), the oldest stock we work`,
+  'Most Upper Arlington rentals are pre-1978, so federal lead paint disclosure applies at every lease',
+  `Median gross rent ${usd(CENSUS_MEDIAN_GROSS_RENT)} (US Census, ACS 2024 5-year estimates), not our figure`,
+  'Entirely in Franklin County, so evictions are heard at 375 S. High St., Columbus',
+];
+
+const faq = [
+  { q: 'Does my Upper Arlington rental need a lead-based paint disclosure?',
+    a: `Almost certainly yes. The median Upper Arlington home was built in ${MEDIAN_YEAR_BUILT} according to US Census ACS 2024 5-year estimates, so the typical rental here is pre-1978 target housing. Federal law requires the owner to give every prospective resident the EPA-approved pamphlet, disclose any known lead-based paint and any known lead-based paint hazards, hand over any available records or reports, and attach a signed Lead Warning Statement to the lease. That is Section 1018 of Title X, at 24 CFR Part 35 subpart A and 40 CFR Part 745 subpart F.` },
+  { q: 'Does that mean I have to test for lead paint or remove it?',
+    a: 'No. The federal disclosure rule requires you to disclose what you know and hand over what you have. It does not require you to test, and it does not require you to abate anything. The exposure is in the paperwork, not the paint: a knowing failure to disclose can expose an owner to damages beyond the actual harm, and the defence is a signed disclosure sitting in a file. We keep one on every pre-1978 unit we manage.' },
+  { q: 'How does pre-1978 housing change what a turn costs in Upper Arlington?',
+    a: 'It narrows who is allowed to do the work. Under the EPA Renovation, Repair and Painting rule at 40 CFR Part 745 subpart E, work in pre-1978 housing that disturbs more than 6 square feet of painted surface inside a room, more than 20 square feet outside, or that replaces a window or demolishes part of a structure, has to be done by an EPA-certified firm using certified renovators and lead-safe work practices. Containment, HEPA vacuuming and cleaning verification take time and cost money, and a window replacement on a 1950s house is squarely inside the rule.' },
+  { q: 'Which court hears an eviction in Upper Arlington, Ohio?',
+    a: 'Franklin County Municipal Court, at 375 S. High St., 3rd floor, Columbus, OH 43215. Upper Arlington sits entirely inside Franklin County, so every address in the city files in the same place. Jurisdiction follows the county under Ohio Revised Code 1901.02. Before a filing, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, with specific statutory language.' },
+  { q: 'What does a rental in Upper Arlington rent for, and why is that not your number?',
+    a: `The US Census ACS 2024 5-year estimate puts median gross rent in Upper Arlington at ${usd(CENSUS_MEDIAN_GROSS_RENT)}. That is a Census figure covering all rented housing in the city, so a three or four bedroom house typically rents well above it. We publish a portfolio median of our own only where at least five of our units sit behind it at that bedroom count, and no bedroom count in Upper Arlington reaches five, so we show the Census figure and label it rather than dress a public index up as our book.` },
+  { q: 'Who provides utilities in Upper Arlington?',
+    a: 'Water and sanitary sewer come from the City of Columbus Division of Water, with Upper Arlington maintaining the local sanitary sewer and stormwater lines. Refuse and recycling are collected by Local Waste Services under a city contract. Electricity is distributed by AEP Ohio, and since January 2024 the city has run an opt-out Electric Aggregation Program, so the default supplier on a new account may not be the one a resident expects. Natural gas is Columbia Gas of Ohio.' },
+  { q: 'Do I have to register my Upper Arlington rental property with anyone?',
+    a: 'Yes, with the Franklin County Auditor, not with the city. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number and the parcel number with the county auditor, and to update it within 60 days of any change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99, which the Franklin County Auditor states as $150 per tax year. A manager can file as the owner designated agent, and we do.' },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Upper Arlington, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Upper Arlington, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Upper Arlington, Ohio"
+    answer={`${company.name} manages single-family and small multifamily rentals in Upper Arlington for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee. The median home here was built in ${MEDIAN_YEAR_BUILT}.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Upper Arlington, at a glance" />
+
+  <!-- PRE-1978 HOUSING. The single most useful thing on this page. -->
+  <section class="band-tight" aria-labelledby="lead-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="lead-h" class="text-[clamp(26px,3.2vw,38px)]">What changes when you rent out a house built before 1978?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Two federal rules attach to the property, and Upper Arlington is where they bite hardest. The median home
+        here was built in {MEDIAN_YEAR_BUILT}, according to US Census ACS 2024 5-year estimates, older than
+        Worthington and more than twenty years older than Westerville, so the typical Upper Arlington rental is
+        pre-1978 target housing. That is not a warning about the city. It is two obligations most owners here
+        have never had explained to them.
+      </p>
+      <h3 class="text-[21px] mt-8 mb-3">Rule one: disclosure, at every single lease</h3>
+      <p class="text-[16.5px] text-muted">
+        Section 1018 of Title X, implemented at 24 CFR Part 35 subpart A and 40 CFR Part 745 subpart F, requires
+        the owner of pre-1978 target housing to do four things before a resident signs. Give them the
+        EPA-approved lead hazard information pamphlet. Disclose any known lead-based paint and any known
+        lead-based paint hazards in the unit. Hand over any records or reports about lead-based paint that you
+        actually have. And attach a Lead Warning Statement to the lease, signed by the resident.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        Notice what is not on that list. You do not have to test, and you do not have to remove anything. The rule
+        is about what you disclose, not what you own, which makes the failure mode particularly frustrating: an
+        owner with nothing to hide loses because there is no signed form in the file. A knowing failure to
+        disclose can expose an owner to damages well beyond the actual harm. We attach the disclosure to every
+        pre-1978 lease we write and keep the signed copy.
+      </p>
+      <h3 class="text-[21px] mt-8 mb-3">Rule two: who is allowed to touch the paint</h3>
+      <p class="text-[16.5px] text-muted">
+        The EPA Renovation, Repair and Painting rule, at 40 CFR Part 745 subpart E, governs the work itself. In
+        pre-1978 housing, any renovation, repair or painting that disturbs more than 6 square feet of painted
+        surface inside a room, more than 20 square feet outside, or that replaces a window or demolishes part of
+        the structure, has to be performed by an EPA-certified firm, using certified renovators and lead-safe work
+        practices. Ohio's programme is administered by the US EPA rather than by the state, while the Ohio
+        Department of Health approves the renovator training courses and licenses lead abatement professionals
+        under Ohio Revised Code Chapter 3742.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">When the EPA Renovation, Repair and Painting rule applies to a pre-1978 Upper Arlington rental</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Turn work</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Inside the rule on a pre-1978 house?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Replacing a window</th>
+              <td class="p-3.5 border border-line align-top text-navy font-semibold">Yes, regardless of size</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Repainting a bedroom after scraping and sanding</th>
+              <td class="p-3.5 border border-line align-top text-navy font-semibold">Yes, once more than 6 square feet of painted surface is disturbed</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Exterior siding or trim repair</th>
+              <td class="p-3.5 border border-line align-top text-navy font-semibold">Yes, once more than 20 square feet is disturbed</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Taking out a wall</th>
+              <td class="p-3.5 border border-line align-top text-navy font-semibold">Yes, demolition is covered at any size</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Patching a small nail hole and touching up</th>
+              <td class="p-3.5 border border-line align-top text-muted">Below the threshold, as minor repair and maintenance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        What that does to a budget: a certified firm has to contain the work area, use HEPA equipment and pass a
+        cleaning verification before it leaves. That is labour and time, and it lands on the same turn where you
+        also wanted the walls painted. The identical job on a 1995 house costs less and finishes sooner. Plan the
+        Upper Arlington turn around it rather than discovering it on day four.
+      </p>
+      <p class="text-[16px] text-muted mt-5">
+        [SOURCE NEEDED: RLPM's own turn cost premium for lead-safe work practices on a pre-1978 unit, expressed
+        as a typical dollar or percentage uplift against an equivalent post-1978 turn. Not currently in
+        facts.ts, and not estimated here.]
+      </p>
+    </div>
+  </section>
+
+  <!-- OLDER SYSTEMS -->
+  <section class="band band-wash" aria-labelledby="systems-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The building</span>
+      <h2 id="systems-h" class="text-[clamp(26px,3.2vw,38px)]">What breaks on a {MEDIAN_YEAR_BUILT} house, and what should a reserve look like?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The systems, not the structure. Houses of this age in Upper Arlington were generally built well, and the
+        shell is usually the least of your problems. What ages out is everything running through it: galvanized
+        supply lines that close up from the inside, cast iron drain stacks, clay sewer laterals with tree roots
+        in them, electrical panels sized for a household that did not own a dishwasher, plaster that cracks
+        rather than dents, and single-pane windows that are both a heating complaint and, as above, a lead-rule
+        trigger the moment you replace one. Mid-century houses also commonly contain asbestos-bearing floor
+        tile, mastic and pipe insulation, which is a reason to identify a material before a contractor disturbs
+        it rather than a reason to panic.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The practical answer is a reserve that reflects the age of the asset. Ours run {usd(pricing.reserves.min)}
+        {' '}to {usd(pricing.reserves.max)} per unit depending on plan, and on an Upper Arlington house we would
+        rather sit at the top of it. In-house maintenance is {usd(pricing.maintenance.inHouseHourly)} per hour
+        with a {usd(pricing.maintenance.tripCharge)} trip charge and no minimum, materials at cost. Vendor
+        projects carry a {pricing.maintenance.vendorProjectFeePct}% project management fee up to
+        {' '}{usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)}, capped at
+        {' '}{usd(pricing.maintenance.vendorProjectFeeCap)}. After hours it is
+        {' '}{pricing.afterHours.weekdayEveningAndSaturday} times the rate on weekday evenings and Saturdays and
+        {' '}{pricing.afterHours.sunday} times on Sundays, which is the real price of the 11pm call about a
+        sixty-year-old boiler nobody scheduled a service on.
+      </p>
+    </div>
+  </section>
+
+  <!-- COURT AND COMPLIANCE -->
+  <section class="band-tight" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Upper Arlington, and what has to be registered?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Franklin County Municipal Court, at 375 S. High St., 3rd floor, Columbus, OH 43215. Upper Arlington is
+        entirely inside Franklin County, so every address in the city files in the same court. Jurisdiction
+        follows the county under Ohio Revised Code 1901.02, which is why Dublin and Westerville owners have a
+        harder question to answer and Upper Arlington owners do not. Before a filing, Ohio requires a three-day
+        notice to leave the premises under R.C. 1923.04, carrying specific statutory language. Wrong wording
+        gets the case dismissed and the clock restarts.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The hard cost of an eviction is
+        {' '}{usd(pricing.eviction.hardCostTotal)}, being {usd(pricing.eviction.countyFilingFee)} to the county
+        and {usd(pricing.eviction.attorneyFee)} to the eviction attorney for the filing and up to two
+        appearances. We charge {usd(pricing.eviction.rlpmProcessFee)} to run the process, so a typical case
+        totals {usd(pricing.eviction.typicalTotal)} before any setout. The sequence is set out on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        On registration: Ohio Revised Code 5323.02 requires every owner of residential rental property to file
+        their name, address and telephone number, plus the street address and permanent parcel number, with the
+        Franklin County Auditor, within 60 days of acquiring it and of any change. There is no fee. Miss it and
+        the auditor can place a special assessment under R.C. 5323.99, stated by the Franklin County Auditor as
+        $150 per tax year. Owners holding title through an LLC or a trust must also name the responsible
+        officer, member or trustee.
+      </p>
+      <p class="text-[16px] text-muted mt-5">
+        [SOURCE NEEDED: confirm whether the City of Upper Arlington separately requires residential rental
+        registration, a rental licence, a point-of-sale inspection or periodic rental inspection, and at what
+        fee. The R.C. 5323 county auditor filing applies either way.]
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band band-wash" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Utilities</span>
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in Upper Arlington, and who pays them?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Water and sanitary sewer come from the City of Columbus Division of Water, with Upper Arlington
+        maintaining the local sanitary sewer and stormwater lines. On our standard lease the resident holds every
+        account in their own name.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Upper Arlington, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who customarily pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water and sewer</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Columbus Division of Water</td>
+              <td class="p-3.5 border border-line text-muted">Resident, in their own name, on our standard lease</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Refuse and recycling</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Local Waste Services, under City of Upper Arlington contract</td>
+              <td class="p-3.5 border border-line text-muted">Per the city arrangement, not a separate resident account</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio, with a city opt-out aggregation programme since January 2024</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        Two things catch owners here. The city has run an opt-out Electric Aggregation Programme since January
+        2024, so a resident who assumes they picked their own supplier may find the aggregation supplier on the
+        bill, and the call about it comes to you. And unpaid water and sewer in Ohio can attach to the parcel
+        rather than to the person who ran up the balance, so we check the water account at move-out before a
+        deposit is settled, every time.
+      </p>
+    </div>
+  </section>
+
+  <!-- RENT AND PRICING -->
+  <section class="band-tight" aria-labelledby="rent-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does an Upper Arlington rental earn, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The US Census ACS 2024 5-year estimate puts median gross rent in Upper Arlington at
+        {' '}{usd(CENSUS_MEDIAN_GROSS_RENT)}. That is a Census figure, not ours, and it covers every rented
+        dwelling in the city including apartments and older small units, so a three or four bedroom single-family
+        house typically rents well above it.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        We are not publishing a rent median of our own for Upper Arlington, and the reason is worth stating
+        plainly: we do not manage enough units here for one to be honest. A portfolio median gets published only
+        where at least five of our own units sit behind it at that bedroom count, and no bedroom count in Upper
+        Arlington reaches five. Plenty of local pages solve that by quoting a public index and letting the reader
+        assume it is their own book. We would rather show the gap.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        The flat fee does more work in Upper Arlington than in most places, because the houses rent high. On the
+        Census median gross rent of {usd(CENSUS_MEDIAN_GROSS_RENT)}, a manager charging 10% of collected rent
+        takes about {usd(Math.round(CENSUS_MEDIAN_GROSS_RENT * 0.1) * 12)} a year plus roughly
+        {' '}{usd(Math.round(CENSUS_MEDIAN_GROSS_RENT / 2))} again every time the unit turns. Our middle plan is
+        {' '}{usd(pricing.plans[1].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}. On a
+        single-family house renting above that median, which most do here, the gap is wider still, because our
+        number does not move when your rent does.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        Percentage figures describe common Columbus market rates and are not a quote from any named company.
+        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at
+        $250 to $450.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Upper Arlington rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHERE WE WORK -->
+  <section class="band band-wash" aria-labelledby="where-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="where-h" class="text-[clamp(26px,3.2vw,38px)]">Where in Upper Arlington do we work?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Across the city, from the pre-war streets in the south near Tremont and Northwest Boulevard to the
+        post-war and mid-century sections north toward Henderson Road and Reed Road. The Lane Avenue and Kenny
+        Road corridors, Arlington Ridge, Golfview, Barrington, the streets around Northam Park, and the older
+        blocks close to the Scioto. Houses across the city feed the Upper Arlington City School District.
+        Proximity to Ohio State and the medical campuses puts faculty, resident physicians and relocating
+        professionals in the applicant pool, so you get fewer applications than a mid-market suburb, stronger
+        ones, and a longer tenancy when you get it right. It also means a vacancy here is expensive. Our
+        portfolio-wide lease renewal rate is
+        {' '}{kpis.metrics.find((m) => m.id === 'renewal')?.value}, and renewal is where the money in an Upper
+        Arlington rental actually is.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band-tight" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Upper Arlington property management questions</h2>
+      <Faq items={faq} heading="Upper Arlington property management questions" id="upper-arlington-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <p class="mt-4 text-[14px] text-faint">
+        Nothing on this page is legal advice. Lead-based paint obligations are federal and they attach to the
+        property, so confirm your own position with counsel before you rely on a summary.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-worthington-ohio/', label: 'Worthington property management', note: 'North, older stock and a design review district.' },
+    { href: '/property-management-dublin-ohio/', label: 'Dublin property management', note: 'Northwest, larger lots and a three-county eviction problem.' },
+    { href: '/property-management-westerville-ohio/', label: 'Westerville property management', note: 'Northeast, newer stock and a municipal electric utility.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with every neighbourhood we work.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Upper Arlington rental should earn"
+    body="Tell us the address and we will price it against comparable listings live right now, and tell you what the pre-1978 rules mean for your turn. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

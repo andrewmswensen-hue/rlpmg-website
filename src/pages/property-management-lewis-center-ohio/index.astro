@@ -1,0 +1,352 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Lewis Center, Ohio. Target query: "property management lewis center ohio".
+ *
+ * The differentiating fact: Lewis Center is not a city. It is an unincorporated
+ * community in Orange Township, Delaware County. There is no city hall, no
+ * municipal code, no municipal income tax and no city rental registration,
+ * because there is no city. Evictions go to Delaware Municipal Court and the
+ * R.C. 5323.02 owner filing goes to the Delaware County Auditor at
+ * 145 N. Union St. A national manager will treat this as a Columbus suburb and
+ * get every one of those wrong.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - Lewis Center is an unincorporated community in northwestern Orange
+ *    Township, Delaware County, ZIP 43035, in the Columbus metropolitan area:
+ *    en.wikipedia.org/wiki/Lewis_Center,_Ohio.
+ *  - Orange Township, Delaware County: 22.8 square miles, population 37,452 at
+ *    the 2020 census: en.wikipedia.org/wiki/Orange_Township,_Delaware_County,_Ohio.
+ *  - Eviction jurisdiction follows the county under R.C. 1901.02. Delaware
+ *    County goes to Delaware Municipal Court (docs/area-research-verified.md).
+ *  - R.C. 5323.02 owner filing with the county auditor, penalty R.C. 5323.99,
+ *    $50 to $150. The Delaware County Auditor runs its own registration at
+ *    145 N. Union St., Delaware (docs/area-research-verified.md).
+ *  - R.C. 1923.04 three-day notice to leave the premises.
+ *  - Del-Co Water Company: member-owned non-profit cooperative water utility,
+ *    Ohio EPA public water system PWS-2101412, roughly 44,000 customers across
+ *    eight central Ohio counties, with the Timothy F. McNamara treatment plant
+ *    in Lewis Center: delcowater.org/about.
+ *  - Delaware County Regional Sewer District operates the Alum Creek Water
+ *    Reclamation Facility in Lewis Center: co.delaware.oh.us and
+ *    regionalsewer.co.delaware.oh.us.
+ *  - Township zoning authority sits in R.C. Chapter 519, not in a municipal
+ *    zoning code.
+ *
+ * NO qualifying entry in rentByMarketAndBedroom for Lewis Center, so no rent
+ * median is published here at all. No door counts. No per-market days on market.
+ */
+
+const CITY = 'Lewis Center';
+const PATH = '/property-management-lewis-center-ohio/';
+
+const title = 'Property Management in Lewis Center, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Lewis Center, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Lewis Center is unincorporated Delaware County, so the rules differ from Columbus.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Lewis Center', path: PATH },
+];
+
+// Guard rail: if a future data refresh ever adds Lewis Center to
+// rentByMarketAndBedroom, this page still must not quietly start publishing a
+// figure without an editor deciding to. Assert the current state instead.
+const publishesOwnRent = canPublishOwnRent(CITY);
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Lewis Center unit turns`,
+  'Lewis Center is unincorporated Orange Township, Delaware County, not a city',
+  'Evictions are filed at Delaware Municipal Court, not in Franklin County',
+  'The R.C. 5323 owner filing goes to the Delaware County Auditor, 145 N. Union St.',
+  'Drinking water comes from Del-Co Water, not the City of Columbus',
+];
+
+const faq = [
+  { q: 'Is Lewis Center, Ohio a city?',
+    a: 'No. Lewis Center is an unincorporated community in northwestern Orange Township, Delaware County, with the 43035 ZIP code. It has no mayor, no city council, no municipal code and no city hall. Orange Township governs land use under Ohio Revised Code Chapter 519, the Delaware County Sheriff provides law enforcement, and there is no municipal income tax, because a township has no authority to levy one.' },
+  { q: 'What county is Lewis Center, Ohio in?',
+    a: 'Delaware County. That single fact changes the court, the auditor and the recorder for every rental you own there. Owners who bought a Lewis Center house after looking at Columbus listings often assume Franklin County applies. It does not.' },
+  { q: 'Which court hears an eviction in Lewis Center, Ohio?',
+    a: 'Delaware Municipal Court. Jurisdiction follows the county under Ohio Revised Code 1901.02, and Lewis Center sits entirely in Delaware County, so a forcible entry and detainer action on a Lewis Center rental is filed in Delaware, not at Franklin County Municipal Court in downtown Columbus. Filing in the wrong county costs you the filing fee and roughly three weeks of calendar time, and you start again.' },
+  { q: 'Do I have to register a rental property in Lewis Center?',
+    a: 'Yes, with the Delaware County Auditor, not with a city. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number plus the parcel number with the auditor of the county where the property sits, and to update it within 60 days of any change. There is no fee. The Delaware County Auditor runs its own registration at 145 N. Union St., Delaware. Missing the filing draws a special assessment of $50 to $150 under R.C. 5323.99. Because Lewis Center is unincorporated, there is no separate city registration on top of it.' },
+  { q: 'Who provides water and sewer in Lewis Center, Ohio?',
+    a: 'Drinking water comes from Del-Co Water Company, a member-owned non-profit cooperative that serves roughly 44,000 customers across eight central Ohio counties and runs a treatment plant in Lewis Center itself. Sanitary sewer in the developed parts of Orange Township is handled by the Delaware County Regional Sewer District, which operates the Alum Creek Water Reclamation Facility in Lewis Center. Neither is City of Columbus water or Columbus sewer, so the Columbus rule that leaves an owner ultimately liable for a resident water balance does not apply the same way here.' },
+  { q: 'Does an unincorporated address change how a lease works?',
+    a: 'Not the lease itself. Ohio landlord-tenant law in R.C. Chapter 5321 applies to a Lewis Center rental exactly as it applies to a Columbus one, including the three-day notice to leave the premises under R.C. 1923.04 and the 30 day deadline to return a security deposit with an itemised statement. What changes is everything municipal: zoning is township zoning, code enforcement is county, police response is the Sheriff, and there is no city licence to renew.' },
+  { q: 'What does a rental in Lewis Center rent for?',
+    a: 'We are not publishing a bedroom-level median for Lewis Center. Our own sample there is below the five-unit threshold we set for publishing a market-level figure, and we will not dress a public rent index up as our own book. Send us the address and we will price it against live comparable listings and the units we manage nearby.' },
+  { q: 'How much does property management cost in Lewis Center?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Because the fee is a fixed dollar amount rather than a percentage, a higher-rent Olentangy-district house costs the same to manage as a modest one. Photography is not included in the leasing fee and is billed separately at $250 to $450.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Lewis Center, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'Place',
+      name: 'Lewis Center, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Delaware County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Lewis Center, Ohio"
+    answer={`${company.name} manages Lewis Center rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Lewis Center is unincorporated Delaware County, so evictions go to Delaware Municipal Court.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Lewis Center, at a glance" />
+
+  <!-- THE HOOK: there is no city. Everything downstream follows from this. -->
+  <section class="band-tight" aria-labelledby="unincorporated-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="unincorporated-h" class="text-[clamp(26px,3.2vw,38px)]">Is Lewis Center a city, and why does that matter to a landlord?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Lewis Center is not a city. It is an unincorporated community in northwestern Orange Township, Delaware
+        County, carrying the 43035 ZIP code. There is no Lewis Center city hall, no Lewis Center council and no
+        Lewis Center codified ordinances, because there is no Lewis Center municipality to write them. That is
+        not a technicality. It changes who you file with, who you call, and who inspects your building.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Orange Township covers about 22.8 square miles and had 37,452 residents at the 2020 census, which makes
+        it larger than several incorporated suburbs and still, formally, a township. Land use runs on a township
+        zoning resolution adopted under Ohio Revised Code Chapter 519, not a municipal zoning code. Law
+        enforcement is the Delaware County Sheriff. And an Ohio township has no authority to levy a municipal
+        income tax, so a resident of Lewis Center pays no city income tax at all, which is one of the quieter
+        reasons the area leases well.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The practical failure mode we see: an out-of-state owner buys a Lewis Center house, searches for the
+        rental registration requirements of the nearest city they recognise, finds Columbus, and starts complying
+        with rules that do not apply while missing the one that does. A manager who does not know the difference
+        will not catch that for you.
+      </p>
+      <p class="text-[16px] text-muted mt-5">
+        [SOURCE NEEDED: confirm which authority issues residential building permits and performs building
+        inspections for unincorporated Orange Township, the Delaware County Building Department or the township,
+        and confirm whether Orange Township operates any rental-specific inspection programme.]
+      </p>
+    </div>
+  </section>
+
+  <!-- COURT -->
+  <section class="band band-wash" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Evictions</span>
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Lewis Center, Ohio?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Delaware Municipal Court. Ohio Revised Code 1901.02 ties municipal court jurisdiction to territory, and
+        because Lewis Center sits wholly inside Delaware County, a forcible entry and detainer action on a Lewis
+        Center rental is filed in Delaware. Not downtown Columbus. Not Franklin County Municipal Court at 375 S.
+        High St., which is where most central Ohio eviction advice quietly assumes you are going.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Before any court sees the case, Ohio requires a three-day notice to leave the premises under R.C. 1923.04,
+        carrying specific statutory language and served correctly. Wrong wording, wrong service, or a notice
+        counted wrong and the case is dismissed. You then start over roughly three weeks behind where you were,
+        with another month of unpaid rent behind you.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner</h3>
+        <ul class="grid gap-2 text-[15.5px] text-muted mb-0 list-none pl-0">
+          <li><strong class="text-navy">{usd(pricing.eviction.attorneyFee)}</strong> to the eviction attorney, covering the filing and up to two appearances</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.countyFilingFee)}</strong> county filing fee for the eviction complaint</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.rlpmProcessFee)}</strong> to us to run the process end to end</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.typicalTotal)}</strong> typical total before any setout</li>
+        </ul>
+        <p class="text-[14px] text-faint mt-4 mb-0">
+          The {usd(pricing.eviction.countyFilingFee)} figure is the Franklin County eviction complaint fee from
+          our published schedule. [SOURCE NEEDED: confirm the current Delaware Municipal Court filing fee for a
+          forcible entry and detainer complaint, which may differ.]
+        </p>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        Our full eviction procedure, including what we do in the 30 days before it becomes necessary, is on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band-tight" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Lewis Center rental property?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Yes, with the Delaware County Auditor, and only with the Delaware County Auditor. Ohio Revised Code
+        5323.02 requires every owner of residential rental property to file their name, address and telephone
+        number, plus the property street address and permanent parcel number, with the auditor of the county the
+        property sits in, and to update it within 60 days of any change. There is no fee. The Delaware County
+        Auditor runs its own registration and sits at 145 N. Union St. in Delaware.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Skip it and the auditor can place a special assessment of $50 to $150 on the property under R.C. 5323.99.
+        The Franklin County Auditor states $150 per tax year for its side of the line, which gives you a sense of
+        how these are actually enforced. If you bought through an LLC or a trust, the statute wants the
+        responsible officer, member or trustee named, and that is the part owners miss most often.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Because Lewis Center is unincorporated, there is no city rental licence, no city rental inspection cycle
+        and no city registration fee sitting on top of the state filing. That is a genuine cost advantage over an
+        incorporated suburb, and it is worth knowing before you compare two houses ten minutes apart. The statute
+        lets an owner designate a property manager as the agent who files, and that is part of onboarding here.
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band band-wash" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Utilities</span>
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides water, sewer and power in Lewis Center?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Drinking water comes from Del-Co Water Company, not from the City of Columbus. Del-Co is a member-owned
+        non-profit cooperative serving roughly 44,000 customers across eight central Ohio counties, and its
+        oldest treatment plant sits in Lewis Center. Sanitary sewer in the developed parts of Orange Township runs
+        through the Delaware County Regional Sewer District, which operates the Alum Creek Water Reclamation
+        Facility, also in Lewis Center.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Lewis Center, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who customarily pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Del-Co Water Company</td>
+              <td class="p-3.5 border border-line text-muted">Resident, in their own name, on our standard lease</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Sanitary sewer</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Delaware County Regional Sewer District</td>
+              <td class="p-3.5 border border-line text-muted">Resident, where the property is on public sewer</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Confirm per address</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        [SOURCE NEEDED: confirm per Lewis Center address whether electric distribution is AEP Ohio or Delaware
+        County Electric Cooperative. Both operate in Delaware County and the boundary is not the township line.]
+      </p>
+      <p class="text-[16px] text-muted mt-5">
+        One more thing worth checking on any Orange Township parcel before you buy: not every property in the
+        township is on public sewer. Older parcels on the rural edges can still be on a private septic system,
+        which Ohio regulates as a household sewage treatment system overseen by the county health district, and that
+        changes both your maintenance budget and what you can allow a resident to put down a drain.
+        [SOURCE NEEDED: confirm the Delaware Public Health District inspection and operation-permit cycle for a
+        household sewage treatment system serving a rental property.]
+      </p>
+    </div>
+  </section>
+
+  <!-- MARKET AND PRICING -->
+  <section class="band-tight" aria-labelledby="market-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="market-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in Lewis Center, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Detached single-family houses, overwhelmingly, in subdivisions built as Orange Township filled in from the
+        1990s onward along the Olentangy corridor between Powell and Westerville. Three and four bedroom homes on
+        conventional lots are the common rental. The Olentangy Local School District is the single strongest
+        demand driver, and it is why a Lewis Center house draws relocating families rather than short-stay
+        renters, which in turn is why tenancies here run long and turns are less frequent than the metro average.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        {publishesOwnRent
+          ? 'Our portfolio sample in Lewis Center now supports a published median. Update this page before relying on it.'
+          : 'We are not publishing a bedroom-level rent median for Lewis Center. Our sample there sits below the five-unit floor we set before we will publish a market-level figure, and we will not quote a public rent index as if it came from our own book. That is a discipline, not a gap in coverage.'}
+        {' '}Send an address and we will price it against live comparables and the units we manage nearby.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        The fee is a flat dollar amount, so it does not climb when your rent does. A manager taking 10% of
+        collected rent on a house at {usd(2000)} a month collects {usd(2400)} a year and roughly half a month of
+        rent again every time the unit turns. Our middle plan is {usd(pricing.plans[1].monthly * 12)} a year and
+        the placement is {usd(pricing.leasingFee)}. Percentage figures here describe common Columbus market
+        rates, not a quote from any named company.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Lewis Center rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band-wash" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Lewis Center property management questions</h2>
+      <Faq items={faq} heading="Lewis Center property management questions" id="lewis-center-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-powell-ohio/', label: 'Powell property management', note: 'West across the Olentangy, incorporated, same county and same court.' },
+    { href: '/property-management-westerville-ohio/', label: 'Westerville property management', note: 'Southeast, and the one central Ohio suburb with its own electric utility.' },
+    { href: '/property-management-worthington-ohio/', label: 'Worthington property management', note: 'South, older housing stock and a Franklin County court.' },
+    { href: '/property-management-dublin-ohio/', label: 'Dublin property management', note: 'Southwest, and split across three counties.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Lewis Center rental should earn"
+    body="Tell us the address and we will price it against live comparable listings and the units we manage nearby in Delaware County. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

@@ -1,0 +1,379 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { rentByMarketAndBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Grove City, Ohio. Target query: "property management grove city ohio".
+ *
+ * The differentiating fact is that "Grove City" is not one rental market. It is
+ * a large, still-growing Franklin County city whose housing runs from small
+ * mid-century houses around the Town Center out to subdivisions finished in the
+ * last few years, and the two ends behave nothing alike: different rent,
+ * different reserve, different resident, different turn.
+ *
+ * A NOTE ON A COMMON ASSUMPTION, CHECKED 2026-09-09. Grove City is often
+ * described as running its own water. It does not. Grove City appears on the
+ * City of Columbus Department of Public Utilities water and sewer contract
+ * community list, and Grove City's own newsroom describes the Columbus Division
+ * of Water replacing meters in Grove City under the Columbus Enhanced Meter
+ * Project, mandatory "for all customers serviced by the City of Columbus
+ * Division of Water per Columbus City Code 1105.038". What Grove City does run
+ * itself is the local collection and maintenance side: its Public Service
+ * Department maintains a sanitary collection system of more than 197 miles of
+ * sewers, 8 inch to 48 inch, and about 4,600 manholes, plus streets and storm
+ * sewers. The page states it that way and does not go further.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - Franklin County eviction jurisdiction: R.C. 1901.02. Franklin County
+ *    Municipal Court, 375 S. High St., Columbus, OH 43215, Eviction Court in
+ *    Courtroom 11B. franklincountymunicourt.org.
+ *  - Owner filing with the county auditor: R.C. 5323.02, statewide; penalty
+ *    R.C. 5323.99, $50 to $150, Franklin County Auditor states $150 per tax year.
+ *  - Columbus water and sewer contract communities list includes Grove City:
+ *    columbus.gov Water & Sewer Contract Communities, fetched 2026-09-09.
+ *  - Enhanced Meter Project, mandatory participation, Columbus City Code
+ *    1105.038: grovecityohio.gov newsflash 176, fetched 2026-09-09.
+ *  - Grove City sanitary collection system size: grovecityohio.gov Sewer
+ *    Maintenance and About Public Service.
+ *  - Columbus states the property owner is ultimately responsible for all water
+ *    and sewer charges even under a Tenant Billing Agreement.
+ *  - AEP Ohio for electricity, Columbia Gas of Ohio for natural gas.
+ *
+ * Rent figures are our own portfolio medians and qualify for Grove City at 3 and
+ * 4 bedrooms only (samples of 9 and 5). No 1 or 2 bedroom median is published,
+ * and the page says so. No door counts, no per-market days on market.
+ *
+ * NOT VERIFIED, marked in the copy:
+ *  - Whether the City of Grove City operates a residential rental registration,
+ *    licence or periodic inspection programme, and any fee.
+ *  - Census median year structure built for Grove City.
+ */
+
+const CITY = 'Grove City';
+const PATH = '/property-management-grove-city-ohio/';
+
+const rent = rentByMarketAndBedroom[CITY];
+
+const title = 'Property Management in Grove City, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Grove City, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ` +
+  `${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. ` +
+  `Franklin County, Columbus water under contract, and a housing stock that spans seventy years.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Grove City', path: PATH },
+];
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Grove City unit turns`,
+  'Franklin County, so an eviction is filed at 375 S. High St., Columbus',
+  'Rental owner registration goes to the Franklin County Auditor, free, under R.C. 5323.02',
+  'Water comes from the City of Columbus under a contract community agreement',
+  `Median rent across the units we manage in ${CITY}: ${usd(rent['3'].median)} for a 3 bedroom, ${usd(rent['4'].median)} for a 4 bedroom`,
+];
+
+const faq = [
+  { q: 'What county is Grove City, Ohio in?',
+    a: 'Franklin County. That answers two questions at once for a rental owner: an eviction is filed at Franklin County Municipal Court, 375 S. High St., Columbus, where Eviction Court sits in Courtroom 11B, and the rental owner information required by Ohio Revised Code 5323.02 is filed with the Franklin County Auditor. Grove City is its own municipality with its own council and its own code, but both of those functions are county functions, not city ones.' },
+  { q: 'Which court hears an eviction in Grove City, Ohio?',
+    a: 'Franklin County Municipal Court, 375 S. High St., Columbus, OH 43215, with Eviction Court in Courtroom 11B. Eviction jurisdiction in Ohio follows the county under R.C. 1901.02. Before the filing, Ohio requires a three-day notice to leave the premises under R.C. 1923.04 with specific statutory language, served by certified mail, handed to the resident, or left at the property. A notice with the wrong wording gets the case dismissed and costs you about three weeks.' },
+  { q: 'Who provides water and sewer in Grove City, Ohio?',
+    a: 'The City of Columbus supplies water. Grove City is on the Columbus Department of Public Utilities water and sewer contract community list, and the Columbus Division of Water has been replacing meters in Grove City under the Columbus Enhanced Meter Project, which Grove City describes as mandatory for all customers served by the Columbus Division of Water under Columbus City Code 1105.038. Grove City itself maintains the local sanitary collection system, more than 197 miles of sewers and about 4,600 manholes, along with the streets and storm sewers. Electricity is AEP Ohio, natural gas is Columbia Gas of Ohio.' },
+  { q: 'What does a rental in Grove City rent for?',
+    a: `Across the units we manage in Grove City the median rent is ${usd(rent['3'].median)} for a three bedroom and ${usd(rent['4'].median)} for a four bedroom. Those are our own portfolio medians, not a market survey. We do not publish a one or two bedroom median for Grove City, because our sample at those bedroom counts is below the five-unit minimum we hold ourselves to. The spread inside the city is wide: a small mid-century house near the Town Center and a recent four bedroom in a subdivision are not the same asset and should not be priced from the same number.` },
+  { q: 'Do I have to register my Grove City rental property?',
+    a: 'Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file their name, address and telephone number, plus the property street address and permanent parcel number, with the auditor of the county where the property sits, and to update it within 60 days of any change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99, statutory range $50 to $150, with the Franklin County Auditor stating $150 per tax year. A property manager can file as the owner designated agent, and we do. [SOURCE NEEDED: confirm whether the City of Grove City separately requires residential rental registration, a rental licence or periodic rental inspection, and at what fee.]' },
+  { q: 'What kind of rental property is there in Grove City?',
+    a: 'A genuinely mixed stock, which is what makes the city hard to generalise about. Around the Town Center and the older grid off Broadway and Park Street there are smaller mid-century houses on modest lots. Moving out toward Stringtown Road, Hoover Road, Buckeye Parkway and the Route 665 corridor, the stock gets newer, larger and more subdivision-shaped, with three and four bedroom houses on full-size lots. Grove City has kept building, so there is genuinely recent construction in the rental pool as well. [SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Grove City, Ohio.]' },
+  { q: 'How much does property management cost in Grove City?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. On a ${usd(rent['3'].median)} three bedroom, a manager charging 10% of collected rent takes about ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year plus roughly ${usd(Math.round(rent['3'].median / 2))} again each time the unit turns. Photography is not included in the leasing fee and is billed separately at $250 to $450. Every other charge is published on the pricing page.` },
+  { q: 'Is Grove City a good place to own a rental?',
+    a: `It is one of the steadier parts of the metro to own in, for unglamorous reasons: three and four bedroom houses attract households that move for schools and jobs rather than on a whim, which usually means longer tenancies and fewer turns than a market of small units. The trade is a higher repair bill per event, because a larger house has more of everything. The number that decides whether it works is the reserve, not the rent. Our maintenance reserve calculator will run that for you at no charge.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Grove City, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Grove City, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Grove City, Ohio"
+    answer={`${company.name} manages single-family and small multifamily rentals in Grove City for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee. Grove City is Franklin County, so evictions are filed in Columbus.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Grove City, at a glance" />
+
+  <!-- THE HOOK: one search term, two different rental businesses. -->
+  <section class="band-tight" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Grove City?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Two quite different kinds, sharing one city name. Around the Town Center, along Broadway and Park Street
+        and the older grid behind them, the houses are smaller and mid-century, on modest lots, often with a
+        one-car garage or none at all. Move out toward Stringtown Road, Hoover Road, Buckeye Parkway and the
+        Route 665 corridor and the stock becomes newer, larger and subdivision-shaped: three and four bedroom
+        houses, attached two-car garages, full basements, houses that in some cases are barely a decade old. Grove
+        City has kept growing, so genuinely recent construction sits in the rental pool alongside houses from the
+        1950s.
+        {' '}[SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Grove City, Ohio.]
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        This is why a single Grove City rent number is close to useless, and why a manager who quotes you one
+        without asking your cross streets is guessing. The two ends of the city do not share a rent, a reserve, a
+        turn cost or a resident profile. A 1958 house near the old Town Center might need a service panel, a sewer
+        lateral and a roof inside ten years. A 2015 house off Hoover Road will not, but it will rent to a family
+        with a school-district decision behind it, which changes how you handle a renewal.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Two ends of the Grove City, Ohio rental market and what changes between them</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">What changes</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Older Grove City, around the Town Center</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Newer Grove City, west and south</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Typical unit</th>
+              <td class="p-3.5 border border-line align-top text-muted">Two and three bedroom houses on modest lots</td>
+              <td class="p-3.5 border border-line align-top text-muted">Three and four bedroom houses, attached garages, full basements</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Where the money goes</th>
+              <td class="p-3.5 border border-line align-top text-muted">Systems and envelope: service panels, sewer laterals, roofs, windows</td>
+              <td class="p-3.5 border border-line align-top text-muted">Cosmetic turn and appliances, with big-ticket items still years out</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">What the resident is buying</th>
+              <td class="p-3.5 border border-line align-top text-muted">Price and proximity to the Town Center and I-71</td>
+              <td class="p-3.5 border border-line align-top text-muted">Space, a garage, and a school-district decision</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Reserve to plan for</th>
+              <td class="p-3.5 border border-line align-top text-muted">Higher per unit, and lumpier</td>
+              <td class="p-3.5 border border-line align-top text-muted">Lower for now, rising as the subdivision ages together</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        That last row is the one owners miss. A subdivision built in one go ages in one go. Everyone's roof, water
+        heater and furnace reach end of life in the same three-year window, and the vendors get busy exactly when
+        you need them. Plan the reserve for that with the
+        {' '}<a href="/tools/maintenance-reserve-calculator/" class="text-crimson font-semibold no-underline hover:underline">maintenance reserve calculator</a>,
+        {' '}free whether or not you hire us.
+      </p>
+    </div>
+  </section>
+
+  <!-- COUNTY, COURT, REGISTRATION -->
+  <section class="band band-wash" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Compliance</span>
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">What county is Grove City in, and which court hears an eviction?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Franklin County, and Franklin County Municipal Court. The court sits at 375 S. High St., Columbus, OH
+        43215, and Eviction Court is in Courtroom 11B. Eviction jurisdiction in Ohio follows the county under
+        R.C. 1901.02, not the municipality, so the fact that Grove City has its own mayor, council and codified
+        ordinances does not move the filing. This is simpler than it is for a city on a county line, and it is
+        worth knowing precisely rather than approximately: a case filed in the wrong court costs the filing fee
+        and the calendar.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Ohio requires a three-day notice to leave the premises under R.C. 1923.04 before the complaint can be
+        filed, carrying specific statutory language, served by certified mail, handed to the resident, or left at
+        the property. Get the wording wrong and the case is dismissed. Our published costs are
+        {' '}{usd(pricing.eviction.countyFilingFee)} to Franklin County,
+        {' '}{usd(pricing.eviction.attorneyFee)} to the eviction attorney for the filing and up to two
+        appearances, and {usd(pricing.eviction.rlpmProcessFee)} to us to run the process, which is
+        {' '}{usd(pricing.eviction.typicalTotal)} before any setout. The whole sequence is on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">Do you have to register a Grove City rental property?</h3>
+      <p class="text-[16.5px] text-muted">
+        Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires every owner of residential rental
+        property to file their name, address and telephone number, plus the property street address and permanent
+        parcel number, with the auditor of the county the property sits in, and to update within 60 days of any
+        change. There is no filing fee. Failing to file draws a special assessment on the property under
+        R.C. 5323.99; the statutory range is $50 to $150 and the Franklin County Auditor states $150 per tax year.
+        Owners holding title through an LLC or a trust have to name the responsible member, officer or trustee,
+        which is the part most often skipped. A manager may file as the owner designated agent, and we do.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        [SOURCE NEEDED: confirm against the Grove City codified ordinances whether the City of Grove City
+        separately requires residential rental registration, a rental licence or periodic rental inspection, and
+        at what fee.] The county auditor filing applies either way.
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES: correcting the common assumption -->
+  <section class="band-tight" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides water and sewer in Grove City, and who pays?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The City of Columbus supplies the water, which surprises owners who assume a city the size of Grove City
+        must be on its own system. Grove City appears on the Columbus Department of Public Utilities water and
+        sewer contract community list, and the Columbus Division of Water has been replacing meters in Grove City
+        under the Columbus Enhanced Meter Project. Grove City's own notice describes participation as mandatory
+        for all customers served by the Columbus Division of Water, under Columbus City Code 1105.038. Your
+        Columbus-supplied meter is subject to a Columbus ordinance even though your house is not in Columbus.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        What Grove City runs itself is the local infrastructure. Its Public Service Department maintains the
+        sanitary collection system, more than 197 miles of sewer from 8 inch to 48 inch and roughly 4,600
+        manholes, plus the streets and the storm sewers. So a blocked main in the street is a Grove City call, and
+        a billing question is a Columbus call. Knowing which is which saves an afternoon.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Grove City, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who customarily pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Columbus, contract community</td>
+              <td class="p-3.5 border border-line text-muted">Resident, in their own name, on our standard lease</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Sanitary sewer collection</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Grove City Public Service Department</td>
+              <td class="p-3.5 border border-line text-muted">Maintained by the city; service billed with water</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        The exposure to know about: Columbus states that the property owner is ultimately responsible for all
+        charges, even where a Tenant Billing Agreement puts the account in the resident's name. A resident who
+        leaves owing a water balance can leave it attached to your parcel. We put the accounts in the resident's
+        name at lease signing and check the balances at move-out, while there is still a deposit to settle against.
+      </p>
+    </div>
+  </section>
+
+  <!-- RENT AND PRICING -->
+  <section class="band band-wash" aria-labelledby="rent-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The numbers</span>
+      <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Grove City rental earn, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Across the units we manage in Grove City, the median rent is {usd(rent['3'].median)} for a three bedroom
+        and {usd(rent['4'].median)} for a four bedroom. Those are our own portfolio medians rather than a market
+        index, and we publish a market and bedroom median only where at least five of our units support it, which
+        is why there is no one or two bedroom figure here. Treat both numbers as a starting point rather than a
+        valuation: the range inside Grove City is wide enough that the address matters more than the city name.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        The three plans differ in one variable: how large a repair we can approve before we call you. Everything
+        else is identical. On a {usd(rent['3'].median)} three bedroom, a manager charging 10% of collected rent
+        takes about {usd(Math.round(rent['3'].median * 0.1) * 12)} a year and roughly
+        {' '}{usd(Math.round(rent['3'].median / 2))} again each time the unit turns. Our middle plan is
+        {' '}{usd(pricing.plans[1].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}. If you
+        raise the rent, our number does not move.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        In-house maintenance is billed at {usd(pricing.maintenance.inHouseHourly)} per hour with a
+        {' '}{usd(pricing.maintenance.tripCharge)} trip charge and no minimum, and materials are provided at cost.
+        Vendor-managed projects carry a {pricing.maintenance.vendorProjectFeePct}% project management fee up to
+        {' '}{usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)}, capped at
+        {' '}{usd(pricing.maintenance.vendorProjectFeeCap)}. That cap is the number to compare against a percentage
+        manager on a big Grove City turn.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
+        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at $250
+        to $450.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Grove City rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band-tight" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Grove City property management questions</h2>
+      <Faq items={faq} heading="Grove City property management questions" id="grove-city-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'Northeast, same county, same court, different code.' },
+    { href: '/property-management-hilliard-ohio/', label: 'Hilliard property management', note: 'North across I-70, newer stock and a different school district.' },
+    { href: '/property-management-canal-winchester/', label: 'Canal Winchester property management', note: 'Across the south side, similar family-sized houses.' },
+    { href: '/property-management-pickerington-ohio/', label: 'Pickerington property management', note: 'East, and mostly in Fairfield County, which changes the court.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Grove City rental should earn"
+    body="Tell us the address and we will price it against the units we already manage in Grove City and the comparable listings live right now, and tell you which end of the market you are actually in. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Talk to us about a portfolio', href: '/property-management-consultation/' }}
+  />
+</Base>
