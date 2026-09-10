@@ -7,6 +7,8 @@ import { allPosts, related, slugify, excerpt, metaDescription, pageTitle } from 
 import { company } from '../../data/facts';
 import { longDate, readingTime } from '../../lib/format';
 import { articleNode } from '../../lib/schema';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { destinationsFor } from '../../lib/postRouting';
 
 export async function getStaticPaths() {
   const posts = await allPosts();
@@ -32,6 +34,15 @@ const { post, posts, descriptionIsShared } = Astro.props;
 const d = post.data;
 const { Content } = await render(post);
 const rel = related(post, posts, 4);
+
+/**
+ * Where this post should send a reader next. 62% of the migrated posts linked to
+ * no conversion page at all, so their accumulated authority terminated in a dead
+ * end. This routes each one by what it is actually about.
+ */
+const destinations = destinationsFor({
+  title: d.title, categories: d.categories, tags: d.tags, body: post.body ?? '',
+});
 /**
  * A recurring series shares both its WordPress excerpt and its opening sentence,
  * so a plain body excerpt is still not unique. For those, lead with the post's
@@ -110,6 +121,9 @@ const schemaNodes = [articleNode({
       )}
     </div>
   </article>
+
+  <RelatedLinks links={destinations.map((x) => ({ href: x.href, label: x.label, note: x.note }))}
+                heading="Where to go next" />
 
   {rel.length > 0 && (
     <section class="band-tight band-wash">
