@@ -1,0 +1,425 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, areas, usd } from '../../data/facts';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * For licensed real estate agents who refer owners to us.
+ *
+ * NOTHING about the referral fee amount, the payment timing or the terms is
+ * stated on this page, because none of it is in the fact bank. Every one of those
+ * is marked [SOURCE NEEDED] rather than estimated. Do not fill them in from
+ * memory or from what another brokerage pays.
+ *
+ * The form is plain semantic HTML. No JavaScript, and no email address in the
+ * markup. See the comment on the <form> element for the endpoint.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+
+const title = 'Real Estate Agent Referral Program | RL Property Management';
+const description =
+  `Refer a Columbus rental owner to ${company.name} and we pay a referral fee. We manage ${company.unitsManaged} ` +
+  `units across Central Ohio at ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit ` +
+  `per month, flat, with a ${usd(pricing.leasingFee)} leasing fee.`;
+
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Agent referrals', path: '/agent-referrals/' }];
+
+const answer =
+  `Refer a rental owner to ${company.name} and we pay a referral fee. We manage ${company.unitsManaged} units ` +
+  `across Central Ohio, we are a licensed Ohio brokerage, and we send you the outcome of every referral in writing.`;
+
+const facts = [
+  `${company.unitsManaged} units managed across Central Ohio since ${company.founded}`,
+  company.license,
+  `Flat pricing, ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month`,
+  `${usd(pricing.leasingFee)} leasing fee, so your client is not charged half a month to place a resident`,
+  `${company.reviews.display} Google reviews at ${company.reviews.rating} stars`,
+  `Portfolio results: ${kpi('dom')} median days on market, ${kpi('renewal')} renewal rate, ${kpi('occupancy')} occupancy`,
+  `Referral fee: [SOURCE NEEDED: the referral fee amount or formula]`,
+  `Paid: [SOURCE NEEDED: when the referral fee is paid and what triggers payment]`,
+];
+
+const whyRefer = [
+  {
+    h: 'Your client keeps a working asset',
+    b: `An owner who cannot get a rental to perform is an owner who eventually sells it at a bad time. Flat management at ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee keeps the numbers workable, which keeps the property in their portfolio and the relationship in yours.`,
+  },
+  {
+    h: 'Pricing you can quote without calling us',
+    b: `Our entire fee schedule is published, so you can tell a client what management will cost before you introduce anyone. Monthly management, the ${usd(pricing.leasingFee)} leasing fee, the ${usd(pricing.leaseRenewalFee)} renewal fee, ${usd(pricing.startupFeeOccupied)} to start on an occupied unit, and every situational charge.`,
+  },
+  {
+    h: 'You hear what happened',
+    b: 'Every referral gets an outcome back to you in writing: whether the owner engaged, what was quoted, and what they decided. A referral that disappears into a black box is worse than no referral program at all.',
+  },
+  {
+    h: 'A real brokerage, not a lead reseller',
+    b: `${company.name} is a ${company.license.toLowerCase()}, operating since ${company.founded}, managing ${company.unitsManaged} ${company.propertyTypes}. Your client is handled by our team, not sold to a network.`,
+  },
+];
+
+const goodFit = [
+  'An owner who is moving out of the area and keeping the house rather than selling it.',
+  'A buyer closing on a rental who has never managed one.',
+  'An investor adding units faster than their current setup can absorb.',
+  'An owner who inherited a property and does not want the job.',
+  'A self-managing owner who has hit an eviction, a bad turn or a compliance problem.',
+  'A listing that is not selling at the number the seller needs, where renting it out buys time.',
+];
+
+const faq = [
+  { q: 'Do you pay real estate agents a referral fee?',
+    a: `Yes. ${company.name} pays a referral fee to licensed agents who refer a rental owner to us. [SOURCE NEEDED: the referral fee amount or formula, and whether it differs by unit count or by whether the unit is occupied at handoff.]` },
+  { q: 'When is the referral fee paid?',
+    a: '[SOURCE NEEDED: what event triggers payment, for example a signed management agreement or a placed resident, and how long after that event the fee is paid.] Whatever the trigger, it is stated in the referral agreement before you send the first client, not after.' },
+  { q: 'What are the terms of the referral program?',
+    a: '[SOURCE NEEDED: the full written terms, including whether the referring agent must hold an active license, how long a referred owner stays attributed to the referring agent, what happens if two agents refer the same owner, and any jurisdiction or brokerage restrictions.] Ask us for the current agreement and we will send it in writing.' },
+  { q: 'Will you try to take my client when they sell?',
+    a: '[SOURCE NEEDED: RLPM policy on listing referred properties for sale, and the written commitment to return a referred owner to the referring agent at the point of sale.] This is the question every agent asks first, and it deserves a written answer rather than a verbal assurance, so we will not publish one here until the policy is documented.' },
+  { q: 'What areas do you cover?',
+    a: `Columbus and ${areas.length - 1} other Central Ohio communities across Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. If the property is outside that footprint, tell us anyway and we will say plainly whether we can serve it.` },
+  { q: 'What kind of owner is a good referral?',
+    a: 'An owner with one or more single-family homes or small multifamily units in Central Ohio who either does not want the work or is not getting the results. Relocating owners, new investors, inherited properties and self-managing owners who have just had a bad month are the four most common.' },
+  { q: 'What will my client pay?',
+    a: `Flat management of ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, ${usd(pricing.leasingFee)} to place a resident, ${usd(pricing.leaseRenewalFee)} at renewal, and ${usd(pricing.startupFeeOccupied)} to start on an occupied unit. Portfolio owners are quoted separately, at a discount. The complete fee schedule is published on our pricing page.` },
+  { q: 'How fast will you contact the owner?',
+    a: '[SOURCE NEEDED: RLPM committed response time for a referred owner.] What we can say is that the referral form goes to a person rather than a queue, and that you get the outcome back in writing either way.' },
+  { q: 'Can I refer an owner outside Ohio?',
+    a: 'We manage in Central Ohio only, so a property outside that footprint is not something we can take on. If an owner you work with is buying in Central Ohio, that is a referral we can act on even before they close.' },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/agent-referrals/',
+    name: 'Real estate agent referral program',
+    description,
+  }),
+];
+
+const inputCls =
+  'w-full rounded-[10px] border border-line bg-white px-3.5 py-2.5 text-[15.5px] text-navy ' +
+  'focus:border-crimson focus:outline-none';
+const labelCls = 'block font-sans text-[14px] font-semibold text-navy mb-1.5';
+const hintCls = 'block text-[13px] text-faint mt-1.5';
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="For licensed real estate agents"
+    title="Refer a rental owner, get paid, keep the client"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Submit a referral', href: '#referral-form' }}
+    secondaryCta={{ label: 'See what your client would pay', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <!-- WHY -->
+  <section class="band" aria-labelledby="why-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The case for sending it here</span>
+      <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Why refer an owner to a property manager at all?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">
+        Because the alternative is usually a client who self-manages badly for two years and then sells under
+        pressure. A rental that performs stays in the portfolio, and an owner whose rental performs buys
+        another one.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {whyRefer.map((w) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{w.h}</h3>
+            <p class="text-[15px] text-muted m-0">{w.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- THE TERMS, HONESTLY UNPUBLISHED -->
+  <section class="band band-wash" aria-labelledby="terms-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The part you care about</span>
+      <h2 id="terms-h" class="text-[clamp(28px,3.3vw,40px)]">What does the referral fee pay, and when?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        {company.name} pays a referral fee to licensed agents. The amount, the trigger and the terms are set
+        out in a written referral agreement, and they are not published on this page yet.
+      </p>
+      <div class="card !bg-white mt-8">
+        <h3 class="text-[19px] mb-3.5">Pending confirmation</h3>
+        <ul class="grid gap-2.5 text-[15.5px] text-muted">
+          <li><strong class="text-navy">Fee amount.</strong> [SOURCE NEEDED: the referral fee amount or formula, and whether it varies by unit count or by occupancy at handoff.]</li>
+          <li><strong class="text-navy">Payment trigger.</strong> [SOURCE NEEDED: the event that earns the fee, for example a signed management agreement or a placed resident.]</li>
+          <li><strong class="text-navy">Payment timing.</strong> [SOURCE NEEDED: how long after the trigger the fee is paid, and by what method.]</li>
+          <li><strong class="text-navy">Attribution window.</strong> [SOURCE NEEDED: how long a referred owner stays attributed to the referring agent, and how duplicate referrals are handled.]</li>
+          <li><strong class="text-navy">Eligibility.</strong> [SOURCE NEEDED: license requirements, brokerage consent requirements and any geographic restrictions.]</li>
+          <li><strong class="text-navy">Sale of a referred property.</strong> [SOURCE NEEDED: the written policy on returning a referred owner to the referring agent when the property is sold.]</li>
+        </ul>
+        <p class="text-[15px] text-muted mt-5 mb-0">
+          We would rather leave those blank than publish a number we have not confirmed. Ask for the current
+          referral agreement and we will send it before you refer anyone.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOOD FIT -->
+  <section class="band" aria-labelledby="fit-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Who to send</span>
+      <h2 id="fit-h" class="text-[clamp(28px,3.3vw,40px)]">Who is a good referral?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7">
+        An owner of one or more {company.propertyTypes} in Central Ohio who either does not want the work or
+        is not getting the results. Six common versions.
+      </p>
+      <ul class="grid gap-2.5">
+        {goodFit.map((g) => (
+          <li class="card !p-4.5 text-[15.5px] flex gap-3">
+            <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{g}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-[15.5px] text-muted mt-7">
+        We serve Columbus and {areas.length - 1} other Central Ohio communities. If the property sits outside
+        that footprint we will tell you plainly rather than taking the referral and sitting on it.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT HAPPENS NEXT -->
+  <section class="band band-wash" aria-labelledby="next-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The process</span>
+      <h2 id="next-h" class="text-[clamp(28px,3.3vw,40px)]">What happens after you submit a referral?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7">
+        Four steps. You are told the result at the end of each one, whichever way it goes.
+      </p>
+      <ol class="grid gap-3.5">
+        {[
+          'We confirm receipt to you, and confirm the property is inside our service area.',
+          'We contact the owner. [SOURCE NEEDED: RLPM committed response time for a referred owner.]',
+          'The owner gets a rent evaluation and a written quote, including the full published fee schedule.',
+          'You get the outcome in writing: engaged, declined, or still deciding, with the reason.',
+        ].map((s, i) => (
+          <li class="card !p-5 text-[15.5px]">
+            <span class="font-sans font-bold text-crimson mr-2">{i + 1}.</span>{s}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="band" id="referral-form" aria-labelledby="form-h">
+    <div class="wrap max-w-[760px]">
+      <span class="eyebrow">Send it over</span>
+      <h2 id="form-h" class="text-[clamp(26px,3.2vw,38px)]">Submit a referral</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">
+        Tell us who you are and who the owner is. Only send an owner's contact details if you have their
+        permission to share them.
+      </p>
+
+      <!--
+        FORM ENDPOINT PENDING.
+        Set the `action` attribute to the referral intake endpoint when it is
+        issued, and keep `method="post"`. Do not hardcode a destination email
+        address in the markup. No JavaScript is used or needed: this is a plain
+        HTML post, and the form is fully usable with scripting disabled.
+      -->
+      <form method="post" action="" class="card !p-7 md:!p-9 grid gap-7">
+
+        <fieldset class="border-0 p-0 m-0 grid gap-5">
+          <legend class="font-serif text-[20px] font-semibold text-navy mb-3">About you</legend>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="agent-first">First name <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="agent-first" name="agent_first_name" type="text" autocomplete="given-name" required />
+            </div>
+            <div>
+              <label class={labelCls} for="agent-last">Last name <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="agent-last" name="agent_last_name" type="text" autocomplete="family-name" required />
+            </div>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="agent-email">Email <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="agent-email" name="agent_email" type="email" autocomplete="email"
+                     aria-describedby="agent-email-hint" required />
+              <span class={hintCls} id="agent-email-hint">Where the referral outcome is sent.</span>
+            </div>
+            <div>
+              <label class={labelCls} for="agent-phone">Phone</label>
+              <input class={inputCls} id="agent-phone" name="agent_phone" type="tel" autocomplete="tel" />
+            </div>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="agent-brokerage">Brokerage <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="agent-brokerage" name="agent_brokerage" type="text" autocomplete="organization" required />
+            </div>
+            <div>
+              <label class={labelCls} for="agent-license-state">License state</label>
+              <input class={inputCls} id="agent-license-state" name="agent_license_state" type="text"
+                     autocomplete="off" aria-describedby="agent-license-hint" />
+              <span class={hintCls} id="agent-license-hint">Your license number is not needed here. We collect it on the referral agreement.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="border-0 p-0 m-0 grid gap-5 border-t border-line pt-7">
+          <legend class="font-serif text-[20px] font-semibold text-navy mb-3">About the owner</legend>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="owner-name">Owner name <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="owner-name" name="owner_name" type="text" autocomplete="off" required />
+            </div>
+            <div>
+              <label class={labelCls} for="owner-email">Owner email</label>
+              <input class={inputCls} id="owner-email" name="owner_email" type="email" autocomplete="off"
+                     aria-describedby="owner-email-hint" />
+              <span class={hintCls} id="owner-email-hint">Only if you have their permission to share it.</span>
+            </div>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="owner-phone">Owner phone</label>
+              <input class={inputCls} id="owner-phone" name="owner_phone" type="tel" autocomplete="off" />
+            </div>
+            <div>
+              <label class={labelCls} for="intro">How should we make contact?</label>
+              <select class={inputCls} id="intro" name="introduction_preference">
+                <option value="">Choose one</option>
+                <option value="we-contact">We contact the owner directly</option>
+                <option value="agent-intro">You make an email introduction first</option>
+                <option value="info-only">Send information to you to pass along</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="border-0 p-0 m-0 grid gap-5 border-t border-line pt-7">
+          <legend class="font-serif text-[20px] font-semibold text-navy mb-3">About the property</legend>
+
+          <div>
+            <label class={labelCls} for="prop-street">Street address</label>
+            <input class={inputCls} id="prop-street" name="property_street" type="text" autocomplete="off" />
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-3">
+            <div class="sm:col-span-2">
+              <label class={labelCls} for="prop-city">City <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="prop-city" name="property_city" type="text" list="rlpm-referral-cities" autocomplete="off" required />
+              <datalist id="rlpm-referral-cities">
+                {areas.map((a) => <option value={a.name}></option>)}
+              </datalist>
+            </div>
+            <div>
+              <label class={labelCls} for="prop-units">Units</label>
+              <select class={inputCls} id="prop-units" name="unit_count">
+                <option value="">Choose one</option>
+                <option value="1">1</option>
+                <option value="2-5">2 to 5</option>
+                <option value="6-20">6 to 20</option>
+                <option value="21-50">21 to 50</option>
+                <option value="50+">More than 50</option>
+              </select>
+            </div>
+          </div>
+
+          <fieldset class="border-0 p-0 m-0">
+            <legend class={labelCls}>Where is the owner in the process?</legend>
+            <div class="grid gap-2 mt-1">
+              {[
+                ['self-managing', 'Self-managing now, looking for help'],
+                ['other-manager', 'With another manager, considering a change'],
+                ['relocating', 'Relocating, keeping the house as a rental'],
+                ['buying', 'Buying an investment property, not yet closed'],
+                ['inherited', 'Inherited the property'],
+                ['not-selling', 'Listing is not selling, considering renting it'],
+              ].map(([val, label]) => (
+                <label class="flex gap-3 items-center text-[15.5px] text-navy cursor-pointer">
+                  <input type="radio" name="owner_situation" value={val} class="accent-crimson w-4 h-4" />
+                  <span>{label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div>
+            <label class={labelCls} for="notes">Anything else we should know?</label>
+            <textarea class={inputCls} id="notes" name="notes" rows="4" aria-describedby="notes-hint"></textarea>
+            <span class={hintCls} id="notes-hint">
+              Timeline, current rent, condition, whether it is occupied, and anything about the owner we should
+              handle carefully.
+            </span>
+          </div>
+        </fieldset>
+
+        <div class="border-t border-line pt-7 grid gap-5">
+          <label class="flex gap-3 items-start text-[15px] text-muted cursor-pointer">
+            <input type="checkbox" name="owner_permission" value="yes" required class="accent-crimson w-4 h-4 mt-1 shrink-0" />
+            <span>
+              I have the owner's permission to share their contact information with {company.name}.
+              <span class="text-crimson"> (required)</span>
+            </span>
+          </label>
+          <label class="flex gap-3 items-start text-[15px] text-muted cursor-pointer">
+            <input type="checkbox" name="contact_consent" value="yes" required class="accent-crimson w-4 h-4 mt-1 shrink-0" />
+            <span>
+              I agree that {company.name} may contact me about this referral by email or phone.
+              <span class="text-crimson"> (required)</span>
+            </span>
+          </label>
+          <div>
+            <button type="submit" class="btn btn-primary">Submit this referral</button>
+          </div>
+          <p class="text-[13px] text-faint m-0">
+            We do not sell or share your information, or the owner's. See our
+            {' '}<a href="/privacy-policy/" class="text-crimson font-semibold no-underline hover:underline">privacy policy</a>.
+            Prefer to talk it through first? Call {company.phone}.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Agent referral questions" id="referral-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+      <p class="text-[13px] text-faint mt-3">
+        Referral fee amounts, payment timing and program terms are not published on this page because they
+        have not been confirmed for publication. Request the current written referral agreement before
+        referring a client.
+      </p>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'What your client would actually pay.' },
+    { href: '/columbus-property-management/', label: 'Columbus property management', note: 'What we do for the monthly fee.' },
+    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'Send a client here for a written rent range.' },
+    { href: '/areas-we-serve/', label: 'Areas we serve', note: `All ${areas.length} Central Ohio communities.` },
+    { href: '/about/', label: `About ${company.shortName}`, note: `A licensed Ohio brokerage since ${company.founded}.` },
+  ]} />
+
+  <Cta
+    heading="Have a client who should not be managing their own rental?"
+    body="Send the referral, or call and talk it through first. Either way you get the outcome back in writing."
+    primary={{ label: 'Submit a referral', href: '#referral-form' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

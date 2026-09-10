@@ -1,0 +1,352 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { rentByMarketAndBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Dublin, Ohio. Target query: "property management dublin ohio".
+ *
+ * The differentiating fact for Dublin is the three-county problem. Dublin is one
+ * city sitting in Franklin, Delaware and Union counties, which means the correct
+ * eviction court, and the correct county auditor for the Ohio R.C. 5323 filing,
+ * both depend on which parcel you own. No competitor page says this.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - Counties: en.wikipedia.org/wiki/Dublin,_Ohio and dublinchamber.org fast facts.
+ *  - Franklin County Municipal Court jurisdiction: R.C. 1901.02 at
+ *    codes.ohio.gov/ohio-revised-code/section-1901.02. Eviction Court address and
+ *    courtroom: franklincountymunicourt.org/Courts/Eviction-Court.
+ *  - Delaware Municipal Court hears evictions, civil to $15,000:
+ *    ohiolegalhelp.org/resource/delaware-municipal-court.
+ *  - Marysville Municipal Court, Union County, FED jurisdiction and address:
+ *    marysvilleohio.org/724/Civil.
+ *  - Water and sewer: Dublin is a City of Columbus water and sewer contract
+ *    community. columbus.gov Water & Sewer Contract Communities, and
+ *    communityplan.dublinohiousa.gov/utilities/municipal-service-agreements.
+ *  - Owner filing with the county auditor: R.C. 5323.02, penalty R.C. 5323.99.
+ *  - AEP Ohio serves central Ohio (1.5 million customers): en.wikipedia.org/wiki/AEP_Ohio.
+ *    Columbia Gas of Ohio, largest Ohio gas provider, serves Columbus and central
+ *    Ohio: columbiagasohio.com/about-us.
+ *
+ * Rent figures are our own portfolio medians, which qualify for Dublin because the
+ * sample is 5 or more units at those bedroom counts. Never a market figure dressed
+ * up as ours. No door counts, no per-market days on market.
+ */
+
+const CITY = 'Dublin';
+const PATH = '/property-management-dublin-ohio/';
+
+const title = 'Property Management in Dublin, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Dublin, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Dublin sits in three counties, which changes which court hears an eviction.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Dublin', path: PATH },
+];
+
+const rent = rentByMarketAndBedroom[CITY];
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Dublin unit turns`,
+  'Most of Dublin is in Franklin County, with parts in Delaware and Union counties',
+  'Franklin County parcels: eviction filed at 375 S. High St., Columbus',
+  'Water and sewer come from the City of Columbus under contract',
+  `Median rent across the units we manage in Dublin: ${usd(rent['3'].median)} for a 3 bedroom`,
+];
+
+const courts = [
+  {
+    county: 'Franklin County',
+    court: 'Franklin County Municipal Court',
+    where: '375 S. High St., Columbus, OH 43215. Eviction Court sits in Courtroom 11B.',
+    note: 'This covers the large majority of Dublin addresses, including Historic Dublin and everything south of the Delaware County line.',
+  },
+  {
+    county: 'Delaware County',
+    court: 'Delaware Municipal Court',
+    where: 'Delaware, Ohio. Civil jurisdiction runs to $15,000, and it hears forcible entry and detainer cases.',
+    note: 'This covers northern Dublin, above the county line, including parts of the Tartan Fields and Bright Road areas.',
+  },
+  {
+    county: 'Union County',
+    court: 'Marysville Municipal Court',
+    where: '1250 W. 5th St., Marysville, OH 43040. Civil to $15,000, small claims to $6,000.',
+    note: 'This covers the western edge of Dublin, the smallest of the three slices.',
+  },
+];
+
+const faq = [
+  { q: 'What county is Dublin, Ohio in?',
+    a: 'Dublin sits in three counties. Most of the city is in Franklin County, with a northern portion in Delaware County and a western portion in Union County. The county line runs through the city, so two houses on the same road can fall under different courts and different county auditors.' },
+  { q: 'Which court hears an eviction in Dublin, Ohio?',
+    a: 'It depends on which county the parcel is in. A Franklin County parcel is filed at Franklin County Municipal Court, 375 S. High St., Columbus, where Eviction Court sits in Courtroom 11B. A Delaware County parcel goes to Delaware Municipal Court. A Union County parcel goes to Marysville Municipal Court at 1250 W. 5th St. Filing in the wrong court costs you the filing fee and the calendar time.' },
+  { q: 'Do I have to register my Dublin rental property with anyone?',
+    a: 'Yes, with the county auditor, not with the city. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number and the parcel number with the auditor of the county where the property sits, and to update it within 60 days of any change. For Dublin that is the Franklin, Delaware or Union County auditor depending on the parcel. Failing to file draws a special assessment of $50 to $150 under R.C. 5323.99. A property manager can file as the owner designated agent, and we do.' },
+  { q: 'Does the City of Dublin require a rental licence or inspection?',
+    a: '[SOURCE NEEDED: confirm against the Dublin codified ordinances whether the City of Dublin operates a residential rental registration, rental licence or periodic rental inspection programme, and the fee.] The Ohio county auditor filing under R.C. 5323 applies either way.' },
+  { q: 'Who provides water and sewer in Dublin, Ohio?',
+    a: 'The City of Dublin supplies water and sanitary sewer largely under contract with the City of Columbus, and Dublin appears on the Columbus water and sewer contract community list. Electricity is distributed by AEP Ohio and natural gas by Columbia Gas of Ohio, the utilities that serve central Ohio. In our Dublin leases the resident holds the utility accounts in their own name.' },
+  { q: 'What does a rental in Dublin, Ohio rent for?',
+    a: `Across the units we manage in Dublin, the median rent is ${usd(rent['3'].median)} for a 3 bedroom and ${usd(rent['4'].median)} for a 4 bedroom. Those are our own portfolio medians, not a market survey. Dublin sits at the top end of what we manage anywhere in the metro, which is a function of the housing stock rather than anything we do differently there.` },
+  { q: 'What kind of rental property is there in Dublin?',
+    a: 'Mostly detached single-family houses built from the 1970s onward, plus newer construction in the Ballantrae, Tartan Fields and Muirfield Village areas and a small nineteenth-century core in Historic Dublin. Large-lot four bedroom homes are the common rental here, which is why Dublin rents run high and turn slowly compared with the rest of our portfolio.' },
+  { q: 'How much does property management cost in Dublin?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Because the fee is a fixed dollar amount, a Dublin house renting at ${usd(rent['3'].median)} costs the same to manage as a house renting at ${usd(1200)}. A manager charging 10% of rent would collect roughly ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year on that same house.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Dublin, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Dublin, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Dublin, Ohio"
+    answer={`${company.name} manages single-family and small multifamily rentals in Dublin for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee. Dublin spans three counties, so the correct eviction court depends on your parcel.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Dublin, at a glance" />
+
+  <!-- THE THREE-COUNTY PROBLEM. The single most useful thing on this page. -->
+  <section class="band-tight" aria-labelledby="county-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="county-h" class="text-[clamp(26px,3.2vw,38px)]">Which county is Dublin in, and which court hears an eviction?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Dublin is one city sitting in three counties. Most of it is in Franklin County, a northern piece is in
+        Delaware County, and a western piece is in Union County. That matters more than it sounds. The county
+        your parcel falls in decides which municipal court hears a forcible entry and detainer action, which is
+        the legal name for an eviction, and it decides which county auditor you file your rental owner
+        information with.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Eviction court by county for Dublin, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">If your parcel is in</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">You file at</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Where, and what it covers</th>
+            </tr>
+          </thead>
+          <tbody>
+            {courts.map((c) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top whitespace-nowrap">{c.county}</th>
+                <td class="p-3.5 border border-line align-top font-semibold text-navy">{c.court}</td>
+                <td class="p-3.5 border border-line align-top text-muted">{c.where} {c.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        Before any of those courts sees the case, Ohio requires a three-day notice to leave the premises under
+        R.C. 1923.04, carrying specific statutory language, served by certified mail, handed to the resident, or
+        left at the property. A notice with the wrong wording gets the case dismissed and you start again three
+        weeks later. Our eviction process is written out on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>,
+        including what it costs.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band band-wash" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Compliance</span>
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Dublin rental property?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Yes, with the county auditor. Ohio Revised Code 5323.02 requires every owner of residential rental
+        property to file their name, address and telephone number, plus the property street address and permanent
+        parcel number, with the auditor of the county the property sits in. Any change has to be updated within
+        60 days. Miss it and the auditor can place a special assessment of $50 to $150 on the property under
+        R.C. 5323.99, appealable to the county board of revision.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        In Dublin that means the Franklin, Delaware or Union County auditor, depending on the parcel. The statute
+        lets an owner designate a property manager as the agent who files, and that is part of onboarding here.
+        Owners who bought through an LLC or a trust have to name the responsible officer, member or trustee, which
+        is the part that most often gets missed.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        [SOURCE NEEDED: confirm against the Dublin codified ordinances whether the City of Dublin separately
+        requires residential rental registration, a rental licence or periodic rental inspection, and at what fee.]
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band-tight" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in Dublin, and who pays them?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The City of Dublin supplies water and sanitary sewer, largely under service contracts with the City of
+        Columbus. Dublin appears on the Columbus water and sewer contract community list alongside Bexley,
+        Gahanna, Grove City and New Albany. Electricity is distributed by AEP Ohio and natural gas by Columbia Gas
+        of Ohio, the two utilities that serve central Ohio.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Dublin, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who customarily pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water and sewer</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Dublin, sourced from Columbus</td>
+              <td class="p-3.5 border border-line text-muted">Resident, in their own name, on our standard lease</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        Why this matters to an owner: water and sewer arrears in Ohio can follow the property rather than the
+        person, so a resident who leaves owing a water balance can leave it attached to your parcel. We put the
+        accounts in the resident name at lease signing and check them at move-out, before the deposit is settled.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT WE MANAGE -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Dublin?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Overwhelmingly detached single-family houses built from the 1970s onward, on larger lots than anywhere
+        else we work. Historic Dublin, the nineteenth-century core around Bridge and High, is the exception, and
+        it is small. Muirfield Village, Ballantrae, Tartan Fields and the Riverside Drive corridor are newer,
+        larger and priced accordingly. Condominiums and small multifamily buildings exist but they are a thin
+        slice of the total.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        That stock shapes how a Dublin rental behaves. Four bedroom houses draw relocating families rather than
+        first-time renters, applications are fewer but stronger, and tenancies run longer. It also means the
+        maintenance profile is different: irrigation systems, finished basements and three-car garages are common
+        here and rare in most of our portfolio, and each of them is a line item that needs a plan before a
+        resident finds the problem for you.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">Where in Dublin we work</h3>
+      <p class="text-[16.5px] text-muted">
+        Historic Dublin, Muirfield Village, Ballantrae, Tartan Fields, Llewellyn Farms, Indian Run, the Riverside
+        Drive corridor, Bright Road, Brand Road, Avery Road, Coffman Road, and the Sawmill Road and Dublin
+        Granville Road commercial edges. Houses across the city feed the Dublin City School District, which is a
+        large part of why Dublin rents where it does. Cardinal Health has its headquarters here and OhioHealth
+        Dublin Methodist Hospital sits on the west side, so relocation demand is steady rather than seasonal.
+        Muirfield Village Golf Club, the Dublin Link pedestrian bridge over the Scioto and Field of Corn are the
+        landmarks people navigate by.
+      </p>
+    </div>
+  </section>
+
+  <!-- RENT AND PRICING -->
+  <section class="band-tight" aria-labelledby="rent-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Dublin rental earn, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Across the units we manage in Dublin, the median rent is {usd(rent['3'].median)} for a three bedroom and
+        {' '}{usd(rent['4'].median)} for a four bedroom. Those are our own numbers from our own portfolio, not a
+        market survey, and we say so because plenty of local pages quote a public rent index as if it were their
+        own book.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        The flat fee matters more in Dublin than almost anywhere else we work, because Dublin rents are high. A
+        manager charging 10% of collected rent on a {usd(rent['3'].median)} house takes about
+        {' '}{usd(Math.round(rent['3'].median * 0.1) * 12)} a year, and roughly {usd(Math.round(rent['3'].median / 2))}
+        {' '}again every time the unit turns. Our middle plan is {usd(pricing.plans[1].monthly * 12)} a year and the
+        placement is {usd(pricing.leasingFee)}. The gap widens every time you raise the rent, because our number
+        does not move when your rent does.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
+        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at
+        $250 to $450.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Dublin rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band-wash" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Dublin property management questions</h2>
+      <Faq items={faq} heading="Dublin property management questions" id="dublin-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-hilliard-ohio/', label: 'Hilliard property management', note: 'Directly south, similar stock, different school district.' },
+    { href: '/property-management-powell-ohio/', label: 'Powell property management', note: 'North across the Delaware County line.' },
+    { href: '/property-management-worthington-ohio/', label: 'Worthington property management', note: 'East, older housing and a tighter street grid.' },
+    { href: '/property-management-upper-arlington-ohio/', label: 'Upper Arlington property management', note: 'Southeast, pre-war and mid-century houses.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Dublin rental should earn"
+    body="Tell us the address and we will price it against the units we already manage in Dublin and the comparable listings live right now. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>
