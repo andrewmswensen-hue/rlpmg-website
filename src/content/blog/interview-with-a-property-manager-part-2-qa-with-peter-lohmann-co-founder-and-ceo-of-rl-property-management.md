@@ -1,5 +1,5 @@
 ---
-title: "Interview with a Property Manager – Part 2: Q&A with Peter Lohmann, Co-founder and CEO of RL Property Management"
+title: "Interview with a Property Manager, Part 2: Q&A with Peter Lohmann, Co-founder and CEO of RL Property Management"
 description: "In this two-part series, we’re hearing from Peter Lohmann, Co-founder and CEO of RL Property Management, as he discusses his start in real estate investing and how that first investment has led to exponential growth and the founding of his company. Investing in your first property taught you a lot a"
 pubDate: "2024-01-16T15:00:26Z"
 updatedDate: "2024-01-23T16:00:05Z"
@@ -26,7 +26,7 @@ The second thing we got a lot better at is forecasting the expenses of a rental 
 
 As most investors know, the IRS has you depreciate residential rental properties over 27.5 years. If you run the math on that, it’s actually quite accurate in terms of how much you have to reinvest in the property every year in order to maintain its value. This was something we started to become more strategic about as we grew our portfolio.
 
-**Early in your investment journey, you and your partner were self-managing properties while still maintaining full-time jobs. Tell us a little about how the idea of starting your own business – RL Property Management – came to be.**
+**Early in your investment journey, you and your partner were self-managing properties while still maintaining full-time jobs. Tell us a little about how the idea of starting your own business, RL Property Management, came to be.**
 
 For the next several years, from about 2008 to 2013, we bought about one property per year. For each of those investments, we generally followed the same playbook. My business partner and I bought it together, we were 50/50 on everything, invested with conventional loans, and so on. With each new investment, we leveraged our engineering backgrounds to refine our systems and processes for managing properties. For a brief moment, we explored hiring a third-party property manager, but we decided we could still comfortably manage these properties in our spare time.
 

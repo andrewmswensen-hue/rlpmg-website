@@ -21,7 +21,7 @@ tags:
 
 Columbus summers are no joke. High humidity, sudden rainstorms, and relentless heat can put serious stress on your rental property. If you’ve already tackled some summer prep, great. But staying proactive mid-season can be the difference between a smooth summer and a costly emergency.
 
-Smart investors don’t just prepare for summer – they manage it. That means fine-tuning HVAC systems, checking property exteriors, and keeping tenants comfortable to avoid turnover and protect long-term cash flow.
+Smart investors don’t just prepare for summer, they manage it. That means fine-tuning HVAC systems, checking property exteriors, and keeping tenants comfortable to avoid turnover and protect long-term cash flow.
 
 Now’s the time to make sure your property is still operating at peak performance. This mid-summer checklist helps you catch potential issues before they turn into problems, so your investment stays profitable and your tenants stay happy.
 
@@ -38,7 +38,7 @@ Columbus heat waves aren’t just uncomfortable… they’re a stress test for y
 - **Check refrigerant levels:** Low refrigerant causes the system to work harder, shortening its lifespan and increasing utility bills.
 - **Inspect belts, fans, and motors:** Catch early signs of wear before they result in full-system shutdowns.
 - **Replace air filters:**
-  - Replace every **30–90 days,** depending on occupancy and pet presence.
+ - Replace every **30 to 90 days,** depending on occupancy and pet presence.
   - Clean filters improve air quality and help the system operate smoothly.
 - **Clear outdoor units:**
   - Remove grass clippings, leaves, and trash.
@@ -62,7 +62,7 @@ A quick reminder in your seasonal tenant communication or portal post can go a l
 
 ## Protect the Property Envelope: Exterior Maintenance
 
-Summer in Columbus brings more than heat – it brings sudden storms, heavy rainfall, and high humidity. If your property’s exterior isn’t in top shape, you’re inviting everything from water damage to pest infestations. Worse, these issues often show up as mid-lease emergencies that cost more and frustrate tenants.
+Summer in Columbus brings more than heat, it brings sudden storms, heavy rainfall, and high humidity. If your property’s exterior isn’t in top shape, you’re inviting everything from water damage to pest infestations. Worse, these issues often show up as mid-lease emergencies that cost more and frustrate tenants.
 
 **The exterior of your rental isn’t just about looks… It’s your first line of defense.** Even mid-season maintenance protects the structure, preserves property value, and enhances tenant satisfaction through improved curb appeal.
 
@@ -102,7 +102,7 @@ Your property’s landscaping is more than just decoration. It’s a signal to c
   - Avoid overwatering, which can lead to inflated water bills or foundation issues.
 - **Mulch garden beds and landscaped areas:**
   - Retains soil moisture, suppresses weeds, and gives a clean, finished look
-  - It’s not too late to refresh mulch – it helps with moisture retention during the hottest weeks of the year.
+ - It’s not too late to refresh mulch, it helps with moisture retention during the hottest weeks of the year.
 - **Maintain shared outdoor spaces (for multi-family or duplex units):**
   - Mow regularly, remove debris, and add value through low-cost improvements:
     - Picnic tables or shaded benches
@@ -134,7 +134,7 @@ While exterior upkeep gets most of the attention during summer, the inside of yo
   - Address damp spots or signs of mildew quickly to prevent mold.
 - **Test smoke and carbon monoxide detectors:**
   - Replace batteries and press test buttons to ensure functionality.
-  - Swap out any expired units (most last 7–10 years)
+ - Swap out any expired units (most last 7 to 10 years)
 - **Check seals around doors and windows:**
   - Poor seals allow hot air in and drive up cooling costs.
   - Add weather stripping or re-caulk as needed to improve insulation.

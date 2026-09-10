@@ -19,7 +19,7 @@ Westerville is one of the strongest suburban rental markets in the Columbus metr
 
 Key Takeaways
 
-- Average rents in Westerville range from roughly $1,300 for a 1-bedroom apartment to $2,000+ for a 3-bedroom, with single-family homes commanding $1,800–$2,200+ depending on size and location.
+- Average rents in Westerville range from roughly $1,300 for a 1-bedroom apartment to $2,000+ for a 3-bedroom, with single-family homes commanding $1,800 to $2,200+ depending on size and location.
 - Vertiv (a Fortune 500 company headquartered in Westerville) announced a $50 million expansion in March 2026, adding approximately 210 local jobs through 2029.
 - The city invested $30 million in infrastructure for the 88-acre East of Africa Road business district, with five shovel-ready commercial sites available by late 2026.
 - 74% of Westerville residents are homeowners (U.S. Census), which limits rental supply and supports occupancy rates for investors.
@@ -55,10 +55,10 @@ Rental pricing in Westerville reflects the suburb’s class A/B positioning. Her
 | Property Type | Avg. Monthly Rent |
 |---|---|
 | Studio Apartment | ~$1,050 |
-| 1-Bedroom Apartment | $1,300–$1,400 |
-| 2-Bedroom Apartment | $1,500–$1,650 |
+| 1-Bedroom Apartment | $1,300 to $1,400 |
+| 2-Bedroom Apartment | $1,500 to $1,650 |
 | 3-Bedroom Apartment | ~$2,075 |
-| Single-Family Home (avg.) | $1,800–$2,200+ |
+| Single-Family Home (avg.) | $1,800 to $2,200+ |
 | Overall Average (all types) | ~$1,510/mo |
 
 Rent growth in Westerville has been modest but steady, at roughly [1.6% year-over-year](https://www.apartments.com/rent-market-trends/westerville-oh/). That’s in line with the broader Central Ohio trend of moderate, sustainable increases rather than the sharp spikes (and corrections) seen in some Sun Belt markets.
@@ -69,9 +69,9 @@ For single-family rental investors specifically, RentCafe data shows the average
 
 ## Home Values and Acquisition Costs
 
-The [Zillow Home Value Index](https://www.zillow.com/home-values/14584/westerville-oh/) places the typical Westerville home at approximately $411,800, up about 1.7% over the past year. [Redfin](https://www.redfin.com/city/20634/OH/Westerville/housing-market) reports a recent median sale price near $402,000, with homes spending an average of 50–64 days on market (depending on pricing accuracy).
+The [Zillow Home Value Index](https://www.zillow.com/home-values/14584/westerville-oh/) places the typical Westerville home at approximately $411,800, up about 1.7% over the past year. [Redfin](https://www.redfin.com/city/20634/OH/Westerville/housing-market) reports a recent median sale price near $402,000, with homes spending an average of 50 to 64 days on market (depending on pricing accuracy).
 
-For investors, the key numbers are these: at a median purchase price around $400,000 and an average SFR rent near $2,200/month, gross rental yield sits in the range of 6.5–6.6%. That’s competitive with the broader Columbus metro average and stronger than many other A-rated suburban markets in Central Ohio where acquisition costs are higher (think Upper Arlington or New Albany) but rent premiums don’t scale proportionally.
+For investors, the key numbers are these: at a median purchase price around $400,000 and an average SFR rent near $2,200/month, gross rental yield sits in the range of 6.5 to 6.6%. That’s competitive with the broader Columbus metro average and stronger than many other A-rated suburban markets in Central Ohio where acquisition costs are higher (think Upper Arlington or New Albany) but rent premiums don’t scale proportionally.
 
 One nuance worth watching: Westerville’s housing stock spans a wide age range. The average multifamily building is about [22 years old](https://www.rentcafe.com/apartments-for-rent/westerville-oh/), with 61% of apartment communities built since 2000. Single-family homes in established neighborhoods (near Uptown, along Schrock Road, in the Huber Village area) tend to be older and may carry higher maintenance costs than newer construction near Polaris or in the Westar corridor.
 
@@ -93,7 +93,7 @@ This is where Westerville’s investment story gets especially compelling in 202
 
 **Vertiv**, a Fortune 500 digital infrastructure company, is headquartered in Westerville and just announced a [$50 million expansion](https://www.jobsohio.com/newsroom/news-press/vertiv-announces-expansion-of-two-ohio-facilities-including-us-headquarters) in March 2026. The project is expected to create approximately 210 new jobs at the Westerville headquarters through 2029, in engineering, sales, and services roles. Those are the kind of professional positions that produce quality tenants: stable income, long-term employment, and the financial profile to pass rigorous screening.
 
-The **Westar Business District** is already home to Vertiv, DHL Supply Chain, and Marzetti. The adjacent 88-acre **East of Africa Road** development represents a $30+ million city investment in new roads, utilities, and green spaces, with [five shovel-ready commercial sites](https://business.westerville.org/westerville-ready-for-2026/) expected to be available by late 2026. That pipeline of commercial development means more jobs, more housing demand, and more upward pressure on rents over the next 3–5 years.
+The **Westar Business District** is already home to Vertiv, DHL Supply Chain, and Marzetti. The adjacent 88-acre **East of Africa Road** development represents a $30+ million city investment in new roads, utilities, and green spaces, with [five shovel-ready commercial sites](https://business.westerville.org/westerville-ready-for-2026/) expected to be available by late 2026. That pipeline of commercial development means more jobs, more housing demand, and more upward pressure on rents over the next 3 to 5 years.
 
 Other notable employers include **JPMorgan Chase** (which maintains a significant Westerville presence), Otterbein University, and the Westerville City Schools district itself. Proximity to the **Polaris** retail and office corridor adds another layer of employment access, with tenants able to work at major employers just a short drive south along I-71 or Sunbury Road.
 
@@ -105,9 +105,9 @@ The broader Columbus region continues to benefit from the **Intel semiconductor 
 
 Westerville’s rental market benefits from a structural supply constraint: [74% of residents own their homes](https://www.rentcafe.com/apartments-for-rent/westerville-oh/), which keeps rental inventory limited relative to demand. Only 26% of the housing stock is renter-occupied, meaning available rentals tend to be absorbed quickly when priced correctly.
 
-Seasonal leasing patterns in Westerville follow the broader Central Ohio rhythm. Peak demand runs from late spring through early fall (May–September), driven by families relocating before the school year and professionals starting new positions. Properties listed during this window typically lease faster and at stronger rents.
+Seasonal leasing patterns in Westerville follow the broader Central Ohio rhythm. Peak demand runs from late spring through early fall (May, September), driven by families relocating before the school year and professionals starting new positions. Properties listed during this window typically lease faster and at stronger rents.
 
-Winter leasing (November–February) slows, as it does across the Columbus metro. Investors who anticipate turnover during this period should factor in slightly longer vacancy and potentially more competitive pricing to attract tenants outside the peak window.
+Winter leasing (November, February) slows, as it does across the Columbus metro. Investors who anticipate turnover during this period should factor in slightly longer vacancy and potentially more competitive pricing to attract tenants outside the peak window.
 
 For current performance benchmarks on lease-up speed, occupancy, and renewal rates across the Columbus metro, check [RL Property Management’s live KPI scorecard](/key-performance-indicators/).
 
@@ -193,12 +193,12 @@ Or [schedule a consultation](/property-management-consultation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Niche: Westerville, OH](https://www.niche.com/places-to-live/westerville-franklin-oh/) — Overall livability grade, crime data, and resident reviews
-- [Niche: Westerville City School District](https://www.niche.com/k12/d/westerville-city-school-district-oh/) — School ratings, rankings, and demographics
-- [Apartments.com: Westerville Rent Trends](https://www.apartments.com/rent-market-trends/westerville-oh/) — Current rent prices by unit type
-- [RentCafe: Westerville Apartment Market](https://www.rentcafe.com/apartments-for-rent/westerville-oh/) — Rental inventory, pricing, and housing composition
-- [Zillow: Westerville Home Values](https://www.zillow.com/home-values/14584/westerville-oh/) — Zillow Home Value Index and appreciation trends
-- [Redfin: Westerville Housing Market](https://www.redfin.com/city/20634/OH/Westerville/housing-market) — Median sale prices and days on market
-- [JobsOhio: Vertiv Expansion Announcement](https://www.jobsohio.com/newsroom/news-press/vertiv-announces-expansion-of-two-ohio-facilities-including-us-headquarters) — $50M expansion, 210 Westerville jobs
-- [City of Westerville Economic Development](https://business.westerville.org/westerville-ready-for-2026/) — East of Africa Road project and 2026 development plans
-- [RL Property Management: Live KPI Scorecard](/key-performance-indicators/) — Current Columbus metro performance benchmarks
+- [Niche: Westerville, OH](https://www.niche.com/places-to-live/westerville-franklin-oh/), Overall livability grade, crime data, and resident reviews
+- [Niche: Westerville City School District](https://www.niche.com/k12/d/westerville-city-school-district-oh/), School ratings, rankings, and demographics
+- [Apartments.com: Westerville Rent Trends](https://www.apartments.com/rent-market-trends/westerville-oh/), Current rent prices by unit type
+- [RentCafe: Westerville Apartment Market](https://www.rentcafe.com/apartments-for-rent/westerville-oh/), Rental inventory, pricing, and housing composition
+- [Zillow: Westerville Home Values](https://www.zillow.com/home-values/14584/westerville-oh/), Zillow Home Value Index and appreciation trends
+- [Redfin: Westerville Housing Market](https://www.redfin.com/city/20634/OH/Westerville/housing-market), Median sale prices and days on market
+- [JobsOhio: Vertiv Expansion Announcement](https://www.jobsohio.com/newsroom/news-press/vertiv-announces-expansion-of-two-ohio-facilities-including-us-headquarters), $50M expansion, 210 Westerville jobs
+- [City of Westerville Economic Development](https://business.westerville.org/westerville-ready-for-2026/), East of Africa Road project and 2026 development plans
+- [RL Property Management: Live KPI Scorecard](/key-performance-indicators/), Current Columbus metro performance benchmarks

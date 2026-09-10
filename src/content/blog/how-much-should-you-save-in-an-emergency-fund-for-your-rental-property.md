@@ -19,7 +19,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2024/07/How-Much-Should-You-Save-in-an-Emergency-Fund-for-Your-Rental-Property-201x300.jpg)Personal Finance 101 tells us to always save for a rainy day, but as property investors, it’s more like we need to save for rainy *months*.
 
-An emergency fund, also referred to as a reserves account, helps shield you from financial disaster when other types of unexpected disasters strike. And strike they will – appliances break, emergency repairs come up, or tenants unexpectedly vacate. These things all cost money, and having a financial plan in place to see you through to the other side will help keep your investment on the straight and narrow path toward success.
+An emergency fund, also referred to as a reserves account, helps shield you from financial disaster when other types of unexpected disasters strike. And strike they will, appliances break, emergency repairs come up, or tenants unexpectedly vacate. These things all cost money, and having a financial plan in place to see you through to the other side will help keep your investment on the straight and narrow path toward success.
 
 ## How Much Should You Save in Reserves?
 

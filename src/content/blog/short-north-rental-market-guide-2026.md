@@ -29,9 +29,9 @@ Vacancy control is a primary lever for stabilizing returns. Short North properti
 
 While granular neighborhood-specific days-on-market (DOM) data are less frequently published publicly, aggregated rental listings show active units in Short North often move faster than the broader Columbus average, which hovers in the moderate range.
 
-- **Studios / Small 1-Beds**: Often lease within **20–35 days** in season when competitively priced, given strong demand from young professionals and Downtown commuters.
-- **1-Bedrooms**: Well-located, updated 1-beds typically lease in **35–50 days**. Smaller finishes or dated units see longer marketing times.
-- **2-Bedrooms**: Demand remains solid, but two-beds can require **50–65 days** due to broader price sensitivity and competition from newer developments.
+- **Studios / Small 1-Beds**: Often lease within **20 to 35 days** in season when competitively priced, given strong demand from young professionals and Downtown commuters.
+- **1-Bedrooms**: Well-located, updated 1-beds typically lease in **35 to 50 days**. Smaller finishes or dated units see longer marketing times.
+- **2-Bedrooms**: Demand remains solid, but two-beds can require **50 to 65 days** due to broader price sensitivity and competition from newer developments.
 - **Larger Units / Townhomes**: Generally longer lease-ups, often **50+ days**, particularly if pricing outpaces comparable offerings.
 
 Click here to see the current RL property management scorecard, including median days on market (DOM).
@@ -49,14 +49,14 @@ Short North’s rental levels sit at a premium relative to citywide numbers in 2
 
 | **Property Type** | **Typical 2026 Rent Range (Short North)** | **Notes** |
 |---|---|---|
-| Studio | **$1,250–$1,800+** | Premium for historic lofts/renovated units; fewer units at entry levels. |
-| 1-Bedroom | **$1,600–$2,300** | Core market; units with modern updates/parking skew higher. |
-| 2-Bedroom | **$1,900–$3,950** | Rooms with high amenity sets or prime blocks command the top end. |
+| Studio | **$1,250 to $1,800+** | Premium for historic lofts/renovated units; fewer units at entry levels. |
+| 1-Bedroom | **$1,600 to $2,300** | Core market; units with modern updates/parking skew higher. |
+| 2-Bedroom | **$1,900 to $3,950** | Rooms with high amenity sets or prime blocks command the top end. |
 | Larger/House/Townhome | **$2,500+** | Select inventory; pricing sensitive to finishes and outdoor space. |
 
 *Note:* Ranges here reflect widely marketed inventory lists, not necessarily stabilized operating portfolios.
 
-Compared with the broader Columbus market (where average one-beds run closer to **mid-$1,300s–$1,600s** depending on source), Short North retains a premium reflecting its core urban location.
+Compared with the broader Columbus market (where average one-beds run closer to **mid-$1,300s, $1,600s** depending on source), Short North retains a premium reflecting its core urban location.
 
 ## Neighborhood-Specific Rent Drivers
 
@@ -64,7 +64,7 @@ In Short North, rent levels hinge on a focused set of drivers:
 
 ### 1. Location & Walkable Urban Lifestyle
 
-Proximity to High Street, downtown jobs, arts, and entertainment delivers pricing advantage over comparable shelf stock in the metro. Walkable neighborhoods like Short North typically support rent premiums of 10–25% relative to broader averages.
+Proximity to High Street, downtown jobs, arts, and entertainment delivers pricing advantage over comparable shelf stock in the metro. Walkable neighborhoods like Short North typically support rent premiums of 10 to 25% relative to broader averages.
 
 ### 2. Product Condition & Amenities
 
@@ -82,9 +82,9 @@ The renter base here skews toward singles and young professionals with discretio
 
 Short North reflects broader **Columbus rental seasonality**, where leasing activity intensifies in **late spring through early fall** and moderates in winter. Investors should align pricing and promotions accordingly:
 
-- **Peak Season (May–September):** Larger applicant pools and faster lease-ups; landlords can push tighter pricing.
-- **Shoulder (October–December):** Demand moderates; targeted concessions or shorter lease incentives can maintain occupancy.
-- **Winter (Jan–Mar):** Slower traffic; realistic pricing key, and lease starts timed for spring move-ins often perform better.
+- **Peak Season (May, September):** Larger applicant pools and faster lease-ups; landlords can push tighter pricing.
+- **Shoulder (October, December):** Demand moderates; targeted concessions or shorter lease incentives can maintain occupancy.
+- **Winter (Jan, Mar):** Slower traffic; realistic pricing key, and lease starts timed for spring move-ins often perform better.
 
 **Strategy Tip:** Aim to list vacant units in early spring. For mid-winter expirations, offering flexible move-in dates or modest concessions can limit vacancy duration.
 

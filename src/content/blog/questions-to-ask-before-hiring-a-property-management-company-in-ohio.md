@@ -41,7 +41,7 @@ You should only work with a property management company that holds a real estate
 
 **How many units do you currently manage?**
 
-When you hand over property management responsibilities to a third party, you’re doing more than just offloading things like maintenance and repairs. You’re also entrusting them to manage the relationship with your unit’s residents and thereby your investment. This is important. You want high-quality tenants, which means you also want a management firm that can provide this high level of ongoing service. Businesses that are established and managing several hundred units have the systems, processes and – importantly – staff in place to offer this type of elevated service to you and your tenants.
+When you hand over property management responsibilities to a third party, you’re doing more than just offloading things like maintenance and repairs. You’re also entrusting them to manage the relationship with your unit’s residents and thereby your investment. This is important. You want high-quality tenants, which means you also want a management firm that can provide this high level of ongoing service. Businesses that are established and managing several hundred units have the systems, processes and, importantly, staff in place to offer this type of elevated service to you and your tenants.
 
 **What services do you provide as part of your Property Management Agreement (PMA)?**
 

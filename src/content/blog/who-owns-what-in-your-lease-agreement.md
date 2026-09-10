@@ -1,6 +1,6 @@
 ---
 title: "Who Owns What in Your Lease Agreement?"
-description: "When it comes to your lease agreement, there are a few really important considerations you should have as a landlord. One that often gets overlooked is who actually owns what in the apartment or rental home, and is that clearly delineated in the lease? Having a strong lease agreement – one that clea"
+description: "When it comes to your lease agreement, there are a few really important considerations you should have as a landlord. One that often gets overlooked is who actually owns what in the apartment or rental home, and is that clearly delineated in the lease? Having a strong lease agreement, one that clea"
 pubDate: "2021-08-02T15:58:50Z"
 updatedDate: "2021-10-22T17:11:38Z"
 slug: "who-owns-what-in-your-lease-agreement"
@@ -20,11 +20,11 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2021/08/sidekix-media-VaGdhK-kI1c-unsplash-min-300x200.jpg)When it comes to your lease agreement, there are a few really important considerations you should have as a landlord. One that often gets overlooked is who actually owns what in the apartment or rental home, and is that clearly delineated in the lease?
 
-Having a strong lease agreement – one that clearly specifies all the rules, procedures, responsibilities, and ownership related to renting the property – is essential to protecting both yourself as a landlord and your tenant.
+Having a strong lease agreement, one that clearly specifies all the rules, procedures, responsibilities, and ownership related to renting the property, is essential to protecting both yourself as a landlord and your tenant.
 
 ## Why You Need to Specify Property Ownership in Your Lease
 
-An important component of the lease agreement that frequently gets forgotten is related to property ownership – and specifically appliances.
+An important component of the lease agreement that frequently gets forgotten is related to property ownership, and specifically appliances.
 
 While it may seem obvious to you that the refrigerator, dishwasher, and range are provided by you, the owner, and are to stay with the house, you may be surprised to find that many default lease templates don’t offer a spot for you to clearly state that. Then, when an issue arises, you have no way of effectively enforcing it since it is not in the lease.
 

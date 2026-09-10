@@ -26,11 +26,11 @@ First off, from a risk and liability perspective, it’s generally advisable to 
 
 When investing in property, these are some commonly recommended types of insurance policies to keep active, in addition to your homeowner’s policy.
 
-- **Liability insurance** – This helps protect you if someone is accidentally injured on your property, be that tenants, guests or anyone else who comes to your property.
+- **Liability insurance**, This helps protect you if someone is accidentally injured on your property, be that tenants, guests or anyone else who comes to your property.
 
-- **Hazard and fire insurance**– Typically this is included in a basic property dwelling insurance policy and covers the replacement cost of the property if there was damage due to a hazard.
-- **Loss of income coverage**– If your property is uninhabitable due for an extended period of time to a covered loss, loss of rent coverage helps recoup some of that income by reimbursing you with the fair rental value of the dwelling during that time period.
-- **Umbrella insurance** – This is an additional type of coverage that offers protection beyond the limits and coverages of your other policies.
+- **Hazard and fire insurance**, Typically this is included in a basic property dwelling insurance policy and covers the replacement cost of the property if there was damage due to a hazard.
+- **Loss of income coverage**, If your property is uninhabitable due for an extended period of time to a covered loss, loss of rent coverage helps recoup some of that income by reimbursing you with the fair rental value of the dwelling during that time period.
+- **Umbrella insurance**, This is an additional type of coverage that offers protection beyond the limits and coverages of your other policies.
 
 In addition to insurance policies for you and your business, another important way to protect yourself and your investment property is to require your tenants to have a renter’s insurance policy. Renter’s insurance protects a tenant’s personal property in the event of a fire, theft or other disaster. It also reduces the property owner’s liability.
 

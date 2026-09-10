@@ -39,6 +39,6 @@ When you’re selecting a renewal price for an existing resident, you have to be
 
 Consider these variables as you assess your market and feel out your resident’s history at your property. How long have they been there and how happy do they seem? Then, come up with a guesstimate that is as high as you think the resident is willing to pay. If they come back and ask to negotiate the rate, you should seriously consider doing it, especially given all the expenses that go into losing the existing tenant.
 
-If you have questions about setting rent rates in Columbus, please give our team a call at 614-725-3059. And stay tuned to our blog next week when we discuss a second scenario when you would want to reevaluate rent rates – when your existing unit is sitting vacant.
+If you have questions about setting rent rates in Columbus, please give our team a call at 614-725-3059. And stay tuned to our blog next week when we discuss a second scenario when you would want to reevaluate rent rates, when your existing unit is sitting vacant.
 
 To hear more from us about how to reduce vacancies in your rental properties, [watch our webinar replay on the topic](https://www.youtube.com/watch?v=cPDoPyQWxCU) where we discuss several strategies for reducing vacancy and helping you become more successful with your property investment.

@@ -26,7 +26,7 @@ But a vacancy should be no cause for concern. Depending on your market, it’s n
 
 A word of caution when setting rent rates, however. Some people think they should set the rates high in order to get “good” tenants. Unfortunately, that isn’t always how things play out.
 
-The people who are great tenants on paper – those who have strong credit scores, no criminal history, no eviction history, etc – are looking for a deal. They’re knowledgeable and they have no intention of paying *more* for a property when they can get a similar one for less just down the block.
+The people who are great tenants on paper, those who have strong credit scores, no criminal history, no eviction history, etc, are looking for a deal. They’re knowledgeable and they have no intention of paying *more* for a property when they can get a similar one for less just down the block.
 
 Discerning tenants are going to pay the absolute minimum rent for a high-quality space that fits their budget and needs. This is the kind of resident you want to stay in your property. Ones who intend to stay a long time, take good care of the place and pay rent on time.
 

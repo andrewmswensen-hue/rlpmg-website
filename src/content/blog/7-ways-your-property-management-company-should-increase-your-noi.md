@@ -28,7 +28,7 @@ tags:
 6. They should[evaluate your operating expenses](/blog/how-to-increase-noi-and-reduce-operational-expenses/) and look for ways to cut costs.
 7. They should develop reports to help you make better data-informed decisions.
 
-It’s important to note that none of these actions in and of themselves are particularly drastic, and there’s no magic formula for instant success. When taken together, however, trend lines across the board tend to steadily improve. That means not only does cash flow increase, but the NOI does as well – thereby increasing the value of the overall portfolio.
+It’s important to note that none of these actions in and of themselves are particularly drastic, and there’s no magic formula for instant success. When taken together, however, trend lines across the board tend to steadily improve. That means not only does cash flow increase, but the NOI does as well, thereby increasing the value of the overall portfolio.
 
 In sum, your success as an investor should be just as important to the property management company you hire as it is to you. By taking the steps mentioned above, slowly but surely, your cash flow and NOI will also increase.
 

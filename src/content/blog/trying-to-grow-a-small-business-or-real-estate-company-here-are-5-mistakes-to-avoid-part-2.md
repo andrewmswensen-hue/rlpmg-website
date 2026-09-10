@@ -44,6 +44,6 @@ You may have heard the saying, “there are riches and niches” or “niche dow
 
 The more narrowly you define your target audience, the more value you can provide for them and the easier it is to articulate that value.
 
-As we’ve narrowed down our market over time and the types of properties we manage so they fit within our specialty, it has helped our entire operation – from marketing to simplifying and standardizing our sales process – because you can speak your customers’ language in a way that’s simply not possible if you’re trying to capture a broad audience.
+As we’ve narrowed down our market over time and the types of properties we manage so they fit within our specialty, it has helped our entire operation, from marketing to simplifying and standardizing our sales process, because you can speak your customers’ language in a way that’s simply not possible if you’re trying to capture a broad audience.
 
 As our business has evolved, we’ve learned a lot about ourselves and the industry. We hope these lessons will help you avoid some of the inefficiencies and hurdles we’ve had to overcome. To hear more about these five mistakes and other property management topics, [subscribe to our podcast “Owner Occupied.”](https://anchor.fm/owneroccupied)

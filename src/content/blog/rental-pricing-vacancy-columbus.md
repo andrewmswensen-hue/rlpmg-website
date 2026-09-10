@@ -98,7 +98,7 @@ At $1,850/month, the daily cost is approximately $61.67. Over 25 vacant days, th
 |---|---|---|---|---|
 | Overpriced, slow lease | $2,000 | 90 days | $6,000 | Day 91 |
 | Accurately priced, fast lease | $1,850 | 25 days | $1,542 | Day 26 |
-| Income gap from vacancy alone | — | 65 days | $4,458 | — |
+| Income gap from vacancy alone |, | 65 days | $4,458 |, |
 
 The monthly rent difference between the two scenarios is $150. To recover that $4,458 income gap through $150/month in additional rent, the overpriced unit would need to hold that tenant for nearly 30 months of uninterrupted occupancy, with no renewal gap and no turnover, before the numbers break even. In practice, that rarely happens. The unit cycles, the vacancy clock restarts, and the gap widens further.
 
@@ -198,9 +198,9 @@ Or [schedule a consultation](/property-management-consultation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Realtor.com Franklin County Rental Market Data](https://www.realtor.com/local/market/ohio/franklin-county) — May 2026 rental inventory and median rent figures cited throughout
-- [Realtor.com Research — Market Hotness Index](https://www.realtor.com/research/data/) — National median days on market benchmark
-- [MMG Real Estate Advisors — 2025 Columbus Multifamily Forecast](https://mmgrea.com/2025-columbus-forecast/) — Columbus annual rent growth vs. national average
-- [Norada Real Estate — U.S. Rental Vacancy Rates 2026](https://www.noradarealestate.com/blog/us-rental-market-vacancy-rates-reach-record-high-in-2026/) — National vacancy rate data and market context
-- [Harvard Joint Center for Housing Studies — America’s Rental Housing 2026](https://www.jchs.harvard.edu/blog/six-takeaways-americas-rental-housing-2026) — National rental market structural analysis
-- [RentCast](https://rentcast.io) — Rental transaction data and market rent analysis platform
+- [Realtor.com Franklin County Rental Market Data](https://www.realtor.com/local/market/ohio/franklin-county), May 2026 rental inventory and median rent figures cited throughout
+- [Realtor.com Research, Market Hotness Index](https://www.realtor.com/research/data/), National median days on market benchmark
+- [MMG Real Estate Advisors, 2025 Columbus Multifamily Forecast](https://mmgrea.com/2025-columbus-forecast/), Columbus annual rent growth vs. national average
+- [Norada Real Estate, U.S. Rental Vacancy Rates 2026](https://www.noradarealestate.com/blog/us-rental-market-vacancy-rates-reach-record-high-in-2026/), National vacancy rate data and market context
+- [Harvard Joint Center for Housing Studies, America’s Rental Housing 2026](https://www.jchs.harvard.edu/blog/six-takeaways-americas-rental-housing-2026), National rental market structural analysis
+- [RentCast](https://rentcast.io), Rental transaction data and market rent analysis platform

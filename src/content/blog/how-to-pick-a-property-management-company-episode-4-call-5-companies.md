@@ -1,5 +1,5 @@
 ---
-title: "How To Pick A Property Management Company – Episode 4 of 5 “Call 5 Companies”"
+title: "How To Pick A Property Management Company, Episode 4 of 5 “Call 5 Companies”"
 description: "In the previous RL Property Management video series “How to Pick a Property Management Company” Episode #3 we covered how to research the top 10 companies and narrow down from there. In the video below, Peter with RL Property Management covers step 4 of 5 that you can take to select a property manag"
 pubDate: "2020-05-24T00:20:08Z"
 updatedDate: "2024-11-14T20:28:13Z"
@@ -17,11 +17,11 @@ In the previous RL Property Management video series “How to Pick a Property Ma
 
 In the video below, Peter with RL Property Management covers step 4 of 5 that you can take to select a property manager for your property.
 
-**Step 1: Determine your needs. (Video #1 – [https://rlpmg.com/blog/how-to-pick-a-property-management-company-5-key-steps/](/blog/how-to-pick-a-property-management-company-5-key-steps/))**
+**Step 1: Determine your needs. (Video #1, [https://rlpmg.com/blog/how-to-pick-a-property-management-company-5-key-steps/](/blog/how-to-pick-a-property-management-company-5-key-steps/))**
 
-**Step 2: Evaluate the marketplace. (Video #2 – [https://rlpmg.com/blog/how-to-pick-a-property-management-company/](/blog/how-to-pick-a-property-management-company/))**
+**Step 2: Evaluate the marketplace. (Video #2, [https://rlpmg.com/blog/how-to-pick-a-property-management-company/](/blog/how-to-pick-a-property-management-company/))**
 
-**Step 3: Research the top 10 and narrow down. (Video #3 – [https://rlpmg.com/blog/how-to-pick-a-property-management-company-episode-3/](/blog/how-to-pick-a-property-management-company-episode-3/))**
+**Step 3: Research the top 10 and narrow down. (Video #3, [https://rlpmg.com/blog/how-to-pick-a-property-management-company-episode-3/](/blog/how-to-pick-a-property-management-company-episode-3/))**
 
 **Step 4: Call 5 companies. (Current Video)**
 

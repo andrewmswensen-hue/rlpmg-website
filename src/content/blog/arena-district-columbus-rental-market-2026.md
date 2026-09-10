@@ -18,7 +18,7 @@ categories:
 
 ## Executive TL;DR Snapshot![Arena District in Columbus, Ohio at night, featuring neon-lit restaurants, a crowd gathered outside Nationwide Arena for a concert, and the illuminated Arena District sign with downtown traffic in the foreground.](https://rlpmg.com/wp-content/uploads/2026/02/7405703ee055ccd3b87414452282bc749854bc1228df569379f1db3b882e03b1-300x200.png)
 
-The **Arena District** in Columbus remains a niche urban rental submarket anchored by entertainment, sports, and proximity to downtown employment. In 2026, its rental stock, predominantly mid- to high-tier apartments and condos, caters to young professionals and renters seeking walkable, lifestyle-oriented living. Most units in the market cluster in the **$1,500–$2,000+** range, with premium properties pushing higher. Rents can lease relatively quickly when priced within market reality, but vacancy is higher than core Columbus averages due to the limited size of the neighborhood and its event-driven population swings. Investors should treat pricing discipline, lease timing aligned with downtown employment activity, and tenant profile targeting as core components of a stable strategy.
+The **Arena District** in Columbus remains a niche urban rental submarket anchored by entertainment, sports, and proximity to downtown employment. In 2026, its rental stock, predominantly mid- to high-tier apartments and condos, caters to young professionals and renters seeking walkable, lifestyle-oriented living. Most units in the market cluster in the **$1,500 to $2,000+** range, with premium properties pushing higher. Rents can lease relatively quickly when priced within market reality, but vacancy is higher than core Columbus averages due to the limited size of the neighborhood and its event-driven population swings. Investors should treat pricing discipline, lease timing aligned with downtown employment activity, and tenant profile targeting as core components of a stable strategy.
 
 ## Why This Neighborhood Attracts Renters
 
@@ -44,9 +44,9 @@ Because there is no centralized MLS rental data published specifically for the A
 
 | **Property Type** | **Typical Lease-Up (Priced to Market)** |
 |---|---|
-| Studio / 1-Bed Apartments | 20–50 days |
-| 2-Bed Apartments / Condo Units | 35–65 days |
-| Premium / Larger Units | 50–80+ days |
+| Studio / 1-Bed Apartments | 20 to 50 days |
+| 2-Bed Apartments / Condo Units | 35 to 65 days |
+| Premium / Larger Units | 50 to 80+ days |
 
 *Notes:*
 
@@ -61,10 +61,10 @@ The Arena District’s rental stock varies from traditional apartment buildings 
 
 | **Property Type** | **Typical Rent Range** | **Notes** |
 |---|---|---|
-| **Studio / Small 1-Bed** | ~$1,060 – $1,450+ | Base level units; pricing varies widely on finishes and building amenities. |
-| **1-Bed Standard** | ~$1,450 – $2,000 | Most common renter segment; pricing influenced by size and amenity tier. |
-| **2-Bed Unit** | ~$1,900 – $2,900+ | Higher ceilings for well-located or premium elevators, roof decks, and parking. |
-| **3-Bed / Premium Units** | ~$2,800 – $5,400+ | Larger units and penthouses; demand is more niche and subject to seasonal timing. |
+| **Studio / Small 1-Bed** | ~$1,060 to $1,450+ | Base level units; pricing varies widely on finishes and building amenities. |
+| **1-Bed Standard** | ~$1,450 to $2,000 | Most common renter segment; pricing influenced by size and amenity tier. |
+| **2-Bed Unit** | ~$1,900 to $2,900+ | Higher ceilings for well-located or premium elevators, roof decks, and parking. |
+| **3-Bed / Premium Units** | ~$2,800 to $5,400+ | Larger units and penthouses; demand is more niche and subject to seasonal timing. |
 
 *Pricing Caveats:*
 

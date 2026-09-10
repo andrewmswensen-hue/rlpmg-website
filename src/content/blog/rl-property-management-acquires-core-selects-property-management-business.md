@@ -1,6 +1,6 @@
 ---
 title: "RL Property Management Acquires Core Select’s Property Management Business"
-description: "RL Property Management Group Grows Rental Unit Business 45% with Acquisition of Core Select Group’s Property Management Division Acquisition vaults RL Property Management Group into the top 5 of similar companies within Central Ohio COLUMBUS, OHIO, April 14, 2020 – RL Property Management Group, a fu"
+description: "RL Property Management Group Grows Rental Unit Business 45% with Acquisition of Core Select Group’s Property Management Division Acquisition vaults RL Property Management Group into the top 5 of similar companies within Central Ohio COLUMBUS, OHIO, April 14, 2020, RL Property Management Group, a fu"
 pubDate: "2020-05-26T16:47:39Z"
 updatedDate: "2021-02-05T22:45:45Z"
 slug: "rl-property-management-acquires-core-selects-property-management-business"
@@ -17,7 +17,7 @@ categories:
 
 Acquisition vaults RL Property Management Group into the top 5 of similar companies within Central Ohio
 
-COLUMBUS, OHIO, April 14, 2020 – RL Property Management Group, a full-service property management company in Central Ohio, announces a strategic partnership with Core Select Property Group, beginning with the acquisition of their property management division.
+COLUMBUS, OHIO, April 14, 2020, RL Property Management Group, a full-service property management company in Central Ohio, announces a strategic partnership with Core Select Property Group, beginning with the acquisition of their property management division.
 
 “With today’s announcement, the number of rental units we manage grows from 310 to nearly 450,” said Peter Lohmann, Principal Broker and CEO of RL Property Management Group. “It places us amongst the top Central Ohio companies that offer third-party management of rental units.” RL Property Group manages rental units throughout Franklin County, including parts of Columbus, Gahanna, Grandview Heights and Upper Arlington.
 

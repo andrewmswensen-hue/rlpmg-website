@@ -34,7 +34,7 @@ In this article, you’ll get a simple rule for how much to save, what drives tu
 
 Let’s get ahead of the problem and make sure your Columbus rental is financially ready for the next transition.
 
-## The General Rule: Budget 1.5x–2x Monthly Rent Annually
+## The General Rule: Budget 1.5x, 2x Monthly Rent Annually
 
 Here’s a simple rule that can save you from major headaches:
 
@@ -44,7 +44,7 @@ Why this works:
 
 - **It spreads out the big-ticket items** (like repainting or repairs) so they don’t blindside your budget.
 - **It protects your cash flow** from sudden, expensive surprises that require out-of-pocket contributions.
-- **It keeps you in control** – you’re planning ahead instead of reacting under pressure.
+- **It keeps you in control**, you’re planning ahead instead of reacting under pressure.
 
 ### Let’s look at the math.
 
@@ -161,8 +161,8 @@ Older properties come with more variables, so your reserve plan needs to match y
 Let’s say your rent is **$1,200/month**:
 
 - If your unit is updated, plan on **$2,400/year**
-- If it has moderate wear, budget **$3,000–$3,600/year**
-- If it’s aging with original systems, aim for **$3,600–$4,800/year**
+- If it has moderate wear, budget **$3,000 to $3,600/year**
+- If it’s aging with original systems, aim for **$3,600 to $4,800/year**
 
 👀 Be honest with your evaluation. Underestimating now means overpaying later, usually under pressure.
 
@@ -177,14 +177,14 @@ Let’s break this down with real numbers using a rental that earns **$1,200/mon
 Typical features: aging kitchen appliances, original hardwoods, outdated bathroom, no mechanical upgrades.
 
 - **Recommended Reserve:** 2.5x to 4x monthly rent
-- **Dollar Range:** **$3,000–$4,800 per year** Why? One plumbing repair, full repaint, and a few weeks of vacancy can easily run $4,000+.
+- **Dollar Range:** **$3,000 to $4,800 per year** Why? One plumbing repair, full repaint, and a few weeks of vacancy can easily run $4,000+.
 
 ### 1920s Rental
 
 You’re likely dealing with older pipes, legacy electrical, uneven flooring, and wear on original finishes.
 
 - **Recommended Reserve:** 3.5x to 4x monthly rent
-- **Dollar Range:** **$4,200–$4,800+ per year** Even if the home is charming, turnover often uncovers repairs that weren’t visible during tenancy.
+- **Dollar Range:** **$4,200 to $4,800+ per year** Even if the home is charming, turnover often uncovers repairs that weren’t visible during tenancy.
 
 ### 1890s Rental
 
@@ -207,7 +207,7 @@ Here’s how to get started:
 - **Review each unit’s condition annually** and adjust your reserve goals accordingly
 - **Before a vacancy, get a scope estimate** from your property manager so you’re not guessing at costs
 
-Think of this like running a business—because that’s exactly what you’re doing. Owners who budget like professionals avoid stress, minimize downtime, and protect their returns.
+Think of this like running a business, because that’s exactly what you’re doing. Owners who budget like professionals avoid stress, minimize downtime, and protect their returns.
 
 Turnover isn’t optional. It’s predictable. Planning ahead gives you more control and fewer financial surprises.
 

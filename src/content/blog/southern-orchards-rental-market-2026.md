@@ -1,6 +1,6 @@
 ---
 title: "2026 Rental Market Guide: Renting Your Property in Southern Orchards"
-description: "Southern Orchards continues to draw steady renter demand in 2026 due to its proximity to Downtown Columbus, Nationwide Children’s Hospital, and nearby revitalizing neighborhoods like German Village and Olde Town East. Recent data show median rents of $1,425–$1,625/month, depending on the dataset and"
+description: "Southern Orchards continues to draw steady renter demand in 2026 due to its proximity to Downtown Columbus, Nationwide Children’s Hospital, and nearby revitalizing neighborhoods like German Village and Olde Town East. Recent data show median rents of $1,425 to $1,625/month, depending on the dataset and"
 pubDate: "2026-03-28T19:30:56Z"
 updatedDate: "2026-04-14T16:04:38Z"
 slug: "southern-orchards-rental-market-2026"
@@ -18,9 +18,9 @@ categories:
 
 Southern Orchards continues to draw steady renter demand in 2026 due to its proximity to Downtown Columbus, Nationwide Children’s![Collage of Southern Orchards neighborhood in Columbus, Ohio featuring aerial residential views, Nationwide Children’s Hospital, Livingston Park, local housing, and nearby amenities.](https://rlpmg.com/wp-content/uploads/2026/03/southern_orchards_collage_sharpened-300x99.jpg) Hospital, and nearby revitalizing neighborhoods like German Village and Olde Town East.
 
-Recent data show **median rents of $1,425–$1,625/month, depending on the dataset and unit mix**, with continued volatility tied to property condition and renovation level. Some rents are as low as $1,000 a month for smaller units.
+Recent data show **median rents of $1,425 to $1,625/month, depending on the dataset and unit mix**, with continued volatility tied to property condition and renovation level. Some rents are as low as $1,000 a month for smaller units.
 
-Well-positioned properties typically lease within **2–5 weeks**, though older or poorly presented units can sit significantly longer. Rent performance in this submarket is less about square footage and more about **finish quality, layout, and micro-location relative to redevelopment zones**.
+Well-positioned properties typically lease within **2 to 5 weeks**, though older or poorly presented units can sit significantly longer. Rent performance in this submarket is less about square footage and more about **finish quality, layout, and micro-location relative to redevelopment zones**.
 
 Investors who stay disciplined on pricing and avoid over-improving relative to the block tend to achieve more consistent occupancy and fewer turnover losses.
 
@@ -47,19 +47,19 @@ Vacancy management in Southern Orchards is highly dependent on property conditio
 
 ### Typical Lease-Up Timelines (2026)
 
-**1–2 Bedroom Apartments / Units**
+**1 to 2 Bedroom Apartments / Units**
 
-- ~14–30 days when updated and priced correctly
+- ~14 to 30 days when updated and priced correctly
 - Common renter pool: individuals, couples, hospital-related tenants
 
-**Doubles & Small Multifamily (2–4 units)**
+**Doubles & Small Multifamily (2 to 4 units)**
 
-- ~18–35 days on average
+- ~18 to 35 days on average
 - Direct competition with nearby areas like Driving Park and Merion Village
 
 **Single-Family Homes**
 
-- ~21–45 days depending on finish level and season
+- ~21 to 45 days depending on finish level and season
 - Larger homes (>3 beds) have a smaller entry into the renters’ pool.
 
 Supporting data shows **~22 active rental listings and rising inventory levels**, indicating moderate but competitive supply.
@@ -86,18 +86,18 @@ Rental pricing in Southern Orchards varies significantly by renovation level and
 
 | **Property Type** | **Typical Rent Range** | **Notes** |
 |---|---|---|
-| 1-Bed Apartment | $1,050 – $1,300 | Strong demand; finishes matter more than size |
-| 2-Bed Units / Doubles | $1,200 – $1,600 | Most liquid segment of the market |
-| 3-Bed / Small SFH | $1,400 – $1,900 | Sensitive to condition and layout |
+| 1-Bed Apartment | $1,050 to $1,300 | Strong demand; finishes matter more than size |
+| 2-Bed Units / Doubles | $1,200 to $1,600 | Most liquid segment of the market |
+| 3-Bed / Small SFH | $1,400 to $1,900 | Sensitive to condition and layout |
 | Renovated / Higher-End | $1,900+ | Competes with Merion Village / Olde Town East |
 
 Supporting comparables show:
 
 - 1-bed avg: ~$1,274
-- 2-bed avg: ~$1,295–$1,600
+- 2-bed avg: ~$1,295 to $1,600
 - Houses: ~$1,750 average
 
-**Guardrail:** pushing above ~$1,900–$2,000 requires near-complete renovation and strong positioning relative to nearby premium submarkets.
+**Guardrail:** pushing above ~$1,900 to $2,000 requires near-complete renovation and strong positioning relative to nearby premium submarkets.
 
 ## Neighborhood-Specific Rent Drivers
 
@@ -139,19 +139,19 @@ This creates a **clear pricing ceiling**: if rents in those areas approach those
 
 Southern Orchards follows typical Columbus rental patterns, with heightened sensitivity due to renters’ price constraints.
 
-### Peak Season: May – August
+### Peak Season: May, August
 
 - Fastest leasing timelines
 - Strongest pricing leverage
 - Increased relocation activity tied to healthcare and service jobs
 
-### Shoulder Season: March – April, September – October
+### Shoulder Season: March, April, September, October
 
 - Stable absorption
 - Moderate price sensitivity
 - Good window for renewals or moderate increases
 
-### Slow Season: November – February
+### Slow Season: November, February
 
 - Longer vacancy periods
 - More negotiation from renters
@@ -193,7 +193,7 @@ This is particularly important in neighborhoods with diverse renter pools and va
 
 **How long does it take to rent in Southern Orchards?**
 
-Most units lease within **2–5 weeks** when priced appropriately and updated to market expectations.
+Most units lease within **2 to 5 weeks** when priced appropriately and updated to market expectations.
 
 **What rent should I expect?**
 

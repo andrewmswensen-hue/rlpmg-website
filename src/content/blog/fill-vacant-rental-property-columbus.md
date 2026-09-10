@@ -22,7 +22,7 @@ Key Takeaways
 
 - A property priced $100/month too high that sits vacant six weeks loses more than the “extra” rent would have earned in an entire year.
 - Listings with 10+ professional photos receive roughly 2.7x more inquiries than those with fewer than five, according to [Apartments.com data](https://allbetterapp.com/14-best-sites-for-rental-property-listings-and-one-to-avoid/).
-- Listing on 45+ platforms (as RLPM does) generates dramatically more exposure than the 1–3 sites most self-managing owners use.
+- Listing on 45+ platforms (as RLPM does) generates dramatically more exposure than the 1 to 3 sites most self-managing owners use.
 - May through August is the strongest leasing window in Columbus. A property that misses this window may sit weeks longer.
 - If your listing gets zero inquiries after two weeks, the problem is almost certainly pricing or listing quality, not the market.
 
@@ -77,7 +77,7 @@ RLPM’s rent-ready standard exists for this reason. Every property is inspected
 
 If you’re going to have a vacancy, spring and early summer is when you want it. May through August is the peak leasing season in Columbus. More people are relocating for jobs, more leases are turning over, and more families are moving before the school year starts. The applicant pool is at its deepest, and well-priced, well-presented properties lease quickly.
 
-The supply side is helping, too. [New apartment construction starts in Columbus](https://mmgrea.com/2025-columbus-forecast/) fell sharply over the past two years, dropping to their lowest levels in over a decade. That tightening pipeline means fewer competing units hitting the market in 2026, which supports faster lease-ups and stronger occupancy for existing properties. [Average rents in Columbus](https://www.rentcafe.com/average-rent-market-trends/us/oh/columbus/) are up approximately 2–3% year over year, and the market temperature is warm.
+The supply side is helping, too. [New apartment construction starts in Columbus](https://mmgrea.com/2025-columbus-forecast/) fell sharply over the past two years, dropping to their lowest levels in over a decade. That tightening pipeline means fewer competing units hitting the market in 2026, which supports faster lease-ups and stronger occupancy for existing properties. [Average rents in Columbus](https://www.rentcafe.com/average-rent-market-trends/us/oh/columbus/) are up approximately 2 to 3% year over year, and the market temperature is warm.
 
 But timing only helps if you’re ready. A proactive approach (starting marketing before the current tenant moves out, having the turn scope planned, and having the listing drafted and photos scheduled) puts the property on the market days after move-out rather than weeks. A reactive approach (waiting until the unit is empty, then figuring out what needs to be done, then taking photos, then posting a listing) burns the best weeks of the leasing season.
 
@@ -89,7 +89,7 @@ For current data on RLPM’s lease-up times, occupancy rates, and days on market
 
 Vacancy marketing isn’t “set it and forget it.” If your property isn’t generating interest, something specific is wrong, and it’s almost certainly one of three things.
 
-### No inquiries after 1–2 weeks
+### No inquiries after 1 to 2 weeks
 
 This is a pricing signal, not a market signal. Columbus has strong renter demand. If qualified applicants aren’t reaching out, the rent is too high relative to what the property offers and where it’s located. The fix is a price adjustment, not more advertising spend.
 
@@ -115,7 +115,7 @@ Lease-up times vary by location, property type, season, and pricing. For current
 
 **Should I lower my rent if I’m not getting inquiries?**
 
-If your listing has been active for two weeks with minimal interest, a price adjustment is usually more effective than waiting. Even a small reduction ($25–$50/month) can meaningfully increase visibility and inquiry volume on listing platforms.
+If your listing has been active for two weeks with minimal interest, a price adjustment is usually more effective than waiting. Even a small reduction ($25 to $50/month) can meaningfully increase visibility and inquiry volume on listing platforms.
 
 **How many rental platforms should my property be listed on?**
 
@@ -147,10 +147,10 @@ Or get a [free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [RentCafe](https://www.rentcafe.com/average-rent-market-trends/us/oh/columbus/) — Columbus Average Rent & Market Trends, 2026
-- [MMG Real Estate Advisors](https://mmgrea.com/2025-columbus-forecast/) — 2025 Columbus Multifamily Forecast
-- [AllBetter](https://allbetterapp.com/14-best-sites-for-rental-property-listings-and-one-to-avoid/) — 14 Best Sites for Rental Property Listings (2026), citing Apartments.com photo data
-- [Zillow Rental Manager](https://www.zillow.com/rental-manager/market-trends/columbus-oh/) — Columbus Rental Market Trends
-- [FlagMyListing](https://flagmylisting.com/blog/is-this-craigslist-rental-a-scam) — Craigslist Rental Scam Verification Guide
-- [National Apartment Association](https://www.naahq.org/) — Vacancy & Turnover Cost Benchmarks
-- [RLPM Live KPI Scorecard](/key-performance-indicators/) — Current Performance Metrics
+- [RentCafe](https://www.rentcafe.com/average-rent-market-trends/us/oh/columbus/), Columbus Average Rent & Market Trends, 2026
+- [MMG Real Estate Advisors](https://mmgrea.com/2025-columbus-forecast/), 2025 Columbus Multifamily Forecast
+- [AllBetter](https://allbetterapp.com/14-best-sites-for-rental-property-listings-and-one-to-avoid/), 14 Best Sites for Rental Property Listings (2026), citing Apartments.com photo data
+- [Zillow Rental Manager](https://www.zillow.com/rental-manager/market-trends/columbus-oh/), Columbus Rental Market Trends
+- [FlagMyListing](https://flagmylisting.com/blog/is-this-craigslist-rental-a-scam), Craigslist Rental Scam Verification Guide
+- [National Apartment Association](https://www.naahq.org/), Vacancy & Turnover Cost Benchmarks
+- [RLPM Live KPI Scorecard](/key-performance-indicators/), Current Performance Metrics

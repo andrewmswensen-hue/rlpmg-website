@@ -39,8 +39,8 @@ To improve this portfolio’s overall performance, we got to work right away by 
 
 - Standardized collection of water and sewer charges (and detailed those responsibilities in tenants’ lease agreements)
 - Stabilized occupancy levels and only filled units with quality tenants (which also resulted in reduced turnover and thus reduced expenses)
-- Renewed leases to raise average rent amounts – over time we brought rent rates in line with the market, which amounted to an almost 10% increase for this particular client.
+- Renewed leases to raise average rent amounts, over time we brought rent rates in line with the market, which amounted to an almost 10% increase for this particular client.
 
-None of these actions in and of themselves were particularly drastic, but when they all came together, the trend lines across the board steadily improved. And not only did cash flow to our client increase, but the NOI did as well – thereby increasing the value of the overall portfolio.
+None of these actions in and of themselves were particularly drastic, but when they all came together, the trend lines across the board steadily improved. And not only did cash flow to our client increase, but the NOI did as well, thereby increasing the value of the overall portfolio.
 
 If you need help addressing performance issues with your rental properties, please don’t hesitate to [get in touch](/contact-us/) with us at RL Property Management. We take great pride in being able to help our clients improve their returns and look forward to helping you, too.

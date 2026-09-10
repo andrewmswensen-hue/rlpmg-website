@@ -109,7 +109,7 @@ Instead of broad citywide vacancy trends, performance will increasingly depend o
 **Owner action steps:**
 
 - Require professional photos and strong listing copy (no dark, blurry photos)
-- Track lead response time and show availability (24–48 hours is now standard)
+- Track lead response time and show availability (24 to 48 hours is now standard)
 - Monitor leasing KPIs: days on market, conversion rates, and application drop-off.
 
 ### Prediction #3: Tenant Affordability Remains a Top Pressure Point
@@ -145,7 +145,7 @@ Turnover is expensive, vacancy, make-ready costs, leasing fees, and marketing ad
 
 **Owner action steps:**
 
-- Start renewal conversations 90–120 days before lease end
+- Start renewal conversations 90 to 120 days before lease end
 - Track renewal rate as a KPI (and set targets)
 - Improve response times and eliminate “small frustrations” that cause tenants to leave.
 - Consider retention perks that cost less than turnover (priority maintenance, small upgrades, flexible terms)

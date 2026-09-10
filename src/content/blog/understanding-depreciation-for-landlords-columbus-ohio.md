@@ -54,7 +54,7 @@ Depreciation can save landlords thousands of dollars each year, but only when it
 
 Timing matters. Many landlords mistakenly wait to start depreciation until a tenant moves in, when in fact it should begin the moment the property is available for rent. That includes the period between listing and lease signing, any time the property could legally be rented. Missing this window can cost months of potential deductions, especially during turnover or renovation cycles.
 
- [**(Source: IRS Publication 527, 2024 – “Placed in Service” definition)**](https://www.irs.gov/pub/irs-pdf/p527.pdf)
+ [**(Source: IRS Publication 527, 2024, “Placed in Service” definition)**](https://www.irs.gov/pub/irs-pdf/p527.pdf)
 
 **Tip:** Work with your CPA to confirm your “placed-in-service” date immediately after the property becomes rent-ready.
 
@@ -136,9 +136,9 @@ By matching your reserve strategy to your depreciation schedule, you’re effect
 
 Across Columbus, rental properties tend to follow consistent life cycles:
 
-- HVAC systems: 12–15 years before major repair or replacement
-- Roofs: 20–25 years, depending on materials and weather exposure
-- Appliances: 5–10 years, depending on usage and brand [**(Source: InterNACHI Life Expectancy Chart, 2024; National Association of Home Builders)**](https://www.nachi.org/life-expectancy.htm)
+- HVAC systems: 12 to 15 years before major repair or replacement
+- Roofs: 20 to 25 years, depending on materials and weather exposure
+- Appliances: 5 to 10 years, depending on usage and brand [**(Source: InterNACHI Life Expectancy Chart, 2024; National Association of Home Builders)**](https://www.nachi.org/life-expectancy.htm)
 
 These lifespans often mirror the IRS’s depreciation schedules, meaning you can synchronize maintenance planning with tax efficiency.
 

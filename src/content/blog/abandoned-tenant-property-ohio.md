@@ -98,7 +98,7 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Ohio Revised Code 5321.15](https://codes.ohio.gov/ohio-revised-code/section-5321.15) – Prohibition on seizing tenant possessions; damages and attorney fees for violations
-- [Ohio Revised Code 5321.16](https://codes.ohio.gov/ohio-revised-code/section-5321.16) – Security deposit itemization deadline that runs in parallel
-- [Ohio Legal Help](https://www.ohiolegalhelp.org/) – Plain-language Ohio landlord-tenant resources
-- [Ringler v. Sias, 68 Ohio App.2d 230 (10th Dist. 1980)](https://www.courtlistener.com/opinion/3990126/ringler-v-sias/) – Landlord’s limited duty toward property after a lawful eviction
+- [Ohio Revised Code 5321.15](https://codes.ohio.gov/ohio-revised-code/section-5321.15), Prohibition on seizing tenant possessions; damages and attorney fees for violations
+- [Ohio Revised Code 5321.16](https://codes.ohio.gov/ohio-revised-code/section-5321.16), Security deposit itemization deadline that runs in parallel
+- [Ohio Legal Help](https://www.ohiolegalhelp.org/), Plain-language Ohio landlord-tenant resources
+- [Ringler v. Sias, 68 Ohio App.2d 230 (10th Dist. 1980)](https://www.courtlistener.com/opinion/3990126/ringler-v-sias/), Landlord’s limited duty toward property after a lawful eviction

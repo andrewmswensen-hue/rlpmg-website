@@ -116,7 +116,7 @@ Or call us at [614.725.3059](tel:6147253059)
 
 ### Sources & Suggested External Links
 
-- [Columbus City Code §§ 2331.02 and 4551.03](https://codelibrary.amlegal.com/codes/columbus/latest/columbus_oh/0-0-0-66913) – Columbus anti-discrimination ordinance covering protected classes including source of income
-- [COHHIO (Coalition on Homelessness and Housing in Ohio)](https://cohhio.org/) – Tracks Ohio municipalities with source-of-income protections
-- [City of Columbus, Discrimination and Protected Classes](https://columbus.gov/residents/discrimination-and-protected-classes) – Official city resource on protected classes and where to file complaints
-- [HUD Office of Fair Housing and Equal Opportunity](https://www.hud.gov/program_offices/fair_housing_equal_opp) – Federal Fair Housing Act reference and protected class guidance
+- [Columbus City Code §§ 2331.02 and 4551.03](https://codelibrary.amlegal.com/codes/columbus/latest/columbus_oh/0-0-0-66913), Columbus anti-discrimination ordinance covering protected classes including source of income
+- [COHHIO (Coalition on Homelessness and Housing in Ohio)](https://cohhio.org/), Tracks Ohio municipalities with source-of-income protections
+- [City of Columbus, Discrimination and Protected Classes](https://columbus.gov/residents/discrimination-and-protected-classes), Official city resource on protected classes and where to file complaints
+- [HUD Office of Fair Housing and Equal Opportunity](https://www.hud.gov/program_offices/fair_housing_equal_opp), Federal Fair Housing Act reference and protected class guidance

@@ -171,6 +171,6 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Ohio Revised Code § 5321.16 (Security Deposits)](https://codes.ohio.gov/ohio-revised-code/section-5321.16) – Ohio’s statute governing security deposit requirements, timelines, and deductions
-- [Ohio State Bar Association: Landlord-Tenant FAQ](https://www.ohiobar.org/public-resources/commonly-asked-law-questions-results/commonly-asked-law-questions/landlord-tenant-faq/) – Plain-language overview of Ohio landlord-tenant rights and responsibilities
-- [Ohio.gov Housing Resources](https://ohio.gov/wps/portal/gov/site/residents/resources/find-housing) – State-level tenant and landlord guidance
+- [Ohio Revised Code § 5321.16 (Security Deposits)](https://codes.ohio.gov/ohio-revised-code/section-5321.16), Ohio’s statute governing security deposit requirements, timelines, and deductions
+- [Ohio State Bar Association: Landlord-Tenant FAQ](https://www.ohiobar.org/public-resources/commonly-asked-law-questions-results/commonly-asked-law-questions/landlord-tenant-faq/), Plain-language overview of Ohio landlord-tenant rights and responsibilities
+- [Ohio.gov Housing Resources](https://ohio.gov/wps/portal/gov/site/residents/resources/find-housing), State-level tenant and landlord guidance

@@ -51,7 +51,7 @@ Additionally small multifamily properties may require a more sophisticated level
 
 On the flip side, investing in smaller rental units comes with risk. One is that the investment risk is concentrated. If that property doesn’t yield a return, you could be in a tough spot. Here are a few other disadvantages of owning a small multifamily property:
 
-- You’ll need to dedicate time and resources to property management – whether you do it yourself or hire someone else to do it, more rental units will mean more work.
+- You’ll need to dedicate time and resources to property management, whether you do it yourself or hire someone else to do it, more rental units will mean more work.
 - It may be difficult to source 5+ unit properties.
 - You may encounter utility submetering headaches.
 - You will face expenses that come with maintaining the common areas; keeping up with landscaping and snow removal; and ensuring elevators, sprinklers, secured access and commercial HVAC systems are functioning safely. Maintenance is far and away the most [expensive category of spending for property owners](/blog/the-most-expensive-part-of-owning-multi-family-real-estate-in-columbus/).

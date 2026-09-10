@@ -27,7 +27,7 @@ If you’re just looking for someone to handle the leasing aspect for you, then 
 
 1. **How many rental properties do you manage?**
 
-You’ll want an experienced company with a strong reputation, but also one who will have the capacity to serve your needs as well. If they have too many units without adequate staff and processes in place to manage at scale, then you could get lost in the shuffle – and your residents may suffer from an inferior service experience.
+You’ll want an experienced company with a strong reputation, but also one who will have the capacity to serve your needs as well. If they have too many units without adequate staff and processes in place to manage at scale, then you could get lost in the shuffle, and your residents may suffer from an inferior service experience.
 
 1. **How do you determine rent prices for your rental units?**
 

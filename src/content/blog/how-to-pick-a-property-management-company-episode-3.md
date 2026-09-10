@@ -1,5 +1,5 @@
 ---
-title: "How To Pick A Property Management Company – Episode 3"
+title: "How To Pick A Property Management Company, Episode 3"
 description: "In the previous RL Property Management episode #2 (https://rlpmg.com/blog/how-to-pick-a-property-management-company/) we covered how to evaluate the local property management company marketplace. In the video below, Peter with RL Property Management covers step 3 of 5 that you can take to select a p"
 pubDate: "2019-12-10T17:39:54Z"
 updatedDate: "2024-11-18T16:44:12Z"
@@ -44,7 +44,7 @@ Video highlights:
 
 4. Your goal here is to narrow down the list to top 3 to 5 (you will be calling the top companies in the next step).
 
-5. With this information in hand, it should become clear that 3 to 5 companies are the clear leaders in the space. Jot down their numbers as you prepare for the next step “step #4 – phone calls”.
+5. With this information in hand, it should become clear that 3 to 5 companies are the clear leaders in the space. Jot down their numbers as you prepare for the next step “step #4, phone calls”.
 
 Stay tuned for future videos covering steps 4 through 5!
 

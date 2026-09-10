@@ -1,5 +1,5 @@
 ---
-title: "Central Ohio Landlord Policy Updates – Week of 4/20/2026"
+title: "Central Ohio Landlord Policy Updates, Week of 4/20/2026"
 description: "This is the weekly Central Ohio landlord policy update. Five featured items get the full treatment below, followed by a quick-hits section covering the rest of the municipal activity worth tracking this week. Most of this activity happens in rooms landlords do not have time to sit in, and it is wort"
 pubDate: "2026-04-20T14:14:22Z"
 updatedDate: "2026-06-02T15:56:46Z"
@@ -36,7 +36,7 @@ In This Article
 
 ## Whitehall: Emergency Property Ordinance Changes
 
-***Status: Passed on emergency basis (in effect now) — No grace period. Compliance is expected immediately.***
+***Status: Passed on emergency basis (in effect now), No grace period. Compliance is expected immediately.***
 
 Whitehall City Council approved changes to Ordinance 129-2025 regarding property regulations on an emergency basis at the April 14, 2026 council meeting. Emergency adoption is the key detail. A standard Ohio municipal ordinance takes effect 30 days after passage. An emergency ordinance is enforceable the moment the gavel drops.
 
@@ -48,7 +48,7 @@ Source: [Whitehall April 14, 2026 Council Agenda](https://www.whitehall-oh.us/Ag
 
 ## Grandview Heights: Yard Care Rules Heading for Adoption
 
-***Status: Third reading completed (final adoption imminent) — One procedural step from becoming enforceable law.***
+***Status: Third reading completed (final adoption imminent), One procedural step from becoming enforceable law.***
 
 Grandview Heights City Council completed a third reading of an ordinance amending yard care regulations on April 13, 2026. In Ohio municipal practice, a third reading is the last substantive step before a final adoption vote. By the time most landlords hear about a yard care change, it is already enforceable.
 
@@ -60,7 +60,7 @@ Source: [Grandview Heights April 13, 2026 Council Packet](https://www.grandviewh
 
 ## Plain City: Accessory Use Zoning Amendments
 
-***Status: Under discussion (no vote scheduled) — Public hearings held; the record is still open for comment.***
+***Status: Under discussion (no vote scheduled), Public hearings held; the record is still open for comment.***
 
 Plain City’s Planning and Zoning Commission held public hearings on April 15, 2026 on multiple zoning code amendments, including updates to definitions and accessory use regulations. Accessory use is the zoning term for secondary structures, uses, and configurations on a residential lot: detached garages used for storage, home occupations, accessory dwelling units, and similar setups.
 
@@ -72,7 +72,7 @@ Source: [Plain City P&Z April 15, 2026 Meeting Packet](https://www.plaincityohio
 
 ## Delaware: Public Hearings on Ordinances 26-10 and 26-11
 
-***Status: Introduced, public hearings pending — Hearings held; the comment window is open before the next reading.***
+***Status: Introduced, public hearings pending, Hearings held; the comment window is open before the next reading.***
 
 Delaware City Council held public hearings for Ordinances 26-10 and 26-11 on April 13, 2026. Delaware is an active county seat with a growing rental market, which makes new ordinances worth reading carefully even when the title does not immediately look rental-related. A separate agenda item shows council also conducted multiple readings of ordinances at the same meeting, so there is more municipal activity here than the single pair of ordinance numbers suggests.
 
@@ -86,14 +86,14 @@ Source: [Delaware, OH Ordinances 26-10 and 26-11 Hearing Packet](https://d3n9y02
 
 Nine additional items from across Central Ohio worth knowing about, organized by status. Not every item demands action this week, but each is tracking toward something that will.
 
-- **Canal Winchester, OH** — Canal Winchester’s Planning Commission is scheduled to discuss zoning code updates on April 27. Property managers in the area should monitor the meeting agenda and attend or submit comment if proposed changes affect their properties.
-- **Franklin, OH** — Franklin’s Board of Zoning Appeals meets April 22 to review Unified Development Ordinance restrictions on accessory structures serving as principal structures. Owners with properties that use detached structures should review the UDO language ahead of the hearing.
-- **Sunbury, OH** — Sunbury Village Council completed a second reading of Ordinance No. 2026.07 on April 15 and approved removal of emergency language from Ordinance No. 2026.06. A third reading and final vote are expected at the next council meeting.
-- **Sunbury, OH** — The first reading of Ordinance No. 2026.10 was conducted April 15. This ordinance may impact local property regulations and should be tracked through subsequent readings.
-- **Granville, OH** — Granville Council introduced several ordinances on April 15, including Ordinance No. 04-2026, which takes effect after the required legal period. Property managers should monitor for the adoption date.
-- **Plain City, OH** — Plain City Council proposed new engineering design standards for its planning and zoning code on April 13. Property managers planning future development or improvements in Plain City should review the proposed standards.
-- **Worthington, OH** — Worthington City Council unanimously approved Ordinance No. 08-2026 on April 13, which addresses compensation for city administrative staff. Low direct impact on property managers; noted for completeness.
-- **Baltimore, OH** — Baltimore Council discussed amendments to Chapter 1004 (Trees) and Section 618 (Animals) on April 13. Relevant if your properties have landscaping maintenance obligations or pet-related lease provisions in Baltimore.
+- **Canal Winchester, OH**, Canal Winchester’s Planning Commission is scheduled to discuss zoning code updates on April 27. Property managers in the area should monitor the meeting agenda and attend or submit comment if proposed changes affect their properties.
+- **Franklin, OH**, Franklin’s Board of Zoning Appeals meets April 22 to review Unified Development Ordinance restrictions on accessory structures serving as principal structures. Owners with properties that use detached structures should review the UDO language ahead of the hearing.
+- **Sunbury, OH**, Sunbury Village Council completed a second reading of Ordinance No. 2026.07 on April 15 and approved removal of emergency language from Ordinance No. 2026.06. A third reading and final vote are expected at the next council meeting.
+- **Sunbury, OH**, The first reading of Ordinance No. 2026.10 was conducted April 15. This ordinance may impact local property regulations and should be tracked through subsequent readings.
+- **Granville, OH**, Granville Council introduced several ordinances on April 15, including Ordinance No. 04-2026, which takes effect after the required legal period. Property managers should monitor for the adoption date.
+- **Plain City, OH**, Plain City Council proposed new engineering design standards for its planning and zoning code on April 13. Property managers planning future development or improvements in Plain City should review the proposed standards.
+- **Worthington, OH**, Worthington City Council unanimously approved Ordinance No. 08-2026 on April 13, which addresses compensation for city administrative staff. Low direct impact on property managers; noted for completeness.
+- **Baltimore, OH**, Baltimore Council discussed amendments to Chapter 1004 (Trees) and Section 618 (Animals) on April 13. Relevant if your properties have landscaping maintenance obligations or pet-related lease provisions in Baltimore.
 
 ## What to Do With This Information
 

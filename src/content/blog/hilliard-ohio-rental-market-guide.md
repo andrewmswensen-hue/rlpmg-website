@@ -193,8 +193,8 @@ No. Ohio prohibits rent control statewide under legislation signed in 2021. No O
 
 ### Sources & Suggested External Links
 
-- [RentCafe Hilliard Market Trends (2026)](https://www.rentcafe.com/average-rent-market-trends/us/oh/hilliard/) — Apartment rent data by unit type, historical trends, Yardi Matrix-sourced
-- [Hilliard City School District Profile (Public School Review, 2026)](https://www.publicschoolreview.com/ohio/hilliard-city-school-district/3904701-school-district) — Enrollment, test scores, district rankings
-- [Franklin County Auditor](https://www.franklincountyauditor.com/) — Property tax records, assessment data, and ownership history for Franklin County properties
-- [Ohio Revised Code Chapter 5321 — Landlord and Tenant](https://codes.ohio.gov/ohio-revised-code/chapter-5321) — Full text of Ohio’s residential landlord-tenant law
-- [RLPM Live KPI Scorecard](/key-performance-indicators/) — Current Columbus portfolio performance metrics including days on market, renewal rate, and occupancy
+- [RentCafe Hilliard Market Trends (2026)](https://www.rentcafe.com/average-rent-market-trends/us/oh/hilliard/), Apartment rent data by unit type, historical trends, Yardi Matrix-sourced
+- [Hilliard City School District Profile (Public School Review, 2026)](https://www.publicschoolreview.com/ohio/hilliard-city-school-district/3904701-school-district), Enrollment, test scores, district rankings
+- [Franklin County Auditor](https://www.franklincountyauditor.com/), Property tax records, assessment data, and ownership history for Franklin County properties
+- [Ohio Revised Code Chapter 5321, Landlord and Tenant](https://codes.ohio.gov/ohio-revised-code/chapter-5321), Full text of Ohio’s residential landlord-tenant law
+- [RLPM Live KPI Scorecard](/key-performance-indicators/), Current Columbus portfolio performance metrics including days on market, renewal rate, and occupancy

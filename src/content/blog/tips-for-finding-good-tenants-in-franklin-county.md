@@ -33,13 +33,13 @@ In short, we’ve determined that yes, there are some key things to look for whe
 
 ## Five Areas to Evaluate When Screening a Tenant Application
 
-1. **Credit** – The correlation between an applicant’s credit history and their skip and eviction rates has been studied extensively, and there is strong evidence to suggest that using one’s credit report can be highly predictive of their future ability to pay rent on time month after month. That’s clue number one that they’re likely to be a good tenant.
+1. **Credit**, The correlation between an applicant’s credit history and their skip and eviction rates has been studied extensively, and there is strong evidence to suggest that using one’s credit report can be highly predictive of their future ability to pay rent on time month after month. That’s clue number one that they’re likely to be a good tenant.
 
-1. **Criminal history** – We look back 10 years for any criminal convictions. If an applicant has a criminal history, you should steer clear of renting to them.
-2. **Eviction history** – We look back 5 years for an applicant’s eviction record as past evictions can be predictive of tenant behavior moving forward.
+1. **Criminal history**, We look back 10 years for any criminal convictions. If an applicant has a criminal history, you should steer clear of renting to them.
+2. **Eviction history**, We look back 5 years for an applicant’s eviction record as past evictions can be predictive of tenant behavior moving forward.
 
-1. **Rental history**– Talk to the applicant’s current and previous landlord to see what kind of tenant they were. You’re looking to see that they paid their rent on time, didn’t leave with a big balance, and didn’t damage the property in any significant way.
-2. **Income** – Verify income by looking at pay stubs and bank statements. To qualify for a specific rental property we manage, the applicant needs to show a combined monthly household income of at least three times the cost of rent.
+1. **Rental history**, Talk to the applicant’s current and previous landlord to see what kind of tenant they were. You’re looking to see that they paid their rent on time, didn’t leave with a big balance, and didn’t damage the property in any significant way.
+2. **Income**, Verify income by looking at pay stubs and bank statements. To qualify for a specific rental property we manage, the applicant needs to show a combined monthly household income of at least three times the cost of rent.
 
 Every property manager or landlord will have minimum standards for screening applicants, but we’ve found that using data to create a consistent tenant screening process has benefited us and the property owners we serve.
 

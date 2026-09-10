@@ -1,11 +1,11 @@
 ---
-title: "How to Pick a Property Management Company? – Step 2: Evaluate the marketplace"
+title: "How to Pick a Property Management Company?, Step 2: Evaluate the marketplace"
 description: "In the video below, Peter with RL Property Management covers step 2 of 5 that you can take to select a property manager for your property. There is a serious need for more information on how property management companies work and what you should be looking for and asking about when interviewing them"
 pubDate: "2019-06-12T17:34:50Z"
 updatedDate: "2019-08-05T22:31:17Z"
 slug: "how-to-pick-a-property-management-company"
 wpId: 14648
-heroImage: "https://rlpmg.com/wp-content/uploads/2019/08/How-to-Pick-a-Property-Management-Company-–-Step-2-Evaluate-the-marketplace-min.png"
+heroImage: "https://rlpmg.com/wp-content/uploads/2019/08/How-to-Pick-a-Property-Management-Company-, -Step-2-Evaluate-the-marketplace-min.png"
 categories:
   - "Owner Education"
   - "Uncategorized"

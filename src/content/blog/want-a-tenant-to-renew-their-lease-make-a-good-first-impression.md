@@ -37,6 +37,6 @@ The other thing you need to do is make sure your property is ready for them to m
 
 Your task is to have the property in pristine shape so that when the resident moves in, they have a great first couple of weeks instead of finding a bunch of dirt or encountering issues like broken appliances, beeping smoke detectors or burned-out light bulbs.
 
-A resident picks up on these issues, especially if there are multiple, and they can really inform their outlook on a property. You can create a great first impression – and increase the likelihood of the resident renewing – by taking basic steps to make sure the property is in great shape on day one.
+A resident picks up on these issues, especially if there are multiple, and they can really inform their outlook on a property. You can create a great first impression, and increase the likelihood of the resident renewing, by taking basic steps to make sure the property is in great shape on day one.
 
 To hear more from us about how to reduce vacancies in your rental properties by creating strong first impressions, you can also [watch our webinar replay on the topic.](https://www.youtube.com/watch?v=cPDoPyQWxCU)

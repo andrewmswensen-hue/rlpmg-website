@@ -22,7 +22,7 @@ No industry is immune to the threat of big players, and increasingly those big p
 
 ## A short history of rental property advertising
 
-Pre-internet, property management companies and landlords had to take out ads in the newspaper and pay to list their rental properties. This was simply part of the deal if you wanted to advertise your property – you had to pay for it.
+Pre-internet, property management companies and landlords had to take out ads in the newspaper and pay to list their rental properties. This was simply part of the deal if you wanted to advertise your property, you had to pay for it.
 
 Then along came an explosion in technology, and the internet became the go-to place to advertise rental units. What’s more, Zillow made this free to landlords. For nearly a decade, property owners and property management companies could advertise their listings on Zillow without paying a dime.
 
@@ -32,7 +32,7 @@ That all changed recently when Zillow started to charge again for rental listing
 
 ## Friend or foe?
 
-Through advertising, Zillow has become an important tool for companies like ours. In fact, a large percentage of traffic to our website from people looking to rent our units – comes from Zillow and affiliated companies. In this way, they are a strong partner for us and a company we utilize to help find good tenants for our clients.
+Through advertising, Zillow has become an important tool for companies like ours. In fact, a large percentage of traffic to our website from people looking to rent our units, comes from Zillow and affiliated companies. In this way, they are a strong partner for us and a company we utilize to help find good tenants for our clients.
 
 We see ourselves as their customers….but are we?
 
@@ -44,17 +44,17 @@ A lot of the people looking at Zillow and using their platform to advertise rent
 
 ## Where to next?
 
-It’s not to say that there isn’t room in the marketplace for more traditional property management companies to coexist with the likes of Zillow’s platform – it doesn’t seem likely Zillow will ever be able to scale to the point of handling emergency calls in the middle of the night for its clients.
+It’s not to say that there isn’t room in the marketplace for more traditional property management companies to coexist with the likes of Zillow’s platform, it doesn’t seem likely Zillow will ever be able to scale to the point of handling emergency calls in the middle of the night for its clients.
 
 But, as a small business, it’s important to understand how the market is shifting.
 
 Similarly, it’s important for all residential real estate investors to understand how institutional investors are changing the real estate landscape.
 
-From what we’ve seen over the past few years, large institutional investors are making a big move into building residential real estate portfolios. For properties of a specific size, all of a sudden you aren’t just competing against other local investors – a good-sized opportunity in Columbus will be attracting interest from investors from New York to California.
+From what we’ve seen over the past few years, large institutional investors are making a big move into building residential real estate portfolios. For properties of a specific size, all of a sudden you aren’t just competing against other local investors, a good-sized opportunity in Columbus will be attracting interest from investors from New York to California.
 
-And while this is a lamentable fact – as Zillow’s goal is to compete with local property managers – it also creates opportunities.
+And while this is a lamentable fact, as Zillow’s goal is to compete with local property managers, it also creates opportunities.
 
-Institutional investors do not look at deals that won’t move the needle for them – so while a 65 unit complex will draw their eye, a duplex or a 5 unit complex likely won’t.
+Institutional investors do not look at deals that won’t move the needle for them, so while a 65 unit complex will draw their eye, a duplex or a 5 unit complex likely won’t.
 
 For a savvy investor looking to build a great portfolio of smaller properties over the next few years, there is a massive opportunity to create a good portfolio of these overlooked properties that you can then turn around and sell to a large institutional investor down the road once you reach a size that gets their attention.
 

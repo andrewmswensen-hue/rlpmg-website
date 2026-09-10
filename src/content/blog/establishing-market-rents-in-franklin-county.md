@@ -28,7 +28,7 @@ Often newbie property owners make the mistake of overcharging because they think
 
 On the other hand, people who are willing to pay more can often become bad tenants. These are the people who may have a criminal history or an eviction on their record, and 90 percent of landlords won’t rent to them at all. They may be willing to pay almost whatever it takes just to sign a lease and be done with it.
 
-With all that said, how do you go about accurately establishing a fair market rent for your unit(s) in Central Ohio? Fortunately, it’s not a guessing game and it certainly doesn’t have to be hard – it’s all about the data.
+With all that said, how do you go about accurately establishing a fair market rent for your unit(s) in Central Ohio? Fortunately, it’s not a guessing game and it certainly doesn’t have to be hard, it’s all about the data.
 
 ## Tips for Calculating Market Rent for Your Columbus Property
 
@@ -38,7 +38,7 @@ It’s important that the data you use to compare is in the same neighborhood as
 
 - Find at least 3 comparable properties in your neighborhood. They should have the same number of bedrooms and bathrooms and have roughly the same square footage.
 - Calculate the average rent for these comparable properties. Keep in mind that if these [units are sitting vacant](/blog/how-to-set-rent-rates-on-a-vacant-property/), these are rates that are not being rented. This could be a sign that they could be priced too high.
-- Lastly, consider unique factors that affect your property – Has your unit been recently renovated or offer an enviable view? Things like the property’s condition and its amenities will allow you to adjust rent up or down as appropriate.
+- Lastly, consider unique factors that affect your property, Has your unit been recently renovated or offer an enviable view? Things like the property’s condition and its amenities will allow you to adjust rent up or down as appropriate.
 
 Setting your rent rates in line with market conditions improves your likelihood of securing quality tenants who are more likely to stick around because they trust that they’re paying a fair price. This also is good for your overall investment success as it will help [improve your net operating income.](/blog/how-to-improve-your-propertys-noi/)
 

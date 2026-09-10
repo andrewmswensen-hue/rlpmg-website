@@ -39,6 +39,6 @@ Social media can be beneficial for growing your own professional network as well
 - It’s a place where you can add value and teach others.
 - It enables you to develop new partnerships.
 
-Then, there’s always the benefit of solidarity – knowing you’re not the only one dealing with difficult challenges and pain points in your business.
+Then, there’s always the benefit of solidarity, knowing you’re not the only one dealing with difficult challenges and pain points in your business.
 
 Social media can be a useful business tool when used effectively. To learn more about how we leverage social media at RL Property Management, [listen to episode 11](https://anchor.fm/owneroccupied/episodes/Episode-11---Leveraging-Social-Media-for-your-Business-e107rm5) of our podcast *Owner Occupied.*

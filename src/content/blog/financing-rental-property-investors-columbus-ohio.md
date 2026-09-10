@@ -127,7 +127,7 @@ For investors with limited liquidity but strong deals, this can open doors quick
 ### How to Vet a Hard Money Lender
 
 - **Reputation & Track Record** Look for transparency, past client reviews, and clear terms.
-- **Loan-to-Value (LTV) Limits** Most lenders will fund 60–75% of the property’s value, knowing what you’ll need upfront.
+- **Loan-to-Value (LTV) Limits** Most lenders will fund 60 to 75% of the property’s value, knowing what you’ll need upfront.
 - **Extension Flexibility** In case your project timeline shifts, make sure extensions are available (and priced).
 
 **Pro tip:** Always have an exit plan, refinance, or sell *before* your loan term ends. Hard money can be a great tool, but only with a clear path forward.
@@ -172,18 +172,18 @@ Lenders aren’t just evaluating the property; they’re evaluating **you**. And
 
 To position yourself as a strong borrower, make sure you can show:
 
-- **A solid credit history** – Most lenders require a score of 660+ for investment properties.
-- **Documented income** – This includes pay stubs, tax returns, or P&L statements for self-employed investors.
-- **Cash reserves** – Aim for 3–6 months of expenses in liquid funds.
-- **Rent-ready properties** – Lenders want to see realistic, achievable rent projections based on property condition and market data.
+- **A solid credit history**, Most lenders require a score of 660+ for investment properties.
+- **Documented income**, This includes pay stubs, tax returns, or P&L statements for self-employed investors.
+- **Cash reserves**, Aim for 3 to 6 months of expenses in liquid funds.
+- **Rent-ready properties**, Lenders want to see realistic, achievable rent projections based on property condition and market data.
 
 ### Build a Professional Investor Profile
 
 Before applying, pull together a package that showcases your credibility:
 
-- **Personal Financial Statement** – Include assets, liabilities, and monthly obligations.
-- **Portfolio Summary** – List your current holdings, loan details, and rental performance.
-- **Pro Forma & ROI Projections** – Highlight projected cash flow, expenses, and returns for the property you’re buying.
+- **Personal Financial Statement**, Include assets, liabilities, and monthly obligations.
+- **Portfolio Summary**, List your current holdings, loan details, and rental performance.
+- **Pro Forma & ROI Projections**, Highlight projected cash flow, expenses, and returns for the property you’re buying.
 
 This isn’t just about paperwork; it’s about presenting yourself as a business-minded investor, not a hobbyist.
 

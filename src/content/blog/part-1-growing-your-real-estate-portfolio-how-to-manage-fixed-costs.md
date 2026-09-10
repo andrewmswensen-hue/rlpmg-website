@@ -1,5 +1,5 @@
 ---
-title: "Part 1: Growing Your Real Estate Portfolio – How to Manage Fixed Costs"
+title: "Part 1: Growing Your Real Estate Portfolio, How to Manage Fixed Costs"
 description: "Building a successful real estate portfolio is a process. It takes work and requires you to be strategic with every financial decision you make. As you begin establishing a process to build your portfolio, it’s essential to pay attention to these three key areas: Managing your fixed costs Managing u"
 pubDate: "2023-11-07T15:51:52Z"
 updatedDate: "2023-11-16T15:58:44Z"
@@ -37,7 +37,7 @@ There are multiple ways to approach a property tax appeal, but one way to succes
 
 ## Steps to Take to Reduce Insurance Premiums
 
-Next, look at your insurance premiums. While it’s a good idea to review your policy with your insurance agent at least once per year, it is even more important to look at what elements of the property are driving up your premiums. Often, there are simple changes – like installing two fire extinguishers per unit in a multifamily property – that shave down the premium by a noticeable percentage. When you meet with your insurance agent, make sure to ask what changes you could make to qualify for premium discounts.
+Next, look at your insurance premiums. While it’s a good idea to review your policy with your insurance agent at least once per year, it is even more important to look at what elements of the property are driving up your premiums. Often, there are simple changes, like installing two fire extinguishers per unit in a multifamily property, that shave down the premium by a noticeable percentage. When you meet with your insurance agent, make sure to ask what changes you could make to qualify for premium discounts.
 
 ## Managing Monthly Loan Payments
 

@@ -91,7 +91,7 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Ohio Department of Commerce — Division of State Fire Marshal](https://com.ohio.gov/divisions-and-programs/state-fire-marshal) — Ohio fire code and smoke detector guidance
-- [U.S. Fire Administration — Smoke Alarm Replacement Guidance](https://www.usfa.fema.gov/prevention/home-fires/at-home/smoke-alarms.html) — federal guidance on the 10-year replacement standard
-- [Inman](https://www.inman.com/2026/03/30/the-ultimate-spring-cleaning-checklist-for-rental-properties/) — industry coverage of seasonal maintenance and rental operations
-- [U.S. Department of Energy — Maintaining Your Air Conditioner](https://www.energy.gov/energysaver/maintaining-your-air-conditioner) — manufacturer-aligned HVAC service guidance
+- [Ohio Department of Commerce, Division of State Fire Marshal](https://com.ohio.gov/divisions-and-programs/state-fire-marshal), Ohio fire code and smoke detector guidance
+- [U.S. Fire Administration, Smoke Alarm Replacement Guidance](https://www.usfa.fema.gov/prevention/home-fires/at-home/smoke-alarms.html), federal guidance on the 10-year replacement standard
+- [Inman](https://www.inman.com/2026/03/30/the-ultimate-spring-cleaning-checklist-for-rental-properties/), industry coverage of seasonal maintenance and rental operations
+- [U.S. Department of Energy, Maintaining Your Air Conditioner](https://www.energy.gov/energysaver/maintaining-your-air-conditioner), manufacturer-aligned HVAC service guidance

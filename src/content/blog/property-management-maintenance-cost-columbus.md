@@ -94,7 +94,7 @@ Emergency maintenance is handled immediately through a 24/7 call center that ope
 
 **What does a property turn cost in Columbus?**
 
-The average RLPM turn runs an average of $3,000 to $5,000 depending on the condition of the unit and current market expectations for rent-ready quality. This covers cleaning, minor repairs, paint touch-ups, and other work needed to prepare the unit for the next tenant. Please note that is is standard for turns in Columbus, Ohio – especially for nicer homes and quality turns that attract high-quality, lasting tenants.
+The average RLPM turn runs an average of $3,000 to $5,000 depending on the condition of the unit and current market expectations for rent-ready quality. This covers cleaning, minor repairs, paint touch-ups, and other work needed to prepare the unit for the next tenant. Please note that is is standard for turns in Columbus, Ohio, especially for nicer homes and quality turns that attract high-quality, lasting tenants.
 
 **Are there additional fees for after-hours or emergency maintenance?**
 
@@ -114,5 +114,5 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [NARPM (National Association of Residential Property Managers)](https://www.narpm.org/) – Industry standards and benchmarks for property management operations and maintenance practices
-- [RLPM Live KPI Scorecard](/key-performance-indicators/) – Current performance data including median repair response times and occupancy metrics
+- [NARPM (National Association of Residential Property Managers)](https://www.narpm.org/), Industry standards and benchmarks for property management operations and maintenance practices
+- [RLPM Live KPI Scorecard](/key-performance-indicators/), Current performance data including median repair response times and occupancy metrics

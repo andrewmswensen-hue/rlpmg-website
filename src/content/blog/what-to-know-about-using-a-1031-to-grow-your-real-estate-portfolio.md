@@ -33,9 +33,9 @@ This tax strategy allows your investment to grow tax-deferred until you decide t
 
 As mentioned, one of the primary benefits of a 1031 exchange is being able to defer capital gains taxes, but there are others, including:
 
-- **Diversifying your portfolio**– Market conditions change and so do your investment goals. With a 1031 exchange, you can sell one type of property and invest in another that better aligns with where you want to grow next.
+- **Diversifying your portfolio**, Market conditions change and so do your investment goals. With a 1031 exchange, you can sell one type of property and invest in another that better aligns with where you want to grow next.
 
-- **Increasing cash flow**– By deferring taxes, you can allocate more capital towards the purchase of your replacement property, which may lead to increased rental income and cash flow.
+- **Increasing cash flow**, By deferring taxes, you can allocate more capital towards the purchase of your replacement property, which may lead to increased rental income and cash flow.
 
 Section 1031 exchanges offer many benefits to investors looking to grow their real estate portfolio. And as always, before pursuing one it’s best to consult a qualified professional to ensure that you are adhering to all state and federal requirements and guidelines.
 

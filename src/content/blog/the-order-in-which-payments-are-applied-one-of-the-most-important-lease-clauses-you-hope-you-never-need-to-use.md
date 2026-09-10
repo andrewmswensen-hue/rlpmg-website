@@ -34,7 +34,7 @@ The reality is that sometimes tenants do not pay their full balance on time. Whe
 
 Part of the conversation around monthly rent payments revolves around whether or not you should accept a partial payment.
 
-In a lot of states, including Ohio, accepting a partial payment signals to the tenant – whether explicitly or not – that they’re good for the month. By accepting that incomplete rent payment, you’ve essentially demonstrated that you’re ok with the partial amount. In Ohio, t his is how judges have traditionally interpreted it.
+In a lot of states, including Ohio, accepting a partial payment signals to the tenant, whether explicitly or not, that they’re good for the month. By accepting that incomplete rent payment, you’ve essentially demonstrated that you’re ok with the partial amount. In Ohio, t his is how judges have traditionally interpreted it.
 
 Given that, if a tenant makes a partial rent payment, we recommend that you don’t even accept it. Hand it right back to them and say, “Unfortunately I can’t accept a partial payment. Please get back to me when you have the full amount.” A reason for this is that you wouldn’t be able to start the eviction process if you accept even a partial payment.
 
@@ -42,7 +42,7 @@ Given that, if a tenant makes a partial rent payment, we recommend that you don�
 
 In another example, say your tenant owes $1000 in rent and $200 in utilities. They submit a $1000 payment, which they may interpret as a “full” rent payment.
 
-In the tenant’s mind, they may be thinking they’ve paid the full rent amount and they’ll just catch up with the extra utility bill next month. However, if your lease explicitly states that any partial payments are going to be first applied to late fees, then to eviction fees, then to utility fees, and finally to rent – what the tenant has actually paid you is $200 in utilities and $800 towards rent. Thus, they would still be short on the rent payment.
+In the tenant’s mind, they may be thinking they’ve paid the full rent amount and they’ll just catch up with the extra utility bill next month. However, if your lease explicitly states that any partial payments are going to be first applied to late fees, then to eviction fees, then to utility fees, and finally to rent, what the tenant has actually paid you is $200 in utilities and $800 towards rent. Thus, they would still be short on the rent payment.
 
 Again, in this situation we recommend that you don’t accept the partial payment. Moreover, by having that language spelled out in the lease, you have leverage if the tenant were to contest the payment down the road.
 

@@ -37,7 +37,7 @@ Tenant portals provide convenience and flexibility that renters value:
 
 ### Why This Matters to Property Owners & Investors
 
-For landlords and investors, tenant portals do more than simplify tenant life – they also **protect your time and maximize returns**.
+For landlords and investors, tenant portals do more than simplify tenant life, they also **protect your time and maximize returns**.
 
 - **Centralized oversight**: Track rent, repairs, and communication in one dashboard.
 - **Fewer repetitive tasks**: No more answering the same questions about rent due dates or lost lease copies.

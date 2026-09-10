@@ -22,7 +22,7 @@ Key Takeaways
 
 - Average apartment rent in Bexley runs about $1,498/month as of July 2026, essentially level with the Columbus citywide average, while Bexley’s single-family rentals price well above it.
 - Bexley City Schools carries an A+ Niche rating (#14 of 606 Ohio districts, 2026), and school-driven households anchor rental demand and renewal rates.
-- Housing stock is largely 1920s–1950s (Tudors, Colonials, Foursquares), which means premium character and premium maintenance budgets in the same purchase.
+- Housing stock is largely 1920s, 1950s (Tudors, Colonials, Foursquares), which means premium character and premium maintenance budgets in the same purchase.
 - Bexley adopted source-of-income protections effective January 2021, the first Central Ohio suburb to do so; screening criteria must treat vouchers as lawful income.
 - With roughly 80% of homes owner-occupied and little new construction, rental inventory is structurally scarce: well-priced listings move fast.
 
@@ -42,9 +42,9 @@ Bexley’s rental demand rests on three durable pillars, and none of them depend
 
 **The school district.** Bexley City Schools rates an A+ on Niche, ranking #14 of 606 Ohio districts and #4 in the Columbus area for 2026, with a 95% graduation rate ([Niche, 2026](https://www.niche.com/k12/d/bexley-city-school-district-oh/)). Families who want the district but aren’t ready to buy at Bexley prices become long-tenure renters, and they tend to renew until a purchase or a graduation changes the calculus. That’s the highest-quality demand a landlord can serve.
 
-**The location and the walk.** Bexley sits about three miles east of downtown Columbus, a 10–15 minute commute, with COTA service along East Main Street. Inside the city, daily life is walkable: the Drexel Theatre and the Main Street shops and restaurants, tree-lined streets, and [Capital University](https://www.capital.edu/) anchoring the community’s center. Faculty, staff, and graduate students add a steady professional tenant stream. (Campus-style, by-the-bedroom rentals are a different business, and one RLPM doesn’t operate in.)
+**The location and the walk.** Bexley sits about three miles east of downtown Columbus, a 10 to 15 minute commute, with COTA service along East Main Street. Inside the city, daily life is walkable: the Drexel Theatre and the Main Street shops and restaurants, tree-lined streets, and [Capital University](https://www.capital.edu/) anchoring the community’s center. Faculty, staff, and graduate students add a steady professional tenant stream. (Campus-style, by-the-bedroom rentals are a different business, and one RLPM doesn’t operate in.)
 
-**The housing itself.** Bexley’s stock leans heavily to 1920s–1950s architecture: Tudor Revivals, Colonial Revivals, bungalows, and American Foursquares on mature streets, with the Ohio Governor’s Residence in the middle of it. Renters who want character and a yard in a historic neighborhood have few Columbus-area alternatives, which is precisely what keeps premium rents from needing discounts.
+**The housing itself.** Bexley’s stock leans heavily to 1920s, 1950s architecture: Tudor Revivals, Colonial Revivals, bungalows, and American Foursquares on mature streets, with the Ohio Governor’s Residence in the middle of it. Renters who want character and a yard in a historic neighborhood have few Columbus-area alternatives, which is precisely what keeps premium rents from needing discounts.
 
 > **Bexley’s school district and walkability command premium rents that rarely need to be reduced.**
 
@@ -59,7 +59,7 @@ Here’s where the numbers stand as of mid-2026:
 | Columbus citywide average rent ([Zillow](https://www.zillow.com/rental-manager/market-trends/columbus-oh/), August 2026) | $1,495/mo |
 | Typical Bexley home value ([Zillow ZHVI](https://www.zillow.com/bexley-oh/home-values/), early 2026) | $549,200 (+2.7% YoY) |
 | Median sale price, June 2026 ([Movoto](https://www.movoto.com/bexley-oh/market-trends/); small monthly sample) | $701,950 · 11 days on market |
-| Owner-occupied share ([Census ACS 2020–2024](https://www.census.gov/quickfacts/fact/table/bexleycityohio/PST045224)) | 79.7% |
+| Owner-occupied share ([Census ACS 2020 to 2024](https://www.census.gov/quickfacts/fact/table/bexleycityohio/PST045224)) | 79.7% |
 | Population (Census estimate, July 2025) | 12,452 |
 
 Two readings matter more than any single number. First, the apartment averages understate the single-family story: Bexley’s multifamily stock is mostly smaller, older buildings, while detached homes in the district rent at a substantial premium above the $1,500 line (Apartments.com’s thin 3BR+ sample prices above $4,000, skewed by large homes but directionally honest). Second, Bexley apartments holding level with the Columbus citywide average while offering an A+ district is itself the value signal: renters get the district without district-sized rent, which keeps the tenant pipeline permanently stocked. For the metro-wide context, see the [2026 Columbus single-family rental market update](/blog/2026-columbus-rental-market-update/).
@@ -140,10 +140,10 @@ Or [schedule a consultation](/property-management-consultation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Apartments.com – Bexley Rent Market Trends](https://www.apartments.com/rent-market-trends/bexley-oh/) – Average rents by unit type (July 2026)
-- [Zillow – Bexley Home Values](https://www.zillow.com/bexley-oh/home-values/) – Typical home value and year-over-year change
-- [Zillow – Columbus Rental Market Trends](https://www.zillow.com/rental-manager/market-trends/columbus-oh/) – Citywide rent comparison (August 2026)
-- [Niche – Bexley City School District](https://www.niche.com/k12/d/bexley-city-school-district-oh/) – 2026 district ratings and rankings
-- [U.S. Census Bureau QuickFacts – Bexley](https://www.census.gov/quickfacts/fact/table/bexleycityohio/PST045224) – Population, owner-occupancy, and housing data
-- [WOSU – Bexley Source-of-Income Protection](https://www.wosu.org/news/2020-09-24/bexley-adds-source-of-income-protection-to-fair-housing-law) – The 2020 fair housing amendment
-- [Movoto – Bexley Market Trends](https://www.movoto.com/bexley-oh/market-trends/) – Monthly sale prices and days on market
+- [Apartments.com, Bexley Rent Market Trends](https://www.apartments.com/rent-market-trends/bexley-oh/), Average rents by unit type (July 2026)
+- [Zillow, Bexley Home Values](https://www.zillow.com/bexley-oh/home-values/), Typical home value and year-over-year change
+- [Zillow, Columbus Rental Market Trends](https://www.zillow.com/rental-manager/market-trends/columbus-oh/), Citywide rent comparison (August 2026)
+- [Niche, Bexley City School District](https://www.niche.com/k12/d/bexley-city-school-district-oh/), 2026 district ratings and rankings
+- [U.S. Census Bureau QuickFacts, Bexley](https://www.census.gov/quickfacts/fact/table/bexleycityohio/PST045224), Population, owner-occupancy, and housing data
+- [WOSU, Bexley Source-of-Income Protection](https://www.wosu.org/news/2020-09-24/bexley-adds-source-of-income-protection-to-fair-housing-law), The 2020 fair housing amendment
+- [Movoto, Bexley Market Trends](https://www.movoto.com/bexley-oh/market-trends/), Monthly sale prices and days on market

@@ -1,6 +1,6 @@
 ---
 title: "Should You Sell Your Investment Property, or Hire a Property Manager?"
-description: "Your investment properties should be income generators, not a drain on your time, money, and – yes, we’ll say it – sanity. If your property isn’t working for you, it’s past time to make some changes. The question is, should that change be selling off your properties for a quick payday, or turning to"
+description: "Your investment properties should be income generators, not a drain on your time, money, and, yes, we’ll say it, sanity. If your property isn’t working for you, it’s past time to make some changes. The question is, should that change be selling off your properties for a quick payday, or turning to"
 pubDate: "2022-06-09T14:00:44Z"
 updatedDate: "2022-06-08T15:26:30Z"
 slug: "should-you-sell-your-investment-property-or-hire-a-property-manager"
@@ -19,7 +19,7 @@ tags:
   - "property management"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2022/06/blake-wheeler-zBHU08hdzhY-unsplash-300x227.jpg)Your investment properties should be income generators, not a drain on your time, money, and – yes, we’ll say it – sanity.
+![](https://rlpmg.com/wp-content/uploads/2022/06/blake-wheeler-zBHU08hdzhY-unsplash-300x227.jpg)Your investment properties should be income generators, not a drain on your time, money, and, yes, we’ll say it, sanity.
 
 If your property isn’t working for you, it’s past time to make some changes. The question is, should that change be selling off your properties for a quick payday, or turning to a professional property management (PM) company to improve the performance of your rental units and set you up for long-term success?
 

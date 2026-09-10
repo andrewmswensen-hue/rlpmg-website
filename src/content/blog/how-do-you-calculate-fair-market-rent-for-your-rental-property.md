@@ -37,7 +37,7 @@ Next, you’ll want to look very closely at your given neighborhood and do some 
 
 - **Calculate the average rent for these comparable properties.** Keep in mind that if these units are sitting vacant, these are rates that are *not* being rented. This could be a sign that they could be priced too high.
 
-- **Lastly, consider unique factors that affect your property** – Has your unit been recently renovated or offer an enviable view? Things like the property’s condition and its amenities will allow you to adjust rent up or down as appropriate.
+- **Lastly, consider unique factors that affect your property**, Has your unit been recently renovated or offer an enviable view? Things like the property’s condition and its amenities will allow you to adjust rent up or down as appropriate.
 
 [Accurately pricing your rental property](/blog/what-is-a-fair-market-rent/) requires you to do some homework, and it starts by looking at fair market rents for your area. Once armed with data, you can then make strategic decisions that will help you secure the best tenants, reduce vacancy and increase your net operating income.
 

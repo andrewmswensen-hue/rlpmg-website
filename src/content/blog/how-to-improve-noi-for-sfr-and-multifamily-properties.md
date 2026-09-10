@@ -24,7 +24,7 @@ tags:
 
 ## Ways to Increase a Rental Property’s Value
 
-Unlike some investment opportunities that are left to the whims of the market, investors in real estate have at least [some direct control](/blog/5-smart-decisions-that-boost-noi/)over how their property is valued. There are actionable steps they can take to increase income and reduce expenses – and thereby boost the property’s NOI.
+Unlike some investment opportunities that are left to the whims of the market, investors in real estate have at least [some direct control](/blog/5-smart-decisions-that-boost-noi/)over how their property is valued. There are actionable steps they can take to increase income and reduce expenses, and thereby boost the property’s NOI.
 
 Whether you own single-family or multifamily properties, the [steps you take to improve NOI](/blog/how-to-improve-your-propertys-noi/) are generally the same. Here are some key areas to focus on:
 

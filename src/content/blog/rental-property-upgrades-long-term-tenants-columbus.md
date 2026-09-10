@@ -56,7 +56,7 @@ The bottom line? When tenants feel valued, they treat the property better, renew
 
 ## Top Features Columbus Renters Look For
 
-Columbus renters aren’t just looking for a roof over their heads – they’re looking for a home that fits their lifestyle. With competition tight in popular neighborhoods, units that offer convenience, comfort, and modern amenities consistently lease faster and retain tenants longer.
+Columbus renters aren’t just looking for a roof over their heads, they’re looking for a home that fits their lifestyle. With competition tight in popular neighborhoods, units that offer convenience, comfort, and modern amenities consistently lease faster and retain tenants longer.
 
 **Want faster leases and lower turnover? Invest in features tenants actively seek out.**
 
@@ -122,7 +122,7 @@ Extra storage is always appreciated. Simple upgrades like closet organizers, pan
 
 **Little details like storage upgrades help tenants picture themselves staying long-term.**
 
-When you focus on these kinds of improvements, you’re not just making your unit look better – you’re removing friction. These upgrades make the tenant’s day-to-day life easier and show that the home is cared for.
+When you focus on these kinds of improvements, you’re not just making your unit look better, you’re removing friction. These upgrades make the tenant’s day-to-day life easier and show that the home is cared for.
 
 ## Avoiding Over-Improving Your Rental
 
@@ -144,7 +144,7 @@ Stick to upgrades that align with your long-term goals. The smartest investors k
 
 ## How Property Managers Help You Upgrade With Purpose
 
-Here’s what most landlords miss: upgrading a rental unit isn’t just about looks – it’s about strategy. A good property manager brings market insight and operational know-how that takes the guesswork out of property improvements.
+Here’s what most landlords miss: upgrading a rental unit isn’t just about looks, it’s about strategy. A good property manager brings market insight and operational know-how that takes the guesswork out of property improvements.
 
 **Smart upgrades are informed by tenant demand and rent data, not guesswork.**
 
@@ -170,7 +170,7 @@ Experienced managers track performance over time. They know what kinds of upgrad
 
 When you have the right partner guiding your upgrades, you spend less time guessing and more time growing your rental income.
 
-**A great PM doesn’t just maintain your property – they help maximize its potential.**
+**A great PM doesn’t just maintain your property, they help maximize its potential.**
 
 ## Ready to Make Smarter Upgrades?
 

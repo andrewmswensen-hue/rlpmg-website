@@ -21,7 +21,7 @@ tags:
 
 ### ![Property reserve fund and capital expense forecast checklist next to a residential HVAC system.](https://rlpmg.com/wp-content/uploads/2025/12/Gemini_Generated_Image_56ltpw56ltpw56lt-300x300.png)Look for Recurring Repair Patterns
 
-If the same maintenance issue keeps showing up in your logs, it’s no longer a repair; it’s a replacement waiting to happen. Property investors often delay upgrades because a fix “seems cheaper” in the moment, but recurring costs add up quickly. For example, if your HVAC system requires two or more service calls in a single year, that’s a signal to run a replacement ROI analysis. The cost of repeated emergency visits, often $250–$500 each, can easily exceed the monthly loan payment on a new, efficient system.
+If the same maintenance issue keeps showing up in your logs, it’s no longer a repair; it’s a replacement waiting to happen. Property investors often delay upgrades because a fix “seems cheaper” in the moment, but recurring costs add up quickly. For example, if your HVAC system requires two or more service calls in a single year, that’s a signal to run a replacement ROI analysis. The cost of repeated emergency visits, often $250 to $500 each, can easily exceed the monthly loan payment on a new, efficient system.
 
 When tenants experience constant disruptions or unaddressed issues, they’re far less likely to renew. According to [HUD’s](https://www.hud.gov/hudclips/notices/hsg)*Capital Needs Assessment Guidelines*, tracking and forecasting major repairs can extend asset lifespan and stabilize cash flow over time.
 
@@ -35,7 +35,7 @@ Using this system, owners can spot trends early: peeling paint that signals mois
 
 ### Columbus Property Example
 
-Many of Columbus’s most desirable rental neighborhoods, Clintonville, Grandview, and the Near East Side, feature homes built between the 1940s and 1960s. These properties often have original plumbing or single-pane windows that drain efficiency and tenant satisfaction. Upgrading to PEX plumbing or double-pane windows can cut water and heating costs by 10–15% annually.
+Many of Columbus’s most desirable rental neighborhoods, Clintonville, Grandview, and the Near East Side, feature homes built between the 1940s and 1960s. These properties often have original plumbing or single-pane windows that drain efficiency and tenant satisfaction. Upgrading to PEX plumbing or double-pane windows can cut water and heating costs by 10 to 15% annually.
 
 **Checklist for Action:**
 
@@ -54,13 +54,13 @@ According to the *[Remodeling 2025 Cost vs. Value Report](https://www.jlconline.
 
 | **ROI Level** | **Improvement Type** | **Typical ROI** | **Notes** |
 |---|---|---|---|
-| **High** | Energy-efficient windows, LVP flooring, kitchen refresh (new cabinets, fixtures, and appliances) | **10–20%** | Increases rentability, lowers maintenance costs, and boosts appraisal value |
-| **Medium** | Exterior paint, landscaping, bathroom updates | **5–10%** | Improves curb appeal and lease-up speed |
+| **High** | Energy-efficient windows, LVP flooring, kitchen refresh (new cabinets, fixtures, and appliances) | **10 to 20%** | Increases rentability, lowers maintenance costs, and boosts appraisal value |
+| **Medium** | Exterior paint, landscaping, bathroom updates | **5 to 10%** | Improves curb appeal and lease-up speed |
 | **Low** | High-end finishes in workforce or C-class housing | **<5%** | Minimal rent increase; often over-capitalization |
 
 ### Upgrade Smarter, Not Pricier
 
-The goal isn’t to spend more, it’s to spend *strategically*. A $5,000 flooring upgrade in a two-bedroom rental can justify a $75–$100 rent increase, paying for itself in under five years. Meanwhile, a $10,000 HVAC replacement may not increase rent directly, but it can reduce turnover and emergency repair calls, two of the biggest hidden costs in property ownership.
+The goal isn’t to spend more, it’s to spend *strategically*. A $5,000 flooring upgrade in a two-bedroom rental can justify a $75 to $100 rent increase, paying for itself in under five years. Meanwhile, a $10,000 HVAC replacement may not increase rent directly, but it can reduce turnover and emergency repair calls, two of the biggest hidden costs in property ownership.
 
 Energy-efficient upgrades, like LED lighting, programmable thermostats, or double-pane windows, also attract higher-quality tenants who value lower utility bills. These improvements align with local and federal incentives, including the **City of Columbus Energy Efficiency Program**, which offers rebates for insulation and appliance upgrades.
 
@@ -82,7 +82,7 @@ RL Property Management often sees the strongest ROI from mid-tier improvements t
 
 **Columbus Market Insight:**
 
- Franklin County rentals that advertise recent upgrades, especially efficient appliances or new flooring, lease **10–15 days faster on average**.
+ Franklin County rentals that advertise recent upgrades, especially efficient appliances or new flooring, lease **10 to 15 days faster on average**.
 
 ## Budgeting for Capital Expenses: Creating a Realistic Reserve Plan
 
@@ -92,7 +92,7 @@ Every property owner knows that maintenance is inevitable, but not everyone plan
 
 RL Property Management recommends maintaining a **minimum reserve of $500 per unit** as a baseline for both emergency repairs and planned improvements. This allows maintenance to move forward quickly, without waiting for owner funding, and keeps tenants satisfied with faster response times.
 
-Unfortunately, many independent investors underfund reserves by 20–30%. When a $2,000 furnace replacement or a $5,000 roof repair hits, that shortfall forces owners to pull from personal funds or delay work, both of which can hurt ROI.
+Unfortunately, many independent investors underfund reserves by 20 to 30%. When a $2,000 furnace replacement or a $5,000 roof repair hits, that shortfall forces owners to pull from personal funds or delay work, both of which can hurt ROI.
 
 A strong reserve plan transforms those emergencies into manageable business expenses. It’s not about predicting every repair; it’s about being financially ready for any of them.
 
@@ -107,7 +107,7 @@ For example:
 - Water heater ($1,200 ÷ 10 years = $120/year)
 - Flooring ($4,000 ÷ 8 years = $500/year)
 
-Total annual reserve target: roughly **$1,600–$2,000 per property**, before inflation.
+Total annual reserve target: roughly **$1,600 to $2,000 per property**, before inflation.
 
 This approach, often called the **sinking fund model**, prevents major expenses from blindsiding your operating budget.
 
@@ -117,11 +117,11 @@ This approach, often called the **sinking fund model**, prevents major expenses 
 
 To budget like a professional investor, follow these five steps:
 
-1. **Assess Building Age & Systems** – Identify costly replacements due within 5 years.
-2. **Review Inspection Notes** – Flag recurring maintenance items or aging infrastructure.
-3. **Estimate Replacements by Lifespan** – Use standard benchmarks (HVAC 15 years, roof 20–25, appliances 8–10).
-4. **Add Inflation (3–4% Annually)** – Construction costs have risen faster than general inflation since 2022.
-5. **Reassess Annually** – Update forecasts using reports from your property manager or owner portal.
+1. **Assess Building Age & Systems**, Identify costly replacements due within 5 years.
+2. **Review Inspection Notes**, Flag recurring maintenance items or aging infrastructure.
+3. **Estimate Replacements by Lifespan**, Use standard benchmarks (HVAC 15 years, roof 20 to 25, appliances 8 to 10).
+4. **Add Inflation (3 to 4% Annually)**, Construction costs have risen faster than general inflation since 2022.
+5. **Reassess Annually**, Update forecasts using reports from your property manager or owner portal.
 
 **Example:**If a duplex roof will cost **$10,000 in 10 years**, setting aside **$1,000 per year plus inflation** means you’ll have the full amount ready when needed, without disrupting your monthly cash flow.
 
@@ -137,7 +137,7 @@ For example, if a tenant’s lease ends in May, scheduling paint, flooring, and 
 
 Columbus’s rental market follows a predictable rhythm. Most lease renewals and turnovers occur between **April and August**, when renters are more willing to move and competition peaks. During these months, even moderate upgrades, fresh paint, updated fixtures, or landscaping can help your property stand out among similar listings.
 
-According to market observations and property management data, **spring and summer units rent faster and at higher rates** than winter listings. In contrast, **off-peak months (November–February)** are ideal for system and infrastructure projects. Contractors typically offer **10–15% lower pricing** during these months due to reduced demand, and scheduling flexibility is far greater.
+According to market observations and property management data, **spring and summer units rent faster and at higher rates** than winter listings. In contrast, **off-peak months (November, February)** are ideal for system and infrastructure projects. Contractors typically offer **10 to 15% lower pricing** during these months due to reduced demand, and scheduling flexibility is far greater.
 
 **Timing Strategy Example:**
 
@@ -150,7 +150,7 @@ According to market observations and property management data, **spring and summ
 
 ### Why Proactive Is Always Cheaper
 
-Emergency projects cost more, sometimes 30–50% more, due to rush labor, after-hours rates, and limited contractor availability. Proactive planning avoids those costs while preserving tenant satisfaction and protecting property value.
+Emergency projects cost more, sometimes 30 to 50% more, due to rush labor, after-hours rates, and limited contractor availability. Proactive planning avoids those costs while preserving tenant satisfaction and protecting property value.
 
 A well-timed improvement plan also gives you time to compare quotes, select the best vendor, and align upgrades with cash flow cycles. It’s not just about spending less; it’s about spending *intentionally*.
 

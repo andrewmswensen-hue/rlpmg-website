@@ -307,11 +307,11 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [RentCafe Columbus Market Trends](https://www.rentcafe.com/average-rent-market-trends/us/oh/columbus/) — Current average rent data and unit-size breakdowns
-- [MMG Real Estate Advisors 2025 Columbus Forecast](https://mmgrea.com/2025-columbus-forecast/) — Rent growth, construction pipeline, and market fundamentals
-- [Axios Columbus: Q1 2026 Market Update](https://www.axios.com/local/columbus/2026/04/15/office-vacancy-rate-falls-q1-2026) — Latest vacancy and rent movement data
-- [Franklin County Law Library: Columbus Landlord/Tenant Law](https://fclawlib.libguides.com/ohiolandlordtenantlaw/columbus) — Current Columbus rental ordinances and tenant protections
-- [RL Property Management KPI Scorecard](/key-performance-indicators/) — Live performance data including days on market, renewal rate, and occupancy
+- [RentCafe Columbus Market Trends](https://www.rentcafe.com/average-rent-market-trends/us/oh/columbus/), Current average rent data and unit-size breakdowns
+- [MMG Real Estate Advisors 2025 Columbus Forecast](https://mmgrea.com/2025-columbus-forecast/), Rent growth, construction pipeline, and market fundamentals
+- [Axios Columbus: Q1 2026 Market Update](https://www.axios.com/local/columbus/2026/04/15/office-vacancy-rate-falls-q1-2026), Latest vacancy and rent movement data
+- [Franklin County Law Library: Columbus Landlord/Tenant Law](https://fclawlib.libguides.com/ohiolandlordtenantlaw/columbus), Current Columbus rental ordinances and tenant protections
+- [RL Property Management KPI Scorecard](/key-performance-indicators/), Live performance data including days on market, renewal rate, and occupancy
 - [Oakwood Management Company](https://www.liveoakwood.com/)
 - [All County NEO Portfolio Property Management](https://www.allcountyprop.com/locations/ohio/columbus/)
 - [ERA Real Solutions Realty](https://www.realsolutionsrentals.com/)

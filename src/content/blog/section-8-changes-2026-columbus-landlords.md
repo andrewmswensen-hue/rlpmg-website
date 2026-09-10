@@ -1,5 +1,5 @@
 ---
-title: "What’s Actually Changing With Section 8 in 2026 (And What Isn’t) – A Columbus Landlord’s Guide"
+title: "What’s Actually Changing With Section 8 in 2026 (And What Isn’t), A Columbus Landlord’s Guide"
 description: "Section 8 has dominated housing headlines for the past year. Some predicted the program would be eliminated. Others warned of voucher cuts and forced tenant terminations. The reality, as of May 2026, is more nuanced (and more important for Columbus landlords to understand correctly). TL;DR Congress"
 pubDate: "2026-05-08T21:02:18Z"
 updatedDate: "2026-06-02T15:55:02Z"
@@ -153,10 +153,10 @@ The EHV program is winding down. HUD has announced that funding will run out in 
 
 ### Sources & Suggested External Links
 
-- [Ballard Spahr](https://www.ballardspahr.com/insights/alerts-and-articles/2026/01/congress-releases-bipartisan-hud-appropriations-bill-before-january-30-deadline) – Summary of the FY2026 HUD appropriations bill
-- [Federal Register](https://www.federalregister.gov/documents/2026/03/02/2026-04095/establishing-flexibility-for-implementation-of-work-requirements-and-term-limits) – HUD proposed rule on work requirements and term limits (March 2, 2026)
-- [HUD.gov](https://www.hud.gov/news/hud-no-26-018) – Secretary Turner’s announcement of the proposed rule
-- [Congressional Research Service](https://www.congress.gov/crs-product/R48567) – HUD FY2026 Budget Request Fact Sheet
-- [Stateline](https://stateline.org/2026/04/27/emergency-housing-vouchers-are-ending-early-leaving-cities-and-renters-scrambling/) – Emergency Housing Vouchers wind-down coverage
-- [COHHIO](https://cohhio.org/support/tenant-rights/discrimination-fair-housing/) – List of Ohio cities with source-of-income protections
-- [Housing For All (Columbus)](https://www.housingforallcbus.com/source-of-income) – Source-of-income protection details for Columbus
+- [Ballard Spahr](https://www.ballardspahr.com/insights/alerts-and-articles/2026/01/congress-releases-bipartisan-hud-appropriations-bill-before-january-30-deadline), Summary of the FY2026 HUD appropriations bill
+- [Federal Register](https://www.federalregister.gov/documents/2026/03/02/2026-04095/establishing-flexibility-for-implementation-of-work-requirements-and-term-limits), HUD proposed rule on work requirements and term limits (March 2, 2026)
+- [HUD.gov](https://www.hud.gov/news/hud-no-26-018), Secretary Turner’s announcement of the proposed rule
+- [Congressional Research Service](https://www.congress.gov/crs-product/R48567), HUD FY2026 Budget Request Fact Sheet
+- [Stateline](https://stateline.org/2026/04/27/emergency-housing-vouchers-are-ending-early-leaving-cities-and-renters-scrambling/), Emergency Housing Vouchers wind-down coverage
+- [COHHIO](https://cohhio.org/support/tenant-rights/discrimination-fair-housing/), List of Ohio cities with source-of-income protections
+- [Housing For All (Columbus)](https://www.housingforallcbus.com/source-of-income), Source-of-income protection details for Columbus

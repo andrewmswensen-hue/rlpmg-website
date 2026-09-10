@@ -30,11 +30,11 @@ Lastly, another important way to protect yourself and your investment property i
 
 In addition to a traditional homeowner’s insurance policy that protects the building and its contents from perils like fire, theft, vandalism, and natural disasters, here are some commonly recommended types of insurance policies property owners should consider keeping active:
 
-- **Liability insurance** – This protects against claims for bodily injury or property damage that occurs on the property, be injury that to tenants, guests or anyone else who comes to your property.
+- **Liability insurance**, This protects against claims for bodily injury or property damage that occurs on the property, be injury that to tenants, guests or anyone else who comes to your property.
 
-- **Loss of income coverage**– If your property is uninhabitable for an extended period due to a covered loss, loss of rent coverage helps recoup some of that income by reimbursing you with the fair rental value of the dwelling during that time.
-- **Flood insurance** – Standard property insurance typically doesn’t cover flood damage. If you’re concerned about flooding at your property, consider obtaining a separate flood insurance policy.
-- **Umbrella insurance** – This is an additional type of coverage that offers protection beyond the limits and coverages of your other policies. It can be especially beneficial for properties with a higher risk of liability claims.
+- **Loss of income coverage**, If your property is uninhabitable for an extended period due to a covered loss, loss of rent coverage helps recoup some of that income by reimbursing you with the fair rental value of the dwelling during that time.
+- **Flood insurance**, Standard property insurance typically doesn’t cover flood damage. If you’re concerned about flooding at your property, consider obtaining a separate flood insurance policy.
+- **Umbrella insurance**, This is an additional type of coverage that offers protection beyond the limits and coverages of your other policies. It can be especially beneficial for properties with a higher risk of liability claims.
 
 Taking the time to annually review insurance coverage is a good practice to ensure coverage limits are adequate to cover the property’s value and potential liabilities. You might also choose to shop around for coverage regularly to compare costs and coverage levels.
 

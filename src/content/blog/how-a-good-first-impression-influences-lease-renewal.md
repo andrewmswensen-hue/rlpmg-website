@@ -24,7 +24,7 @@ tags:
 
 ## Putting Your Best Foot Forward
 
-From the initial property viewing to the move-in process, every interaction between an owner or property manager and their resident can significantly impact their decision to renew their lease – and remember, retaining residents is far better for your bottom line than having to turn over units year after year.
+From the initial property viewing to the move-in process, every interaction between an owner or property manager and their resident can significantly impact their decision to renew their lease, and remember, retaining residents is far better for your bottom line than having to turn over units year after year.
 
 Moreover, when residents feel cared for and treated fairly, they are more likely to act in kind. In many ways, they are your guests, albeit paying guests, and you should treat them like that.
 
@@ -36,7 +36,7 @@ Second, you also need to make sure the property is ready for them to move in. Th
 
 Your task is to have the property in pristine shape so that when the resident moves in, they have a great first couple of weeks instead of finding a bunch of dust and debris or encountering issues like broken appliances, beeping smoke detectors or burned-out light bulbs.
 
-A resident picks up on these issues, especially if there are multiple, and they can really inform their outlook on a property. You can create a great first impression – and increase the likelihood of the resident renewing – by taking basic steps to make sure the property is in great shape like applying fresh paint and installing new carpet. Additionally, you can improve the resident experience by replacing old or outdated appliances, improving the landscaping, and hiring a professional to deep clean the property.
+A resident picks up on these issues, especially if there are multiple, and they can really inform their outlook on a property. You can create a great first impression, and increase the likelihood of the resident renewing, by taking basic steps to make sure the property is in great shape like applying fresh paint and installing new carpet. Additionally, you can improve the resident experience by replacing old or outdated appliances, improving the landscaping, and hiring a professional to deep clean the property.
 
 What’s more, moving into a well-cared-for rental unit helps establish your expectations for how you want the tenant to treat the property. When you introduce a clean and maintained space, you’re showing the resident the standard of care you expect them to also uphold.
 

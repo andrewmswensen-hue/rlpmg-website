@@ -186,12 +186,12 @@ RL Property Management has managed Columbus-area rentals since 2013, oversees ab
 
 ### Sources & Suggested External Links
 
-- [Franklin County Municipal Court Clerk, Civil Cost Schedule](https://www.fcmcclerk.com/documents/civil/civilcost.pdf) (rev. effective 8/1/2026) – eviction filing fees
-- [City Bulletin #17, April 25, 2026](https://www.columbus.gov/files/sharedassets/city/v/3/city-council/documents/city-bulletins/2026/bulletin20260425.pdf) – Ordinance 0923-2026 creating Columbus City Code Chapter 4515
-- [WOSU, April 15, 2026](https://www.wosu.org/politics-government/2026-04-15/columbus-city-council-proposes-rental-registry-to-combat-problem-landlords) – Columbus rental registry background and council debate
-- [Ohio Revised Code 5321.16](https://codes.ohio.gov/ohio-revised-code/section-5321.16) – security deposit interest, 30-day itemization, and tenant damages
-- [Ohio Revised Code 5321.04](https://codes.ohio.gov/ohio-revised-code/section-5321.04) – landlord obligations and the 24-hour entry notice presumption
-- [Ohio Revised Code 5323.02](https://codes.ohio.gov/ohio-revised-code/section-5323.02) – county auditor rental property filing requirement
-- [Evernest Columbus published pricing](https://www.columbuspropertymanagement.co/pricing) – percentage-based management and placement fee comparison
-- [2026 Columbus Single-Family Rental Market Report](/2026-columbus-market-report/) – rental lease-up times, occupancy, rent ranges
-- [RL Property Management live KPI scorecard](/key-performance-indicators/) – current days on market, time to turn, renewal and occupancy rates
+- [Franklin County Municipal Court Clerk, Civil Cost Schedule](https://www.fcmcclerk.com/documents/civil/civilcost.pdf) (rev. effective 8/1/2026), eviction filing fees
+- [City Bulletin #17, April 25, 2026](https://www.columbus.gov/files/sharedassets/city/v/3/city-council/documents/city-bulletins/2026/bulletin20260425.pdf), Ordinance 0923-2026 creating Columbus City Code Chapter 4515
+- [WOSU, April 15, 2026](https://www.wosu.org/politics-government/2026-04-15/columbus-city-council-proposes-rental-registry-to-combat-problem-landlords), Columbus rental registry background and council debate
+- [Ohio Revised Code 5321.16](https://codes.ohio.gov/ohio-revised-code/section-5321.16), security deposit interest, 30-day itemization, and tenant damages
+- [Ohio Revised Code 5321.04](https://codes.ohio.gov/ohio-revised-code/section-5321.04), landlord obligations and the 24-hour entry notice presumption
+- [Ohio Revised Code 5323.02](https://codes.ohio.gov/ohio-revised-code/section-5323.02), county auditor rental property filing requirement
+- [Evernest Columbus published pricing](https://www.columbuspropertymanagement.co/pricing), percentage-based management and placement fee comparison
+- [2026 Columbus Single-Family Rental Market Report](/2026-columbus-market-report/), rental lease-up times, occupancy, rent ranges
+- [RL Property Management live KPI scorecard](/key-performance-indicators/), current days on market, time to turn, renewal and occupancy rates

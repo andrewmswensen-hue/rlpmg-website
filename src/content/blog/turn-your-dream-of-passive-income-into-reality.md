@@ -1,6 +1,6 @@
 ---
 title: "Turn Your Dream of Passive Income Into Reality"
-description: "Passive income. That’s the dream from the beginning – Robert Kiyosaki’s Rich Dad, Poor Dad, Tim Ferris’ The 4-Hour Work Week – what we all learned from these books was to let the asset do the work for you! You make money while you sleep, right?"
+description: "Passive income. That’s the dream from the beginning, Robert Kiyosaki’s Rich Dad, Poor Dad, Tim Ferris’ The 4-Hour Work Week, what we all learned from these books was to let the asset do the work for you! You make money while you sleep, right?"
 pubDate: "2019-11-05T18:00:19Z"
 updatedDate: "2019-11-05T22:33:16Z"
 slug: "turn-your-dream-of-passive-income-into-reality"
@@ -10,7 +10,7 @@ categories:
   - "Property Management Education"
 ---
 
-Passive income. That’s the dream from the beginning – Robert Kiyosaki’s Rich Dad, Poor Dad, Tim Ferris’ The 4-Hour Work Week – what we all learned from these books was to let the asset do the work for you! You make money while you sleep, right?
+Passive income. That’s the dream from the beginning, Robert Kiyosaki’s Rich Dad, Poor Dad, Tim Ferris’ The 4-Hour Work Week, what we all learned from these books was to let the asset do the work for you! You make money while you sleep, right?
 
 Well the reality is quite different for most rental property owners… tenant lawsuits, maintenance calls at all hours of the night, leasing up your own property, chasing down rent, plus hundreds of other tedious tasks.
 

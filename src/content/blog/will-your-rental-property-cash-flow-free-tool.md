@@ -26,13 +26,13 @@ Below is an outline of the figures you will be pulling together on the template.
   - Income could include Rent, Utilities, Repairs, Parking, Laundry, Water/Sewer, Utility, etc.
   - Deduct anticipated vacancy loss, typically 4-8%.
 2. Expenses Incurred **Before** Monthly Property Manager Disbursement
-  - Capital Spending – Appliances, Furnaces, Air Conditioners when the need replaced
-  - Repairs Ongoing – Maintenance requests from tenants
-  - Turns – This includes all the expenses incurred while “turning over” the unit between tenants and will include costs due to needed repairs, tenant damages and tenant wear and tear
-  - Maintenance Recurring – This is the cost of gutter cleaning, mowing
-  - Utilities – If you incur regular utilities costs
-  - Property Management Fees – The total cost of all fees charged by your property manager
-  - Legal – An estimate of anticipated legal fees, evictions, tenant disputes.
+ - Capital Spending, Appliances, Furnaces, Air Conditioners when the need replaced
+ - Repairs Ongoing, Maintenance requests from tenants
+ - Turns, This includes all the expenses incurred while “turning over” the unit between tenants and will include costs due to needed repairs, tenant damages and tenant wear and tear
+ - Maintenance Recurring, This is the cost of gutter cleaning, mowing
+ - Utilities, If you incur regular utilities costs
+ - Property Management Fees, The total cost of all fees charged by your property manager
+ - Legal, An estimate of anticipated legal fees, evictions, tenant disputes.
 3. Expenses Incurred **After** Monthly Disbursement (To arrive at your Net Operating Income, NOI)
   - Association dues
   - Travel costs related to the property

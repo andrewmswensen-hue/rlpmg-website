@@ -32,11 +32,11 @@ In addition to rent, you also need to account for vacancies in your cash flow an
 
 While income is relatively straightforward, expenses tend to run a broader spectrum. Categories to account for in your cash flow analysis include:
 
-- **Repairs and maintenance** – This will be one of your biggest items. At RL Property Management, we like to use a dollar-per-square-foot estimate rather than a percentage of rent. In our calculations we may estimate around $1-$2 per square foot, per year as a line item for repairs and maintenance.
-- **Capital expenses or reserves** – You need to make sure you’re saving appropriately and setting aside funds each month to replace those capital items as they reach end of life.
-- **Property taxes** – This is a big item that investors can sometimes inaccurately calculate. If you’re getting ready to buy a property, you need to make sure that you’re adjusting the property tax expense using the purchase price and not what is on the auditor’s website. When you buy the property, the appraised value is going to go up, and then you’re going to be taxed on that new rate – and that could be double the current rate.
-- **Insurance** – Shop around and get some quotes for insurance on the property.
-- **Landscaping and snow removal** – If you’re buying a multi-family property, especially if it has a common area or parking lot, you’re going to have to pay to have it removed every time it snows. Additionally, there will be expenses related to other landscaping needs like cutting the grass.
-- **Pest control & other unexpected expenses** – From time-to-time rodents may infiltrate the property and need to be dealt with, or other incidental expenses pop up.
+- **Repairs and maintenance**, This will be one of your biggest items. At RL Property Management, we like to use a dollar-per-square-foot estimate rather than a percentage of rent. In our calculations we may estimate around $1-$2 per square foot, per year as a line item for repairs and maintenance.
+- **Capital expenses or reserves**, You need to make sure you’re saving appropriately and setting aside funds each month to replace those capital items as they reach end of life.
+- **Property taxes**, This is a big item that investors can sometimes inaccurately calculate. If you’re getting ready to buy a property, you need to make sure that you’re adjusting the property tax expense using the purchase price and not what is on the auditor’s website. When you buy the property, the appraised value is going to go up, and then you’re going to be taxed on that new rate, and that could be double the current rate.
+- **Insurance**, Shop around and get some quotes for insurance on the property.
+- **Landscaping and snow removal**, If you’re buying a multi-family property, especially if it has a common area or parking lot, you’re going to have to pay to have it removed every time it snows. Additionally, there will be expenses related to other landscaping needs like cutting the grass.
+- **Pest control & other unexpected expenses**, From time-to-time rodents may infiltrate the property and need to be dealt with, or other incidental expenses pop up.
 
 The better your data, the closer you will be to more accurately predicting cash flow. If you have any debt, you’ll need to account for that as well as the above-mentioned categories. When you’re ready to learn more, our team at RL Property Management can help you understand expected costs for Franklin County.[Get in touch](/contact-us/) with us to ask your questions.

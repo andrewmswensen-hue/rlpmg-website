@@ -51,9 +51,9 @@ Rent figures for Powell vary meaningfully by source and property type, which is 
 
 | Bedroom Count | Typical Monthly Rent |
 |---|---|
-| 2-bedroom home | $1,600 – $2,100 |
-| 3-bedroom home | $2,700 – $3,300 |
-| 4-bedroom home | $3,000 – $3,800 |
+| 2-bedroom home | $1,600 to $2,100 |
+| 3-bedroom home | $2,700 to $3,300 |
+| 4-bedroom home | $3,000 to $3,800 |
 | All property types, average | ~$2,300 |
 
 Ranges in the table above are compiled from Zillow and Trulia listing data as of May 2026 and will shift with the season and with active inventory. [RLPM’s live KPI scorecard](/key-performance-indicators/) shows current average rent, days on market, and lease renewal rate across RLPM-managed properties, which is a better real-time reference than any single third-party estimate.

@@ -47,23 +47,23 @@ From an investment standpoint, this renter profile produces **lower turnover but
 
 Vacancy risk in Upper Arlington tends to be lower than in many Columbus neighborhoods because of limited rental inventory. However, pricing discipline remains critical.
 
-A vacant month still represents approximately **8–10% of annual rent lost**, making realistic leasing timelines important for investors managing cash flow.
+A vacant month still represents approximately **8 to 10% of annual rent lost**, making realistic leasing timelines important for investors managing cash flow.
 
 ### Typical Lease-Up Timelines (2026)
 
-**Apartments / Condos (1–2 bedrooms)**
+**Apartments / Condos (1 to 2 bedrooms)**
 
-- ~20–30 days when priced near market
+- ~20 to 30 days when priced near market
 - Tenant pool often includes young professionals and graduate students
 
-**Doubles & Small Multifamily (2–4 units)**
+**Doubles & Small Multifamily (2 to 4 units)**
 
-- ~25–35 days on average
+- ~25 to 35 days on average
 - Renters frequently compare options in nearby neighborhoods such as Grandview Heights or Hilliard
 
 **Single-Family Homes**
 
-- ~30–45 days depending on season
+- ~30 to 45 days depending on season
 - Family renters typically search during school calendar transitions
 
 ### Common Leasing Friction in Upper Arlington
@@ -84,12 +84,12 @@ The following ranges reflect **typical well-maintained properties**, not luxury 
 
 | **Property Type** | **Typical Rent Range** | **Notes** |
 |---|---|---|
-| 1-Bed Apartment/Condo | $1,350 – $1,650 | Average roughly $1,547 depending on building age and amenities |
-| 2-Bed Apartment/Condo | $1,700 – $2,200 | Average near $1,977 in current market data |
-| 3-Bed Single-Family Home | $2,400 – $3,000 | Typical range across active listings and rent comps |
-| Larger Family Homes | $3,200 – $4,000+ | Smaller renter pool; pricing discipline required |
+| 1-Bed Apartment/Condo | $1,350 to $1,650 | Average roughly $1,547 depending on building age and amenities |
+| 2-Bed Apartment/Condo | $1,700 to $2,200 | Average near $1,977 in current market data |
+| 3-Bed Single-Family Home | $2,400 to $3,000 | Typical range across active listings and rent comps |
+| Larger Family Homes | $3,200 to $4,000+ | Smaller renter pool; pricing discipline required |
 
-Overall, average rent levels in Upper Arlington cluster around **$1,500–$1,600, depending on property mix**, with rent increases averaging roughly **6–7% year over year** in recent data.
+Overall, average rent levels in Upper Arlington cluster around **$1,500 to $1,600, depending on property mix**, with rent increases averaging roughly **6 to 7% year over year** in recent data.
 
 Investors should treat these ranges as guardrails rather than targets. Listings priced significantly above local comps often experience extended marketing periods.
 
@@ -122,18 +122,18 @@ Access to major employment centers, including Ohio State University and downtown
 
 Upper Arlington generally follows the broader Columbus rental cycle, though the family-oriented renter base slightly shifts the timing compared with downtown markets.
 
-### Peak Season: May – August
+### Peak Season: May, August
 
 - Strongest renter demand
 - School-year transitions drive family relocations
 - Faster leasing timelines
 
-### Shoulder Season: March – April, September
+### Shoulder Season: March, April, September
 
 - Steady activity
 - Good window for renewals and moderate rent adjustments
 
-### Slow Season: November – February
+### Slow Season: November, February
 
 - Smaller applicant pools
 - Listings may take longer to lease without competitive pricing
@@ -168,7 +168,7 @@ Most well-priced rentals lease within **three to six weeks during peak season**,
 
 ### What rent should I realistically expect?
 
-Typical rents align with the ranges outlined earlier. Apartments commonly fall around **$1,500–$2,000**, while single-family homes often lease between **$2,400 and $3,000 depending on size and condition**.
+Typical rents align with the ranges outlined earlier. Apartments commonly fall around **$1,500 to $2,000**, while single-family homes often lease between **$2,400 and $3,000 depending on size and condition**.
 
 ### Is Upper Arlington a seasonal rental market?
 

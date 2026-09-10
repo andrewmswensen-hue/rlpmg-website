@@ -69,7 +69,7 @@ RLPM writes the turn scope directly out of this inspection. For the move-in half
 
 This provision catches self-managing owners, and it sits in the statute’s first division. [ORC 5321.16(A)](https://codes.ohio.gov/ohio-revised-code/section-5321.16): *“Any security deposit in excess of fifty dollars or one month’s periodic rent, whichever is greater, shall bear interest on the excess at the rate of five per cent per annum if the tenant remains in possession of the premises for six months or more, and shall be computed and paid annually by the landlord to the tenant.”*
 
-Three conditions have to line up. The deposit exceeds the greater of $50 or one month’s periodic rent. Interest applies to the excess only, not the whole deposit. And the resident stays in possession six months or more. Collect exactly one month’s rent and none of this applies. Collect two (common in Columbus when an applicant is approved with credit conditions, and the top of RLPM’s own 1–2 month range) and the second month is excess in its entirety.
+Three conditions have to line up. The deposit exceeds the greater of $50 or one month’s periodic rent. Interest applies to the excess only, not the whole deposit. And the resident stays in possession six months or more. Collect exactly one month’s rent and none of this applies. Collect two (common in Columbus when an applicant is approved with credit conditions, and the top of RLPM’s own 1 to 2 month range) and the second month is excess in its entirety.
 
 Run it on a real number. RLPM’s [2026 Columbus Single-Family Rental Market Report](/2026-columbus-market-report/) puts detached single-family rentals at $1,750 to $2,200 depending on neighborhood and condition. Take a 3-bedroom in Gahanna at $1,800.
 

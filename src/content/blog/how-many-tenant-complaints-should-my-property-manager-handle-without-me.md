@@ -30,7 +30,7 @@ Is it possible you could have prevented that loud music from ever even occurring
 
 It starts with your lease.
 
-By clearly spelling out in your lease agreement what is and is not acceptable in your rental unit – and by assessing fees for engaging in those types of behavior – you can effectively dissuade behavior you deem unacceptable for your property. To learn more about what fees can be applied in an Ohio lease agreement, [be sure to read this post.](/blog/what-tenant-fees-can-be-charged-in-an-ohio-lease/)
+By clearly spelling out in your lease agreement what is and is not acceptable in your rental unit, and by assessing fees for engaging in those types of behavior, you can effectively dissuade behavior you deem unacceptable for your property. To learn more about what fees can be applied in an Ohio lease agreement, [be sure to read this post.](/blog/what-tenant-fees-can-be-charged-in-an-ohio-lease/)
 
 ## How to Handle Tenant Complaints
 

@@ -21,7 +21,7 @@ A clear investment philosophy is like having a roadmap to guide your decisions, 
 
 ## Why You Need an Investment Philosophy
 
-Whether you’re new to real estate investing or have an established portfolio, it never hurts to define – or revisit – your approach to investing. The good news with investing in Columbus properties is there is no right or wrong way to do it. The decisions rest purely on your shoulders to evaluate the strategy you feel most comfortable with. This is where having an investment philosophy can be helpful.
+Whether you’re new to real estate investing or have an established portfolio, it never hurts to define, or revisit, your approach to investing. The good news with investing in Columbus properties is there is no right or wrong way to do it. The decisions rest purely on your shoulders to evaluate the strategy you feel most comfortable with. This is where having an investment philosophy can be helpful.
 
 An investment philosophy is a set of guiding principles that informs your approach to real estate investing. Not only does it account for your goals, but it also encompasses factors such as your tolerance for risk, your preferred asset classes, investment strategies, and more. By defining your investment philosophy, you create a framework that helps you make informed decisions and stay focused on your long-term objectives.
 
@@ -31,10 +31,10 @@ Your investment philosophy may evolve as you become a more experienced investor,
 
 Here are some key elements to consider when defining your investment philosophy.
 
-- **Investment goals** – Start by clearly defining your investment goals. Are you looking to generate passive income, achieve capital appreciation, or build long-term wealth? Your goals will shape your investment strategy and the types of properties you target.
-- **Risk tolerance** – Evaluate your comfort level with different types of risks. Real estate investing involves various risks, including market risk, property-specific risk, and financial risk. Understanding your comfort with risk will help you determine the level of uncertainty you’re willing to take on with new properties.
-- **Asset class preferences** – Consider which asset classes align with your investment objectives. Are you interested in single- or multi-family residential properties, commercial real estate, or perhaps mixed-use developments?
-- **Investment style** – How active or passive do you want to be with your investments? Do you want to be hands-on with property management and renovations, or do you prefer to let the day-to-day operations be outsourced to someone else? Similarly, are you looking for short- or long-term investment opportunities?
+- **Investment goals**, Start by clearly defining your investment goals. Are you looking to generate passive income, achieve capital appreciation, or build long-term wealth? Your goals will shape your investment strategy and the types of properties you target.
+- **Risk tolerance**, Evaluate your comfort level with different types of risks. Real estate investing involves various risks, including market risk, property-specific risk, and financial risk. Understanding your comfort with risk will help you determine the level of uncertainty you’re willing to take on with new properties.
+- **Asset class preferences**, Consider which asset classes align with your investment objectives. Are you interested in single- or multi-family residential properties, commercial real estate, or perhaps mixed-use developments?
+- **Investment style**, How active or passive do you want to be with your investments? Do you want to be hands-on with property management and renovations, or do you prefer to let the day-to-day operations be outsourced to someone else? Similarly, are you looking for short- or long-term investment opportunities?
 
 These are just a few areas to consider as you shape your investment philosophy. When doing so, it also helps to talk with other experienced investors who can share their wisdom and lessons learned. We’ve all made mistakes. Learning from others can help you make fewer of them.
 

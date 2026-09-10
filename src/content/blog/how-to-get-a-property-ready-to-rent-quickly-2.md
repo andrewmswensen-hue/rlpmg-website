@@ -28,10 +28,10 @@ As you prepare your property for rent, knowing what to prioritize during a renta
 
 Here are some essentials to include on your turnover checklist:
 
-- **Do a deep clean** – Whether this is the first time you’re renting out the unit or you are between tenants, it’s essential to do a deep clean of the property. By setting a standard of cleanliness, you’re also demonstrating the condition you expect future residents to maintain.
-- **Tackle repairs and upgrades** – This might include adding fresh paint, installing new carpet, upgrading appliances (or at a minimum conducting maintenance checks on existing appliances), fixing leaks and ensuring that all systems are running safely and efficiently.
+- **Do a deep clean**, Whether this is the first time you’re renting out the unit or you are between tenants, it’s essential to do a deep clean of the property. By setting a standard of cleanliness, you’re also demonstrating the condition you expect future residents to maintain.
+- **Tackle repairs and upgrades**, This might include adding fresh paint, installing new carpet, upgrading appliances (or at a minimum conducting maintenance checks on existing appliances), fixing leaks and ensuring that all systems are running safely and efficiently.
 
-- **Make aesthetic improvements** – Other simple and inexpensive upgrades can also improve the overall unit’s appeal. Things like improving lighting and focusing on finishes can be a cost-effective way to improve the unit.
+- **Make aesthetic improvements**, Other simple and inexpensive upgrades can also improve the overall unit’s appeal. Things like improving lighting and focusing on finishes can be a cost-effective way to improve the unit.
 
 ## Create a Go-To Vendor Phone List
 

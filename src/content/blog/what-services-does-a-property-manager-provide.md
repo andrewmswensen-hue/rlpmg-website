@@ -28,9 +28,9 @@ When that happens, they often turn to a property management company to oversee t
 
 The services a property management company provides can generally be broken down into three major categories: leasing, rent collection and maintenance.
 
-- **Leasing**– Anytime you have a vacant unit, the property manager will be responsible for advertising the property for rent, showing it to prospective tenants, screening those tenants, and then facilitating the lease agreement process.
-- **Rent collection**– The property manager will collect the rent, deal with late fees and enforcement, as well as collect any utility payments as appropriate for a given property.
-- **Maintenance**– Lastly, your property manager will handle any type of maintenance issue that comes up at the property. Often there is a pre-set maintenance approval limit, which means anything below that amount will be taken care of by the property manager. Anything above the specified amount will require a call to the owner for approval before the property manager engages a vendor or submits a work order to get the issue resolved. Another area that falls under the maintenance category is unit turnover between tenants. The property manager will take care of getting the unit ready to rent again.
+- **Leasing**, Anytime you have a vacant unit, the property manager will be responsible for advertising the property for rent, showing it to prospective tenants, screening those tenants, and then facilitating the lease agreement process.
+- **Rent collection**, The property manager will collect the rent, deal with late fees and enforcement, as well as collect any utility payments as appropriate for a given property.
+- **Maintenance**, Lastly, your property manager will handle any type of maintenance issue that comes up at the property. Often there is a pre-set maintenance approval limit, which means anything below that amount will be taken care of by the property manager. Anything above the specified amount will require a call to the owner for approval before the property manager engages a vendor or submits a work order to get the issue resolved. Another area that falls under the maintenance category is unit turnover between tenants. The property manager will take care of getting the unit ready to rent again.
 
 While leasing, rent collection and maintenance are the three major categories a property manager handles for you, there are a lot of other things you may not realize a property manager is responsible for.
 

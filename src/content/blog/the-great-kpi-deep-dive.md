@@ -1,6 +1,6 @@
 ---
 title: "The Great KPI Deep Dive"
-description: "KPI is an acronym that gets tossed around a lot in the business world, but what exactly does it mean and how can you meaningfully use it to help grow your small business? KPI – or key performance indicator – is a metric used to measure a company’s overall performance against a certain set of"
+description: "KPI is an acronym that gets tossed around a lot in the business world, but what exactly does it mean and how can you meaningfully use it to help grow your small business? KPI, or key performance indicator, is a metric used to measure a company’s overall performance against a certain set of"
 pubDate: "2021-11-30T15:00:22Z"
 updatedDate: "2021-11-02T19:58:42Z"
 slug: "the-great-kpi-deep-dive"
@@ -21,7 +21,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2021/11/slidebean-J3AV8F-B42M-unsplash-min-scaled-e1635883061315-278x300.jpg)KPI is an acronym that gets tossed around a lot in the business world, but what exactly does it mean and how can you meaningfully use it to help grow your small business?
 
-KPI – or key performance indicator – is a metric used to measure a company’s overall performance against a certain set of objectives. KPIs help establish milestones to measure progress and provide insight for business leaders to make more informed decisions.
+KPI, or key performance indicator, is a metric used to measure a company’s overall performance against a certain set of objectives. KPIs help establish milestones to measure progress and provide insight for business leaders to make more informed decisions.
 
 ## KPIs provide objective insight
 
@@ -35,11 +35,11 @@ What are those five numbers you need to know in order to understand if your busi
 
 For our company at RL Property Management, we review our KPIs on a monthly basis so we can gain a stronger understanding of how the business is doing on the whole as well as where specifically we can improve. A few KPIs we track include:
 
-- **Number of units listed for rent** – this is a good indicator of the workload on our leasing team and how stale existing listings are going.
-- **Number of open work orders**– this helps us understand how busy the maintenance department is and how close they are to closing out various work orders.
-- **Net Promoter Score** – we track NPS for both clients and tenants by sending out surveys three times a year. This helps us understand where we stand in terms of customer service.
-- **Total number of units under management**– are we growing?
-- **Total occupancy**– of the units we manage, how many are currently occupied?
+- **Number of units listed for rent**, this is a good indicator of the workload on our leasing team and how stale existing listings are going.
+- **Number of open work orders**, this helps us understand how busy the maintenance department is and how close they are to closing out various work orders.
+- **Net Promoter Score**, we track NPS for both clients and tenants by sending out surveys three times a year. This helps us understand where we stand in terms of customer service.
+- **Total number of units under management**, are we growing?
+- **Total occupancy**, of the units we manage, how many are currently occupied?
 
 Each KPI we track has a target, and we monitor how well we are hitting those targets. When the numbers aren’t where we want them to be, we create what we call an issues’ list so we can prioritize them and tackle them collaboratively.
 
@@ -49,7 +49,7 @@ A second way KPIs can be effective is for driving change within an organization.
 
 KPIs are great if you need to zoom in on a certain part of the organization to figure out what’s going on and how you can improve it. It can be particularly helpful for areas in which you may be inherently weaker.
 
-For example, if you were having trouble with growth and needed to understand why you weren’t winning new clients as quickly as you wanted, you could look at things like the cost-per-lead or your conversion ratio – how many leads that come in the door actually turn into clients?
+For example, if you were having trouble with growth and needed to understand why you weren’t winning new clients as quickly as you wanted, you could look at things like the cost-per-lead or your conversion ratio, how many leads that come in the door actually turn into clients?
 
 By tracking the data for a few weeks or months, you could experiment with different strategies to improve your numbers in these areas.
 

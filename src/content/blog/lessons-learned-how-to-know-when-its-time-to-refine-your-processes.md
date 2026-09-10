@@ -21,11 +21,11 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2022/01/ray-reyes-3xwrg7Vv6Ts-unsplash-min-300x200.jpg)While mistakes are an inevitable part of life, no business owner likes to admit to making them. But, in the spirit of transparency and sharing what we’ve learned, we’re going to do something a little differently in this post than what we usually do on our blog.
 
-We’re going to discuss a recent mistake we made here at RL Property Management – and share how that mistake ultimately helped strengthen our company, our processes and the services we provide to our clients.
+We’re going to discuss a recent mistake we made here at RL Property Management, and share how that mistake ultimately helped strengthen our company, our processes and the services we provide to our clients.
 
 ## The Back Story
 
-Admittedly, it’s uncomfortable talking about a mistake or vulnerability, especially because we pride ourselves on getting the details right for our customers and tenants, but we believe it’s important to share some of what happens behind the scenes – both good and bad.
+Admittedly, it’s uncomfortable talking about a mistake or vulnerability, especially because we pride ourselves on getting the details right for our customers and tenants, but we believe it’s important to share some of what happens behind the scenes, both good and bad.
 
 Here’s the situation that unfolded and how it led us to refining our client onboarding process:
 
@@ -41,7 +41,7 @@ When we begin a new relationship with a property owner, we sum up all of the fun
 
 In this particular scenario, the property owner mailed us a check as requested. We received it and then we processed it through our accounting software. The problem, however, was that we allocated a*ll* of those funds to just *one* of the owner’s properties, instead of splitting it up and spreading it across the multiple properties that this owner had given us to manage.
 
-Because many of our new clients have us managing just a single property for them but this owner had multiple, our standard process for onboarding needed to be slightly adjusted – and it wasn’t. This caused an error because our employee who received and applied the funds didn’t catch that this property owner had multiple properties with us and mistakenly applied all of those funds to just one of the properties.
+Because many of our new clients have us managing just a single property for them but this owner had multiple, our standard process for onboarding needed to be slightly adjusted, and it wasn’t. This caused an error because our employee who received and applied the funds didn’t catch that this property owner had multiple properties with us and mistakenly applied all of those funds to just one of the properties.
 
 The result is that one property had too much money in its account, and the other properties didn’t have any money in their accounts. When the owner received their first monthly statement from our company, they raised a red flag.
 

@@ -37,10 +37,10 @@ If financing the investment, it also means you’ll want a monthly mortgage paym
 
 Though not a substitute for a comprehensive financial analysis, the 1% rule can be a helpful screening tool for identifying the requisite monthly rent needed for investors to come out ahead each month, but it is just a starting point. There are other variables to keep in mind when assessing an investment’s viability.
 
-- **Repair costs** – Repairs, upgrades and turnover costs should all be accounted for when running your 1% rule calculation. This is especially true when investing in multi-family properties with value-add opportunities.
+- **Repair costs**, Repairs, upgrades and turnover costs should all be accounted for when running your 1% rule calculation. This is especially true when investing in multi-family properties with value-add opportunities.
 
-- **Investment costs** – Also keep in mind that the 1% rule does not consider expenses like property taxes, insurance, maintenance or property management fees.
-- **Local market conditions** – Market conditions are a prime determinant of rental rates. In high-demand markets, it might be challenging to find properties that meet the 1% rule.
+- **Investment costs**, Also keep in mind that the 1% rule does not consider expenses like property taxes, insurance, maintenance or property management fees.
+- **Local market conditions**, Market conditions are a prime determinant of rental rates. In high-demand markets, it might be challenging to find properties that meet the 1% rule.
 
 When considering multi-family properties in Franklin County, Ohio, the 1% rule offers a helpful rule of thumb for determining what you’ll need to earn in monthly rental income, but it is not the only factor to consider when pursuing an investment strategy. There are numerous ways to [assess the value](/blog/assessing-the-value-of-multi-family-properties-in-columbus/) and growth potential of multi-family properties in Columbus.
 

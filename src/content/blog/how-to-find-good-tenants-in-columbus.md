@@ -23,7 +23,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2022/01/kadarius-seegars-DevJkLB3hWE-unsplash-scaled-e1641392799111-276x300.jpg)Securing good tenants is one of the most important components of being a property owner and real estate investor, and it’s something we spend a lot of time thinking about here at RL Property Management.
 
-Throughout our years as a property management company based in Franklin County, we’ve studied the data and looked at rental applications for hundreds and thousands of rental applicants – some of whom then turn into tenants. After they move out, part of our evaluation process includes looking at outcome data as well.
+Throughout our years as a property management company based in Franklin County, we’ve studied the data and looked at rental applications for hundreds and thousands of rental applicants, some of whom then turn into tenants. After they move out, part of our evaluation process includes looking at outcome data as well.
 
 ## So, What Makes a Great Tenant?
 
@@ -37,11 +37,11 @@ Below we’ll walk through the basics of how we evaluate prospective tenants, th
 
 ## The Big Five When Evaluating a Tenant Application
 
-1. **Credit** – We look at credit score and credit history, which we recognize can be a bit controversial. However, we believe credit is strongly predictive of tenant behaviors and tenant outcomes, and we have the data to back that up. We require credit score minimums for every tenant we lease to, regardless of the type of property or its location. Sometimes that means we may have to wait a bit longer to find an approved applicant, but in the end, our property owners are so much better off waiting a couple extra weeks or a month to find a great tenant, rather than leasing to a marginally qualified tenant.
-2. **Criminal history** – We look back 10 years for any criminal convictions.
-3. **Eviction history** – We look back 5 years for this, as we have found that past evictions can be predictive of tenant behavior moving forward. We simply won’t approve anyone with an eviction or eviction filing within the past 5 years.
-4. **Rental history** – We contact the current and previous landlord to find out if they caused any problems. Did they pay their rent on-time? Were they able to get back their security deposit? Did they violate any lease terms, or were they otherwise good tenants? Screening a potential tenant’s rental history is an important part of our application process.
-5. **Income** – We require three times the rent as a minimum income threshold for an applicant to be able to afford to live in a specific rental unit. We verify income by looking at pay stubs or contacting employers.
+1. **Credit**, We look at credit score and credit history, which we recognize can be a bit controversial. However, we believe credit is strongly predictive of tenant behaviors and tenant outcomes, and we have the data to back that up. We require credit score minimums for every tenant we lease to, regardless of the type of property or its location. Sometimes that means we may have to wait a bit longer to find an approved applicant, but in the end, our property owners are so much better off waiting a couple extra weeks or a month to find a great tenant, rather than leasing to a marginally qualified tenant.
+2. **Criminal history**, We look back 10 years for any criminal convictions.
+3. **Eviction history**, We look back 5 years for this, as we have found that past evictions can be predictive of tenant behavior moving forward. We simply won’t approve anyone with an eviction or eviction filing within the past 5 years.
+4. **Rental history**, We contact the current and previous landlord to find out if they caused any problems. Did they pay their rent on-time? Were they able to get back their security deposit? Did they violate any lease terms, or were they otherwise good tenants? Screening a potential tenant’s rental history is an important part of our application process.
+5. **Income**, We require three times the rent as a minimum income threshold for an applicant to be able to afford to live in a specific rental unit. We verify income by looking at pay stubs or contacting employers.
 
 Every property manager or landlord will have their own twist on where to set their minimum standards for an applicant, but we’ve found that using data to create a consistent tenant screening process has benefited us and the property owners we serve.
 

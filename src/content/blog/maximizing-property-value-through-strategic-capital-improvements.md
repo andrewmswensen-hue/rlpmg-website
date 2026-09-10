@@ -25,7 +25,7 @@ Not all improvements boost your property’s value equally. **Kitchen and bathro
 
 Energy-efficient upgrades, such as **new windows, updated HVAC systems, or solar panels**, are another smart investment. These improvements appeal to environmentally conscious tenants and reduce utility costs, making your property more attractive while enhancing long-term value. Additionally, energy-efficient features may qualify for government incentives, lowering your upfront costs and boosting your ROI further.
 
-Exterior improvements—such as **landscaping, fresh paint, or new siding**—also offer a solid return, enhancing curb appeal and increasing marketability. The first impression matters to tenants, and exterior upgrades can help make your property stand out in a competitive rental market.
+Exterior improvements, such as **landscaping, fresh paint, or new siding**, also offer a solid return, enhancing curb appeal and increasing marketability. The first impression matters to tenants, and exterior upgrades can help make your property stand out in a competitive rental market.
 
 From an asset management perspective, all of these improvements not only enhance current rentability but also contribute to the long-term appreciation of the property, securing a higher return on investment over time.
 
@@ -35,13 +35,13 @@ However, choosing the right improvements depends on the unique characteristics o
 
 Once you’ve identified which improvements to make, the next step is setting a **realistic budget**. A well-planned budget ensures that you don’t overextend yourself financially or spend more than the improvements will generate in returns. In addition to the upfront costs, consider potential long-term savings from improvements such as energy-efficient appliances or better insulation.
 
-For larger projects, **financing options** like home equity loans or lines of credit may be helpful. However, it’s important to weigh the benefits against the financial commitment. A common mistake among property owners is over-improving a property—investing more into upgrades than the property can reasonably support based on local market rents.
+For larger projects, **financing options** like home equity loans or lines of credit may be helpful. However, it’s important to weigh the benefits against the financial commitment. A common mistake among property owners is over-improving a property, investing more into upgrades than the property can reasonably support based on local market rents.
 
 This is another area where **working with a property management company** can be advantageous. Their market expertise helps you avoid the trap of over-improving, ensuring you focus only on upgrades that offer measurable value. They can also assist in managing budgets and timelines, ensuring projects stay on track and within financial limits.
 
 ## How Smart Investments Can Keep Your Tenants Happy
 
-Strategic capital improvements do more than boost property value—they also contribute to **tenant satisfaction and retention**. Simple upgrades like adding in-unit laundry facilities, upgrading security systems, or installing modern lighting can have a significant impact on tenant experience. Happy tenants are more likely to renew their leases, helping you reduce vacancy rates and turnover costs.
+Strategic capital improvements do more than boost property value, they also contribute to **tenant satisfaction and retention**. Simple upgrades like adding in-unit laundry facilities, upgrading security systems, or installing modern lighting can have a significant impact on tenant experience. Happy tenants are more likely to renew their leases, helping you reduce vacancy rates and turnover costs.
 
 Retaining quality tenants offers long-term financial benefits, such as steady rental income and lower maintenance expenses. **Property management professionals** are skilled at identifying the most important improvements to tenants, such as adding shared amenities, improving outdoor spaces, or upgrading heating and cooling systems.
 
@@ -49,7 +49,7 @@ Additionally, property managers can coordinate the renovation process to minimiz
 
 ## Avoiding Common Pitfalls in Capital Improvements
 
-While capital improvements can provide significant benefits, they also come with risks. One common pitfall is **over-improving the property**—spending more on upgrades than the local rental market can support. For example, installing luxury appliances or high-end flooring in an area with moderate rental demand may not yield the desired ROI.
+While capital improvements can provide significant benefits, they also come with risks. One common pitfall is **over-improving the property**, spending more on upgrades than the local rental market can support. For example, installing luxury appliances or high-end flooring in an area with moderate rental demand may not yield the desired ROI.
 
 Another challenge is **timing the improvements incorrectly.** Upgrading during peak leasing seasons or while tenants are in residence can create disruption, leading to tenant dissatisfaction or vacancies. Instead, improvements should ideally align with tenant turnover periods or seasons that minimize project delays and inconvenience.
 

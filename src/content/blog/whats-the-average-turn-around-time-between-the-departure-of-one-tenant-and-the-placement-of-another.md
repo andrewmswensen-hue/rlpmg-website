@@ -39,13 +39,13 @@ Within a day or two of a tenant vacating a property, we at RL Property Managemen
 
 Once we receive owner approval to begin the turnover process, we get our team onsite cleaning up the property, painting, replacing the carpet, making any maintenance repairs, etc.
 
-We find that most turns are able to be completed by our team – assuming no major damage or upgrades – within an average of two weeks, and that’s consistent with what we see in central Ohio.
+We find that most turns are able to be completed by our team, assuming no major damage or upgrades, within an average of two weeks, and that’s consistent with what we see in central Ohio.
 
 ## The unit is rent-ready. Now what?
 
 The next step is to immediately list the property for rent (for strategies on where to list, be sure to read this post ). In terms of leasing time, this can vary quite a bit depending on what type of property it is, where it’s located, what time of year it is, and how much you’re asking for in rent. The more desirable the property and the more competitive the price, the faster it will lease.
 
-In terms of overall averages, our average leasing time is a little bit under three weeks. We are seeing single-family homes in nicer suburban areas leasing within one-to-two weeks. Larger apartment communities aren’t in as high of demand as they used to be, so they might take a bit longer – maybe three-to-four weeks depending on the time of year and how aggressive you want to be with the rent price.
+In terms of overall averages, our average leasing time is a little bit under three weeks. We are seeing single-family homes in nicer suburban areas leasing within one-to-two weeks. Larger apartment communities aren’t in as high of demand as they used to be, so they might take a bit longer, maybe three-to-four weeks depending on the time of year and how aggressive you want to be with the rent price.
 
 The other factor to consider when thinking about vacancies is that you will have some outliers. While most units may lease within a few weeks, every once in a while you will have a unit that for whatever reason isn’t resonating with the marketplace, and it may sit vacant for six or eight weeks.
 

@@ -26,13 +26,13 @@ It’s not easy being a landlord, but it’s part of the package when you invest
 
 While hiring a property management company will serve as a buffer and take a lot of the day-to-day management responsibilities out of being a landlord, if there’s a big issue, the final decision will still be yours. Here are some aspects of being a landlord you should consider:
 
-- **Legal obligations** – The tenant screening process, lease agreements and many aspects of property ownership require legal compliance. Know your state laws to ensure your lease agreements and management practices adhere to them and consult an attorney to stay on top of any changing tenant-landlord laws in Ohio.
-- **Tenant relationships** – Fostering positive relationships with your residents is important for many reasons, but in terms of achieving your financial objectives, good relationships can increase a tenant’s likelihood of renewing their lease as well as encourage them to take good care of the rental unit.
-- **Property maintenance and operations** – Rental properties must be well-maintained, and this takes work. Consider your ability to manage ongoing maintenance and operational tasks.
-- **Leasing**– Anytime you have a vacant unit, the landlord (or property manager) will have to advertise the property for rent, show it to prospective tenants, screen those tenants, and then facilitate the lease agreement process.
-- **Rent collection** – You will need to collect the rent, deal with late fees and enforcement, as well as collect any utility payments as appropriate for a given property.
+- **Legal obligations**, The tenant screening process, lease agreements and many aspects of property ownership require legal compliance. Know your state laws to ensure your lease agreements and management practices adhere to them and consult an attorney to stay on top of any changing tenant-landlord laws in Ohio.
+- **Tenant relationships**, Fostering positive relationships with your residents is important for many reasons, but in terms of achieving your financial objectives, good relationships can increase a tenant’s likelihood of renewing their lease as well as encourage them to take good care of the rental unit.
+- **Property maintenance and operations**, Rental properties must be well-maintained, and this takes work. Consider your ability to manage ongoing maintenance and operational tasks.
+- **Leasing**, Anytime you have a vacant unit, the landlord (or property manager) will have to advertise the property for rent, show it to prospective tenants, screen those tenants, and then facilitate the lease agreement process.
+- **Rent collection**, You will need to collect the rent, deal with late fees and enforcement, as well as collect any utility payments as appropriate for a given property.
 
-In looking at this condensed list of landlord responsibilities, a property management company can help with several of them – namely [leasing, rent collection and maintenance,](/blog/what-services-does-a-property-manager-provide/) but a property management company often offers many more services, including services like accounting. As you consider your willingness, capacity, and ability to take on landlord responsibilities, it never hurts to talk with a property management company first to see how they can help.
+In looking at this condensed list of landlord responsibilities, a property management company can help with several of them, namely [leasing, rent collection and maintenance,](/blog/what-services-does-a-property-manager-provide/) but a property management company often offers many more services, including services like accounting. As you consider your willingness, capacity, and ability to take on landlord responsibilities, it never hurts to talk with a property management company first to see how they can help.
 
 ## Contact Us to Learn More
 

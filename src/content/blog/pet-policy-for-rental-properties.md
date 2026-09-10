@@ -136,7 +136,7 @@ If you own a rental property and want guidance on **tenant placement, pet polici
 
 ### Should landlords allow pets in rental properties?
 
-Allowing pets can expand the applicant pool and reduce vacancy time, especially in competitive markets like Columbus. The key is having a clear written policy in place before listing the property — not whether pets are allowed, but whether expectations are defined.
+Allowing pets can expand the applicant pool and reduce vacancy time, especially in competitive markets like Columbus. The key is having a clear written policy in place before listing the property, not whether pets are allowed, but whether expectations are defined.
 
 ### Can landlords charge pet fees in Ohio?
 
@@ -148,11 +148,11 @@ A pet deposit is a one-time refundable amount held to cover potential pet-relate
 
 ### Can a landlord prohibit pets entirely?
 
-Yes — with one important exception. Landlords can set a no-pets policy, but they cannot deny a reasonable accommodation request for a qualified service animal or emotional support animal under federal Fair Housing regulations.
+Yes, with one important exception. Landlords can set a no-pets policy, but they cannot deny a reasonable accommodation request for a qualified service animal or emotional support animal under federal Fair Housing regulations.
 
 ### Are emotional support animals considered pets?
 
-No. Emotional support animals (ESAs) may qualify as reasonable accommodations under the Fair Housing Act for individuals with disabilities. Standard pet rules — including breed restrictions, pet deposits, and pet rent — generally do not apply to approved assistance animals. Landlords can request appropriate documentation through proper channels but should review current federal and Ohio guidance before denying any request.
+No. Emotional support animals (ESAs) may qualify as reasonable accommodations under the Fair Housing Act for individuals with disabilities. Standard pet rules, including breed restrictions, pet deposits, and pet rent, generally do not apply to approved assistance animals. Landlords can request appropriate documentation through proper channels but should review current federal and Ohio guidance before denying any request.
 
 ### Do pet policies apply to service animals?
 
@@ -160,7 +160,7 @@ Service animals trained to perform specific tasks for individuals with disabilit
 
 ### Can landlords restrict certain dog breeds?
 
-Some landlords and insurance providers restrict specific breeds due to liability and coverage concerns. Before enforcing breed restrictions, check with your property insurance carrier — some policies exclude coverage for incidents involving certain breeds, which can create gaps in liability protection if the policy and the lease don’t align.
+Some landlords and insurance providers restrict specific breeds due to liability and coverage concerns. Before enforcing breed restrictions, check with your property insurance carrier, some policies exclude coverage for incidents involving certain breeds, which can create gaps in liability protection if the policy and the lease don’t align.
 
 ### What should a rental pet policy include?
 
@@ -168,7 +168,7 @@ A strong pet policy typically covers the approval process, the number and type o
 
 ### Should a pet policy be a separate document or part of the lease?
 
-The pet policy should be incorporated into the lease agreement — either as a dedicated section or as a signed addendum attached to the lease. A verbal agreement or informal approval is difficult to enforce if a dispute arises.
+The pet policy should be incorporated into the lease agreement, either as a dedicated section or as a signed addendum attached to the lease. A verbal agreement or informal approval is difficult to enforce if a dispute arises.
 
 ### What happens if a tenant has an unauthorized pet?
 
@@ -176,7 +176,7 @@ When the lease clearly states pet rules, enforcement is straightforward. The typ
 
 ### What kind of property damage can pets cause?
 
-The most common issues include scratched hardwood or vinyl flooring, stained or odor-damaged carpet and padding, chewed baseboards or trim, and yard damage from digging. These costs can add up quickly at turnover — having financial protections like a pet deposit in place before move-in helps offset repair expenses.
+The most common issues include scratched hardwood or vinyl flooring, stained or odor-damaged carpet and padding, chewed baseboards or trim, and yard damage from digging. These costs can add up quickly at turnover, having financial protections like a pet deposit in place before move-in helps offset repair expenses.
 
 ### How can a pet policy reduce liability risk?
 

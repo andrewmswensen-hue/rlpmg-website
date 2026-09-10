@@ -27,8 +27,8 @@ In this post, we’ll discuss the management aspect of multifamily properties re
 
 Relative to managing single family units, multifamily properties offer several advantages for those interested in property management, including:
 
-- The ability to grow quickly – a multifamily unit allows you to go from managing one single family unit to 5 or more units in a single contract.
-- They may offer more sophisticated clients – owners who hire you have an appreciation for and understanding of what it takes to successfully manage rental properties.
+- The ability to grow quickly, a multifamily unit allows you to go from managing one single family unit to 5 or more units in a single contract.
+- They may offer more sophisticated clients, owners who hire you have an appreciation for and understanding of what it takes to successfully manage rental properties.
 - You are able to manage more units per client, which means there is less overhead.
 - There may be higher tenant turnover and thus more income sourced from leasing fees.
 

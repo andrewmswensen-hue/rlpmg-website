@@ -26,8 +26,8 @@ If you’re thinking about whether to invest in multifamily, below are some cons
 
 Small, residential multifamily properties consist of 2-4 units per property. Buildings with 5 or more units are referred to as commercial multifamily properties. Owning investment properties in this niche offer several advantages, including
 
-- **Bigger cash flow** – When you own multiple units, you’re capitalizing on multiple revenue streams while only having to make a single property investment from you.
-- **Reduced vacancy impact** – Owning multifamily properties alleviates some of the impact resulting from vacancies because, ideally, you still have some units occupied even while you are turning over others.
-- **Improved scalability** – An investment in just one multifamily unit quickly scales your entire portfolio and income stream.
+- **Bigger cash flow**, When you own multiple units, you’re capitalizing on multiple revenue streams while only having to make a single property investment from you.
+- **Reduced vacancy impact**, Owning multifamily properties alleviates some of the impact resulting from vacancies because, ideally, you still have some units occupied even while you are turning over others.
+- **Improved scalability**, An investment in just one multifamily unit quickly scales your entire portfolio and income stream.
 
 As you consider investing in multifamily in Columbus, ask us your questions! Our team at RL Property Management has been managing properties throughout Franklin County for more than a decade, and we’d love to help you. [Get in touch](/contact-us/)with us to learn more.

@@ -1,6 +1,6 @@
 ---
 title: "Which Utility Bills are Tenants Responsible For and Which are Owners Responsible For?"
-description: "One important part of being a landlord or property owner is dealing with utilities. When lease terms are not clearly spelled out, utility payments – and who’s responsible for what – can become a point of contention between tenants and landlords. Ensuring that tenants are paying the utility bills the"
+description: "One important part of being a landlord or property owner is dealing with utilities. When lease terms are not clearly spelled out, utility payments, and who’s responsible for what, can become a point of contention between tenants and landlords. Ensuring that tenants are paying the utility bills the"
 pubDate: "2021-12-08T15:00:46Z"
 updatedDate: "2021-12-07T20:13:14Z"
 slug: "which-utility-bills-are-tenants-responsible-for-and-which-are-owners-responsible-for"
@@ -20,7 +20,7 @@ tags:
 
 {{youtube:q6teSchu8pI}}
 
-![](https://rlpmg.com/wp-content/uploads/2021/12/pexels-mikhail-nilov-6964329-min-200x300.jpg)One important part of being a landlord or property owner is dealing with utilities. When lease terms are not clearly spelled out, utility payments – and who’s responsible for what – can become a point of contention between tenants and landlords.
+![](https://rlpmg.com/wp-content/uploads/2021/12/pexels-mikhail-nilov-6964329-min-200x300.jpg)One important part of being a landlord or property owner is dealing with utilities. When lease terms are not clearly spelled out, utility payments, and who’s responsible for what, can become a point of contention between tenants and landlords.
 
 Ensuring that tenants are paying the utility bills they’re responsible for and that you also are staying on top of the bills you are responsible for becomes even more important as you grow your portfolio and begin managing properties at scale.
 
@@ -30,7 +30,7 @@ Documenting utility bill responsibility in your lease agreement is critical to m
 
 In terms of the payment process, gas and electric are fairly simple. The main utility companies have no issue placing service directly into the tenant’s name. From there, the tenant remits payment to the utility company and there is no landlord involvement.
 
-Water can be a bit trickier as there are a lot of ins and outs with how water billing is handled within different jurisdictions in Central Ohio. It may also depend on how the meter is set up at your specific property – particularly if it’s a multi-family unit or condo. Some properties may be sub-metered for water.
+Water can be a bit trickier as there are a lot of ins and outs with how water billing is handled within different jurisdictions in Central Ohio. It may also depend on how the meter is set up at your specific property, particularly if it’s a multi-family unit or condo. Some properties may be sub-metered for water.
 
 As a landlord or property owner make sure you have a good understanding of the physical arrangement of each utility service at the properties you own and the companies that service them.
 

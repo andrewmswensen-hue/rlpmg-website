@@ -62,7 +62,7 @@ Even at moderate rent levels, the combination of income and long-term appreciati
 
 Columbus continues to show **strong occupancy rates and short days-on-market** for well-maintained rentals. Investors who stay in the game position themselves to **capture more equity while covering costs and creating monthly cash flow**.
 
-If you’re unsure whether renting or selling makes more sense for your situation, **we can help**. RL Property Management offers a **free [Market Rent Analysis](/free-rent-evaluation/)** that shows you what your home could earn in today’s rental market. We can also walk you through our [**Rent vs. Sell Calculator**](/rent-vs-sell-calculator/) – a tool that helps clarify your best move with real numbers.
+If you’re unsure whether renting or selling makes more sense for your situation, **we can help**. RL Property Management offers a **free [Market Rent Analysis](/free-rent-evaluation/)** that shows you what your home could earn in today’s rental market. We can also walk you through our [**Rent vs. Sell Calculator**](/rent-vs-sell-calculator/), a tool that helps clarify your best move with real numbers.
 
 **You don’t have to guess. Get the data. See the returns.**
 
@@ -83,7 +83,7 @@ Why Columbus remains a strong rental market:
 
 Whether you’re holding one property or ten, that kind of market resilience helps protect your income and equity. **Even in slower economic periods, well-maintained rentals in good locations continue to perform.**
 
-What does that mean for you? If you’re on the fence about whether to keep renting or cash out, remember: **strong tenant demand = consistent returns**. And in a city like Columbus, demand doesn’t just “bounce back”—it rarely dips.
+What does that mean for you? If you’re on the fence about whether to keep renting or cash out, remember: **strong tenant demand = consistent returns**. And in a city like Columbus, demand doesn’t just “bounce back”, it rarely dips.
 
 Want to see how your property stacks up? Reach out for a **free[Market Rent Analysis](/free-rent-evaluation/)** and find out what your rental could be earning today.
 

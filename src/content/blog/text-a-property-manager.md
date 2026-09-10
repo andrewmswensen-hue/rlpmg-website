@@ -13,7 +13,7 @@ categories:
   - "Uncategorized"
 ---
 
-![person texting on a phone](https://rlpmg.com/wp-content/uploads/2024/11/Texting-300x200.jpeg)Are you a landlord, investor, or simply curious about property management? Navigating the ins and outs of managing rental properties can be challenging, especially with local regulations, tenant interactions, maintenance, and financial considerations to juggle. That’s where RL Property Management steps in with our new “Text a Property Manager” service! Now, you can text us any property management question—from local code queries to daily management tips—and get answers from experienced property managers who know the industry inside and out.
+![person texting on a phone](https://rlpmg.com/wp-content/uploads/2024/11/Texting-300x200.jpeg)Are you a landlord, investor, or simply curious about property management? Navigating the ins and outs of managing rental properties can be challenging, especially with local regulations, tenant interactions, maintenance, and financial considerations to juggle. That’s where RL Property Management steps in with our new “Text a Property Manager” service! Now, you can text us any property management question, from local code queries to daily management tips, and get answers from experienced property managers who know the industry inside and out.
 
 ## How Does “Text a Property Manager” Work?
 

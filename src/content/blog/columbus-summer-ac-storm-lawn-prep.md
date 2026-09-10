@@ -151,11 +151,11 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [U.S. Department of Energy: Air Conditioner Maintenance](https://www.energy.gov/energysaver/air-conditioner-maintenance) — filter, coil, and refrigerant maintenance guidance.
-- [U.S. Department of Energy: Common Air Conditioner Problems](https://www.energy.gov/energysaver/common-air-conditioner-problems) — root causes of AC performance issues.
-- [Ohio Revised Code 5321.04](https://codes.ohio.gov/ohio-revised-code/section-5321.04) — landlord maintenance obligations.
-- [Ohio Revised Code 5321.07](https://codes.ohio.gov/ohio-revised-code/section-5321.07) — tenant remedies, including rent escrow.
-- [Columbus City Code 709.03](http://columbus-oh.elaws.us/code/coor_title7_ch709_sec709.03) — noxious weeds and grass height standard.
-- [City of Dublin, Ohio: Code Compliance & Enforcement](https://dublinohiousa.gov/code-compliance/) — comparison grass-height standard.
-- [WOSU Public Media: Safety Alert Issued for Ohio as Heat Dome Impacts the State](https://www.wosu.org/2026-06-29/safety-alert-issued-for-ohio-as-heat-dome-impacts-the-state) — late-June 2026 heat dome coverage.
-- [WeatherBug: Weather Alerts for Columbus, OH](https://www.weatherbug.com/alerts/columbus-oh-43211) — June 6, 2026 severe thunderstorm watch.
+- [U.S. Department of Energy: Air Conditioner Maintenance](https://www.energy.gov/energysaver/air-conditioner-maintenance), filter, coil, and refrigerant maintenance guidance.
+- [U.S. Department of Energy: Common Air Conditioner Problems](https://www.energy.gov/energysaver/common-air-conditioner-problems), root causes of AC performance issues.
+- [Ohio Revised Code 5321.04](https://codes.ohio.gov/ohio-revised-code/section-5321.04), landlord maintenance obligations.
+- [Ohio Revised Code 5321.07](https://codes.ohio.gov/ohio-revised-code/section-5321.07), tenant remedies, including rent escrow.
+- [Columbus City Code 709.03](http://columbus-oh.elaws.us/code/coor_title7_ch709_sec709.03), noxious weeds and grass height standard.
+- [City of Dublin, Ohio: Code Compliance & Enforcement](https://dublinohiousa.gov/code-compliance/), comparison grass-height standard.
+- [WOSU Public Media: Safety Alert Issued for Ohio as Heat Dome Impacts the State](https://www.wosu.org/2026-06-29/safety-alert-issued-for-ohio-as-heat-dome-impacts-the-state), late-June 2026 heat dome coverage.
+- [WeatherBug: Weather Alerts for Columbus, OH](https://www.weatherbug.com/alerts/columbus-oh-43211), June 6, 2026 severe thunderstorm watch.

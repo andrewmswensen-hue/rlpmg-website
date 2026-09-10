@@ -30,13 +30,13 @@ Any conversation involving rental property vacancy must also include a discussio
 
 When we’re screening residents, there are numerous factors we look at when determining if we’re going to approve an applicant. We call them the “Big 5 Criteria” and they include:
 
-- **Credit history** – The correlation between an applicant’s credit history and their skip and eviction rates has been studied extensively, and there is strong evidence to suggest that using one’s credit report can be highly predictive of their future ability to pay rent on time month after month.
-- **Criminal history** – We want to make sure we’re not placing someone in a rental property who could be a danger to other people in the community or building.
+- **Credit history**, The correlation between an applicant’s credit history and their skip and eviction rates has been studied extensively, and there is strong evidence to suggest that using one’s credit report can be highly predictive of their future ability to pay rent on time month after month.
+- **Criminal history**, We want to make sure we’re not placing someone in a rental property who could be a danger to other people in the community or building.
 
-- **Eviction history** – Someone who has recently been evicted is likely not going to be a good resident.
+- **Eviction history**, Someone who has recently been evicted is likely not going to be a good resident.
 
-- **Rental history** – We talk to the applicant’s current and previous landlord and get confirmation that they were indeed a good tenant, paid their rent on time, didn’t leave with a big balance, or didn’t damage the property in any significant way.
-- **Income** – We verify income by looking at pay stubs and bank statements. To qualify for a specific rental property we manage, the applicant needs to show a combined monthly household income of at least three times the cost of rent.
+- **Rental history**, We talk to the applicant’s current and previous landlord and get confirmation that they were indeed a good tenant, paid their rent on time, didn’t leave with a big balance, or didn’t damage the property in any significant way.
+- **Income**, We verify income by looking at pay stubs and bank statements. To qualify for a specific rental property we manage, the applicant needs to show a combined monthly household income of at least three times the cost of rent.
 
 If you’re trying to reduce rental property vacancy, paying very close attention to the quality of tenants you approve is an important strategy to help you achieve your goals. The better job you do at screening tenants, the more likely the residents will stay in the property for the long run, and that will reduce your overall vacancy rate.
 

@@ -105,7 +105,7 @@ Rewrites like this one tend to reorganize use categories rather than eliminate u
 - **Plain City** *:* Staff recommended passage of Ordinance 20-2026, amending the Planning and Zoning Code for internal consistency. [View the meeting packet](https://www.plaincityohio.gov/Government/Council%20Packets/2026/06.22.2026%20Council%20Regular%20Meeting%20Packet.pdf?t=2606220953330)
 - **Gahanna** *:* An ordinance was introduced and will receive further readings at upcoming council meetings. [View Gahanna’s legislation tracker](https://www.gahanna.gov/607/New-Legislation)
 - **Gahanna** *:* Council discussed the timing of upcoming readings for a separate ordinance, with no additional questions raised. [View Gahanna’s legislation tracker](https://www.gahanna.gov/607/New-Legislation)
-- ⚠ Past the 14-day cutoff, flagged for removal from the published post — see note below:
+- ⚠ Past the 14-day cutoff, flagged for removal from the published post, see note below:
 - **Fairfield** *:* The city updated its zoning code to regulate accessory buildings in commercial districts, including new maximum square footage limits. This is already in effect. [View the meeting minutes](https://oh-fairfield.civicplus.com/AgendaCenter/ViewFile/Minutes/_06032026-737)
 - **Sunbury** *:* Council approved Ordinance No. 2026.10 and advanced other measures through second readings; a related ordinance completed its third reading June 8. [View the meeting minutes](https://sunburyvillage.com/AgendaCenter/ViewFile/Minutes/_06032026-837)
 - **Hebron** *:* An ordinance advanced through its second reading with no action taken. [View the meeting summary](https://www.hebronvillage.org/s/2-AI-Generated-June-1-2026-Council-Meeting-Summary.pdf)

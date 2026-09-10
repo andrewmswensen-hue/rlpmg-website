@@ -22,7 +22,7 @@ New Albany is Columbus’s premium northeast rental market: average rents around
 Key Takeaways
 
 - New Albany rents average about $2,500/month (May 2026): 1BR near $1,451, 2BR near $2,064, 3BR near $2,600, 4BR near $3,995 per Zillow.
-- Intel’s Ohio One campus remains on its announced timeline as of mid-2026: first fab targeted for 2030–2031 operations, with $5 billion invested to date and Intel publicly recommitted to the project.
+- Intel’s Ohio One campus remains on its announced timeline as of mid-2026: first fab targeted for 2030 to 2031 operations, with $5 billion invested to date and Intel publicly recommitted to the project.
 - The New Albany International Business Park already hosts 40 operational data centers (Meta, Google, AWS, Microsoft among them) with 28 more planned or under construction, plus Amgen’s $900 million expansion adding 350 jobs.
 - New Albany-Plain Local Schools rates A+ on Niche (#2 in the Columbus area, #5 in Ohio, 2026), anchoring family rental demand independent of the corporate story.
 - Rental inventory is scarce (roughly 89% owner-occupancy), but new apartment and build-to-rent development along the corridor is real competition for premium single-family rentals.
@@ -52,10 +52,10 @@ In This Article
 |---|---|
 | Average rent, all types ([Zillow](https://www.zillow.com/rental-manager/market-trends/new-albany-oh/), May 2026) | $2,500/mo (~25% above U.S. average) |
 | By bedroom: 1BR / 2BR / 3BR / 4BR (Zillow, May 2026) | $1,451 / $2,064 / $2,600 / $3,995 |
-| Median gross rent ([Census ACS 2020–2024](https://www.census.gov/quickfacts/fact/table/newalbanycityohio/PST045224)) | $2,355/mo |
+| Median gross rent ([Census ACS 2020 to 2024](https://www.census.gov/quickfacts/fact/table/newalbanycityohio/PST045224)) | $2,355/mo |
 | Typical home value ([Zillow ZHVI](https://www.zillow.com/new-albany-oh/home-values/), early 2026) | $600,168 (+2.5% YoY) |
-| Median owner-occupied home value (Census ACS 2020–2024) | $772,100 |
-| Median household income (Census ACS 2020–2024) | $238,250 |
+| Median owner-occupied home value (Census ACS 2020 to 2024) | $772,100 |
+| Median household income (Census ACS 2020 to 2024) | $238,250 |
 | Population (Census estimate, July 2025; 2020 Census: 10,825) | 11,803 (+9% since 2020) |
 
 The structure of this market matters as much as its level. Nearly 89% of New Albany homes are owner-occupied, so the rental pool is small and skews toward single-family homes and a handful of newer apartment communities. Zillow showed only about 139 active rentals in the city during 2026 snapshots. Thin supply plus six-figure household incomes is how a suburb sustains rents 25% above the national average even in a year when the figure drifted down about $150 from its peak, a reminder that new apartment deliveries around the corridor are starting to give renters options. For the metro backdrop, see the [2026 Columbus rental market update](/blog/2026-columbus-rental-market-update/).
@@ -66,7 +66,7 @@ The structure of this market matters as much as its level. Nearly 89% of New Alb
 
 Intel’s Ohio One campus in Licking County, just beyond New Albany’s business park, deserves the sober version of the story rather than the hype version, because investors are underwriting real money against it.
 
-The current facts, as of mid-2026: Intel has invested $5 billion in the site to date, including $1.4 billion during 2025, with construction logging more than 10 million work hours. After slowing the pace in 2025, Intel’s announced timeline puts the first fab’s completion in 2030 with operations beginning 2030–2031, and the second fab operating around 2032. Planned investment for the two fabs exceeds $28 billion, with roughly $20 billion in the first phase, and the company reaffirmed in May 2026 that it is “fully committed” and staying on that timeline ([Intel Newsroom](https://newsroom.intel.com/corporate/ohio-one-construction-timeline-update); [Axios Columbus, May 2026](https://www.axios.com/local/columbus/2026/05/12/intel-ohio-stock-project-2026)).
+The current facts, as of mid-2026: Intel has invested $5 billion in the site to date, including $1.4 billion during 2025, with construction logging more than 10 million work hours. After slowing the pace in 2025, Intel’s announced timeline puts the first fab’s completion in 2030 with operations beginning 2030 to 2031, and the second fab operating around 2032. Planned investment for the two fabs exceeds $28 billion, with roughly $20 billion in the first phase, and the company reaffirmed in May 2026 that it is “fully committed” and staying on that timeline ([Intel Newsroom](https://newsroom.intel.com/corporate/ohio-one-construction-timeline-update); [Axios Columbus, May 2026](https://www.axios.com/local/columbus/2026/05/12/intel-ohio-stock-project-2026)).
 
 What that means for a rental investor is a two-phase demand story. The construction phase is already here: thousands of tradespeople, engineers, and project staff cycling through multi-year assignments, plus the finished-and-operating data center and biotech employers that don’t depend on Intel’s schedule at all. The operations phase (3,000 permanent Intel jobs, plus supplier networks) arrives around the turn of the decade. Housing pressure is measurable now: the median home sale price in the neighboring Johnstown school district rose 57% between 2020 and 2025, from $270,000 to $425,000 ([Spectrum News, 2026](https://spectrumnews1.com/oh/columbus/news/2026/07/23/data-center-housing-market-impact)).
 
@@ -107,7 +107,7 @@ About $2,500/month across all property types per Zillow (May 2026), roughly 25% 
 
 **Is Intel still building its Ohio plant near New Albany?**
 
-Yes. As of mid-2026, Intel has invested $5 billion in Ohio One, reaffirmed its commitment, and targets first-fab operations around 2030–2031 with the second fab around 2032.
+Yes. As of mid-2026, Intel has invested $5 billion in Ohio One, reaffirmed its commitment, and targets first-fab operations around 2030 to 2031 with the second fab around 2032.
 
 **Is New Albany a good place to buy a rental property?**
 
@@ -135,11 +135,11 @@ Or [schedule a consultation](/property-management-consultation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Zillow – New Albany Rental Market Trends](https://www.zillow.com/rental-manager/market-trends/new-albany-oh/) – Average rents by bedroom (May 2026)
-- [Intel Newsroom – Ohio One Construction Timeline Update](https://newsroom.intel.com/corporate/ohio-one-construction-timeline-update) – Official fab timeline and investment figures
-- [Axios Columbus (May 2026)](https://www.axios.com/local/columbus/2026/05/12/intel-ohio-stock-project-2026) – Current Intel Ohio status: $5B invested, commitment reaffirmed
-- [Niche – New Albany-Plain Local School District](https://www.niche.com/k12/d/new-albany-plain-local-school-district-oh/) – 2026 district ratings and rankings
-- [U.S. Census Bureau QuickFacts – New Albany](https://www.census.gov/quickfacts/fact/table/newalbanycityohio/PST045224) – Population, income, home values, rent
-- [WOSU – Amgen New Albany Expansion](https://www.wosu.org/2025-04-25/amgen-announces-900-million-expansion-of-new-albany-facility) – The $900M expansion and 750-job workforce
-- [Spectrum News – Data Center Housing Impact](https://spectrumnews1.com/oh/columbus/news/2026/07/23/data-center-housing-market-impact) – Johnstown-area price growth, 2020–2025
-- [City of New Albany](https://newalbanyohio.org/about/) – Community profile, business park, trails and open space
+- [Zillow, New Albany Rental Market Trends](https://www.zillow.com/rental-manager/market-trends/new-albany-oh/), Average rents by bedroom (May 2026)
+- [Intel Newsroom, Ohio One Construction Timeline Update](https://newsroom.intel.com/corporate/ohio-one-construction-timeline-update), Official fab timeline and investment figures
+- [Axios Columbus (May 2026)](https://www.axios.com/local/columbus/2026/05/12/intel-ohio-stock-project-2026), Current Intel Ohio status: $5B invested, commitment reaffirmed
+- [Niche, New Albany-Plain Local School District](https://www.niche.com/k12/d/new-albany-plain-local-school-district-oh/), 2026 district ratings and rankings
+- [U.S. Census Bureau QuickFacts, New Albany](https://www.census.gov/quickfacts/fact/table/newalbanycityohio/PST045224), Population, income, home values, rent
+- [WOSU, Amgen New Albany Expansion](https://www.wosu.org/2025-04-25/amgen-announces-900-million-expansion-of-new-albany-facility), The $900M expansion and 750-job workforce
+- [Spectrum News, Data Center Housing Impact](https://spectrumnews1.com/oh/columbus/news/2026/07/23/data-center-housing-market-impact), Johnstown-area price growth, 2020 to 2025
+- [City of New Albany](https://newalbanyohio.org/about/), Community profile, business park, trails and open space

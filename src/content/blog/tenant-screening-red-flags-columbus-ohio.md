@@ -33,13 +33,13 @@ Bad tenants can lead to:
 - **Legal liability** for improper denials or Fair Housing violations
 - **Stress** from constant conflict, repairs, or neighbor complaints
 
-The good news? You can prevent most of these problems with consistent, criteria-based screening—the same kind we use at RL Property Management.
+The good news? You can prevent most of these problems with consistent, criteria-based screening, the same kind we use at RL Property Management.
 
 ## Red Flags in Tenant Applications: What to Watch For
 
 Every application tells a story. And while no single issue is disqualifying, patterns matter. Here are some of the biggest **red flags in tenant screening**:
 
-- **Inconsistent income**: One pay stub isn’t enough. Ask for 2–3 months of pay history and verify with a direct call to their employer.
+- **Inconsistent income**: One pay stub isn’t enough. Ask for 2 to 3 months of pay history and verify with a direct call to their employer.
 - **Unverifiable employment**: HR numbers are often black holes. Instead, ask for a direct supervisor or manager’s contact to confirm the details.
 - **Frequent moves**: Look beyond the dates. If they’ve lived in 4 places in 3 years, that’s a potential sign of instability.
 - **Past evictions or legal judgments**: Even dismissed evictions can signal chronic issues. Always check the full rental history.
@@ -50,7 +50,7 @@ Each of these warning signs may be explainable, but none should be ignored. Alwa
 
 ## Red Flags During the Tenant Interview
 
-Application checks are just the beginning. When speaking to a potential tenant—in person or on the phone—listen for these subtle signs:
+Application checks are just the beginning. When speaking to a potential tenant, in person or on the phone, listen for these subtle signs:
 
 - They give **contradictory answers** that don’t match the application.
 - They overshare **personal sob stories** to gain sympathy and skip the line.
@@ -71,7 +71,7 @@ When checking landlord references:
 For employers:
 
 - Watch out for **vague job titles** or unusually short tenures.
-- Be wary of overly enthusiastic responses—they might be scripted.
+- Be wary of overly enthusiastic responses, they might be scripted.
 
 **Pro Tip:** Ask this one question to trip up fake references: *“Can you confirm the move-out date for that property?”* If they hesitate or guess, that’s a red flag.
 
@@ -98,7 +98,7 @@ Sometimes, the best decision is to deny an application. But even that requires c
 
 In a high-scrutiny market like Columbus, **Fair Housing compliance** isn’t optional. Inconsistent or undocumented processes can lead to legal trouble fast.
 
-Sound complicated? It doesn’t have to be—with the right team.
+Sound complicated? It doesn’t have to be, with the right team.
 
 ## Final Thoughts: Red Flags Are Easier to Spot With a Plan
 
@@ -108,7 +108,7 @@ Every bad tenant was once just an application. Spotting red flags early saves yo
 
 - Inconsistent info, vague references, and urgency are all signs to slow down.
 - Trust patterns, not promises.
-- Fair Housing laws apply to everyone—document everything.
+- Fair Housing laws apply to everyone, document everything.
 - A clear, consistent process beats gut instinct every time.
 
 **RL Property Management helps Columbus landlords catch red flags before they become financial or legal disasters. Want to see how we screen? [Contact us now](/rental-analysis-form/) or learn more about our process.**

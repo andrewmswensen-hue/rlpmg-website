@@ -35,7 +35,7 @@ Quantitative vacancy metrics specifically for Grandview Heights are thin in publ
 
 Key expectations based on current inventory and market conditions:
 
-- **Apartments/Condos (1–2 bedrooms):** Leasing velocity tends to be steady but not ultra-fast; investors competing with existing stock may find median days on market moderately low when units are priced in line with local rent levels (e.g., $1,500–$2,200+). Current data shows a range of competitive pricing within this corridor.
+- **Apartments/Condos (1 to 2 bedrooms):** Leasing velocity tends to be steady but not ultra-fast; investors competing with existing stock may find median days on market moderately low when units are priced in line with local rent levels (e.g., $1,500 to $2,200+). Current data shows a range of competitive pricing within this corridor.
 - **Single-Family & Townhomes:** These are listed more sporadically and often at premium rents. Given the small number of listings in any month, careful pricing and marketing alignment with demand windows are critical.
 - **Vacancy Risk Profile:** Compared with broad Columbus, Grandview Heights tends toward lower vacancy volatility, but supply remains limited and concentrated. Thus, a mispriced unit can be exposed longer relative to more abundant suburban stock.
 
@@ -47,11 +47,11 @@ Rental pricing in Grandview Heights often sits above typical Columbus norms due 
 
 | **Property Type** | **Approx. Rent Range (2026)** | **Notes / Caveats** |
 |---|---|---|
-| **Studio** | ~$1,000–$1,450+ | Limited inventory; rents vary widely by condition and building amenities. |
-| **1-Bedroom** | ~$1,250–$1,600+ | Core rental bread-and-butter; renter preferences lean toward modern finishes. |
-| **2-Bedroom** | ~$1,600–$2,100+ | Often, the most competitive segment is given a small supply and a broader Columbus demand. |
-| **3-Bedroom & Larger** | ~$2,300–$3,100+ | Spaces are attractive to families/small groups; inventory is more limited. |
-| **Single-Family Homes / Premium Units** | $2,800–$4,800+ | Unique supply; pricing reflects scarcity more than the strict size rent curve. |
+| **Studio** | ~$1,000 to $1,450+ | Limited inventory; rents vary widely by condition and building amenities. |
+| **1-Bedroom** | ~$1,250 to $1,600+ | Core rental bread-and-butter; renter preferences lean toward modern finishes. |
+| **2-Bedroom** | ~$1,600 to $2,100+ | Often, the most competitive segment is given a small supply and a broader Columbus demand. |
+| **3-Bedroom & Larger** | ~$2,300 to $3,100+ | Spaces are attractive to families/small groups; inventory is more limited. |
+| **Single-Family Homes / Premium Units** | $2,800 to $4,800+ | Unique supply; pricing reflects scarcity more than the strict size rent curve. |
 
 *These ranges reflect observable asking rents from multiple rental listing sources as of early 2026 and should be used as current market proxies rather than fixed expectations.*
 
@@ -79,7 +79,7 @@ The small geographic footprint suppresses large swings in inventory, meaning pro
 
 Grandview Heights largely follows **typical Columbus rental seasonality**:
 
-- **Peak Season (Late Spring–Early Fall)**: Highest renter activity, stronger pricing power, more flexible on concessions due to larger applicant pools.
+- **Peak Season (Late Spring, Early Fall)**: Highest renter activity, stronger pricing power, more flexible on concessions due to larger applicant pools.
 - **Shoulder Season (Fall)**: Continued interest, but price sensitivity increases; maintain realistic expectations on offers.
 - **Slow Season (Winter)**: Reduced traffic; strategic concessions or flexible move-in dates can preserve occupancy.
 

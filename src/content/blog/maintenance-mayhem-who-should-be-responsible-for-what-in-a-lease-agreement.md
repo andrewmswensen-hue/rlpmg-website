@@ -23,7 +23,7 @@ For landlords and property managers, this of course extends to investment proper
 
 ## Defining Maintenance Responsibilities in Your Lease Agreement
 
-Managing maintenance is a given if you’re a homeowner. Renters, on the other hand, enjoy a bit of a reprieve from many – but not all – of those responsibilities. Some renters who hope they can get by scot-free could be in for a surprise if they find themselves stuck repairing a clog, for example.
+Managing maintenance is a given if you’re a homeowner. Renters, on the other hand, enjoy a bit of a reprieve from many, but not all, of those responsibilities. Some renters who hope they can get by scot-free could be in for a surprise if they find themselves stuck repairing a clog, for example.
 
 To prevent surprises, which can often lead to conflict, and share in some of the burden, cost, and responsibility of rental property maintenance, it’s imperative to [spell out your maintenance expectations in your lease agreement](/blog/revisiting-your-lease-agreement-dont-forget-to-include-these-terms/).
 

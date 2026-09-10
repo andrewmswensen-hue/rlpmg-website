@@ -29,10 +29,10 @@ Let’s walk through what every Columbus landlord should know.
 
 The most common legal grounds for eviction include:
 
-- **Non-payment of rent** – Even one missed month can trigger an eviction notice if not resolved
-- [**Lease violations**](https://codes.ohio.gov/ohio-revised-code/chapter-5321) – This includes unauthorized pets, additional tenants not listed on the lease, or intentional damage to the unit.
-- **Failure to vacate after the lease ends** – Known as a “holdover” tenant, this situation arises when someone stays without renewing.
-- **Illegal activity** – Drug use, violence, or criminal behavior on the property are all grounds for immediate action.
+- **Non-payment of rent**, Even one missed month can trigger an eviction notice if not resolved
+- [**Lease violations**](https://codes.ohio.gov/ohio-revised-code/chapter-5321), This includes unauthorized pets, additional tenants not listed on the lease, or intentional damage to the unit.
+- **Failure to vacate after the lease ends**, Known as a “holdover” tenant, this situation arises when someone stays without renewing.
+- **Illegal activity**, Drug use, violence, or criminal behavior on the property are all grounds for immediate action.
 
 Each of these reasons must be clearly documented and communicated before proceeding.
 
@@ -40,9 +40,9 @@ Each of these reasons must be clearly documented and communicated before proceed
 
 Often, issues build up long before they hit the point of eviction. Pay attention to early red flags such as:
 
-- **Missed or partial rent payments** – Keep a detailed rent ledger and note all payment dates
-- **Tenant complaints or neighbor reports** – These can indicate recurring noise, trash, or safety issues.
-- **Avoidance or lack of response** – If a tenant stops replying to emails, ignores written notices, or refuses entry for inspections, that’s a major concern
+- **Missed or partial rent payments**, Keep a detailed rent ledger and note all payment dates
+- **Tenant complaints or neighbor reports**, These can indicate recurring noise, trash, or safety issues.
+- **Avoidance or lack of response**, If a tenant stops replying to emails, ignores written notices, or refuses entry for inspections, that’s a major concern
 
 ### Be Proactive, Not Reactive
 
@@ -56,7 +56,7 @@ Eviction should never be the first option, but when needed, it must be done by t
 
 {{youtube:TwR-DQf7vtQ}}
 
-## The Ohio Eviction Process – Step-by-Step
+## The Ohio Eviction Process, Step-by-Step
 
 Once you’ve confirmed that eviction is legally justified, the next step is to follow the formal process outlined by Ohio law. Skipping or mishandling even one step can delay your case, or worse, get it dismissed. Here’s how the eviction process works for landlords in Columbus.
 
@@ -81,7 +81,7 @@ After the 3-day notice expires with no resolution, you’ll file an **eviction c
   - $150 attorney fee (if using legal counsel)
   - Possible service fees or document preparation charges
 
-Once filed, the court will set a hearing date, usually within 2–3 weeks.
+Once filed, the court will set a hearing date, usually within 2 to 3 weeks.
 
 ### Step 3: Attend the Court Hearing
 
@@ -220,7 +220,7 @@ Don’t delay this step. Immediately inspect the property and document everythin
 
 Take detailed photos and videos to support any damage claims and to compare with the move-in condition.
 
-Next, create a **turn scope**, a list of repairs and updates needed to bring the property to rent-ready condition. At RLPM, we generate this scope within 24–48 hours of regaining possession.
+Next, create a **turn scope**, a list of repairs and updates needed to bring the property to rent-ready condition. At RLPM, we generate this scope within 24 to 48 hours of regaining possession.
 
 ### Handle the Security Deposit Lawfully
 

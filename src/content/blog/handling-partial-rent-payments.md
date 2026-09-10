@@ -55,7 +55,7 @@ Property management companies can help formalize these agreements and ensure tha
 
 ## Navigating Partial Payments with Caution and Clear Boundaries
 
-Partial rent payments can be a tricky situation for landlords. While there are times when accepting less than full rent might make sense—such as when dealing with long-term, reliable tenants facing temporary hardship—it’s important to proceed with caution. Accepting partial payments can lead to financial strain, set a bad precedent, and create ongoing issues with rent collection. By setting clear boundaries, putting agreements in writing, and following up promptly, landlords can protect themselves while being flexible.
+Partial rent payments can be a tricky situation for landlords. While there are times when accepting less than full rent might make sense, such as when dealing with long-term, reliable tenants facing temporary hardship, it’s important to proceed with caution. Accepting partial payments can lead to financial strain, set a bad precedent, and create ongoing issues with rent collection. By setting clear boundaries, putting agreements in writing, and following up promptly, landlords can protect themselves while being flexible.
 
 Working with a property management company can make the process smoother. Property managers are experienced in dealing with rent collection issues and can help landlords assess each situation, set appropriate terms, and enforce lease agreements effectively.
 

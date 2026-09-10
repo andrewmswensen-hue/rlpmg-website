@@ -80,7 +80,7 @@ Those shortcuts can lead to costly tenant turnover, lease breaks, or even legal 
 
 ### Local Insight from RLPM
 
-At RL Property Management, we’ve seen firsthand how the rent-ready process directly impacts leasing speed. Properties that go live in **fully rent-ready condition** lease **25–40% faster** than those with lingering repairs or missing touches. It’s not just about speed; it’s about securing the right tenant on the right terms.
+At RL Property Management, we’ve seen firsthand how the rent-ready process directly impacts leasing speed. Properties that go live in **fully rent-ready condition** lease **25 to 40% faster** than those with lingering repairs or missing touches. It’s not just about speed; it’s about securing the right tenant on the right terms.
 
 The takeaway? Rent-ready is no longer optional in Columbus. It’s the expectation.
 
@@ -92,7 +92,7 @@ Here’s how we make it happen:
 
 ### 1. Pre-Move-Out Inspection
 
-This step happens 30–60 days before the current tenant moves out. Our team schedules a walkthrough to:
+This step happens 30 to 60 days before the current tenant moves out. Our team schedules a walkthrough to:
 
 - Assess the unit’s current condition
 - Identify cosmetic and functional repairs.
@@ -147,7 +147,7 @@ Even well-intentioned landlords can unknowingly sabotage their leasing timeline 
 
 Here are the most common mistakes we see (and how to avoid them):
 
-- **Waiting too long to start the process** Delaying repairs, cleaning, or inspections until after a tenant moves out adds 2–3 weeks to your vacancy timeline. Start early, ideally before the unit is even vacant.
+- **Waiting too long to start the process** Delaying repairs, cleaning, or inspections until after a tenant moves out adds 2 to 3 weeks to your vacancy timeline. Start early, ideally before the unit is even vacant.
 - **Underestimating cleaning standards** What looks “clean enough” to you might not meet tenant expectations. Think of tenant-ready cleaning like hotel-level cleanliness: spotless, odor-free, and staged for move-in.
 - **Trying to DIY everything** A loose doorknob or crooked cabinet might seem minor, but these small flaws add up. DIY fixes often lack the polish tenants expect and can lead to poor reviews or maintenance requests after move-in.
 - **Skipping pest control or ignoring odors** If it smells, it doesn’t rent. Lingering pet odors, smoke smells, or evidence of pests instantly turn off quality renters.

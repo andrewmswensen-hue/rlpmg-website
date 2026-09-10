@@ -29,9 +29,9 @@ Before deciding which loan product fits your next investment, it helps to unders
 Lenders start by looking at your financial profile.
 
 - **Credit score:** Higher credit tiers generally translate into better pricing and lower fees, especially on conventional loans.
-- **Reserves:** Many lenders now expect **3–6 months of PITI** (principal, interest, taxes, and insurance), particularly for investment properties.
+- **Reserves:** Many lenders now expect **3 to 6 months of PITI** (principal, interest, taxes, and insurance), particularly for investment properties.
 - **Debt-to-income ratio:** Conventional loans still rely heavily on your DTI, and too much consumer or mortgage debt can limit financing options.
-- **DSCR metrics:** For investor-focused products, lenders evaluate the property’s ability to cover its own payment. A strong DSCR (often 1.0–1.2+) signals stability.
+- **DSCR metrics:** For investor-focused products, lenders evaluate the property’s ability to cover its own payment. A strong DSCR (often 1.0 to 1.2+) signals stability.
 
 ### B. Property-Level Requirements
 
@@ -53,7 +53,7 @@ Conventional loans remain the go-to option for many Columbus investors because t
 
 To qualify, lenders expect a strong personal financial profile.
 
-- **Down payments typically range from 15–30%**, depending on whether you’re purchasing a single-family home or a small multifamily.
+- **Down payments typically range from 15 to 30%**, depending on whether you’re purchasing a single-family home or a small multifamily.
 - Steady employment and **documented income** remain key, especially for W-2 borrowers.
 - Conventional underwriting still leans heavily on your **debt-to-income (DTI) ratio**, which means personal liabilities influence how quickly you can scale.
 - Fannie Mae and Freddie Mac also impose a **limit of 10 financed properties**, which becomes a ceiling for some experienced investors.
@@ -126,7 +126,7 @@ Portfolio loans are kept “in-house” by the lender, which gives them room to 
 
 - **Custom underwriting rules** without strict Fannie/Freddie overlays.
 - Ability to **cross-collateralize multiple properties**, unlocking equity that might otherwise remain idle.
-- Attractive for investors holding **5–10+ units** who want to simplify debt or finance value-add acquisitions.
+- Attractive for investors holding **5 to 10+ units** who want to simplify debt or finance value-add acquisitions.
 
 Because these loans emphasize the health of the full portfolio, they’re well-suited for investors who manage their assets professionally and maintain consistent performance.
 
@@ -147,7 +147,7 @@ Community banks across Central Ohio often prefer lending in **Class A/B neighbor
 
 **Cons:**
 
-- **Balloon payments** (5–10 year resets) are common.
+- **Balloon payments** (5 to 10 year resets) are common.
 - Rates are typically higher than conventional.
 - **Personal guarantees** are often required.
 
@@ -169,7 +169,7 @@ These loans focus more on the property’s potential than the borrower’s finan
 
 Columbus has several neighborhoods where revitalization is creating opportunities for value-add investors.
 
-- **Areas such as Milo-Grogan, Old Towne East, and Franklinton are actively undergoing revitalization and attracting investor interest. Milo-Grogan, for instance, has been designated by the City of Columbus as a Community Reinvestment Area “ready for revitalization” with incentives like long-term tax abatements designed to spur redevelopment of older housing and mixed-use properties – a typical value-add entry point for rental investors.**
+- **Areas such as Milo-Grogan, Old Towne East, and Franklinton are actively undergoing revitalization and attracting investor interest. Milo-Grogan, for instance, has been designated by the City of Columbus as a Community Reinvestment Area “ready for revitalization” with incentives like long-term tax abatements designed to spur redevelopment of older housing and mixed-use properties, a typical value-add entry point for rental investors.**
 - In these areas, heavily distressed homes or multis may fail traditional inspections, making hard money one of the few viable financing paths.
 - Investors also lean on hard money to secure properties before rehab budgets or rent-ready plans are finalized; speed often makes the difference in winning the deal.
 
@@ -229,7 +229,7 @@ With so many financing choices available, the best option depends on your goals,
 - *Best for:* Stable SFR or duplex buyers.
 - *Pros:* Lowest rates, predictable terms.
 - *Cons:* Tight documentation, property-count limits.
-- *Typical Down Payment:* 15–30%.
+- *Typical Down Payment:* 15 to 30%.
 - *Columbus Note:* Strong fit in Class A/B suburbs like Westerville and Hilliard.
 
 #### DSCR Loans
@@ -237,15 +237,15 @@ With so many financing choices available, the best option depends on your goals,
 - *Best for:* Scaling portfolios and out-of-state investors.
 - *Pros:* Fast approvals, property-based underwriting.
 - *Cons:* Higher rates and prepayment penalties.
-- *Down Payment:* Often 20–25%.
+- *Down Payment:* Often 20 to 25%.
 - *Columbus Note:* Works well where rent-to-price ratios remain competitive.
 
 #### Portfolio / Community Bank Loans
 
-- *Best for:* Investors with 5–10+ units.
+- *Best for:* Investors with 5 to 10+ units.
 - *Pros:* Flexible terms, blanket loans.
 - *Cons:* Balloon payments, personal guarantees.
-- *Down Payment:* 20–30%.
+- *Down Payment:* 20 to 30%.
 - *Columbus Note:* Local banks often prefer Class A/B neighborhoods.
 
 #### Hard Money / Bridge Loans
@@ -253,7 +253,7 @@ With so many financing choices available, the best option depends on your goals,
 - *Best for:* Distressed or time-sensitive acquisitions.
 - *Pros:* Speed, rehab financing.
 - *Cons:* High cost, short terms.
-- *Down Payment:* Often 10–20% plus rehab budget.
+- *Down Payment:* Often 10 to 20% plus rehab budget.
 - *Columbus Note:* Useful in revitalizing neighborhoods.
 
 #### Cash-Out Refinance

@@ -30,7 +30,7 @@ This includes things like collecting rent, taking care of maintenance issues, an
 
 Asset management, on the other hand, is a strategic function. It also involves developing the financing strategy of a real estate investment and branding the given property.
 
-For example, how will the property be positioned in the marketplace – will it be high-end, low-end, or in the middle? And what does that positioning mean for how money should be allocated to the investment for things like capital improvements?
+For example, how will the property be positioned in the marketplace, will it be high-end, low-end, or in the middle? And what does that positioning mean for how money should be allocated to the investment for things like capital improvements?
 
 In short, asset management has much more to do with the strategic forecasting, positioning, and branding of the property rather than with the day-to-day operations of the given rental unit.
 

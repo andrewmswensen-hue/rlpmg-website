@@ -37,22 +37,22 @@ Vacancy risk in Worthington is moderate but predictable. The area does not exper
 
 ### Typical Lease-Up Timelines (2026)
 
-**Apartments / Condos (1–2 bedrooms)**
+**Apartments / Condos (1 to 2 bedrooms)**
 
-- ~20–35 days when priced near market
+- ~20 to 35 days when priced near market
 - Driven by young professionals and downsizers
 
-**Doubles & Small Multifamily (2–4 units)**
+**Doubles & Small Multifamily (2 to 4 units)**
 
-- ~15–30 days on average
+- ~15 to 30 days on average
 - Tenants often compare nearby suburbs like Westerville or Dublin.
 
 **Single-Family Homes**
 
-- ~20–50 days depending on season
+- ~20 to 50 days depending on season
 - Family renters dominate; timing is critical.
 
-While Worthington’s overall rental vacancy rate has historically remained relatively low (around ~5–6%), the limited renter pool means mispricing can quickly extend vacancy.
+While Worthington’s overall rental vacancy rate has historically remained relatively low (around ~5 to 6%), the limited renter pool means mispricing can quickly extend vacancy.
 
 ### Common Leasing Friction
 
@@ -68,9 +68,9 @@ Rental pricing in Worthington is relatively tight, with clear ceilings based on 
 
 | **Property Type** | **Typical Rent Range** | **Notes** |
 |---|---|---|
-| 1-Bed Apartment/Condo | $1,250 – $1,450 | Most inventory clusters near ~$1,300–$1,400 |
-| 2-Bed Units / Doubles | $1,450 – $1,750 | Strong demand; sensitive to conditions |
-| Single-Family Homes (3BR) | $1,900 – $2,400 | Median around ~$2,000+ depending on updates |
+| 1-Bed Apartment/Condo | $1,250 to $1,450 | Most inventory clusters near ~$1,300 to $1,400 |
+| 2-Bed Units / Doubles | $1,450 to $1,750 | Strong demand; sensitive to conditions |
+| Single-Family Homes (3BR) | $1,900 to $2,400 | Median around ~$2,000+ depending on updates |
 | Larger / Premium Homes | $2,500+ | Limited renter pool; pricing discipline required |
 
 At a market-wide level:
@@ -120,19 +120,19 @@ Pet acceptance meaningfully expands the tenant pool in this submarket, especiall
 
 Worthington follows Columbus seasonality closely, but with slightly more dependence on family-driven move cycles.
 
-### Peak Season: May – August
+### Peak Season: May, August
 
 - Strongest demand
 - Faster lease-up (often under 30 days)
 - Best opportunity to test upper rent ranges
 
-### Shoulder Season: March – April, September – October
+### Shoulder Season: March, April, September, October
 
 - Stable activity
 - Moderate price sensitivity
 - Ideal for renewals or repositioning
 
-### Slow Season: November – February
+### Slow Season: November, February
 
 - Limited renter movement
 - Longer vacancy periods for single-family homes
@@ -166,7 +166,7 @@ Given the family-oriented renter base, consistent and well-documented screening 
 
 ## Common Owner Questions (FAQs)
 
-**How long does it take to rent in Worthington?**Most properties lease within **20–40 days** when priced correctly. Homes may take longer outside peak season.
+**How long does it take to rent in Worthington?**Most properties lease within **20 to 40 days** when priced correctly. Homes may take longer outside peak season.
 
 **What rent should I expect?**Typical rents range from **~$1,300 for smaller units to $2,000+ for single-family homes**, depending on condition and size.
 

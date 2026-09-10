@@ -46,8 +46,8 @@ The Columbus version builds from the vacancy clock, and the rental inputs are pu
 | Scenario | Turn time | Lease-up | Days off rent | Lost rent at $1,750/mo |
 |---|---|---|---|---|
 | RLPM portfolio medians (July 2026) | 12 | 11 | 23 | $1,323 |
-| Well-priced, rent-ready, desirable submarket | 12 | 14–21 | 26–33 | $1,496–$1,899 |
-| Typical lease-up (4 to 6 weeks once rent-ready) | 12 | 28–42 | 40–54 | $2,301–$3,107 |
+| Well-priced, rent-ready, desirable submarket | 12 | 14 to 21 | 26 to 33 | $1,496 to $1,899 |
+| Typical lease-up (4 to 6 weeks once rent-ready) | 12 | 28 to 42 | 40 to 54 | $2,301 to $3,107 |
 | Past the 60-day mark |  |  | 60+ | $3,452+ |
 
 Those are empty days only, and they assume rent starts the day a lease is signed. It rarely does. Add the make-ready (paint, cleaning, flooring, the punch list a departing resident leaves behind), utilities held on through the vacancy, marketing, and any concession it takes to close the lease, and a Central Ohio single-family turnover lands between roughly $3,000 and $5,000 in RLPM’s experience across about 740 units. That is an operating range from Columbus work, not an industry statistic.
@@ -184,13 +184,13 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.212.6903
 
 ### Sources & Suggested External Links
 
-- [Ohio Revised Code 5321.19](https://codes.ohio.gov/ohio-revised-code/section-5321.19) – political subdivisions and rent control preemption, effective September 23, 2022
-- [Ohio Revised Code 5321.17](https://codes.ohio.gov/ohio-revised-code/section-5321.17) – termination of week-to-week and month-to-month tenancies, effective August 22, 1990
-- [Columbus City Bulletin #51, December 21, 2024](https://www.columbus.gov/files/sharedassets/city/v/1/city-council/documents/city-bulletins/2024/bulletin20241221.pdf) – record of Ordinance 3525-2024 approval on December 16, 2024
-- [Columbus City Code 4551.07 ordinance text (Rental Increase Notification)](https://www.caahq.com/uploads/1/2/0/1/120160565/rent_increase_notification_final_draft.pdf) – 60-day notice clause requirement above a ten percent increase
-- [RLPM 2026 Columbus Single-Family Rental Market Report](/2026-columbus-market-report/) – rental lease-up times, rent ranges, occupancy and cap rates by submarket
-- [RLPM Live KPI Scorecard](/key-performance-indicators/) – current days on market, time to turn, renewal rate and collections
-- [Multifamily Dive on Zego’s 2023 Resident Experience Management Report](https://www.multifamilydive.com/news/turnover-costs-4000-apartment-multifamily/696298/) – $3,872 average apartment turnover cost per unit
-- [Zillow Research, November 2025 Rental Report](https://www.zillow.com/research/november-2025-rent-report-35870/) – winter concession share and Columbus concession growth
-- [Apartment List Research, “How Does Seasonality Impact the Rental Market?” (February 2018)](https://www.apartmentlist.com/research/rental-market-seasonality) – national seasonality in renter search-to-move timing
-- [WOSU Public Media, April 15, 2026](https://www.wosu.org/politics-government/2026-04-15/columbus-city-council-proposes-rental-registry-to-combat-problem-landlords) – Columbus rental registry proposal coverage
+- [Ohio Revised Code 5321.19](https://codes.ohio.gov/ohio-revised-code/section-5321.19), political subdivisions and rent control preemption, effective September 23, 2022
+- [Ohio Revised Code 5321.17](https://codes.ohio.gov/ohio-revised-code/section-5321.17), termination of week-to-week and month-to-month tenancies, effective August 22, 1990
+- [Columbus City Bulletin #51, December 21, 2024](https://www.columbus.gov/files/sharedassets/city/v/1/city-council/documents/city-bulletins/2024/bulletin20241221.pdf), record of Ordinance 3525-2024 approval on December 16, 2024
+- [Columbus City Code 4551.07 ordinance text (Rental Increase Notification)](https://www.caahq.com/uploads/1/2/0/1/120160565/rent_increase_notification_final_draft.pdf), 60-day notice clause requirement above a ten percent increase
+- [RLPM 2026 Columbus Single-Family Rental Market Report](/2026-columbus-market-report/), rental lease-up times, rent ranges, occupancy and cap rates by submarket
+- [RLPM Live KPI Scorecard](/key-performance-indicators/), current days on market, time to turn, renewal rate and collections
+- [Multifamily Dive on Zego’s 2023 Resident Experience Management Report](https://www.multifamilydive.com/news/turnover-costs-4000-apartment-multifamily/696298/), $3,872 average apartment turnover cost per unit
+- [Zillow Research, November 2025 Rental Report](https://www.zillow.com/research/november-2025-rent-report-35870/), winter concession share and Columbus concession growth
+- [Apartment List Research, “How Does Seasonality Impact the Rental Market?” (February 2018)](https://www.apartmentlist.com/research/rental-market-seasonality), national seasonality in renter search-to-move timing
+- [WOSU Public Media, April 15, 2026](https://www.wosu.org/politics-government/2026-04-15/columbus-city-council-proposes-rental-registry-to-combat-problem-landlords), Columbus rental registry proposal coverage

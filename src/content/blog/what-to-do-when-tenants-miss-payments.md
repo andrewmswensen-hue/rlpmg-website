@@ -25,7 +25,7 @@ When tenants miss payments, it can disrupt your cash flow and create stress for 
 
 ## First Steps When Rent is Late: How to Respond the Day After Rent is Due
 
-The first thing you need to do when rent is late is **act quickly**. Waiting to deal with the situation can make things worse. Start by reaching out to your tenant as soon as possible–no more than one day after rent is overdue. This could be as simple as sending a polite text, email, or phone call reminding them that their payment is late. In many cases, tenants may have simply forgotten or had a minor issue with their payment method.
+The first thing you need to do when rent is late is **act quickly**. Waiting to deal with the situation can make things worse. Start by reaching out to your tenant as soon as possible, no more than one day after rent is overdue. This could be as simple as sending a polite text, email, or phone call reminding them that their payment is late. In many cases, tenants may have simply forgotten or had a minor issue with their payment method.
 
 It’s important to remain professional but firm in your communication. Reference the terms of the lease agreement that explain when rent is due and any late fees that apply. This helps set expectations and lets the tenant know there are consequences for missed payments.
 
@@ -35,7 +35,7 @@ If you use a property management company, this process is often automated. Prope
 
 Before deciding on the next step, it’s important to find out why the tenant missed their payment. Financial troubles are a common reason, but sometimes it’s as simple as forgetfulness or a temporary technical issue. If the tenant is going through a tough time, knowing their situation can help you figure out the best way to resolve the issue.
 
-Reach out to the tenant and ask them directly if there’s a reason why they haven’t paid. Keep the conversation calm and respectful—you want to understand their situation, not make them feel defensive. If they’ve been a reliable tenant in the past, they may just need a bit more time to pay this month.
+Reach out to the tenant and ask them directly if there’s a reason why they haven’t paid. Keep the conversation calm and respectful, you want to understand their situation, not make them feel defensive. If they’ve been a reliable tenant in the past, they may just need a bit more time to pay this month.
 
 For landlords who work with a property management company, this part is handled professionally and with care. Property managers know how to handle these sensitive conversations, and tenants are often more comfortable discussing financial issues with a third party. This makes it easier to reach a solution without damaging the landlord-tenant relationship.
 
@@ -53,7 +53,7 @@ Property management companies can handle all these steps, including creating pay
 
 Sometimes, even after offering solutions like payment plans or reminders, tenants still fail to pay on time. In these situations, it’s important to stick to the terms of the lease agreement. This means enforcing late fees when appropriate and following the legal steps required to protect your rental property.
 
-Enforcing late fees isn’t just about getting extra money from tenants—it’s a way to show tenants that paying rent on time is a serious responsibility. If you’re consistent with late fees, tenants are more likely to make rent payments a priority.
+Enforcing late fees isn’t just about getting extra money from tenants, it’s a way to show tenants that paying rent on time is a serious responsibility. If you’re consistent with late fees, tenants are more likely to make rent payments a priority.
 
 Sometimes, offering a formal payment plan can help tenants catch up on their missed payments. A payment plan allows them to pay smaller amounts over time, which might be more manageable for tenants who are facing temporary financial difficulties.
 

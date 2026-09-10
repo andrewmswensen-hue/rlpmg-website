@@ -28,7 +28,7 @@ This assistance program facilitated through the U.S. Department of Housing and U
 
 Qualified families use their voucher to pay for rent at any affordable privately-owned rental housing. The housing subsidy is paid to the landlord directly from the government agencies.
 
-For a landlord, this sounds like a good thing – why would a property owner not want a guaranteed source of income from the federal government? The challenge for landlords lies in the implementation of the program, which varies from city to city.
+For a landlord, this sounds like a good thing, why would a property owner not want a guaranteed source of income from the federal government? The challenge for landlords lies in the implementation of the program, which varies from city to city.
 
 ## The Challenges of Meeting HCV Program Requirements
 

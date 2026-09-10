@@ -1,5 +1,5 @@
 ---
-title: "Owner Occupied Podcast – Episode 4"
+title: "Owner Occupied Podcast, Episode 4"
 description: "ABOUT THIS EPISODE Episode 4 of the Owner Occupied podcast with Peter Lohmann and Russell Lowery. In this episode we discuss Peter’s top 5 early mistakes when starting and growing the property management company in the early days: Show Notes: 00:00 Intro 02:03 Mistake 1: Not Systematizing Sales 06:0"
 pubDate: "2021-04-21T17:43:22Z"
 updatedDate: "2021-04-21T17:54:19Z"

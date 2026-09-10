@@ -34,7 +34,7 @@ During the sales process with a potential client, our business development manag
 
 Because it is rare for us to deviate from our standard plans, when the sales team passed off the new client, we forgot to enter the discount into our accounting software. Not surprisingly, the software automatically charged the client our standard management fee, rather than the discounted fee, during their first month of billing.
 
-While it was an easy mistake to make – and correct, it’s never something we like to do. However, because discounts are relatively rare for our business, we didn’t have a process in place for it in our client onboarding checklist.
+While it was an easy mistake to make, and correct, it’s never something we like to do. However, because discounts are relatively rare for our business, we didn’t have a process in place for it in our client onboarding checklist.
 
 To make sure it wouldn’t happen again, we’ve simply added a step to our workflow in which we check in with the sales team prior to entering client details into our software system. This ensures that we will remain in alignment with what was agreed to during the sales process.
 

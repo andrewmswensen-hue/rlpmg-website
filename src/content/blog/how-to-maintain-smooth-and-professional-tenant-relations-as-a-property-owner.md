@@ -26,10 +26,10 @@ The challenge for property owners is that their tenants don’t always come to t
 
 In many ways, they are the “customer” and expect a certain level of service. You can make nearly all these encounters less stressful, ambiguous, and potentially contentious by being up front and clear in your lease agreement about rules, responsibilities, and requirements. It’s always easier to point to something signed and dated than it is trying to convince someone of something without valid proof. Here are some other things to keep in mind.
 
-- **Your Lease Knows All** – To make it easier to dissect who provides what services and when, put everything in writing in your lease agreement.
+- **Your Lease Knows All**, To make it easier to dissect who provides what services and when, put everything in writing in your lease agreement.
 
-- **Be Professional and Timely**– If your tenant comes to you with a request, respond promptly and courteously. When you can’t make the repair as quickly as you’d like, keep them informed of the timeline so they are not left guessing as to when a maintenance person may be entering their unit.
-- **Be friendly and Responsive**– Friendliness, goodwill and good communication go a long way toward instilling trust in your tenants. Be transparent about your processes, rules and any fees you may apply, and communicate openly with them about any questions or concerns they have. Their feedback can be very helpful in ensuring you continue to provide a high level of service to all your tenants and that your rental units continue to resonate with other renters in the market.
+- **Be Professional and Timely**, If your tenant comes to you with a request, respond promptly and courteously. When you can’t make the repair as quickly as you’d like, keep them informed of the timeline so they are not left guessing as to when a maintenance person may be entering their unit.
+- **Be friendly and Responsive**, Friendliness, goodwill and good communication go a long way toward instilling trust in your tenants. Be transparent about your processes, rules and any fees you may apply, and communicate openly with them about any questions or concerns they have. Their feedback can be very helpful in ensuring you continue to provide a high level of service to all your tenants and that your rental units continue to resonate with other renters in the market.
 
 Developing positive relationships with your tenants is an important part of owning or managing rental property. Common sense and good business sense should get you most of the way there. Your individual style and personality can take you the rest of the way.
 

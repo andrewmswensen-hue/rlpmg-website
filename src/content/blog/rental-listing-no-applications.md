@@ -46,7 +46,7 @@ A vague description fails twice. It gives renters too little to act on (no squar
 
 Each diagnosis has a direct fix, and all four of these can happen within a week:
 
-- **Adjust the price with data, not hope.** Pull current comps for your specific area, not the citywide average. Even a $25–$50/month adjustment can move a listing into the next filter bracket and meaningfully change visibility. A [free rent evaluation](/free-rent-evaluation/) gives you the comp-based number rather than a guess.
+- **Adjust the price with data, not hope.** Pull current comps for your specific area, not the citywide average. Even a $25 to $50/month adjustment can move a listing into the next filter bracket and meaningfully change visibility. A [free rent evaluation](/free-rent-evaluation/) gives you the comp-based number rather than a guess.
 - **Reshoot the photos.** Natural light, wide angles, tidy rooms, and at least 10 images covering each room plus the exterior. Shoot on a sunny day with the lights on. This is the highest-return afternoon an owner can spend on a vacant unit; the data behind it is in [how professional photos affect lease-up time](/blog/rental-listing-photos-vacancy-time/).
 - **Rewrite the description around facts.** Square footage, bedroom and bathroom count, school district, parking, pet policy, included appliances, laundry, and proximity to major employers (a “15 minutes to OSU Wexner Medical Center” line does real work in Columbus). Details are what convert a view into an inquiry.
 - **Expand distribution.** A listing that lives on one platform reaches only the renters who search on that platform. RLPM syndicates listings to 45+ rental sites including Zillow, Trulia, and Apartments.com, because renters are spread across all of them and inquiries scale with reach.
@@ -69,7 +69,7 @@ Views without inquiries usually mean the photos earned the click but the price o
 
 **How long should a rental listing take to get applications in Columbus?**
 
-A well-priced, well-presented listing typically generates inquiries within the first week. Two weeks of silence is a diagnostic signal, not normal market friction. RLPM’s average lease-up runs 4–6 weeks once a property is rent-ready.
+A well-priced, well-presented listing typically generates inquiries within the first week. Two weeks of silence is a diagnostic signal, not normal market friction. RLPM’s average lease-up runs 4 to 6 weeks once a property is rent-ready.
 
 **Should I lower my rent if nobody is applying?**
 
@@ -93,6 +93,6 @@ Or [schedule a consultation](/property-management-consultation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Zillow Research – The Price of Overpricing](https://www.zillow.com/research/overpricing-impacts-time-market-12476/) – How listings that linger end up discounting more
-- [Zillow (July 2025)](https://zillow.mediaroom.com/2025-07-02-Saying-yes-to-pets-pays-off-for-landlords) – Pet-friendly listings rent ~8 days sooner with 9% more views
-- [RLPM Live KPI Scorecard](/key-performance-indicators/) – Current days on market and leasing performance for managed properties
+- [Zillow Research, The Price of Overpricing](https://www.zillow.com/research/overpricing-impacts-time-market-12476/), How listings that linger end up discounting more
+- [Zillow (July 2025)](https://zillow.mediaroom.com/2025-07-02-Saying-yes-to-pets-pays-off-for-landlords), Pet-friendly listings rent ~8 days sooner with 9% more views
+- [RLPM Live KPI Scorecard](/key-performance-indicators/), Current days on market and leasing performance for managed properties

@@ -1,5 +1,5 @@
 ---
-title: "Central Ohio Landlord Policy Updates – Week of May 18, 2026"
+title: "Central Ohio Landlord Policy Updates, Week of May 18, 2026"
 description: "This is the weekly Central Ohio landlord policy update. Five featured items get the full treatment below, followed by a quick-hits section covering the rest of the municipal activity worth tracking this week. The cost of staying ahead of a new ordinance is almost always lower than the cost of reacti"
 pubDate: "2026-05-18T20:29:54Z"
 updatedDate: "2026-06-02T15:50:11Z"
@@ -37,7 +37,7 @@ In This Article
 
 ## Groveport: Double Permit Fee Provision Rescinded
 
-***Status: Just passed — Once published, the double-fee penalty for work commenced without permits is gone going forward.***
+***Status: Just passed, Once published, the double-fee penalty for work commenced without permits is gone going forward.***
 
 On May 18, Groveport City Council voted to amend the codified ordinance to rescind the double permit fee provision. The double-fee provision applied when work commenced before the required permit was issued, in many cases effectively doubling the cost of bringing a project into compliance.
 
@@ -51,7 +51,7 @@ Source: [Groveport City Council Meeting Agenda, May 18, 2026](https://groveport.
 
 ## Plain City: Dedicated Code Compliance Inspector Established
 
-***Status: Recently passed — The position is approved; staffing the role is the next step.***
+***Status: Recently passed, The position is approved; staffing the role is the next step.***
 
 On May 13, the Plain City council established a dedicated Code Compliance Inspector position. Plain City’s property maintenance enforcement has been primarily complaint-driven through the Development Services and Planning and Zoning Division. Dedicated staffing changes that model.
 
@@ -67,7 +67,7 @@ Source: [Plain City CIC Minutes, May 13, 2026](https://www.plaincityohio.gov/Dep
 
 ## Plain City: Residential Zoning and Nuisance Amendments Adopted
 
-***Status: Just passed — New architectural standards and updated nuisance regulations are in force.***
+***Status: Just passed, New architectural standards and updated nuisance regulations are in force.***
 
 On May 20, the Plain City council approved amendments to the zoning code establishing new architectural standards for residential developments and updating nuisance regulations. A separate but related proposal introducing additional architectural and site design standards for residential developments was also advanced for further review and remains at the introduced and public-hearings-pending stage.
 
@@ -81,7 +81,7 @@ Source: [Plain City Planning and Zoning Committee Packet, May 20, 2026](https://
 
 ## Gahanna: Property Maintenance Code Restructure Proposed
 
-***Status: Introduced, public hearings pending — Comment window is open before the structure is locked.***
+***Status: Introduced, public hearings pending, Comment window is open before the structure is locked.***
 
 Gahanna is proposing to move certain property maintenance regulations out of the Zoning Code (Part Eleven of the Gahanna Code) and into the Building Code. The substantive rules may not change much. The structural change is where the regulations live and which division enforces them.
 
@@ -95,7 +95,7 @@ Source: [Gahanna Committee Minutes, May 11, 2026](https://gahanna.legistar.com/V
 
 ## Reynoldsburg: Zoning Code Amendments Adopted
 
-***Status: Just passed — Reinstated standards are back in force; check any in-flight applications.***
+***Status: Just passed, Reinstated standards are back in force; check any in-flight applications.***
 
 On May 11, Reynoldsburg City Council adopted amendments to the zoning code that clarify provisions and reinstate previously omitted standards. The summary language characterizes the changes as clarifications and corrections rather than substantive policy shifts. The phrase “reinstate omitted standards” is the part that warrants a second read.
 
@@ -111,23 +111,23 @@ Source: [Reynoldsburg City Council Minutes, May 11, 2026](https://reynoldsburgoh
 
 Seventeen additional items from across Central Ohio worth knowing about, organized loosely by status. Not every item demands action this week, but each is tracking toward something that will.
 
-- **Plain City, OH** — Council proposed an amendment introducing additional architectural and site design standards for residential developments. Companion to the Plain City zoning amendments adopted the same week. Comment window is open.
-- **Plain City, OH** — The city manager presented an updated draft of the zoning code at the May 11 council meeting. Plain City is mid-rewrite. Landlords with property in Madison or Union County should track the next draft release.
-- **Powell, OH** — City staff is finalizing a draft of a new zoning code including updated downtown design guidelines. Owners with downtown or near-downtown Powell holdings should review the draft before the formal hearing window opens.
-- **Powell, OH** — Council held the first reading of Ordinance 2026-10. Language and substantive scope are not yet published in detail; monitor the next reading.
-- **Westerville, OH** — Council introduced Ordinance No. 2026-10 (Westerville’s numbering, distinct from Powell’s). Substantive scope will be confirmed at second reading; monitor agenda packets for committee assignment.
-- **Grove City, OH** — Council passed an ordinance that takes effect at the earliest opportunity allowed by law. Specific scope is not detailed in the meeting summary; pull the full ordinance text via the source link to confirm impact on rental operations.
-- **Worthington, OH** — Council unanimously approved Ordinance No. 13-2026, which authorizes the issuance of bonds (not to exceed $1.2 million) for designing, engineering, and constructing water improvements and related site improvements. Watch for downstream water and sewer rate or assessment effects.
-- **Canal Winchester, OH** — Council discussed an ordinance related to property tax revenue. Tax-revenue ordinances often translate into millage decisions on the ballot or service-fee changes. Worth tracking through the next reading.
-- **Granville, OH** — Councilmember Leithauser reiterated support for affordable housing initiatives. Discussion only at this stage; no specific ordinance or fee proposal is attached. Could become a policy push in future cycles.
-- **Sunbury, OH** — Council conducted first readings of several ordinances including updates to local regulations. Specific subject matter is broad; monitor the second reading for committee detail.
-- **Upper Arlington, OH** — Council approved an ordinance to edit and include certain finance ordinances in the codified ordinances. Procedural codification cleanup; minimal direct landlord impact but useful to know the codified text is current.
-- **Upper Arlington, OH** — Council conducted first and second readings of temporary ordinances. Specific subject matter will be confirmed at the third reading.
-- **Plain City, OH** — Property Maintenance Code Review (Proposed Code Draft) walk-through by Village Planner Derek Hutchinson at the May 6 work session, covering Chapter 1182 and related chapters. Context for the May 13 Code Compliance Inspector action.
-- **Gahanna, OH** — Earlier zoning code amendments adopted May 4 to update and clarify code provisions and reinstate omitted standards. Context for Gahanna’s broader code-modernization cycle, including the proposed property maintenance code restructure featured above.
-- **Canal Winchester, OH** — ORD-26-010 adopted May 4 approving the editing and inclusion of certain Finance ordinances as parts of the codified ordinances. Procedural codification cleanup.
-- **Lancaster, OH** — Ordinance Temporary 11-26 first reading and Ordinance Temporary 10-26 second reading conducted May 4. Procedural; specific subject matter limited in available summary.
-- **Dublin, OH** — Staff recommended passage of an ordinance related to the Ballantrae area at second reading on April 27. If you operate in the Ballantrae area, review the source.
+- **Plain City, OH**, Council proposed an amendment introducing additional architectural and site design standards for residential developments. Companion to the Plain City zoning amendments adopted the same week. Comment window is open.
+- **Plain City, OH**, The city manager presented an updated draft of the zoning code at the May 11 council meeting. Plain City is mid-rewrite. Landlords with property in Madison or Union County should track the next draft release.
+- **Powell, OH**, City staff is finalizing a draft of a new zoning code including updated downtown design guidelines. Owners with downtown or near-downtown Powell holdings should review the draft before the formal hearing window opens.
+- **Powell, OH**, Council held the first reading of Ordinance 2026-10. Language and substantive scope are not yet published in detail; monitor the next reading.
+- **Westerville, OH**, Council introduced Ordinance No. 2026-10 (Westerville’s numbering, distinct from Powell’s). Substantive scope will be confirmed at second reading; monitor agenda packets for committee assignment.
+- **Grove City, OH**, Council passed an ordinance that takes effect at the earliest opportunity allowed by law. Specific scope is not detailed in the meeting summary; pull the full ordinance text via the source link to confirm impact on rental operations.
+- **Worthington, OH**, Council unanimously approved Ordinance No. 13-2026, which authorizes the issuance of bonds (not to exceed $1.2 million) for designing, engineering, and constructing water improvements and related site improvements. Watch for downstream water and sewer rate or assessment effects.
+- **Canal Winchester, OH**, Council discussed an ordinance related to property tax revenue. Tax-revenue ordinances often translate into millage decisions on the ballot or service-fee changes. Worth tracking through the next reading.
+- **Granville, OH**, Councilmember Leithauser reiterated support for affordable housing initiatives. Discussion only at this stage; no specific ordinance or fee proposal is attached. Could become a policy push in future cycles.
+- **Sunbury, OH**, Council conducted first readings of several ordinances including updates to local regulations. Specific subject matter is broad; monitor the second reading for committee detail.
+- **Upper Arlington, OH**, Council approved an ordinance to edit and include certain finance ordinances in the codified ordinances. Procedural codification cleanup; minimal direct landlord impact but useful to know the codified text is current.
+- **Upper Arlington, OH**, Council conducted first and second readings of temporary ordinances. Specific subject matter will be confirmed at the third reading.
+- **Plain City, OH**, Property Maintenance Code Review (Proposed Code Draft) walk-through by Village Planner Derek Hutchinson at the May 6 work session, covering Chapter 1182 and related chapters. Context for the May 13 Code Compliance Inspector action.
+- **Gahanna, OH**, Earlier zoning code amendments adopted May 4 to update and clarify code provisions and reinstate omitted standards. Context for Gahanna’s broader code-modernization cycle, including the proposed property maintenance code restructure featured above.
+- **Canal Winchester, OH**, ORD-26-010 adopted May 4 approving the editing and inclusion of certain Finance ordinances as parts of the codified ordinances. Procedural codification cleanup.
+- **Lancaster, OH**, Ordinance Temporary 11-26 first reading and Ordinance Temporary 10-26 second reading conducted May 4. Procedural; specific subject matter limited in available summary.
+- **Dublin, OH**, Staff recommended passage of an ordinance related to the Ballantrae area at second reading on April 27. If you operate in the Ballantrae area, review the source.
 
 ## What to Do With This Information
 

@@ -21,13 +21,13 @@ tags:
 
 ## 5 Risk-Tolerant Ways to Grow Your Investment Portfolio
 
-Despite real estate being a strong-performing asset class, each property investment will always require at least a small leap of faith – we can never completely eliminate the possibility that our investment will fall short. The best we can do is be as strategic as we can when making decisions. Here are five suggestions for successfully growing your investment portfolio.
+Despite real estate being a strong-performing asset class, each property investment will always require at least a small leap of faith, we can never completely eliminate the possibility that our investment will fall short. The best we can do is be as strategic as we can when making decisions. Here are five suggestions for successfully growing your investment portfolio.
 
-1. **Research** – All good investments start with research. Conduct a market analysis to understand the area. Evaluate historical data as well as future growth potential. Understand the population, infrastructure, rental market, and other economic indicators before diving into a new property.
+1. **Research**, All good investments start with research. Conduct a market analysis to understand the area. Evaluate historical data as well as future growth potential. Understand the population, infrastructure, rental market, and other economic indicators before diving into a new property.
 
-1. **Network** – Another best practice is to surround yourself with experienced professionals and network with other like-minded investors. Networking is a good way to learn from others so you can avoid mistakes and set yourself up for success.
-2. **Diversify** – By spreading your investments across different types of properties and/or locations, you’ll help mitigate the risk of being overly exposed in any given area or market.
-3. **Partner** – Consider engaging a [reputable property management company](/) to handle the day-to-day operations, tenant screening, rent collection and property maintenance of your properties. Though it may sound counter-intuitive, paying for professional management can help you save money and increase your net operating income (NOI).
-4. **Review**– Lastly, an important step in managing a growing real estate portfolio is to assess performance. Regularly review key metrics for each of your properties, including cash flow, NOI, vacancy rates, and other market-specific data that inform your investment.
+1. **Network**, Another best practice is to surround yourself with experienced professionals and network with other like-minded investors. Networking is a good way to learn from others so you can avoid mistakes and set yourself up for success.
+2. **Diversify**, By spreading your investments across different types of properties and/or locations, you’ll help mitigate the risk of being overly exposed in any given area or market.
+3. **Partner**, Consider engaging a [reputable property management company](/) to handle the day-to-day operations, tenant screening, rent collection and property maintenance of your properties. Though it may sound counter-intuitive, paying for professional management can help you save money and increase your net operating income (NOI).
+4. **Review**, Lastly, an important step in managing a growing real estate portfolio is to assess performance. Regularly review key metrics for each of your properties, including cash flow, NOI, vacancy rates, and other market-specific data that inform your investment.
 
 To learn more about managing risk while owning rental property in Central Ohio, [get in touch](/contact-us/) with us at RL Property Management. We’ve been professionally managing rental properties in the greater Columbus area for more than a decade and have the expertise and professionalism to help you get the most out of your strategic investment.

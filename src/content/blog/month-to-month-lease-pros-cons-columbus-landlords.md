@@ -66,7 +66,7 @@ Renewal pricing follows the same logic. A modest rent increase tied to a renewal
 | Scenario | Typical Cost |
 |---|---|
 | Tenant renews (lease renewal fee + modest increase) | $250 |
-| Tenant leaves (cleaning, marketing, vacancy days) | $3,000–$5,000 |
+| Tenant leaves (cleaning, marketing, vacancy days) | $3,000 to $5,000 |
 
 > **Keeping a good tenant at a modest increase usually beats the cost of finding a new one.**
 

@@ -208,9 +208,9 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Ohio Revised Code Chapter 5321 (Landlords and Tenants)](https://codes.ohio.gov/ohio-revised-code/chapter-5321) — governing statute for residential landlord-tenant relationships in Ohio
-- [ORC § 5321.16 (Security Deposits)](https://codes.ohio.gov/ohio-revised-code/section-5321.16) — security deposit handling, interest, and return requirements
-- [ORC § 5321.04 (Landlord Obligations)](https://codes.ohio.gov/ohio-revised-code/section-5321.04) — landlord duties including notice for entry
-- [EPA Lead-Based Paint Disclosure Rule](https://www.epa.gov/lead/real-estate-disclosure) — federal disclosure requirement for pre-1978 properties
-- [Ohio State Bar Association — Landlord-Tenant Resources](https://www.ohiobar.org/) — general landlord-tenant law guidance
-- [City of Columbus — Tenant and Landlord Resources](https://www.columbus.gov/) — local ordinances and tenant protection updates
+- [Ohio Revised Code Chapter 5321 (Landlords and Tenants)](https://codes.ohio.gov/ohio-revised-code/chapter-5321), governing statute for residential landlord-tenant relationships in Ohio
+- [ORC § 5321.16 (Security Deposits)](https://codes.ohio.gov/ohio-revised-code/section-5321.16), security deposit handling, interest, and return requirements
+- [ORC § 5321.04 (Landlord Obligations)](https://codes.ohio.gov/ohio-revised-code/section-5321.04), landlord duties including notice for entry
+- [EPA Lead-Based Paint Disclosure Rule](https://www.epa.gov/lead/real-estate-disclosure), federal disclosure requirement for pre-1978 properties
+- [Ohio State Bar Association, Landlord-Tenant Resources](https://www.ohiobar.org/), general landlord-tenant law guidance
+- [City of Columbus, Tenant and Landlord Resources](https://www.columbus.gov/), local ordinances and tenant protection updates

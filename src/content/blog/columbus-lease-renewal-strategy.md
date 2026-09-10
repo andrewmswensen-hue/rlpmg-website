@@ -37,11 +37,11 @@ Let’s break down what a single turnover can cost:
 
 ### Common Turnover Expenses in Columbus, OH
 
-- **Deep cleaning**: $250–$400
-- **Painting and repairs**: $700–$1,200
-- **Lock changes**: $100–$150
-- **Lost rent (2–4 weeks)**: $1,200–$2,300+
-- **Leasing fees, marketing, and staff time**: $500–$750+
+- **Deep cleaning**: $250 to $400
+- **Painting and repairs**: $700 to $1,200
+- **Lock changes**: $100 to $150
+- **Lost rent (2 to 4 weeks)**: $1,200 to $2,300+
+- **Leasing fees, marketing, and staff time**: $500 to $750+
 
 Even on the low end, you’re looking at **$2,500 to $4,000 per turnover**, and that’s assuming a quick lease-up and no major repairs. If the property sits vacant longer or needs deeper work, that number climbs fast.
 
@@ -92,7 +92,7 @@ Keep in mind, even a “nice” tenant can be costly if they’re behind on rent
 
 Sometimes, offering a **slightly below-market renewal** is smarter than chasing a higher rent and risking vacancy.
 
-Let’s say market rent has increased 7% since last year. If your current tenant is paying on time, keeping the unit clean, and causing zero headaches, offering a **3–5% increase** might:
+Let’s say market rent has increased 7% since last year. If your current tenant is paying on time, keeping the unit clean, and causing zero headaches, offering a **3 to 5% increase** might:
 
 - Retain them for another year or more
 - Avoid $2,000+ in turnover costs.
@@ -129,8 +129,8 @@ These elements can justify pricing above or below market averages.
 
 ### Strategic Lease Renewal Options
 
-- **Standard 2.5–5% Annual Increase** Keeps pace with inflation, tax hikes, and maintenance cost increases, without spooking your tenant.
-- **Larger Increases with Explanation** If you need to bump rent significantly (e.g., 8–10%), provide a **professional, empathetic explanation**: “We’ve completed several upgrades, and utility costs have risen, so your rent will increase to reflect those changes. We value you as a tenant and hope you’ll stay.”
+- **Standard 2.5 to 5% Annual Increase** Keeps pace with inflation, tax hikes, and maintenance cost increases, without spooking your tenant.
+- **Larger Increases with Explanation** If you need to bump rent significantly (e.g., 8 to 10%), provide a **professional, empathetic explanation**: “We’ve completed several upgrades, and utility costs have risen, so your rent will increase to reflect those changes. We value you as a tenant and hope you’ll stay.”
 - **Month-to-Month Premiums** Want to offer flexibility without locking into another lease? A **20% premium** on market rent is fair and standard for the added risk and vacancy exposure.
 
 ### Avoiding the “Too Aggressive” Trap
@@ -165,8 +165,8 @@ These low-cost actions can make the tenant feel valued, while protecting you fro
 
 If you decide not to renew, be prepared for a higher level of work and cost. A typical make-ready project can include:
 
-- **Full repaint** ($600–$1,200+)
-- **New flooring or deep cleaning** ($300–$1,500+)
+- **Full repaint** ($600 to $1,200+)
+- **New flooring or deep cleaning** ($300 to $1,500+)
 - **Lock changes and hardware updates.**
 - **Pest control or mold remediation** (especially in older homes with gaps in tenant care)
 

@@ -23,7 +23,7 @@ Large property expenses rarely feel “big”; they feel sudden. A roof that fai
 
 Routine maintenance keeps a property running day to day. Capital expenditures are different. They include the structure and systems that determine whether a home is safe, rentable, and financially stable over time, items like roofing, HVAC, electrical service panels, windows, and major plumbing replacements. These aren’t surprises; they’re lifecycle events most properties go through.
 
-Columbus investors feel this more than most because our region’s freeze–thaw cycles put extra strain on roofs, siding, concrete, and mechanical systems. Older housing stock across neighborhoods like Clintonville, Old North, Westgate, and Berwick often contains components that are decades past the age when most manufacturers recommend replacement. That creates a predictable need for long-term planning, even when a system appears to be functioning today.
+Columbus investors feel this more than most because our region’s freeze, thaw cycles put extra strain on roofs, siding, concrete, and mechanical systems. Older housing stock across neighborhoods like Clintonville, Old North, Westgate, and Berwick often contains components that are decades past the age when most manufacturers recommend replacement. That creates a predictable need for long-term planning, even when a system appears to be functioning today.
 
 Capital expenses aren’t unpredictable; they’re only unplanned.
 
@@ -42,20 +42,20 @@ One of the most effective ways to stay ahead of capital expenses is understandin
 ### B. Typical Lifespans for Major Systems
 
 **Roof shingles:**
-15–30 years (standard asphalt typically lasts 15–20 years; architectural or higher-grade shingles may reach 25–30+ years)
+15 to 30 years (standard asphalt typically lasts 15 to 20 years; architectural or higher-grade shingles may reach 25 to 30+ years)
 
 **HVAC systems:**
-10–25 years (lifespan varies by system type, maintenance, and climate)
+10 to 25 years (lifespan varies by system type, maintenance, and climate)
 
 **Water heaters:**
-8–12 years for tank models; 15–20+ years for tankless units.
+8 to 12 years for tank models; 15 to 20+ years for tankless units.
 
 **Windows & insulation:**
-Windows: ~15–20 years
-Insulation: ~20–30+ years
+Windows: ~15 to 20 years
+Insulation: ~20 to 30+ years
 
 **Concrete driveways & walkways:**
-25–30 years with proper installation and maintenance
+25 to 30 years with proper installation and maintenance
 
 Even without exact timelines, the key truth remains: every system has a predictable arc. The surprise comes not from the failure itself, but from not tracking where that component sits in its lifecycle.
 
@@ -83,7 +83,7 @@ Even when you understand a system’s typical lifespan, real-world conditions ca
 
 Central Ohio’s climate puts continuous pressure on building materials.
 
-- **Freeze–thaw cycles** allow water to seep into tiny cracks, freeze, expand, and break down roofs, siding, driveways, foundations, and exterior paint.
+- **Freeze, thaw cycles** allow water to seep into tiny cracks, freeze, expand, and break down roofs, siding, driveways, foundations, and exterior paint.
 - **High humidity and hot summers** force HVAC systems to work harder, shortening their lifespan.
 - **Heavy rainfall** challenges gutters and drainage, contributing to basement moisture, one of the most common issues in older Columbus homes.
 
@@ -115,9 +115,9 @@ Certain projects simply make more sense during specific seasons:
 - Flooring, paint, and interior upgrades are **ideal during vacancy** to avoid rent loss.
 - HVAC replacement is **preferably planned before summer or winter peak** to avoid emergency calls.
 
-## Building a 5–10 Year Capital Expenditure Plan for Your Columbus Rentals
+## Building a 5 to 10 Year Capital Expenditure Plan for Your Columbus Rentals
 
-A capital expenditure plan turns unpredictable repairs into a clear roadmap you can follow year after year. For investors in a market like Columbus, where aging properties, variable weather, and tenant turnover all play a role, a 5–10 year CapEx plan brings stability to cash flow, reduces emergency calls, and protects long-term ROI. The goal isn’t to predict the future perfectly; it’s to understand what’s likely coming so you can prepare for it.
+A capital expenditure plan turns unpredictable repairs into a clear roadmap you can follow year after year. For investors in a market like Columbus, where aging properties, variable weather, and tenant turnover all play a role, a 5 to 10 year CapEx plan brings stability to cash flow, reduces emergency calls, and protects long-term ROI. The goal isn’t to predict the future perfectly; it’s to understand what’s likely coming so you can prepare for it.
 
 ### A. Step 1: Create a full property condition inventory
 
@@ -146,7 +146,7 @@ Once you know what you have, the next step is estimating *how long* each compone
 1. Items that have already exceeded typical life expectancy.
 2. Systems approaching the “replacement window.”
 
-This is especially valuable in Columbus, where older materials may fail faster due to moisture or freeze–thaw impact.
+This is especially valuable in Columbus, where older materials may fail faster due to moisture or freeze, thaw impact.
 
 **Example:**
 
@@ -169,7 +169,7 @@ All CapEx is not created equal. Some projects protect the structure of the build
 - New HVAC systems to maintain habitability and reduce emergency calls.
 - Drainage improvements to prevent basement moisture are common across Columbus.
 
-### D. Step 4: Create a phased 36–60 month CapEx calendar
+### D. Step 4: Create a phased 36 to 60 month CapEx calendar
 
 Plan your biggest items across a multi-year timeline.
 
@@ -178,8 +178,8 @@ Plan your biggest items across a multi-year timeline.
 **A simple phased approach:**
 
 - **Year 1:** Urgent, risk-heavy items (e.g., roof, failing HVAC, active plumbing issues).
-- **Years 2–3:** Preventive improvements (e.g., gutters, windows, insulation upgrades).
-- **Years 4–5:** Efficiency or cosmetic improvements that support stronger rent potential.
+- **Years 2 to 3:** Preventive improvements (e.g., gutters, windows, insulation upgrades).
+- **Years 4 to 5:** Efficiency or cosmetic improvements that support stronger rent potential.
 
 Revisit the calendar annually as conditions change.
 
@@ -256,7 +256,7 @@ Because every property is different, there’s no universal formula, but several
 2. **Age-of-building model**
 
 - Pre-1970 Columbus homes → highest allocation due to outdated systems.
-- 1970–1990 homes → moderate allocation.
+- 1970 to 1990 homes → moderate allocation.
 - Newer homes → lower allocation, but still require long-term planning.
 
 1. **Portfolio-level smoothing** Owners with multiple properties often spread CapEx across the portfolio, avoiding “stacking” expensive projects in one year.

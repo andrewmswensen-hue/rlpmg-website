@@ -1,6 +1,6 @@
 ---
 title: "Lessons Learned: When Owner Disbursements Processes Need to Be Refined"
-description: "We’ll be the first to admit that as a business and as individual employees of the company we’re always learning. Certain mistakes – while we’d rather not make them – give us moments of pause and create opportunities for us to continually refine our processes so we are best able to deliver great serv"
+description: "We’ll be the first to admit that as a business and as individual employees of the company we’re always learning. Certain mistakes, while we’d rather not make them, give us moments of pause and create opportunities for us to continually refine our processes so we are best able to deliver great serv"
 pubDate: "2022-03-29T14:00:54Z"
 updatedDate: "2022-03-14T11:03:08Z"
 slug: "lessons-learned-when-owner-disbursements-processes-need-to-be-refined"
@@ -18,7 +18,7 @@ tags:
 
 {{youtube:SpfDsZTSnzw}}
 
-![](https://rlpmg.com/wp-content/uploads/2022/03/northfolk-Ok76F6yW2iA-unsplash-300x169.jpg)We’ll be the first to admit that as a business and as individual employees of the company we’re always learning. Certain mistakes – while we’d rather not make them – give us moments of pause and create opportunities for us to continually refine our processes so we are best able to deliver great service for our property owners.
+![](https://rlpmg.com/wp-content/uploads/2022/03/northfolk-Ok76F6yW2iA-unsplash-300x169.jpg)We’ll be the first to admit that as a business and as individual employees of the company we’re always learning. Certain mistakes, while we’d rather not make them, give us moments of pause and create opportunities for us to continually refine our processes so we are best able to deliver great service for our property owners.
 
 Below we’ll share an example of one such mistake we made, how we remedied the issue, and ultimately made changes to our systems so we can avoid similar issues in the future.
 

@@ -12,13 +12,13 @@ categories:
   - "Tenant Education"
 ---
 
-![person conducting a property inspection](https://rlpmg.com/wp-content/uploads/2019/11/AdobeStock_613906804-300x200.jpeg)Regular property inspections are one of the most essential practices in professional property management. They help safeguard your investment, maintain tenant satisfaction, and prevent small issues from turning into costly problems. At RL Property Management, we perform thorough inspections four times a year for all properties under our care. Here’s the benefits of completing property inspections – for property owners, tenants, and the properties themselves:
+![person conducting a property inspection](https://rlpmg.com/wp-content/uploads/2019/11/AdobeStock_613906804-300x200.jpeg)Regular property inspections are one of the most essential practices in professional property management. They help safeguard your investment, maintain tenant satisfaction, and prevent small issues from turning into costly problems. At RL Property Management, we perform thorough inspections four times a year for all properties under our care. Here’s the benefits of completing property inspections, for property owners, tenants, and the properties themselves:
 
 ## Preventative Maintenance Saves Money
 
 Regular property inspections are essential for identifying and addressing maintenance issues before they escalate into costly repairs or emergencies.
 
-A prime example is the simple yet impactful task of replacing furnace filters. Most units use 1-inch thick furnace filters with a lifespan of 1–3 months. When these filters are neglected, the consequences can be significant, including:
+A prime example is the simple yet impactful task of replacing furnace filters. Most units use 1-inch thick furnace filters with a lifespan of 1 to 3 months. When these filters are neglected, the consequences can be significant, including:
 
 - **Reduced furnace lifespan**: Dirty filters force the furnace to work harder, increasing temperatures and cycling rates. Over time, this added strain can cause premature wear and tear on key components such as the heat exchanger and blower motor.
 - **Emergency maintenance calls**: Neglecting filters can lead to tripped high-limit switches, resulting in sudden furnace shutdowns that often require urgent and costly service calls.
@@ -39,7 +39,7 @@ By proactively addressing these safety concerns, inspections help prevent catast
 
 Property inspections play a crucial role in enforcing lease terms and protecting the value of your investment by identifying and addressing potential violations or issues early. These inspections are an effective way to ensure tenants are adhering to their agreements while maintaining the property’s condition. Key areas of focus include:
 
-**Unauthorized Pets or Occupants**: Unapproved pets can cause significant damage, from scratched flooring to stained carpets, while unauthorized occupants may lead to excessive wear and tear on the property. During inspections, we compare the findings—such as evidence of additional pets or signs of extra tenants—with the approved lease terms. This proactive approach allows us to address violations promptly, minimizing damage and maintaining the property’s livability and value.
+**Unauthorized Pets or Occupants**: Unapproved pets can cause significant damage, from scratched flooring to stained carpets, while unauthorized occupants may lead to excessive wear and tear on the property. During inspections, we compare the findings, such as evidence of additional pets or signs of extra tenants, with the approved lease terms. This proactive approach allows us to address violations promptly, minimizing damage and maintaining the property’s livability and value.
 
 **Smoking Inside Units**: Smoking inside rental properties is strictly prohibited under RL Property Management’s lease agreements. Inspections help detect evidence of smoking, such as lingering odors, discoloration on walls, or ash remnants, which can severely impact a property’s interior. By identifying these issues early, we can enforce compliance, preventing costly cleaning or restoration efforts and preserving the property’s appeal for future tenants.
 

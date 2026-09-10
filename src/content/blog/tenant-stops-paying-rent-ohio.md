@@ -26,16 +26,16 @@ Key Takeaways
 
 In This Article
 
-1. [Day 1–5: Rent Is Late. Now What?](#day-1-5)
-2. [Day 5–15: Still No Payment. What Does Escalation Look Like?](#day-5-15)
-3. [Day 15–30: How Does the 3-Day Notice Work in Ohio?](#three-day-notice)
+1. [Day 1 to 5: Rent Is Late. Now What?](#day-1-5)
+2. [Day 5 to 15: Still No Payment. What Does Escalation Look Like?](#day-5-15)
+3. [Day 15 to 30: How Does the 3-Day Notice Work in Ohio?](#three-day-notice)
 4. [Day 30+: What Does Filing an Eviction in Franklin County Involve?](#filing)
 5. [After the Eviction: What Comes Next?](#after)
 6. [Frequently Asked Questions](#faq)
 
 *This article is informational, not legal advice. Ohio eviction law and local court procedures change; figures and citations are current as of August 2026. Consult a qualified attorney for your specific situation.*
 
-## Day 1–5: Rent Is Late. Now What?
+## Day 1 to 5: Rent Is Late. Now What?
 
 The first few days are about communication, not confrontation. If the lease includes a grace period, it runs first. Once it lapses, the late fee specified in the lease applies, and the first contact goes out: a friendly, direct reminder that rent hasn’t been received.
 
@@ -45,7 +45,7 @@ One habit matters more than any other this week: document each contact. Date, ch
 
 > **Most non-payment situations resolve before eviction. The ones that don’t are why you need a process.**
 
-## Day 5–15: Still No Payment. What Does Escalation Look Like?
+## Day 5 to 15: Still No Payment. What Does Escalation Look Like?
 
 If a week has passed with no payment and no meaningful response, the tone shifts from reminder to formal. A written late notice or demand letter goes out stating the amount owed, the late fees assessed, and a clear deadline.
 
@@ -57,7 +57,7 @@ This is also the assessment window. Is this a one-time hardship from a tenant wi
 
 RLPM pursues these alternatives deliberately before court, including pay-and-stay arrangements, because an eviction is the most expensive way to solve a rent problem. Practical strategies for this middle stage are covered in [dealing with late payments: strategies for working with tenants](/blog/late-rent-payment-strategies-columbus-property-management/).
 
-## Day 15–30: How Does the 3-Day Notice Work in Ohio?
+## Day 15 to 30: How Does the 3-Day Notice Work in Ohio?
 
 If payment isn’t made and no arrangement is reached, Ohio law requires a specific step before any eviction can be filed: the 3-day notice to leave the premises, served under [ORC 1923.04](https://codes.ohio.gov/ohio-revised-code/section-1923.04) (as of August 2026).
 
@@ -150,9 +150,9 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Ohio Revised Code 1923.04](https://codes.ohio.gov/ohio-revised-code/section-1923.04) – The 3-day notice requirement and required statutory language
-- [Ohio Revised Code Chapter 1923](https://codes.ohio.gov/ohio-revised-code/chapter-1923) – Forcible entry and detainer (the eviction statute)
-- [Ohio Revised Code 5321.15](https://codes.ohio.gov/ohio-revised-code/section-5321.15) – Prohibition on self-help eviction and landlord liability
-- [Franklin County Municipal Court Clerk – Civil Cost Schedule](https://www.fcmcclerk.com/documents/civil/civilcost.pdf) – Current eviction filing fees (effective Aug 1, 2026)
-- [Columbus Ordinance 2109-2023](https://columbus.legistar.com/LegislationDetail.aspx?ID=6295962&GUID=DE3FD3D2-7AEF-48A9-B7B0-3F13428BEC0B) – The Pay to Stay ordinance (CCC 4551.07)
-- [Ohio Legal Help – Eviction Timeline](https://www.ohiolegalhelp.org/eviction-timeline) – Plain-language walkthrough of the Ohio eviction process
+- [Ohio Revised Code 1923.04](https://codes.ohio.gov/ohio-revised-code/section-1923.04), The 3-day notice requirement and required statutory language
+- [Ohio Revised Code Chapter 1923](https://codes.ohio.gov/ohio-revised-code/chapter-1923), Forcible entry and detainer (the eviction statute)
+- [Ohio Revised Code 5321.15](https://codes.ohio.gov/ohio-revised-code/section-5321.15), Prohibition on self-help eviction and landlord liability
+- [Franklin County Municipal Court Clerk, Civil Cost Schedule](https://www.fcmcclerk.com/documents/civil/civilcost.pdf), Current eviction filing fees (effective Aug 1, 2026)
+- [Columbus Ordinance 2109-2023](https://columbus.legistar.com/LegislationDetail.aspx?ID=6295962&GUID=DE3FD3D2-7AEF-48A9-B7B0-3F13428BEC0B), The Pay to Stay ordinance (CCC 4551.07)
+- [Ohio Legal Help, Eviction Timeline](https://www.ohiolegalhelp.org/eviction-timeline), Plain-language walkthrough of the Ohio eviction process

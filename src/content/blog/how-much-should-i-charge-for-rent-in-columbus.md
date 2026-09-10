@@ -21,7 +21,7 @@ tags:
 
 Finding the magic rent number for your investment property starts by doing a market rental analysis of comparable properties in the area. Once you know how much neighboring units with similar features are renting for, you can come up with a price that makes sense for your property given what you know about the current market conditions.
 
-Setting the market rent on a vacancy is a little more straightforward than it is when setting rates on a renewal because you have the marketplace for guidance – all the listed units are the *supply,*and all the people looking for places to stay are the *demand*.
+Setting the market rent on a vacancy is a little more straightforward than it is when setting rates on a renewal because you have the marketplace for guidance, all the listed units are the *supply,*and all the people looking for places to stay are the *demand*.
 
 ## But What if Your Property isn’t Renting?
 
@@ -33,7 +33,7 @@ First, a vacancy should not immediately be cause for concern. Depending on your 
 
 Setting your asking rent at a fair market price or even slightly below will help get you the high-quality applicants you’re looking for. Let us elaborate.
 
-While you may think that if you set your rates high, you’ll get “good” tenants. The reality is – that’s generally not the case.
+While you may think that if you set your rates high, you’ll get “good” tenants. The reality is, that’s generally not the case.
 
 Discerning, high-quality tenants are going to pay the absolute *minimum* rent for a high-quality space that fits their budget and needs. They’re shopping around, they’re getting to know the market, and they have no intention of paying *more* for a property when they can get a similar one for less down the block.
 

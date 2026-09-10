@@ -1,6 +1,6 @@
 ---
 title: "Who is Responsible for Snow Removal in Columbus?"
-description: "Spoiler alert – it snows in Columbus. While it may not amount to the same level of snow other areas of the U.S. get, it still can be significant, and it can still significantly affect a property owner’s budget. Per data we’ve collected on multifamily rental property expenses, landscaping and snow re"
+description: "Spoiler alert, it snows in Columbus. While it may not amount to the same level of snow other areas of the U.S. get, it still can be significant, and it can still significantly affect a property owner’s budget. Per data we’ve collected on multifamily rental property expenses, landscaping and snow re"
 pubDate: "2022-11-29T15:00:55Z"
 updatedDate: "2022-11-14T16:27:11Z"
 slug: "who-is-responsible-for-snow-removal-in-columbus"
@@ -16,7 +16,7 @@ tags:
   - "property management"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2022/11/Who-is-Responsible-for-Snow-Removal-in-Columbus-300x300.jpg)Spoiler alert – it snows in Columbus. While it may not amount to the same level of snow other areas of the U.S. get, it still can be significant, and it can still significantly affect a property owner’s budget.
+![](https://rlpmg.com/wp-content/uploads/2022/11/Who-is-Responsible-for-Snow-Removal-in-Columbus-300x300.jpg)Spoiler alert, it snows in Columbus. While it may not amount to the same level of snow other areas of the U.S. get, it still can be significant, and it can still significantly affect a property owner’s budget.
 
 Per data we’ve collected on multifamily rental property expenses, [landscaping and snow removal comes in third](/blog/whats-the-most-expensive-part-of-owning-multifamily-rentals/)(behind repairs and utilities) in terms of costs associated with property ownership. For investors who live in warm climates, seasonal maintenance needs can be easy to forget to factor in when purchasing a property in the colder regions of the US.
 

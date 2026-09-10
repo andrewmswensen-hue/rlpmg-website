@@ -1,6 +1,6 @@
 ---
 title: "What Does a Columbus Property Manager Actually Do? (A Full Breakdown of Services)"
-description: "You’ve heard property managers handle “everything.” But what does that actually mean? Here’s a plain-English breakdown of every service a full-service Columbus property manager provides — and what each one protects you from. TL;DR A property manager handles tenant placement, rent collection, mainten"
+description: "You’ve heard property managers handle “everything.” But what does that actually mean? Here’s a plain-English breakdown of every service a full-service Columbus property manager provides, and what each one protects you from. TL;DR A property manager handles tenant placement, rent collection, mainten"
 pubDate: "2026-06-29T14:31:17Z"
 updatedDate: "2026-06-09T16:22:33Z"
 slug: "what-does-a-columbus-property-manager-do"
@@ -12,7 +12,7 @@ categories:
   - "Rental Market Trends"
 ---
 
-*![A rental house kitchen with paperwork on the counter.](https://rlpmg.com/wp-content/uploads/2026/06/RLPM-Blog-What-PM-actually-do-Kitchen-300x164.png)You’ve heard property managers handle “everything.” But what does that actually mean? Here’s a plain-English breakdown of every service a full-service Columbus property manager provides — and what each one protects you from.*
+*![A rental house kitchen with paperwork on the counter.](https://rlpmg.com/wp-content/uploads/2026/06/RLPM-Blog-What-PM-actually-do-Kitchen-300x164.png)You’ve heard property managers handle “everything.” But what does that actually mean? Here’s a plain-English breakdown of every service a full-service Columbus property manager provides, and what each one protects you from.*
 
 TL;DR
 
@@ -188,8 +188,8 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [National Association of Residential Property Managers (NARPM)](https://www.narpm.org/) — Industry standards and best practices for residential property management
-- [HUD: Fair Housing Act Overview](https://www.hud.gov/program_offices/fair_housing_equal_opp/fair_housing_act_overview) — Federal Fair Housing law, protected classes, and landlord obligations
-- [Ohio Revised Code Chapter 5321](https://codes.ohio.gov/ohio-revised-code/chapter-5321) — Ohio’s landlord-tenant law governing notice requirements, security deposits, and habitability standards
-- [Franklin County Municipal Court Clerk](https://www.fcmcclerk.com/) — Eviction filing procedures and fees for Franklin County, Ohio
-- [RLPM Live KPI Scorecard](/key-performance-indicators/) — Current performance data including days on market, renewal rates, and occupancy
+- [National Association of Residential Property Managers (NARPM)](https://www.narpm.org/), Industry standards and best practices for residential property management
+- [HUD: Fair Housing Act Overview](https://www.hud.gov/program_offices/fair_housing_equal_opp/fair_housing_act_overview), Federal Fair Housing law, protected classes, and landlord obligations
+- [Ohio Revised Code Chapter 5321](https://codes.ohio.gov/ohio-revised-code/chapter-5321), Ohio’s landlord-tenant law governing notice requirements, security deposits, and habitability standards
+- [Franklin County Municipal Court Clerk](https://www.fcmcclerk.com/), Eviction filing procedures and fees for Franklin County, Ohio
+- [RLPM Live KPI Scorecard](/key-performance-indicators/), Current performance data including days on market, renewal rates, and occupancy

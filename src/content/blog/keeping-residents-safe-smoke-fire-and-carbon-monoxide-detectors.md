@@ -1,5 +1,5 @@
 ---
-title: "Keeping Residents Safe – Smoke, Fire and Carbon Monoxide Detectors"
+title: "Keeping Residents Safe, Smoke, Fire and Carbon Monoxide Detectors"
 description: "Did you know that 3 out of 5 deaths caused by fires occur in homes with defective or absent smoke alarms? Our team is sensitive to these stories and hears about these types of incidents way too often in the news. Unfortunately, we have taken on management of way too many units that have had"
 pubDate: "2019-08-14T21:55:52Z"
 updatedDate: "2019-08-14T23:36:00Z"

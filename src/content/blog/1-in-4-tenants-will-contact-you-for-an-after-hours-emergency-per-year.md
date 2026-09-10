@@ -33,7 +33,7 @@ As you consider your goals, interest and ability in keeping up with the day-to-d
 
 A lot of real estate investors have the very real intention of adding to their portfolio over time. While initially it may be feasible to self-manage the properties, after a certain point in time it will no longer be sustainable to manage the growing number of units you have in your portfolio by yourself. There’s simply not going to be enough time in the day.
 
-What’s more – professional management has the tendency to grow a property’s NOI more quickly than self-management. So if you want to scale up your real estate portfolio with a BRRRR strategy (Buy, Rehab, Rent, Refinance, Repeat), hiring a professional property management company can help accelerate your timeline.
+What’s more, professional management has the tendency to grow a property’s NOI more quickly than self-management. So if you want to scale up your real estate portfolio with a BRRRR strategy (Buy, Rehab, Rent, Refinance, Repeat), hiring a professional property management company can help accelerate your timeline.
 
 ## What is your time worth?
 

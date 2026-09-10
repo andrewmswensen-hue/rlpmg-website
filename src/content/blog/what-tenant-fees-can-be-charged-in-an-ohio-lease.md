@@ -30,11 +30,11 @@ Naturally, this isn’t a very popular topic with residents (after all, who want
 
 As a landlord, we don’t really want to charge our residents fees either, but what we’ve found is that fees can be a useful tool, especially when applied in these instances:
 
-- **To dissuade certain types of behavior** – Things like playing loud music all night, leaving dog waste in the yard, creating disturbances by smoking in the unit, or harassing neighbors – these are all examples of behavior that landlords and fellow tenants simply don’t want to deal with.
+- **To dissuade certain types of behavior**, Things like playing loud music all night, leaving dog waste in the yard, creating disturbances by smoking in the unit, or harassing neighbors, these are all examples of behavior that landlords and fellow tenants simply don’t want to deal with.
 
-To prevent the behavior, you can call out these types of behaviors in your lease and assign a fee to each of them – not because you’re hoping to get rich from them, but purely as a way to dissuade someone from engaging in that type of behavior. Most of these examples may not be something you are going to evict a tenant for, but by assessing fees for them, you will hopefully be able to put a stop to that activity.
+To prevent the behavior, you can call out these types of behaviors in your lease and assign a fee to each of them, not because you’re hoping to get rich from them, but purely as a way to dissuade someone from engaging in that type of behavior. Most of these examples may not be something you are going to evict a tenant for, but by assessing fees for them, you will hopefully be able to put a stop to that activity.
 
-- **To compensate the landlord or property manager for activities that go above and beyond their normal duties**– Say you have a tenant who wants to add their partner to the lease or swap out a roommate. Because this is probably not something you agreed to do as part of the initial lease agreement, it would be considered more of a favor to the resident and it’s going to require some work on your end.
+- **To compensate the landlord or property manager for activities that go above and beyond their normal duties**, Say you have a tenant who wants to add their partner to the lease or swap out a roommate. Because this is probably not something you agreed to do as part of the initial lease agreement, it would be considered more of a favor to the resident and it’s going to require some work on your end.
 
 It will require you to screen the applicant, prepare an addendum to the lease, send it out, get signatures, update records, etc. All of this requires extra time and effort to manage, so we believe it’s fair to assess a fee when going above and beyond what you have to do as part of the agreement.
 

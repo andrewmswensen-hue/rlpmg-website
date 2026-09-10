@@ -117,6 +117,6 @@ Or call [614.725.3059](tel:6147253059) · See current performance at the [live K
 
 ### Sources & Suggested External Links
 
-- [NARPM Code of Ethics and Standards of Professionalism](https://www.narpm.org/about/code-of-ethics/) — National Association of Residential Property Managers reporting and accounting standards.
-- [Institute of Real Estate Management](https://www.irem.org/) — Industry guidance on owner reporting and financial transparency in property management.
-- [RLPM Live KPI Scorecard](/key-performance-indicators/) — Real-time visibility into days on market, time to turn, renewal rate, occupancy, and rent collection performance.
+- [NARPM Code of Ethics and Standards of Professionalism](https://www.narpm.org/about/code-of-ethics/), National Association of Residential Property Managers reporting and accounting standards.
+- [Institute of Real Estate Management](https://www.irem.org/), Industry guidance on owner reporting and financial transparency in property management.
+- [RLPM Live KPI Scorecard](/key-performance-indicators/), Real-time visibility into days on market, time to turn, renewal rate, occupancy, and rent collection performance.

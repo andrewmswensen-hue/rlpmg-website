@@ -1,6 +1,6 @@
 ---
 title: "How to Get a Property Ready to Rent Quickly"
-description: "Not-so-hot-take: every month a rental property is unoccupied is a cost for the investor. This is why keeping your units occupied is a top priority – it ensures ongoing income from the property. The longer it sits vacant, the more revenue opportunities you’re losing. That said, it’s worth spending th"
+description: "Not-so-hot-take: every month a rental property is unoccupied is a cost for the investor. This is why keeping your units occupied is a top priority, it ensures ongoing income from the property. The longer it sits vacant, the more revenue opportunities you’re losing. That said, it’s worth spending th"
 pubDate: "2022-05-05T14:00:11Z"
 updatedDate: "2025-05-15T18:48:19Z"
 slug: "how-to-get-a-property-ready-to-rent-quickly"
@@ -17,7 +17,7 @@ tags:
   - "property management"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2022/04/theme-photos-Cl-OpYWFFm0-unsplash-300x210.jpg)Not-so-hot-take: every month a rental property is unoccupied is a cost for the investor. This is why keeping your units occupied is a top priority – it ensures ongoing income from the property.
+![](https://rlpmg.com/wp-content/uploads/2022/04/theme-photos-Cl-OpYWFFm0-unsplash-300x210.jpg)Not-so-hot-take: every month a rental property is unoccupied is a cost for the investor. This is why keeping your units occupied is a top priority, it ensures ongoing income from the property.
 
 The longer it sits vacant, the more revenue opportunities you’re losing.
 
@@ -33,10 +33,10 @@ As you prepare your property for rent, knowing what to prioritize during a [rent
 
 Here are some essentials you need to include on your list:
 
-- **Do a deep clean** – Whether this is the first time you’re renting out the unit or you are between tenants, it’s essential to do a deep, deep clean of the property. Your deep clean should include all the nooks, crannies, cracks and crevices of the unit, and especially the areas that don’t often get touched. By setting a standard of cleanliness, you’re also demonstrating the condition you expect the tenants to keep the place.
-- **Tackle repairs and upgrades** – This might include adding fresh paint, installing new carpets, upgrading appliances (or at a minimum conducting maintenance checks), fixing leaks and ensuring that all systems are running safely and efficiently.
+- **Do a deep clean**, Whether this is the first time you’re renting out the unit or you are between tenants, it’s essential to do a deep, deep clean of the property. Your deep clean should include all the nooks, crannies, cracks and crevices of the unit, and especially the areas that don’t often get touched. By setting a standard of cleanliness, you’re also demonstrating the condition you expect the tenants to keep the place.
+- **Tackle repairs and upgrades**, This might include adding fresh paint, installing new carpets, upgrading appliances (or at a minimum conducting maintenance checks), fixing leaks and ensuring that all systems are running safely and efficiently.
 
-- **Make aesthetic improvements** – Other simple and inexpensive upgrades can also improve the overall unit’s appeal. Things like improving lighting and focusing on finishes can be a cost-effective way to improve the unit. And don’t forget about the unit’s exterior. Single-family homes should have nice landscaping, trimmed shrubs and be free of debris.
+- **Make aesthetic improvements**, Other simple and inexpensive upgrades can also improve the overall unit’s appeal. Things like improving lighting and focusing on finishes can be a cost-effective way to improve the unit. And don’t forget about the unit’s exterior. Single-family homes should have nice landscaping, trimmed shrubs and be free of debris.
 
 The last step in the turnover process is to list your unit for rent. By doing a thorough job when you prepare your rental unit, you should be able to secure a high-quality tenant who will stay in your unit for years to come.
 

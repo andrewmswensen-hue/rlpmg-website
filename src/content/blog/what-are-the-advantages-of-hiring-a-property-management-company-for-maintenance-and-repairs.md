@@ -31,15 +31,15 @@ With maintenance, not only is there the actual work of fixing the unit itself, b
 
 If you are currently self-managing your properties and looking to reduce some of this workload so you have more time to dedicate to other value-add activities, hiring a property management company can relieve this burden. When do you hand over some of this responsibility, you’ll gain several advantages, including:
 
-- **Improved maintenance efficiency** – In-house maintenance staff can take on a variety of tasks that might otherwise require specialty trades to do so. Moreover, they can batch tasks at nearby properties and can make more efficient use of time and resources. That’s a win for you and your tenants.
-- **Increased time to focus on value-add activities** – Hiring a PM company for maintenance means you’re not taking on the tasks or coordination of them yourself. You can instead use that time to grow your portfolio in other ways.
-- **Access to the PM company’s established partnerships with vendors** – Property management companies have professional contacts throughout Franklin County. If the PM company can’t take on the repair themselves, they know just who to call – quickly and for the right price+.
+- **Improved maintenance efficiency**, In-house maintenance staff can take on a variety of tasks that might otherwise require specialty trades to do so. Moreover, they can batch tasks at nearby properties and can make more efficient use of time and resources. That’s a win for you and your tenants.
+- **Increased time to focus on value-add activities**, Hiring a PM company for maintenance means you’re not taking on the tasks or coordination of them yourself. You can instead use that time to grow your portfolio in other ways.
+- **Access to the PM company’s established partnerships with vendors**, Property management companies have professional contacts throughout Franklin County. If the PM company can’t take on the repair themselves, they know just who to call, quickly and for the right price+.
 
 ## What to Expect When Working with a Property Management Company
 
 For those who have never worked with a management company to handle maintenance before, it’s important to know that the very nature of this relationship means you, as the owner, must relinquish some control, especially over the day-to-day handling of maintenance and repair issues. This may not be for everyone. For owners who like to have a pulse on every dollar being spent at their rental property, it can cause discomfort as the PM company is likely not going to do everything the same way the owner would have done it.
 
-Whether you’re comfortable handing over some control or not, however, it’s important to be on the same page with your management company when it comes to your philosophy and general approach to real estate investing – and specifically what that means for maintenance and repairs.
+Whether you’re comfortable handing over some control or not, however, it’s important to be on the same page with your management company when it comes to your philosophy and general approach to real estate investing, and specifically what that means for maintenance and repairs.
 
 ## Contact Us for Help
 

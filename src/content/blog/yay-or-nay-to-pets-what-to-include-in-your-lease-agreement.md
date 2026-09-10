@@ -28,7 +28,7 @@ After you decide what you want to allow in terms of pets in your rental properti
 
 Your pet policy is a biggie when it comes to your lease. Whether people own a pet themselves or not, they often like to know if pets are allowed in the multi-family property or if one has potentially lived in the unit before them. People with allergies are especially cognizant of things like pet fur and dander.
 
-Your lease needs to be very clear in terms of whether pets are allowed (and if so, what kind of pets you permit). Remember, pets extend beyond just cats and dogs. People have all kinds of different animals they call pets – chickens, snakes, rodents, birds, fish, you name it.
+Your lease needs to be very clear in terms of whether pets are allowed (and if so, what kind of pets you permit). Remember, pets extend beyond just cats and dogs. People have all kinds of different animals they call pets, chickens, snakes, rodents, birds, fish, you name it.
 
 If pets are not permitted, we encourage you to write that in big, bold letters. You might also consider having your residents initial next to the pet policy.
 

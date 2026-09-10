@@ -20,7 +20,7 @@ tags:
 
 But for those who have some guts, gumption and yes, cash on hand, it can bring lucrative rewards.
 
-If you’re ready to give real estate investing a try or want to expand your existing portfolio, here are four key areas to focus on – and what you need to master with each if you want to go far.
+If you’re ready to give real estate investing a try or want to expand your existing portfolio, here are four key areas to focus on, and what you need to master with each if you want to go far.
 
 **Investing**
 
@@ -34,7 +34,7 @@ Success in sales requires you to become a master of relationships. Understand wh
 
 **Property Management**
 
-Rental properties don’t run themselves. To efficiently manage one, 100 or 1,000 properties, you need to become a master of operations (or to hire one). Define your processes, create checklists and workflows, and hone your operational efficiency by streamlining each step in the process – from leasing and maintenance to unit turnover and everything in between. Find your flow and commit it to paper so it’s repeatable, sustainable and profitable.
+Rental properties don’t run themselves. To efficiently manage one, 100 or 1,000 properties, you need to become a master of operations (or to hire one). Define your processes, create checklists and workflows, and hone your operational efficiency by streamlining each step in the process, from leasing and maintenance to unit turnover and everything in between. Find your flow and commit it to paper so it’s repeatable, sustainable and profitable.
 
 **Property Development**
 

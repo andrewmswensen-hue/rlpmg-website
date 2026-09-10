@@ -73,7 +73,7 @@ Take a Columbus single-family home that the market supports at $1,800 a month. H
 
 | Scenario | Priced at market ($1,800) | Priced high ($2,000) |
 |---|---|---|
-| Days vacant before lease | 14 days | 75 days (60–90 range) |
+| Days vacant before lease | 14 days | 75 days (60 to 90 range) |
 | Rent lost to vacancy | $840 | $4,500 |
 | Extra rent the higher price would earn | n/a | $200/month |
 | Vacancy gap | $3,660 in lost rent |  |

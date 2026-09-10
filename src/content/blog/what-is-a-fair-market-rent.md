@@ -34,12 +34,12 @@ You can find current and previous years’ FMRs for thousands of metropolitan ar
 
 There are numerous variables that affect FMRs. These are some of the most common.
 
-- **Location**– More desirable locations command higher rents.
-- **Amenities** – Differentiated amenities like outdoor spaces or open floor plans can set your property apart and allow you to ask more for rent.
-- **Space**– More square footage generally equals higher rent rates.
-- **Bedrooms and bathrooms** – Similarly, more bedrooms and bathrooms relative to others in the area means you are more likely to secure higher rent rents.
-- **Property condition**– The better the property condition, the more likely market rents will be higher.
-- **Demand**– Supply and demand will always play a pivotal role in market rents. When there’s increased demand, rental rates will also increase.
+- **Location**, More desirable locations command higher rents.
+- **Amenities**, Differentiated amenities like outdoor spaces or open floor plans can set your property apart and allow you to ask more for rent.
+- **Space**, More square footage generally equals higher rent rates.
+- **Bedrooms and bathrooms**, Similarly, more bedrooms and bathrooms relative to others in the area means you are more likely to secure higher rent rents.
+- **Property condition**, The better the property condition, the more likely market rents will be higher.
+- **Demand**, Supply and demand will always play a pivotal role in market rents. When there’s increased demand, rental rates will also increase.
 
 As you prepare to establish rent rates for your investment property in Columbus, start by researching the fair market rents in your area and then drill down to look at comparable properties in your neighborhood. From there, you can calculate average rent and make adjustments based on any unique factors affecting your property. For more information, be sure to check out our upcoming blog post where we’ll be further discussing how to calculate FMR for your property.
 

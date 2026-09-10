@@ -35,13 +35,13 @@ In addition, most leases are also going to include language related to complying
 
 Ultimately, unless you are willing to evict the resident over these behaviors, you may have to tolerate some of them to a certain extent.
 
-One strategy for enforcing rules without evicting tenants is to apply fees. This can be a very [effective way to dissuade certain types of behavior.](/blog/what-tenant-fees-can-be-charged-in-an-ohio-lease/) For example, if you assign fees such as a $500 fee if the tenant has a large gathering – and you specifically call that fee out in your lease – you can enforce your restrictions without jumping all the way to eviction.
+One strategy for enforcing rules without evicting tenants is to apply fees. This can be a very [effective way to dissuade certain types of behavior.](/blog/what-tenant-fees-can-be-charged-in-an-ohio-lease/) For example, if you assign fees such as a $500 fee if the tenant has a large gathering, and you specifically call that fee out in your lease, you can enforce your restrictions without jumping all the way to eviction.
 
 ## What happens if the tenant doesn’t pay the fee?
 
 Applying fees can be helpful, but what happens if the resident doesn’t pay the fee? Then you might find yourself in a pickle. Are you willing to take them to court and potentially evict them over not paying this fee for something like a one-off large gathering or noise complaint from a neighbor?
 
-Before putting any restrictions in place in your lease, it’s important for you to get clear for yourself on what behavior you deem completely unacceptable and what behavior is maybe tolerable once in a while – and then how you are going to approach this in terms of fees and next steps.
+Before putting any restrictions in place in your lease, it’s important for you to get clear for yourself on what behavior you deem completely unacceptable and what behavior is maybe tolerable once in a while, and then how you are going to approach this in terms of fees and next steps.
 
 As you prepare your lease agreement, think through these issues and make sure that the items you include in the lease are relevant to your property and that you are clear for yourself about what your escalation steps are going to be.
 

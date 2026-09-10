@@ -176,11 +176,11 @@ Or [schedule a consultation](/property-management-consultation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Apartments.com Rent Market Trends: Grove City, OH](https://www.apartments.com/rent-market-trends/grove-city-oh/) – Quarterly rent data by unit type
-- [Rentometer: Average Rent in Grove City, OH](https://assets.rentometer.com/average-rent-in/oh/grove-city-oh) – Rent ranges by bedroom count
-- [Zillow Home Values: Grove City, OH](https://www.zillow.com/home-values/35641/grove-city-oh/) – Median home value trends
-- [U.S. Census Bureau QuickFacts: Grove City, Ohio](https://www.census.gov/quickfacts/fact/table/grovecitycityohio/PST045224) – Population and demographic data
-- [Franklin County Auditor](https://www.franklincountyauditor.com/) – Property records, ownership data, and rental registry information
-- [City of Grove City Profile](https://www.grovecityohio.gov/212/Grove-City-Profile) – Official city statistics and community information
-- [Ohio Revised Code Chapter 5321](https://codes.ohio.gov/ohio-revised-code/chapter-5321) – Ohio landlord-tenant law
-- [RLPM Live KPI Scorecard](/key-performance-indicators/) – Current RLPM performance metrics for Columbus-area managed properties
+- [Apartments.com Rent Market Trends: Grove City, OH](https://www.apartments.com/rent-market-trends/grove-city-oh/), Quarterly rent data by unit type
+- [Rentometer: Average Rent in Grove City, OH](https://assets.rentometer.com/average-rent-in/oh/grove-city-oh), Rent ranges by bedroom count
+- [Zillow Home Values: Grove City, OH](https://www.zillow.com/home-values/35641/grove-city-oh/), Median home value trends
+- [U.S. Census Bureau QuickFacts: Grove City, Ohio](https://www.census.gov/quickfacts/fact/table/grovecitycityohio/PST045224), Population and demographic data
+- [Franklin County Auditor](https://www.franklincountyauditor.com/), Property records, ownership data, and rental registry information
+- [City of Grove City Profile](https://www.grovecityohio.gov/212/Grove-City-Profile), Official city statistics and community information
+- [Ohio Revised Code Chapter 5321](https://codes.ohio.gov/ohio-revised-code/chapter-5321), Ohio landlord-tenant law
+- [RLPM Live KPI Scorecard](/key-performance-indicators/), Current RLPM performance metrics for Columbus-area managed properties

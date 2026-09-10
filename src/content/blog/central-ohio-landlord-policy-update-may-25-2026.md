@@ -1,5 +1,5 @@
 ---
-title: "Central Ohio Landlord Policy Updates – Week of 5/25/2026"
+title: "Central Ohio Landlord Policy Updates, Week of 5/25/2026"
 description: "Whitehall City Council just put a voter-approved property tax levy into effect on an emergency basis, skipping the usual 30-day wait. That is the headline for landlords this week, and it lands in the same window that every Franklin County property owner is about to get new proposed values in the mai"
 pubDate: "2026-05-25T15:22:42Z"
 updatedDate: "2026-06-02T15:49:41Z"
@@ -39,7 +39,7 @@ In This Article
 
 ## Whitehall: Emergency Property Tax Levy
 
-***Status: Passed on emergency basis (in effect now) — Effective immediately, with no grace period.***
+***Status: Passed on emergency basis (in effect now), Effective immediately, with no grace period.***
 
 On May 26, Whitehall City Council approved an ordinance allowing immediate implementation of a property tax levy that voters had already approved. The emergency-basis adoption is the operative detail. A standard Ohio municipal ordinance takes effect 30 days after passage. An emergency ordinance is enforceable the moment it passes, which means this levy is live now rather than in late June.
 
@@ -53,7 +53,7 @@ Source: [Whitehall City Council Agenda, May 26, 2026](https://www.whitehall-oh.u
 
 ## Franklin County’s 2026 Reappraisal Timeline
 
-***Status: Under discussion (no vote scheduled) — Informational briefing. The action item is on landlords, not council.***
+***Status: Under discussion (no vote scheduled), Informational briefing. The action item is on landlords, not council.***
 
 On May 26, the Franklin County Auditor’s Office presented an overview of the 2026 triennial property value update to Reynoldsburg Council, walking through value trends and assessment methodology. This is the state-required value update that happens every three years between full reappraisals, and it affects every property owner in the county, not just those in Reynoldsburg.
 
@@ -67,7 +67,7 @@ Source: [Reynoldsburg Council Meeting Packet, May 26, 2026](https://reynoldsburg
 
 ## Plain City’s New Property Maintenance Code
 
-***Status: Under discussion (no vote scheduled) — Fourth consecutive week of committee attention; adoption looks like it is approaching.***
+***Status: Under discussion (no vote scheduled), Fourth consecutive week of committee attention; adoption looks like it is approaching.***
 
 On May 20, the Plain City Village continued work on a new property maintenance code aimed at residential properties. This is the fourth straight week the topic has appeared on a Plain City committee agenda in our tracking. Sustained attention at that pace usually means adoption is getting close.
 
@@ -79,7 +79,7 @@ Source: [Plain City P&Z Meeting Packet, May 20, 2026](https://www.plaincityohio.
 
 ## Powell Weighs Property Tax Relief
 
-***Status: Under discussion (no vote scheduled) — No ordinance yet; this is framing for possible future action.***
+***Status: Under discussion (no vote scheduled), No ordinance yet; this is framing for possible future action.***
 
 On May 26, during council comments, a Powell council member raised legislative discussions about potential property tax relief measures for Powell residents. No specific ordinance was introduced. This was framing for future action rather than a vote, but it is worth noting where it is coming from.
 
@@ -93,7 +93,7 @@ Source: [Powell Council Meeting Document, May 26, 2026](https://d3n9y02raazwpg.c
 
 ## Grandview Heights Fire Prevention Amendment
 
-***Status: Just passed — Effective per the ordinance’s adoption terms.***
+***Status: Just passed, Effective per the ordinance’s adoption terms.***
 
 On May 26, Grandview Heights City Council approved an amendment to the Grandview Heights Fire Prevention Code affecting compliance and safety standards for residential properties. This is the second fire prevention code action by Grandview Heights Council in two weeks; the prior amendment passed on an emergency basis on May 14.
 
@@ -109,10 +109,10 @@ Source: [Grandview Heights Council Document, May 26, 2026](https://www.grandview
 
 Four additional items from across Central Ohio worth knowing about, organized loosely by status. Not every item demands action this week, but each is tracking toward something that could.
 
-- **Buckeye Lake, OH** — Village Council debated a resolution on a property tax levy contingent on adopting a village income tax. Nothing is voted yet, but if you hold units in Buckeye Lake, the interaction between a potential income tax and a property tax levy materially changes the operating expense picture.
-- **Grandview Heights, OH** — Separate from the Fire Prevention Code item above, Council reviewed an ordinance amending publication requirements in the Codified Ordinances. Changes to public notice rules can shift how landlords learn about hearings and adopted ordinances, so the final language is worth watching.
-- **Sunbury, OH** — Council passed an ordinance designed to take effect immediately upon passage. The full subject and any new regulations or fees should be reviewed in the meeting packet by landlords with Sunbury units.
-- **Sunbury, OH** — A second Sunbury ordinance was also passed with immediate effect at the same meeting. Review the packet to understand the scope and any compliance implications for rental operations.
+- **Buckeye Lake, OH**, Village Council debated a resolution on a property tax levy contingent on adopting a village income tax. Nothing is voted yet, but if you hold units in Buckeye Lake, the interaction between a potential income tax and a property tax levy materially changes the operating expense picture.
+- **Grandview Heights, OH**, Separate from the Fire Prevention Code item above, Council reviewed an ordinance amending publication requirements in the Codified Ordinances. Changes to public notice rules can shift how landlords learn about hearings and adopted ordinances, so the final language is worth watching.
+- **Sunbury, OH**, Council passed an ordinance designed to take effect immediately upon passage. The full subject and any new regulations or fees should be reviewed in the meeting packet by landlords with Sunbury units.
+- **Sunbury, OH**, A second Sunbury ordinance was also passed with immediate effect at the same meeting. Review the packet to understand the scope and any compliance implications for rental operations.
 
 ## What to Do With This Information
 

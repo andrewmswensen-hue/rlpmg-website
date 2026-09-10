@@ -33,14 +33,14 @@ Obviously not all debt is fixed rate, but for the most part it is readily availa
 
 ## The Ability to Increase Cash Flow With Fixed Costs
 
-One of the biggest misnomers in real estate is that rents rise with inflation. In short, they don’t – the market determines how much an apartment can rent for. The market *can* be influenced by inflation in a way so that rents go up, but inflation doesn’t cause rents to go up.
+One of the biggest misnomers in real estate is that rents rise with inflation. In short, they don’t, the market determines how much an apartment can rent for. The market *can* be influenced by inflation in a way so that rents go up, but inflation doesn’t cause rents to go up.
 
-This being said, there are multiple ways to increase net operating income (NOI) to increase cash flow – remodels that can increase rents (if you don’t have laundry in units, this can be a huge value add), decreasing water usage, requoting insurance, among others.
+This being said, there are multiple ways to increase net operating income (NOI) to increase cash flow, remodels that can increase rents (if you don’t have laundry in units, this can be a huge value add), decreasing water usage, requoting insurance, among others.
 
 ## Getting Good Long Term Returns in Real Estate
 
 As an asset class, real estate consistently performs well, even during economic recessions. Nothing is guaranteed though, and more than one real estate empire has been brought down by heavy amounts of debt and declining market rates for rent.
 
-At the end of the day, looking for long term results is a balance of good cash flow today and price appreciation tomorrow. Hiring a good property management company is key to both – a good property management company will help you keep your costs down while making sure you are able to rent your properties at market rates.
+At the end of the day, looking for long term results is a balance of good cash flow today and price appreciation tomorrow. Hiring a good property management company is key to both, a good property management company will help you keep your costs down while making sure you are able to rent your properties at market rates.
 
 As you invest real estate, consider the pros and cons of how it will diversify your portfolio, and if you have questions about the real estate market in Central Ohio, we’re here to help.[Contact us](/contact-us/)at RL Property Management to learn more.

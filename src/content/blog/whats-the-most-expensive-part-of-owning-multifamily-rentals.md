@@ -14,7 +14,7 @@ categories:
 
 We recently conducted an cost analysis examining spending in the year of 2019 across our entire portfolio of managed multifamily (2+ unit) properties.
 
-Out of the 300+ units under our management around Columbus Ohio, this study includes just the multifamily properties (37 properties consisting of 137 units). We wanted to know how spending in the various accounting categories compared to each other. Eg – do our clients spend more on pest control, or appliances? Here are the results:
+Out of the 300+ units under our management around Columbus Ohio, this study includes just the multifamily properties (37 properties consisting of 137 units). We wanted to know how spending in the various accounting categories compared to each other. Eg, do our clients spend more on pest control, or appliances? Here are the results:
 
 ![Relative Cost 2019 Graph](https://rlpmg.com/wp-content/uploads/2020/01/19-2.png)
 

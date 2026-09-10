@@ -77,7 +77,7 @@ Top-performing school districts in Columbus come with prestige, but they also co
 ### The Reality Check
 
 - Homes in these districts often list for **$700K to $1.2M or more**.
-- Yet, **rents rarely scale in proportion**. In many cases, monthly rents cap out at $3,000–$4,000, which can make it tough to hit your target ROI.
+- Yet, **rents rarely scale in proportion**. In many cases, monthly rents cap out at $3,000 to $4,000, which can make it tough to hit your target ROI.
 - Property taxes are also **significantly higher**, as these communities often fund their school systems locally.
 
 This means you’re facing **smaller margins**, even before factoring in maintenance, vacancies, and management costs.
@@ -119,7 +119,7 @@ Not every profitable rental needs to sit in a district with a perfect school rat
 
 Districts like **[Hilliard](/property-management-hilliard-ohio/), [Worthington](/property-management-worthington-ohio/), and [Westerville](/property-management-westerville-ohio/)** offer a sweet spot:
 
-- **Home prices are $100K–$300K lower** than elite districts like New Albany or Upper Arlington.
+- **Home prices are $100K, $300K lower** than elite districts like New Albany or Upper Arlington.
 - Families still want to live there because the schools have **solid reputations** and **consistent performance**.
 - These areas attract tenants who are **budget-conscious but still value education and neighborhood stability**.
 
@@ -135,7 +135,7 @@ Meanwhile, **rents remain competitive**, especially with families who prioritize
 
 ### Tenant Profile in These Districts
 
-- Often **dual-income households** or middle-class families with 1–2 kids.
+- Often **dual-income households** or middle-class families with 1 to 2 kids.
 - They’re not shopping for luxury, but they are seeking **safe, reputable school zones**.
 - These tenants are usually **stable, reliable, and stay long-term**, often until their children graduate.
 
@@ -143,7 +143,7 @@ Meanwhile, **rents remain competitive**, especially with families who prioritize
 
 When analyzing middle-tier school districts in Columbus:
 
-- Prioritize schools rated **6–7 on GreatSchools.com**
+- Prioritize schools rated **6 to 7 on GreatSchools.com**
 - Look for neighborhoods with **quick access to major employers** or **growing economic hubs** (Intel, Amazon, OSU medical centers)
 - Watch for **revitalization efforts** that may lift both neighborhood quality and school performance over time
 
@@ -220,13 +220,13 @@ Real estate investors love formulas, **the 1% rule, gross rent multiplier, cap r
 
 ### Why the Math Breaks Down
 
-Let’s say you find a home in Upper Arlington for $800,000. To meet the 1% rule, you’d need to collect $8,000/month in rent. But market rents in that area top out around $3,500–$4,000, even for a premium property.
+Let’s say you find a home in Upper Arlington for $800,000. To meet the 1% rule, you’d need to collect $8,000/month in rent. But market rents in that area top out around $3,500 to $4,000, even for a premium property.
 
 So, by traditional standards, that’s a **“bad deal.”**
 
 But here’s what those formulas don’t tell you:
 
-- That home may **appreciate 2–3x faster** than one in a less desirable district.
+- That home may **appreciate 2 to 3x faster** than one in a less desirable district.
 - You’ll likely have **lower turnover and vacancy costs**.
 - The tenant pool is more stable, with **less eviction risk**.
 

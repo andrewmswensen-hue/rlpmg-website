@@ -14,7 +14,7 @@ categories:
 
 For many real estate professionals and self-employed individuals, retirement looks very different from the traditional path. Without a pension or company-sponsored 401(k), building a personal wealth strategy tends to become essential. Passive income, particularly from real estate, offers a possible route to financial freedom and security.
 
-In fact, for professionals aged 30–50 and small business owners seeking to diversify their retirement savings, a cash-flowing real estate portfolio can be a cornerstone of long-term wealth. As [real estate market trends](https://www.experian.com/thought-leadership/business/report-state-of-rental-market-2024) tend to shift, understanding SDIRAs for real estate, as well as passive wealth-building assets, is vital.
+In fact, for professionals aged 30 to 50 and small business owners seeking to diversify their retirement savings, a cash-flowing real estate portfolio can be a cornerstone of long-term wealth. As [real estate market trends](https://www.experian.com/thought-leadership/business/report-state-of-rental-market-2024) tend to shift, understanding SDIRAs for real estate, as well as passive wealth-building assets, is vital.
 
 ## Why Passive Income Matters for Retirement
 
@@ -78,7 +78,7 @@ Routine inspections, reserve funds for repairs, and detailed lease agreements ca
 
 ## The Power of Leverage in Real Estate Investing
 
-One of the most compelling advantages of real estate investing is leverage—the ability to invest in a valuable asset with the assistance of a loan. By financing rental properties in an SDIRA with a non-recourse loan, investors can amplify their returns as the property typically appreciates, and tenants can pay down the loan. However, leverage could also increase risk if cash flow doesn’t cover expenses. It’s considered critical to strike a balance between maximizing opportunity and maintaining financial flexibility. Many successful investors recommend keeping loan-to-value (LTV) ratios conservative, typically under 75%, to reduce exposure during market downturns.
+One of the most compelling advantages of real estate investing is leverage, the ability to invest in a valuable asset with the assistance of a loan. By financing rental properties in an SDIRA with a non-recourse loan, investors can amplify their returns as the property typically appreciates, and tenants can pay down the loan. However, leverage could also increase risk if cash flow doesn’t cover expenses. It’s considered critical to strike a balance between maximizing opportunity and maintaining financial flexibility. Many successful investors recommend keeping loan-to-value (LTV) ratios conservative, typically under 75%, to reduce exposure during market downturns.
 
 ## Building Wealth Through Real Estate Partnerships
 

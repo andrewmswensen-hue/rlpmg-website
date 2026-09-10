@@ -27,12 +27,12 @@ Before you run numbers or walk properties, you need to get crystal clear on your
 
 Here are some of the most common goals we hear from real estate investors in the Columbus area:
 
-- **Generate consistent passive income** – A solid stream of monthly cash flow that doesn’t rely on a 9-to-5.
-- **Supplement or replace your W-2 income** – Build a cushion or transition to full-time investing.
-- **Build long-term wealth through appreciation** – Let property values rise over time while tenants cover your mortgage.
-- **Diversify your investment portfolio** – Hedge against stock market volatility with hard assets.
-- **Reach a milestone goal** – Fund early retirement, a child’s college tuition, or a lifestyle shift.
-- **Leave a legacy** – Own assets that can be passed down or used to create generational wealth.
+- **Generate consistent passive income**, A solid stream of monthly cash flow that doesn’t rely on a 9-to-5.
+- **Supplement or replace your W-2 income**, Build a cushion or transition to full-time investing.
+- **Build long-term wealth through appreciation**, Let property values rise over time while tenants cover your mortgage.
+- **Diversify your investment portfolio**, Hedge against stock market volatility with hard assets.
+- **Reach a milestone goal**, Fund early retirement, a child’s college tuition, or a lifestyle shift.
+- **Leave a legacy**, Own assets that can be passed down or used to create generational wealth.
 
 Your “why” doesn’t have to match anyone else’s, but it does need to be **clear and intentional**.
 
@@ -42,11 +42,11 @@ Now let’s talk location. Columbus offers more than affordability; it’s a str
 
 Here’s why:
 
-- **High rental demand** – Driven by the Ohio State University, healthcare systems, tech companies, and steady population growth.
-- **Affordability** – Compared to coastal cities, Columbus offers lower entry costs and higher ROI potential.
-- **Low vacancy rates** – Especially in Class A/B neighborhoods like Worthington, Clintonville, and Grandview Heights.
-- **Out-of-state investor appeal** – Remote buyers are entering this market every day and partnering with local experts.
-- **Diverse inventory** – From duplexes to small multifamily buildings, investors have options that fit many strategies.
+- **High rental demand**, Driven by the Ohio State University, healthcare systems, tech companies, and steady population growth.
+- **Affordability**, Compared to coastal cities, Columbus offers lower entry costs and higher ROI potential.
+- **Low vacancy rates**, Especially in Class A/B neighborhoods like Worthington, Clintonville, and Grandview Heights.
+- **Out-of-state investor appeal**, Remote buyers are entering this market every day and partnering with local experts.
+- **Diverse inventory**, From duplexes to small multifamily buildings, investors have options that fit many strategies.
 
 *If you don’t have a strong reason for investing, you’re more likely to chase trendy deals or miss golden opportunities hiding in plain sight.*
 
@@ -130,11 +130,11 @@ Once you’ve clarified your “why” and decided on your role (active or passi
 
 SMART is an acronym that helps you stay focused and results-driven:
 
-- **Specific** – Define exactly what you want to achieve.
-- **Measurable** – Know how you’ll track your progress.
-- **Attainable** – Make sure your goal is realistic for your resources.
-- **Relevant** – Align it with your deeper “why.”
-- **Time-bound** – Set a clear deadline.
+- **Specific**, Define exactly what you want to achieve.
+- **Measurable**, Know how you’ll track your progress.
+- **Attainable**, Make sure your goal is realistic for your resources.
+- **Relevant**, Align it with your deeper “why.”
+- **Time-bound**, Set a clear deadline.
 
 Without structure, it’s easy to get distracted chasing every “deal” that pops up. SMART goals keep your strategy tight and focused.
 
@@ -149,7 +149,7 @@ Without structure, it’s easy to get distracted chasing every “deal” that p
 - **“Generate $2,000/month in net cash flow from rentals within 24 months.”**
   - Specific: $2,000/month
   - Measurable: Net cash flow tracked monthly.
-  - Attainable: Through 2–3 properties in high-demand neighborhoods
+ - Attainable: Through 2 to 3 properties in high-demand neighborhoods
   - Relevant: Passive income for financial freedom
   - Time-bound: 2 years
 - **“Flip 2 properties per year in Franklinton with a $20K margin each.”**
@@ -168,18 +168,18 @@ Every solid investment plan needs an endgame. Whether you’re flipping a house 
 
 Here are common exit strategies to consider:
 
-- **Sell for a lump sum** – Cash out after appreciation or forced equity gains.
-- **Refinance and hold** – Pull capital out and keep the property for long-term income.
-- **Build a cash-flowing portfolio** – Use rental income to support retirement or semi-retirement.
-- **Pass properties to heirs** – Create generational wealth and minimize tax burdens over time.
+- **Sell for a lump sum**, Cash out after appreciation or forced equity gains.
+- **Refinance and hold**, Pull capital out and keep the property for long-term income.
+- **Build a cash-flowing portfolio**, Use rental income to support retirement or semi-retirement.
+- **Pass properties to heirs**, Create generational wealth and minimize tax burdens over time.
 
 ### Columbus-Specific Considerations
 
 Planning your exit in Columbus requires a close look at:
 
-- **Rising property taxes** – Some neighborhoods are experiencing aggressive reassessments.
-- **City code enforcement and permitting** – Older properties may require ongoing compliance investments.
-- **University-driven rental demand** – In areas like Clintonville or Old North, student demand may fluctuate.
+- **Rising property taxes**, Some neighborhoods are experiencing aggressive reassessments.
+- **City code enforcement and permitting**, Older properties may require ongoing compliance investments.
+- **University-driven rental demand**, In areas like Clintonville or Old North, student demand may fluctuate.
 
 Your exit plan should account for both **market dynamics** and your personal timeline. Will you hold until retirement? Sell before your kids enter college? Exit one door at a time or all at once?
 

@@ -37,7 +37,7 @@ It was during this 30-day accounting process when things went wrong for us.
 
 Because we were no longer managing the property, the tenant was no longer paying rent to us. An oversight during this close-out period led us to make an unfortunate error in which we inadvertently posted a 3-day eviction notice on this tenant’s door.
 
-It didn’t take long for the horrified (and very angry) tenant to call us about it. This was followed in quick succession by angry calls and emails from the property owner, buyer and realtor – all understandably asking for an explanation as to why we posted an eviction notice on a property we don’t even manage anymore.
+It didn’t take long for the horrified (and very angry) tenant to call us about it. This was followed in quick succession by angry calls and emails from the property owner, buyer and realtor, all understandably asking for an explanation as to why we posted an eviction notice on a property we don’t even manage anymore.
 
 After profuse apologies to all parties and especially to the resident who didn’t do anything wrong, we had to do some analysis: How did this happen? Why did this happen? How can we prevent it from happening again?
 
@@ -47,4 +47,4 @@ While it’s a simple step, it’s not something we previously had on our checkl
 
 Fortunately we haven’t had this problem occur since, and we hope it never will again as it really was an unfortunate situation.
 
-We hope this case study is helpful for you. As always, if you have any questions about property management – the good, the bad and the wish-they-never-would-have-happened scenarios – please let us know by contacting us at RL Property Management.
+We hope this case study is helpful for you. As always, if you have any questions about property management, the good, the bad and the wish-they-never-would-have-happened scenarios, please let us know by contacting us at RL Property Management.

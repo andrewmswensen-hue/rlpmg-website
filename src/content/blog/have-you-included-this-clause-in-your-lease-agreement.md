@@ -23,7 +23,7 @@ Thorough lease agreements tend to mean fewer questions from your tenants and, wh
 
 ## One of the Most Important Lease Clauses You Hope to Never Use
 
-There are several critical [clauses you should include in your Franklin County lease agreements.](/blog/how-much-detail-should-you-include-in-your-lease-agreement/) Examples include defining maintenance responsibilities, naming property ownership – specifically appliances (you don’t want the tenant moving out with your refrigerator!), spelling out tenant fees, and being [clear about your pet policy.](/blog/yay-or-nay-to-pets-what-to-include-in-your-lease-agreement/)
+There are several critical [clauses you should include in your Franklin County lease agreements.](/blog/how-much-detail-should-you-include-in-your-lease-agreement/) Examples include defining maintenance responsibilities, naming property ownership, specifically appliances (you don’t want the tenant moving out with your refrigerator!), spelling out tenant fees, and being [clear about your pet policy.](/blog/yay-or-nay-to-pets-what-to-include-in-your-lease-agreement/)
 
 Another essential lease clause that ideally you’ll never need to use is [the order in which payments are applied.](/blog/the-order-in-which-payments-are-applied-one-of-the-most-important-lease-clauses-you-hope-you-never-need-to-use/) This is a big one because it can lead to eviction ramifications.
 

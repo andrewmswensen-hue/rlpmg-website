@@ -40,9 +40,9 @@ In This Report
 
 ## Columbus Housing Market Overview: Q1 2026
 
-Columbus’s housing market enters 2026 in a more balanced posture than it held through most of 2024 and 2025. [According to the Columbus REALTORS March 2026 Local Market Update](https://www.searchcolumbushomesonline.com/blog/march-2026-columbus-real-estate-market-report/), median sale price across the Columbus & Central Ohio Regional MLS hit $335,000 in March, up 4.7% year-over-year. Inventory improved to 4,067 homes for sale (up 32% from a year earlier in Columbus Corp), but months of supply still sits at just 1.6 — well below the 6-month threshold that defines a balanced market.
+Columbus’s housing market enters 2026 in a more balanced posture than it held through most of 2024 and 2025. [According to the Columbus REALTORS March 2026 Local Market Update](https://www.searchcolumbushomesonline.com/blog/march-2026-columbus-real-estate-market-report/), median sale price across the Columbus & Central Ohio Regional MLS hit $335,000 in March, up 4.7% year-over-year. Inventory improved to 4,067 homes for sale (up 32% from a year earlier in Columbus Corp), but months of supply still sits at just 1.6, well below the 6-month threshold that defines a balanced market.
 
-Days on market have lengthened. Homes now average 46 to 49 days to sell across the metro, compared to 43 days a year earlier — a 14% to 18% increase. Buyers have more breathing room, but sellers still receive an average of 97% of their original list price. Columbus remains seller-leaning, but the edge is thinner than it was two years ago.
+Days on market have lengthened. Homes now average 46 to 49 days to sell across the metro, compared to 43 days a year earlier, a 14% to 18% increase. Buyers have more breathing room, but sellers still receive an average of 97% of their original list price. Columbus remains seller-leaning, but the edge is thinner than it was two years ago.
 
 > **Columbus’s median sale price is 33% below the national average. The affordability advantage is the story that keeps working.**
 
@@ -60,7 +60,7 @@ National context matters here. [National SFR rents grew just 2.6% year-over-year
 |---|---|---|
 | Median home sale price (MLS) | $335,000 | ~33% below national avg |
 | Year-over-year price growth | +4.7% | Nat’l avg ~3% (NAR forecast) |
-| Median days on market | 46–49 days | Similar to national norms |
+| Median days on market | 46 to 49 days | Similar to national norms |
 | Months of supply | 1.6 months | Balanced = 6 months |
 | Avg apartment rent | $1,341 | ~22% below national avg |
 | 3BR apartment rent | $1,670 | SFR typically higher |
@@ -101,7 +101,7 @@ Proximity to major employers adds to the draw. Honda’s ongoing EV hub investme
 
 For investors focused on long-term appreciation and premium tenants, the traditional Columbus prestige suburbs remain best-in-class. **Dublin, Powell, New Albany, Upper Arlington, and Lewis Center (Olentangy Schools)** attract high-earning professionals and families drawn by top-rated school districts, premium amenities, and established home values. Dublin’s median home price sits around $615,000 per recent market data.
 
-Cash flow in these neighborhoods is thin by the numbers — higher entry prices and higher property taxes compress initial yields. But lease renewal rates are the highest in the metro, vacancy is minimal, and appreciation has been steady for decades. These are buy-and-hold appreciation plays, not cash flow plays.
+Cash flow in these neighborhoods is thin by the numbers, higher entry prices and higher property taxes compress initial yields. But lease renewal rates are the highest in the metro, vacancy is minimal, and appreciation has been steady for decades. These are buy-and-hold appreciation plays, not cash flow plays.
 
 ### Long-Term Appreciation Plays: Employer-Driven Growth
 
@@ -115,7 +115,7 @@ The fundamentals supporting Columbus rental demand remain firmly intact, even wi
 
 **Population growth.** Columbus continues to add approximately 10,000 new residents annually, driven by in-migration from higher-cost metros and a steady stream of Ohio State University graduates who stay in the city after earning their degrees. [Central Ohio’s population growth has outpaced the Ohio state average for over a decade](https://theluxuryplaybook.com/columbus-real-estate-market/).
 
-**Employment diversity.** Columbus has one of the most diversified metropolitan economies in the Midwest, anchored by healthcare (OhioHealth, Nationwide Children’s, The Ohio State University Wexner Medical Center), financial services (JPMorgan Chase, Nationwide Insurance, Huntington Bank), education (Ohio State University — the largest employer in the metro), government (state capital), and technology (Google, Meta, Amazon Web Services data centers, and expanding tech startups).
+**Employment diversity.** Columbus has one of the most diversified metropolitan economies in the Midwest, anchored by healthcare (OhioHealth, Nationwide Children’s, The Ohio State University Wexner Medical Center), financial services (JPMorgan Chase, Nationwide Insurance, Huntington Bank), education (Ohio State University, the largest employer in the metro), government (state capital), and technology (Google, Meta, Amazon Web Services data centers, and expanding tech startups).
 
 **Intel: patience, not panic.** Intel’s $28 billion semiconductor project in New Albany has been delayed to a 2030-2031 production start, down from the original 2025 target. However, construction continues. As of early 2025, Intel reported approximately 800 workers on site with over 1.6 million work hours completed, and the workforce is expected to grow to several thousand by year-end. Once operational, the facility is projected to create 3,000 direct jobs plus thousands of ancillary positions. For investors, this is a four-to-five-year horizon story rather than a 12-month story.
 
@@ -147,7 +147,7 @@ Unlike the 2023 sexennial, which was a full reappraisal, the triennial update us
 
 ### 3. Source-of-Income Protection
 
-Columbus’s [source-of-income discrimination ordinance](https://fclawlib.libguides.com/ohiolandlordtenantlaw/columbus) (in effect since 2024) prohibits landlords from refusing to rent to applicants based on a legal source of income — most notably Housing Choice Vouchers (Section 8). Screening criteria must apply consistently across all applicants regardless of income source. Investors who have not updated their screening protocols since 2023 should review them against current Columbus requirements.
+Columbus’s [source-of-income discrimination ordinance](https://fclawlib.libguides.com/ohiolandlordtenantlaw/columbus) (in effect since 2024) prohibits landlords from refusing to rent to applicants based on a legal source of income, most notably Housing Choice Vouchers (Section 8). Screening criteria must apply consistently across all applicants regardless of income source. Investors who have not updated their screening protocols since 2023 should review them against current Columbus requirements.
 
 ### 4. Security Deposit Installments and Short-Term Rental Rules
 
@@ -161,13 +161,13 @@ Mortgage rates remain the biggest swing factor. [NAR Chief Economist Lawrence Yu
 
 For investors, the 2026 playbook looks different than 2025:
 
-**Emerging cash-flow neighborhoods:** Franklinton, South Linden, Reynoldsburg, Hilltop — still offering attractive entry points before prices fully reflect demand.
+**Emerging cash-flow neighborhoods:** Franklinton, South Linden, Reynoldsburg, Hilltop, still offering attractive entry points before prices fully reflect demand.
 
-**Workforce housing:** Groveport, Hilltop, Canal Winchester — rents remain strong, properties generate attractive yields, and tenant demand is reliable.
+**Workforce housing:** Groveport, Hilltop, Canal Winchester, rents remain strong, properties generate attractive yields, and tenant demand is reliable.
 
-**Long-term appreciation:** Marysville, Sunbury, Johnstown — employer-driven growth that plays out over multi-year horizons rather than quarterly cycles.
+**Long-term appreciation:** Marysville, Sunbury, Johnstown, employer-driven growth that plays out over multi-year horizons rather than quarterly cycles.
 
-**Premium hold assets:** Dublin, Powell, New Albany, Upper Arlington, Lewis Center — low-volatility appreciation plays for investors with time horizons measured in decades.
+**Premium hold assets:** Dublin, Powell, New Albany, Upper Arlington, Lewis Center, low-volatility appreciation plays for investors with time horizons measured in decades.
 
 > **2026 rewards disciplined acquisition. The days of paying 2022 prices and trusting momentum to bail you out are over.**
 
@@ -233,14 +233,14 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Columbus REALTORS March 2026 Local Market Update](https://www.searchcolumbushomesonline.com/blog/march-2026-columbus-real-estate-market-report/) — MLS sales data, median prices, days on market
-- [RentCafe Columbus Market Trends](https://www.rentcafe.com/average-rent-market-trends/us/oh/columbus/) — Current rent data and unit-size breakdowns
-- [Arbor Q1 2026 SFR Investment Trends Report (via CRE Daily)](https://www.credaily.com/briefs/single-family-rental-cap-rates-rise-nationwide/) — National SFR cap rates, rent growth, occupancy
-- [MMG Real Estate Advisors 2025-2026 Columbus Forecast](https://mmgrea.com/2025-columbus-forecast/) — Multifamily market fundamentals and rent growth projections
-- [WOSU: Columbus Rental Registry Coverage (April 2026)](https://www.wosu.org/politics-government/2026-04-15/columbus-city-council-proposes-rental-registry-to-combat-problem-landlords) — Ordinance details and passage
-- [RLPM: Columbus Rental Property Registry Explained](/blog/columbus-rental-property-registry/) — Full landlord compliance analysis
-- [Engineering News-Record: Intel Delays Ohio Plant to 2030](https://www.enr.com/articles/60389-intel-delays-completion-of-first-ohio-plant-to-2030) — Confirmed new Intel timeline
-- [Franklin County Law Library: Columbus Landlord/Tenant Law](https://fclawlib.libguides.com/ohiolandlordtenantlaw/columbus) — Current ordinances and tenant protections
-- [Franklin County Auditor: Reappraisal FAQ](https://www.franklincountyauditor.com/real-estate/appraisal/reappraisal-faq) — 2026 Triennial Update process and timelines
-- [RL Property Management Live KPI Scorecard](/key-performance-indicators/) — Days on market, renewal rate, occupancy, rent collection
-- [Redfin Columbus Housing Market](https://www.redfin.com/city/4664/OH/Columbus/housing-market) — City-proper median prices and market competitiveness data
+- [Columbus REALTORS March 2026 Local Market Update](https://www.searchcolumbushomesonline.com/blog/march-2026-columbus-real-estate-market-report/), MLS sales data, median prices, days on market
+- [RentCafe Columbus Market Trends](https://www.rentcafe.com/average-rent-market-trends/us/oh/columbus/), Current rent data and unit-size breakdowns
+- [Arbor Q1 2026 SFR Investment Trends Report (via CRE Daily)](https://www.credaily.com/briefs/single-family-rental-cap-rates-rise-nationwide/), National SFR cap rates, rent growth, occupancy
+- [MMG Real Estate Advisors 2025-2026 Columbus Forecast](https://mmgrea.com/2025-columbus-forecast/), Multifamily market fundamentals and rent growth projections
+- [WOSU: Columbus Rental Registry Coverage (April 2026)](https://www.wosu.org/politics-government/2026-04-15/columbus-city-council-proposes-rental-registry-to-combat-problem-landlords), Ordinance details and passage
+- [RLPM: Columbus Rental Property Registry Explained](/blog/columbus-rental-property-registry/), Full landlord compliance analysis
+- [Engineering News-Record: Intel Delays Ohio Plant to 2030](https://www.enr.com/articles/60389-intel-delays-completion-of-first-ohio-plant-to-2030), Confirmed new Intel timeline
+- [Franklin County Law Library: Columbus Landlord/Tenant Law](https://fclawlib.libguides.com/ohiolandlordtenantlaw/columbus), Current ordinances and tenant protections
+- [Franklin County Auditor: Reappraisal FAQ](https://www.franklincountyauditor.com/real-estate/appraisal/reappraisal-faq), 2026 Triennial Update process and timelines
+- [RL Property Management Live KPI Scorecard](/key-performance-indicators/), Days on market, renewal rate, occupancy, rent collection
+- [Redfin Columbus Housing Market](https://www.redfin.com/city/4664/OH/Columbus/housing-market), City-proper median prices and market competitiveness data

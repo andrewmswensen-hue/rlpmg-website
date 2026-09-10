@@ -53,14 +53,14 @@ Dublin’s rental pricing reflects its class A positioning. Here’s the current
 
 | Property Type | Avg. Monthly Rent |
 |---|---|
-| Studio Apartment | $975–$1,085 |
-| 1-Bedroom Apartment | $1,358–$1,375 |
-| 2-Bedroom Apartment | $1,691–$1,768 |
-| 3-Bedroom Apartment | $2,258–$2,322 |
-| Single-Family Home (avg.) | $3,000–$3,300+ |
+| Studio Apartment | $975 to $1,085 |
+| 1-Bedroom Apartment | $1,358 to $1,375 |
+| 2-Bedroom Apartment | $1,691 to $1,768 |
+| 3-Bedroom Apartment | $2,258 to $2,322 |
+| Single-Family Home (avg.) | $3,000 to $3,300+ |
 | Overall Apartment Average | ~$1,586/mo |
 
-Rent growth has been consistent: [RentCafe reports 1.8% year-over-year growth](https://www.rentcafe.com/average-rent-market-trends/us/oh/dublin/), while Apartments.com shows a sharper 6.5% increase depending on the unit mix. The largest share of Dublin rentals (45%) falls in the $1,500–$2,000/month range.
+Rent growth has been consistent: [RentCafe reports 1.8% year-over-year growth](https://www.rentcafe.com/average-rent-market-trends/us/oh/dublin/), while Apartments.com shows a sharper 6.5% increase depending on the unit mix. The largest share of Dublin rentals (45%) falls in the $1,500 to $2,000/month range.
 
 For single-family investors, the numbers are significantly higher. [Apartments.com reports an average house rental of $3,003/month](https://www.apartments.com/houses/dublin-oh/), and Rentberry data from January 2026 puts the median closer to $3,321. These figures reflect Dublin’s premium housing stock: larger lots, newer construction, and the school district premium that families pay willingly.
 
@@ -70,7 +70,7 @@ For single-family investors, the numbers are significantly higher. [Apartments.c
 
 Dublin is the highest-priced major suburb in RLPM’s service area. The [Zillow Home Value Index](https://www.zillow.com/home-values/4426/dublin-oh/) places the typical Dublin home at approximately $545,900, up 3.5% over the past year. [Redfin reports a recent median sale price of $580,000](https://www.redfin.com/city/5847/OH/Dublin/housing-market), with homes receiving an average of 3 offers and spending about 89 days on market.
 
-The acquisition cost is the main consideration for investors. At a median purchase near $580,000 and average SFR rents around $3,000–$3,300/month, gross rental yield falls in the range of 6.2–6.8%. That’s competitive but not exceptional on paper. The real return in Dublin comes from two places: appreciation (3.5% year-over-year, among the strongest in the metro) and tenant quality (longer tenures, fewer turnovers, lower maintenance costs relative to income).
+The acquisition cost is the main consideration for investors. At a median purchase near $580,000 and average SFR rents around $3,000 to $3,300/month, gross rental yield falls in the range of 6.2 to 6.8%. That’s competitive but not exceptional on paper. The real return in Dublin comes from two places: appreciation (3.5% year-over-year, among the strongest in the metro) and tenant quality (longer tenures, fewer turnovers, lower maintenance costs relative to income).
 
 Investors should also note that Dublin’s housing stock skews newer than many Columbus suburbs. About 34% of rental buildings were [built between 1990 and 1999](https://www.rentcafe.com/average-rent-market-trends/us/oh/dublin/), and 22% were built between 2010 and 2019. That means fewer surprise capital expenses from aging systems compared to older neighborhoods like Clintonville or parts of Westerville.
 
@@ -96,7 +96,7 @@ The broader Columbus region’s growth story also benefits Dublin directly. The 
 
 ## Bridge Park, Bridge North, and What’s Coming Next
 
-Dublin’s growth story isn’t just about what exists today. Three major development initiatives are shaping the next 5–10 years of rental demand:
+Dublin’s growth story isn’t just about what exists today. Three major development initiatives are shaping the next 5 to 10 years of rental demand:
 
 ### Bridge North (breaking ground 2026)
 
@@ -128,7 +128,7 @@ For current Columbus metro performance benchmarks, check [RL Property Management
 
 ### Higher acquisition cost, higher quality tenant
 
-Dublin’s median home price ($546,000–$580,000) is the highest in RLPM’s service area. That means more capital deployed per unit. The offsetting factors: premium rents ($3,000+/month for SFR), stronger appreciation (3.5% YOY), longer tenant tenures, and lower turnover costs. For investors who can clear the acquisition threshold, the total return profile is strong.
+Dublin’s median home price ($546,000 to $580,000) is the highest in RLPM’s service area. That means more capital deployed per unit. The offsetting factors: premium rents ($3,000+/month for SFR), stronger appreciation (3.5% YOY), longer tenant tenures, and lower turnover costs. For investors who can clear the acquisition threshold, the total return profile is strong.
 
 ### New construction competition
 
@@ -152,7 +152,7 @@ Dublin offers the strongest school district, deepest corporate employer base, an
 
 **What do rentals go for in Dublin, Ohio?**
 
-Apartments average around $1,586/month across all sizes. Single-family homes rent for an average of $3,000–$3,300+/month depending on size, location within the district, and condition.
+Apartments average around $1,586/month across all sizes. Single-family homes rent for an average of $3,000 to $3,300+/month depending on size, location within the district, and condition.
 
 **What school district is Dublin, Ohio in?**
 
@@ -188,13 +188,13 @@ Or [schedule a consultation](/property-management-consultation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Niche: Dublin, OH](https://www.niche.com/places-to-live/dublin-franklin-oh/) — Overall livability grade, crime data, and resident reviews
-- [Niche: Dublin City Schools](https://www.niche.com/k12/d/dublin-city-schools-oh/) — School ratings, rankings, and demographics
-- [RentCafe: Dublin Rent Trends](https://www.rentcafe.com/average-rent-market-trends/us/oh/dublin/) — Rent prices, inventory, and housing composition (updated March 2026)
-- [Apartments.com: Dublin Rent Trends](https://www.apartments.com/rent-market-trends/dublin-oh/) — Current rent prices by unit type
-- [Zillow: Dublin Home Values](https://www.zillow.com/home-values/4426/dublin-oh/) — Zillow Home Value Index and appreciation trends
-- [Redfin: Dublin Housing Market](https://www.redfin.com/city/5847/OH/Dublin/housing-market) — Median sale prices and days on market
-- [City of Dublin: Bridge North Announcement](https://dublinohiousa.gov/city-news/dublin-city-council-approves-development-agreement-for-bridge-north-development-increasing-office-space-and-workforce-in-bridge-street-district/) — Mixed-use project details
-- [Dublin Economic Development: 2026 Vision](https://www.econdev.dublinohiousa.gov/building-momentum-dublins-2025-economic-development-achievements-and-2026-vision/) — West Innovation District, Metro Center, and growth strategy
-- [AreaVibes: Dublin Crime Data](https://www.areavibes.com/dublin-oh/crime/) — Crime rates and safety comparison
-- [RL Property Management: Live KPI Scorecard](/key-performance-indicators/) — Current Columbus metro performance benchmarks
+- [Niche: Dublin, OH](https://www.niche.com/places-to-live/dublin-franklin-oh/), Overall livability grade, crime data, and resident reviews
+- [Niche: Dublin City Schools](https://www.niche.com/k12/d/dublin-city-schools-oh/), School ratings, rankings, and demographics
+- [RentCafe: Dublin Rent Trends](https://www.rentcafe.com/average-rent-market-trends/us/oh/dublin/), Rent prices, inventory, and housing composition (updated March 2026)
+- [Apartments.com: Dublin Rent Trends](https://www.apartments.com/rent-market-trends/dublin-oh/), Current rent prices by unit type
+- [Zillow: Dublin Home Values](https://www.zillow.com/home-values/4426/dublin-oh/), Zillow Home Value Index and appreciation trends
+- [Redfin: Dublin Housing Market](https://www.redfin.com/city/5847/OH/Dublin/housing-market), Median sale prices and days on market
+- [City of Dublin: Bridge North Announcement](https://dublinohiousa.gov/city-news/dublin-city-council-approves-development-agreement-for-bridge-north-development-increasing-office-space-and-workforce-in-bridge-street-district/), Mixed-use project details
+- [Dublin Economic Development: 2026 Vision](https://www.econdev.dublinohiousa.gov/building-momentum-dublins-2025-economic-development-achievements-and-2026-vision/), West Innovation District, Metro Center, and growth strategy
+- [AreaVibes: Dublin Crime Data](https://www.areavibes.com/dublin-oh/crime/), Crime rates and safety comparison
+- [RL Property Management: Live KPI Scorecard](/key-performance-indicators/), Current Columbus metro performance benchmarks

@@ -34,7 +34,7 @@ That said, even as business owners, we have room for improvement when it comes t
 
 ## Who to Hire (and When)
 
-As your business grows and evolves, your staffing needs may change. This might mean expanding the number of entry- to mid-level employees you have on staff or bringing in a top leader – one who will also command a top salary.
+As your business grows and evolves, your staffing needs may change. This might mean expanding the number of entry- to mid-level employees you have on staff or bringing in a top leader, one who will also command a top salary.
 
 This can pose a difficult challenge for small business owners who have not yet had to stretch their payroll budgets. When considering the type of hire needed for your business, it helps to think about some of these factors:
 

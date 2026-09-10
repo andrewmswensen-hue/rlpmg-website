@@ -20,7 +20,7 @@ categories:
 
 Clintonville is a large, established neighborhood in north-central Columbus known for its leafy character, eclectic mix of housing, and neighborhood feel within a city context. Residents, including young professionals, families, and long-term locals, are drawn to Clintonville’s abundance of green space, such as Whetstone Park and the Park of Roses, and its collection of independent cafés, restaurants, and retail along North High Street and elsewhere.
 
-The area’s housing stock ranges from historic bungalows and early 20th-century homes to mid-century ranches and modest multifamily buildings, giving renters options across unit types. Its proximity (roughly 10–15 minutes) to downtown Columbus, coupled with good transit access and infrastructure, makes it attractive for professionals working across the metro area.
+The area’s housing stock ranges from historic bungalows and early 20th-century homes to mid-century ranches and modest multifamily buildings, giving renters options across unit types. Its proximity (roughly 10 to 15 minutes) to downtown Columbus, coupled with good transit access and infrastructure, makes it attractive for professionals working across the metro area.
 
 From an investor’s perspective, Clintonville is not a college-driven transient market like the University District; demand is steadier throughout the year and is underpinned by lifestyle factors rather than short-term student occupancy. The neighborhood’s stable demographic mix supports renewal activity among renters who value community amenities and quality housing.
 
@@ -30,12 +30,12 @@ Managing vacancy is critical to return stability. Across Columbus, each month un
 
 **Typical Lease-Up Timelines, 2026 (Clintonville)**
 
-- **Apartments & Small Multifamily Units (Studios–2BRs):** ~45–70 days on market when competitively priced. Recent listings show median active search times over 60 days, indicating average marketing durations.
-- **Larger Units / Houses (2–3+ BR):** ~60–90+ days depending on condition and amenities. Single-family and larger duplex homes typically take longer than smaller units in multifamily buildings to find tenants.
+- **Apartments & Small Multifamily Units (Studios, 2BRs):** ~45 to 70 days on market when competitively priced. Recent listings show median active search times over 60 days, indicating average marketing durations.
+- **Larger Units / Houses (2 to 3+ BR):** ~60 to 90+ days depending on condition and amenities. Single-family and larger duplex homes typically take longer than smaller units in multifamily buildings to find tenants.
 
 **Vacancy Context**
 
-Neighborhood-wide vacancy estimates vary with data source and methodology, but Clintonville’s overall residential vacancy sits in a moderate range (~7–8%), illustrating balanced but not overheated demand.
+Neighborhood-wide vacancy estimates vary with data source and methodology, but Clintonville’s overall residential vacancy sits in a moderate range (~7 to 8%), illustrating balanced but not overheated demand.
 
 **Local Leasing Friction**
 
@@ -47,10 +47,10 @@ Actual rents depend heavily on condition, location within the neighborhood, and 
 
 | **Property Type** | **Typical Rent Range** | **Notes** |
 |---|---|---|
-| **Studio** | ~$900–$1,050 | Smaller units fluctuate significantly by finish and building type. |
-| **1-Bedroom** | ~$1,000–$1,450 | Competitive segment; updated interiors lease fastest. |
-| **2-Bedroom** | ~$1,350–$2,000 | Strong demand for well-configured 2BRs, especially near parks/amenities. |
-| **3+ Bedroom Houses** | ~$2,000–$2,500+ | Single-family and larger homes trade on space and condition; a premium for updated and larger units. |
+| **Studio** | ~$900 to $1,050 | Smaller units fluctuate significantly by finish and building type. |
+| **1-Bedroom** | ~$1,000 to $1,450 | Competitive segment; updated interiors lease fastest. |
+| **2-Bedroom** | ~$1,350 to $2,000 | Strong demand for well-configured 2BRs, especially near parks/amenities. |
+| **3+ Bedroom Houses** | ~$2,000 to $2,500+ | Single-family and larger homes trade on space and condition; a premium for updated and larger units. |
 
 **Guardrails**
 
@@ -70,9 +70,9 @@ Pricing in Clintonville hinges on a focused set of demand drivers that matter mo
 
 Clintonville’s seasonality broadly aligns with Columbus rental cycles:
 
-- **Peak Season:** *May–August*, Highest leasing velocity and pricing leverage; larger applicant pools.
-- **Shoulder Season:** *September–October*, Still solid demand, though somewhat more price-sensitive.
-- **Slow Season:** *November–February*, Longer market exposure; sharper pricing and flexible leases (e.g., shorter terms) help mitigate vacancy.
+- **Peak Season:** *May, August*, Highest leasing velocity and pricing leverage; larger applicant pools.
+- **Shoulder Season:** *September, October*, Still solid demand, though somewhat more price-sensitive.
+- **Slow Season:** *November, February*, Longer market exposure; sharper pricing and flexible leases (e.g., shorter terms) help mitigate vacancy.
 
 **Strategy Tip:** Align new listings to hit the market by early spring when possible. Owners converting or renovating units should target completion by late April to benefit from peak renter search activity.
 
@@ -86,7 +86,7 @@ Clintonville’s seasonality broadly aligns with Columbus rental cycles:
 
 ## Common Owner Questions (FAQs)
 
-**How long does it take to rent in Clintonville?**Typical rentals lease within ~25–35 days when priced appropriately; smaller units trend faster than large homes.
+**How long does it take to rent in Clintonville?**Typical rentals lease within ~25 to 35 days when priced appropriately; smaller units trend faster than large homes.
 
 **What rent should I expect?**Refer to the ranges above; overpricing relative to condition typically extends vacancy materially.
 

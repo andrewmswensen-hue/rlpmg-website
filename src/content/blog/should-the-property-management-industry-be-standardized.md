@@ -1,6 +1,6 @@
 ---
 title: "Should the Property Management Industry be Standardized?"
-description: "When property owners hear the term “property management,” they conjure up a variety of definitions – most of which are not accurate. The challenge is that without a standardized scope of services provided by property managers, it’s easy for confusion and frustration to take hold, because most client"
+description: "When property owners hear the term “property management,” they conjure up a variety of definitions, most of which are not accurate. The challenge is that without a standardized scope of services provided by property managers, it’s easy for confusion and frustration to take hold, because most client"
 pubDate: "2022-01-25T15:00:35Z"
 updatedDate: "2022-01-05T18:18:40Z"
 slug: "should-the-property-management-industry-be-standardized"
@@ -17,7 +17,7 @@ tags:
   - "property management"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2022/01/towfiqu-barbhuiya-05XcCfTOzN4-unsplash-scaled-e1641397048889-300x178.jpg)When property owners hear the term “property management,” they conjure up a variety of definitions – most of which are not accurate.
+![](https://rlpmg.com/wp-content/uploads/2022/01/towfiqu-barbhuiya-05XcCfTOzN4-unsplash-scaled-e1641397048889-300x178.jpg)When property owners hear the term “property management,” they conjure up a variety of definitions, most of which are not accurate.
 
 The challenge is that without a standardized scope of services provided by property managers, it’s easy for confusion and frustration to take hold, because most client expectations don’t align with the actual services rendered by a property manager.
 
@@ -35,7 +35,7 @@ Second, many property owners fail to differentiate between the services of **ass
 
 Nearly every property manager can attest to the fact that the level of expectation that the customer has rarely matches what the property manager is expecting to provide. When you mix real property, money and people, there are a lot of opportunities for problems and issues to arise.
 
-In order to fix this, we at RL Property Management believe there needs to be some kind of a standard scope of service for property management – a baseline definition of what property management is.
+In order to fix this, we at RL Property Management believe there needs to be some kind of a standard scope of service for property management, a baseline definition of what property management is.
 
 As it currently stands, there is vast inconsistency among property managers. For example, what one property manager calls a leasing fee, another one might call a letting fee, and yet another may call it a vacancy fee or a marketing fee.
 

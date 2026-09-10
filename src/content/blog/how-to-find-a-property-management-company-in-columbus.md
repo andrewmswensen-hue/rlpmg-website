@@ -21,9 +21,9 @@ While many owners enjoy managing their properties themselves, if you don’t hav
 
 ## Where to Find Property Management Companies in Franklin County
 
-- **Start with friends and colleagues** – It’s always easiest to start by asking the people you know and trust about who they’ve used in the past. Your realtor or other investors or friends in your network can be helpful resources for learning about owning and managing rental properties in Columbus.
-- **Search online** – As you begin finding names of property management companies, search a little deeper, read reviews, and learn more about the specific services each one offers. Are they licensed or part of any credentialed organizations? How do their online reviews pan out? Transparency and professionalism are key qualities in a property management company.
-- **Visit their properties** – To get the best sense of the type of property management company they are, you have to visit some of their properties. Are they well-kept? Are tenants happy? These impressions matter and there’s no substitute for trusting your gut if something seems off at one of their properties.
+- **Start with friends and colleagues**, It’s always easiest to start by asking the people you know and trust about who they’ve used in the past. Your realtor or other investors or friends in your network can be helpful resources for learning about owning and managing rental properties in Columbus.
+- **Search online**, As you begin finding names of property management companies, search a little deeper, read reviews, and learn more about the specific services each one offers. Are they licensed or part of any credentialed organizations? How do their online reviews pan out? Transparency and professionalism are key qualities in a property management company.
+- **Visit their properties**, To get the best sense of the type of property management company they are, you have to visit some of their properties. Are they well-kept? Are tenants happy? These impressions matter and there’s no substitute for trusting your gut if something seems off at one of their properties.
 
 Before committing to any one property management company, be sure to [ask them these important questions](/blog/questions-to-ask-before-hiring-a-property-management-company-in-ohio/) and thoroughly [review the property management agreement](/blog/what-to-look-for-in-a-property-management-agreement/). Finding the right property management company can be all the difference when it comes to achieving your investment goals.
 

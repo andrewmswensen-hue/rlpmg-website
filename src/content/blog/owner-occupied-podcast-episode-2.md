@@ -1,5 +1,5 @@
 ---
-title: "Owner Occupied Podcast – Episode 2"
+title: "Owner Occupied Podcast, Episode 2"
 description: "ABOUT THIS EPISODE In this week’s episode, we discuss the challenges of establishing and running a property management business, the number of properties you need to hire a property manager, the strategies for finding new properties to manage, and how to finance new acquisitions. We also discuss the"
 pubDate: "2021-03-23T15:51:34Z"
 updatedDate: "2021-03-23T16:15:31Z"

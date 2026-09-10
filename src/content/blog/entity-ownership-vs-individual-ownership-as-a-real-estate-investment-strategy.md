@@ -19,7 +19,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2023/12/Entity-Ownership-vs.-Individual-Ownership-as-a-Real-Estate-Investment-Strategy-min-300x200.jpg)There are several strategies to minimize your tax bill as a property investor. From maximizing tax deductions to [accounting for depreciation](/blog/building-wealth-with-depreciation-a-tax-strategy-for-property-investors/), [utilizing a 1031 exchange](/blog/what-to-know-about-using-a-1031-to-grow-your-real-estate-portfolio/) and [many others,](/blog/end-of-year-planning-how-to-minimize-your-tax-bill/) you can generate wealth and grow your portfolio by taking advantage of tax incentives and opportunities.
 
-Another such strategy real estate investors should consider if they want to take advantage of tax incentives is how they structure the ownership of their properties – whether as an individual or as an entity, such as a limited liability company (LLC), partnership or S-corporation. Entity structuring can offer further tax benefits and mitigate risk as an investor, but it’s not right for every investor. Here’s what to know.
+Another such strategy real estate investors should consider if they want to take advantage of tax incentives is how they structure the ownership of their properties, whether as an individual or as an entity, such as a limited liability company (LLC), partnership or S-corporation. Entity structuring can offer further tax benefits and mitigate risk as an investor, but it’s not right for every investor. Here’s what to know.
 
 ## Choosing the Right Structure for Your Goals
 

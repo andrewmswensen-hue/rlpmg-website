@@ -1,5 +1,5 @@
 ---
-title: "Owner Occupied Podcast – Episode 1"
+title: "Owner Occupied Podcast, Episode 1"
 description: "We are excited to announce Owner Occupied, a new podcast hosted by Peter Lohmann, the co-founder of RL Property Management. On Owner Occupied, hosts Peter Lohmann and Russell Lowery discuss small business, property management, entrepreneurship, and general real estate topics. Episode 1 is below. You"
 pubDate: "2021-03-01T22:25:46Z"
 updatedDate: "2021-03-08T19:21:33Z"

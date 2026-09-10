@@ -1,6 +1,6 @@
 ---
 title: "Strategies to Reduce Vacancy in Your Rental Properties: Setting Rent Rates for Vacant Properties"
-description: "In our last post we discussed one scenario when you should consider reevaluating the amount you charge for rent – during a lease renewal period. Here we’ll talk about how to approach setting rental rates when a unit is sitting vacant. Scenario #2: Evaluating Rent Rates When a Property is Sitting Vac"
+description: "In our last post we discussed one scenario when you should consider reevaluating the amount you charge for rent, during a lease renewal period. Here we’ll talk about how to approach setting rental rates when a unit is sitting vacant. Scenario #2: Evaluating Rent Rates When a Property is Sitting Vac"
 pubDate: "2023-01-19T15:00:12Z"
 updatedDate: "2023-01-17T16:33:21Z"
 slug: "strategies-to-reduce-vacancy-in-your-rental-properties-setting-rent-rates-for-vacant-properties"
@@ -18,7 +18,7 @@ tags:
   - "vacancy rate"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2023/01/steven-ungermann-CVTmLMv5oG4-unsplash-300x200.jpg)In our last post we discussed one scenario when you should consider reevaluating the amount you charge for rent – [during a lease renewal period](/blog/strategies-to-reduce-vacancy-in-your-rental-properties-reevaluating-rent-rates-at-renewal/). Here we’ll talk about how to approach setting rental rates when a unit is sitting vacant.
+![](https://rlpmg.com/wp-content/uploads/2023/01/steven-ungermann-CVTmLMv5oG4-unsplash-300x200.jpg)In our last post we discussed one scenario when you should consider reevaluating the amount you charge for rent, [during a lease renewal period](/blog/strategies-to-reduce-vacancy-in-your-rental-properties-reevaluating-rent-rates-at-renewal/). Here we’ll talk about how to approach setting rental rates when a unit is sitting vacant.
 
 ## Scenario #2: Evaluating Rent Rates When a Property is Sitting Vacant
 
@@ -26,7 +26,7 @@ Setting the market rent on a vacancy is a little more straightforward than it is
 
 A word of caution when setting rent rates, however. Some people have this idea that they’re going to set the rates really high in order to get “good” tenants. Unfortunately, that isn’t always how things play out.
 
-The people who are [great tenants on paper](/blog/strategies-to-reduce-vacancy-in-your-rental-properties-seek-out-high-quality-tenants/) those who have strong credit scores, no criminal history, no eviction history, etc – can include those who are looking for a deal. They’re shopping around, they’re getting to know the market, and there are knowledgeable and have no intention of paying *more* for a similar property they can get elsewhere.
+The people who are [great tenants on paper](/blog/strategies-to-reduce-vacancy-in-your-rental-properties-seek-out-high-quality-tenants/) those who have strong credit scores, no criminal history, no eviction history, etc, can include those who are looking for a deal. They’re shopping around, they’re getting to know the market, and there are knowledgeable and have no intention of paying *more* for a similar property they can get elsewhere.
 
 Discerning, high-quality tenants are going to pay the absolute minimum rent for a high-quality space that fits their budget and needs. This is the kind of resident you want to stay in your property. Ones who intends to stay a long time, take good care of the place and pay rent on time.
 

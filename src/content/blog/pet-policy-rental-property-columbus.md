@@ -15,21 +15,21 @@ categories:
 
 TL;DR
 
-Pet-friendly Columbus rentals reach a far larger applicant pool and lease measurably faster: Zillow’s 2025 analysis found pet-friendly listings rented about eight days sooner with 9% more views. The risk is manageable with a structured policy: screening, limits, a monthly pet fee, and damage coverage. Assistance animals are a separate legal category with rules that shifted in 2025–2026, so handle those requests carefully and get legal advice before denying one.
+Pet-friendly Columbus rentals reach a far larger applicant pool and lease measurably faster: Zillow’s 2025 analysis found pet-friendly listings rented about eight days sooner with 9% more views. The risk is manageable with a structured policy: screening, limits, a monthly pet fee, and damage coverage. Assistance animals are a separate legal category with rules that shifted in 2025 to 2026, so handle those requests carefully and get legal advice before denying one.
 
 Key Takeaways
 
 - 58% of renter households have a pet, more than have children, per Zillow’s 2024 Consumer Housing Trends Report. A no-pet policy screens out most of the market.
 - Pet-friendly listings on Zillow leased about eight days sooner and drew 9% more views than comparable listings that prohibited pets (July 2025 analysis).
 - A protective pet policy pairs screening and lease terms with financial coverage. RLPM’s pet damage coverage runs up to $4,000 (starting 2026), funded by a monthly pet administration fee paid by the resident.
-- Assistance animals are not pets under federal law. HUD’s enforcement guidance changed significantly in 2025–2026, but the Fair Housing Act’s accommodation duty remains, so tread carefully.
+- Assistance animals are not pets under federal law. HUD’s enforcement guidance changed significantly in 2025 to 2026, but the Fair Housing Act’s accommodation duty remains, so tread carefully.
 - The most expensive pet mistakes are policy mistakes: blanket bans that mishandle accommodation requests, inconsistent enforcement, and undocumented damage at move-out.
 
 In This Article
 
 1. [Should You Allow Pets in Your Rental? The Business Case](#business-case)
 2. [How Do You Structure a Pet Policy That Protects You?](#structure)
-3. [Assistance Animals: What Changed in 2025–2026, and What Didn’t](#assistance-animals)
+3. [Assistance Animals: What Changed in 2025 to 2026, and What Didn’t](#assistance-animals)
 4. [What Are the Most Common Pet Policy Mistakes?](#mistakes)
 5. [Frequently Asked Questions](#faq)
 
@@ -63,7 +63,7 @@ Whatever structure you use, one habit ties it together: document pet damage sepa
 
 > **A $300 pet deposit against a $2,000 damage problem isn’t a policy. It’s a hope.**
 
-## Assistance Animals: What Changed in 2025–2026, and What Didn’t
+## Assistance Animals: What Changed in 2025 to 2026, and What Didn’t
 
 *This section is informational, not legal advice. The rules here shifted recently and continue to develop; consult a fair housing attorney before denying or conditioning an accommodation request. Current as of August 2026.*
 
@@ -129,9 +129,9 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Zillow Consumer Housing Trends Report 2024](https://www.zillow.com/research/renters-housing-trends-report-2024-34387/) – 58% of renter households have a pet; 60% call pet-friendliness critical
-- [Zillow (July 2025)](https://zillow.mediaroom.com/2025-07-02-Saying-yes-to-pets-pays-off-for-landlords) – Pet-friendly listings rent ~8 days sooner with 9% more views
-- [Michelson Found Animals Pet-Inclusive Housing Trends Report 2025](https://www.foundanimals.org/pet-inclusive-housing-trends-report-2025-outlook/) – Pet-friendly supply gap and retention data
-- [American Pet Products Association](https://americanpetproducts.org/industry-trends-and-stats) – 95 million U.S. pet-owning households (2025 survey)
-- [HUD FHEO Enforcement Memorandum (May 22, 2026)](https://www.hud.gov/sites/default/files/hudclips/documents/AS-Trainor-Enforcement-Guidance-Assessing-Requests-for-the-use-of-an-animal-as-a-reasonable-accommodation-under-the-fair-housing-act.pdf) – Current federal enforcement posture on assistance animals
-- [ADA.gov – Service Animals](https://www.ada.gov/resources/service-animals-2010-requirements/) – The ADA’s trained service animal definition
+- [Zillow Consumer Housing Trends Report 2024](https://www.zillow.com/research/renters-housing-trends-report-2024-34387/), 58% of renter households have a pet; 60% call pet-friendliness critical
+- [Zillow (July 2025)](https://zillow.mediaroom.com/2025-07-02-Saying-yes-to-pets-pays-off-for-landlords), Pet-friendly listings rent ~8 days sooner with 9% more views
+- [Michelson Found Animals Pet-Inclusive Housing Trends Report 2025](https://www.foundanimals.org/pet-inclusive-housing-trends-report-2025-outlook/), Pet-friendly supply gap and retention data
+- [American Pet Products Association](https://americanpetproducts.org/industry-trends-and-stats), 95 million U.S. pet-owning households (2025 survey)
+- [HUD FHEO Enforcement Memorandum (May 22, 2026)](https://www.hud.gov/sites/default/files/hudclips/documents/AS-Trainor-Enforcement-Guidance-Assessing-Requests-for-the-use-of-an-animal-as-a-reasonable-accommodation-under-the-fair-housing-act.pdf), Current federal enforcement posture on assistance animals
+- [ADA.gov, Service Animals](https://www.ada.gov/resources/service-animals-2010-requirements/), The ADA’s trained service animal definition

@@ -30,13 +30,13 @@ Not every applicant is the right fit for your property (and that’s a good thin
 
 Your **ideal tenant** isn’t just someone who pays rent on time (though that’s a must). It’s someone who matches your property’s value, lease expectations, and maintenance standards. Think about:
 
-- **Rent Price** – Higher rents attract different demographics than budget options. If your property is priced for $1,800/month, your ideal tenant likely has stable income, a solid credit history, and expects a certain level of quality.
-- **Lease Term** – Looking for long-term renters? Then your marketing should appeal to tenants seeking stability — not those in transition or between life stages.
-- **Lifestyle & Fit** – A quiet residential duplex in a school district attracts a different audience than a trendy downtown loft. Tailoring your messaging helps set expectations upfront.
+- **Rent Price**, Higher rents attract different demographics than budget options. If your property is priced for $1,800/month, your ideal tenant likely has stable income, a solid credit history, and expects a certain level of quality.
+- **Lease Term**, Looking for long-term renters? Then your marketing should appeal to tenants seeking stability, not those in transition or between life stages.
+- **Lifestyle & Fit**, A quiet residential duplex in a school district attracts a different audience than a trendy downtown loft. Tailoring your messaging helps set expectations upfront.
 
 ### Property Managers Use Personas for a Reason
 
-Professional property managers, like RLPM, use **tenant personas** to guide every listing. These aren’t random guesses — they’re data-informed profiles that help match the right renters to the right properties. For example:
+Professional property managers, like RLPM, use **tenant personas** to guide every listing. These aren’t random guesses, they’re data-informed profiles that help match the right renters to the right properties. For example:
 
 - A two-bedroom near Polaris might target dual-income professionals.
 - A three-bedroom in Dublin could be ideal for a small family with school-aged kids.
@@ -55,9 +55,9 @@ The listing is your first impression, and high-quality tenants are judging. Fast
 
 What works:
 
-- **Natural Light** – Shoot during the day when sunlight floods the space. Open blinds. Turn on the lights.
-- **Wide Angles** – Use a wide-angle lens (or hire someone who can) to make rooms feel spacious and welcoming.
-- **Clean and Staged** – Tidy up. A clean, empty (or lightly staged) space always shows better. Even just removing small clutter makes a difference.
+- **Natural Light**, Shoot during the day when sunlight floods the space. Open blinds. Turn on the lights.
+- **Wide Angles**, Use a wide-angle lens (or hire someone who can) to make rooms feel spacious and welcoming.
+- **Clean and Staged**, Tidy up. A clean, empty (or lightly staged) space always shows better. Even just removing small clutter makes a difference.
 
 RLPM tip: We use professional photographers for every listing. That’s because quality images lead to **more clicks, more showings, and faster leasing.**
 
@@ -68,7 +68,7 @@ A good headline does two things: **grabs attention and sets expectations.**
 Skip the boring “2BR/1BA Apartment” format. Instead, write something like:
 
 - “Updated Clintonville 2BR with Garage + Private Yard”
-- “Modern 1-Bedroom Near OSU – Walk to Dining & Transit”
+- “Modern 1-Bedroom Near OSU, Walk to Dining & Transit”
 
 Be specific. Paint a quick picture of what makes the unit special.
 
@@ -90,11 +90,11 @@ Most renters search by location and must-haves. Be sure to include phrases like:
 - “close to Westerville schools”
 - “2-bedroom apartment with parking in Dublin”
 
-Using the right keywords doesn’t just help people find your listing — it helps the *right* people find it.
+Using the right keywords doesn’t just help people find your listing, it helps the *right* people find it.
 
 ## Get It Seen: Where (and Where Not) to Advertise Your Rental
 
-You can write the best listing in the world, but if no one sees it, it won’t matter. Strategic advertising is what connects your rental to the right audience. Here’s how to make sure your listing gets real exposure – not just eyeballs, but clicks from qualified renters.
+You can write the best listing in the world, but if no one sees it, it won’t matter. Strategic advertising is what connects your rental to the right audience. Here’s how to make sure your listing gets real exposure, not just eyeballs, but clicks from qualified renters.
 
 ### The Big Players: Zillow, Apartments.com, and Facebook Marketplace
 
@@ -130,7 +130,7 @@ We also have the advantage of:
 - **Lead tracking dashboards** to see what’s working
 - **Refined ad copy** based on what converts best in Columbus neighborhoods
 
-In short, **PMs aren’t guessing — they’re using data to drive performance**.
+In short, **PMs aren’t guessing, they’re using data to drive performance**.
 
 ## Timing Is Everything: Why When You List Matters
 
@@ -166,11 +166,11 @@ The key is to **back-plan**. If your current tenant is moving out July 31, you s
 
 This keeps your unit in the “sweet spot” for leasing and **minimizes costly gaps between tenants**.
 
-RLPM uses data from Columbus leasing trends to time listings with precision. Our team also plans renewals and lease-end dates to line up with high-demand seasons whenever possible — protecting your cash flow and improving your rental’s performance long-term.
+RLPM uses data from Columbus leasing trends to time listings with precision. Our team also plans renewals and lease-end dates to line up with high-demand seasons whenever possible, protecting your cash flow and improving your rental’s performance long-term.
 
 ## Your Reputation Matters: Why Responsiveness Drives Tenant Quality
 
-Great tenants don’t just look at the property — they’re also sizing up the person (or company) managing it.
+Great tenants don’t just look at the property, they’re also sizing up the person (or company) managing it.
 
 ### Online Reviews Speak Louder Than You Think
 
@@ -182,13 +182,13 @@ If your reputation includes:
 - Poor communication
 - Disorganized move-ins or unclear lease terms
 
-…you’ll turn away the kind of renters who care about professionalism — the same renters who pay on time, take care of the home, and stay longer.
+…you’ll turn away the kind of renters who care about professionalism, the same renters who pay on time, take care of the home, and stay longer.
 
 On the flip side, **positive reviews build trust** before you’ve even spoken.
 
 ### Responsiveness = Professionalism
 
-The rental process moves fast. If a qualified prospect inquires and you take 3+ days to respond, you’ve probably lost them — especially in a competitive market.
+The rental process moves fast. If a qualified prospect inquires and you take 3+ days to respond, you’ve probably lost them, especially in a competitive market.
 
 Here’s how slow responses hurt your leasing success:
 
@@ -204,11 +204,11 @@ At RLPM, we have dedicated leasing specialists who:
 - Pre-screen applicants before scheduling showings
 - Keep communication consistent and transparent
 
-This doesn’t just improve speed – it sends the message that **we take leasing seriously and treat tenants with respect**. That perception attracts better renters and sets a professional tone from day one.
+This doesn’t just improve speed, it sends the message that **we take leasing seriously and treat tenants with respect**. That perception attracts better renters and sets a professional tone from day one.
 
 ## Smarter, Not Harder: The Case for Automation and Professional Help
 
-Marketing a rental property isn’t a one-time task — it’s a repeatable system. The more consistent and data-driven your process is, the better your results will be over time.
+Marketing a rental property isn’t a one-time task, it’s a repeatable system. The more consistent and data-driven your process is, the better your results will be over time.
 
 ### Manual Marketing Creates Inconsistency
 
@@ -237,7 +237,7 @@ At RLPM, our leasing system ensures:
 
 This level of organization makes your property look more credible and trustworthy, which matters when your goal is to **attract high-quality, long-term tenants**.
 
-### More Than Marketing — It’s Strategy
+### More Than Marketing, It’s Strategy
 
 It’s not just about getting your property in front of people. It’s about getting it in front of **the right people, at the right time, with the right message.**
 
@@ -251,7 +251,7 @@ Better marketing leads to better tenants, and **better systems lead to consisten
 
 ## Better Marketing = Better Tenants. Period.
 
-If you want to attract high-quality renters, the kind who pay on time, take care of your property, and stay long-term — you can’t afford to “wing it” when it comes to marketing.
+If you want to attract high-quality renters, the kind who pay on time, take care of your property, and stay long-term, you can’t afford to “wing it” when it comes to marketing.
 
 It takes:
 
@@ -262,7 +262,7 @@ It takes:
 - A professional, responsive presence
 - Repeatable systems that make leasing consistent and stress-free
 
-At RL Property Management, **we do this every day**. Our proven marketing systems, local Columbus expertise, and hands-on leasing process are built to deliver results — not just views or inquiries, but qualified applications and long-term tenants.
+At RL Property Management, **we do this every day**. Our proven marketing systems, local Columbus expertise, and hands-on leasing process are built to deliver results, not just views or inquiries, but qualified applications and long-term tenants.
 
 **Ready to get better tenants and fewer headaches?**
 

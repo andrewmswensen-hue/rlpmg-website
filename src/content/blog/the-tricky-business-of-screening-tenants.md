@@ -1,6 +1,6 @@
 ---
 title: "The Tricky Business of Screening Tenants"
-description: "From a landlord’s perspective, screening tenants who apply to rent a home or apartment can be tricky business. The goal for landlords is to secure great tenants – someone who is going to pay the rent on time, not damage the property or cause trouble, and move out of the properties at the end of"
+description: "From a landlord’s perspective, screening tenants who apply to rent a home or apartment can be tricky business. The goal for landlords is to secure great tenants, someone who is going to pay the rent on time, not damage the property or cause trouble, and move out of the properties at the end of"
 pubDate: "2021-12-09T15:00:45Z"
 updatedDate: "2021-12-07T20:30:05Z"
 slug: "the-tricky-business-of-screening-tenants"
@@ -17,7 +17,7 @@ tags:
   - "section8"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2021/12/tierra-mallorca-JXI2Ap8dTNc-unsplash-min-300x225.jpg)From a landlord’s perspective, screening tenants who apply to rent a home or apartment can be tricky business. The goal for landlords is to secure great tenants – someone who is going to pay the rent on time, not damage the property or cause trouble, and move out of the properties at the end of their lease leaving it clean and in good condition.
+![](https://rlpmg.com/wp-content/uploads/2021/12/tierra-mallorca-JXI2Ap8dTNc-unsplash-min-300x225.jpg)From a landlord’s perspective, screening tenants who apply to rent a home or apartment can be tricky business. The goal for landlords is to secure great tenants, someone who is going to pay the rent on time, not damage the property or cause trouble, and move out of the properties at the end of their lease leaving it clean and in good condition.
 
 The challenge is people are people, and not everyone is going to behave that way. Unfortunately, some people can’t pay their rent and some end up leaving it a mess when they move out.
 

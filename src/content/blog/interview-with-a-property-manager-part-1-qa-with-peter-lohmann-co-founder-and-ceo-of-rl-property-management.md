@@ -1,5 +1,5 @@
 ---
-title: "Interview with a Property Manager – Part 1: Q&A with Peter Lohmann, Co-founder and CEO of RL Property Management"
+title: "Interview with a Property Manager, Part 1: Q&A with Peter Lohmann, Co-founder and CEO of RL Property Management"
 description: "RL Property Management has been serving owners and residents throughout the greater Columbus area for a decade. Read on to learn more about Peter Lohmann’s start as a property investor and gain insight into how to grow your real estate investment portfolio. How did you get started investing in real"
 pubDate: "2024-01-09T15:00:19Z"
 updatedDate: "2024-01-23T16:01:04Z"
@@ -33,7 +33,7 @@ Of course, we were young and naive, but it almost felt like we had uncovered som
 
 The reality is there are a lot of expenses associated with owning a rental properly, but the expenses are “lumpy.” You might go several months in a row where you have nothing, nothing, nothing, and then bam, a $4,000 water heater hit. Being able to forecast expenses and then set money aside for reserves is a learning curve most newbie investors have to go through if they want to be successful.
 
-**Do you remember when you had to make your first real expense payment on the property – when that bubble of naivety burst – and what it felt like?**
+**Do you remember when you had to make your first real expense payment on the property, when that bubble of naivety burst, and what it felt like?**
 
 While I don’t remember when we had to make our first big expense payment on this property, I do have a very clear memory of another incident that brought property ownership down to earth.
 

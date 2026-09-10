@@ -24,7 +24,7 @@ tags:
 
 As a property management company who has been professionally managing real estate in Central Ohio for about 8 years, we have access to nearly a decade of data tracking real-world income and expenses for single- and multi-family unit rentals.
 
-On the expense side, we’ve been particularly interested in understanding just how much our clients spend on various categories of expenses – things like landscaping and snow removal, pest control, repairs, utilities, and more.
+On the expense side, we’ve been particularly interested in understanding just how much our clients spend on various categories of expenses, things like landscaping and snow removal, pest control, repairs, utilities, and more.
 
 ## So where is the money being spent?
 
@@ -32,7 +32,7 @@ We conducted a study in 2019 and looked at what some of the most expensive parts
 
 [Our results](/blog/whats-the-most-expensive-part-of-owning-multifamily-rentals/) offer clear insight into what to expect when owning real estate in Franklin County.
 
-After evaluating our data in the aggregate, we found, not surprisingly, that the repairs and maintenance category clearly dominates all of the other areas when it comes to property management expenses. Anytime a tenant calls in with a maintenance request – whether it be a light switch not working to larger capital items like replacing a furnace – it falls into the repairs and maintenance category.
+After evaluating our data in the aggregate, we found, not surprisingly, that the repairs and maintenance category clearly dominates all of the other areas when it comes to property management expenses. Anytime a tenant calls in with a maintenance request, whether it be a light switch not working to larger capital items like replacing a furnace, it falls into the repairs and maintenance category.
 
 ## How these results inform our property management philosophy
 

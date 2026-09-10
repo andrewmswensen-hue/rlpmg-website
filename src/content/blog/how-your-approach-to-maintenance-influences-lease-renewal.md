@@ -1,6 +1,6 @@
 ---
 title: "How Your Approach to Maintenance Influences Lease Renewal"
-description: "Whenever tenants renew their lease, that’s one less vacancy you have to worry about. Keeping your vacancy rate low means more money in your pocket and less hassle trying to find new residents while turning over the unit. You want to do everything you can to extend a resident’s lease term – and you r"
+description: "Whenever tenants renew their lease, that’s one less vacancy you have to worry about. Keeping your vacancy rate low means more money in your pocket and less hassle trying to find new residents while turning over the unit. You want to do everything you can to extend a resident’s lease term, and you r"
 pubDate: "2023-02-09T15:00:20Z"
 updatedDate: "2023-01-24T15:43:09Z"
 slug: "how-your-approach-to-maintenance-influences-lease-renewal"
@@ -17,7 +17,7 @@ tags:
   - "vacancy rate"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2023/01/markus-spiske-cjOAigK9xo0-unsplash-min-200x300.jpg)Whenever tenants renew their lease, that’s one less vacancy you have to worry about. Keeping your vacancy rate low means more money in your pocket and less hassle trying to find new residents while turning over the unit. You want to do everything you can to extend a resident’s lease term – and you really [don’t want it to end during the slow season.](/blog/an-important-strategy-to-reduce-vacancy-in-your-rental-properties/)
+![](https://rlpmg.com/wp-content/uploads/2023/01/markus-spiske-cjOAigK9xo0-unsplash-min-200x300.jpg)Whenever tenants renew their lease, that’s one less vacancy you have to worry about. Keeping your vacancy rate low means more money in your pocket and less hassle trying to find new residents while turning over the unit. You want to do everything you can to extend a resident’s lease term, and you really [don’t want it to end during the slow season.](/blog/an-important-strategy-to-reduce-vacancy-in-your-rental-properties/)
 
 We recently discussed the [importance of making a good first impression.](/blog/want-a-tenant-to-renew-their-lease-make-a-good-first-impression/) There’s a second way you can positively influence a resident’s likelihood of renewing their lease for a second term. That’s to have a service-first mindset when it comes to maintenance.
 

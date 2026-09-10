@@ -1,6 +1,6 @@
 ---
 title: "Ways to Predict Maintenance Costs for Your Rental Property"
-description: "Understanding the cash flow potential of a rental property in Franklin County requires you to make several assumptions about income and expenses. Predicting income is a relatively straightforward process as there is generally just a single variable contributing to income – the monthly rent you charg"
+description: "Understanding the cash flow potential of a rental property in Franklin County requires you to make several assumptions about income and expenses. Predicting income is a relatively straightforward process as there is generally just a single variable contributing to income, the monthly rent you charg"
 pubDate: "2024-05-07T14:00:29Z"
 updatedDate: "2024-04-25T14:52:37Z"
 slug: "ways-to-predict-maintenance-costs-for-your-rental-property"
@@ -17,7 +17,7 @@ tags:
   - "property management"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2024/04/Ways-to-Predict-Maintenance-Costs-for-Your-Rental-Property-min-200x300.jpg)Understanding the cash flow potential of a rental property in Franklin County requires you to make several [assumptions about income and expenses](/blog/what-to-consider-when-calculating-cash-flow-for-a-rental-property/). Predicting income is a relatively straightforward process as there is generally just a single variable contributing to income – the monthly rent you charge.
+![](https://rlpmg.com/wp-content/uploads/2024/04/Ways-to-Predict-Maintenance-Costs-for-Your-Rental-Property-min-200x300.jpg)Understanding the cash flow potential of a rental property in Franklin County requires you to make several [assumptions about income and expenses](/blog/what-to-consider-when-calculating-cash-flow-for-a-rental-property/). Predicting income is a relatively straightforward process as there is generally just a single variable contributing to income, the monthly rent you charge.
 
 Identifying potential expenses, on the other hand, can be a bigger challenge. While we cannot offer a straightforward formula for estimating maintenance costs and other expenses, there are some smart ways to think about maintenance costs when trying to predict a property’s cash flow potential.
 

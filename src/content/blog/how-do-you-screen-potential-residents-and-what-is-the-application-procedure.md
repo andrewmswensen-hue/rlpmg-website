@@ -28,17 +28,17 @@ Here is an overview of the process we follow when it comes to screening applican
 
 ## The “Big Five”: Important areas to look at when screening rental applicants
 
-When we receive applications – all of which are submitted online – we process them in the order in which they are received. Doing so is important for ensuring that we stay on the right side of any legal liabilities in terms of fair housing policies.
+When we receive applications, all of which are submitted online, we process them in the order in which they are received. Doing so is important for ensuring that we stay on the right side of any legal liabilities in terms of fair housing policies.
 
 And while we process applications on a first-come, first-served basis, we won’t begin doing so until we have everything needed. That means all adults who are going to live at the property must complete an application, which includes submitting pay stubs, bank statements, and other reference documents that we’ll examine as we process the applicant and determine if they are going to pass our screening criteria.
 
 The five main areas we look at in terms of rental screening include:
 
-1. **Credit history** – Does the applicant have a history of making on-time payments? We’ve done a lot of studies and historical analysis on this and have found that credit score is very predictive in determining if someone is going to be a good tenant, pay their rent on time, keep the unit in good condition, and avoid eviction.
-2. **Criminal history** – We want to make sure we’re not placing someone who will be a danger to other people in the community or those in the same building.
-3. **Eviction history** – Someone who has recently been evicted is likely not going to be a good resident.
-4. **Rental history** – We talk to the applicant’s current and previous landlord and get confirmation that they were indeed a good tenant, paid their rent on time, didn’t leave with a big balance, or damage the property in any significant way.
-5. **Income** – We verify income by looking at pay stubs and bank statements. To qualify for a specific home, the applicant needs to show combined monthly household income of at least three times the cost of rent.
+1. **Credit history**, Does the applicant have a history of making on-time payments? We’ve done a lot of studies and historical analysis on this and have found that credit score is very predictive in determining if someone is going to be a good tenant, pay their rent on time, keep the unit in good condition, and avoid eviction.
+2. **Criminal history**, We want to make sure we’re not placing someone who will be a danger to other people in the community or those in the same building.
+3. **Eviction history**, Someone who has recently been evicted is likely not going to be a good resident.
+4. **Rental history**, We talk to the applicant’s current and previous landlord and get confirmation that they were indeed a good tenant, paid their rent on time, didn’t leave with a big balance, or damage the property in any significant way.
+5. **Income**, We verify income by looking at pay stubs and bank statements. To qualify for a specific home, the applicant needs to show combined monthly household income of at least three times the cost of rent.
 
 Once we have an applicant who passes all of the “Big 5” criteria, we will approve them and extend them an offer to sign the lease.
 

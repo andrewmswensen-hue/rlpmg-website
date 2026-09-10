@@ -25,7 +25,7 @@ This isn’t about building complicated spreadsheets or becoming an accountant. 
 
 In this article, we’ll walk through the **5 essential metrics** every rental property owner should review monthly and explain how each one can help you make smarter, more profitable decisions.
 
-## 1. Net Cash Flow – The Real Bottom Line
+## 1. Net Cash Flow, The Real Bottom Line
 
 ### Why Net Cash Flow Matters
 
@@ -57,7 +57,7 @@ To get a full picture of your monthly net cash flow, break down the following:
   - Capital infusions for repairs
   - Disbursements to you as the owner
 - **Final result:**
-  - **Net cash flow** = Income – Expenses
+ - **Net cash flow** = Income, Expenses
 
 ### Pro Tip: Use Your P&L Statements
 
@@ -79,7 +79,7 @@ Set internal benchmarks and **consider setting alerts** for when net cash flow d
 
 Tracking net cash flow monthly gives you **a reality check, not just a report.** It’s the foundation of financial health and the first place to look if your investment isn’t performing as expected.
 
-## Occupancy Rate – Your Income Multiplier
+## Occupancy Rate, Your Income Multiplier
 
 ### Why Occupancy Rate Matters
 
@@ -107,7 +107,7 @@ Keep a close eye on these performance indicators:
 In a healthy rental market, your target should be:
 
 - **95% or higher occupancy**
-- **Less than 14–21 days** between tenant turnover (though this can vary by unit class or location)
+- **Less than 14 to 21 days** between tenant turnover (though this can vary by unit class or location)
 
 Even a single property vacant for one month per year = **8.3% annual income loss**.
 
@@ -132,7 +132,7 @@ At RL Property Management, we proactively manage this process.
 
  **Vacant units are inspected every two weeks** (and weekly during winter months) to ensure they remain secure, clean, and market-ready. This helps reduce vacancy duration and protects your ROI.
 
-## Maintenance Costs – A Sneaky Profit Eater
+## Maintenance Costs, A Sneaky Profit Eater
 
 ### Why Maintenance Costs Matter
 
@@ -187,7 +187,7 @@ RL Property Management simplifies maintenance oversight by:
 
 By turning maintenance into a **strategic process, not a reactive burden**, you protect both your property and your profits.
 
-## Rent Collection Rate – Measuring Income Consistency
+## Rent Collection Rate, Measuring Income Consistency
 
 ### Why Rent Collection Rate Matters
 
@@ -230,7 +230,7 @@ RL Property Management enforces a **structured and timely rent collection proces
 
 By tracking rent collection with discipline, you reduce volatility in your income and build a more stable, scalable rental business.
 
-## Property Reserve Balance – Your Emergency Buffer
+## Property Reserve Balance, Your Emergency Buffer
 
 ### Why It Matters
 

@@ -29,7 +29,7 @@ For those who have never worked with a management company to handle maintenance 
 
 Quite frankly, this is not for everyone. If you’re the type of person who wants to have your finger on the pulse of every dollar being spent at your rental property, you’re probably not going to enjoy hiring a property management company to take care of repairs and maintenance. Chances are high that the company is not going to do everything the same way you would have done it, and this can be a source of frustration.
 
-For this reason and others, it’s important to be on the same page with your management company when it comes to your philosophy and general approach to real estate investing – and specifically what that means for maintenance and repairs. For more on that topic, be sure to [read this blog post.](/columbus-property-management/)
+For this reason and others, it’s important to be on the same page with your management company when it comes to your philosophy and general approach to real estate investing, and specifically what that means for maintenance and repairs. For more on that topic, be sure to [read this blog post.](/columbus-property-management/)
 
 ## How Does the Management Company Handle Repairs and Maintenance?
 

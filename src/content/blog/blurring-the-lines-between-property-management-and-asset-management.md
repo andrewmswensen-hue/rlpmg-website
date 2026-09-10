@@ -31,7 +31,7 @@ This includes things like collecting rent, taking care of maintenance issues, an
 
 Asset management is a strategic function. These companies help investors with forecasting, positioning, and branding a property rather than with managing the day-to-day operations of a given rental unit.
 
-For example, asset management companies will offer guidance on how a property should be positioned in the marketplace – will it be high-end, low-end, or in the middle? Based on the positioning, they can assess how money should be allocated to the investment for things like capital improvements.
+For example, asset management companies will offer guidance on how a property should be positioned in the marketplace, will it be high-end, low-end, or in the middle? Based on the positioning, they can assess how money should be allocated to the investment for things like capital improvements.
 
 In conclusion, while a property manager should have a strong understanding of the local market, offering strategic input into a property’s positioning is simply not part of their job description, nor are they charging for those services.
 

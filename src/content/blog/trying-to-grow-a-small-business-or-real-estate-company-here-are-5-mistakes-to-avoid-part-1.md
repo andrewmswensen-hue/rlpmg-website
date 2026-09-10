@@ -39,7 +39,7 @@ Once we finally identified our sales process and hired a business development ma
 
 As a new business owner or even as an individual investor, there has to be a priority on ensuring profitability. There’s no question. But for the ambitious, it can be easy to fall into a “gimme, gimme, gimme” mindset and fail to see the big picture.
 
-It’s a paradox that’s played out time and time again – the more you want success and make that the center of your entire thinking, the farther you’re going to be from it. Conversely, when you shift your mindset and rethink who you want to serve, you’re going to achieve success a lot faster.
+It’s a paradox that’s played out time and time again, the more you want success and make that the center of your entire thinking, the farther you’re going to be from it. Conversely, when you shift your mindset and rethink who you want to serve, you’re going to achieve success a lot faster.
 
 We’ve certainly found ourselves thinking about where our business might have been had this mindset crystalized for us earlier. Now, rather than being defensive whenever we read a customer complaint, instead we try to reframe it. We add it to our data bank and consider what we can do better to help this person and others like them. Is there something we need to adjust? A new process we can implement?
 

@@ -39,7 +39,7 @@ Even if everything goes smoothly, a single turnover can easily cost between **$1
 
 So, what’s the alternative?
 
-A **modest annual rent increase** of 2–3% keeps your cash flow growing *without* the disruption of turnover. Most tenants expect some kind of increase, and when it’s communicated well and aligned with market rates, they’re more likely to accept it without hesitation.
+A **modest annual rent increase** of 2 to 3% keeps your cash flow growing *without* the disruption of turnover. Most tenants expect some kind of increase, and when it’s communicated well and aligned with market rates, they’re more likely to accept it without hesitation.
 
 Here’s the key: **Tenant retention often delivers better returns than chasing top-dollar rent with new tenants.** Long-term residents tend to take better care of the property, reduce risk, and lower their operating costs over time.
 
@@ -105,7 +105,7 @@ A well-priced unit doesn’t just retain tenants, it keeps your investment compe
 
 ## How to Raise Rent Without Losing Great Tenants
 
-Raising rent is one of the trickiest parts of property management, but it doesn’t have to be. The secret isn’t avoiding increases altogether – it’s **communicating and delivering value** so tenants see the increase as fair and justified.
+Raising rent is one of the trickiest parts of property management, but it doesn’t have to be. The secret isn’t avoiding increases altogether, it’s **communicating and delivering value** so tenants see the increase as fair and justified.
 
 ### Transparency Wins
 

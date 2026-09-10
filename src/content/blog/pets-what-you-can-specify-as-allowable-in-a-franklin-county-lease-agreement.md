@@ -32,9 +32,9 @@ If pets are not permitted at the property, it also needs to be very clear that t
 
 ## Second, it’s important to remember that pets extend beyond just cats and dogs.
 
-People have all kinds of different animals they call pets – chickens, snakes, rodents, birds, fish, you name it.
+People have all kinds of different animals they call pets, chickens, snakes, rodents, birds, fish, you name it.
 
-As it pertains to your policy, you need to decide if you want to allow these types of animals to live in your property. If you do allow them, you also need to consider whether you want to put any restrictions in place – for example, maybe you will only allow only fish tanks up to 5 gallons or you choose to set some other limits on what is or is not allowed.
+As it pertains to your policy, you need to decide if you want to allow these types of animals to live in your property. If you do allow them, you also need to consider whether you want to put any restrictions in place, for example, maybe you will only allow only fish tanks up to 5 gallons or you choose to set some other limits on what is or is not allowed.
 
 ## The importance of defining your pet policy
 

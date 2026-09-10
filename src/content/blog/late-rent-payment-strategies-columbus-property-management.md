@@ -38,7 +38,7 @@ Tenants fall behind for many reasons: a short-term job loss, an unexpected medic
 - Has the tenant **reached out proactively** to explain the issue?
 - Are they usually **responsible and communicative** about other obligations?
 
-Document your communication and keep it factual — no assumptions or emotional responses.
+Document your communication and keep it factual, no assumptions or emotional responses.
 
 ### Empathy That Pays Off
 
@@ -73,7 +73,7 @@ Once your policies are in place, enforce them the same way every time. Inconsist
 - Makes it harder to collect late fees or enforce lease terms in court.
 - Damages your credibility as a landlord.
 
-Fairness doesn’t mean leniency – it means treating every tenant according to the same written rules.
+Fairness doesn’t mean leniency, it means treating every tenant according to the same written rules.
 
 ### Local Law Compliance
 
@@ -83,7 +83,7 @@ A professional property manager like RL Property Management reviews leases for l
 
 ## Offer Short-Term Solutions When It Makes Sense
 
-Even the most reliable tenants can hit a rough patch. Sometimes showing a little flexibility now can save you major costs later – like court fees, vacancy losses, or turnover expenses. When handled correctly, short-term solutions can protect your cash flow while preserving a positive tenant relationship. (**NOTE**: [RL Property Management adheres to a very straightforward rent collection and eviction policy.](/blog/how-to-handle-evictions-how-much-do-they-cost/) We do not practice (or recommend) grace periods, payment extensions, partial rental agreements, or any of the options listed below. However, if you are an independent landlord who needs added flexibility, the options below may be worth considering.)
+Even the most reliable tenants can hit a rough patch. Sometimes showing a little flexibility now can save you major costs later, like court fees, vacancy losses, or turnover expenses. When handled correctly, short-term solutions can protect your cash flow while preserving a positive tenant relationship. (**NOTE**: [RL Property Management adheres to a very straightforward rent collection and eviction policy.](/blog/how-to-handle-evictions-how-much-do-they-cost/) We do not practice (or recommend) grace periods, payment extensions, partial rental agreements, or any of the options listed below. However, if you are an independent landlord who needs added flexibility, the options below may be worth considering.)
 
 ### Grace Now, Payoff Later
 
@@ -143,7 +143,7 @@ Letting a professional team handle this process removes guesswork (and stress) f
 
 ## Let a Property Manager Handle the Hard Stuff
 
-Rent collection isn’t just about due dates and bank deposits – it’s also about setting expectations, navigating emotions, and handling legal steps when things go south. And let’s be honest: that’s a lot to take on, especially if you’re managing multiple properties or have a full-time job.
+Rent collection isn’t just about due dates and bank deposits, it’s also about setting expectations, navigating emotions, and handling legal steps when things go south. And let’s be honest: that’s a lot to take on, especially if you’re managing multiple properties or have a full-time job.
 
 That’s where a property management company like RLPM can step in and take it completely off your plate.
 
@@ -197,7 +197,7 @@ When tenants understand expectations clearly, there are fewer surprises down the
 
 Even great tenants sometimes forget. That’s why it helps to:
 
-- **Send rent reminders** 3–5 days before rent is due
+- **Send rent reminders** 3 to 5 days before rent is due
 - **Follow up immediately** if payment isn’t received
 - Offer **online and auto-pay options** to reduce friction
 
@@ -211,11 +211,11 @@ RLPM’s online tenant portal helps remove the typical excuses:
 - Submit maintenance requests
 - Set up recurring payments
 
-With streamlined tools and clear expectations, on-time payments become the default – not the exception.
+With streamlined tools and clear expectations, on-time payments become the default, not the exception.
 
 ## Take the Stress Out of Rent Collection
 
-Late rent doesn’t have to ruin your month – or your tenant relationship. With the right mix of empathy, structure, and strategy, you can stay in control without letting emotions drive your decisions.
+Late rent doesn’t have to ruin your month, or your tenant relationship. With the right mix of empathy, structure, and strategy, you can stay in control without letting emotions drive your decisions.
 
 That means knowing when to offer flexibility, when to enforce your lease, and when to escalate with confidence. But more importantly, it means having the right systems (and support) in place.
 

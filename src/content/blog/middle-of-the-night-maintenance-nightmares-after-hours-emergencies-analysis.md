@@ -1,5 +1,5 @@
 ---
-title: "Middle of the Night Maintenance Nightmares – After Hours Emergencies Analysis"
+title: "Middle of the Night Maintenance Nightmares, After Hours Emergencies Analysis"
 description: "A top worry of most landlords is a middle of the night call from a resident stating that there is a maintenance emergency. The following post will look back at data from all of RL Property Management’s 2019 after-hours maintenance calls. This data is from our Columbus, Ohio office location. Temperat"
 pubDate: "2020-01-29T22:01:37Z"
 updatedDate: "2021-02-05T22:46:06Z"
@@ -35,9 +35,9 @@ In 2019, RL Property Management:
   - 4 Towing Issues
   - 2 Trees Down
 - Ended the year with these **Top Three** categories from above:
-  - 1st Place – 34 No Heat Calls (Furnace is broken in some way) – Almost all furnaces are forced air natural gas systems.
-  - 2nd Place – 23 Water Leaks
-  - 3rd Place – 20 Lockouts (Drain clogs, with 13 calls is the more relevant maintenance issue)
+ - 1st Place, 34 No Heat Calls (Furnace is broken in some way), Almost all furnaces are forced air natural gas systems.
+ - 2nd Place, 23 Water Leaks
+ - 3rd Place, 20 Lockouts (Drain clogs, with 13 calls is the more relevant maintenance issue)
 
 There are a few recommendations we can glean from this data:
 

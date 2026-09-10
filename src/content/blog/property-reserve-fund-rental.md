@@ -110,5 +110,5 @@ Or [schedule a consultation](/property-management-consultation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Baselane: Reserve Fund Account for Landlords & Property Management](https://www.baselane.com/resources/reserve-fund-account-for-landlords) — industry benchmarks for reserve calculation methods (months of rent, percentage of income, fixed dollar amount).
-- [SingleKey: How Much Do You Really Need in Your Rental Property Reserves?](https://www.singlekey.com/en/ownerkey/risk-management/how-much-do-you-really-need-in-your-rental-property-reserves/) — rule-of-thumb guidance on reserve sizing for new vs. experienced landlords.
+- [Baselane: Reserve Fund Account for Landlords & Property Management](https://www.baselane.com/resources/reserve-fund-account-for-landlords), industry benchmarks for reserve calculation methods (months of rent, percentage of income, fixed dollar amount).
+- [SingleKey: How Much Do You Really Need in Your Rental Property Reserves?](https://www.singlekey.com/en/ownerkey/risk-management/how-much-do-you-really-need-in-your-rental-property-reserves/), rule-of-thumb guidance on reserve sizing for new vs. experienced landlords.

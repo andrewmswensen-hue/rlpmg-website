@@ -28,7 +28,7 @@ Our business’ physical space is often an indicator of our broader presence in 
 
 For our company at RL Property Management, we too were feeling the pinch in our former office space. As our lease neared the end of its term, we knew we needed a change if we wanted to continue growing our business. And for us, we made the switch to a warehouse/flex space, rather than a traditional office property.
 
-This has been a good fit for us in many ways – not only does it give our office staff a space of their own, it also allows us to purchase and store materials like cabinets and appliances onsite so we can more quickly deliver items to units during a turnover. Moreover, it gives us ample space for a maintenance workshop, which our staff can use for both business and personal projects.
+This has been a good fit for us in many ways, not only does it give our office staff a space of their own, it also allows us to purchase and store materials like cabinets and appliances onsite so we can more quickly deliver items to units during a turnover. Moreover, it gives us ample space for a maintenance workshop, which our staff can use for both business and personal projects.
 
 The choice to move offices, however, was a years-long decision and not something we took lightly. In the end, it was the best choice for us if we wanted to continue growing our business.
 
@@ -36,7 +36,7 @@ A second important decision we needed to weigh heavily as part of our growth str
 
 ## How to Hire
 
-There are a few ways to approach staffing needs, but we’ll focus on two – a) you need something to actually do the work, and b) you need a strategic visionary to help push the bounds of your business in the direction you want to grow.
+There are a few ways to approach staffing needs, but we’ll focus on two, a) you need something to actually do the work, and b) you need a strategic visionary to help push the bounds of your business in the direction you want to grow.
 
 The reality is that these things come at a cost, and that cost can sometimes be hard to swallow, especially when it could be double (or more) what you’re used to paying for employees.
 

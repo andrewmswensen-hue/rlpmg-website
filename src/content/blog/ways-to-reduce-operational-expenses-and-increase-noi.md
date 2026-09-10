@@ -21,11 +21,11 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2023/09/Ways-to-Reduce-Operational-Expenses-and-Increase-NOI-300x300.jpg)Owning real estate property requires ongoing investments in order to fuel its everyday operations. Unlike the stock market, you have to regularly spend money in order to reap profitable rewards.
 
-But even with ongoing operational expenses, there are still ways to significantly increase your profits and [your property’s overall value](/blog/how-to-improve-your-propertys-noi/)(a.k.a., its net operating income, or NOI). Operational expenses and NOI have an inverse relationship – when one goes down, the other should go up.
+But even with ongoing operational expenses, there are still ways to significantly increase your profits and [your property’s overall value](/blog/how-to-improve-your-propertys-noi/)(a.k.a., its net operating income, or NOI). Operational expenses and NOI have an inverse relationship, when one goes down, the other should go up.
 
 ## How to Make Repeatable and Sustainable Operational Decisions that Impact NOI
 
-When it comes to analyzing operational expenses, there is one key area to zero in on first – and that’s your data. When you know how much you are currently spending on things like energy costs, you can then take steps to reduce them.
+When it comes to analyzing operational expenses, there is one key area to zero in on first, and that’s your data. When you know how much you are currently spending on things like energy costs, you can then take steps to reduce them.
 
 It’s no surprise that operating costs consume a large portion of your monthly expense budget, and they’re likely to only go up, especially if you do nothing. Rising energy costs and inflation make managing the day-to-day necessities of property ownership in Franklin County challenging.
 

@@ -17,7 +17,7 @@ categories:
 
 TL;DR
 
-Ohio has no statute capping late rent fees. Enforceability depends on the lease: the fee must be spelled out, and courts can refuse to enforce charges they find unconscionable under ORC 5321.14. Common practice in Central Ohio is a $50 flat fee or 5–10% of monthly rent after a 3–5 day grace period. Inside Columbus, fees above the greater of $50 or 10% of rent are treated as unreasonable under the city’s Pay to Stay ordinance. Consistency is what makes any of it enforceable.
+Ohio has no statute capping late rent fees. Enforceability depends on the lease: the fee must be spelled out, and courts can refuse to enforce charges they find unconscionable under ORC 5321.14. Common practice in Central Ohio is a $50 flat fee or 5 to 10% of monthly rent after a 3 to 5 day grace period. Inside Columbus, fees above the greater of $50 or 10% of rent are treated as unreasonable under the city’s Pay to Stay ordinance. Consistency is what makes any of it enforceable.
 
 In This Article
 
@@ -42,8 +42,8 @@ Location adds a third layer. Inside Columbus city limits, the Pay to Stay ordina
 
 A defensible late fee policy in Central Ohio, as of August 2026, generally looks like this:
 
-- **A written lease provision** stating the grace period (3–5 days is common), the fee amount, and any per-day component. Vague language invites disputes. What belongs in the rest of the document is covered in the [Columbus rental lease checklist](/blog/columbus-rental-lease-checklist/).
-- **A proportionate amount.** A $50 flat fee or 5–10% of monthly rent sits inside common practice and inside Columbus’s reasonableness benchmark. On a $1,500 rental, that’s $75–$150, not $300.
+- **A written lease provision** stating the grace period (3 to 5 days is common), the fee amount, and any per-day component. Vague language invites disputes. What belongs in the rest of the document is covered in the [Columbus rental lease checklist](/blog/columbus-rental-lease-checklist/).
+- **A proportionate amount.** A $50 flat fee or 5 to 10% of monthly rent sits inside common practice and inside Columbus’s reasonableness benchmark. On a $1,500 rental, that’s $75 to $150, not $300.
 - **Caution with per-day charges.** Accruing daily fees are the structure Ohio courts have struck most often. If used at all, they should be small and capped.
 - **Written notice when a fee is assessed.** A dated notice stating the amount owed keeps the ledger clean and removes the “I didn’t know” defense.
 - **Documentation of everything:** due dates, payments received, fees charged, communications sent. If a case ends up in Franklin County Municipal Court, the ledger is the evidence.
@@ -68,11 +68,11 @@ No statute caps them, but courts can refuse to enforce fees they find unconscion
 
 **How much should a landlord charge for late rent?**
 
-Common Central Ohio practice is a $50 flat fee or 5–10% of monthly rent, applied after a 3–5 day grace period stated in the lease.
+Common Central Ohio practice is a $50 flat fee or 5 to 10% of monthly rent, applied after a 3 to 5 day grace period stated in the lease.
 
 **Can I charge a late fee without a grace period in Ohio?**
 
-Ohio law doesn’t require a grace period; the lease controls. Most leases include 3–5 days, and inside Columbus a reasonable structure strengthens your position if a non-payment case ever reaches court.
+Ohio law doesn’t require a grace period; the lease controls. Most leases include 3 to 5 days, and inside Columbus a reasonable structure strengthens your position if a non-payment case ever reaches court.
 
 **Are daily late fees legal in Ohio?**
 
@@ -92,6 +92,6 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Ohio Revised Code 5321.14](https://codes.ohio.gov/ohio-revised-code/section-5321.14) – Court authority to refuse enforcement of unconscionable lease terms
-- [Columbus Ordinance 2109-2023](https://columbus.legistar.com/LegislationDetail.aspx?ID=6295962&GUID=DE3FD3D2-7AEF-48A9-B7B0-3F13428BEC0B) – Pay to Stay, including the $50 / 10% late fee reasonableness benchmark
-- [Ohio Revised Code Chapter 5321](https://codes.ohio.gov/ohio-revised-code/chapter-5321) – Ohio’s Landlord-Tenant Act
+- [Ohio Revised Code 5321.14](https://codes.ohio.gov/ohio-revised-code/section-5321.14), Court authority to refuse enforcement of unconscionable lease terms
+- [Columbus Ordinance 2109-2023](https://columbus.legistar.com/LegislationDetail.aspx?ID=6295962&GUID=DE3FD3D2-7AEF-48A9-B7B0-3F13428BEC0B), Pay to Stay, including the $50 / 10% late fee reasonableness benchmark
+- [Ohio Revised Code Chapter 5321](https://codes.ohio.gov/ohio-revised-code/chapter-5321), Ohio’s Landlord-Tenant Act

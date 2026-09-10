@@ -39,9 +39,9 @@ If eventually you do sell your property for a profit, however, be prepared to pa
 
 The ways in which depreciation helps build wealth lies in the tax benefits. Here are some examples:
 
-- **Reduced tax liability**– Depreciation reduces your taxable rental income. In our example, that’s nearly $11,000 per year that isn’t subject to income tax.
-- **Positive cash flow**– By lowering your taxable income, depreciation can increase your property’s cash flow. This extra cash can be reinvested into your real estate portfolio or used for other investments.
-- **Tax-deferred gains** – Depreciation can help you defer capital gains taxes when you sell a property. When you sell, you’ll need to “recapture” the depreciation you’ve claimed, but this is typically taxed at a lower rate than your regular income.
+- **Reduced tax liability**, Depreciation reduces your taxable rental income. In our example, that’s nearly $11,000 per year that isn’t subject to income tax.
+- **Positive cash flow**, By lowering your taxable income, depreciation can increase your property’s cash flow. This extra cash can be reinvested into your real estate portfolio or used for other investments.
+- **Tax-deferred gains**, Depreciation can help you defer capital gains taxes when you sell a property. When you sell, you’ll need to “recapture” the depreciation you’ve claimed, but this is typically taxed at a lower rate than your regular income.
 
 The combination of reduced tax liability, increased cash flow, and potential tax deferral can help you accumulate wealth faster. And with more money to invest and compound over time, you may be able to realize significant gains. Before pursuing any tax strategy, it’s advisable to consult an accountant who can ensure you’re staying up-to-date with current tax laws.
 

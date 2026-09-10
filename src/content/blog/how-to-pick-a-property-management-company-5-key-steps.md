@@ -1,11 +1,11 @@
 ---
-title: "How to Pick a Property Management Company? – 5 Key Steps"
+title: "How to Pick a Property Management Company?, 5 Key Steps"
 description: "In the video below, Peter with RL Property Management covers step 1 of 5 steps you can take to select a property manager for your property. There is a serious need for more information on how property management companies work and what you should be looking for and asking about when interviewing the"
 pubDate: "2019-05-03T17:44:21Z"
 updatedDate: "2021-11-18T19:25:10Z"
 slug: "how-to-pick-a-property-management-company-5-key-steps"
 wpId: 14652
-heroImage: "https://rlpmg.com/wp-content/uploads/2019/08/How-to-Pick-a-Property-Management-Company-–-5-Key-Steps-min.png"
+heroImage: "https://rlpmg.com/wp-content/uploads/2019/08/How-to-Pick-a-Property-Management-Company-, -5-Key-Steps-min.png"
 categories:
   - "Owner Education"
   - "Uncategorized"

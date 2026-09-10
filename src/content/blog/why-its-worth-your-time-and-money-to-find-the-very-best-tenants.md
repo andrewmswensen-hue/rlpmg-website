@@ -28,7 +28,7 @@ There are obvious reasons why you would want to fill your rental units with good
 
 But more than that, having high-quality tenants in your properties can also be good for your bottom line. Here are two major ways how:
 
-1. Good tenants may be more likely to stay in your units for a longer period of time – this reduces your vacancy rate and cuts down on turnover expenses.
+1. Good tenants may be more likely to stay in your units for a longer period of time, this reduces your vacancy rate and cuts down on turnover expenses.
 2. Good tenants minimize the number of issues (read “expenses”) you have to deal with during a resident’s tenure in your property. If you’re constantly fielding complaints or handling preventable maintenance requests, this can become a major drain on your time and resources.
 
 Yet finding good tenants takes time and effort. It’s rare for a good tenant to just walk through your door without you having to first do some [marketing of your properties](/blog/marketing-strategies-you-can-use-to-locate-new-tenants/). Moreover, once you do have interested applicants, it’s imperative that you have a fair and equitable process in place for [screening tenant applications.](/blog/how-do-you-screen-potential-residents-and-what-is-the-application-procedure/)

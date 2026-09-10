@@ -19,7 +19,7 @@ Starting October 1, 2026, RL Property Management passes the cost of professional
 
 Key Takeaways
 
-- **Effective October 1, 2026, new professional photography is billed at vendor cost plus RLPM’s standard markup, typically $250 – $450 depending on property size.**
+- **Effective October 1, 2026, new professional photography is billed at vendor cost plus RLPM’s standard markup, typically $250 to $450 depending on property size.**
 - Existing photos are grandfathered in. If RLPM already has professional photos of a property, nothing changes.
 - New photos are typically only needed after a turn involving major cosmetic work, such as new paint or flooring.
 - Every photo set belongs to the property owner and is available on request, at no extra charge.
@@ -91,6 +91,6 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Zillow: 5 Things to Look for in a Rental Listing](https://www.zillow.com/learn/what-to-look-for-in-apartment/) — renter survey data on the importance of listing photos.
-- [Zillow Rental Manager: How to Write a Rental Ad](https://www.zillow.com/rentals-network/how-to-write-a-rental-ad/) — minimum photo count guidance for rental listings.
-- [RL Property Management Live KPI Scorecard](/key-performance-indicators/) — current days-on-market and vacancy performance data.
+- [Zillow: 5 Things to Look for in a Rental Listing](https://www.zillow.com/learn/what-to-look-for-in-apartment/), renter survey data on the importance of listing photos.
+- [Zillow Rental Manager: How to Write a Rental Ad](https://www.zillow.com/rentals-network/how-to-write-a-rental-ad/), minimum photo count guidance for rental listings.
+- [RL Property Management Live KPI Scorecard](/key-performance-indicators/), current days-on-market and vacancy performance data.

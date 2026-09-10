@@ -22,7 +22,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2021/08/andrew-coop-O2Q_b_NN6qw-unsplash-min-300x225.jpg)It happened. Your tenant punched a hole in the wall and now they’ve come to you with their head hanging low and wondering who needs to fix it.
 
-While this scenario may not be that common, it does raise a question that those of us in property management and real estate investing face quite frequently – who is responsible for what when it comes to property maintenance?
+While this scenario may not be that common, it does raise a question that those of us in property management and real estate investing face quite frequently, who is responsible for what when it comes to property maintenance?
 
 ## Step 1: Know Your State Laws
 

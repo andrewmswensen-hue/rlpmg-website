@@ -168,15 +168,15 @@ Or get a [free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Federal Register](https://www.federalregister.gov/documents/2026/04/06/2026-06624/notification-of-withdrawal-of-fair-housing-and-equal-opportunity-guidance-documents) — Notification of Withdrawal of FHEO Guidance Documents (April 6, 2026)
-- [HUD Memorandum](https://www.hud.gov/sites/dfiles/Main/documents/Notice-of-Withdrawal-of-Guidance-Documents.pdf) — Notice of Withdrawal of Guidance Documents (PDF)
-- [Navigate Housing](https://www.navigatehousing.com/fair-housing-guidance-withdrawal-what-huds-2026-notice-means-for-housing-providers/) — Fair Housing Guidance Withdrawal Analysis (April 2026)
-- [NAHRO](https://www.nahro.org/news/hud-withdraws-eight-fair-housing-notices/) — HUD Withdraws Eight Fair Housing Notices (April 3, 2026)
-- [National Apartment Association](https://naahq.org/news/federal-regulatory-changes-seek) — Federal Regulatory Changes and Disparate Impact (January 2026)
-- [Spencer Fane](https://www.spencerfane.com/insight/hud-moves-to-dismantle-its-disparate-impact-framework-under-the-fair-housing-act/) — HUD Disparate Impact Framework Analysis (January 2026)
-- [California Civil Rights Department](https://calcivilrights.ca.gov/2026/01/13/major-property-management-company-to-review-and-revise-tenant-screening-policies-statewide-after-fair-housing-complaint/) — Greystar Fair Housing Settlement (January 2026)
-- [Ohio Development Services Agency](https://dam.assets.ohio.gov/image/upload/development.ohio.gov/individual/energyassistance/20240304-Know-Your-Rights-Fair-Housing.pdf) — Know Your Rights: Fair Housing (PDF)
-- [City of Columbus](https://www.columbus.gov/Government/Mayors-Office/City-Boards-Commissions-Committees/Community-Relations-Commission/Discrimination-Protected-Classes-in-Columbus) — Protected Classes in Columbus
-- [COHHIO](https://cohhio.org/support/tenant-rights/discrimination-fair-housing/) — Ohio Source of Income Discrimination Protections
-- [RLPM Blog](/blog/understanding-columbus-rental-laws/) — Understanding Columbus Rental Laws
-- [RLPM Live KPI Scorecard](/key-performance-indicators/) — Current Performance Metrics
+- [Federal Register](https://www.federalregister.gov/documents/2026/04/06/2026-06624/notification-of-withdrawal-of-fair-housing-and-equal-opportunity-guidance-documents), Notification of Withdrawal of FHEO Guidance Documents (April 6, 2026)
+- [HUD Memorandum](https://www.hud.gov/sites/dfiles/Main/documents/Notice-of-Withdrawal-of-Guidance-Documents.pdf), Notice of Withdrawal of Guidance Documents (PDF)
+- [Navigate Housing](https://www.navigatehousing.com/fair-housing-guidance-withdrawal-what-huds-2026-notice-means-for-housing-providers/), Fair Housing Guidance Withdrawal Analysis (April 2026)
+- [NAHRO](https://www.nahro.org/news/hud-withdraws-eight-fair-housing-notices/), HUD Withdraws Eight Fair Housing Notices (April 3, 2026)
+- [National Apartment Association](https://naahq.org/news/federal-regulatory-changes-seek), Federal Regulatory Changes and Disparate Impact (January 2026)
+- [Spencer Fane](https://www.spencerfane.com/insight/hud-moves-to-dismantle-its-disparate-impact-framework-under-the-fair-housing-act/), HUD Disparate Impact Framework Analysis (January 2026)
+- [California Civil Rights Department](https://calcivilrights.ca.gov/2026/01/13/major-property-management-company-to-review-and-revise-tenant-screening-policies-statewide-after-fair-housing-complaint/), Greystar Fair Housing Settlement (January 2026)
+- [Ohio Development Services Agency](https://dam.assets.ohio.gov/image/upload/development.ohio.gov/individual/energyassistance/20240304-Know-Your-Rights-Fair-Housing.pdf), Know Your Rights: Fair Housing (PDF)
+- [City of Columbus](https://www.columbus.gov/Government/Mayors-Office/City-Boards-Commissions-Committees/Community-Relations-Commission/Discrimination-Protected-Classes-in-Columbus), Protected Classes in Columbus
+- [COHHIO](https://cohhio.org/support/tenant-rights/discrimination-fair-housing/), Ohio Source of Income Discrimination Protections
+- [RLPM Blog](/blog/understanding-columbus-rental-laws/), Understanding Columbus Rental Laws
+- [RLPM Live KPI Scorecard](/key-performance-indicators/), Current Performance Metrics

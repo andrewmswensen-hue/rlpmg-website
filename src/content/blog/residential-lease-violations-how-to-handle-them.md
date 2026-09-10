@@ -1,5 +1,5 @@
 ---
-title: "Residential Lease Violations – How to Handle Them"
+title: "Residential Lease Violations, How to Handle Them"
 description: "Lease violations often occur for issues other than non payment of rent. How are these handled?"
 pubDate: "2020-10-20T17:25:00Z"
 updatedDate: "2020-10-20T17:25:00Z"

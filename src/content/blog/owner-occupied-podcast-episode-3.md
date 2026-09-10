@@ -1,5 +1,5 @@
 ---
-title: "Owner Occupied Podcast – Episode 3"
+title: "Owner Occupied Podcast, Episode 3"
 description: "ABOUT THIS EPISODE Episode 3 of the Owner Occupied podcast with Peter Lohmann and Russell Lowery. Show Notes: 00:00 Welcome & intro 00:52 History of zillow & rental listings 03:46 Zillow’s rental manager platform 05:50 Is Zillow competing with property managers? 07:20 How airbnb could enter the rent"
 pubDate: "2021-04-02T22:46:00Z"
 updatedDate: "2021-04-14T13:42:43Z"

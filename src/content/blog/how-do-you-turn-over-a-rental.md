@@ -24,12 +24,12 @@ Unit turnover is part art, part science (although we’d say mostly science). De
 
 On your checklist, you should include things like:
 
-- **Conduct a move-out inspection** – Before you let a new tenant move in, you need to make sure the previous tenant left the unit in good shape. Our team takes detailed photos of the property inside and out for the purpose of assessing the security deposit as well as documenting what needs to be done to get the property ready to re-rent.
-- **Clean and repair** – Next, it’s time to thoroughly deep clean the unit. For tenants who have lived in the unit for several years, there is likely some wear and tear that will need to be addressed, including painting, replacing the carpet, making any maintenance repairs, etc.
+- **Conduct a move-out inspection**, Before you let a new tenant move in, you need to make sure the previous tenant left the unit in good shape. Our team takes detailed photos of the property inside and out for the purpose of assessing the security deposit as well as documenting what needs to be done to get the property ready to re-rent.
+- **Clean and repair**, Next, it’s time to thoroughly deep clean the unit. For tenants who have lived in the unit for several years, there is likely some wear and tear that will need to be addressed, including painting, replacing the carpet, making any maintenance repairs, etc.
 
 We find that our team at RL Property Management can complete these first two steps within an average of two weeks, assuming no major damage or upgrades, and that’s consistent with what we see in central Ohio.
 
-- **List the unit for rent**– The last step of the turnover process is to list the property for rent. [Here are some tips for locating new tenants.](/blog/marketing-strategies-you-can-use-to-locate-new-tenants/)
+- **List the unit for rent**, The last step of the turnover process is to list the property for rent. [Here are some tips for locating new tenants.](/blog/marketing-strategies-you-can-use-to-locate-new-tenants/)
 
 In terms of overall averages, our leasing time is a little bit under three weeks, but this is dependent on the type of property you own and where it is located.
 

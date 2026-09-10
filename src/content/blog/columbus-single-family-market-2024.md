@@ -22,7 +22,7 @@ tags:
 
 ## What’s the Current State of Columbus’s Single-Family Housing Market?
 
-According to local Realtors, the Columbus single-family housing market has recently experienced an increase in inventory, reaching a two-month supply—the highest in six years. This shift reflects a return to a more balanced market following the competitive frenzy of the pandemic years when homes often sold within days. As interest rates remain elevated, the rapid pace of sales has slowed, allowing homes to remain on the market longer, with the average days on market now closer to 25.
+According to local Realtors, the Columbus single-family housing market has recently experienced an increase in inventory, reaching a two-month supply, the highest in six years. This shift reflects a return to a more balanced market following the competitive frenzy of the pandemic years when homes often sold within days. As interest rates remain elevated, the rapid pace of sales has slowed, allowing homes to remain on the market longer, with the average days on market now closer to 25.
 
 While increased inventory could indicate more options for buyers, the market remains dynamic, with median prices continuing to climb. Currently, the median sales price in Columbus is approximately $324,000, marking a year-over-year increase of 4%. Higher interest rates are encouraging price adjustments, and list-to-sale price ratios have softened slightly, with a 0.7% discount at closing. These shifts create a more favorable environment for investors, particularly during the slower fall and winter months when competition is lower.
 
@@ -72,4 +72,4 @@ While the pace of appreciation may not match the post-pandemic boom, Columbus’
 
 Columbus’s single-family housing market is full of opportunities, but it comes with its own set of challenges. With zoning updates, big corporate investments, and a growing population, the city is primed for continued growth. For investors willing to branch out into up-and-coming areas and stay on top of local regulations, the potential for long-term value is huge.
 
-If you’re looking for help managing your rental property or navigating the Columbus market, RL Property Management has you covered. [Reach out today](/contact-us/)—we’d love to talk about how we can make managing your investment easier and more profitable.
+If you’re looking for help managing your rental property or navigating the Columbus market, RL Property Management has you covered. [Reach out today](/contact-us/), we’d love to talk about how we can make managing your investment easier and more profitable.

@@ -26,7 +26,7 @@ A well-designed rent policy does far more than collect money; it sets the tone f
 
 For property owners, especially those managing multiple units, **predictable cash flow is the backbone of sustainable investing**. Every late payment disrupts that flow, delaying mortgage payments, maintenance scheduling, or owner distributions. Over time, that instability erodes trust on both sides, tenants feel uncertain, and landlords feel resentful.
 
-Here in Columbus, most landlords offer a **3–5 day grace period**, giving tenants a short window to account for weekends, bank delays, or payroll timing. But larger property management firms are trending toward **stricter three-day policies**, aiming for fairness and consistency across hundreds of leases. As of 2025, these policies have become even more crucial as **higher interest rates and maintenance costs** tighten profit margins for small and mid-sized investors.
+Here in Columbus, most landlords offer a **3 to 5 day grace period**, giving tenants a short window to account for weekends, bank delays, or payroll timing. But larger property management firms are trending toward **stricter three-day policies**, aiming for fairness and consistency across hundreds of leases. As of 2025, these policies have become even more crucial as **higher interest rates and maintenance costs** tighten profit margins for small and mid-sized investors.
 
 **“The best rent policy is one that’s firm, fair, and fully understood by every tenant.”**
 
@@ -56,7 +56,7 @@ It’s a structure that balances empathy with accountability, important in an in
 
 ### Ohio & Columbus Context
 
-In **Ohio**, landlords are *not legally required* to provide a grace period. Under the [**Ohio Revised Code §5321**](https://codes.ohio.gov/ohio-revised-code/chapter-5321), rent is due on the date specified in the lease, and late fees may be charged immediately after that date if outlined in writing. Despite this, most professional managers across **Franklin County** include a 3–5 day grace period as standard practice, aligning with local payment norms and court expectations.
+In **Ohio**, landlords are *not legally required* to provide a grace period. Under the [**Ohio Revised Code §5321**](https://codes.ohio.gov/ohio-revised-code/chapter-5321), rent is due on the date specified in the lease, and late fees may be charged immediately after that date if outlined in writing. Despite this, most professional managers across **Franklin County** include a 3 to 5 day grace period as standard practice, aligning with local payment norms and court expectations.
 
 ### RL Property Management Example
 
@@ -98,7 +98,7 @@ This simple chart illustrates how a few days’ difference in policy can shift p
 
 ### Columbus Market Comparison
 
-Across **Central Ohio**, late fees typically range from **5–10% of the monthly rent**, though the format varies widely. Many professional property management firms charge a **flat $50–$100**, while smaller, self-managed landlords often opt for lower or negotiable amounts.
+Across **Central Ohio**, late fees typically range from **5 to 10% of the monthly rent**, though the format varies widely. Many professional property management firms charge a **flat $50 to $100**, while smaller, self-managed landlords often opt for lower or negotiable amounts.
 
 In Columbus’s increasingly competitive rental market, consistency and transparency matter more than severity. A well-calibrated late fee is less about punishment and more about shaping reliable payment habits that keep properties profitable and relationships professional.
 
@@ -171,9 +171,9 @@ When tenants know what to expect, disputes decrease, and payment reliability imp
 
 RL Property Management’s approach to enforcement reflects its core values:
 
-- **Clear Communication** – Expectations are stated upfront and reinforced consistently.
-- **Real-Time Action** – Delinquencies trigger prompt follow-up, minimizing escalation.
-- **Respect for Residents** – Every interaction is professional, courteous, and grounded in empathy.
+- **Clear Communication**, Expectations are stated upfront and reinforced consistently.
+- **Real-Time Action**, Delinquencies trigger prompt follow-up, minimizing escalation.
+- **Respect for Residents**, Every interaction is professional, courteous, and grounded in empathy.
 
 Professional property management turns rent collection from a stress point into a structured process, ensuring owners get paid on time and tenants are treated with respect every step of the way.
 
@@ -183,7 +183,7 @@ Professional property management turns rent collection from a stress point into 
 
 In Ohio, rent collection and late fee enforcement are governed primarily by the **Ohio Revised Code §5321**, which allows landlords to charge **reasonable late fees**, as long as those fees are clearly defined in the lease agreement. What counts as “reasonable” isn’t specifically stated in the law, but Ohio courts have historically frowned upon **“stacking” or compounding daily fees**, which can be viewed as excessive or punitive rather than compensatory.
 
-There is **no legally required grace period** in Ohio. Rent is due on the date specified in the lease, and landlords are entitled to enforce that deadline as written. However, most professional property managers, including RL Property Management, include a **3–5 day grace period** as a best practice, balancing professionalism with fairness.
+There is **no legally required grace period** in Ohio. Rent is due on the date specified in the lease, and landlords are entitled to enforce that deadline as written. However, most professional property managers, including RL Property Management, include a **3 to 5 day grace period** as a best practice, balancing professionalism with fairness.
 
 A strong lease that clearly outlines due dates, grace periods, and late fees provides both landlord and tenant with clarity and legal protection in the event of disputes or court proceedings.
 
@@ -210,8 +210,8 @@ Creating a clear rent payment policy doesn’t have to be complicated, but it do
 ### Step-by-Step Setup
 
 1. **Define your due date.** The **1st of the month** is standard across most leases. Avoid “floating” due dates based on move-in days; it creates confusion and tracking errors.
-2. **Set your grace period.** A short window of **3–5 days** is enough to account for weekends or processing delays without encouraging habitual lateness.
-3. **Choose your late fee.** Most Columbus-area landlords charge **5–10% of the monthly rent** or a flat **$50–$100**. The key is reasonableness and consistency.
+2. **Set your grace period.** A short window of **3 to 5 days** is enough to account for weekends or processing delays without encouraging habitual lateness.
+3. **Choose your late fee.** Most Columbus-area landlords charge **5 to 10% of the monthly rent** or a flat **$50 to $100**. The key is reasonableness and consistency.
 4. **Include it in the lease.** Spell out the due date, grace period, and late fee explicitly. If it’s not in writing, it’s not enforceable under Ohio law.
 5. **Communicate clearly.** Walk tenants through the policy before lease signing, emphasizing the expectations and consequences.
 6. **Enforce it consistently.** No exceptions without written documentation; unequal enforcement can trigger Fair Housing concerns.
@@ -238,7 +238,7 @@ Here’s how the process flows:
 
 - **1st:** Rent is due. Tenants are reminded through automated notices and email notifications.
 - **5th:** Late fees are automatically applied for unpaid balances.
-- **10th:** Owner disbursements are initiated, funds are electronically transferred and typically clear within **2–3 business days**.
+- **10th:** Owner disbursements are initiated, funds are electronically transferred and typically clear within **2 to 3 business days**.
 - **15th:** RLPM posts **3-day notices** for tenants who remain delinquent, giving them a final opportunity to pay or vacate.
 - **18th:** If the balance is still unpaid, the eviction process is filed through **Franklin County Municipal Court**, handled directly by RL’s legal partners.
 

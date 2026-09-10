@@ -23,7 +23,7 @@ tags:
 
 ## Start by Tracking Your Expense Data
 
-When numbers seem to be spiraling out of control, it’s time to take a closer look at what the data is telling you. Dig into the numbers to see where your greatest expenses are occurring – and then use that information to make better decisions going forward. Where are you spending the most money and why?
+When numbers seem to be spiraling out of control, it’s time to take a closer look at what the data is telling you. Dig into the numbers to see where your greatest expenses are occurring, and then use that information to make better decisions going forward. Where are you spending the most money and why?
 
 For example, the data we track at RL Property Management shows that the maintenance category dominates our expenses. Knowing this informs our overall management philosophy and how we approach repairs and maintenance. Because labor costs generally account for the majority of our expenses related to a repair, we choose to invest in higher quality materials so the item will last longer and thus reduce our expenses over time.
 

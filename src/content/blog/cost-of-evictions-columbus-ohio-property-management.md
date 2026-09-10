@@ -29,7 +29,7 @@ Evictions might seem like a necessary part of being a landlord, but the **real c
 Let’s break it down:
 
 - **Legal fees**: You’ll pay for attorney representation, court filing fees, process servers, and potentially sheriff setout fees.
-- **Lost rent**: In most eviction cases, you’re out 1–3 months of income, even if the unit turns quickly.
+- **Lost rent**: In most eviction cases, you’re out 1 to 3 months of income, even if the unit turns quickly.
 - **Property damage**: Former tenants don’t always leave the place in top condition. Expect costs for cleaning, repairs, and junk removal.
 
 [**Columbus-specific eviction example**:](https://codes.ohio.gov/ohio-revised-code/chapter-5321)
@@ -37,9 +37,9 @@ Let’s break it down:
 - $150 attorney fee
 - $123 court filing fee ([Franklin County](https://municipalcourt.franklincountyohio.gov/Courts/Eviction-Court/Filing-an-Eviction-What-you-need-to-know))
 - $199 eviction handling fee (if using a property manager)
-- $80–$250 in setout-related costs
+- $80 to $250 in setout-related costs
 
-That adds up to **$500–$800 minimum**, and that’s before any unpaid rent, maintenance, or marketing expenses.
+That adds up to **$500 to $800 minimum**, and that’s before any unpaid rent, maintenance, or marketing expenses.
 
 ### Hidden Operational Costs
 
@@ -69,9 +69,9 @@ Evictions don’t just happen overnight. In most cases, they’re the result of 
 
 Several factors can lead to eviction, but the most common are:
 
-- **Non-payment of rent** – This could stem from job loss, personal hardship, or simple budgeting issues.
-- **Lease violations** – Things like unauthorized occupants, pets, or excessive property damage.
-- **Poor tenant fit** – Often the result of insufficient screening or pressure to fill a vacancy too quickly.
+- **Non-payment of rent**, This could stem from job loss, personal hardship, or simple budgeting issues.
+- **Lease violations**, Things like unauthorized occupants, pets, or excessive property damage.
+- **Poor tenant fit**, Often the result of insufficient screening or pressure to fill a vacancy too quickly.
 
 When the wrong person ends up in your property, even the best lease won’t protect you from problems down the road.
 
@@ -100,9 +100,9 @@ The fastest way to prevent eviction is to avoid placing the wrong tenant in your
 
 Too many landlords rely solely on credit checks when evaluating applicants. But a high credit score doesn’t always mean a reliable renter, and a low one doesn’t always mean trouble. You need a bigger picture:
 
-- **Verify income** – Confirm that the tenant earns at least 3x the monthly rent. Ask for recent pay stubs or bank statements.
-- **Review rental history** – Look for past evictions, late payments, or landlord disputes. A single incident isn’t always a dealbreaker, but a pattern is.
-- **Spot red flags** – Gaps in rental history, unverifiable references, or inconsistent stories are all signs to dig deeper.
+- **Verify income**, Confirm that the tenant earns at least 3x the monthly rent. Ask for recent pay stubs or bank statements.
+- **Review rental history**, Look for past evictions, late payments, or landlord disputes. A single incident isn’t always a dealbreaker, but a pattern is.
+- **Spot red flags**, Gaps in rental history, unverifiable references, or inconsistent stories are all signs to dig deeper.
 
 Tenant screening is where eviction prevention truly begins.
 
@@ -213,11 +213,11 @@ Evictions are costly, but not just in court fees. The real loss shows up in **va
 
 Even one eviction can trigger a financial domino effect:
 
-- **1–3 months of lost rent**
+- **1 to 3 months of lost rent**
 - **$1,000+ in repairs and cleaning**
 - **Marketing, showings, and screening for a new tenant**
 
-Altogether, preventing just one eviction can save you **$2,500–$5,000 or more**, depending on how long the unit sits empty and how much work it needs afterward.
+Altogether, preventing just one eviction can save you **$2,500 to $5,000 or more**, depending on how long the unit sits empty and how much work it needs afterward.
 
 Keeping a good tenant, one who pays on time and treats your property with care, is almost always cheaper than replacing them.
 

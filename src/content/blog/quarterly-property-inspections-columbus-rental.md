@@ -150,8 +150,8 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [Ohio Revised Code 5321.04](https://codes.ohio.gov/ohio-revised-code/section-5321.04) – Landlord obligations, including fit-and-habitable duty and notice before entry
-- [Ohio Revised Code 5321.16](https://codes.ohio.gov/ohio-revised-code/section-5321.16) – Security deposit procedures, itemization, and remedies
-- [Ohio Administrative Code 4101:8-3-01](https://codes.ohio.gov/ohio-administrative-code/rule-4101:8-3-01) – Residential Code of Ohio smoke and CO alarm requirements
-- [U.S. Fire Administration](https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/smoke-alarms/) – Smoke alarm placement, monthly testing, and 10-year replacement guidance
-- [NARPM](https://www.narpm.org/) – Professional standards for residential property managers
+- [Ohio Revised Code 5321.04](https://codes.ohio.gov/ohio-revised-code/section-5321.04), Landlord obligations, including fit-and-habitable duty and notice before entry
+- [Ohio Revised Code 5321.16](https://codes.ohio.gov/ohio-revised-code/section-5321.16), Security deposit procedures, itemization, and remedies
+- [Ohio Administrative Code 4101:8-3-01](https://codes.ohio.gov/ohio-administrative-code/rule-4101:8-3-01), Residential Code of Ohio smoke and CO alarm requirements
+- [U.S. Fire Administration](https://www.usfa.fema.gov/prevention/home-fires/prepare-for-fire/smoke-alarms/), Smoke alarm placement, monthly testing, and 10-year replacement guidance
+- [NARPM](https://www.narpm.org/), Professional standards for residential property managers

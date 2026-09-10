@@ -37,7 +37,7 @@ People shopping for rental properties are looking for more than just a roof over
 
 In addition to thinking about your budget, here are other important metrics to pay attention to:
 
-- An improved closing ratio – more signed leases coming across your desk mean your marketing efforts are paying off.
+- An improved closing ratio, more signed leases coming across your desk mean your marketing efforts are paying off.
 - The ability to increase rent rates by attracting a new type of tenant who is willing to pay for a premium product.
 - The ability to reduce your overall costs-per-lead
 

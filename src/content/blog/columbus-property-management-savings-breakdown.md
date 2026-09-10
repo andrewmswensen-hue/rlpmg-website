@@ -38,7 +38,7 @@ Every day your unit is empty, you’re losing income, often $50 or more, without
 - Utility minimums and insurance premiums still apply.
 - A vacant unit earns $0, but it still costs you hundreds of dollars each month.
 
-In Columbus, the average rental sits empty for 30–45 days if not aggressively marketed and maintained. That could easily cost you **$1,500–$2,250 in lost rent**, not including turnover costs.
+In Columbus, the average rental sits empty for 30 to 45 days if not aggressively marketed and maintained. That could easily cost you **$1,500 to $2,250 in lost rent**, not including turnover costs.
 
 ### The RLPM Advantage: Faster Leasing, Less Downtime
 
@@ -53,7 +53,7 @@ At RL Property Management, **reducing vacancy time is one of the fastest ways we
 - $1,500/month rent = $50/day
 - If RLPM fills your unit **three weeks faster** than average, that’s **$1,050 in retained revenue**, from just one leasing cycle.
 
-Now apply that math across 3–5 units or multiple turnovers per year, and you’re looking at **thousands of dollars in protected cash flow**.
+Now apply that math across 3 to 5 units or multiple turnovers per year, and you’re looking at **thousands of dollars in protected cash flow**.
 
 ## Maintenance & Repairs: The Preventable Money Drain
 
@@ -76,14 +76,14 @@ At RL Property Management, we take a **proactive, precision-driven approach to r
 - **In-house maintenance team** at a flat $84/hour rate, no trip charges, no inflated fees.
 - **Preventive inspections** catch issues before they spiral into major repairs.
 - **Detailed scope approvals** for third-party work ensure transparency and control.
-- **Cost-plus project management** keeps vendor markups in check, saving you 10–15% on most large jobs.
+- **Cost-plus project management** keeps vendor markups in check, saving you 10 to 15% on most large jobs.
 
 This level of structure eliminates the guesswork, and the gut-punch surprises at tax time.
 
 ### Real-World Example: $125 vs. $1,500
 
 - Fixing a slow-dripping faucet now: **$125**
-- Ignoring it until it ruins your cabinet and subfloor: **$750–$1,500+**
+- Ignoring it until it ruins your cabinet and subfloor: **$750 to $1,500+**
 - That’s a **10x cost difference**, all avoidable with proactive management.
 
 ### Bonus ROI: Fewer Repairs, Happier Tenants
@@ -118,7 +118,7 @@ We don’t just respond, we **proactively prevent** problems from escalating.
 
 Thanks to early intervention and process-driven notices, RLPM clients routinely avoid:
 
-- **$500–$1,000 per eviction incident** through proper legal handling
+- **$500 to $1,000 per eviction incident** through proper legal handling
 - Costly re-filings, tenant counterclaims, and lease voids that can derail even experienced investors
 
 **Legal compliance is more than protection; it’s a profit strategy.** When done right, it preserves cash flow, protects your reputation, and keeps your properties performing year after year.
