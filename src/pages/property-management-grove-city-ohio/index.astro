@@ -89,11 +89,11 @@ const faq = [
   { q: 'Which court hears an eviction in Grove City, Ohio?',
     a: 'Franklin County Municipal Court, 375 S. High St., Columbus, OH 43215, with Eviction Court in Courtroom 11B. Eviction jurisdiction in Ohio follows the county under R.C. 1901.02. Before the filing, Ohio requires a three-day notice to leave the premises under R.C. 1923.04 with specific statutory language, served by certified mail, handed to the resident, or left at the property. A notice with the wrong wording gets the case dismissed and costs you about three weeks.' },
   { q: 'Who provides water and sewer in Grove City, Ohio?',
-    a: 'The City of Columbus supplies water. Grove City is on the Columbus Department of Public Utilities water and sewer contract community list, and the Columbus Division of Water has been replacing meters in Grove City under the Columbus Enhanced Meter Project, which Grove City describes as mandatory for all customers served by the Columbus Division of Water under Columbus City Code 1105.038. Grove City itself maintains the local sanitary collection system, more than 197 miles of sewers and about 4,600 manholes, along with the streets and storm sewers. Electricity is AEP Ohio, natural gas is Columbia Gas of Ohio.' },
+    a: 'The City of Columbus supplies water. Grove City is on the Columbus Department of Public Utilities water and sewer contract community list, and the Columbus Division of Water has been replacing meters in Grove City under the Columbus Enhanced Meter Project, which Grove City describes as mandatory for all customers served by the Columbus Division of Water under Columbus City Code 1105.038. Grove City itself maintains the local sanitary collection system, more than 197 miles of sewers and about 4,600 manholes. Electricity is AEP Ohio, natural gas is Columbia Gas of Ohio.' },
   { q: 'What does a rental in Grove City rent for?',
-    a: `Across the units we manage in Grove City the median rent is ${usd(rent['3'].median)} for a three bedroom and ${usd(rent['4'].median)} for a four bedroom. Those are our own portfolio medians, not a market survey. We do not publish a one or two bedroom median for Grove City, because our sample at those bedroom counts is below the five-unit minimum we hold ourselves to. The spread inside the city is wide: a small mid-century house near the Town Center and a recent four bedroom in a subdivision are not the same asset and should not be priced from the same number.` },
+    a: `Across the units we manage in Grove City the median rent is ${usd(rent['3'].median)} for a three bedroom and ${usd(rent['4'].median)} for a four bedroom. Those are our own portfolio medians, not a market survey, and we publish no one or two bedroom median here because the sample is below the five-unit minimum we hold ourselves to. The spread inside the city is wide: a small mid-century house near the Town Center and a recent four bedroom in a subdivision should not be priced from the same number.` },
   { q: 'Do I have to register my Grove City rental property?',
-    a: 'Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file their name, address and telephone number, plus the property street address and permanent parcel number, with the auditor of the county where the property sits, and to update it within 60 days of any change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99, statutory range $50 to $150, with the Franklin County Auditor stating $150 per tax year. A property manager can file as the owner designated agent, and we do. [SOURCE NEEDED: confirm whether the City of Grove City separately requires residential rental registration, a rental licence or periodic rental inspection, and at what fee.]' },
+    a: 'Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file their name, address and telephone number, plus the property street address and permanent parcel number, with the auditor of the county where the property sits, and to update within 60 days of any change. There is no filing fee, and failing to file draws a special assessment under R.C. 5323.99 of $50 to $150, with the Franklin County Auditor stating $150 per tax year. [SOURCE NEEDED: confirm whether the City of Grove City separately requires residential rental registration, a rental licence or periodic rental inspection, and at what fee.]' },
   { q: 'What kind of rental property is there in Grove City?',
     a: 'A genuinely mixed stock, which is what makes the city hard to generalise about. Around the Town Center and the older grid off Broadway and Park Street the houses are smaller and mid-century. Out toward Stringtown Road, Hoover Road, Buckeye Parkway and the Route 665 corridor the stock is newer, larger and subdivision-shaped, three and four bedrooms on full-size lots, some of it recent construction. [SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Grove City, Ohio.]' },
   { q: 'How much does property management cost in Grove City?',
@@ -137,11 +137,9 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4">
         Two quite different kinds, sharing one city name. Around the Town Center, along Broadway and Park Street
         and the older grid behind them, the houses are smaller and mid-century, on modest lots, often with a
-        one-car garage or none at all. Move out toward Stringtown Road, Hoover Road, Buckeye Parkway and the
-        Route 665 corridor and the stock becomes newer, larger and subdivision-shaped: three and four bedroom
-        houses, attached two-car garages, full basements, houses that in some cases are barely a decade old. Grove
-        City has kept growing, so genuinely recent construction sits in the rental pool alongside houses from the
-        1950s.
+        one-car garage or none. Out toward Stringtown Road, Hoover Road, Buckeye Parkway and the Route 665
+        corridor the stock is newer, larger and subdivision-shaped: three and four bedrooms, attached two-car
+        garages, full basements, some of it barely a decade old.
         {' '}[SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Grove City, Ohio.]
       </p>
       <p class="text-[17.5px] text-muted mt-5">
@@ -246,9 +244,8 @@ const schemaNodes = [
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         What Grove City runs itself is the local infrastructure. Its Public Service Department maintains the
-        sanitary collection system, more than 197 miles of sewer from 8 inch to 48 inch and roughly 4,600
-        manholes, plus the streets and the storm sewers. So a blocked main in the street is a Grove City call, and
-        a billing question is a Columbus call. Knowing which is which saves an afternoon.
+        sanitary collection system, more than 197 miles of sewer and roughly 4,600 manholes, plus the streets and
+        storm sewers. A blocked main in the street is a Grove City call; a billing question is a Columbus call.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -324,12 +321,11 @@ const schemaNodes = [
         raise the rent, our number does not move.
       </p>
       <p class="text-[16.5px] text-muted mt-5">
-        In-house maintenance is billed at {usd(pricing.maintenance.inHouseHourly)} per hour with a
-        {' '}{usd(pricing.maintenance.tripCharge)} trip charge and no minimum, and materials are provided at cost.
-        Vendor-managed projects carry a {pricing.maintenance.vendorProjectFeePct}% project management fee up to
+        In-house maintenance is {usd(pricing.maintenance.inHouseHourly)} per hour with a
+        {' '}{usd(pricing.maintenance.tripCharge)} trip charge, no minimum, materials at cost. Vendor-managed
+        projects carry a {pricing.maintenance.vendorProjectFeePct}% project management fee up to
         {' '}{usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)}, capped at
-        {' '}{usd(pricing.maintenance.vendorProjectFeeCap)}. That cap is the number to compare against a percentage
-        manager on a big Grove City turn.
+        {' '}{usd(pricing.maintenance.vendorProjectFeeCap)}. That cap is the number to compare on a big turn.
       </p>
       <p class="text-[14px] text-faint mt-4">
         Percentage figures describe common Columbus market rates. They are not a quote from any named company.

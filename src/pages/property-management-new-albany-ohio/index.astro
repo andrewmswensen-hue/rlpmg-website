@@ -68,8 +68,6 @@ const keyFacts = [
 ];
 
 const faq = [
-  { q: 'What county is New Albany, Ohio in?',
-    a: 'Most of New Albany is in Franklin County, with a portion of the city extending into Licking County. The county decides which municipal court hears an eviction under Ohio Revised Code 1901.02 and which auditor takes the R.C. 5323 owner filing. A New Albany mailing address does not settle it.' },
   { q: 'Which court hears an eviction in New Albany, Ohio?',
     a: 'A Franklin County parcel is filed at Franklin County Municipal Court, 375 S. High St., Columbus, OH 43215, where the eviction division sits in Courtroom 11B. A parcel on the Licking County side of the city goes to Licking County Municipal Court instead. Before either court sees the case, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, with specific statutory language.' },
   { q: 'What is the New Albany community development charge, and does it affect a rental owner?',
@@ -78,8 +76,6 @@ const faq = [
     a: 'Possibly, and it is a title question rather than a city question. The architectural consistency you see across residential New Albany is largely the product of private covenants and association architectural review recorded against parcels, not a municipal design ordinance applied to every house. What binds you is whatever is recorded against your parcel, which can include exterior approval requirements and, in some associations, limits on leasing. [SOURCE NEEDED: confirm which New Albany subdivisions carry recorded leasing restrictions or rental caps, and confirm what the City of New Albany codified ordinances require by way of exterior or architectural review for an existing single-family house.] Read the recorded declaration before you buy.' },
   { q: 'Do I have to register my New Albany rental property with anyone?',
     a: 'Yes, with the county auditor, not with the city. Ohio Revised Code 5323.02 requires the owner of residential rental property to file owner details and the permanent parcel number within 60 days of acquiring the property and again within 60 days of any change. There is no fee. For New Albany that is the Franklin County Auditor or the Licking County Auditor depending on the parcel. Failing to file draws a special assessment of $50 to $150 under R.C. 5323.99, and the Franklin County Auditor states $150 per tax year. This is separate from any homeowner association obligation.' },
-  { q: 'Who provides water and sewer in New Albany, Ohio?',
-    a: 'New Albany is a City of Columbus water and sewer contract community. Columbus states the property owner is ultimately responsible for all charges even where a tenant billing agreement is in place, which is a real exposure at move-out. Electricity is AEP Ohio and gas is Columbia Gas of Ohio. On our lease the resident holds every account in their own name.' },
   { q: 'What does a rental in New Albany, Ohio rent for?',
     a: `We do not publish a New Albany rent median, because our sample there is below the five-unit threshold we set before calling a number a market median. Across our whole portfolio the median is ${usd(rentByBedroom['3'].median)} for a 3 bedroom and ${usd(rentByBedroom['4'].median)} for a 4 bedroom. The nearest comparable market where we do publish our own figure is Dublin at ${usd(rentByMarketAndBedroom['Dublin']['3'].median)} for a 3 bedroom. [SOURCE NEEDED: US Census ACS 2024 5-year median gross rent for New Albany, Ohio.]` },
   { q: 'How much does property management cost in New Albany?',
@@ -136,17 +132,16 @@ const schemaNodes = [
       <h3 class="text-[21px] mt-9 mb-3">And then there is what is recorded against the parcel</h3>
       <p class="text-[17.5px] text-muted mt-4">
         Residential New Albany was built out largely under a single master plan, and the architectural
-        consistency people notice is mostly the work of private covenants and homeowner association
-        architectural review recorded against parcels, not a municipal ordinance policing the colour of every
-        front door. That distinction matters to you, because a private covenant is enforced by an association
-        rather than a city inspector, and associations vary a great deal in what they permit.
+        consistency people notice is mostly the work of private covenants and association architectural review
+        recorded against parcels, not a municipal ordinance policing the colour of every front door. The
+        distinction matters, because a covenant is enforced by an association rather than a city inspector, and
+        associations vary a great deal in what they permit.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Four things are worth checking in the recorded declaration before you buy: whether exterior changes need
-        architectural approval and how long that takes, whether leasing is restricted at all, whether there is a
-        minimum lease term, and whether the association charges a fee to process a new resident. Any one of them
-        can add a fortnight between a signed lease and a move-in date, and a move-in date that slips is a vacancy
-        you already paid for.
+        architectural approval and how long that takes, whether leasing is restricted, whether there is a
+        minimum lease term, and whether the association charges a fee to process a new resident. Any one can add
+        a fortnight between a signed lease and a move-in, and a move-in that slips is a vacancy you paid for.
       </p>
       <p class="text-[16px] text-muted mt-5">
         [SOURCE NEEDED: confirm which New Albany subdivisions carry recorded leasing restrictions, rental caps or
@@ -163,11 +158,11 @@ const schemaNodes = [
       <span class="eyebrow">Jurisdiction</span>
       <h2 id="county-h" class="text-[clamp(26px,3.2vw,38px)]">What county is New Albany in, and which court hears an eviction?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Most of New Albany is in Franklin County, and a portion of the city extends east into Licking County.
-        Ohio Revised Code 1901.02 fixes each municipal court to a territory, so a Franklin County parcel is filed
-        at Franklin County Municipal Court, 375 S. High St., Columbus, where the eviction division sits in
-        Courtroom 11B, and a Licking County parcel goes to Licking County Municipal Court. Filing in the wrong
-        court costs the filing fee and roughly three weeks of calendar.
+        Most of New Albany is in Franklin County, and a portion extends east into Licking County. Ohio Revised
+        Code 1901.02 fixes each municipal court to a territory, so a Franklin County parcel is filed at Franklin
+        County Municipal Court, 375 S. High St., Columbus, eviction division, Courtroom 11B, and a Licking
+        County parcel goes to Licking County Municipal Court. Filing in the wrong court costs the fee and about
+        three weeks of calendar.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Before any court sees the case, Ohio requires a three-day notice to leave the premises under R.C. 1923.04,
@@ -199,9 +194,8 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in New Albany, and who pays them?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        New Albany is a City of Columbus water and sewer contract community, so water and sanitary sewer come
-        from the Columbus system under contract. Electricity is distributed by AEP Ohio and natural gas by
-        Columbia Gas of Ohio, the two utilities that serve central Ohio.
+        New Albany is a City of Columbus water and sewer contract community. Electricity is distributed by AEP
+        Ohio and natural gas by Columbia Gas of Ohio.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -257,12 +251,10 @@ const schemaNodes = [
         Newer does not mean cheaper to run, and this is where New Albany owners get caught. A twenty-year-old
         four bedroom house with a finished basement, an irrigation system, two furnaces and two condensers has
         more equipment to fail than a small ranch, and those systems reach the end of a first service life at
-        roughly the same time. The bill is not high per incident. It is high because there are more incidents
-        available. In-house maintenance labour is {usd(pricing.maintenance.inHouseHourly)} per hour in
-        {' '}{pricing.maintenance.rateYear} with a {usd(pricing.maintenance.tripCharge)} trip charge, no minimum
+        roughly the same time. In-house maintenance labour is {usd(pricing.maintenance.inHouseHourly)} per hour
+        in {pricing.maintenance.rateYear} with a {usd(pricing.maintenance.tripCharge)} trip charge, no minimum
         and materials at cost. Where an outside vendor runs a project the fee is
-        {' '}{pricing.maintenance.vendorProjectFeePct}% and it caps at {usd(pricing.maintenance.vendorProjectFeeCap)},
-        so a large job does not carry an open-ended percentage.
+        {' '}{pricing.maintenance.vendorProjectFeePct}% and it caps at {usd(pricing.maintenance.vendorProjectFeeCap)}.
       </p>
       <h3 class="text-[21px] mt-9 mb-3">Where in New Albany we work</h3>
       <p class="text-[16.5px] text-muted">
@@ -300,12 +292,11 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16.5px] text-muted mt-7">
-        Flat pricing does more work the higher the rent, which is the whole argument for using it in a market
-        like this one. Take a house renting at {usd(3000)} a month as an illustration. A manager charging 10% of
-        collected rent takes {usd(3600)} a year and roughly {usd(1500)} again at every turn. Our lowest plan is
-        {' '}{usd(pricing.plans[0].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}. The gap
-        widens every time you raise the rent, because our number does not move when yours does. If you own several
-        units, {pricing.portfolioDiscount.line}
+        Flat pricing does more work the higher the rent. Take a house renting at {usd(3000)} a month as an
+        illustration. A manager charging 10% of collected rent takes {usd(3600)} a year and roughly {usd(1500)}
+        again at every turn. Our lowest plan is {usd(pricing.plans[0].monthly * 12)} a year and the placement is
+        {' '}{usd(pricing.leasingFee)}. The gap widens every time you raise the rent, because our number does not
+        move when yours does. If you own several units, {pricing.portfolioDiscount.line}
       </p>
       <p class="text-[14px] text-faint mt-4">
         Percentage figures describe common Columbus market rates. They are not a quote from any named company.

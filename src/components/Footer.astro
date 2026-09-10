@@ -5,7 +5,7 @@ import { company, areas, areaUrl } from '../data/facts';
 const owners = [
   ['Pricing', '/pricing/'], ['Our services', '/services/'], ['Scorecard', '/key-performance-indicators/'],
   ['Free rent evaluation', '/free-rent-evaluation/'], ['Owner FAQs', '/owner-faqs/'],
-  ['Client handbook', '/client-handbook/'],
+  ['Client handbook', '/client-handbook/'], ['For investors', '/investors/'],
 ];
 const renters = [
   ['Available homes', '/homes-for-rent/'], ['How to apply', '/residents/how-to-apply/'],
@@ -13,8 +13,14 @@ const renters = [
   ['Maintenance request', '/residents/maintenance-requests/'], ['Resident FAQs', '/resident-faqs/'],
 ];
 const companyLinks = [
-  ['About', '/about/'], ['Core values', '/core-values/'], ['Our team', '/team/'],
-  ['Careers', '/careers/'], ['Insights', '/blog/'], ['Contact', '/contact-us/'],
+  ['About', '/about/'], ['Our team', '/team/'], ['Core values', '/core-values/'],
+  ['Careers', '/careers/'], ['Contact', '/contact-us/'],
+];
+/** The content library gets its own column: three entry points, three intents. */
+const learn = [
+  ['In-depth guides', '/guides/'], ['All articles', '/blog/'],
+  ['Policy updates', '/policy-updates/'], ['2026 market report', '/2026-columbus-market-report/'],
+  ['Owner tools', '/tools/'], ['Rent vs. sell', '/rent-vs-sell-calculator/'],
 ];
 const legal = [
   ['Privacy policy', '/privacy-policy/'], ['Terms', '/terms/'],
@@ -26,7 +32,7 @@ const year = new Date().getFullYear();
 ---
 <footer class="bg-navy-d text-[#8ba1af] text-[14px]">
   <div class="wrap py-14">
-    <div class="grid gap-9 md:grid-cols-2 lg:grid-cols-[1.6fr_repeat(3,1fr)]">
+    <div class="grid gap-9 md:grid-cols-2 lg:grid-cols-[1.5fr_repeat(4,1fr)]">
       <div>
         <a href="/" class="no-underline inline-block mb-4"><Logo light /></a>
         <address class="not-italic leading-relaxed">
@@ -51,6 +57,10 @@ const year = new Date().getFullYear();
       <nav aria-labelledby="f-company">
         <h2 id="f-company" class="text-white font-sans text-[11.5px] font-bold tracking-[.14em] uppercase mb-3.5">Company</h2>
         {companyLinks.map(([l, h]) => <a href={h} class="block no-underline py-1 hover:text-white">{l}</a>)}
+      </nav>
+      <nav aria-labelledby="f-learn">
+        <h2 id="f-learn" class="text-white font-sans text-[11.5px] font-bold tracking-[.14em] uppercase mb-3.5">Learn</h2>
+        {learn.map(([l, h]) => <a href={h} class="block no-underline py-1 hover:text-white">{l}</a>)}
       </nav>
     </div>
 

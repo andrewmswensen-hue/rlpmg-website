@@ -1,0 +1,96 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import Faq from '../../components/Faq.astro';
+import Cta from '../../components/Cta.astro';
+import Verified from '../../components/Verified.astro';
+import { allPosts, metaDescription } from '../../lib/blog';
+import { company } from '../../data/facts';
+
+/**
+ * A curated index over the blog, not a second blog.
+ *
+ * 384 posts is a lot of surface and most of it is short-form. The substantial,
+ * evergreen pieces are the ones worth linking to from service pages and worth
+ * an answer engine citing, and they were previously buried in reverse
+ * chronological order behind the weekly noise. This surfaces them.
+ *
+ * Selection is by length and by not being part of the dated policy series, so it
+ * updates itself as long pieces are published. No hand-maintained list.
+ */
+const posts = await allPosts();
+const guides = posts
+  .filter((p) => !p.data.slug.includes('policy-update'))
+  .map((p) => ({ p, words: (p.body ?? '').split(/\s+/).length }))
+  .filter((x) => x.words >= 1800)
+  .sort((a, b) => b.p.data.pubDate.valueOf() - a.p.data.pubDate.valueOf());
+
+/** Group by the post's first category so the page reads as a library. */
+const byTopic = new Map<string, typeof guides>();
+for (const g of guides) {
+  const t = g.p.data.categories[0] ?? 'General';
+  if (!byTopic.has(t)) byTopic.set(t, []);
+  byTopic.get(t)!.push(g);
+}
+const topics = [...byTopic.entries()].sort((a, b) => b[1].length - a[1].length);
+
+const title = `In-Depth Guides for Columbus Rental Owners | ${company.name}`;
+const description = metaDescription(
+  `${guides.length} long-form guides on owning rental property in Columbus, Ohio: eviction costs, ` +
+  `security deposits, pricing, turnovers and Ohio landlord-tenant law.`,
+);
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Guides', path: '/guides/' }];
+
+const faq = [
+  { q: 'What is the difference between the guides and the blog?',
+    a: `The guides are the ${guides.length} longest and most complete pieces we have written, each one intended to answer a question end to end. The blog holds everything, including shorter posts and the weekly policy updates.` },
+  { q: 'Who writes these?',
+    a: `The ${company.name} team, in Columbus. Anything touching pricing, legal process or policy is reviewed by ${company.brokerOfRecord.name}, our ${company.brokerOfRecord.title}, before it is published.` },
+  { q: 'Are these specific to Ohio?',
+    a: 'Most are specific to Columbus and Franklin County, because that is where we operate. Where a guide covers Ohio law it says so, and where a rule is local to a city or county it names the jurisdiction.' },
+  { q: 'How current are they?',
+    a: 'Each carries a published date and, where it has been revised, an updated date. Law and cost figures change, so check the date on anything you are about to act on.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+  <section class="pt-14 pb-9">
+    <div class="wrap max-w-[880px]">
+      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+        <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Guides</span>
+      </nav>
+      <span class="eyebrow">Guides</span>
+      <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em]">The long answers</h1>
+      <p class="text-[20px] text-muted mt-5 max-w-[40em]">
+        {guides.length} in-depth guides for people who own rental property in Columbus. Each one takes a
+        single question and answers it properly, with real numbers from a licensed Ohio brokerage that
+        manages {company.unitsManaged} units in this market.
+      </p>
+      <p class="text-[16px] text-muted mt-4">
+        Looking for something shorter? <a href="/blog/" class="text-crimson font-semibold no-underline hover:underline">The full archive</a> has
+        {posts.length} articles, and <a href="/policy-updates/" class="text-crimson font-semibold no-underline hover:underline">the policy updates</a> track
+        what is changing in Central Ohio.
+      </p>
+    </div>
+  </section>
+
+  {topics.map(([topic, list]) => (
+    <section class="band-tight border-t border-line">
+      <div class="wrap">
+        <h2 class="text-[24px] mb-6">{topic}<span class="ml-3 font-sans text-[13px] font-semibold text-faint">{list.length}</span></h2>
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {list.map((g) => <PostCard post={g.p} />)}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <Faq items={faq} heading="About these guides" id="guides-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <Cta heading="Still deciding what to do with your property?"
+       body="A free rent evaluation gives you the one number most of these guides depend on." />
+</Base>

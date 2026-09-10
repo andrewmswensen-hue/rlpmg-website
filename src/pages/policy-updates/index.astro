@@ -1,0 +1,84 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import Faq from '../../components/Faq.astro';
+import Cta from '../../components/Cta.astro';
+import Verified from '../../components/Verified.astro';
+import { allPosts, metaDescription } from '../../lib/blog';
+import { company } from '../../data/facts';
+import { longDate } from '../../lib/format';
+
+/**
+ * The Central Ohio landlord policy update series, gathered in one place.
+ *
+ * These are dated and they lose value fast individually, but as a run they are
+ * the clearest evidence on the site that somebody here is actually tracking
+ * what changes in this market. That is worth its own entry point.
+ */
+const posts = await allPosts();
+const updates = posts
+  .filter((p) => p.data.slug.includes('policy-update'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const latest = updates[0];
+
+const title = `Central Ohio Landlord Policy Updates | ${company.name}`;
+const description = metaDescription(
+  'What is changing for rental property owners in Columbus and Central Ohio: local ordinances, ' +
+  'Ohio legislation, and court decisions, tracked as they happen.',
+);
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Policy updates', path: '/policy-updates/' }];
+
+const faq = [
+  { q: 'What are the Central Ohio landlord policy updates?',
+    a: `A running series tracking what changes for rental property owners in Columbus and Central Ohio: local ordinances, Ohio legislation, and court decisions. ${updates.length} editions are published so far${latest ? `, the most recent on ${longDate(latest.data.pubDate)}` : ''}.` },
+  { q: 'Why does this matter to a property owner?',
+    a: 'Because most of what changes at the city and county level never makes the news, and the first time many owners hear about a new requirement is when they are out of compliance with it. Source of income protection in Columbus is the clearest recent example.' },
+  { q: 'Is this legal advice?',
+    a: 'No. It is a summary of what changed, with links to the source. Anything that affects your property should go to your own counsel before you act on it.' },
+  { q: 'How do I get these?',
+    a: `They publish here and in the ${company.name} feed. Subscribe at /rss.xml or check this page.` },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+  <section class="pt-14 pb-9">
+    <div class="wrap max-w-[880px]">
+      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+        <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Policy updates</span>
+      </nav>
+      <span class="eyebrow">Policy updates</span>
+      <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em]">What is changing for Central Ohio landlords</h1>
+      <p class="text-[20px] text-muted mt-5 max-w-[40em]">
+        Local ordinances, Ohio legislation and court decisions that affect rental property owners,
+        tracked as they happen. {updates.length} editions
+        {latest && <span>, most recently {longDate(latest.data.pubDate)}</span>}.
+      </p>
+      <p class="text-[16px] text-muted mt-4">
+        Most of what changes at city and county level never makes the news. The first time many owners
+        hear about a new requirement is when they are already out of compliance with it.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-14">
+    <div class="wrap">
+      {updates.length > 0 ? (
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {updates.map((p) => <PostCard post={p} />)}
+        </div>
+      ) : (
+        <p class="text-[17px] text-muted">No policy updates have been published yet.</p>
+      )}
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <Faq items={faq} heading="About this series" id="policy-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <Cta heading="Would rather someone else tracked this?"
+       body="Compliance is part of what the management fee covers. We watch the ordinances so you do not have to."
+       primary={{ label: 'See what management costs', href: '/pricing/' }} />
+</Base>
