@@ -1,0 +1,26 @@
+---
+import { company } from '../data/facts';
+interface Props {
+  heading: string;
+  body: string;
+  primary?: { label: string; href: string };
+  secondary?: { label: string; href: string };
+}
+const {
+  heading, body,
+  primary = { label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' },
+  secondary,
+} = Astro.props;
+---
+<section class="bg-maroon text-white text-center py-[88px]">
+  <div class="wrap">
+    <h2 class="!text-white text-[clamp(30px,3.8vw,46px)] max-w-[17em] mx-auto mb-4">{heading}</h2>
+    <p class="text-[#e2c8cc] text-[18px] max-w-[36em] mx-auto mb-7">{body}</p>
+    <div class="flex flex-wrap gap-3 justify-center">
+      <a href={primary.href} class="btn btn-on-dark">{primary.label}</a>
+      <a href={secondary?.href ?? `tel:${company.phoneE164}`} class="btn btn-outline-light">
+        {secondary?.label ?? `Call ${company.phone}`}
+      </a>
+    </div>
+  </div>
+</section>

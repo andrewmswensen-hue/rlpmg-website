@@ -38,7 +38,7 @@ const renterLinks = [
 /** These answers are written to stand alone if an answer engine quotes just one. */
 const faq = [
   { q: 'What does RL Property Management charge?',
-    a: `Flat monthly management is ${usd(pricing.plans[0].monthly)} per unit on the Passive plan, ${usd(pricing.plans[1].monthly)} on Standard, and ${usd(pricing.plans[2].monthly)} on Premium. There is no leasing fee on any plan, lease renewals are ${usd(pricing.leaseRenewalFee)}, and there is no startup fee on occupied units.` },
+    a: `Flat monthly management runs ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month across three plans. There is no leasing fee on any plan, lease renewals are ${usd(pricing.leaseRenewalFee)}, and there is no startup fee on occupied units.` },
   { q: 'Does RL Property Management charge a leasing fee?',
     a: 'No. Placing a resident costs nothing on every plan, including listing syndication, showings, applicant screening and lease preparation. Most Columbus managers charge about half a month of rent for the same work.' },
   { q: 'What areas does RL Property Management serve?',
@@ -150,11 +150,7 @@ const schemaNodes = [serviceNode({
       </div>
       <div class="grid gap-6 lg:grid-cols-3">
         {pricing.plans.map((p, i) => (
-          <div class={`card flex flex-col relative ${i === 1 ? '!border-2 !border-crimson' : ''}`}
-               style={i === 1 ? 'box-shadow:0 2px 4px rgb(18 49 67 / .06), 0 18px 48px rgb(18 49 67 / .12)' : ''}>
-            {i === 1 && (
-              <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-crimson text-white font-sans text-[10.5px] font-bold tracking-[.12em] uppercase px-4 py-1.5 rounded-full whitespace-nowrap">Most chosen</span>
-            )}
+          <div class="card flex flex-col">
             <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-3">{p.name}</div>
             <div class="font-sans text-[48px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
             <div class="font-sans text-[13.5px] text-faint mt-2 mb-5">per unit, per month</div>
@@ -165,9 +161,7 @@ const schemaNodes = [serviceNode({
               <li class="text-[14.5px] py-1.5 text-muted">Full screening and rent collection</li>
               <li class="text-[14.5px] py-1.5 text-muted">Monthly statements and owner portal</li>
             </ul>
-            <a href="/pricing/" class={`btn text-center ${i === 1 ? 'btn-primary' : 'btn-ghost'}`}>
-              {i === 1 ? 'Get started' : 'Compare plans'}
-            </a>
+            <a href="/pricing/" class="btn btn-ghost text-center">Compare plans</a>
           </div>
         ))}
       </div>

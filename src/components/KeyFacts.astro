@@ -1,0 +1,24 @@
+---
+/**
+ * The quotable block. Short, specific, numeric statements placed high on the page
+ * where an extractor will meet them early.
+ */
+interface Props { items: string[]; heading?: string }
+const { items, heading = 'The short version' } = Astro.props;
+---
+{items.length > 0 && (
+  <section class="pb-4">
+    <div class="wrap max-w-[880px]">
+      <div class="card !bg-wash-soft">
+        <h2 class="text-[19px] mb-3.5">{heading}</h2>
+        <ul class="grid gap-x-8 gap-y-0.5 sm:grid-cols-2">
+          {items.map((f) => (
+            <li class="flex gap-3 py-1.5 text-[15.5px]">
+              <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{f}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+)}

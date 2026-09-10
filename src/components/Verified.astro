@@ -1,0 +1,11 @@
+---
+/** E-E-A-T line: when this was last checked, and by whom. */
+import { company } from '../data/facts';
+import { monthYear } from '../lib/format';
+interface Props { date: string; reviewer?: string }
+const { date, reviewer } = Astro.props;
+const who = reviewer ?? `${company.brokerOfRecord.name}, ${company.brokerOfRecord.title}`;
+---
+<p class="text-[13px] text-faint">
+  Last verified {monthYear(date)}. Reviewed by {who}.
+</p>

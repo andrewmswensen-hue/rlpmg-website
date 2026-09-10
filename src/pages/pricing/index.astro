@@ -20,7 +20,7 @@ const description =
   `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. The complete Columbus fee schedule, published in the open.`;
 const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Pricing', path: '/pricing/' }];
 
-const std = pricing.plans[1];
+const std = pricing.plans[1];   // the middle plan, used for every worked comparison
 /** Three rent points, to show how a flat fee behaves as rent rises. Derived, not typed. */
 const rents = [1200, 1650, 2100];
 const compare = rents.map((rent) => {
@@ -73,7 +73,7 @@ const faq = [
   { q: 'Do you charge a leasing fee?',
     a: `No. Placing a resident costs ${usd(pricing.leasingFee)} on every plan, covering listing syndication, showings, full applicant screening and lease preparation. On a ${usd(mid.rent)} rent, a manager charging half a month would bill ${usd(mid.lease)} for the same work.` },
   { q: 'Is flat fee or percentage property management better?',
-    a: `A flat fee costs the same whether rent is ${usd(1200)} or ${usd(2100)}, and it does not rise when rent does. A percentage fee compounds with every rent increase. On a ${usd(mid.rent)} rent in a year that includes one resident placement, our Standard plan costs ${usd(mid.rl)} against roughly ${usd(mid.p10)} for a typical 10% manager.` },
+    a: `A flat fee costs the same whether rent is ${usd(1200)} or ${usd(2100)}, and it does not rise when rent does. A percentage fee compounds with every rent increase. On a ${usd(mid.rent)} rent in a year that includes one resident placement, ${std.name} costs ${usd(mid.rl)} against roughly ${usd(mid.p10)} for a typical 10% manager.` },
   { q: 'Do you discount pricing for larger portfolios?',
     a: 'Yes, and the discount is significant. Monthly management is reduced as unit count rises. Portfolio pricing is quoted per owner rather than published, so owners with multiple units should request a quote instead of assuming the per-unit rate above.' },
   { q: 'Is there a startup fee?',
@@ -131,10 +131,7 @@ const schemaNodes = [
       <h2 id="plans-h" class="sr-only">Management plans</h2>
       <div class="grid gap-6 lg:grid-cols-3">
         {pricing.plans.map((p, i) => (
-          <div class={`card flex flex-col relative ${i === 1 ? '!border-2 !border-crimson' : ''}`}>
-            {i === 1 && (
-              <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-crimson text-white font-sans text-[10.5px] font-bold tracking-[.12em] uppercase px-4 py-1.5 rounded-full whitespace-nowrap">Most chosen</span>
-            )}
+          <div class="card flex flex-col">
             <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-3">{p.name}</div>
             <div class="font-sans text-[52px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
             <div class="font-sans text-[13.5px] text-faint mt-2 mb-5">per unit, per month</div>
@@ -143,12 +140,12 @@ const schemaNodes = [
               <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(pricing.leaseRenewalFee)}</b> lease renewal</li>
               <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(p.repairApprovalLimit)}</b> per-item repair approval limit</li>
               <li class="text-[14.5px] py-1.5 text-muted">
-                {i === 0 && 'Most hands-off. We handle routine repairs up to the limit without calling you.'}
-                {i === 1 && 'The balance most owners choose.'}
-                {i === 2 && 'Most oversight, plus HOA and association support.'}
+                {i === 0 && 'The highest approval limit, so we handle routine repairs without calling you first.'}
+                {i === 1 && 'A middle approval limit, so you hear about more of the spending.'}
+                {i === 2 && 'The tightest approval limit, plus HOA and association support.'}
               </li>
             </ul>
-            <a href="/free-rent-evaluation/" class={`btn text-center ${i === 1 ? 'btn-primary' : 'btn-ghost'}`}>Get started</a>
+            <a href="/free-rent-evaluation/" class="btn btn-ghost text-center">Get started</a>
           </div>
         ))}
       </div>
@@ -200,7 +197,7 @@ const schemaNodes = [
       <span class="eyebrow">The math</span>
       <h2 id="compare-h" class="text-[clamp(28px,3.3vw,40px)]">A flat fee against a percentage, at three Columbus rents</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        One year on our Standard plan against a percentage manager, in a year that includes placing one
+        One year on our middle plan against a percentage manager, in a year that includes placing one
         resident. The gap is not really the percentage. It is the leasing fee, and almost nobody puts
         that number in a quote.
       </p>
@@ -211,7 +208,7 @@ const schemaNodes = [
           <thead>
             <tr class="bg-wash-soft">
               <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Monthly rent</th>
-              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Us, Standard</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Us, {std.name}</th>
               <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Typical 8%</th>
               <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Typical 10%</th>
               <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">You keep</th>
@@ -237,7 +234,7 @@ const schemaNodes = [
         move when your rent does. And at the low end, where the annual gap is narrowest, the leasing fee
         alone is still larger than the entire difference: on a {usd(compare[0].rent)} rent, the
         {' '}{usd(compare[0].lease)} placement fee exceeds the {usd(compare[0].save10)} yearly gap against a
-        10% manager. On our Passive plan at {usd(pricing.plans[0].monthly)}, that same property saves
+        10% manager. On {pricing.plans[0].name} at {usd(pricing.plans[0].monthly)}, that same property saves
         {' '}{usd(compare[0].p8 - pricing.plans[0].monthly * 12)} against an 8% manager.
       </p>
       <p class="text-[14px] text-faint mt-4">

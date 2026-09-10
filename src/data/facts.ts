@@ -54,10 +54,16 @@ export const pricing = {
   leasingFee: 0,
   leaseRenewalFee: 250,
   startupFeeOccupied: 0,
+  /**
+   * Plan names are deliberately neutral. Renamed from Passive/Standard/Premium
+   * on 2026-09-09 at the CIO's direction, so no plan reads as the "better" one.
+   * For the same reason there is no "most chosen" badge and no featured styling:
+   * three equal plans that differ in one variable, the repair approval limit.
+   */
   plans: [
-    { id: 'passive',  name: 'Passive',  monthly: 117, repairApprovalLimit: 1500 },
-    { id: 'standard', name: 'Standard', monthly: 137, repairApprovalLimit: 750  },
-    { id: 'premium',  name: 'Premium',  monthly: 184, repairApprovalLimit: 350  },
+    { id: 'plan-one',   name: 'Plan One',   monthly: 117, repairApprovalLimit: 1500 },
+    { id: 'plan-two',   name: 'Plan Two',   monthly: 137, repairApprovalLimit: 750  },
+    { id: 'plan-three', name: 'Plan Three', monthly: 184, repairApprovalLimit: 350  },
   ],
   maintenance: {
     inHouseHourly: 84,

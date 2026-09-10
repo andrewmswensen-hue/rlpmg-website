@@ -1,0 +1,47 @@
+---
+/**
+ * Standard page opening: breadcrumb, eyebrow, H1, the direct answer, and CTAs.
+ *
+ * `answer` is the most important prop on the site. It must stand alone if an
+ * answer engine quotes only that sentence, so it names the thing, the place and
+ * a number, and it stays under 40 words.
+ */
+interface Props {
+  eyebrow?: string;
+  title: string;
+  answer: string;
+  breadcrumbs?: { name: string; path: string }[];
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+  wide?: boolean;
+}
+const {
+  eyebrow, title, answer, breadcrumbs = [],
+  primaryCta = { label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' },
+  secondaryCta,
+  wide = false,
+} = Astro.props;
+---
+<section class="pt-14 pb-10">
+  <div class={`wrap ${wide ? 'max-w-[1000px]' : 'max-w-[880px]'}`}>
+    {breadcrumbs.length > 0 && (
+      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+        {breadcrumbs.map((b, i) => (
+          <>
+            {i > 0 && <span aria-hidden="true"> / </span>}
+            {i === breadcrumbs.length - 1
+              ? <span aria-current="page">{b.name}</span>
+              : <a href={b.path} class="no-underline hover:text-crimson">{b.name}</a>}
+          </>
+        ))}
+      </nav>
+    )}
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em]">{title}</h1>
+    <p class="text-[20px] text-muted mt-5 max-w-[40em]">{answer}</p>
+    <div class="flex flex-wrap gap-3 mt-7">
+      <a href={primaryCta.href} class="btn btn-primary">{primaryCta.label}</a>
+      {secondaryCta && <a href={secondaryCta.href} class="btn btn-ghost">{secondaryCta.label}</a>}
+    </div>
+  </div>
+</section>
