@@ -193,7 +193,7 @@ export const areas = [
   { name: 'Columbus',          slug: 'columbus',          county: 'Franklin' },
   { name: 'Dublin',            slug: 'dublin',            county: 'Franklin, Delaware and Union' },
   { name: 'Upper Arlington',   slug: 'upper-arlington',   county: 'Franklin', existingUrl: '/property-management-upper-arlington-ohio/' },
-  { name: 'Westerville',       slug: 'westerville',       county: 'Franklin', existingUrl: '/property-management-westerville-ohio/' },
+  { name: 'Westerville',       slug: 'westerville',       county: 'Franklin and Delaware', existingUrl: '/property-management-westerville-ohio/' },
   { name: 'Worthington',       slug: 'worthington',       county: 'Franklin', existingUrl: '/property-management-worthington-ohio/' },
   { name: 'Gahanna',           slug: 'gahanna',           county: 'Franklin' },
   { name: 'Hilliard',          slug: 'hilliard',          county: 'Franklin', existingUrl: '/property-management-hilliard-ohio/' },
