@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import { company } from '../data/facts';
+
+/**
+ * The 404.
+ *
+ * GitHub Pages serves this for any missing path, so during the rebuild it is the
+ * page Andrew hits whenever he clicks a nav item that has not been built yet.
+ * It therefore has to do two things a normal 404 does not: always give a way back
+ * (it renders the full header and footer), and say honestly what does exist.
+ *
+ * The "what is live" list is globbed from the pages directory, so it stays
+ * correct on its own as pages get added. No maintenance.
+ */
+const modules = import.meta.glob('./**/*.astro', { eager: true });
+const routes = Object.keys(modules)
+  .map((f) => f.replace(/^\.\//, '').replace(/index\.astro$/, '').replace(/\.astro$/, '/'))
+  .filter((r) => !r.startsWith('404') && !r.includes('[') && !r.startsWith('_'))
+  .map((r) => (r === '' ? '/' : `/${r}`))
+  .sort((a, b) => (a === '/' ? -1 : b === '/' ? 1 : a.localeCompare(b)));
+
+const label = (r: string) =>
+  r === '/' ? 'Home'
+    : r.replace(/^\/|\/$/g, '').split('/').pop()!.replace(/-/g, ' ').replace(/^\w/, (c) => c.toUpperCase());
+---
+<Base
+  title="Page not found | RL Property Management"
+  description="That page does not exist. Here is what does."
+  noindex={true}
+  markdownTwin={false}
+>
+  <section class="band">
+    <div class="wrap max-w-[760px]">
+      <span class="eyebrow">404</span>
+      <h1 class="text-[clamp(32px,4vw,48px)] tracking-[-.022em]">That page is not here.</h1>
+      <p class="text-[19px] text-muted mt-5">
+        Either the address is wrong, or this part of the site has not been built yet.
+        This preview is a rebuild in progress, so pages are going up in batches.
+      </p>
+
+      <div class="card !bg-wash-soft mt-9">
+        <h2 class="text-[21px] mb-1.5">Live in this preview right now</h2>
+        <p class="text-[14.5px] text-muted mb-4">
+          {routes.length} {routes.length === 1 ? 'page' : 'pages'}. This list updates itself as pages are added.
+        </p>
+        <ul class="grid gap-x-8 gap-y-0.5 sm:grid-cols-2">
+          {routes.map((r) => (
+            <li>
+              <a href={r} class="flex items-baseline gap-2.5 py-1.5 no-underline group">
+                <span class="text-crimson font-bold shrink-0" aria-hidden="true">→</span>
+                <span class="text-navy font-medium group-hover:text-crimson">{label(r)}</span>
+                <span class="text-[12.5px] text-faint font-sans">{r}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <p class="text-[16px] text-muted mt-9">
+        Looking for something specific? Call {company.phone} or email
+        {' '}<a href={`mailto:${company.email}`} class="text-crimson font-semibold no-underline hover:underline">{company.email}</a>.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-6">
+        <a href="/" class="btn btn-primary">Back to the homepage</a>
+        <a href="/pricing/" class="btn btn-ghost">See pricing</a>
+      </div>
+    </div>
+  </section>
+</Base>

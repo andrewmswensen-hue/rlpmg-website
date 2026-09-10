@@ -178,3 +178,36 @@
   }
   .skip-link:focus { left: 0; }
 }
+
+@layer components {
+  /* Collapsible fee-schedule groups. <details> so it needs no JavaScript. */
+  .fee-group {
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    margin-bottom: 12px;
+    box-shadow: 0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06);
+  }
+  .fee-group > summary {
+    cursor: pointer; list-style: none;
+    padding: 18px 22px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .fee-group > summary::-webkit-details-marker { display: none; }
+  .fee-group > summary > span { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .fee-group > summary::after {
+    content: '+';
+    font-family: var(--font-sans); color: var(--color-crimson);
+    font-size: 22px; font-weight: 400; line-height: 1; flex: 0 0 auto;
+  }
+  .fee-group[open] > summary::after { content: '\2212'; }
+  .fee-group > summary:hover { background: var(--color-wash-soft); border-radius: var(--radius-sm); }
+  .fee-group-title {
+    font-family: var(--font-serif); font-size: 20px; font-weight: 600; color: var(--color-navy);
+  }
+  .fee-group-count {
+    font-family: var(--font-sans); font-size: 12px; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase; color: var(--color-faint);
+  }
+  .fee-group-body { padding: 0 22px 22px; }
+}

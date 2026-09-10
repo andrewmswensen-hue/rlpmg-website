@@ -294,60 +294,53 @@ const schemaNodes = [
         months. If it is not on this list, we do not charge it.
       </p>
 
+      <!-- Each group collapses. Core pricing is open by default because it answers
+           the question people came for; the rest is there for anyone who wants it.
+           <details> means this works with zero JavaScript. -->
       {[
-        { h: 'Core pricing', rows: coreFees },
-        { h: 'Maintenance', rows: maintFees },
-        { h: 'Eviction, if it comes to that', rows: evictionFees },
+        { h: 'Core pricing', rows: coreFees, open: true,
+          note: 'The fees that apply to every managed unit.' },
+        { h: 'Maintenance', rows: maintFees, open: false,
+          note: 'How repair work is billed, in house and through vendors.' },
+        { h: 'Eviction, if it comes to that', rows: evictionFees, open: false,
+          note: `Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute.` },
+        { h: 'Situational fees', rows: pricing.otherFees.map((f) => [f.name, f.amount, f.note]), open: false,
+          note: 'These apply only in specific circumstances. Most owners never see any of them.' },
       ].map((group) => (
-        <div class="mb-9">
-          <h3 class="text-[21px] mb-3.5">{group.h}</h3>
-          <div class="scroll-x">
-            <table class="w-full border-collapse text-[15.5px]">
-              <thead>
-                <tr class="bg-wash-soft">
-                  <th scope="col" class="text-left p-3.5 border border-line font-semibold">Item</th>
-                  <th scope="col" class="text-left p-3.5 border border-line font-semibold whitespace-nowrap">Amount</th>
-                  <th scope="col" class="text-left p-3.5 border border-line font-semibold">Detail</th>
-                </tr>
-              </thead>
-              <tbody>
-                {group.rows.map(([item, amount, detail]) => (
-                  <tr>
-                    <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">{item}</th>
-                    <td class="p-3.5 border border-line align-top whitespace-nowrap font-semibold text-navy">{amount}</td>
-                    <td class="p-3.5 border border-line align-top text-muted">{detail}</td>
+        <details class="fee-group" open={group.open}>
+          <summary>
+            <span>
+              <span class="fee-group-title">{group.h}</span>
+              <span class="fee-group-count">{group.rows.length} {group.rows.length === 1 ? 'item' : 'items'}</span>
+            </span>
+          </summary>
+          <div class="fee-group-body">
+            <p class="text-[15px] text-muted mb-4">{group.note}</p>
+            <div class="scroll-x">
+              <table class="w-full border-collapse text-[15.5px]">
+                <caption class="sr-only">{group.h}</caption>
+                <thead>
+                  <tr class="bg-wash-soft">
+                    <th scope="col" class="text-left p-3.5 border border-line font-semibold">Item</th>
+                    <th scope="col" class="text-left p-3.5 border border-line font-semibold whitespace-nowrap">Amount</th>
+                    <th scope="col" class="text-left p-3.5 border border-line font-semibold">Detail</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {group.rows.map(([item, amount, detail]) => (
+                    <tr>
+                      <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">{item}</th>
+                      <td class="p-3.5 border border-line align-top whitespace-nowrap font-semibold text-navy">{amount}</td>
+                      <td class="p-3.5 border border-line align-top text-muted">{detail}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
+        </details>
       ))}
 
-      <h3 class="text-[21px] mb-3.5">Situational fees</h3>
-      <p class="text-[15px] text-muted mb-4">
-        These apply only in specific circumstances. Most owners never see any of them.
-      </p>
-      <div class="scroll-x">
-        <table class="w-full border-collapse text-[15.5px]">
-          <thead>
-            <tr class="bg-wash-soft">
-              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Item</th>
-              <th scope="col" class="text-left p-3.5 border border-line font-semibold whitespace-nowrap">Amount</th>
-              <th scope="col" class="text-left p-3.5 border border-line font-semibold">When it applies</th>
-            </tr>
-          </thead>
-          <tbody>
-            {pricing.otherFees.map((f) => (
-              <tr>
-                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">{f.name}</th>
-                <td class="p-3.5 border border-line align-top whitespace-nowrap font-semibold text-navy">{f.amount}</td>
-                <td class="p-3.5 border border-line align-top text-muted">{f.note}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
       <p class="text-[14px] text-faint mt-5">
         Full detail lives in the <a href="/client-handbook/" class="text-crimson font-semibold no-underline hover:underline">Client Handbook</a>
         {' '}and in your Property Management Agreement.
