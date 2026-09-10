@@ -1,0 +1,96 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import { company } from '../../../data/facts';
+
+/**
+ * Redirect target for the old /tenant-appeal-form-page/.
+ *
+ * This page is deliberately cautious. A declined applicant has rights under the
+ * Fair Credit Reporting Act, and describing the appeal process wrongly is worse
+ * than describing it thinly. Every procedural specific is flagged for the team.
+ */
+const title = `Appeal a Rental Application Decision | ${company.name}`;
+const description =
+  `How to ask ${company.name} to review a declined rental application, what to send, and what happens next.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' }, { name: 'Residents', path: '/residents/' },
+  { name: 'Appeals', path: '/residents/appeals/' },
+];
+const faq = [
+  { q: 'Can I appeal a declined rental application?',
+    a: 'Yes. If you believe the decision rested on information that is inaccurate, incomplete or out of date, you can ask us to look again. Send the correction and any supporting documents and a person will review it.' },
+  { q: 'Why was my application declined?',
+    a: 'If the decision was based even in part on a consumer report, you are entitled to an adverse action notice naming the reporting agency. That agency did not make the decision and cannot reverse it, but it must give you a free copy of your report if you ask within 60 days.' },
+  { q: 'How do I dispute something on my credit or background report?',
+    a: 'Dispute it directly with the consumer reporting agency named in your adverse action notice. They must investigate. If the report changes, send us the corrected copy and we will review the application again.' },
+  { q: 'Does appealing hold the home for me?',
+    a: 'No. Applications are processed first come, first served, and a home stays available to other applicants while an appeal is open. If it is leased in the meantime we will look at what else is available.' },
+  { q: 'Who reviews an appeal?',
+    a: 'A member of our leasing team, not an automated system. We apply the same criteria to every applicant, so an appeal is a review of the facts rather than a request for an exception.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+  <PageHero
+    eyebrow="Residents"
+    title="Appeal an application decision"
+    answer={`If your rental application was declined and you believe the decision used information that is wrong or incomplete, you can ask ${company.name} to review it. A person reviews every appeal.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: `Email ${company.email}`, href: `mailto:${company.email}` }}
+    secondaryCta={{ label: 'Read our application criteria', href: '/residents/application-criteria/' }}
+  />
+
+  <section class="band-tight">
+    <div class="wrap max-w-[760px]">
+      <div class="prose-rl">
+        <h2>What to send</h2>
+        <p>
+          Email {company.email} with your name, the address you applied for, and the date you applied.
+          Attach whatever corrects the record: an updated pay stub, a letter from a landlord, a corrected
+          credit report, documentation of a resolved balance.
+        </p>
+
+        <h2>What happens next</h2>
+        <p>
+          A member of the leasing team reviews the file against the same criteria every applicant is
+          measured by. We are looking at whether the underlying facts changed, not making an exception.
+        </p>
+        <!-- [SOURCE NEEDED: the appeal review turnaround time, who signs off, and whether there is a
+             formal appeal form rather than an email intake. Also whether the application fee is
+             reusable on a different property within a set window.] -->
+        <p>
+          [SOURCE NEEDED: the review turnaround time and whether a formal appeal form exists.]
+        </p>
+
+        <h2>If a consumer report was involved</h2>
+        <p>
+          When a decision is based even in part on a credit or background report, federal law entitles you
+          to an adverse action notice identifying the agency that supplied it. That agency did not make the
+          decision, but you can request a free copy of your report from them within 60 days and dispute
+          anything inaccurate. A corrected report is exactly the kind of thing that changes an outcome.
+        </p>
+        <!-- [SOURCE NEEDED: the screening vendor name, and confirmation of the adverse action notice
+             wording RLPM sends. Needs counsel review for FCRA compliance.] -->
+
+        <h2>What we apply to every applicant</h2>
+        <p>
+          The same written criteria, in the order applications are completed, without regard to race,
+          color, religion, sex, national origin, familial status, disability, or any other class protected
+          under federal, Ohio or local law. Our full criteria are published on the
+          <a href="/residents/application-criteria/">application criteria page</a>.
+        </p>
+      </div>
+      <div class="mt-9"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/residents/application-criteria/', label: 'Application criteria', note: 'What we look at, published' },
+    { href: '/residents/how-to-apply/', label: 'How to apply', note: 'The process end to end' },
+    { href: '/homes-for-rent/', label: 'Available homes', note: 'What is open right now' },
+    { href: '/contact-us/', label: 'Contact us', note: `${company.phone}` },
+  ]} />
+</Base>

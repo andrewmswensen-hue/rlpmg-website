@@ -1,0 +1,395 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, kpis, usd } from '../../../data/facts';
+import { rentByBedroom } from '../../../data/markets';
+
+/**
+ * Target: "vacancy cost calculator", "how much does vacancy cost", "cost of a
+ * vacant rental property".
+ *
+ * This is a worked-example page, NOT an interactive widget. The site runs zero
+ * JavaScript, and a static page that teaches the formula gets cited by answer
+ * engines while a widget gets nothing. Every rent point comes from the portfolio
+ * medians in src/data/markets.ts and every day count from the KPIs in facts.ts.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+
+/** The formula. Daily cost of an empty unit is monthly rent divided by 30. */
+const DAYS_IN_MONTH = 30;
+const daily = (rent: number) => Math.round(rent / DAYS_IN_MONTH);
+const cost = (rent: number, days: number) => Math.round((rent / DAYS_IN_MONTH) * days);
+
+/** Published KPI day counts, parsed so the page cannot drift from the scorecard. */
+const domDays = Number(kpi('dom'));
+const turnDays = Number(kpi('turn'));
+const cycleDays = domDays + turnDays;
+
+/** A $50 monthly rent reduction, used to price the hold-out-for-more-rent decision. */
+const RENT_CUT = 50;
+
+/** Portfolio median rent by bedroom count. Publishable, sample sizes are in the data. */
+const beds = Object.entries(rentByBedroom).map(([b, v]) => ({
+  bed: b,
+  rent: v.median,
+  sample: v.sample,
+  daily: daily(v.median),
+  atCycle: cost(v.median, cycleDays),
+  at30: cost(v.median, 30),
+  at60: cost(v.median, 60),
+  /** Share of a year's gross rent lost to one typical turn. */
+  pctOfYear: ((cost(v.median, cycleDays) / (v.median * 12)) * 100).toFixed(1),
+  /** Days of vacancy that cost the same as cutting rent $50 a month for a year. */
+  daysPerCut: Math.round((RENT_CUT * 12) / (v.median / DAYS_IN_MONTH)),
+}));
+
+const dayScale = [7, 14, turnDays + 7, cycleDays, 45, 60, 90];
+
+const three = beds.find((b) => b.bed === '3')!;
+const two = beds.find((b) => b.bed === '2')!;
+const four = beds.find((b) => b.bed === '4')!;
+
+const VACANCY_CREDIT_DAYS = 60;
+
+const title = 'Vacancy Cost Calculator for Columbus Rentals | RL Property Management';
+const description =
+  `What an empty rental costs per day, worked out. Daily cost is monthly rent divided by 30, so a ` +
+  `${usd(three.rent)} unit costs ${usd(three.daily)} a day and ${usd(three.atCycle)} over a typical ` +
+  `${cycleDays}-day turn and lease-up in Columbus.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Tools', path: '/tools/' },
+  { name: 'Vacancy cost calculator', path: '/tools/vacancy-cost-calculator/' },
+];
+
+const answer =
+  `A vacant unit costs monthly rent divided by 30 for every day it sits empty. At the ${usd(three.rent)} ` +
+  `portfolio median for a 3 bed, that is ${usd(three.daily)} a day and ${usd(three.atCycle)} across a ` +
+  `typical ${cycleDays}-day turn and lease-up.`;
+
+const facts = [
+  `Daily cost of a vacant unit equals monthly rent divided by ${DAYS_IN_MONTH}`,
+  `At the ${usd(two.rent)} median 2 bed rent, that is ${usd(two.daily)} a day`,
+  `At the ${usd(three.rent)} median 3 bed rent, that is ${usd(three.daily)} a day`,
+  `Median ${turnDays} days to turn a unit plus ${domDays} median days on market is a ${cycleDays}-day cycle`,
+  `A ${cycleDays}-day cycle on a 3 bed costs ${usd(three.atCycle)}, about ${three.pctOfYear}% of a year's gross rent`,
+  `Portfolio occupancy is ${kpi('occupancy')}`,
+  `${company.shortName} credits management fees back after ${VACANCY_CREDIT_DAYS} days of vacancy`,
+  `Holding out for ${usd(RENT_CUT)} more rent pays off only if it costs under ${three.daysPerCut} extra vacant days on a 3 bed`,
+];
+
+const faq = [
+  { q: 'How do you calculate the cost of a vacant rental property?',
+    a: `Divide monthly rent by ${DAYS_IN_MONTH} to get the daily cost, then multiply by the number of days the unit is empty. At the ${usd(three.rent)} portfolio median for a Columbus 3 bed, that is ${usd(three.daily)} a day, ${usd(three.at30)} for a month and ${usd(three.at60)} for two. Add turn costs and the carrying costs that do not stop when the rent does: mortgage, taxes, insurance and the utilities you switch back into your own name.` },
+  { q: 'How long does a rental usually sit empty?',
+    a: `Across the ${company.unitsManaged} units ${company.name} manages, median days on market is ${domDays} and median days to turn a unit is ${turnDays}, so a typical full cycle from move-out to signed lease runs about ${cycleDays} days. ${kpis.domDefinition} Portfolio occupancy is ${kpi('occupancy')}.` },
+  { q: 'Is it worth holding out for a higher rent?',
+    a: `Only if the wait is short. ${usd(RENT_CUT)} a month is ${usd(RENT_CUT * 12)} over a year. On a ${usd(three.rent)} 3 bed, that is the same as ${three.daysPerCut} extra vacant days, and on a ${usd(two.rent)} 2 bed it is ${two.daysPerCut} days. If holding the higher price costs more days than that, the lower rent earned more money. This is the single most useful calculation on this page.` },
+  { q: 'What costs are there beyond the lost rent?',
+    a: `Three groups. Turn costs, meaning paint, cleaning, flooring and repairs between residents. [SOURCE NEEDED: a typical unit turn cost range for RLPM-managed Columbus single-family units, with the underlying sample.] Carrying costs, meaning mortgage, property tax, insurance, lawn and snow, and the utilities that revert to you. And re-leasing costs, meaning marketing, showings, screening and photography, which run ${usd(pricing.leasingFee)} with us apart from photography at $250 to $450 where new photos are needed.` },
+  { q: 'Do I still pay a management fee while the unit is empty?',
+    a: `Yes, and this is where a flat fee and a percentage fee differ. A percentage fee is charged on collected rent, so it falls to zero in a month with no rent. Our flat fee is charged whether the unit is occupied or not. The offset is a written commitment: if a property has been listed for rent longer than ${VACANCY_CREDIT_DAYS} days, we proactively credit management fees back to your account.` },
+  { q: 'What actually shortens a vacancy?',
+    a: 'Four things, in this order: pricing the unit against live comparables rather than last year\'s rent, having the unit genuinely ready to show on day one, replying to inquiries within hours, and making showings easy to book. Most lost leases are lost to a slow reply or a unit that shows badly, not to the price.' },
+  { q: 'How much vacancy should I budget for in a year?',
+    a: `Budget from your own turnover rate, not from a rule of thumb. If a unit turns once a year and the cycle runs ${cycleDays} days, that is about ${three.pctOfYear}% of gross rent on a ${usd(three.rent)} 3 bed. If the resident renews, it is close to zero. Our portfolio lease renewal rate is ${kpi('renewal')}, which is why renewals matter more to annual return than the rent increase you chase with a turn.` },
+  { q: 'Does this calculator work for small multifamily?',
+    a: 'Yes. The formula is per unit, so run it once per unit and add the results. The one difference is that shared utilities, common area lighting and shared lawn care keep running at full cost regardless of how many units are occupied, so the carrying cost line does not scale down the way it does on a single-family house.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="Worked example, no sign-up"
+    title="Vacancy cost calculator for Columbus rentals"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See all tools', href: '/tools/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <!-- THE FORMULA -->
+  <section class="band" aria-labelledby="formula-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The formula</span>
+      <h2 id="formula-h" class="text-[clamp(28px,3.3vw,40px)]">How do you calculate the cost of a vacant rental?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Divide monthly rent by {DAYS_IN_MONTH} to get the daily cost, then multiply by the days the unit sits
+        empty. That is the lost rent. Then add three things that are easy to forget: turn costs, the carrying
+        costs that keep running, and the cost of re-leasing.
+      </p>
+      <div class="card !bg-wash-soft mt-8">
+        <h3 class="text-[19px] mb-3.5">The whole calculation, in four lines</h3>
+        <ol class="grid gap-2.5 text-[16px]">
+          <li><strong class="text-navy">Lost rent.</strong> Monthly rent divided by {DAYS_IN_MONTH}, times the number of vacant days.</li>
+          <li><strong class="text-navy">Turn cost.</strong> Paint, cleaning, flooring, repairs and trash-out between residents.</li>
+          <li><strong class="text-navy">Carrying cost.</strong> Mortgage, taxes, insurance, lawn and snow, and every utility that reverts to your name.</li>
+          <li><strong class="text-navy">Re-leasing cost.</strong> Marketing, showings, screening, lease preparation and photography where new photos are needed.</li>
+        </ol>
+        <p class="text-[15px] text-muted mt-5 mb-0">
+          Lines 1 and 3 run every single day. Lines 2 and 4 happen once. That is why the number of vacant days
+          matters more than the size of the turn bill for most owners.
+        </p>
+      </div>
+      <p class="text-[15px] text-faint mt-6">
+        Every figure on this page is rounded to the nearest dollar. Dividing by {DAYS_IN_MONTH} rather than by
+        the actual length of the month is the convention property managers use, and it is close enough that
+        the difference never changes a decision.
+      </p>
+    </div>
+  </section>
+
+  <!-- DAILY COST TABLE -->
+  <section class="band band-wash" aria-labelledby="daily-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Start here</span>
+      <h2 id="daily-h" class="text-[clamp(28px,3.3vw,40px)]">What does one vacant day cost in Columbus?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        At the median rents across the {company.unitsManaged} units we manage. Find the row closest to your
+        rent, or run your own number through the same formula.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Daily and cumulative cost of vacancy at portfolio median rents</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Unit</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Median rent</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Per vacant day</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">{cycleDays}-day cycle</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">60 days</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Share of a year's rent</th>
+            </tr>
+          </thead>
+          <tbody>
+            {beds.map((b) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium">{b.bed} bed</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(b.rent)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(b.daily)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">{usd(b.atCycle)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">{usd(b.at60)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{b.pctOfYear}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        The {cycleDays}-day column is our median turn of {turnDays} days plus our median {domDays} days on
+        market. {kpis.domDefinition} The last column is that cycle expressed against twelve months of gross
+        rent, which is the number to carry into your own return calculation.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE GRID -->
+  <section class="band" aria-labelledby="grid-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Run it against your property</span>
+      <h2 id="grid-h" class="text-[clamp(28px,3.3vw,40px)]">What does a vacancy cost by the day?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        Lost rent only, before turn and carrying costs. Read down your rent, across to the number of days.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Lost rent by monthly rent and number of vacant days</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3 border-b border-line font-semibold">Monthly rent</th>
+              {dayScale.map((d) => (
+                <th scope="col" class="text-right p-3 border-b border-line font-semibold whitespace-nowrap">{d} days</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {beds.map((b) => (
+              <tr>
+                <th scope="row" class="text-left p-3 border-b border-line font-medium tabular-nums whitespace-nowrap">
+                  {usd(b.rent)} <span class="text-faint font-normal">({b.bed} bed)</span>
+                </th>
+                {dayScale.map((d) => (
+                  <td class="text-right p-3 border-b border-line tabular-nums text-navy">{usd(cost(b.rent, d))}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15px] text-faint mt-5">
+        Sample sizes behind each median:
+        {beds.map((b, i) => (
+          <span>{' '}{b.bed} bed, {b.sample} units{i < beds.length - 1 ? ';' : '.'}</span>
+        ))}
+      </p>
+    </div>
+  </section>
+
+  <!-- THREE WORKED EXAMPLES -->
+  <section class="band band-wash" aria-labelledby="ex-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Three worked examples</span>
+      <h2 id="ex-h" class="text-[clamp(28px,3.3vw,40px)]">What does this look like on a real Columbus unit?</h2>
+      <div class="grid gap-5 mt-8">
+
+        <div class="card">
+          <h3 class="text-[19.5px] mb-3">A 3 bed at {usd(three.rent)}, turned and leased on schedule</h3>
+          <p class="text-[15.5px] text-muted">
+            Daily cost is {usd(three.rent)} divided by {DAYS_IN_MONTH}, or {usd(three.daily)}. The resident
+            moves out, the turn runs our median {turnDays} days, and the unit leases in our median
+            {' '}{domDays} days on market, so {cycleDays} vacant days in total.
+          </p>
+          <p class="text-[15.5px] text-navy font-semibold mt-3 mb-0">
+            Lost rent: {usd(three.daily)} times {cycleDays} days equals {usd(three.atCycle)}, about
+            {' '}{three.pctOfYear}% of a year of gross rent. Turn and carrying costs sit on top of that.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="text-[19.5px] mb-3">A 2 bed at {usd(two.rent)}, still empty at {VACANCY_CREDIT_DAYS} days</h3>
+          <p class="text-[15.5px] text-muted">
+            Daily cost is {usd(two.daily)}. At {VACANCY_CREDIT_DAYS} days the lost rent is
+            {' '}{usd(two.at60)}, which is more than {Math.floor(two.at60 / pricing.plans[1].monthly)} months
+            of management on {pricing.plans[1].name}. A unit still sitting at {VACANCY_CREDIT_DAYS} days is
+            almost always priced above the market or showing badly, and both are fixable in a week.
+          </p>
+          <p class="text-[15.5px] text-navy font-semibold mt-3 mb-0">
+            This is the point where our commitment kicks in: past {VACANCY_CREDIT_DAYS} days on the market we
+            proactively credit management fees back to your account.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="text-[19.5px] mb-3">A 4 bed at {usd(four.rent)}, held back three weeks for a repair</h3>
+          <p class="text-[15.5px] text-muted">
+            Daily cost is {usd(four.daily)}. Twenty-one days waiting on a contractor before the unit can even
+            be listed costs {usd(cost(four.rent, 21))} in rent, and it happens before day one of marketing.
+            Add the normal {cycleDays}-day cycle after that and the total is
+            {' '}{usd(cost(four.rent, 21 + cycleDays))}.
+          </p>
+          <p class="text-[15.5px] text-navy font-semibold mt-3 mb-0">
+            Scheduling the turn before the move-out date, rather than after it, is worth more on a high-rent
+            unit than any negotiation you will have with the contractor.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- THE RENT CUT TRADEOFF -->
+  <section class="band" aria-labelledby="cut-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">The decision this actually informs</span>
+      <h2 id="cut-h" class="text-[clamp(28px,3.3vw,40px)]">Should you hold out for a higher rent?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        Only if the wait is short enough. {usd(RENT_CUT)} a month is {usd(RENT_CUT * 12)} over a twelve-month
+        lease. Here is how many extra vacant days that {usd(RENT_CUT * 12)} buys you, by rent. Wait longer
+        than the number in the last column and the lower rent would have earned more.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Extra vacant days equivalent to a fifty dollar monthly rent reduction</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Unit</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Median rent</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Per vacant day</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">{usd(RENT_CUT)} a month, over a year</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Break-even in vacant days</th>
+            </tr>
+          </thead>
+          <tbody>
+            {beds.map((b) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium">{b.bed} bed</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(b.rent)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(b.daily)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(RENT_CUT * 12)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{b.daysPerCut} days</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        On a {usd(three.rent)} 3 bed, holding out for {usd(RENT_CUT)} more rent pays off only if it costs
+        fewer than {three.daysPerCut} extra vacant days. Our median days on market is {domDays}. That is the
+        whole argument for pricing to the market on day one instead of testing a number for two weeks.
+      </p>
+      <p class="text-[15.5px] text-muted mt-4">
+        One caveat in the other direction: the higher rent persists into renewals, and the vacancy does not.
+        If the resident stays three years, a {usd(RENT_CUT)} difference compounds into
+        {' '}{usd(RENT_CUT * 36)} of forgone rent. Our lease renewal rate is {kpi('renewal')}, so this is a
+        real consideration rather than a theoretical one. The test is whether you can defend the higher rent
+        with comparables, not whether you would like it.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT IS MISSING -->
+  <section class="band band-wash" aria-labelledby="miss-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">What this page does not tell you</span>
+      <h2 id="miss-h" class="text-[clamp(28px,3.3vw,40px)]">What else belongs in the total?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Three lines we cannot fill in for you, because they are specific to your property.
+      </p>
+      <ul class="grid gap-2.5 mt-7">
+        {[
+          'Your carrying costs. Mortgage principal and interest, property tax, insurance, lawn and snow, and every utility that reverts to your name the day the resident leaves.',
+          'Your turn cost. Paint, cleaning, flooring, trash-out and the repairs that only surface once the unit is empty. [SOURCE NEEDED: a typical unit turn cost range for RLPM-managed Columbus single-family units, with the underlying sample.]',
+          `Re-leasing. With us that is ${usd(pricing.leasingFee)}, apart from photography at $250 to $450 where the unit is newly vacant or has had major cosmetic work. Elsewhere it is commonly half a month of rent.`,
+        ].map((s) => (
+          <li class="card !p-4.5 text-[15.5px] flex gap-3">
+            <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{s}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-[15.5px] text-muted mt-7">
+        Write those three numbers down once for your property and keep them. Together with the daily cost of
+        rent, they turn every future vacancy decision into arithmetic instead of an argument.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Vacancy cost questions" id="vacancy-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+      <p class="text-[13px] text-faint mt-3">
+        Rent medians are across the {company.unitsManaged} units {company.name} manages, as of
+        {' '}{kpis.asOfLabel}. Day counts come from our published scorecard. Figures are rounded to the
+        nearest dollar and are an illustration of the formula, not a forecast for any specific property.
+      </p>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/tools/maintenance-reserve-calculator/', label: 'Maintenance reserve calculator', note: 'How much to hold per unit for repairs.' },
+    { href: '/services/marketing-and-leasing/', label: 'Marketing and leasing', note: 'How we shorten the days on market.' },
+    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'Price the unit against live comparables first.' },
+    { href: '/tools/', label: 'All owner tools', note: 'Calculators and the market report.' },
+    { href: '/pricing/', label: 'Pricing', note: 'What the flat fee covers, including the vacancy credit.' },
+  ]} />
+
+  <Cta
+    heading="The cheapest way to shorten a vacancy is to price it right"
+    body="A free written rent evaluation gives you a rent range and the comparables behind it, so day one of marketing is at the right number instead of two weeks in."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

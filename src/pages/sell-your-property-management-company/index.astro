@@ -1,0 +1,137 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company } from '../../data/facts';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Replaces the old /we-buy-property-management-contracts-companies-form/, which
+ * was a bare form with 63 words on it. This is an acquisition page aimed at
+ * owners of small Columbus management companies thinking about an exit.
+ *
+ * Deal structure is deliberately absent. Nothing about multiples, terms or
+ * valuation is in facts.ts and inventing any of it would be worse than useless
+ * to someone actually considering a sale.
+ */
+const title = `Sell Your Columbus Property Management Company | ${company.name}`;
+const description =
+  `${company.name} acquires small property management companies and rental portfolios in the Columbus, Ohio metro. ` +
+  'A confidential conversation, a local buyer, and continuity for your clients and residents.';
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Sell your management company', path: '/sell-your-property-management-company/' },
+];
+
+const keyFacts = [
+  `${company.name} is a licensed Ohio brokerage operating in Columbus since ${company.founded}`,
+  `We currently manage ${company.unitsManaged} units across the metro`,
+  'We acquire management contracts and whole companies, in the Columbus metro only',
+  'Conversations are confidential, and we sign an NDA before you share anything',
+  'Your residents and owners keep working with a local team, not a call centre',
+];
+
+const faq = [
+  { q: 'Does RL Property Management buy property management companies?',
+    a: `Yes. ${company.name} acquires management contracts and small management companies in the Columbus, Ohio metro. We are a licensed Ohio brokerage that has operated here since ${company.founded} and manages ${company.unitsManaged} units.` },
+  { q: 'What size company are you looking for?',
+    a: 'Small to mid-size Columbus-area residential portfolios, single-family and small multifamily. If you manage a few dozen doors or a few hundred, the conversation is worth having. We do not acquire outside Central Ohio.' },
+  { q: 'What happens to my clients and residents?',
+    a: 'They keep working with a local team in Columbus. That continuity is usually the thing a departing owner cares most about, and it is the reason a local buyer is different from a national roll-up.' },
+  { q: 'Is the conversation confidential?',
+    a: 'Yes. We sign a non-disclosure agreement before you share financials, client lists or anything else. Nobody wants their staff or clients learning about a possible sale from a rumour.' },
+  { q: 'How is a management company valued?',
+    a: '[SOURCE NEEDED: how RLPM approaches valuation, and the general deal structures offered. Nothing about multiples, terms or earn-outs is published here because nothing has been verified, and a wrong number would be worse than no number to someone considering a sale.]' },
+  { q: 'What if I want to stay involved?',
+    a: '[SOURCE NEEDED: whether RLPM offers roles or transition arrangements to selling owners.]' },
+  { q: 'How do I start?',
+    a: `Email ${company.email} or call ${company.phone} and ask for a confidential conversation. Nothing is shared and nothing is committed until you decide to take it further.` },
+];
+
+const schemaNodes = [serviceNode({
+  path: '/sell-your-property-management-company/',
+  name: 'Property management company acquisition',
+  description,
+})];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+  <PageHero
+    eyebrow="Acquisitions"
+    title="Thinking about selling your management company?"
+    answer={`${company.name} acquires property management contracts and small companies in the Columbus, Ohio metro. Confidential conversation, local buyer, and continuity for the clients and residents you built.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Start a confidential conversation', href: `mailto:${company.email}` }}
+    secondaryCta={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+
+  <KeyFacts items={keyFacts} heading="The short version" />
+
+  <section class="band-tight">
+    <div class="wrap max-w-[780px]">
+      <div class="prose-rl">
+        <h2>Why owners sell</h2>
+        <p>
+          Usually one of four reasons. The operator wants to retire and has no succession plan. The
+          business grew past the systems holding it together. A partner wants out. Or the owner realised
+          they enjoy owning real estate more than managing other people's.
+        </p>
+        <p>
+          None of those are failures, and none of them are unusual. Property management is an operations
+          business with thin margins and a high touch load, and there is a size where it either needs real
+          infrastructure or a different owner.
+        </p>
+
+        <h2>Why a local buyer is different</h2>
+        <p>
+          A national roll-up buys the contracts and reassigns the relationships to whoever is available.
+          We operate in this market, our team is here, and the residents in those units will be calling the
+          same Columbus office we already answer. If you spent years building trust with your clients, that
+          difference is the whole point.
+        </p>
+
+        <h2>What the process looks like</h2>
+        <ol>
+          <li><strong>A conversation.</strong> No documents, no commitment. What you have, and what you want out of it.</li>
+          <li><strong>An NDA.</strong> Signed before you share anything sensitive.</li>
+          <li><strong>Diligence.</strong> We look at the portfolio, the agreements and the condition of the book.</li>
+          <li><strong>An offer, and a transition plan.</strong> Including how and when clients and residents are told.</li>
+        </ol>
+        <!-- [SOURCE NEEDED: typical timeline from first conversation to close, and the general deal
+             structures offered. Both deliberately absent rather than estimated.] -->
+        <p>
+          [SOURCE NEEDED: typical timeline from first conversation to close.]
+        </p>
+
+        <h2>What we are looking for</h2>
+        <p>
+          Residential portfolios in the Columbus metro: single-family homes and small multifamily, the same
+          property types we already manage. We do not acquire outside Central Ohio, and we would rather say
+          that plainly than take a meeting we cannot act on.
+        </p>
+      </div>
+      <div class="mt-9"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <Faq items={faq} heading="Questions sellers ask" id="acq-faq" />
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/about/', label: 'About RL Property Management', note: `Who would be buying, and since ${company.founded}` },
+    { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'How we actually operate, in numbers' },
+    { href: '/pricing/', label: 'Our published pricing', note: 'What your clients would move to' },
+    { href: '/contact-us/', label: 'Contact us', note: company.phone },
+  ]} />
+
+  <Cta heading="Start with a conversation, not a commitment."
+       body="Nothing is shared and nothing is decided until you want it to be. We sign an NDA first."
+       primary={{ label: `Email ${company.email}`, href: `mailto:${company.email}` }}
+       secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }} />
+</Base>

@@ -1,0 +1,279 @@
+---
+/*
+ * ===========================================================================
+ * DRAFT. NOT LEGAL ADVICE. PENDING REVIEW BY COUNSEL BEFORE PUBLICATION.
+ * ===========================================================================
+ * Written by a non-lawyer. Open legal questions are marked inline as
+ * [LEGAL REVIEW: question] and open facts as [SOURCE NEEDED: what is needed].
+ *
+ * PURPOSE: this page exists to carry the disclosures a carrier campaign
+ * registration expects, and to be the link a messaging program points at.
+ * The elements below are here on purpose and must survive review:
+ *   1. who sends, and what the messages are about
+ *   2. how consent is collected
+ *   3. message frequency
+ *   4. "Message and data rates may apply"
+ *   5. STOP to opt out, HELP for help
+ *   6. a link to the privacy policy and the terms
+ *   7. a support phone number and email
+ * TCPA consent language and CTIA / carrier campaign registration wording are
+ * NOT settled here. Do not publish until counsel has reviewed every marker.
+ */
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { company } from '../../data/facts';
+import { longDate } from '../../lib/format';
+
+const title = 'SMS Terms and Consent | RL Property Management';
+const description =
+  `What ${company.name} sends by text message, how often, how to opt out with STOP and how to get help ` +
+  `with HELP. Message and data rates may apply.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'SMS consent', path: '/sms-consent/' },
+];
+
+const effective = '2026-09-09';
+
+const keyFacts = [
+  'Texts are about maintenance, showings, rent and your account',
+  'You opt in. We do not text people who did not ask',
+  'Message frequency varies with what is happening at your property',
+  'Message and data rates may apply',
+  'Reply STOP to any message to stop all of them',
+  'Reply HELP, or call the office, for help',
+];
+
+/** The message categories. Kept descriptive rather than promissory, because the
+ *  exact campaign use cases are part of what counsel and the carrier registration
+ *  have to settle. */
+const messageTypes = [
+  {
+    h: 'Maintenance and repairs',
+    p: 'Confirming a repair request was received, scheduling a technician, telling you a technician is on the way, and following up after the work is done.',
+  },
+  {
+    h: 'Showings and applications',
+    p: 'Confirming a showing time for a home you asked to see, letting you know a lockbox code is ready, and updates on an application in progress.',
+  },
+  {
+    h: 'Rent and account notices',
+    p: 'Reminders about a balance, confirmation that a payment posted, and notices about your account or your lease.',
+  },
+  {
+    h: 'Owner updates',
+    p: 'Time-sensitive updates about your property, such as an approval needed on a repair, a leasing update, or a question we need answered before we can move.',
+  },
+  {
+    h: 'Replies to something you started',
+    p: 'If you text the office, you get a text back. That is a conversation you began, and it continues until you say stop.',
+  },
+];
+
+const faq = [
+  {
+    q: 'What kind of text messages does RL Property Management send?',
+    a: 'Messages about maintenance and repair scheduling, showings and applications, rent and account notices, time-sensitive owner updates, and replies to a conversation you started. These are operational messages about a property or an account, not a marketing blast.',
+  },
+  {
+    q: 'How do I stop receiving text messages?',
+    a: 'Reply STOP to any message from us. That ends the messages. You can start again later by texting us or by asking the office to turn them back on.',
+  },
+  {
+    q: 'How do I get help with text messages?',
+    a: `Reply HELP to any message, or call the office at ${company.phone}. Email ${company.email} works too, and reaches the same team.`,
+  },
+  {
+    q: 'Do text messages from RL Property Management cost anything?',
+    a: 'We do not charge for them, but message and data rates may apply depending on your mobile plan. Your carrier, not us, decides what a message costs you.',
+  },
+  {
+    q: 'How often will I get a text?',
+    a: 'Message frequency varies. It depends on what is happening at your property, so it can be several messages in a week during a repair or a move-in, and none at all for months when nothing is happening.',
+  },
+  {
+    q: 'Do I have to accept text messages to rent from you or to have my property managed?',
+    a: 'No. Text messaging is one way to reach us and it is usually the fastest, but phone and email work for everything. Opting out of texts does not change your lease, your application or your management agreement.',
+  },
+  {
+    q: 'Will my phone number be sold or shared?',
+    a: `No. ${company.name} does not sell your information. Your number is used to reach you about your property or your account, and it is handled the way the privacy policy describes.`,
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+  <!--
+    ==========================================================================
+    DRAFT SMS TERMS AND CONSENT. NOT LEGAL ADVICE. PENDING REVIEW BY COUNSEL.
+    Carries the disclosures a carrier campaign registration expects: program
+    description, consent, frequency, "message and data rates may apply", STOP,
+    HELP, privacy link and support contact. TCPA consent wording and CTIA /
+    carrier registration specifics are NOT settled and are marked inline as
+    [LEGAL REVIEW: ...]. Do not publish until counsel resolves every marker.
+    ==========================================================================
+  -->
+
+  <PageHero
+    eyebrow="Text messaging"
+    title="SMS terms and consent"
+    answer={`${company.name} sends text messages about maintenance, showings, rent and account matters to people who opt in. Message and data rates may apply. Reply STOP to opt out, HELP for help.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Read our privacy policy', href: '/privacy-policy/' }}
+    secondaryCta={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+
+  <KeyFacts items={keyFacts} heading="The short version" />
+
+  <section class="band-tight" aria-labelledby="who-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <p class="text-[14px] text-faint">Effective {longDate(effective)}.</p>
+
+      <h2 id="who-h">Who sends these messages?</h2>
+      <p>
+        {company.name}, a licensed Ohio real estate brokerage at {company.address.street},
+        {' '}{company.address.city}, {company.address.region} {company.address.postalCode}. The
+        office phone is {company.phone} and the email address is
+        {' '}<a href={`mailto:${company.email}`}>{company.email}</a>.
+      </p>
+      <p>
+        [LEGAL REVIEW: confirm the exact sending number or numbers, whether messages go out on a
+        toll-free number, a 10DLC long code or a short code, and whether the registered brand and
+        campaign names must be published here. Also confirm which messaging platform sends on our
+        behalf and whether it must be disclosed.]
+      </p>
+
+      <h2>How do I opt in?</h2>
+      <p>
+        By giving us your mobile number and agreeing that we may contact you about your property or
+        your account, or by texting us first. That happens in a few places: a form on this site, a
+        rental application, a lease or management agreement, or a conversation with a member of our
+        team.
+      </p>
+      <p>
+        We do not buy phone numbers and we do not text people who have not asked to hear from us.
+        {' '}[LEGAL REVIEW: TCPA consent. Confirm what level of consent each message category
+        requires, the exact consent wording that must appear next to every phone field on this site
+        and on paper forms, and how consent is recorded and evidenced. Confirm that consent is not
+        a condition of renting or of engaging management, and that this page says so in the
+        required way.]
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="types-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">What we send</span>
+      <h2 id="types-h" class="text-[clamp(26px,3.2vw,38px)]">What messages will I get?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Operational messages about a property or an account. Five categories, all of them tied to
+        something actually happening.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {messageTypes.map((m) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{m.h}</h3>
+            <p class="text-[15px] text-muted m-0">{m.p}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[15px] text-muted mt-7 max-w-[44em]">
+        [LEGAL REVIEW: confirm whether any marketing or promotional messages will be sent, and if
+        so, whether they need a separate opt-in, a separate campaign registration and separate
+        disclosure on this page. As drafted, this page describes operational messaging only.]
+      </p>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="freq-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="freq-h">How often will I get messages?</h2>
+      <p>
+        Message frequency varies. It follows what is happening at the property, so a week with a
+        repair visit and a move-in can mean several messages, and a quiet month can mean none.
+        There is no set schedule and no recurring broadcast.
+        {' '}[LEGAL REVIEW: carrier campaign registration usually wants a stated frequency, such as
+        a maximum number of messages per month. Confirm the exact frequency disclosure required and
+        replace this paragraph with it.]
+      </p>
+
+      <h2>Do the messages cost anything?</h2>
+      <p>
+        <strong>Message and data rates may apply.</strong> We do not charge you for a text. Your
+        mobile carrier may, depending on your plan, and that is between you and your carrier.
+      </p>
+
+      <h2>How do I stop the messages?</h2>
+      <p>
+        <strong>Reply STOP to any message from us.</strong> That stops the messages. You should get
+        one confirmation that you have been unsubscribed, and then nothing further.
+      </p>
+      <p>
+        If you want them back later, text us again or call the office and ask. Stopping texts does
+        not stop us from reaching you by phone or email about your property or your account, and it
+        does not affect your lease, your application or your management agreement.
+        {' '}[LEGAL REVIEW: confirm the exact opt-out keywords the platform honors, such as STOP,
+        END, CANCEL, UNSUBSCRIBE and QUIT, the exact confirmation message text, and whether an
+        opt-out applies to every sending number or only the one that was replied to.]
+      </p>
+
+      <h2>How do I get help?</h2>
+      <p>
+        <strong>Reply HELP to any message</strong>, or call {company.phone} during the business day,
+        or email <a href={`mailto:${company.email}`}>{company.email}</a>. A person handles it.
+        {' '}[LEGAL REVIEW: confirm the exact automated HELP response text, which must identify the
+        program and give a support contact.]
+      </p>
+
+      <h2>Which carriers are supported?</h2>
+      <p>
+        [SOURCE NEEDED: the list of supported carriers, from the messaging platform.]
+        {' '}[LEGAL REVIEW: whether the standard carrier disclaimer, that wireless carriers are not
+        liable for delayed or undelivered messages, is required here and in what wording.]
+      </p>
+
+      <h2>What happens to my phone number?</h2>
+      <p>
+        It is used to reach you about your property or your account. We do not sell your
+        information. What we collect, where it goes and how to ask about it is set out in the
+        {' '}<a href="/privacy-policy/">privacy policy</a>, and the site terms are on the
+        {' '}<a href="/terms/">terms of use page</a>.
+        {' '}[LEGAL REVIEW: confirm whether the specific statement that mobile opt-in data is not
+        shared with third parties for marketing purposes is required for carrier registration, and
+        whether it is accurate given the messaging platform we use.]
+      </p>
+
+      <h2>What if my number changes?</h2>
+      <p>
+        Tell us. Call {company.phone} or email {company.email} so we update it, because a
+        reassigned number means our messages go to a stranger and you stop getting notices about
+        your own property.
+      </p>
+
+      <h2>Can these terms change?</h2>
+      <p>
+        Yes. The effective date at the top changes and the new version replaces this one.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Text messaging questions" id="sms-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/privacy-policy/', label: 'Privacy policy', note: 'What we collect, and where it goes.' },
+    { href: '/terms/', label: 'Terms of use', note: 'What this website is and is not.' },
+    { href: '/residents/maintenance-requests/', label: 'Maintenance requests', note: 'The fastest way to get a repair logged.' },
+    { href: '/contact-us/', label: 'Contact us', note: 'Phone, email and office address.' },
+    { href: '/accessibility/', label: 'Accessibility', note: 'Another way to reach us if text does not work for you.' },
+  ]} />
+</Base>

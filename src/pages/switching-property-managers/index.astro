@@ -102,7 +102,7 @@ const faq = [
   { q: 'What happens to the security deposit when I change managers?',
     a: 'It belongs to the resident and it transfers, either to the new manager or back to you, with a written accounting. It is held and returned under Ohio landlord-tenant law regardless of who is managing. Never accept a transfer without a ledger showing what is held for whom.' },
   { q: 'What does it cost to move a property to RL Property Management?',
-    a: `There is no startup fee on an occupied unit. Monthly management is a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit and placing a resident is ${usd(pricing.leasingFee)}. A delinquent tenant setup fee of ${ourDelinquentSetup?.amount} applies in one case only: ${(ourDelinquentSetup?.note ?? '').charAt(0).toLowerCase() + (ourDelinquentSetup?.note ?? '').slice(1)}` },
+    a: `There is no startup fee on an occupied unit. Monthly management is a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit and placing a resident is ${usd(pricing.leasingFee)}. The one situational charge is a delinquent tenant setup fee of ${ourDelinquentSetup?.amount}. It ${(ourDelinquentSetup?.note ?? '').charAt(0).toLowerCase() + (ourDelinquentSetup?.note ?? '').slice(1)} That account needs real work in week one.` },
   { q: 'Will my residents be upset by the change?',
     a: 'Usually not, if they are told once, clearly, and before the 1st. Residents care about three things: where rent goes, who fixes things, and whether anyone answers. A transfer that gets those right is a non-event for them.' },
   { q: 'Does RL Property Management charge an early termination fee?',
@@ -236,8 +236,8 @@ const schemaNodes = [
         <p class="text-[17.5px] text-muted mb-5">
           Coming the other way: there is no startup fee on an occupied unit, monthly management is
           {' '}{usd(pricing.plans[0].monthly)} to {usd(pricing.plans[2].monthly)} per unit, and placing a resident
-          is {usd(pricing.leasingFee)}. A delinquent tenant setup fee of {ourDelinquentSetup?.amount} applies in one
-          case only: {(ourDelinquentSetup?.note ?? '').charAt(0).toLowerCase() + (ourDelinquentSetup?.note ?? '').slice(1)}
+          is {usd(pricing.leasingFee)}. The one situational charge is a
+          delinquent tenant setup fee of {ourDelinquentSetup?.amount}. It {(ourDelinquentSetup?.note ?? '').charAt(0).toLowerCase() + (ourDelinquentSetup?.note ?? '').slice(1)} That account needs real work in week one.
         </p>
         <p class="text-[17.5px] text-muted mb-6">
           Every other charge that can appear on your statement is on the fee schedule. Compare it line by line

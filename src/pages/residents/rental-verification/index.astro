@@ -1,0 +1,77 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import { company } from '../../../data/facts';
+
+/** Redirect target for the old /rental-verification-form/. */
+const title = `Rental Verification Requests | ${company.name}`;
+const description =
+  `How to request a rental history or residency verification from ${company.name}, what we can confirm, and what we need from you.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' }, { name: 'Residents', path: '/residents/' },
+  { name: 'Rental verification', path: '/residents/rental-verification/' },
+];
+const faq = [
+  { q: 'How do I request a rental verification?',
+    a: `Email ${company.email} with the resident's full name, the property address, and the dates in question. Include the resident's signed authorization, because we cannot release tenancy details without it.` },
+  { q: 'What can you confirm?',
+    a: 'Generally the dates of tenancy, the monthly rent, and the payment record. What we release depends on what the resident authorized and on the lease.' },
+  { q: 'Do you need the resident to authorize it?',
+    a: 'Yes. We do not release information about a current or former resident without their written authorization. This protects the resident and it is the reason a request without one will come back to you unanswered.' },
+  { q: 'How long does a verification take?',
+    a: '[SOURCE NEEDED: standard turnaround time for a rental verification request.]' },
+  { q: 'I am a current resident and I need proof of residency. Can you help?',
+    a: `Yes. Email ${company.email} from the address on your lease and tell us what the letter needs to say and who it is going to.` },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+  <PageHero
+    eyebrow="Residents"
+    title="Rental verification requests"
+    answer={`${company.name} confirms tenancy dates, rent and payment history for current and former residents, with the resident's written authorization. Email ${company.email} to start one.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: `Email ${company.email}`, href: `mailto:${company.email}` }}
+    secondaryCta={{ label: 'Resident FAQs', href: '/resident-faqs/' }}
+  />
+
+  <section class="band-tight">
+    <div class="wrap max-w-[760px]">
+      <div class="prose-rl">
+        <h2>What to include in the request</h2>
+        <ul>
+          <li>The resident's full legal name</li>
+          <li>The property address, including unit number</li>
+          <li>The dates you are asking about</li>
+          <li>The resident's signed authorization to release the information</li>
+          <li>Where to send the response, and any form that needs completing</li>
+        </ul>
+
+        <h2>Why we need authorization</h2>
+        <p>
+          Tenancy and payment history is personal information. We do not release it about a current or
+          former resident without their written permission. A request that arrives without one is not
+          ignored, it simply cannot be answered until the authorization does.
+        </p>
+
+        <h2>If you are the resident</h2>
+        <p>
+          You do not need to go through a third party. Email us from the address on your lease and tell us
+          what you need the letter to confirm and who it is going to.
+        </p>
+        <!-- [SOURCE NEEDED: standard turnaround time, whether there is a fee for a verification, and
+             whether a specific form is preferred over email.] -->
+      </div>
+      <div class="mt-9"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/resident-faqs/', label: 'Resident FAQs', note: 'Deposits, notice, renewals' },
+    { href: '/residents/', label: 'Resident hub', note: 'Everything for current residents' },
+    { href: '/residents/moving-out/', label: 'Moving out', note: 'Notice and deposit return' },
+    { href: '/contact-us/', label: 'Contact us', note: `${company.phone}` },
+  ]} />
+</Base>

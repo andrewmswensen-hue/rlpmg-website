@@ -1,0 +1,552 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, rentPolicy, usd } from '../../data/facts';
+import { rentByMarketAndBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * THE ANCHOR PAGE. Columbus is by a wide margin our largest market and this is
+ * the deepest area page on the site. Target query: "property management columbus ohio".
+ *
+ * It is deliberately a local resource rather than a services pitch. The services
+ * pitch lives at /columbus-property-management/, which this page links to. What
+ * makes this page impossible for a competitor to copy is the regulatory detail:
+ * the court, the registry, the water lien rule, the refuse cutoff.
+ *
+ * SCHEMA. This page emits Service with areaServed set to the single City of
+ * Columbus. It emits NO LocalBusiness, NO address and NO geo. There is exactly one
+ * LocalBusiness node on this site, on the organization, at 750 Cross Pointe Rd.
+ * A city page that claims to be a branch office is the most common technical error
+ * on service-area pages and we are not making it.
+ *
+ * NEVER on this page: per-market door counts, per-market days on market. Both banned.
+ *
+ * SOURCES, all pulled 2026-09-09
+ *  - Court jurisdiction: Ohio Revised Code 1901.02, "The Franklin county municipal
+ *    court has jurisdiction within Franklin county."
+ *    https://codes.ohio.gov/ohio-revised-code/section-1901.02
+ *    Court address 375 S. High St., Columbus OH 43215, and the Environmental Division
+ *    described as the only dedicated one in Ohio: https://franklincountymunicourt.org/
+ *  - Eviction is a forcible entry and detainer action under ORC Chapter 1923.
+ *  - County auditor registration: ORC 5323.02
+ *    https://codes.ohio.gov/ohio-revised-code/section-5323.02 and
+ *    https://auditor.franklincountyohio.gov/Real-Estate/Rental-Registration
+ *  - Columbus rental registry: Chapter 4515 of the Columbus City Codes, passed by
+ *    Columbus City Council April 20, 2026. $15 per unit annual, capped $1,500 per
+ *    complex; triennial safety inspection of common areas and critical building
+ *    systems covered by the registration fee; civil penalty $2 per day per unit with
+ *    a $10 daily minimum; conditional status adds a $250 annual inspection fee.
+ *    https://www.sciototitle.com/scioto-blog/columbus-city-council-passes-rental-registry-and-property-inspection-ordinance
+ *    https://abc6onyourside.com/news/local/city-council-votes-to-pass-bill-creating-registry-of-residential-rental-properties-columbus-ohio-housing-crisis
+ *    https://www.wosu.org/politics-government/2026-04-15/columbus-city-council-proposes-rental-registry-to-combat-problem-landlords
+ *  - Water and sewer owner liability and lien: Columbus City Code 1105.045
+ *    ("Unpaid charges a lien. Owner liable.") and 1147.16.
+ *    http://columbus-oh.elaws.us/code/coor_title11_ch1105_sec1105.045
+ *    Tenant Billing Agreement: https://www.columbus.gov/Services/Columbus-Water-Power/Information-for-Customers/Tenant-Billing-Agreement-Water-and-Sewer
+ *    Delinquent charge lookup: https://unpaidcharges.columbus.gov/
+ *  - Electric: AEP Ohio serves most of the city; the municipal Columbus Division of
+ *    Power serves certain corridors and pockets. Gas: Columbia Gas of Ohio.
+ *  - Refuse: city collection covers single-family homes and buildings of four attached
+ *    units or fewer, per the Division of Refuse Collection Rules and Regulations and
+ *    Title 13 of the Columbus code.
+ *    https://www.columbus.gov/files/sharedassets/city/v/1/public-service/trash-recycling-amp-bulk-collection/title-13-revised-9-16-25.pdf
+ *  - Source of income: Columbus City Council approved source-of-income protection in
+ *    March 2021, effective July 2021; violation is a first-degree misdemeanor and the
+ *    voucher portion is subtracted before any income-multiple test.
+ *    https://columbusrealtors.com/news/2021/03/11/legislative/columbus-approves-legislation-protecting-renters-from-income-discrimination
+ *  - Historic districts: German Village, Italian Village and Victorian Village
+ *    commissions issue Certificates of Appropriateness under Columbus City Code
+ *    chapters 3116 and 3119.
+ */
+
+const CITY = 'Columbus';
+const PATH = '/property-management-columbus-ohio/';
+
+const title = 'Property Management in Columbus, Ohio | RL Property Management';
+const description =
+  `${company.name} manages single-family and small multifamily rentals across Columbus, Ohio. ` +
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, ` +
+  `${usd(pricing.leasingFee)} leasing fee, plus what an owner needs to know about the Columbus rental registry, ` +
+  `Franklin County Municipal Court and who pays the water.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Columbus', path: PATH },
+];
+
+/** Our own portfolio medians for Columbus. Sample of 5 or more on every row. */
+const cbusRent = rentByMarketAndBedroom[CITY];
+const rentRows = ['1', '2', '3', '4'].map((b) => ({ beds: b, ...cbusRent[b] }));
+
+const REGISTRY_PER_UNIT = 15;
+const REGISTRY_CAP = 1500;
+const CONDITIONAL_INSPECTION_FEE = 250;
+const REFUSE_UNIT_LIMIT = 4;
+
+const keyFacts = [
+  `Median rent across the units we manage in Columbus: ${rentRows.map((r) => `${r.beds} bed ${usd(r.median)}`).join(', ')}`,
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee on every plan, every time the unit turns`,
+  'Franklin County, so evictions are heard at Franklin County Municipal Court, 375 S. High St.',
+  `Columbus rental registry: ${usd(REGISTRY_PER_UNIT)} per unit per year, capped at ${usd(REGISTRY_CAP)} per complex`,
+  'Water and sewer are billed by the city and unpaid charges become a lien on the property',
+];
+
+const neighborhoods = [
+  { n: 'Clintonville',                    d: 'Bungalows, Cape Cods and Foursquares from the 1920s through the 1950s, along High Street from North Broadway up to Morse Road.', href: `${PATH}clintonville/` },
+  { n: 'German Village',                  d: 'A 233-acre National Historic Landmark of brick cottages and Dutch Doubles south of downtown, with design review on every exterior change.', href: `${PATH}german-village/` },
+  { n: 'Short North',                     d: 'The High Street corridor between downtown and campus, flanked by Victorian Village and Italian Village. The highest rents in the city portfolio.', href: `${PATH}short-north/` },
+  { n: 'Olde Towne East',                 d: 'Large late-Victorian houses east of downtown, many cut into doubles and triples decades ago.' },
+  { n: 'Merion Village and the South Side', d: 'Compact frame and brick houses just south of German Village, along Parsons and South High.' },
+  { n: 'Beechwold',                       d: 'North of Clintonville proper, with the winding streets and Tudor and Cape Cod stock around Old Beechwold.' },
+  { n: 'Northwest and Sawmill',           d: 'Late-century condos, townhomes and ranches near the Sawmill corridor and Dublin-Granville Road.' },
+  { n: 'Brice and Eastland',              d: 'Post-war and 1970s subdivisions on the far east side, near Brice Road and I-70.' },
+  { n: 'West Columbus and Lincoln Village', d: 'Frame houses and doubles west of the Scioto, along West Broad Street and out toward Lincoln Village.' },
+  { n: 'Northland',                       d: 'Ranches and split-levels off Morse Road and Karl Road, built in the 1960s and 1970s.' },
+];
+
+const services = [
+  { h: 'Marketing and leasing', p: 'Listing syndication to every major rental portal, self-guided and agent-led showings, and pricing set against our own Columbus portfolio data rather than a national estimate.', href: '/services/marketing-and-leasing/' },
+  { h: 'Resident screening', p: 'Credit, criminal, income, rental history and eviction checks, applied identically to every applicant and inside both federal fair housing law and the Columbus source of income ordinance.', href: '/services/tenant-screening/' },
+  { h: 'Maintenance', p: `In-house technicians at ${usd(pricing.maintenance.inHouseHourly)} an hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge with materials at cost, vetted vendors for specialty work, and 24/7 emergency coverage.`, href: '/services/maintenance/' },
+  { h: 'Rent collection', p: `Online payment, automated late notices after ${rentPolicy.lateFeesAfter}, and owner direct deposit on the ${rentPolicy.ownerDisbursementDay}th of each month.`, href: '/services/rent-collection/' },
+];
+
+const faq = [
+  { q: 'How much does property management cost in Columbus, Ohio?',
+    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee and no startup fee on an occupied unit. It is a fixed dollar amount, so it does not rise when your rent rises. Most Columbus managers charge 8% to 10% of collected rent plus roughly half a month of rent to place each resident.` },
+  { q: 'Does Columbus require landlords to register rental property?',
+    a: `Yes. Columbus City Council enacted Chapter 4515 of the Columbus City Codes on April 20, 2026, creating an annual registry of residential rental properties administered by the Department of Building and Zoning Services. Registration is ${usd(REGISTRY_PER_UNIT)} per unit per year, capped at ${usd(REGISTRY_CAP)} per complex, and it covers a safety inspection of common areas and critical building systems every three years at no extra charge for registrants in good standing. Separately, Ohio Revised Code 5323.02 requires a one-time, no-fee filing with the Franklin County Auditor.` },
+  { q: 'Which court hears an eviction for a Columbus address?',
+    a: 'Franklin County Municipal Court, at 375 S. High St. in Columbus. Ohio Revised Code 1901.02 gives that court jurisdiction throughout Franklin County, so every Columbus address goes there regardless of which side of town it sits on. An eviction is filed as a forcible entry and detainer action under Revised Code Chapter 1923. Franklin County Municipal Court also runs the only dedicated Environmental Division in Ohio, which is where housing code cases are heard.' },
+  { q: 'Who provides utilities in Columbus, and who pays for them?',
+    a: 'Water, sewer and stormwater are billed by the City of Columbus Department of Public Utilities. Natural gas is Columbia Gas of Ohio. Electric is AEP Ohio for most of the city, with the municipal Columbus Division of Power serving certain corridors and pockets. In our leases the resident pays gas and electric directly. Water and sewer can be put in the resident name through the city Tenant Billing Agreement, but read the next answer before you assume that transfers the risk.' },
+  { q: 'If my Columbus tenant does not pay the water bill, am I liable?',
+    a: 'Yes. Columbus City Code 1105.045 is titled "Unpaid charges a lien. Owner liable." Section 1147.16 does the same for sewer. The owner of the premises is liable for water and sewer charges at that address, and unpaid charges attach to the property, which means they surface at sale or refinance. A Tenant Billing Agreement moves the paper bill to the resident. It does not move the ultimate liability off the owner. We check the city delinquent charge lookup at every turn so a balance does not sit and compound.' },
+  { q: 'Does the city pick up trash at my rental?',
+    a: `Only for buildings of ${REFUSE_UNIT_LIMIT} attached units or fewer. The Columbus Division of Refuse Collection services single-family homes and small buildings at no separate charge. A building of five units or more has to contract a private hauler, and that cost belongs in the pro forma before you buy. It is the single most commonly missed line item on a small Columbus multifamily deal.` },
+  { q: 'Can I refuse a Housing Choice Voucher in Columbus?',
+    a: 'No. Columbus adopted source of income protection in March 2021, effective that July, making it unlawful to refuse an applicant or change the terms because part of the rent will be paid by a Housing Choice Voucher, child support, spousal support or public assistance. A violation is a first-degree misdemeanor. If you apply an income multiple such as three times the rent, the voucher portion is subtracted first, so the test runs against the share the resident actually pays. Screening criteria still apply, and they have to apply the same way to every applicant.' },
+  { q: 'Do you manage in every Columbus neighborhood?',
+    a: `${company.name} manages ${company.propertyTypes} across most of the city, from Clintonville and Beechwold in the north to Merion Village and the South Side, out to Brice and Eastland on the east and the Sawmill corridor on the northwest. There are a small number of Columbus submarkets we do not take on new business in. Tell us the address and we will tell you plainly whether it is one of them.` },
+];
+
+/**
+ * ONE city in areaServed. serviceNode defaults to the full footprint, which is
+ * right for the hub and wrong here, so it is overridden.
+ */
+const schemaNodes = [
+  {
+    ...serviceNode({ path: PATH, name: 'Residential property management in Columbus, Ohio', description }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Columbus',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Franklin County"
+    title="Property management in Columbus, Ohio"
+    answer={`${company.name} manages single-family and small multifamily rentals across Columbus for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Columbus is Franklin County, so evictions are heard at Franklin County Municipal Court.`}
+    breadcrumbs={breadcrumbs}
+    secondaryCta={{ label: 'See pricing', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Columbus, the short version" />
+
+  <!-- RENT -->
+  <section class="band-tight" aria-labelledby="rent-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">Our own numbers</span>
+      <h2 id="rent-h" class="text-[clamp(28px,3.3vw,40px)]">What do Columbus rentals actually rent for?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        A two-bedroom runs a median of {usd(cbusRent['2'].median)} and a three-bedroom
+        {' '}{usd(cbusRent['3'].median)} across the units we manage in Columbus. These are our own
+        leases, not a national estimate and not a listing-price average, which is why they read lower
+        than the asking rents you see on the portals. Asking rent is what a landlord wants. This is
+        what Columbus residents actually signed.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Median monthly rent by bedroom count across the units RL Property Management manages in Columbus</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Bedrooms</th>
+              <th scope="col" class="text-right p-3.5 border border-line font-semibold">Median rent</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">What that unit usually is in Columbus</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rentRows.map((r) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium">{r.beds} bedroom</th>
+                <td class="text-right p-3.5 border border-line tabular-nums font-bold text-crimson">{usd(r.median)}</td>
+                <td class="p-3.5 border border-line text-muted">
+                  {r.beds === '1' && 'A flat in a double, a converted upper, or a small courtyard building near downtown or campus.'}
+                  {r.beds === '2' && 'Half a double, a small post-war house, or a two-bedroom in a four-unit building.'}
+                  {r.beds === '3' && 'The workhorse of the Columbus rental market: a single-family house, frame or brick, 1920s through 1970s.'}
+                  {r.beds === '4' && 'A larger single-family house, often a Foursquare cut back to single occupancy or a newer build further out.'}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[14px] text-faint mt-4">
+        Medians across the units {company.name} manages in Columbus, verified {kpis.asOfLabel}. Rent
+        varies widely by submarket inside the city. We do not publish neighborhood-level medians
+        because the sample behind them is too small to be honest about.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="band band-wash" aria-labelledby="price-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">What it costs</span>
+      <h2 id="price-h" class="text-[clamp(28px,3.3vw,40px)]">What does property management cost in Columbus?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6 max-w-[44em]">
+        A flat {usd(pricing.plans[0].monthly)} to {usd(pricing.plans[2].monthly)} per unit per month,
+        depending on the plan, with a {usd(pricing.leasingFee)} leasing fee and no startup fee on an
+        occupied unit. It is a dollar amount, not a share of your rent, so it does not climb every time
+        you raise the rent.
+      </p>
+      <p class="text-[17.5px] text-muted mb-6 max-w-[44em]">
+        The gap that matters is not really the percentage. It is the leasing fee. A manager charging
+        half a month to place a resident bills about {usd(Math.round(cbusRent['3'].median / 2))} on a
+        median Columbus three-bedroom, every time that unit turns. We charge nothing for it on any
+        plan, which also means we have no financial reason to prefer a new lease over a renewal.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="/pricing/" class="btn btn-navy">See the full fee schedule</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Get a free rent evaluation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURT -->
+  <section class="band" aria-labelledby="court-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">Public record</span>
+      <h2 id="court-h" class="text-[clamp(28px,3.3vw,40px)]">Which court hears an eviction for a Columbus address?</h2>
+      <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
+        Franklin County Municipal Court, at 375 S. High St. in downtown Columbus. Ohio Revised Code
+        1901.02 gives that court jurisdiction throughout Franklin County, so it does not matter whether
+        the property is in Clintonville, in Merion Village or out past Brice Road. Every Columbus eviction
+        is filed in the same building.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5 max-w-[44em]">
+        An Ohio eviction is a forcible entry and detainer action under Revised Code Chapter 1923. It
+        runs in two causes. The first cause asks the court for possession of the property. The second
+        cause asks for the money judgment, which is unpaid rent and damages. They are heard on
+        different timelines, and an owner who only understands the first cause is often surprised that
+        getting the keys back and getting a judgment are two separate events.
+      </p>
+      <div class="card !bg-wash-soft mt-7">
+        <h3 class="text-[19px] mb-3">What a Franklin County eviction costs</h3>
+        <ul class="grid gap-x-8 gap-y-1 sm:grid-cols-2">
+          {[
+            `${usd(pricing.eviction.attorneyFee)} to the eviction attorney, filing plus up to two appearances`,
+            `${usd(pricing.eviction.countyFilingFee)} to Franklin County for the Eviction Complaint`,
+            `${usd(pricing.eviction.rlpmProcessFee)} to ${company.shortName} to run the process`,
+            `${usd(pricing.eviction.tagAndSetoutFee)} to the county for tag and setout, only if the resident has not left`,
+            `${usd(pricing.eviction.setoutFee)} to ${company.shortName} for a setout, only if one is needed`,
+            `Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute`,
+          ].map((x) => (
+            <li class="flex gap-3 py-1.5 text-[15.5px]">
+              <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{x}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        Franklin County Municipal Court also runs an Environmental Division, which the court describes
+        as the only dedicated environmental division in Ohio. That is where housing and building code
+        cases land. It is worth knowing about before a code complaint on your property turns into a
+        court date rather than a letter.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRY -->
+  <section class="band band-wash" aria-labelledby="reg-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">New in 2026</span>
+      <h2 id="reg-h" class="text-[clamp(28px,3.3vw,40px)]">Does Columbus require rental registration?</h2>
+      <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
+        Yes, since April 2026, and this is the single biggest change to a Columbus owner's compliance
+        burden in years. Columbus City Council enacted Chapter 4515 of the Columbus City Codes on
+        April 20, 2026, creating a registry of residential rental properties administered by the
+        Department of Building and Zoning Services. There are two filings, and owners routinely mix
+        them up.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2 mt-7">
+        <div class="card">
+          <h3 class="text-[18.5px] mb-2">The city registry, Columbus city limits only</h3>
+          <ul class="text-[15px] text-muted">
+            <li class="py-1">Annual registration with the Department of Building and Zoning Services</li>
+            <li class="py-1">{usd(REGISTRY_PER_UNIT)} per unit per year, capped at {usd(REGISTRY_CAP)} per complex</li>
+            <li class="py-1">A safety inspection of common areas and critical building systems every three years, covered by the registration fee for registrants in good standing</li>
+            <li class="py-1">Civil penalties of {usd(2)} per day per unit, with a minimum of {usd(10)} per day</li>
+            <li class="py-1">Properties placed in conditional status pay an additional {usd(CONDITIONAL_INSPECTION_FEE)} annual inspection fee and may face third-party technical inspection at the owner's expense</li>
+          </ul>
+          <p class="text-[14px] text-faint mt-3 mb-0">
+            [SOURCE NEEDED: the date the Columbus registration portal opens and the first annual
+            registration deadline. The Department of Building and Zoning Services had not published
+            these operational details as of September 2026.]
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-[18.5px] mb-2">The county filing, all of Franklin County</h3>
+          <ul class="text-[15px] text-muted">
+            <li class="py-1">Required by Ohio Revised Code 5323.02 in any Ohio county over 200,000 people</li>
+            <li class="py-1">Filed with the Franklin County Auditor</li>
+            <li class="py-1">Owner name, address and telephone number, plus a responsible officer or member if the owner is an entity</li>
+            <li class="py-1">One time, no fee, updated within 60 days of any change</li>
+            <li class="py-1">An owner living outside Ohio must designate an Ohio resident as agent for service of process</li>
+          </ul>
+          <p class="text-[14px] text-faint mt-3 mb-0">
+            This one has existed for years and is widely ignored. It takes ten minutes.
+          </p>
+        </div>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        Neither filing applies to a property that only carries a Columbus mailing address. Central Ohio
+        is full of parcels that mail as Columbus but sit in another municipality or in an unincorporated
+        township. The Franklin County Auditor parcel record settles which taxing and zoning jurisdiction
+        a property is actually in, and that is what decides whether Chapter 4515 applies.
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band" aria-labelledby="util-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">The numbers nobody checks</span>
+      <h2 id="util-h" class="text-[clamp(28px,3.3vw,40px)]">Who provides utilities in Columbus, and who pays?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        Four different providers, and the split of who pays is not the same for all of them. This is
+        the part of a Columbus pro forma that out-of-state buyers get wrong most often.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers in Columbus, Ohio, and who customarily pays</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Utility</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who customarily pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Water, sewer, stormwater</th>
+              <td class="p-3.5 border border-line align-top text-navy font-semibold">City of Columbus Department of Public Utilities</td>
+              <td class="p-3.5 border border-line align-top text-muted">Resident, through a city Tenant Billing Agreement. The owner stays liable. See below.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Electric</th>
+              <td class="p-3.5 border border-line align-top text-navy font-semibold">AEP Ohio, with Columbus Division of Power in some corridors</td>
+              <td class="p-3.5 border border-line align-top text-muted">Resident, in the resident name.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Natural gas</th>
+              <td class="p-3.5 border border-line align-top text-navy font-semibold">Columbia Gas of Ohio</td>
+              <td class="p-3.5 border border-line align-top text-muted">Resident, in the resident name.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Trash and recycling</th>
+              <td class="p-3.5 border border-line align-top text-navy font-semibold">Columbus Division of Refuse Collection</td>
+              <td class="p-3.5 border border-line align-top text-muted">
+                City collection, no separate bill, for buildings of {REFUSE_UNIT_LIMIT} attached units or fewer. Five units and up, the owner contracts a private hauler.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card !border-2 !border-navy !p-8 md:!p-10 mt-8">
+        <h3 class="text-[22px] mb-3">The water bill is the owner's problem, whoever's name is on it</h3>
+        <p class="text-[16.5px] text-muted">
+          Columbus City Code 1105.045 is titled "Unpaid charges a lien. Owner liable." Section 1147.16
+          does the same job for sewer. The owner of the premises is liable for water and sewer charges
+          incurred at that address, and unpaid charges attach to the property itself, which means they
+          reappear at sale or refinance whether or not the resident who ran them up is findable.
+        </p>
+        <p class="text-[16.5px] text-muted mb-0">
+          A Tenant Billing Agreement, which is the city form that puts the bill in the resident name,
+          moves the paper. It does not move the liability. So we treat a water balance as an owner
+          exposure rather than a resident problem: the city publishes a delinquent charge lookup by
+          address, we check it at every turn, and we do not hand a unit back to the market with a
+          balance quietly compounding on it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">What is actually here</span>
+      <h2 id="stock-h" class="text-[clamp(28px,3.3vw,40px)]">What kind of rental housing does Columbus have?</h2>
+      <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
+        Mostly detached houses and small buildings, built in four distinct waves, and the wave a
+        property comes from predicts its maintenance bill better than anything else on the listing.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2 mt-7">
+        {[
+          { h: 'Pre-1900 brick, close in', p: 'German Village, Olde Towne East, parts of Italian Village and the near South Side. Brick, slate or replaced slate, plaster over lath, original window openings, and often a stone or brick foundation. Beautiful, rentable at the top of the market, and unforgiving about deferred maintenance.' },
+          { h: '1900 to 1940 frame and Foursquare', p: 'Clintonville, Olde Towne East, Merion Village and the near south side. Foursquares, bungalows, and a great many doubles. Knob and tube that was mostly but not always replaced, galvanized supply lines, and the original wood windows on maybe half of them.' },
+          { h: 'Post-war capes and ranches', p: 'North Clintonville, Beechwold, Northland, the near west side. Small, efficient, cheap to turn, and the most reliable cash flow in the city. This is where the median Columbus rental sits.' },
+          { h: '1960s onward subdivisions', p: 'Brice and Eastland, the Sawmill corridor, the far south. Split-levels, ranches, later townhomes and condos. Bigger, newer systems, higher rent, and an HOA to read before you buy.' },
+        ].map((x) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{x.h}</h3>
+            <p class="text-[15px] text-muted m-0">{x.p}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[15px] text-muted mt-7">
+        Three Columbus neighborhoods sit inside historic architectural review districts, where the
+        German Village, Italian Village and Victorian Village commissions issue Certificates of
+        Appropriateness for exterior alterations under Columbus City Code chapters 3116 and 3119. If you
+        own in one of those, a roof, a window replacement or a porch repair is a permitting question
+        before it is a contractor question, and the timelines are measured in months.
+      </p>
+    </div>
+  </section>
+
+  <!-- NEIGHBORHOODS -->
+  <section class="band" aria-labelledby="hood-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Named, not generic</span>
+      <h2 id="hood-h" class="text-[clamp(28px,3.3vw,40px)]">Which Columbus neighborhoods do we work in?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        Most of the city. Three of them have their own page, because their housing stock and their
+        rules are different enough from the rest of Columbus that a general answer would be wrong.
+      </p>
+      <ul class="grid gap-4 sm:grid-cols-2">
+        {neighborhoods.map((n) => (
+          <li class={`card ${n.href ? 'card-hover !p-0' : ''}`}>
+            {n.href ? (
+              <a href={n.href} class="block p-6 no-underline">
+                <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">{n.n}</span>
+                <span class="block text-[15px] text-muted">{n.d}</span>
+                <span class="block text-[14px] text-crimson font-semibold mt-2.5">Read the {n.n} page</span>
+              </a>
+            ) : (
+              <>
+                <h3 class="text-[19px] mb-1.5">{n.n}</h3>
+                <p class="text-[15px] text-muted m-0">{n.d}</p>
+              </>
+            )}
+          </li>
+        ))}
+      </ul>
+      <p class="text-[15px] text-muted mt-7">
+        There are a small number of Columbus submarkets we do not take on new business in. That is a
+        judgment about where we can run a property well, not a comment on the neighborhood. Give us the
+        address and we will tell you plainly, before you spend time on a quote.
+      </p>
+    </div>
+  </section>
+
+  <!-- SOURCE OF INCOME -->
+  <section class="band band-wash" aria-labelledby="soi-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">Screening inside Columbus</span>
+      <h2 id="soi-h" class="text-[clamp(28px,3.3vw,40px)]">Can a Columbus landlord refuse a housing voucher?</h2>
+      <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
+        No. Columbus adopted source of income protection in March 2021, effective that July. It is
+        unlawful inside the city to refuse an applicant, or to change the price, terms, conditions or
+        fees, because part of the rent will be paid by a Housing Choice Voucher, child support, spousal
+        support or public assistance. A violation is a first-degree misdemeanor.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5 max-w-[44em]">
+        The practical trap is the income multiple. If your criteria require income of three times the
+        rent, the voucher portion is subtracted before the test runs. On a {usd(1500)} rent where a
+        voucher covers {usd(900)}, the multiple applies to the {usd(600)} the resident actually pays,
+        not to the full {usd(1500)}. Applying it to the full rent screens out voucher holders by
+        arithmetic, which is exactly what the ordinance prohibits. Everything else in a screening
+        standard still applies, and it has to apply identically to every applicant.
+      </p>
+      <p class="text-[14px] text-faint mt-5">
+        [SOURCE NEEDED: current status of any Ohio state preemption litigation affecting the Columbus
+        source of income ordinance as of September 2026. The ordinance is in force; the preemption
+        question has been raised in commentary and we have not confirmed a controlling decision.]
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="band" aria-labelledby="svc-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">What we do here</span>
+      <h2 id="svc-h" class="text-[clamp(28px,3.3vw,40px)]">What does management actually cover in Columbus?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        Everything between listing the unit and sending you the money, on every plan. The plans differ
+        in one thing only: how much repair spending we handle without calling you first.
+      </p>
+      <ul class="grid gap-4 sm:grid-cols-2">
+        {services.map((s) => (
+          <li class="card card-hover !p-0">
+            <a href={s.href} class="block p-6 no-underline">
+              <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">{s.h}</span>
+              <span class="block text-[15px] text-muted">{s.p}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="text-[15px] text-muted mt-7">
+        Rent is due on {rentPolicy.dueDate}. In practice most residents pay between
+        {' '}{rentPolicy.practicalWindow}, and late fees are assessed after {rentPolicy.lateFeesAfter}.
+        Owner funds go out on the {rentPolicy.ownerDisbursementDay}th and take
+        {' '}{rentPolicy.disbursementNote}. Across the portfolio, {kpis.metrics[6].value} of rent is
+        collected by the 5th.
+      </p>
+      <p class="text-[15px] text-muted mt-4">
+        For the full owner-side walkthrough of services, onboarding and reporting, see
+        {' '}<a href="/columbus-property-management/" class="text-crimson font-semibold no-underline hover:underline">what we do for Columbus owners</a>.
+        This page is the local reference. That one is the process.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Columbus property management questions" id="cbus-faq" />
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks
+    heading="Where to go next"
+    links={[
+      { href: `${PATH}clintonville/`, label: 'Clintonville', note: 'Bungalows and Cape Cods along High Street, north of campus.' },
+      { href: `${PATH}german-village/`, label: 'German Village', note: 'A National Historic Landmark with design review on every exterior change.' },
+      { href: `${PATH}short-north/`, label: 'Short North', note: 'The High Street corridor, Victorian Village and Italian Village.' },
+      { href: '/pricing/', label: 'Pricing', note: `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, published in full.` },
+      { href: '/areas-we-serve/', label: 'All areas we serve', note: 'Every Central Ohio community, grouped by county.' },
+    ]}
+  />
+
+  <Cta
+    heading="See what your Columbus rental should earn"
+    body="Send us the address. You get a rent number priced against our own Columbus leases, a read on the registry obligation, and a plain answer about what the property needs before it lists."
+    secondary={{ label: 'See pricing', href: '/pricing/' }}
+  />
+</Base>

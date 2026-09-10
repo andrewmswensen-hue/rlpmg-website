@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, usd } from '../../data/facts';
+
+/**
+ * Direct mail landing page. Noindexed on purpose: it exists to receive traffic
+ * from a printed campaign, not to rank, and indexing it would split intent with
+ * /columbus-property-management/.
+ */
+const title = `Property Management for Columbus Investors | ${company.name}`;
+const description = 'Flat-fee property management for Columbus rental owners. No leasing fee, published pricing.';
+---
+<Base {title} {description} noindex={true} markdownTwin={false}>
+  <section class="pt-16 pb-10">
+    <div class="wrap max-w-[760px]">
+      <span class="eyebrow">Columbus, Ohio &nbsp;·&nbsp; Licensed brokerage since {company.founded}</span>
+      <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em]">You got our postcard. Here is the whole offer.</h1>
+      <p class="text-[20px] text-muted mt-5">
+        Flat management from {usd(pricing.plans[0].monthly)} per unit per month, a {usd(pricing.leasingFee)} leasing
+        fee, and no startup fee on an occupied unit. Every other charge is published on our pricing page,
+        including the ones that only apply in bad months.
+      </p>
+      <ul class="mt-7 grid gap-1">
+        {[
+          `${company.unitsManaged} units managed across the Columbus metro`,
+          `${kpis.metrics.find((m) => m.id === 'dom')?.value} day median time on market`,
+          `${kpis.metrics.find((m) => m.id === 'collectedBy5')?.value} of rent collected by the 5th`,
+          'Substantial discounts for larger portfolios, quoted per owner',
+        ].map((x) => (
+          <li class="flex gap-3 py-1.5 text-[16.5px]">
+            <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{x}</span>
+          </li>
+        ))}
+      </ul>
+      <div class="flex flex-wrap gap-3 mt-8">
+        <a href="/free-rent-evaluation/" class="btn btn-primary">Get a free rent evaluation</a>
+        <a href="/pricing/" class="btn btn-ghost">See every fee</a>
+      </div>
+    </div>
+  </section>
+  <Cta heading="Own more than one?"
+       body="Portfolio pricing is quoted per owner and the discount is significant. Tell us what you own."
+       primary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }} />
+</Base>
