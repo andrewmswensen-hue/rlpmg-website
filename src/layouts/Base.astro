@@ -1,0 +1,103 @@
+---
+/**
+ * The page shell. Every page on the site renders through this.
+ *
+ * Responsibilities:
+ *  - one <title>, one meta description, one canonical, per page
+ *  - the full JSON-LD graph, built from the fact bank so structured data can
+ *    never disagree with the visible copy
+ *  - the <link rel="alternate" type="text/markdown"> pointing at the page's
+ *    Markdown twin, which is how answer engines get a clean copy
+ *  - Open Graph and Twitter cards
+ *  - no render-blocking third-party anything
+ */
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { company } from '../data/facts';
+import { graph, organizationNode, websiteNode, webPageNode, breadcrumbNode, faqNode } from '../lib/schema';
+
+export interface Props {
+  title: string;
+  description: string;
+  /** Extra JSON-LD nodes for this page: Service, BlogPosting, Person, and so on. */
+  schemaNodes?: object[];
+  breadcrumbs?: { name: string; path: string }[];
+  faq?: { q: string; a: string }[];
+  ogImage?: string;
+  noindex?: boolean;
+  datePublished?: string;
+  dateModified?: string;
+  /** Set false on pages with no Markdown twin, e.g. form-only pages. */
+  markdownTwin?: boolean;
+  bodyClass?: string;
+}
+
+const {
+  title, description, schemaNodes = [], breadcrumbs = [], faq = [],
+  ogImage = '/images/og-default.png', noindex = false,
+  datePublished, dateModified, markdownTwin = true, bodyClass = '',
+} = Astro.props;
+
+const path = Astro.url.pathname;
+const canonical = new URL(path, Astro.site ?? company.url).href;
+const ogAbs = new URL(ogImage, Astro.site ?? company.url).href;
+const mdHref = path === '/' ? '/index.md' : `${path.replace(/\/$/, '')}.md`;
+
+const jsonld = graph(
+  organizationNode(),
+  websiteNode(),
+  webPageNode({ path, title, description, datePublished, dateModified, breadcrumbs }),
+  breadcrumbs.length ? breadcrumbNode(path, breadcrumbs) : null,
+  faq.length ? faqNode(path, faq) : null,
+  ...schemaNodes,
+);
+---
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {!noindex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
+
+    {markdownTwin && (
+      <link rel="alternate" type="text/markdown" href={mdHref} title={`${title} (Markdown)`} />
+    )}
+    <link rel="alternate" type="application/rss+xml" title={`${company.name} blog`} href="/rss.xml" />
+
+    <link rel="preload" href="/fonts/inter-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/source-serif-4-latin-var.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#59070e" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={company.name} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogAbs} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogAbs} />
+
+    <meta name="geo.region" content="US-OH" />
+    <meta name="geo.placename" content="Columbus, Ohio" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonld)} is:inline />
+  </head>
+  <body class={bodyClass}>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

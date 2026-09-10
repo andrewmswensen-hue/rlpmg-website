@@ -1,0 +1,291 @@
+---
+import Base from '../layouts/Base.astro';
+import Faq from '../components/Faq.astro';
+import { company, pricing, kpis, areas, areaUrl, usd } from '../data/facts';
+import { totalActiveDoors } from '../data/markets';
+import { serviceNode } from '../lib/schema';
+
+const title = 'Columbus, Ohio Property Management | RL Property Management';
+const description =
+  `${company.name} manages ${company.unitsManaged} single-family and small multifamily rentals across the ` +
+  `Columbus, Ohio metro. Flat pricing from ${usd(pricing.plans[0].monthly)} per unit per month, and no leasing fee.`;
+
+const heroStats = kpis.metrics.filter((m) => ['dom', 'collectedBy5', 'renewal', 'repairDays'].includes(m.id));
+
+const services = [
+  { h: 'Marketing and leasing', p: 'Professional photography, syndication to every major portal, and self-guided showings that fill units in a median of 11 days.', href: '/services/marketing-and-leasing/', cta: 'How leasing works' },
+  { h: 'Resident screening', p: 'Credit, criminal, income, rental history and eviction checks, applied consistently and within fair housing law.', href: '/services/tenant-screening/', cta: 'Our screening criteria' },
+  { h: 'Maintenance', p: `In-house technicians at ${usd(pricing.maintenance.inHouseHourly)} an hour, vetted vendors, quarterly inspections, and 24/7 emergency coverage.`, href: '/services/maintenance/', cta: 'Maintenance details' },
+  { h: 'Rent collection', p: 'Online payment, automated late notices, and owner direct deposit. 96% of rent lands by the 5th.', href: '/services/rent-collection/', cta: 'How we collect' },
+  { h: 'Owner reporting', p: 'Monthly statements, year-end reporting, and a real-time owner portal so you are never guessing.', href: '/services/owner-reporting/', cta: 'See a sample' },
+  { h: 'Compliance and evictions', p: 'A custom lease reviewed by counsel, Ohio landlord-tenant compliance, and eviction handling when it is needed.', href: '/services/evictions/', cta: 'The process' },
+];
+
+const tools = [
+  { h: 'Rent vs. sell', p: 'Keep it as a rental, or sell now?', href: '/rent-vs-sell-calculator/' },
+  { h: 'Self-management', p: 'What your own time is costing you.', href: '/self-management-calculator/' },
+  { h: 'Vacancy cost', p: 'The daily cost of an empty unit.', href: '/tools/vacancy-cost-calculator/' },
+  { h: 'Market report', p: '2026 Columbus single-family rental data.', href: '/2026-columbus-market-report/' },
+];
+
+const renterLinks = [
+  { h: 'Available homes', p: 'Browse current vacancies.', href: '/homes-for-rent/' },
+  { h: 'Apply online', p: 'Criteria and application.', href: '/residents/how-to-apply/' },
+  { h: 'Pay rent', p: 'Your resident portal.', href: '/residents/pay-rent/' },
+  { h: 'Maintenance', p: 'Submit a repair request.', href: '/residents/maintenance-requests/' },
+];
+
+/** These answers are written to stand alone if an answer engine quotes just one. */
+const faq = [
+  { q: 'What does RL Property Management charge?',
+    a: `Flat monthly management is ${usd(pricing.plans[0].monthly)} per unit on the Passive plan, ${usd(pricing.plans[1].monthly)} on Standard, and ${usd(pricing.plans[2].monthly)} on Premium. There is no leasing fee on any plan, lease renewals are ${usd(pricing.leaseRenewalFee)}, and there is no startup fee on occupied units.` },
+  { q: 'Does RL Property Management charge a leasing fee?',
+    a: 'No. Placing a resident costs nothing on every plan, including professional photography, listing syndication, showings and screening. Most Columbus managers charge half a month of rent for the same work.' },
+  { q: 'What areas does RL Property Management serve?',
+    a: `RL Property Management serves ${areas.length} communities across the Columbus, Ohio metro, including Columbus, Dublin, Upper Arlington, Westerville, Worthington, Gahanna, Hilliard, Powell, New Albany, Bexley, Grove City, Reynoldsburg and Pickerington.` },
+  { q: 'How quickly does RL Property Management fill a vacancy?',
+    a: `Median days on market across the portfolio is 11 days, and median time to turn a unit is 12 days, as of ${kpis.asOfLabel}.` },
+  { q: 'How does RL Property Management bill repairs?',
+    a: `In-house work is billed at ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, plus materials. Third-party vendor work is billed at vendor cost plus a ${pricing.maintenance.vendorProjectFeePct}% project management fee on vendor costs up to ${usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)}, capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project.` },
+  { q: 'What insurance does RL Property Management require?',
+    a: `A Rental Dwelling Policy or Commercial Policy with at least ${usd(pricing.insuranceRequired.liabilityMin)} in liability coverage, with ${company.name} listed as an additional insured.` },
+];
+
+const schemaNodes = [serviceNode({
+  path: '/', name: 'Residential property management',
+  description: `Full-service residential property management for single-family and small multifamily rental owners across the Columbus, Ohio metro.`,
+})];
+---
+<Base {title} {description} {faq} {schemaNodes}>
+
+  <!-- HERO -->
+  <section class="py-16 lg:py-[72px]">
+    <div class="wrap grid gap-14 lg:grid-cols-[1.08fr_.92fr] lg:items-center">
+      <div>
+        <span class="eyebrow">Columbus, Ohio &nbsp;·&nbsp; Licensed brokerage since {company.founded}</span>
+        <h1 class="text-[clamp(38px,5vw,60px)] leading-[1.06] tracking-[-.022em]">
+          Rental property management, run like a business.
+        </h1>
+        <p class="text-[20px] text-muted mt-5 mb-2.5 max-w-[32em]">
+          We manage {company.unitsManaged} single-family and small multifamily rentals across the
+          Columbus metro. Flat pricing from {usd(pricing.plans[0].monthly)} a unit, and no leasing fee.
+        </p>
+        <p class="text-[15.5px] text-faint mb-7">
+          {company.brokerOfRecord.name}, {company.brokerOfRecord.title}.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-7">
+          <a href="/free-rent-evaluation/" class="btn btn-primary">Get a free rent evaluation</a>
+          <a href="/pricing/" class="btn btn-ghost">See our pricing</a>
+        </div>
+        <ul class="flex flex-wrap gap-x-6 gap-y-2 text-[14.5px] text-muted">
+          <li class="flex items-center gap-2"><span class="text-crimson font-extrabold" aria-hidden="true">✓</span> {company.unitsManaged} units managed</li>
+          <li class="flex items-center gap-2"><span class="text-crimson font-extrabold" aria-hidden="true">✓</span> 11-day median vacancy</li>
+          <li class="flex items-center gap-2"><span class="text-crimson font-extrabold" aria-hidden="true">✓</span> {usd(pricing.leasingFee)} leasing fee</li>
+        </ul>
+      </div>
+
+      <div class="relative grid place-items-center">
+        <div class="w-full max-w-[400px] aspect-square rounded-full border-[3px] border-crimson bg-wash grid place-items-center text-center p-8"
+             style="box-shadow:0 14px 36px rgb(18 49 67 / .12)">
+          <span class="text-faint text-[11px] tracking-[.14em] font-bold uppercase">Photo: Columbus rental exterior</span>
+        </div>
+        <div class="absolute bottom-4 right-[6%] bg-white border border-line rounded-full px-4.5 py-2.5 flex items-center gap-2"
+             style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <span class="text-crimson text-[17px] font-extrabold">{company.reviews.rating}</span>
+          <span class="text-[13px] font-bold text-navy">from {company.reviews.display} Google reviews</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCORECARD STRIP -->
+  <section class="band-tight band-wash" aria-labelledby="kpi-h">
+    <div class="wrap">
+      <h2 id="kpi-h" class="sr-only">Performance scorecard</h2>
+      <div class="grid gap-5 grid-cols-2 lg:grid-cols-4">
+        {heroStats.map((m) => (
+          <div class="card text-center !py-6">
+            <div class="font-sans text-[clamp(30px,3.2vw,40px)] font-extrabold text-crimson tracking-[-.035em] leading-none">{m.value}</div>
+            <div class="text-[13.5px] text-muted mt-2">{m.label}</div>
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-[13px] text-faint mt-5">
+        As of {kpis.asOfLabel}. <a href="/key-performance-indicators/" class="text-crimson font-semibold no-underline hover:underline">See the full scorecard</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="band">
+    <div class="wrap">
+      <div class="max-w-[660px] mx-auto text-center mb-11">
+        <span class="eyebrow">What we do</span>
+        <h2 class="text-[clamp(28px,3.3vw,40px)]">Full-service management, priced in the open</h2>
+        <p class="mt-3.5 text-[17.5px] text-muted">
+          Everything a Columbus rental needs, handled by a team that publishes its own numbers.
+        </p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((s) => (
+          <article class="card card-hover flex flex-col">
+            <h3 class="text-[20px] mb-2">{s.h}</h3>
+            <p class="text-[15px] text-muted mb-3.5 flex-1">{s.p}</p>
+            <a href={s.href} class="font-sans text-[14px] font-semibold text-crimson no-underline hover:underline">{s.cta} →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="band band-wash" aria-labelledby="pricing-h">
+    <div class="wrap">
+      <div class="max-w-[660px] mx-auto text-center mb-11">
+        <span class="eyebrow">Clear pricing</span>
+        <h2 id="pricing-h" class="text-[clamp(28px,3.3vw,40px)]">A flat fee, not a slice of your rent</h2>
+        <p class="mt-3.5 text-[17.5px] text-muted">
+          Published on the website, the same for everyone, with no leasing fee on any plan.
+        </p>
+      </div>
+      <div class="grid gap-6 lg:grid-cols-3">
+        {pricing.plans.map((p, i) => (
+          <div class={`card flex flex-col relative ${i === 1 ? '!border-2 !border-crimson' : ''}`}
+               style={i === 1 ? 'box-shadow:0 2px 4px rgb(18 49 67 / .06), 0 18px 48px rgb(18 49 67 / .12)' : ''}>
+            {i === 1 && (
+              <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-crimson text-white font-sans text-[10.5px] font-bold tracking-[.12em] uppercase px-4 py-1.5 rounded-full whitespace-nowrap">Most chosen</span>
+            )}
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-3">{p.name}</div>
+            <div class="font-sans text-[48px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13.5px] text-faint mt-2 mb-5">per unit, per month</div>
+            <ul class="border-t border-line pt-4.5 mb-6 flex-1 font-sans">
+              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(pricing.leasingFee)}</b> leasing fee</li>
+              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(pricing.leaseRenewalFee)}</b> lease renewal</li>
+              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(p.repairApprovalLimit)}</b> repair approval limit</li>
+              <li class="text-[14.5px] py-1.5 text-muted">Full screening and rent collection</li>
+              <li class="text-[14.5px] py-1.5 text-muted">Monthly statements and owner portal</li>
+            </ul>
+            <a href="/pricing/" class={`btn text-center ${i === 1 ? 'btn-primary' : 'btn-ghost'}`}>
+              {i === 1 ? 'Get started' : 'Compare plans'}
+            </a>
+          </div>
+        ))}
+      </div>
+      <p class="text-center mt-7 text-[15px] text-muted">
+        No startup fee on occupied units. Volume pricing for portfolios.
+        <a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline"> See the full fee schedule →</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- SCORECARD SPLIT -->
+  <section class="band">
+    <div class="wrap grid gap-13 lg:grid-cols-2 lg:items-center">
+      <div>
+        <span class="eyebrow">Our scorecard</span>
+        <h2 class="text-[clamp(28px,3.3vw,40px)]">We publish our numbers, quarterly.</h2>
+        <p class="text-[17.5px] text-muted mt-4 mb-6">
+          Most managers will tell you they are responsive and thorough. We would rather show you the
+          median number of days a repair stays open, and update it whether the number flatters us or not.
+        </p>
+        <a href="/key-performance-indicators/" class="btn btn-navy">See the full scorecard</a>
+      </div>
+      <div class="bg-wash rounded-[18px] aspect-[4/3] grid place-items-center text-center p-6">
+        <span class="text-faint text-[11px] tracking-[.14em] font-bold uppercase">Photo: the Columbus team</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section class="band band-wash">
+    <div class="wrap">
+      <div class="max-w-[660px] mx-auto text-center mb-11">
+        <span class="eyebrow">Owner tools</span>
+        <h2 class="text-[clamp(28px,3.3vw,40px)]">Run the numbers before you call us</h2>
+        <p class="mt-3.5 text-[17.5px] text-muted">
+          Free calculators built on our own Columbus portfolio data. No email required.
+        </p>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {tools.map((t) => (
+          <a href={t.href} class="card card-hover no-underline block">
+            <h3 class="text-[18px] mb-2">{t.h}</h3>
+            <p class="text-[15px] text-muted mb-3">{t.p}</p>
+            <span class="font-sans text-[14px] font-semibold text-crimson">Run it →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- AREAS -->
+  <section class="band">
+    <div class="wrap">
+      <div class="max-w-[660px] mx-auto text-center mb-11">
+        <span class="eyebrow">Where we work</span>
+        <h2 class="text-[clamp(28px,3.3vw,40px)]">{areas.length} communities across Central Ohio</h2>
+        <p class="mt-3.5 text-[17.5px] text-muted">
+          Every area has its own page with local rent data and what we manage there.
+        </p>
+      </div>
+      <ul class="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+        {areas.map((a) => (
+          <li>
+            <a href={areaUrl(a)}
+               class="block bg-white border border-line rounded-[12px] px-4 py-3.5 text-center no-underline font-sans text-[14.5px] font-medium text-navy hover:border-crimson hover:text-crimson transition-colors">
+              {a.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- RENTERS -->
+  <section class="band band-wash">
+    <div class="wrap">
+      <div class="max-w-[660px] mx-auto text-center mb-11">
+        <span class="eyebrow">For renters</span>
+        <h2 class="text-[clamp(28px,3.3vw,40px)]">Looking for a home in Columbus?</h2>
+        <p class="mt-3.5 text-[17.5px] text-muted">
+          Most of our homes offer self-guided tours. Applications are first come, first served.
+        </p>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {renterLinks.map((r) => (
+          <a href={r.href} class="card card-hover no-underline block">
+            <h3 class="text-[18px] mb-2">{r.h}</h3>
+            <p class="text-[15px] text-muted m-0">{r.p}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band">
+    <div class="wrap">
+      <div class="max-w-[660px] mx-auto text-center mb-9">
+        <span class="eyebrow">Real answers</span>
+        <h2 class="text-[clamp(28px,3.3vw,40px)]">Questions Columbus owners ask</h2>
+      </div>
+      <div class="max-w-[800px] mx-auto"><Faq items={faq} id="home-faq" /></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-maroon text-white text-center py-[88px]">
+    <div class="wrap">
+      <h2 class="!text-white text-[clamp(30px,3.8vw,46px)] max-w-[16em] mx-auto mb-4">
+        Find out what your Columbus rental should earn
+      </h2>
+      <p class="text-[#e2c8cc] text-[18px] max-w-[34em] mx-auto mb-7">
+        A free, data-backed rent evaluation using our own portfolio numbers and current market comps.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="/free-rent-evaluation/" class="btn btn-on-dark">Get a free rent evaluation</a>
+        <a href={`tel:${company.phoneE164}`} class="btn btn-outline-light">Call {company.phone}</a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,72 @@
+---
+import Logo from './Logo.astro';
+import { company, areas, areaUrl } from '../data/facts';
+
+const owners = [
+  ['Pricing', '/pricing/'], ['Our services', '/services/'], ['Scorecard', '/key-performance-indicators/'],
+  ['Free rent evaluation', '/free-rent-evaluation/'], ['Owner FAQs', '/owner-faqs/'],
+  ['Client handbook', '/client-handbook/'],
+];
+const renters = [
+  ['Available homes', '/homes-for-rent/'], ['How to apply', '/residents/how-to-apply/'],
+  ['Application criteria', '/residents/application-criteria/'], ['Pay rent', '/residents/pay-rent/'],
+  ['Maintenance request', '/residents/maintenance-requests/'], ['Resident FAQs', '/resident-faqs/'],
+];
+const companyLinks = [
+  ['About', '/about/'], ['Core values', '/core-values/'], ['Our team', '/team/'],
+  ['Careers', '/careers/'], ['Insights', '/blog/'], ['Contact', '/contact-us/'],
+];
+const legal = [
+  ['Privacy policy', '/privacy-policy/'], ['Terms', '/terms/'],
+  ['Accessibility', '/accessibility/'], ['SMS consent', '/sms-consent/'],
+  ['Editorial policy', '/editorial-policy/'],
+];
+const topAreas = areas.slice(0, 12);
+const year = new Date().getFullYear();
+---
+<footer class="bg-navy-d text-[#8ba1af] text-[14px]">
+  <div class="wrap py-14">
+    <div class="grid gap-9 md:grid-cols-2 lg:grid-cols-[1.6fr_repeat(3,1fr)]">
+      <div>
+        <a href="/" class="no-underline inline-block mb-4"><Logo light /></a>
+        <address class="not-italic leading-relaxed">
+          {company.address.street}<br />
+          {company.address.city}, {company.address.region} {company.address.postalCode}<br />
+          <a href={`tel:${company.phoneE164}`} class="no-underline hover:text-white">{company.phone}</a><br />
+          <a href={`mailto:${company.email}`} class="no-underline hover:text-white">{company.email}</a>
+        </address>
+        <p class="mt-4 text-[12.5px] text-[#5f7683] leading-relaxed">
+          {company.license}.<br />{company.officeHoursNote}.
+        </p>
+      </div>
+
+      <nav aria-labelledby="f-owners">
+        <h2 id="f-owners" class="text-white font-sans text-[11.5px] font-bold tracking-[.14em] uppercase mb-3.5">Owners</h2>
+        {owners.map(([l, h]) => <a href={h} class="block no-underline py-1 hover:text-white">{l}</a>)}
+      </nav>
+      <nav aria-labelledby="f-renters">
+        <h2 id="f-renters" class="text-white font-sans text-[11.5px] font-bold tracking-[.14em] uppercase mb-3.5">Renters</h2>
+        {renters.map(([l, h]) => <a href={h} class="block no-underline py-1 hover:text-white">{l}</a>)}
+      </nav>
+      <nav aria-labelledby="f-company">
+        <h2 id="f-company" class="text-white font-sans text-[11.5px] font-bold tracking-[.14em] uppercase mb-3.5">Company</h2>
+        {companyLinks.map(([l, h]) => <a href={h} class="block no-underline py-1 hover:text-white">{l}</a>)}
+      </nav>
+    </div>
+
+    <nav aria-labelledby="f-areas" class="mt-11 pt-7 border-t border-white/10">
+      <h2 id="f-areas" class="text-white font-sans text-[11.5px] font-bold tracking-[.14em] uppercase mb-3.5">Areas we serve</h2>
+      <div class="flex flex-wrap gap-x-5 gap-y-1.5">
+        {topAreas.map((a) => <a href={areaUrl(a)} class="no-underline hover:text-white">{a.name}</a>)}
+        <a href="/areas-we-serve/" class="no-underline text-white font-semibold">All {areas.length} areas</a>
+      </div>
+    </nav>
+
+    <div class="mt-9 pt-6 border-t border-white/10 flex flex-wrap justify-between gap-4 text-[12.5px] text-[#6d8595]">
+      <p class="m-0">© {year} {company.name}. All rights reserved.</p>
+      <div class="flex flex-wrap gap-x-4 gap-y-1">
+        {legal.map(([l, h]) => <a href={h} class="no-underline hover:text-white">{l}</a>)}
+      </div>
+    </div>
+  </div>
+</footer>

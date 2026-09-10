@@ -1,0 +1,23 @@
+---
+/**
+ * The FAQ block. This is the single most extractable thing on any page for AI
+ * answer engines, so the answer is plain text in the HTML and the <details> is
+ * open-by-default on the first item. FAQPage schema is emitted by the layout,
+ * from the same array, so the two can never drift.
+ */
+interface Props { items: { q: string; a: string }[]; heading?: string; id?: string }
+const { items, heading, id = 'faq' } = Astro.props;
+---
+{items.length > 0 && (
+  <section aria-labelledby={`${id}-h`}>
+    {heading && <h2 id={`${id}-h`} class="text-[clamp(26px,3vw,36px)] mb-7">{heading}</h2>}
+    <div>
+      {items.map((f, i) => (
+        <details class="faq-item" open={i === 0}>
+          <summary><span>{f.q}</span></summary>
+          <div class="answer"><p class="m-0">{f.a}</p></div>
+        </details>
+      ))}
+    </div>
+  </section>
+)}

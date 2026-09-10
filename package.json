@@ -1,0 +1,28 @@
+{
+  "name": "rlpmg-site",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && node scripts/markdown-mirrors.mjs",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint:copy": "node scripts/lint-copy.mjs",
+    "check:redirects": "node scripts/check-redirects.mjs",
+    "check:schema": "node scripts/check-schema.mjs",
+    "verify": "npm run build && npm run check:schema && npm run lint:copy && npm run check:redirects",
+    "build:preview": "astro build && node scripts/make-preview.mjs /rlpmg-website"
+  },
+  "dependencies": {
+    "astro": "^5.13.0",
+    "@astrojs/sitemap": "^3.4.0",
+    "@astrojs/rss": "^4.0.11",
+    "sharp": "^0.34.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3"
+  }
+}

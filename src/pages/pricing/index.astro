@@ -1,0 +1,401 @@
+---
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import { company, pricing, kpis, commitments, rentPolicy, usd } from '../../data/facts';
+import { rentByBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * The highest-value page on the site.
+ *
+ * "How much does property management cost in Columbus" is a late-stage commercial
+ * query RLPM can answer better than anyone locally, because the prices are public.
+ * Every figure reads from src/data/facts.ts, which is sourced from the Client
+ * Handbook. Nothing here is hand-typed.
+ */
+
+const title = 'Property Management Pricing in Columbus, Ohio | RL Property Management';
+const description =
+  `Flat property management pricing from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. The complete Columbus fee schedule, published in the open.`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Pricing', path: '/pricing/' }];
+
+const std = pricing.plans[1];
+/** Three rent points, to show how a flat fee behaves as rent rises. Derived, not typed. */
+const rents = [1200, 1650, 2100];
+const compare = rents.map((rent) => {
+  const rl = std.monthly * 12;
+  const lease = Math.round(rent / 2);
+  const p8 = Math.round(rent * 0.08) * 12 + lease;
+  const p10 = Math.round(rent * 0.10) * 12 + lease;
+  return { rent, rl, lease, p8, p10, save8: p8 - rl, save10: p10 - rl };
+});
+const mid = compare[1];
+
+const included = [
+  'Listing photography and syndication to every major rental portal',
+  'Self-guided and agent-led showings',
+  'Full resident screening: credit, criminal, income, rental history and eviction',
+  'Lease preparation on a custom lease reviewed by legal counsel',
+  'Online rent collection and automated late notices',
+  `Owner direct deposit on the ${rentPolicy.ownerDisbursementDay}th of each month`,
+  'Monthly statements and a real-time owner portal',
+  'Maintenance coordination and 24/7 emergency response',
+  'Quarterly property inspections',
+  'Ohio landlord-tenant compliance and eviction coordination',
+];
+
+const coreFees = [
+  ['Monthly management', `${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit`, 'Flat, by plan. Not a percentage of rent. Discounted for larger portfolios.'],
+  ['Leasing fee', usd(pricing.leasingFee), 'No charge on any plan. Includes photography, syndication, showings and full screening.'],
+  ['Lease renewal', usd(pricing.leaseRenewalFee), 'Charged to the owner on the date the lease renews.'],
+  ['Startup fee, occupied unit', usd(pricing.startupFeeOccupied), 'No charge to bring an occupied unit under management.'],
+  ['Startup fee, vacant unit', 'Varies', 'By unit count and plan. Quoted in writing before you sign.'],
+  ['Maintenance reserve', `${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit`, 'Held on your account so routine repairs do not wait on a funding request. It stays your money.'],
+];
+const maintFees = [
+  ['In-house labor', `${usd(pricing.maintenance.inHouseHourly)} per hour`, `Plus a ${usd(pricing.maintenance.tripCharge)} trip charge per visit, materials at cost. No minimum charge. ${pricing.maintenance.rateYear} rate.`],
+  ['After-hours labor', `${pricing.afterHours.weekdayEveningAndSaturday}x or ${pricing.afterHours.sunday}x`, `${pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, ${pricing.afterHours.sunday}x on Sundays.`],
+  ['Vendor project management', `${pricing.maintenance.vendorProjectFeePct}% of vendor cost`, `Applies to vendor costs up to ${usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)}, capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project. Waived on insurance claim work.`],
+  ['Vendor fee on turns', '15%, 10%, 7.5%', `15% on turns up to ${usd(15000)}, 10% from ${usd(15001)} to ${usd(25000)}, 7.5% above ${usd(25000)}.`],
+];
+const evictionFees = [
+  ['Attorney fee', usd(pricing.eviction.attorneyFee), 'Paid to the eviction attorney for filing and up to two court appearances.'],
+  ['Court filing fee', usd(pricing.eviction.countyFilingFee), 'The Eviction Complaint. Paid to Franklin County.'],
+  ['Eviction management', usd(pricing.eviction.rlpmProcessFee), `Paid to ${company.shortName} for running the process, including up to two appearances.`],
+  ['Tag and setout', usd(pricing.eviction.tagAndSetoutFee), 'Paid to Franklin County, only if the resident has not vacated.'],
+  ['Setout', usd(pricing.eviction.setoutFee), `Paid to ${company.shortName}, only if a setout is required. Covers bailiff and locksmith scheduling.`],
+];
+
+const faq = [
+  { q: 'How much does property management cost in Columbus, Ohio?',
+    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with no leasing fee. Most Columbus managers charge 8% to 10% of collected rent plus roughly half a month of rent to place each resident.` },
+  { q: 'Do you charge a leasing fee?',
+    a: `No. Placing a resident costs ${usd(pricing.leasingFee)} on every plan, including professional photography, syndication to every major portal, showings, and full applicant screening. On a ${usd(mid.rent)} rent, a manager charging half a month would bill ${usd(mid.lease)} for the same work.` },
+  { q: 'Is flat fee or percentage property management better?',
+    a: `A flat fee costs the same whether rent is ${usd(1200)} or ${usd(2100)}, and it does not rise when rent does. A percentage fee compounds with every rent increase. On a ${usd(mid.rent)} rent in a year that includes one resident placement, our Standard plan costs ${usd(mid.rl)} against roughly ${usd(mid.p10)} for a typical 10% manager.` },
+  { q: 'Do you discount pricing for larger portfolios?',
+    a: 'Yes, and the discount is significant. Monthly management is reduced as unit count rises. Portfolio pricing is quoted per owner rather than published, so owners with multiple units should request a quote instead of assuming the per-unit rate above.' },
+  { q: 'Is there a startup fee?',
+    a: 'There is no startup fee on an occupied unit. On a vacant unit the fee varies by total unit count and plan, and it is quoted in writing before you sign anything.' },
+  { q: 'What does an eviction cost in Franklin County?',
+    a: `The hard cost is ${usd(pricing.eviction.hardCostTotal)}: ${usd(pricing.eviction.attorneyFee)} to the eviction attorney and ${usd(pricing.eviction.countyFilingFee)} to Franklin County for the filing. ${company.name} charges ${usd(pricing.eviction.rlpmProcessFee)} to manage the process. A setout, if one is needed, adds ${usd(pricing.eviction.tagAndSetoutFee)} to the county and ${usd(pricing.eviction.setoutFee)} to us. Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute.` },
+  { q: 'What happens if my property sits vacant?',
+    a: 'If a property has been listed for rent longer than 60 days, we proactively credit management fees back to your account. You are not paying a full management fee on a unit we have not been able to lease.' },
+  { q: 'What is the maintenance reserve for?',
+    a: `A reserve of ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit is held on your account so routine repairs are handled without waiting on a funding request. It remains your money and is returned when management ends.` },
+  { q: 'What insurance do you require?',
+    a: `A Rental Dwelling Policy or Commercial Policy carrying at least ${usd(pricing.insuranceRequired.liabilityMin)} in liability coverage, with ${company.name} named as an additional insured.` },
+];
+
+const schemaNodes = [
+  serviceNode({ path: '/pricing/', name: 'Residential property management', description }),
+  {
+    '@type': 'PriceSpecification',
+    '@id': `${company.url}/pricing/#pricespec`,
+    name: 'Flat monthly property management fee',
+    minPrice: pricing.plans[0].monthly,
+    maxPrice: pricing.plans[2].monthly,
+    priceCurrency: 'USD',
+    valueAddedTaxIncluded: false,
+    description: 'Per unit, per month. Not a percentage of collected rent. No leasing fee.',
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <section class="pt-14 pb-10">
+    <div class="wrap max-w-[880px]">
+      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+        <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Pricing</span>
+      </nav>
+      <span class="eyebrow">Clear pricing</span>
+      <h1 class="text-[clamp(34px,4.4vw,52px)] tracking-[-.022em]">
+        What property management costs in Columbus
+      </h1>
+      <p class="text-[20px] text-muted mt-5 max-w-[38em]">
+        {company.name} charges a flat {usd(pricing.plans[0].monthly)} to {usd(pricing.plans[2].monthly)} per
+        unit per month, with a {usd(pricing.leasingFee)} leasing fee and no startup fee on occupied units.
+        It is a fixed dollar amount, not a percentage of your rent.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/free-rent-evaluation/" class="btn btn-primary">Get a free rent evaluation</a>
+        <a href="/property-management-consultation/" class="btn btn-ghost">Get a portfolio quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE $0 LEASING FEE. The single biggest differentiator, so it gets its own block. -->
+  <section class="pb-4" aria-labelledby="zero-h">
+    <div class="wrap max-w-[880px]">
+      <div class="rounded-[18px] bg-maroon text-white overflow-hidden">
+        <div class="grid md:grid-cols-[auto_1fr] gap-8 md:gap-11 items-center p-9 md:p-11">
+          <div class="text-center md:text-left md:border-r md:border-white/20 md:pr-11">
+            <div class="font-sans text-[clamp(64px,9vw,104px)] font-extrabold leading-none tracking-[-.055em]">$0</div>
+            <div class="font-sans text-[12px] font-bold tracking-[.16em] uppercase text-[#e8b9c0] mt-2">Leasing fee</div>
+          </div>
+          <div>
+            <h2 id="zero-h" class="!text-white text-[clamp(24px,2.8vw,32px)] mb-3.5">
+              We never charge you to place a resident.
+            </h2>
+            <p class="text-[#e6ccd0] text-[17px] mb-4">
+              Photography, syndication to every major portal, showings, applicant screening and lease
+              preparation. On every plan, every time, at no cost. Most Columbus managers bill about half
+              a month of rent for exactly this work, which on a {usd(mid.rent)} rent is {usd(mid.lease)}
+              every time a unit turns.
+            </p>
+            <p class="text-[#e6ccd0] text-[17px] m-0">
+              A resident who moves after two years costs you {usd(mid.lease * 2)} in leasing fees elsewhere.
+              With us it costs nothing, so we have no reason to prefer a new lease over a renewal.
+              Our renewal rate is {kpis.metrics.find((m) => m.id === 'renewal')?.value}.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section class="band-tight" aria-labelledby="plans-h">
+    <div class="wrap">
+      <h2 id="plans-h" class="sr-only">Management plans</h2>
+      <div class="grid gap-6 lg:grid-cols-3">
+        {pricing.plans.map((p, i) => (
+          <div class={`card flex flex-col relative ${i === 1 ? '!border-2 !border-crimson' : ''}`}>
+            {i === 1 && (
+              <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-crimson text-white font-sans text-[10.5px] font-bold tracking-[.12em] uppercase px-4 py-1.5 rounded-full whitespace-nowrap">Most chosen</span>
+            )}
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-3">{p.name}</div>
+            <div class="font-sans text-[52px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13.5px] text-faint mt-2 mb-5">per unit, per month</div>
+            <ul class="border-t border-line pt-4.5 mb-6 flex-1 font-sans">
+              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-crimson font-bold">{usd(pricing.leasingFee)}</b> leasing fee</li>
+              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(pricing.leaseRenewalFee)}</b> lease renewal</li>
+              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(p.repairApprovalLimit)}</b> per-item repair approval limit</li>
+              <li class="text-[14.5px] py-1.5 text-muted">
+                {i === 0 && 'Most hands-off. We handle routine repairs up to the limit without calling you.'}
+                {i === 1 && 'The balance most owners choose.'}
+                {i === 2 && 'Most oversight, plus HOA and association support.'}
+              </li>
+            </ul>
+            <a href="/free-rent-evaluation/" class={`btn text-center ${i === 1 ? 'btn-primary' : 'btn-ghost'}`}>Get started</a>
+          </div>
+        ))}
+      </div>
+      <p class="text-center mt-6 text-[15px] text-muted">
+        The plans differ in one thing: how much repair spending we handle without asking you first.
+        Everything else is included in all three.
+      </p>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO PRICING -->
+  <section class="band-tight" aria-labelledby="portfolio-h">
+    <div class="wrap max-w-[880px]">
+      <div class="card !border-2 !border-navy !p-9 md:!p-11">
+        <span class="eyebrow">For portfolio owners</span>
+        <h2 id="portfolio-h" class="text-[clamp(26px,3vw,36px)] mb-4">Pricing improves significantly as your unit count rises.</h2>
+        <p class="text-[17.5px] text-muted mb-4">
+          The rates above are per-unit pricing for smaller owners. Owners running a portfolio pay
+          meaningfully less per unit, and the reduction is substantial enough that it is worth a
+          conversation rather than an assumption.
+        </p>
+        <p class="text-[17.5px] text-muted mb-6">
+          We quote portfolio pricing per owner, because it depends on unit count, property type and how
+          concentrated the portfolio is. It is not published. Tell us what you own and we will put a
+          number in writing.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/property-management-consultation/" class="btn btn-navy">Get a portfolio quote</a>
+          <a href={`tel:${company.phoneE164}`} class="btn btn-ghost">Call {company.phone}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLAT VS PERCENTAGE, THREE RENTS -->
+  <section class="band band-wash" aria-labelledby="compare-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">The math</span>
+      <h2 id="compare-h" class="text-[clamp(28px,3.3vw,40px)]">A flat fee against a percentage, at three Columbus rents</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        One year on our Standard plan against a percentage manager, in a year that includes placing one
+        resident. The gap is not really the percentage. It is the leasing fee, and almost nobody puts
+        that number in a quote.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Annual management cost at three monthly rents, including one resident placement</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Monthly rent</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Us, Standard</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Typical 8%</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Typical 10%</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">You keep</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compare.map((c) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium tabular-nums">{usd(c.rent)}</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(c.rl)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(c.p8)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(c.p10)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-semibold text-navy">
+                  {usd(c.save8)} to {usd(c.save10)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        Two things this shows. A flat fee widens its advantage as rent rises, because our number does not
+        move when your rent does. And at the low end, where the annual gap is narrowest, the leasing fee
+        alone is still larger than the entire difference: on a {usd(compare[0].rent)} rent, the
+        {' '}{usd(compare[0].lease)} placement fee exceeds the {usd(compare[0].save10)} yearly gap against a
+        10% manager. On our Passive plan at {usd(pricing.plans[0].monthly)}, that same property saves
+        {' '}{usd(compare[0].p8 - pricing.plans[0].monthly * 12)} against an 8% manager.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        Percentage figures illustrate common Columbus market rates and are not a quote from any named
+        competitor. Our figures are exact. A percentage fee also compounds: it rises every time rent does.
+      </p>
+    </div>
+  </section>
+
+  <!-- INCLUDED -->
+  <section class="band" aria-labelledby="incl-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">In every plan</span>
+      <h2 id="incl-h" class="text-[clamp(28px,3.3vw,40px)]">What the monthly fee covers</h2>
+      <ul class="grid gap-x-8 gap-y-1 sm:grid-cols-2 mt-7">
+        {included.map((x) => (
+          <li class="flex gap-3 py-2 text-[15.5px]">
+            <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{x}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-8 text-[15px] text-muted">
+        Median rent across the {company.unitsManaged} units we manage:
+        {Object.entries(rentByBedroom).map(([b, v], i, arr) => (
+          <span>{' '}{b} bed {usd(v.median)}{i < arr.length - 1 ? ',' : '.'}</span>
+        ))}
+      </p>
+    </div>
+  </section>
+
+  <!-- COMMITMENTS -->
+  <section class="band band-wash" aria-labelledby="commit-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">What we commit to</span>
+      <h2 id="commit-h" class="text-[clamp(28px,3.3vw,40px)]">The parts most managers leave vague</h2>
+      <div class="grid gap-5 sm:grid-cols-2 mt-8">
+        {commitments.map((c) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{c.name}</h3>
+            <p class="text-[15px] text-muted m-0">{c.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL FEE SCHEDULE -->
+  <section class="band" aria-labelledby="fees-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Nothing hidden</span>
+      <h2 id="fees-h" class="text-[clamp(28px,3.3vw,40px)]">The complete fee schedule</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Every charge that can appear on an owner statement, including the ones that only apply in bad
+        months. If it is not on this list, we do not charge it.
+      </p>
+
+      {[
+        { h: 'Core pricing', rows: coreFees },
+        { h: 'Maintenance', rows: maintFees },
+        { h: 'Eviction, if it comes to that', rows: evictionFees },
+      ].map((group) => (
+        <div class="mb-9">
+          <h3 class="text-[21px] mb-3.5">{group.h}</h3>
+          <div class="scroll-x">
+            <table class="w-full border-collapse text-[15.5px]">
+              <thead>
+                <tr class="bg-wash-soft">
+                  <th scope="col" class="text-left p-3.5 border border-line font-semibold">Item</th>
+                  <th scope="col" class="text-left p-3.5 border border-line font-semibold whitespace-nowrap">Amount</th>
+                  <th scope="col" class="text-left p-3.5 border border-line font-semibold">Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                {group.rows.map(([item, amount, detail]) => (
+                  <tr>
+                    <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">{item}</th>
+                    <td class="p-3.5 border border-line align-top whitespace-nowrap font-semibold text-navy">{amount}</td>
+                    <td class="p-3.5 border border-line align-top text-muted">{detail}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ))}
+
+      <h3 class="text-[21px] mb-3.5">Situational fees</h3>
+      <p class="text-[15px] text-muted mb-4">
+        These apply only in specific circumstances. Most owners never see any of them.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse text-[15.5px]">
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Item</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold whitespace-nowrap">Amount</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">When it applies</th>
+            </tr>
+          </thead>
+          <tbody>
+            {pricing.otherFees.map((f) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">{f.name}</th>
+                <td class="p-3.5 border border-line align-top whitespace-nowrap font-semibold text-navy">{f.amount}</td>
+                <td class="p-3.5 border border-line align-top text-muted">{f.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[14px] text-faint mt-5">
+        Full detail lives in the <a href="/client-handbook/" class="text-crimson font-semibold no-underline hover:underline">Client Handbook</a>
+        {' '}and in your Property Management Agreement.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Pricing questions" id="pricing-faq" />
+      <p class="mt-8 text-[13px] text-faint">
+        Pricing verified {kpis.asOfLabel} against the {company.name} Client Handbook.
+        Reviewed by {company.brokerOfRecord.name}, {company.brokerOfRecord.title}.
+      </p>
+    </div>
+  </section>
+
+  <section class="bg-maroon text-white text-center py-[88px]">
+    <div class="wrap">
+      <h2 class="!text-white text-[clamp(30px,3.8vw,46px)] max-w-[16em] mx-auto mb-4">See the number for your property</h2>
+      <p class="text-[#e2c8cc] text-[18px] max-w-[36em] mx-auto mb-7">
+        A free rent evaluation tells you what your unit should earn. Own several? Ask for a portfolio
+        quote and we will price the whole thing.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a href="/free-rent-evaluation/" class="btn btn-on-dark">Get a free rent evaluation</a>
+        <a href="/property-management-consultation/" class="btn btn-outline-light">Get a portfolio quote</a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,63 @@
+---
+/**
+ * Site header. The nav splits owner-side from renter-side, because those are two
+ * different audiences and mixing them costs conversions on both.
+ *
+ * The mobile menu uses <details>, so it works with zero JavaScript.
+ */
+import Logo from './Logo.astro';
+import { company } from '../data/facts';
+
+const nav = [
+  { label: 'Owners',  href: '/columbus-property-management/' },
+  { label: 'Pricing', href: '/pricing/' },
+  { label: 'Renters', href: '/homes-for-rent/' },
+  { label: 'Areas',   href: '/areas-we-serve/' },
+  { label: 'Tools',   href: '/tools/' },
+  { label: 'Insights',href: '/blog/' },
+  { label: 'About',   href: '/about/' },
+];
+const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
+---
+<a class="block bg-crimson text-white text-center no-underline hover:underline underline-offset-4" href="/2026-columbus-market-report/">
+  <span class="inline-block px-5 py-2.5 text-[13.5px] font-semibold tracking-[.02em]">
+    <span class="inline-block bg-white/25 text-[11px] font-extrabold tracking-[.1em] px-2 py-0.5 rounded-full mr-2 align-middle">New</span>
+    The 2026 Columbus Single-Family Rental Market Report is out. Read it
+  </span>
+</a>
+
+<header class="sticky top-0 z-50 bg-white/96 backdrop-blur-md border-b border-line">
+  <div class="wrap flex items-center gap-7 h-[74px]">
+    <a href="/" class="no-underline shrink-0" aria-label={`${company.name} home`}><Logo /></a>
+
+    <nav class="ml-auto hidden lg:flex gap-6 text-[14.5px] font-medium" aria-label="Main">
+      {nav.map((n) => (
+        <a href={n.href}
+           class={`no-underline py-2 border-b-2 transition-colors ${
+             isActive(n.href) ? 'text-crimson border-crimson' : 'text-muted border-transparent hover:text-crimson'
+           }`}
+           aria-current={isActive(n.href) ? 'page' : undefined}>{n.label}</a>
+      ))}
+    </nav>
+
+    <a href="/free-rent-evaluation/" class="btn btn-primary hidden md:inline-block !py-2.5 !px-5 !text-[14px] shrink-0">
+      Free rent evaluation
+    </a>
+
+    <details class="lg:hidden ml-auto relative group">
+      <summary class="list-none cursor-pointer p-2 -mr-2" aria-label="Open menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18" stroke-linecap="round" />
+        </svg>
+      </summary>
+      <div class="absolute right-0 top-full mt-2 w-64 bg-white border border-line rounded-[12px] shadow-xl p-3">
+        {nav.map((n) => (
+          <a href={n.href} class="block no-underline px-3 py-2.5 rounded-lg text-[15px] font-medium text-navy hover:bg-wash-soft">{n.label}</a>
+        ))}
+        <a href="/free-rent-evaluation/" class="btn btn-primary block text-center mt-2">Free rent evaluation</a>
+        <a href={`tel:${company.phoneE164}`} class="block text-center mt-2 py-2 text-[14px] font-semibold text-crimson no-underline">{company.phone}</a>
+      </div>
+    </details>
+  </div>
+</header>
