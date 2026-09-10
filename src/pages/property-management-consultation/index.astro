@@ -1,0 +1,359 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, rentPolicy, areas, usd } from '../../data/facts';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * The conversion page, and the destination for portfolio quote requests.
+ *
+ * Portfolio pricing is deliberately not published (see pricing.portfolioDiscount
+ * in facts.ts), so this form is where a multi-unit owner gets a real number.
+ *
+ * FORM: semantic HTML only. No JavaScript. The action endpoint is pending, see
+ * the comment on the <form> element.
+ */
+
+const title = 'Book a Property Management Consultation | RL Property Management, Columbus';
+const description =
+  `Book a free consultation with ${company.name}. Bring your addresses and current statements and leave with ` +
+  `a written management quote, including portfolio pricing for owners with several units.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Owners', path: '/columbus-property-management/' },
+  { name: 'Consultation', path: '/property-management-consultation/' },
+];
+
+const keyFacts = [
+  'Free, and there is nothing to sign on the call',
+  `Published per-unit pricing is ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per month`,
+  'Portfolio pricing is quoted here, and the discount is significant',
+  'You leave with a written number, not a callback promise',
+  `Managing ${company.unitsManaged} units across the Columbus metro since ${company.founded}`,
+  'Works for one unit or for a portfolio moving off another manager',
+];
+
+const agenda = [
+  { h: 'What you own and where', p: 'Addresses, unit counts, bedroom counts and condition. If you own several, we look at the portfolio as one thing rather than a list.' },
+  { h: 'What you want it to do', p: 'Hold for appreciation, maximize monthly cash flow, stabilize and sell in three years, or simply stop being the person who gets the 11pm call. These lead to different decisions.' },
+  { h: 'What it should rent for', p: 'A rent range for each unit against our own leasing data and current comps, including whether anything on the property is holding the number down.' },
+  { h: 'What we would charge', p: 'The plan that fits, the repair approval limit that goes with it, and for portfolio owners, a discounted number in writing.' },
+  { h: 'What happens if you say yes', p: 'The sequence, the dates, and who your point of contact is. If you are leaving another manager, we build the transition plan on this call.' },
+  { h: 'Whether this is a fit at all', p: 'If your property needs a renovation first, or sits outside where we can serve it well, we will say so on the call rather than after you sign.' },
+];
+
+const bring = [
+  'Every address, with bedroom and bathroom counts',
+  'Current rent and lease end date on each occupied unit',
+  'Your last owner statement, if you have a manager now',
+  'Your current management agreement, especially the termination clause',
+  'Any known deferred maintenance you already know about',
+  'Your actual goal for the next three years',
+];
+
+const faq = [
+  { q: 'What happens on a property management consultation?',
+    a: `A call, usually about half an hour. We go through what you own, what you want it to do, what it should rent for, and what ${company.name} would charge to manage it. You leave with a written quote. Nothing is signed on the call.` },
+  { q: 'Is the consultation free?',
+    a: 'Yes. There is no fee and no obligation. If we are not the right manager for your property we will tell you on the call.' },
+  { q: 'What does property management cost?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee, ${usd(pricing.leaseRenewalFee)} lease renewals and no startup fee on an occupied unit. The full fee schedule is published on the pricing page.` },
+  { q: 'How does portfolio pricing work?',
+    a: 'Monthly management is discounted as unit count rises, and the discount is significant. It is quoted per owner rather than published, because it depends on unit count, property type and how geographically concentrated the portfolio is. This consultation is where that number gets put in writing.' },
+  { q: 'I already have a property manager. Should I still book?',
+    a: 'Yes, and bring your current management agreement. Timing a transfer badly is what costs owners money, not the switch itself. We will read the termination clause with you and build a plan around your lease dates before anyone gives notice.' },
+  { q: 'Do I have to commit to anything on the call?',
+    a: 'No. The output of the call is a written quote and a plan. What you do with it is your decision, and plenty of owners take the rent range and keep self-managing.' },
+  { q: 'How quickly can you take over a property?',
+    a: 'That depends on your current agreement, your lease dates and whether the unit is occupied. We build the schedule on the consultation call rather than promising a date before we have seen the paperwork.' },
+  { q: 'What if my property is outside the Columbus metro?',
+    a: `We serve ${areas.length} communities across Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. If you are close to that footprint, ask. We would rather decline than manage a property badly from an hour away.` },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/property-management-consultation/',
+    name: 'Property management consultation and portfolio quote',
+    description: `A free consultation for Columbus, Ohio rental owners, ending in a written management quote including portfolio pricing.`,
+  }),
+];
+
+const inputCls =
+  'w-full rounded-[10px] border border-line bg-white px-3.5 py-2.5 text-[15.5px] text-navy ' +
+  'focus:border-crimson focus:outline-none';
+const labelCls = 'block font-sans text-[14px] font-semibold text-navy mb-1.5';
+const hintCls = 'block text-[13px] text-faint mt-1.5';
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Free consultation"
+    title="Book a property management consultation"
+    answer={`A free call with ${company.name}. You bring the addresses and your current statements, and you leave with a written management quote, including portfolio pricing if you own several units. Nothing is signed on the call.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Request a consultation', href: '#consultation-form' }}
+    secondaryCta={{ label: 'See published pricing', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} />
+
+  <!-- AGENDA -->
+  <section class="band-tight" aria-labelledby="agenda-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="agenda-h" class="text-[clamp(26px,3.2vw,38px)]">What happens on the call?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">
+        Six things, in this order. It is a working call, not a presentation, and there is no deck.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {agenda.map((a) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{a.h}</h3>
+            <p class="text-[15px] text-muted m-0">{a.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="band-tight" aria-labelledby="portfolio-h">
+    <div class="wrap max-w-[880px]">
+      <div class="card !border-2 !border-navy !p-9 md:!p-11">
+        <span class="eyebrow">For portfolio owners</span>
+        <h2 id="portfolio-h" class="text-[clamp(24px,2.9vw,34px)] mb-4">This is where portfolio pricing gets quoted</h2>
+        <p class="text-[17.5px] text-muted mb-5">
+          The {usd(pricing.plans[0].monthly)} to {usd(pricing.plans[2].monthly)} per unit rate on the pricing page
+          is per-unit pricing for smaller owners. Monthly management is discounted as unit count rises, and the
+          discount is significant. It is not published, because it depends on how many units you own, what type
+          they are, and how close together they sit.
+        </p>
+        <p class="text-[17.5px] text-muted mb-6">
+          Tell us what you own on the form below and we will put a number in writing. If you are consolidating
+          from several managers, say so, because that changes the transition plan more than it changes the price.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#consultation-form" class="btn btn-navy">Request a portfolio quote</a>
+          <a href="/investors/" class="btn btn-ghost">Portfolio and investor services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO BRING -->
+  <section class="band band-wash" aria-labelledby="bring-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Come prepared</span>
+      <h2 id="bring-h" class="text-[clamp(26px,3.2vw,38px)]">What should you bring?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6">
+        None of it is required. All of it makes the quote you leave with a real number instead of a range.
+      </p>
+      <ul class="grid gap-x-8 gap-y-1 sm:grid-cols-2">
+        {bring.map((x) => (
+          <li class="flex gap-3 py-1.5 text-[15.5px]">
+            <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{x}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-[15.5px] text-muted mt-7">
+        If you are currently with another manager, read
+        {' '}<a href="/switching-property-managers/" class="text-crimson font-semibold no-underline hover:underline">how to switch property managers</a>
+        {' '}before the call. The timing of a transfer matters more than most owners expect.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU ALREADY KNOW -->
+  <section class="band-tight" aria-labelledby="known-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="known-h" class="text-[clamp(26px,3.2vw,38px)]">What can you find out before you even call?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Almost everything. The complete fee schedule is published, including the fees that only appear in bad
+        months. So are the operating numbers: median {kpis.metrics[0].value} days on market,
+        {' '}{kpis.metrics[6].value} of rent collected by the 5th, a {kpis.metrics[2].value} lease renewal rate,
+        and owner funds out on the {rentPolicy.ownerDisbursementDay}th. Read all of it first, then use the call
+        for the things a web page cannot answer about your specific property.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-ghost">The full fee schedule</a>
+        <a href="/key-performance-indicators/" class="btn btn-ghost">The published scorecard</a>
+        <a href="/owner-faqs/" class="btn btn-ghost">Owner FAQs</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="band band-wash" id="consultation-form" aria-labelledby="form-h">
+    <div class="wrap max-w-[760px]">
+      <span class="eyebrow">Request a call</span>
+      <h2 id="form-h" class="text-[clamp(26px,3.2vw,38px)]">Book your consultation</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">
+        Tell us what you own and what you are trying to solve. Someone from our team will reach out to set a time.
+      </p>
+
+      <!--
+        FORM ENDPOINT PENDING.
+        The CRM is LeadSimple and submissions route by email. Set the `action`
+        attribute to the LeadSimple inbound endpoint when it is issued, and keep
+        `method="post"`. Do not hardcode a destination email address in the markup.
+        No JavaScript is used or needed: this is a plain HTML post.
+      -->
+      <form method="post" action="" class="card !p-7 md:!p-9 grid gap-7">
+
+        <fieldset class="border-0 p-0 m-0 grid gap-5">
+          <legend class="font-serif text-[20px] font-semibold text-navy mb-3">About you</legend>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="c-first">First name <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="c-first" name="first_name" type="text" autocomplete="given-name" required />
+            </div>
+            <div>
+              <label class={labelCls} for="c-last">Last name <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="c-last" name="last_name" type="text" autocomplete="family-name" required />
+            </div>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="c-email">Email <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="c-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div>
+              <label class={labelCls} for="c-phone">Phone <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="c-phone" name="phone" type="tel" autocomplete="tel" required />
+            </div>
+          </div>
+
+          <div>
+            <label class={labelCls} for="c-company">Company or entity name</label>
+            <input class={inputCls} id="c-company" name="company" type="text" autocomplete="organization" />
+            <span class={hintCls}>If the properties are held in an LLC or a trust.</span>
+          </div>
+        </fieldset>
+
+        <fieldset class="border-0 p-0 m-0 grid gap-5 border-t border-line pt-7">
+          <legend class="font-serif text-[20px] font-semibold text-navy mb-3">About the portfolio</legend>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="c-units">How many rental units? <span class="text-crimson">(required)</span></label>
+              <select class={inputCls} id="c-units" name="units_owned" required>
+                <option value="">Choose one</option>
+                <option value="1">1</option>
+                <option value="2-5">2 to 5</option>
+                <option value="6-20">6 to 20</option>
+                <option value="21-50">21 to 50</option>
+                <option value="51-100">51 to 100</option>
+                <option value="100+">More than 100</option>
+              </select>
+              <span class={hintCls}>This is what sets the discounted rate, so it is worth getting right.</span>
+            </div>
+            <div>
+              <label class={labelCls} for="c-type">Property type</label>
+              <select class={inputCls} id="c-type" name="property_type">
+                <option value="">Choose one</option>
+                <option value="single-family">Single-family homes</option>
+                <option value="small-multifamily">Small multifamily</option>
+                <option value="mixed">A mix of both</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class={labelCls} for="c-addresses">Property addresses</label>
+            <textarea class={inputCls} id="c-addresses" name="addresses" rows="4"></textarea>
+            <span class={hintCls}>One per line. A partial list is fine, and so is a city and a count.</span>
+          </div>
+
+          <fieldset class="border-0 p-0 m-0">
+            <legend class={labelCls}>Where are you today? <span class="text-crimson">(required)</span></legend>
+            <div class="grid gap-2 mt-1">
+              {[
+                ['self-managing', 'Self-managing and want to stop'],
+                ['other-manager', 'With another manager and considering a change'],
+                ['multiple-managers', 'Consolidating from several managers'],
+                ['new-purchase', 'Buying now, or recently closed'],
+                ['first-rental', 'First rental, not managed yet'],
+                ['researching', 'Just researching for now'],
+              ].map(([val, label], i) => (
+                <label class="flex gap-3 items-center text-[15.5px] text-navy cursor-pointer">
+                  <input type="radio" name="current_situation" value={val} required={i === 0} class="accent-crimson w-4 h-4" />
+                  <span>{label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div>
+            <label class={labelCls} for="c-when">When would you want management to start?</label>
+            <select class={inputCls} id="c-when" name="timeline">
+              <option value="">Choose one</option>
+              <option value="now">As soon as possible</option>
+              <option value="30-days">Within 30 days</option>
+              <option value="90-days">Within 90 days</option>
+              <option value="lease-end">When the current lease ends</option>
+              <option value="unsure">Not sure yet</option>
+            </select>
+          </div>
+
+          <div>
+            <label class={labelCls} for="c-goal">What are you trying to solve?</label>
+            <textarea class={inputCls} id="c-goal" name="goal" rows="4"></textarea>
+            <span class={hintCls}>
+              The specific problem is more useful than a general one. Slow turns, a manager who stopped answering,
+              maintenance bills you cannot reconcile, a resident who has not paid since spring.
+            </span>
+          </div>
+        </fieldset>
+
+        <div class="border-t border-line pt-7 grid gap-5">
+          <label class="flex gap-3 items-start text-[15px] text-muted cursor-pointer">
+            <input type="checkbox" name="contact_consent" value="yes" required class="accent-crimson w-4 h-4 mt-1 shrink-0" />
+            <span>
+              I agree that {company.name} may contact me about this request by email or phone.
+              <span class="text-crimson"> (required)</span>
+            </span>
+          </label>
+          <div>
+            <button type="submit" class="btn btn-primary">Request my consultation</button>
+          </div>
+          <p class="text-[13px] text-faint m-0">
+            We do not sell or share your information. See our
+            {' '}<a href="/privacy-policy/" class="text-crimson font-semibold no-underline hover:underline">privacy policy</a>.
+            Prefer to talk now? Call {company.phone}.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Consultation questions" id="consult-faq" />
+      <div class="mt-7"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Read it before the call. That is what it is for.' },
+    { href: '/investors/', label: 'Portfolio and investor services', note: 'How we operate for multi-unit owners.' },
+    { href: '/switching-property-managers/', label: 'Switching property managers', note: 'The transfer, and how to time it.' },
+    { href: '/how-to-choose-a-property-manager-columbus/', label: 'How to choose a property manager', note: 'The questions to ask us, and everyone else.' },
+    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'If you only want the rent number for now.' },
+  ]} />
+
+  <Cta
+    heading="Bring the addresses, leave with a number"
+    body="No deck, no pressure, and nothing to sign on the call. If we are not the right manager for your property, we will say so."
+    primary={{ label: 'Request a consultation', href: '#consultation-form' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

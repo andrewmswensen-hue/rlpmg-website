@@ -1,0 +1,200 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, areas, rentPolicy } from '../../data/facts';
+
+/**
+ * Contact. The one job of this page is NAP consistency: name, address, phone
+ * rendered exactly as they appear in the fact bank, which is the same string
+ * the Organization schema uses. Any drift between this page and the Google
+ * Business Profile costs local ranking.
+ *
+ * NOTE: no second LocalBusiness node is emitted here. There is exactly one on
+ * the site, on the organization, and the layout already renders it.
+ *
+ * The office is by appointment only. That is stated three times on purpose:
+ * someone driving to Cross Pointe Road and finding a locked door is a worse
+ * outcome than a slightly repetitive page.
+ */
+
+const title = 'Contact RL Property Management | Columbus, Ohio';
+const description =
+  `Call ${company.name} at ${company.phone} or email ${company.email}. Office at ` +
+  `${company.address.street}, ${company.address.city}, ${company.address.region} ${company.address.postalCode}, by appointment only.`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Contact', path: '/contact-us/' }];
+
+const addressLine = `${company.address.street}, ${company.address.city}, ${company.address.region} ${company.address.postalCode}`;
+
+/** Routing table. Every destination is a page or a real contact method. */
+const routes = [
+  { who: 'You own a rental and want a quote',
+    what: 'Start with a free rent evaluation. It puts a number on the unit before anyone talks about fees.',
+    href: '/free-rent-evaluation/', label: 'Get a free rent evaluation' },
+  { who: 'You own several units',
+    what: 'Portfolio pricing is quoted per owner rather than published, so ask for a consultation instead.',
+    href: '/property-management-consultation/', label: 'Request a portfolio quote' },
+  { who: 'You rent from us and need a repair',
+    what: 'Submit it through the resident maintenance request so it is logged and tracked. Emergencies are covered 24/7.',
+    href: '/residents/maintenance-requests/', label: 'Submit a maintenance request' },
+  { who: 'You rent from us and want to pay rent',
+    what: `Rent is due on ${rentPolicy.dueDate} and is paid through the resident portal.`,
+    href: '/residents/pay-rent/', label: 'Pay rent' },
+  { who: 'You are looking for a place to rent',
+    what: 'Available homes are listed with photos, rent and application requirements.',
+    href: '/homes-for-rent/', label: 'See available homes' },
+  { who: 'You want a job here',
+    what: 'Open roles and the benefits attached to them are on the careers page.',
+    href: '/careers/', label: 'See careers' },
+];
+
+const faq = [
+  { q: 'What is RL Property Management’s phone number?',
+    a: `${company.phone}. That is the main line for owners, residents and anyone else. Email reaches the same team at ${company.email}.` },
+  { q: 'Where is RL Property Management located?',
+    a: `${addressLine}. ${company.officeHoursNote}, so call ${company.phone} before driving over. There is no walk-in counter.` },
+  { q: 'Can I stop by the office without an appointment?',
+    a: `No. ${company.officeHoursNote}. Most of the team is at properties across the Columbus metro during the day, so an unannounced visit usually finds nobody who can help. Call or email and we will set a time.` },
+  { q: 'How do I report a maintenance emergency?',
+    a: 'Residents should use the resident maintenance request, which routes emergencies to the 24/7 emergency line. A true emergency is anything threatening safety or causing active damage: no heat in winter, no water, an active leak, sewage backup, or a security problem with a door or window.' },
+  { q: 'How fast does RL Property Management respond?',
+    a: `Maintenance emergencies are handled 24/7. For everything else, call ${company.phone} during the business day or email ${company.email}. Owner funds go out on the ${rentPolicy.ownerDisbursementDay}th of each month regardless.` },
+  { q: 'What areas does RL Property Management serve?',
+    a: `${areas.length} communities across Central Ohio, centered on Columbus and Franklin County and reaching into Delaware, Fairfield, Licking, Union, Madison and Pickaway counties.` },
+  { q: 'Who do I ask for?',
+    a: `The team is organized by function rather than by property, so say what the call is about and it gets routed: leasing, maintenance, resident support or owner service. Every person and title is published on the team page. ${company.brokerOfRecord.name} is ${company.brokerOfRecord.title}.` },
+];
+
+const related = [
+  { href: '/about/', label: 'About the company', note: `What ${company.shortName} does, and for whom.` },
+  { href: '/team/', label: 'Our team', note: 'Who you will be talking to.' },
+  { href: '/pricing/', label: 'Pricing', note: 'The complete published fee schedule.' },
+  { href: '/areas-we-serve/', label: 'Areas we serve', note: `All ${areas.length} Central Ohio communities.` },
+  { href: '/homes-for-rent/', label: 'Available homes', note: 'For renters, not owners.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="Contact"
+    title="Contact RL Property Management"
+    answer={`Call ${company.name} at ${company.phone} or email ${company.email}. The office is at ${addressLine}, and it is open by appointment only.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+    secondaryCta={{ label: `Email ${company.email}`, href: `mailto:${company.email}` }}
+  />
+
+  <!-- NAP. This block is the canonical rendering of name, address and phone. -->
+  <section class="pb-4" aria-labelledby="nap-h">
+    <div class="wrap max-w-[880px]">
+      <div class="card !bg-wash-soft">
+        <h2 id="nap-h" class="text-[19px] mb-4">How do I reach RL Property Management?</h2>
+        <div class="grid gap-6 sm:grid-cols-2">
+          <div>
+            <div class="font-sans text-[11.5px] font-bold tracking-[.14em] uppercase text-faint mb-2">Office</div>
+            <address class="not-italic text-[16px] leading-relaxed m-0">
+              <strong class="text-navy">{company.name}</strong><br />
+              {company.address.street}<br />
+              {company.address.city}, {company.address.region} {company.address.postalCode}
+            </address>
+            <p class="text-[14px] text-crimson font-semibold mt-3 mb-0">{company.officeHoursNote}</p>
+          </div>
+          <div>
+            <div class="font-sans text-[11.5px] font-bold tracking-[.14em] uppercase text-faint mb-2">Phone and email</div>
+            <p class="text-[16px] leading-relaxed m-0">
+              <a href={`tel:${company.phoneE164}`} class="text-crimson font-semibold no-underline hover:underline">{company.phone}</a><br />
+              <a href={`mailto:${company.email}`} class="text-crimson font-semibold no-underline hover:underline">{company.email}</a>
+            </p>
+            <p class="text-[14px] text-muted mt-3 mb-0">{company.license}.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="appt-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="appt-h">Can I visit the office?</h2>
+      <p>
+        By appointment, yes. The office at {company.address.street} is not a walk-in counter, and
+        office hours are by appointment only. Most of the team spends the day at properties across
+        the Columbus metro, so someone showing up unannounced usually finds nobody who can help with
+        their specific question.
+      </p>
+      <p>
+        Call {company.phone} or email <a href={`mailto:${company.email}`}>{company.email}</a> and we
+        will set a time. Key pickup at the office is free for owners, and it is worth calling ahead
+        for that too.
+      </p>
+
+      <h2>What should I have ready when I call?</h2>
+      <p>
+        If you own the property: the address, whether it is currently occupied, the rent it is
+        getting now, and whether it is under management with someone else today. That is enough for
+        a useful first conversation and enough to run a rent evaluation.
+      </p>
+      <p>
+        If you rent from us: the property address and, for a repair, what is wrong and when it
+        started. Maintenance requests submitted through the resident portal are logged and tracked,
+        which a phone call is not, so use the portal for anything that is not an emergency.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="routes-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Fastest route</span>
+      <h2 id="routes-h" class="text-[clamp(28px,3.3vw,40px)]">Who should I contact for what?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        The main line handles everything, but several of these go faster if you start in the right
+        place.
+      </p>
+      <ul class="grid gap-4 sm:grid-cols-2">
+        {routes.map((r) => (
+          <li class="card flex flex-col">
+            <h3 class="text-[18px] mb-2">{r.who}</h3>
+            <p class="text-[15px] text-muted flex-1 m-0">{r.what}</p>
+            <p class="m-0 mt-4">
+              <a href={r.href} class="text-crimson font-semibold no-underline hover:underline text-[15px]">{r.label}</a>
+            </p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="areas-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="areas-h">What areas does RL Property Management cover?</h2>
+      <p>
+        {areas.length} communities across Central Ohio, anchored in Columbus and Franklin County and
+        extending into Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. Evictions
+        for the great majority of the portfolio run through the Franklin County Municipal Court.
+      </p>
+      <p>
+        If your property is outside that footprint, say so on the first call. We would rather tell
+        you no quickly than take on a property we cannot get to when something breaks.
+        {' '}<a href="/areas-we-serve/">See the full list of areas</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Contact questions" id="contact-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={related} />
+
+  <Cta
+    heading="Tell us about the property"
+    body="A free rent evaluation is the shortest path to a real answer: what your unit should rent for, and what it would cost to have us run it."
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

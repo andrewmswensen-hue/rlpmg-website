@@ -1,0 +1,291 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, rentPolicy, areas, usd } from '../../data/facts';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Owner FAQs. Target: the long tail of owner questions.
+ *
+ * The questions are the ones owners actually ask, taken from the live site's
+ * Owner FAQs page. The ANSWERS are rewritten against src/data/facts.ts, which is
+ * sourced from the Client Handbook.
+ *
+ * IMPORTANT: the live page's eviction figures are stale. It says $130 to the
+ * county and $100 to the attorney. The Client Handbook says $123 to Franklin
+ * County and $150 to the attorney, and the handbook wins. See the note in
+ * facts.ts under pricing.eviction.
+ *
+ * Every category array below is flattened into the `faq` prop, so the FAQPage
+ * schema and the visible page can never drift.
+ */
+
+const title = 'Owner FAQs | RL Property Management, Columbus Ohio';
+const description =
+  `Answers to the questions Columbus rental owners ask ${company.name}: fees, leasing, screening, maintenance billing, ` +
+  `eviction costs in Franklin County, insurance requirements and how owner payouts work.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Owners', path: '/columbus-property-management/' },
+  { name: 'Owner FAQs', path: '/owner-faqs/' },
+];
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month`,
+  `${usd(pricing.leasingFee)} leasing fee, ${usd(pricing.leaseRenewalFee)} lease renewal`,
+  `Owner funds sent on the ${rentPolicy.ownerDisbursementDay}th of every month`,
+  `Eviction hard cost in Franklin County is ${usd(pricing.eviction.hardCostTotal)}`,
+  `In-house repairs at ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge`,
+  `${usd(pricing.insuranceRequired.liabilityMin)} liability coverage required, naming us as additional insured`,
+];
+
+const categories = [
+  {
+    id: 'general',
+    heading: 'About the company',
+    items: [
+      { q: 'Who is RL Property Management?',
+        a: `${company.name} is a residential property management company and a licensed Ohio real estate brokerage, based at ${company.address.street}, ${company.address.city}, ${company.address.region} ${company.address.postalCode}, serving the greater Columbus metro. The principal broker is ${company.brokerOfRecord.name}.` },
+      { q: 'How long has RL Property Management been managing rentals?',
+        a: `Since ${company.founded}.` },
+      { q: 'How many units does RL Property Management manage?',
+        a: `${company.unitsManaged} units across the Columbus, Ohio metro, all ${company.propertyTypes}.` },
+      { q: 'Is RL Property Management licensed?',
+        a: `Yes. ${company.name} is a licensed real estate brokerage in the State of Ohio, regulated by the Ohio Department of Commerce, Division of Real Estate and Professional Licensing. Brokerage license number: [SOURCE NEEDED: Ohio real estate brokerage license number, not currently in facts.ts].` },
+      { q: 'What kinds of property does RL Property Management manage?',
+        a: `${company.propertyTypes.charAt(0).toUpperCase() + company.propertyTypes.slice(1)}, in buildings that do not require on-site staff. Properties need to be rent-ready or close to it. If a property needs a full renovation first, we refer contractors and revisit management once the work is finished.` },
+      { q: 'Do you manage homeowner or condominium associations?',
+        a: 'No. We do not manage HOAs or condominium associations. If you own a rental unit that sits inside an association and the community allows rentals, we manage the unit itself.' },
+      { q: 'Who does RL Property Management work with?',
+        a: 'Portfolio investors, out-of-state owners, first-time landlords and accidental landlords who ended up with a rental they did not plan on. Portfolio owners are the core of the business.' },
+      { q: 'Does anyone at RL Property Management own rentals?',
+        a: 'Yes. Members of the executive team own single-family and small multifamily rentals in Central Ohio, so the operating decisions are made by people who also receive owner statements.' },
+      { q: 'Does RL Property Management have reviews?',
+        a: `Yes. ${company.reviews.display} ${company.reviews.platform} reviews at a ${company.reviews.rating} average rating, as of ${company.reviews.asOf}.` },
+      { q: 'Do you use digital signatures?',
+        a: 'Yes. Management agreements, leases and renewals are signed electronically.' },
+    ],
+  },
+  {
+    id: 'pricing',
+    heading: 'Pricing and getting started',
+    items: [
+      { q: 'How much does RL Property Management charge?',
+        a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, plus ${usd(pricing.leaseRenewalFee)} when a lease renews. It is a fixed dollar amount, not a percentage of collected rent, so it does not rise when your rent does. The complete fee schedule is published on the pricing page.` },
+      { q: 'Do you charge a leasing fee?',
+        a: `No. Placing a resident is ${usd(pricing.leasingFee)} on every plan, and that covers listing syndication, showings, full applicant screening and lease preparation. Because we earn nothing from a new lease, we have no reason to prefer one over a renewal.` },
+      { q: 'Do you charge a startup fee?',
+        a: `There is no startup fee on an occupied unit. On a vacant unit the fee varies by total unit count and plan, and it is quoted in writing before you sign anything.` },
+      { q: 'What is the difference between the three plans?',
+        a: `One variable: the per-item repair approval limit, which is how much we spend on a single repair before calling you. ${pricing.plans.map((p) => `${p.name} at ${usd(p.monthly)} has a ${usd(p.repairApprovalLimit)} limit`).join(', ')}. Every other service is in all three plans.` },
+      { q: 'Do you discount pricing for larger portfolios?',
+        a: 'Yes, and the discount is significant. Monthly management drops as unit count rises. Portfolio pricing is quoted per owner rather than published, because it depends on unit count, property type and how concentrated the portfolio is, so request a quote instead of using the per-unit rate.' },
+      { q: 'Is a maintenance reserve required?',
+        a: `Yes. ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit, ${pricing.reserves.note}. It is held on your account so routine repairs are not waiting on a funding request. It stays your money and it is returned when management ends.` },
+      { q: 'How long is the Property Management Agreement?',
+        a: `[SOURCE NEEDED: minimum term of the Property Management Agreement, not currently in facts.ts]. The early termination fee is tiered by where you are in the term: ${pricing.otherFees.find((f) => f.name === 'Early termination')?.note}` },
+      { q: 'Is there an early termination fee?',
+        a: `Yes. ${pricing.otherFees.find((f) => f.name === 'Early termination')?.note} It is published rather than buried, because you should be able to price your exit before you sign.` },
+      { q: 'Do I need insurance on my rental property?',
+        a: `Yes. A Rental Dwelling Policy or Commercial Policy carrying at least ${usd(pricing.insuranceRequired.liabilityMin)} in liability coverage, with ${company.name} listed as an additional insured. If proof of that coverage is not provided, a fee of ${pricing.otherFees.find((f) => f.name.startsWith('Failure to provide evidence'))?.amount} applies until it is.` },
+      { q: 'Will I be charged for professional photography?',
+        a: `Photography is not included in the ${usd(pricing.leasingFee)} leasing fee. ${pricing.otherFees.find((f) => f.name === 'Property photography')?.note} Expect ${pricing.otherFees.find((f) => f.name === 'Property photography')?.amount} when new photos are needed.` },
+      { q: 'Will you inspect a property I am thinking about buying?',
+        a: `We do not perform buyer inspections. We do offer a pre-signature inspection on a property you own at ${usd(pricing.prePurchaseInspection.fee)}, ${pricing.prePurchaseInspection.note}. For medium and large multifamily we can advise during due diligence.` },
+      { q: 'Can I see my financials online?',
+        a: 'Yes. Every owner gets a portal with real-time financial data: rent received, expenses, monthly statements and the invoice behind each charge.' },
+      { q: 'How do I get started?',
+        a: 'Book a consultation, take a rent evaluation, schedule a pre-signature inspection, sign the Property Management Agreement, then fund the maintenance reserve and hand over keys. If the unit is vacant, it goes on the market immediately.' },
+    ],
+  },
+  {
+    id: 'leasing',
+    heading: 'Leasing and resident screening',
+    items: [
+      { q: 'How do you screen prospective residents?',
+        a: 'Every applicant goes through a custom rental application and a third-party background check covering credit history, criminal history, rental history including prior evictions and landlord references, and verified income. The same criteria are applied to every applicant, inside fair housing law.' },
+      { q: 'What are your minimum applicant criteria?',
+        a: '[SOURCE NEEDED: published minimum applicant criteria, specifically the income-to-rent multiple and the eviction lookback period. The live site lists figures that need re-verification before republishing.] What we can state now: applicants are graded against a written rubric by someone other than the leasing agent who collected the file, and the scoring sheet carries no photo or other identifying information, so the decision is made on the data.' },
+      { q: 'Where do you advertise available rentals?',
+        a: 'Listings syndicate to every major rental portal plus our own site, with self-guided and agent-led showings available. We do not advertise on classifieds sites that cannot verify a listing.' },
+      { q: 'How long does it take to rent out a property in Columbus?',
+        a: `Median days on market across the portfolio is ${kpis.metrics[0].value} days, defined as ${kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)} Median time to turn a vacant unit and get it back on the market is ${kpis.metrics[1].value} days.` },
+      { q: 'Do you guarantee a lease will be signed by a certain date?',
+        a: 'No. A guaranteed lease date is a guarantee to cut rent or lower the screening bar when the date gets close, and both cost more than a few extra vacant days. Be careful with any manager who offers one.' },
+      { q: 'Do I still pay a management fee while the unit is vacant?',
+        a: 'Yes, because we are still marketing, showing and maintaining it. If a property has been listed longer than 60 days, we proactively credit management fees back to your account.' },
+      { q: 'Do you provide a lease?',
+        a: 'Yes. A custom lease reviewed by legal counsel. It can carry property-specific rules: no smoking, pet terms, guest limits, association rules, and a utility table naming who pays for what.' },
+      { q: 'How much is the security deposit?',
+        a: '[SOURCE NEEDED: standard security deposit amount and the credit conditions that change it, not currently in facts.ts.] What is fixed: the deposit is held and returned under Ohio landlord-tenant law, and normal wear and tear is never deducted from it.' },
+      { q: 'Can I require my property to stay smoke-free?',
+        a: 'Yes. Smoking is not permitted in any unit we manage.' },
+      { q: 'Do you leave the utilities on between residents?',
+        a: 'Yes. Utilities stay active while a unit is vacant so repairs can be done, the unit shows properly, and the pipes do not freeze in a Columbus January.' },
+      { q: 'Do you accept housing choice vouchers?',
+        a: 'Some Columbus-area jurisdictions prohibit source-of-income discrimination, which means an applicant cannot be declined solely because their income comes from a housing voucher. In those jurisdictions we accept voucher holders and screen them through the normal process. [SOURCE NEEDED: current list of Columbus-area jurisdictions with source-of-income protection, and the effective date, not currently in facts.ts.]' },
+      { q: 'How often do residents renew?',
+        a: `The lease renewal rate across the portfolio is ${kpis.metrics[2].value}, as of ${kpis.asOfLabel}. A renewal costs the owner ${usd(pricing.leaseRenewalFee)} and avoids a turn entirely, which is the cheapest month in the whole business.` },
+      { q: 'What happens if a resident goes month to month?',
+        a: `Rent increases by ${rentPolicy.monthToMonthIncreasePct}% on a month-to-month tenancy. Month-to-month costs the owner more in turn risk, so it is priced to encourage a renewal.` },
+    ],
+  },
+  {
+    id: 'evictions',
+    heading: 'Evictions and resident disputes',
+    items: [
+      { q: 'How much does an eviction cost in Franklin County?',
+        a: `The hard cost is ${usd(pricing.eviction.hardCostTotal)}: ${usd(pricing.eviction.attorneyFee)} to the eviction attorney for filing and up to two court appearances, plus ${usd(pricing.eviction.countyFilingFee)} to Franklin County for the Eviction Complaint. ${company.name} charges ${usd(pricing.eviction.rlpmProcessFee)} to run the process, so a typical total is ${usd(pricing.eviction.typicalTotal)}. If the resident does not leave, a tag and setout adds ${usd(pricing.eviction.tagAndSetoutFee)} to the county and ${usd(pricing.eviction.setoutFee)} to us. The owner is responsible for these charges and we try to recover them from the resident.` },
+      { q: 'How do you handle an eviction?',
+        a: 'A local eviction attorney files through the Franklin County Municipal Court, and we run the process end to end, including up to two court appearances. Before filing we look for the cheaper outcome first: a payment plan, a pay-and-stay arrangement, or a negotiated move-out, because any of those usually costs the owner less than a judgment.' },
+      { q: 'How long does an eviction take in Franklin County?',
+        a: '[SOURCE NEEDED: typical elapsed time from first notice to setout in Franklin County, not currently in facts.ts.] The sequence itself is fixed: a written notice to leave the premises, then a filed Eviction Complaint, then a hearing, then a writ and setout if the resident has not vacated.' },
+      { q: 'How often do rentals end up in eviction or litigation?',
+        a: `Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute. It is not common, and it is not rare enough to leave out of your budget.` },
+      { q: 'Do you cover pet damage?',
+        a: `Yes, up to ${usd(pricing.petDamageCoverage.cap)} ${pricing.petDamageCoverage.note}. If an approved pet causes damage beyond normal wear and tear and the repair exceeds the security deposit, we cover the difference.` },
+      { q: 'Will you tell me about every resident complaint?',
+        a: 'No, and that is deliberate. Routine resident concerns are handled by the team without an owner email. You hear from us when something is significant, when it needs your money, or when it needs your decision.' },
+      { q: 'Who pays when damage exceeds the security deposit?',
+        a: 'The owner. A deposit covers damage beyond normal wear and tear up to its own amount. Anything above that is the owner’s cost, which is why screening and inspections matter more than deposit size.' },
+    ],
+  },
+  {
+    id: 'maintenance',
+    heading: 'Maintenance and repairs',
+    items: [
+      { q: 'How do you bill repairs?',
+        a: `In-house work is ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge per visit, with materials at cost and no minimum charge (${pricing.maintenance.rateYear} rate). Third-party vendor work is billed at vendor cost plus a ${pricing.maintenance.vendorProjectFeePct}% project management fee on vendor costs up to ${usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)}, capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project.` },
+      { q: 'What does after-hours work cost?',
+        a: `Labor is billed at ${pricing.afterHours.weekdayEveningAndSaturday} times the standard rate on weekday evenings and Saturdays, and ${pricing.afterHours.sunday} times on Sundays.` },
+      { q: 'How are turns billed?',
+        a: `Vendor work on a turn uses a tiered project fee instead of the standard one: ${pricing.maintenance.turnTiers[0].pct}% on turns up to ${usd(pricing.maintenance.turnTiers[0].upTo as number)}, ${pricing.maintenance.turnTiers[1].pct}% from ${usd((pricing.maintenance.turnTiers[0].upTo as number) + 1)} to ${usd(pricing.maintenance.turnTiers[1].upTo as number)}, and ${pricing.maintenance.turnTiers[2].pct}% above that.` },
+      { q: 'What do you handle in house and what goes to a vendor?',
+        a: 'In-house technicians cover general handyman work and minor plumbing, electrical and appliance repairs. Specialty work goes to vetted vendors: roofing, HVAC, and major plumbing or electrical projects.' },
+      { q: 'Do I have to use your vendors?',
+        a: 'No, if your plan allows it we will use your preferred vendor. They need to be licensed, insured and willing to work on our scheduling and invoicing terms.' },
+      { q: 'How much can you spend on a repair without asking me?',
+        a: `That is the one thing the plans differ on. ${pricing.plans.map((p) => `${p.name}: ${usd(p.repairApprovalLimit)} per item`).join('. ')}. Above your limit we call you first, except for a genuine emergency where waiting would make the damage worse.` },
+      { q: 'What counts as an emergency and how fast do you respond?',
+        a: 'Anything actively causing damage or making the unit unsafe: water coming in, no heat in winter, a gas smell, a lockout that leaves someone outside overnight, a failed smoke detector. Those are dispatched immediately, including nights and weekends through a 24/7 call center.' },
+      { q: 'How fast do routine repairs get closed?',
+        a: `Median time to close a repair across the portfolio is ${kpis.metrics[5].value} days, as of ${kpis.asOfLabel}. Routine requests are triaged by urgency, so a leaking faucet moves ahead of a sticking closet door.` },
+      { q: 'How often do you inspect my property?',
+        a: 'Quarterly. Each inspection covers smoke and carbon monoxide detectors, appliances, resident compliance with the lease, visible liabilities and overall condition, with photos on the report.' },
+      { q: 'Will you manage a renovation?',
+        a: 'We manage rent-ready or nearly rent-ready properties, so a full renovation is not something we take on. We will refer local contractors and start management once the work is done.' },
+      { q: 'What repair costs should I expect as an owner?',
+        a: 'Three buckets: routine maintenance at our hourly rate with materials at cost, specialty vendor work at vendor rates plus the project fee, and capital expense such as a roof, HVAC system, water heater, windows or driveway. Owners who used to do their own repairs are usually surprised by the first bucket, because their own labor was free.' },
+    ],
+  },
+  {
+    id: 'money',
+    heading: 'Rent, payouts and reporting',
+    items: [
+      { q: 'When do I get paid?',
+        a: `Owner funds are disbursed electronically on the ${rentPolicy.ownerDisbursementDay}th of each month and take ${rentPolicy.disbursementNote}.` },
+      { q: 'When is rent due and when are late fees charged?',
+        a: `Rent is due ${rentPolicy.dueDate}. In practice most residents pay between ${rentPolicy.practicalWindow}. Late fees are assessed after ${rentPolicy.lateFeesAfter}. Across the portfolio, ${kpis.metrics[6].value} of rent is collected by the 5th.` },
+      { q: 'Can you pay property bills for me?',
+        a: 'Yes, with four exceptions we do not pay: HOA dues, mortgage payments, insurance premiums and property taxes. Those stay with you.' },
+      { q: 'What reporting do I get?',
+        a: 'A monthly statement, year-end reporting for your accountant, and a portal showing rent received, every expense and the invoice behind it, in real time.' },
+      { q: 'Are there fees that only apply in unusual situations?',
+        a: `Yes, and all of them are published on the pricing page rather than discovered on a statement. Examples: ${pricing.otherFees.find((f) => f.name === 'Ownership entity change')?.amount} for an ownership entity change, ${pricing.otherFees.find((f) => f.name === 'Annual technology and accounting fee')?.amount} annually for account and tax reporting, and ${pricing.otherFees.find((f) => f.name === 'Insurance claim oversight')?.amount} for end-to-end insurance claim oversight, on which the ${pricing.maintenance.vendorProjectFeePct}% project fee is waived.` },
+    ],
+  },
+  {
+    id: 'areas',
+    heading: 'Service area',
+    items: [
+      { q: 'What areas do you serve?',
+        a: `${areas.length} communities across the Columbus metro, in Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway counties, including Columbus, Dublin, Upper Arlington, Westerville, Worthington, Gahanna, Hilliard, Powell, New Albany, Bexley, Grove City, Reynoldsburg, Grandview Heights, Pickerington and Delaware.` },
+      { q: 'What if my property is not in one of those areas?',
+        a: 'Ask. If it is in Columbus, Franklin County or the surrounding counties we will tell you honestly whether we can serve it well. A manager who is an hour from your property is not a manager, and we would rather say no than say yes badly.' },
+    ],
+  },
+];
+
+const faq = categories.flatMap((c) => c.items);
+
+const schemaNodes = [
+  serviceNode({
+    path: '/owner-faqs/',
+    name: 'Residential property management',
+    description: `Owner questions answered for ${company.name} clients and prospective clients in Columbus, Ohio.`,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Owner questions"
+    title="Owner FAQs"
+    answer={`Answers for Columbus rental owners, with the numbers attached. Management is a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, the leasing fee is ${usd(pricing.leasingFee)}, and owner funds go out on the ${rentPolicy.ownerDisbursementDay}th.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} />
+
+  <!-- Jump nav. Plain anchors, no JavaScript. -->
+  <section class="band-tight" aria-labelledby="jump-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="jump-h" class="text-[19px] mb-4">Jump to a section</h2>
+      <ul class="flex flex-wrap gap-3">
+        {categories.map((c) => (
+          <li>
+            <a href={`#${c.id}`} class="btn btn-ghost !py-2 !px-4 !text-[14px]">{c.heading}</a>
+          </li>
+        ))}
+      </ul>
+      <p class="text-[15.5px] text-muted mt-6">
+        Every figure below comes from the {company.name} Client Handbook and the published
+        {' '}<a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">fee schedule</a>.
+        Where a question needs a number we have not re-verified for this rebuild, the page says so instead of guessing.
+      </p>
+    </div>
+  </section>
+
+  {categories.map((c, i) => (
+    <section id={c.id} class={i % 2 === 0 ? 'band band-wash' : 'band'} aria-labelledby={`${c.id}-faq-h`}>
+      <div class="wrap max-w-[820px]">
+        <Faq items={c.items} heading={c.heading} id={`${c.id}-faq`} />
+      </div>
+    </section>
+  ))}
+
+  <section class="band-tight">
+    <div class="wrap max-w-[820px]">
+      <p class="text-[16px] text-muted">
+        Still have a question? Call {company.phone} or
+        {' '}<a href="/property-management-consultation/" class="text-crimson font-semibold no-underline hover:underline">book a consultation</a>.
+        Resident questions are answered separately on the
+        {' '}<a href="/resident-faqs/" class="text-crimson font-semibold no-underline hover:underline">resident FAQs page</a>.
+      </p>
+      <div class="mt-5"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+    { href: '/columbus-property-management/', label: 'Columbus property management', note: 'What we do, how it works, what it costs.' },
+    { href: '/client-handbook/', label: 'The Client Handbook', note: 'The long-form version, and the source of these numbers.' },
+    { href: '/key-performance-indicators/', label: 'The published scorecard', note: 'Days on market, collection rate, renewal rate.' },
+    { href: '/switching-property-managers/', label: 'Switching property managers', note: 'If you already have a manager and want out.' },
+  ]} />
+
+  <Cta
+    heading="Ask us the question that is not on this page"
+    body="A consultation is a call, not a pitch. Bring your addresses, your current statements and the thing that is actually bothering you."
+    primary={{ label: 'Book a consultation', href: '/property-management-consultation/' }}
+    secondary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+  />
+</Base>

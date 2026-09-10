@@ -1,0 +1,244 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, coreValues, areas } from '../../data/facts';
+
+/**
+ * Careers. Benefits are taken verbatim in substance from the current live
+ * /careers/ page, which is the only verified source for them.
+ *
+ * DELIBERATELY NOT PUBLISHED: salary ranges, headcount growth, tenure figures,
+ * "great place to work" style claims, and any open role that has not been
+ * confirmed as currently open. A stale job posting is worse than none.
+ */
+
+const title = 'Careers at RL Property Management | Columbus, Ohio';
+const description =
+  `Jobs at ${company.name} in Columbus, Ohio. Maintenance, leasing, resident support and ` +
+  `operations roles, with medical, dental and vision, a 3% 401k match and paid parental leave.`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Careers', path: '/careers/' }];
+
+/** From the live careers page. Do not add to this list without a source. */
+const benefits = [
+  { h: 'Medical, dental and vision',
+    p: 'Comprehensive medical, dental and vision coverage for full-time employees and their dependents.' },
+  { h: '3% company match on 401k',
+    p: 'A 3% company match on 401k contributions.' },
+  { h: 'Two weeks paid time off',
+    p: 'Two weeks of paid time off per year, separate from paid holidays.' },
+  { h: 'Six paid holidays',
+    p: 'Six paid holidays each year.' },
+  { h: 'Three weeks paid parental leave',
+    p: 'Up to three weeks of paid parental leave.' },
+  { h: 'Employee Assistance Program',
+    p: 'Access to support and resources through an EAP, covering mental and emotional wellbeing.' },
+  { h: 'Referral bonus',
+    p: 'A bonus when someone you refer joins the team.' },
+  { h: 'Continued education assistance',
+    p: 'An education assistance program covering certifications and professional development.' },
+];
+
+/** Why work here, from the live careers page, rewritten to the house voice. */
+const reasons = [
+  { h: 'A defined book of work',
+    p: 'We manage a defined set of property types in a defined service area. That focus is what makes the work legible: you are not learning a new asset class every week.' },
+  { h: 'Owners who stay',
+    p: 'The client base is long-term investors rather than one-off landlords. Long relationships mean fewer fire drills and more work that compounds.' },
+  { h: 'Systems built for the person doing the job',
+    p: 'Processes here exist to remove repeated decisions, not to add approval steps. If a system is making your job harder, that is treated as a bug.' },
+  { h: 'Plain and straightforward',
+    p: 'We publish our prices, our operating numbers and our whole team roster. The internal culture matches: say the real thing, in plain language, the first time.' },
+];
+
+/** The functions we hire into, derived from the published team roster on /team/. */
+const functions = [
+  ['Maintenance', 'Technicians, coordinators and schedulers. The largest group in the company.'],
+  ['Leasing and vacant units', 'Listing, showing and leasing empty units, and getting them ready to show.'],
+  ['Resident support', 'The resident side of the business: requests, questions and lease matters.'],
+  ['Owner and client service', 'The owner relationship, onboarding, and the front desk.'],
+  ['Operations, people and marketing', 'Process, hiring, internal support and publishing.'],
+];
+
+const keyFacts = [
+  `Based in ${company.address.city}, Ohio, serving ${areas.length} Central Ohio communities`,
+  'Medical, dental and vision for full-time employees and dependents',
+  '3% company match on 401k contributions',
+  'Two weeks paid time off plus six paid holidays',
+  'Up to three weeks paid parental leave',
+  'Continued education assistance for certifications',
+];
+
+const faq = [
+  { q: 'Is RL Property Management hiring?',
+    a: `Open roles are listed on this page when there are any. ${company.name} hires in Columbus, Ohio across maintenance, leasing and vacant units, resident support, owner service, and operations. If nothing listed fits, a resume can still be sent to ${company.email}.` },
+  { q: 'What benefits does RL Property Management offer?',
+    a: 'Medical, dental and vision coverage for full-time employees and their dependents, a 3% company match on 401k contributions, two weeks of paid time off, six paid holidays, up to three weeks of paid parental leave, an Employee Assistance Program, a referral bonus, and continued education assistance for certifications and professional development.' },
+  { q: 'Where are the jobs based?',
+    a: `${company.address.street}, ${company.address.city}, ${company.address.region} ${company.address.postalCode}, with field work across the Columbus metro. Maintenance roles are on the road at managed properties most of the day.` },
+  { q: 'Do I need a real estate license to work here?',
+    a: '[SOURCE NEEDED: which roles at RL Property Management require an active Ohio real estate license, and whether the company sponsors or pays for licensing.]' },
+  { q: 'What is it like to work in property management?',
+    a: 'It is operational work with a clock on it. Vacant units cost money every day they sit, repairs get worse the longer they wait, and residents remember how they were spoken to. The people who do well here like closing loops and dislike leaving things ambiguous.' },
+  { q: 'What does RL Property Management look for in a hire?',
+    a: `The same six core values the company runs on: clear communication, doing things in realtime, figuring it out and getting it done, keeping everything where it belongs, lending a hand, and respect for clients, residents and each other. Those are the standard people are reviewed against, not just hired against.` },
+  { q: 'How do I apply?',
+    a: `[SOURCE NEEDED: the current application link or process. Until it is confirmed, applicants can email ${company.email} or call ${company.phone}.]` },
+];
+
+const related = [
+  { href: '/team/', label: 'Our team', note: 'Every current role, by function.' },
+  { href: '/core-values/', label: 'Core values', note: 'The standard people are hired against.' },
+  { href: '/about/', label: 'About the company', note: `What ${company.shortName} does, and for whom.` },
+  { href: '/contact-us/', label: 'Contact us', note: 'Phone, email and the office address.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="Careers"
+    title="Careers at RL Property Management"
+    answer={`${company.name} hires in Columbus, Ohio for maintenance, leasing, resident support and operations. Benefits include medical, dental and vision, a 3% 401k match, two weeks paid time off, six paid holidays and three weeks paid parental leave.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'See open positions', href: '#open-positions' }}
+    secondaryCta={{ label: 'Meet the team', href: '/team/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="The short version" />
+
+  <section class="band-tight" aria-labelledby="why-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="why-h">Why work at RL Property Management?</h2>
+      <p>
+        Because the work is concrete and the company is honest about what it is. We manage
+        {' '}{company.unitsManaged} {company.propertyTypes} in Central Ohio, we publish our prices
+        and our operating numbers, and the whole team roster is
+        {' '}<a href="/team/">on the website with names and titles</a>. Very little here is hidden,
+        internally or externally.
+      </p>
+      <p>
+        Property management is not glamorous. It is a job where a furnace fails at 11pm, where a
+        resident is upset for a reason that is genuinely their landlord's fault, and where a vacant
+        unit costs an owner money every day it sits. The satisfaction comes from closing those loops
+        quickly, which is exactly what the company is organized to do.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="reasons-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">The culture, stated plainly</span>
+      <h2 id="reasons-h" class="text-[clamp(28px,3.3vw,40px)]">What is the company actually like?</h2>
+      <div class="grid gap-5 sm:grid-cols-2 mt-8">
+        {reasons.map((r) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{r.h}</h3>
+            <p class="text-[15px] text-muted m-0">{r.p}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[15px] text-muted mt-7 max-w-[44em]">
+        The six values behind all of this are written down and public. Read them on the
+        {' '}<a href="/core-values/" class="text-crimson font-semibold no-underline hover:underline">core values page</a>:
+        {coreValues.map((v, i) => (
+          <span>{i === 0 ? ' ' : ', '}{v.name.toLowerCase()}</span>
+        ))}.
+      </p>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="benefits-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Perks and benefits</span>
+      <h2 id="benefits-h" class="text-[clamp(28px,3.3vw,40px)]">What benefits does RL Property Management offer?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Medical, dental and vision for full-time employees and their dependents, a 3% 401k match,
+        paid time off, paid holidays and paid parental leave. The full list:
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {benefits.map((b) => (
+          <div class="card">
+            <h3 class="text-[18px] mb-2">{b.h}</h3>
+            <p class="text-[15px] text-muted m-0">{b.p}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[14px] text-faint mt-6 max-w-[44em]">
+        [SOURCE NEEDED: eligibility waiting periods, whether benefits extend to part-time staff, and
+        the dollar limit on continued education assistance. Only what the current careers page
+        states is published here.]
+      </p>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="functions-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Where people work</span>
+      <h2 id="functions-h" class="text-[clamp(28px,3.3vw,40px)]">What kinds of roles does RL Property Management hire for?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        Five functions. The company is organized by what people do rather than by which properties
+        they cover, so a role here is a real specialty rather than a bit of everything.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Functions RL Property Management hires into</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Function</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">What the work is</th>
+            </tr>
+          </thead>
+          <tbody>
+            {functions.map(([f, d]) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top whitespace-nowrap">{f}</th>
+                <td class="p-3.5 border border-line align-top text-muted">{d}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-wash" id="open-positions" aria-labelledby="open-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Open positions</span>
+      <h2 id="open-h" class="text-[clamp(28px,3.3vw,40px)]">What positions are open right now?</h2>
+      <div class="card !p-8 mt-7">
+        <p class="text-[16px] text-muted m-0">
+          [SOURCE NEEDED: the current list of open positions and the application link. The live
+          site currently lists one opening, Maintenance Technician, but that listing has not been
+          confirmed as still open and is not republished here for that reason.]
+        </p>
+        <p class="text-[16px] text-navy mt-5 mb-0">
+          In the meantime, send a resume to
+          {' '}<a href={`mailto:${company.email}`} class="text-crimson font-semibold no-underline hover:underline">{company.email}</a>
+          {' '}or call <a href={`tel:${company.phoneE164}`} class="text-crimson font-semibold no-underline hover:underline">{company.phone}</a>.
+          Tell us which of the five functions above fits you.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-tight">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Questions about working here" id="careers-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={related} />
+
+  <Cta
+    heading="Want to work here?"
+    body="Send a resume and tell us which function fits. If you are an owner who landed here by accident, the rent evaluation is one page over."
+    primary={{ label: `Email ${company.email}`, href: `mailto:${company.email}` }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

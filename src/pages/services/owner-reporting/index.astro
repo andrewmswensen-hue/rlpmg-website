@@ -1,0 +1,191 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, kpis, rentPolicy, usd } from '../../../data/facts';
+import { serviceNode } from '../../../lib/schema';
+
+/**
+ * Intent: "property management accounting", "owner statements", "1099 rental property".
+ * Nothing here states an IRS threshold, form number or deadline that is not in
+ * facts.ts. Those are marked SOURCE NEEDED on purpose.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+const techFee = pricing.otherFees.find((f) => f.name === 'Annual technology and accounting fee');
+const entityFee = pricing.otherFees.find((f) => f.name === 'Ownership entity change');
+
+const title = 'Owner Statements and Property Management Accounting | RL Property Management';
+const description =
+  `Monthly owner statements, a real-time owner portal, and electronic disbursement on the ${rentPolicy.ownerDisbursementDay}th. ` +
+  `How rental property accounting works, what a good statement shows, and what you need at tax time.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+  { name: 'Owner reporting', path: '/services/owner-reporting/' },
+];
+
+const answer =
+  `${company.name} issues a monthly owner statement showing every dollar collected and spent, disburses funds ` +
+  `electronically on the ${rentPolicy.ownerDisbursementDay}th, and gives you a real-time owner portal. Year-end ` +
+  `reporting is covered by a ${techFee?.amount ?? ''} annual fee.`;
+
+const facts = [
+  `Monthly owner statement on every managed unit`,
+  `Electronic disbursement on the ${rentPolicy.ownerDisbursementDay}th, ${rentPolicy.disbursementNote}`,
+  'Real-time owner portal, not a monthly PDF only',
+  `${techFee?.amount ?? ''} annual technology and accounting fee, ${techFee?.note?.toLowerCase() ?? ''}`,
+  `${entityFee?.amount ?? ''} to change ownership entity, including year-to-date financials for the prior entity`,
+  `Reserve of ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit, shown on your statement and still your money`,
+  `${kpi('collectedBy5')} of rent collected by the 5th`,
+  'Every published fee appears on the fee schedule, so a statement holds no surprises',
+];
+
+const lineItems = [
+  ['Income', 'Rent collected, late fees, pet fees, any other resident charges that were actually received. Billed is not collected, and a statement that shows only billed rent is telling you what should have happened.'],
+  ['Management fee', `Your flat plan fee, ${usd(pricing.plans[0].monthly)}, ${usd(pricing.plans[1].monthly)} or ${usd(pricing.plans[2].monthly)} per unit. It does not move when rent moves.`],
+  ['Maintenance', `Labor at ${usd(pricing.maintenance.inHouseHourly)} per hour plus the ${usd(pricing.maintenance.tripCharge)} trip charge, materials at cost, and any vendor invoice with the ${pricing.maintenance.vendorProjectFeePct}% project fee shown as its own line.`],
+  ['Leasing and renewals', `Placing a resident is ${usd(pricing.leasingFee)}. A renewal is ${usd(pricing.leaseRenewalFee)} on the date the lease renews. Photography, when it applies, is $250 to $450 and appears separately.`],
+  ['Reserve', `The ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit held on your account. It is your money, held so a repair does not wait on a funding request, and it is returned when management ends.`],
+  ['Disbursement', `What was sent to you, on the ${rentPolicy.ownerDisbursementDay}th.`],
+];
+
+const faq = [
+  { q: 'What is on a monthly owner statement?',
+    a: `Income actually collected, the flat management fee, maintenance labor and materials, any vendor invoices with the ${pricing.maintenance.vendorProjectFeePct}% project fee itemized, leasing or renewal fees, the reserve balance, and the amount disbursed to you. The test of a good statement is whether you can tie the deposit in your bank account to the bottom line without a phone call.` },
+  { q: 'When are owner funds disbursed?',
+    a: `Electronically on the ${rentPolicy.ownerDisbursementDay}th of each month, taking ${rentPolicy.disbursementNote}. The days between the 5th and the 10th are when the month closes: payments clear and invoices post, so the statement and the deposit agree.` },
+  { q: 'Do I get a 1099 for my rental property?',
+    a: `Yes. A property manager reports rent collected on your behalf to the IRS and to you. [SOURCE NEEDED: which 1099 form RL Property Management issues to owners, the reporting threshold, and the date it is sent each year.] Your accountant will also want the annual statement, which shows income and expenses by category for the full year.` },
+  { q: 'Is there an accounting fee?',
+    a: `${techFee?.amount ?? ''} per business entity per year. ${techFee?.note ?? ''} It is per entity rather than per unit, so an owner holding several properties in one LLC pays it once.` },
+  { q: 'What if I move my property into an LLC?',
+    a: `${entityFee?.amount ?? ''}. ${entityFee?.note ?? ''} The year-to-date financials matter more than the paperwork: without them the old entity has an incomplete year and your accountant has a gap.` },
+  { q: 'Can I see what is happening between statements?',
+    a: 'Yes. The owner portal is real time, so work orders, payments and invoices appear as they happen rather than at month end. The monthly statement is the close, not the only visibility you get.' },
+  { q: 'What records should I keep as a rental owner?',
+    a: 'Every statement, every invoice above your own capitalization threshold, closing documents from purchase, and a running record of capital improvements as distinct from repairs. The repair versus improvement distinction is the one that costs owners money at tax time, and it is far easier to track as you go than to reconstruct in March. Ask your CPA where that line sits for your situation.' },
+  { q: 'Do you handle my taxes?',
+    a: 'No. We are a property manager and a licensed Ohio brokerage, not an accounting firm. We produce the records your CPA needs and we answer their questions about a line item. Filing, entity structure and depreciation decisions belong with your own tax professional.' },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/services/owner-reporting/',
+    name: 'Owner reporting and property management accounting',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Owner reporting"
+    title="Owner statements and rental property accounting"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <section class="band" aria-labelledby="why-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The problem</span>
+      <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Why does rental accounting go wrong?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Because most owners are reconstructing a year of activity in March from a bank feed and a folder of
+        emails. By then you cannot remember whether a payment to a contractor in June was a repair you deduct this year
+        or an improvement you depreciate, and the difference is real money.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        The second failure is a statement you cannot tie out. If the deposit in your bank account does not match
+        a line on the statement, you are not being reported to, you are being summarized at. Every fee we charge
+        is published on the fee schedule, which is the only way a statement can be genuinely surprise-free.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="stmt-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Line by line</span>
+      <h2 id="stmt-h" class="text-[clamp(28px,3.3vw,40px)]">What is on an owner statement?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Six groups. If a statement you receive from any manager does not separate these, ask why.
+      </p>
+      <div class="grid gap-5">
+        {lineItems.map(([h, b]) => (
+          <div class="card">
+            <h3 class="text-[19.5px] mb-2">{h}</h3>
+            <p class="text-[15.5px] text-muted m-0">{b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="tax-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Year end</span>
+      <h2 id="tax-h" class="text-[clamp(28px,3.3vw,40px)]">What do you need at tax time?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6">
+        Four things, and a manager should hand you three of them without being asked.
+      </p>
+      <ul class="grid gap-4">
+        <li class="card !p-5"><strong class="text-navy">The annual statement.</strong> <span class="text-muted">Income and expense by category for the full year, per property.</span></li>
+        <li class="card !p-5"><strong class="text-navy">Your 1099.</strong> <span class="text-muted">Rent collected on your behalf, reported to you and to the IRS. [SOURCE NEEDED: the specific 1099 form RLPM issues to owners, the reporting threshold and the annual send date.]</span></li>
+        <li class="card !p-5"><strong class="text-navy">Capital improvement records.</strong> <span class="text-muted">Kept separately from repairs all year, because your CPA depreciates one and deducts the other.</span></li>
+        <li class="card !p-5"><strong class="text-navy">Mortgage, insurance and tax records.</strong> <span class="text-muted">These are yours, not ours, unless we pay them from your account. Keep them where the statement can be reconciled against them.</span></li>
+      </ul>
+      <p class="text-[15px] text-muted mt-6">
+        The annual technology and accounting fee is {techFee?.amount ?? ''} per business entity and
+        {' '}{techFee?.note?.toLowerCase() ?? ''}
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="flat-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Why flat is easier to read</span>
+      <h2 id="flat-h" class="text-[clamp(28px,3.3vw,40px)]">Why does a flat fee make the books simpler?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Because the management line is the same number every month. A percentage fee changes with collections, so
+        a month where a resident paid late and then paid double reads as a fee anomaly you have to investigate.
+        Ours is {usd(pricing.plans[0].monthly)}, {usd(pricing.plans[1].monthly)} or
+        {' '}{usd(pricing.plans[2].monthly)} per unit, every month, whatever the rent did.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        One exception, in your favor: if a property has been listed for rent longer than 60 days, we proactively
+        credit management fees back to your account, and that credit appears on the statement.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Owner reporting and accounting questions" id="reporting-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/services/rent-collection/', label: 'Rent collection', note: 'What has to happen before a statement can close.' },
+    { href: '/pricing/', label: 'Pricing', note: 'Every fee that can appear on a statement, published.' },
+    { href: '/services/maintenance/', label: 'Maintenance', note: 'How repair charges are calculated and itemized.' },
+    { href: '/services/', label: 'All services', note: 'The other seven jobs a manager does.' },
+    { href: '/client-handbook/', label: 'Client Handbook', note: 'The accounting and disbursement policy in full.' },
+  ]} />
+
+  <Cta
+    heading="Get books you can hand to your CPA"
+    body="A monthly statement that ties to your deposit, a real-time portal, and year-end records that do not need reconstructing."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

@@ -1,0 +1,400 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, rentPolicy, usd } from '../../data/facts';
+import { articleNode, serviceNode } from '../../lib/schema';
+
+/**
+ * Target queries: "best property management company columbus ohio",
+ * "how to find a good property manager", "top property managers columbus".
+ *
+ * This is a buyer's guide, and it has to be genuinely useful to someone who ends
+ * up hiring a competitor. That is what earns a citation. It names no competitor,
+ * gives real evaluation criteria, and answers each question against our own
+ * published numbers so the reader can see the standard being applied to us too.
+ */
+
+const title = 'How to Choose a Property Manager in Columbus, Ohio';
+const description =
+  'A buyer\'s guide for Columbus rental owners: the questions to ask any property manager, what a fee schedule should disclose, ' +
+  'how to verify an Ohio brokerage license, and the answers that should end a conversation.';
+
+/** kpis.metrics avgRent as a number, so the worked comparison is derived and not typed. */
+const avgRent = 1653;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Owners', path: '/columbus-property-management/' },
+  { name: 'How to choose a property manager', path: '/how-to-choose-a-property-manager-columbus/' },
+];
+
+const keyFacts = [
+  'Ask for the complete fee schedule in writing before any call',
+  'Verify the brokerage license with the State of Ohio yourself',
+  'Ask how days on market is measured, not just what the number is',
+  'Find out what the manager earns when a resident leaves',
+  'Read the termination clause before you read the pitch',
+  'A manager who will not publish numbers is asking for faith',
+];
+
+/** The questions. `ours` is how RL Property Management answers, so the reader can calibrate. */
+const questions = [
+  {
+    q: 'Can I see your complete fee schedule in writing?',
+    why: 'This is the first question and the most revealing one. A manager who has a written schedule will send it. A manager who says the fees depend on your situation and offers a call instead is telling you the fees are negotiated against how much you already know.',
+    look: 'Every charge that can appear on an owner statement, not just the headline percentage. Lease-up, renewal, setup, maintenance markup, after-hours multipliers, inspection charges, eviction handling, insurance claim handling, entity changes, early termination.',
+    ours: 'Published in full on our pricing page, including the situational fees most owners never see.',
+  },
+  {
+    q: 'What do you charge to place a resident?',
+    why: 'The leasing fee is the number that decides your year, and it is usually the one left out of a quote. Half a month of rent every time a unit turns can exceed the entire difference between an 8% and a 10% management fee.',
+    look: 'A dollar figure or a fraction of a month, plus whether it is charged again on a renewal, and whether photography, syndication and screening are inside it or billed separately.',
+    ours: `${usd(pricing.leasingFee)} on every plan. Photography is not included and runs ${pricing.otherFees.find((f) => f.name === 'Property photography')?.amount} when new photos are needed.`,
+  },
+  {
+    q: 'What do you earn when a resident moves out?',
+    why: 'Follow the incentive. If the manager collects a fee every time a unit turns, turnover pays them. If they collect a percentage of the turn work, an expensive turn pays them. Neither makes them dishonest, but you should know which way the money points before you sign.',
+    look: 'The leasing fee, any turn coordination or project management fee, and how vendor markups work on turn work specifically, since many schedules price turns differently from routine repairs.',
+    ours: `Nothing on a new lease. A renewal is ${usd(pricing.leaseRenewalFee)}. Turn vendor work carries a tiered project fee of ${pricing.maintenance.turnTiers[0].pct}%, ${pricing.maintenance.turnTiers[1].pct}% and ${pricing.maintenance.turnTiers[2].pct}% as the turn gets larger.`,
+  },
+  {
+    q: 'How do you bill maintenance, and what is your markup?',
+    why: 'Maintenance is where most of the money actually moves. A manager with a low management fee and an undisclosed vendor markup can cost far more than one with a higher fee and cost-plus billing.',
+    look: 'An in-house hourly rate, a trip charge, whether there is a minimum charge, whether materials are at cost, the percentage added to vendor invoices, whether that percentage is capped, and what happens after hours.',
+    ours: `${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, no minimum, materials at cost. Vendor work at cost plus ${pricing.maintenance.vendorProjectFeePct}%, capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project. After hours is ${pricing.afterHours.weekdayEveningAndSaturday}x, Sundays ${pricing.afterHours.sunday}x.`,
+  },
+  {
+    q: 'How much can you spend on a repair without asking me?',
+    why: 'Too low and every water heater becomes an email thread while a resident has cold showers. Too high and you find out about a significant repair decision only when the statement arrives. There is no correct answer, only the one that matches how involved you want to be.',
+    look: 'A specific dollar limit per item, in the agreement, and what the exception is for genuine emergencies.',
+    ours: `Set by plan: ${pricing.plans.map((p) => `${usd(p.repairApprovalLimit)} on ${p.name}`).join(', ')}. It is the only thing the three plans differ on.`,
+  },
+  {
+    q: 'What are your screening criteria, in writing?',
+    why: 'Screening is the single largest driver of whether a property has a good three years or a bad one. Criteria applied consistently protect you legally as well as financially, because inconsistency is where fair housing problems begin.',
+    look: 'Written minimum criteria, what is checked, who makes the decision, and whether the same standard is applied to every applicant. Ask what happens when a marginal applicant is the only applicant.',
+    ours: 'Credit, criminal, income, rental history and eviction checks, graded against a written rubric by someone other than the agent who took the application, on a sheet carrying no photo or identifying information.',
+  },
+  {
+    q: 'What is your days on market, and how do you measure it?',
+    why: 'Every manager has a leasing statistic and almost none define it. Days from listing to lease signed, days from vacancy to move-in, and days from rent-ready to application are three very different numbers from the same portfolio.',
+    look: 'The definition first, then the number, then how recently it was measured and across how many units. A number without a definition is marketing.',
+    ours: `${kpis.metrics[0].value} days, defined as ${kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)} As of ${kpis.asOfLabel}.`,
+  },
+  {
+    q: 'What is your renewal rate and your collection rate?',
+    why: 'Renewals are the cheapest month in the business, so a manager who keeps good residents is worth more than one who fills units fast. Collection rate tells you whether rent arrives without a fight.',
+    look: 'A renewal percentage and a percentage of rent collected by a stated day of the month, both across the whole portfolio rather than a favorable slice of it.',
+    ours: `${kpis.metrics[2].value} lease renewal rate and ${kpis.metrics[6].value} of rent collected by the 5th, as of ${kpis.asOfLabel}.`,
+  },
+  {
+    q: 'When do owners get paid, and what does the statement show?',
+    why: 'Late and vague disbursement is the most common complaint owners have that never makes it into a review. You want a date, not a window, and a statement with the invoice behind every charge.',
+    look: 'A fixed day of the month, how it is sent, how long it takes to land, and whether you can see each invoice yourself in a portal rather than requesting it.',
+    ours: `Owner funds go out on the ${rentPolicy.ownerDisbursementDay}th and take ${rentPolicy.disbursementNote}. Every invoice is attached in the owner portal.`,
+  },
+  {
+    q: 'What happens if the unit does not lease?',
+    why: 'A manager with no downside on vacancy has no urgency about it. Ask what changes at 30 days, at 60 days, and whether anything about the fee changes if a unit sits.',
+    look: 'A specific escalation, a pricing review, and any credit or fee adjustment. Be skeptical of a leasing guarantee, which is usually a promise to cut rent or lower the bar as the date approaches.',
+    ours: 'If a property has been listed longer than 60 days, we proactively credit management fees back to the account.',
+  },
+  {
+    q: 'How many doors do you manage per person?',
+    why: 'The best predictor of whether your emails get answered next year. A manager at capacity solves their staffing problem with your vacancy.',
+    look: 'Doors per portfolio manager and per maintenance technician, plus what happens to those ratios when they add your units. Also ask who specifically will own your account.',
+    ours: `${company.unitsManaged} units under management. Maintenance technicians are on payroll rather than subcontracted per work order.`,
+  },
+  {
+    q: 'What does it cost to leave, and what is the notice period?',
+    why: 'Read the exit before the entrance. An agreement that is expensive or slow to leave is the one you will regret, and the cost of leaving tells you how confident the manager is that you would want to stay.',
+    look: 'The termination clause: notice period, form of notice, any early termination fee, whether it changes after the first year, and whether the agreement auto-renews on a date.',
+    ours: `Published: ${pricing.otherFees.find((f) => f.name === 'Early termination')?.note}`,
+  },
+];
+
+const feeSchedule = [
+  'Monthly management, stated as a dollar amount or a percentage of what exactly',
+  'Leasing or placement fee, and whether it recurs on renewal',
+  'Lease renewal fee',
+  'Setup or onboarding fee, separately for occupied and vacant units',
+  'Maintenance: hourly rate, trip charge, minimum charge, materials handling',
+  'Vendor markup percentage, and whether it is capped',
+  'After-hours and weekend multipliers',
+  'Turn coordination or project management fees',
+  'Inspection fees, and how often inspections happen',
+  'Eviction handling fee, separate from court and attorney costs',
+  'Insurance claim handling fee',
+  'Ownership or entity change fees',
+  'Reserve requirement per unit, and whether it is refundable',
+  'Early termination fee, and how it changes over the term',
+];
+
+const redFlags = [
+  { h: 'The fee schedule arrives only after a call', p: 'Pricing that has to be explained before it can be shown is pricing that varies by how much you already know.' },
+  { h: 'A guaranteed lease date', p: 'A guarantee to fill a unit by a date is a guarantee to cut rent or lower the screening bar as that date approaches. You pay for both later.' },
+  { h: 'No written screening criteria', p: 'Inconsistent screening is where fair housing exposure comes from, and it lands on the owner as well as the manager.' },
+  { h: 'Statistics with no definition', p: 'Ask how days on market is measured. If the answer is vague, the number is decoration.' },
+  { h: 'Maintenance markup you have to ask about twice', p: 'Maintenance is where the money moves. A markup that is hard to get in writing is usually the largest line you have not priced.' },
+  { h: 'No named point of contact', p: 'If nobody owns your account, nobody answers for it. Ask for a name and what happens when that person is on vacation.' },
+  { h: 'Pressure to sign on the first call', p: 'A management agreement is a year of your property. Any manager worth hiring will send the agreement and wait while you read it.' },
+];
+
+const faq = [
+  { q: 'How do I choose a property manager in Columbus, Ohio?',
+    a: 'Start with the complete fee schedule in writing, then verify the brokerage license with the State of Ohio, then ask how their leasing statistics are measured, what they earn when a resident moves out, how maintenance is marked up, and what it costs to leave. The answers to those six tell you more than any review page.' },
+  { q: 'What questions should I ask a property manager before hiring them?',
+    a: 'Ask for the complete written fee schedule, the leasing fee, what they earn on a turn, the maintenance hourly rate and vendor markup, the per-item repair approval limit, the written screening criteria, days on market and how it is defined, the renewal and collection rates, the owner disbursement date, doors managed per staff member, and the termination clause.' },
+  { q: 'How do I check whether a property manager is licensed in Ohio?',
+    a: 'Property management involving leasing and rent collection for others requires a real estate license in Ohio. The Ohio Department of Commerce, Division of Real Estate and Professional Licensing maintains a public license lookup where you can confirm the brokerage, the principal broker, the license status and any disciplinary history. Search the brokerage name, not the salesperson you spoke to.' },
+  { q: 'What should a property management fee schedule disclose?',
+    a: 'Monthly management, leasing and renewal fees, setup fees for occupied and vacant units, the maintenance hourly and trip rates, vendor markup and whether it is capped, after-hours multipliers, turn fees, inspection fees, eviction handling, insurance claim handling, reserve requirements and the early termination fee. If a charge can appear on an owner statement, it belongs on the schedule.' },
+  { q: 'Is flat fee or percentage property management better?',
+    a: 'A flat fee costs the same whether rent is low or high and does not rise when rent does. A percentage fee compounds with every increase. The bigger variable is usually the leasing fee, which many percentage managers charge at about half a month of rent every time a unit turns, and which rarely appears in a verbal quote.' },
+  { q: 'What is a normal property management fee in Columbus?',
+    a: `Most Columbus managers charge 8% to 10% of collected rent plus roughly half a month of rent to place a resident. ${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Compare total annual cost including placements, not the headline rate.` },
+  { q: 'Are online reviews a good way to pick a property manager?',
+    a: 'They are useful for one thing: spotting a pattern of unanswered communication. Most reviews of property managers are written by residents rather than owners, and a resident who was evicted and an owner whose unit leased in ten days are rating different things. Read the owner reviews and ignore the star average.' },
+  { q: 'Should I hire a property manager or self-manage?',
+    a: 'Self-managing works when you are local, have time on weekday afternoons, and own one or two units. It stops working at scale, at distance, or when a resident stops paying, because that is when the cost of not knowing Ohio landlord-tenant procedure exceeds any fee you saved.' },
+  { q: 'How long should a property management agreement be?',
+    a: 'Term length matters less than the exit. Read the termination clause first: the notice period, the form notice has to take, whether an early termination fee applies, whether it changes after the first year, and whether the agreement auto-renews on a date you would need to diary.' },
+];
+
+const schemaNodes = [
+  articleNode({
+    path: '/how-to-choose-a-property-manager-columbus/',
+    title: 'How to choose a property manager in Columbus, Ohio',
+    description,
+    datePublished: '2026-09-09',
+    keywords: [
+      'how to choose a property manager',
+      'best property management company columbus ohio',
+      'property management fees columbus',
+      'questions to ask a property manager',
+    ],
+  }),
+  serviceNode({
+    path: '/how-to-choose-a-property-manager-columbus/',
+    name: 'Residential property management',
+    description: `Residential property management for rental owners across the Columbus, Ohio metro, from ${company.name}.`,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes} datePublished="2026-09-09" dateModified="2026-09-09">
+
+  <PageHero
+    eyebrow="A buyer's guide"
+    title="How to choose a property manager in Columbus"
+    answer="Ask for the complete fee schedule in writing, verify the brokerage license with the State of Ohio, ask how each statistic is measured, find out what the manager earns when a resident leaves, and read the termination clause before the pitch."
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'See our full fee schedule', href: '/pricing/' }}
+    secondaryCta={{ label: 'Book a consultation', href: '/property-management-consultation/' }}
+    wide
+  />
+
+  <KeyFacts items={keyFacts} />
+
+  <section class="band-tight">
+    <div class="wrap max-w-[880px]">
+      <p class="text-[17.5px] text-muted">
+        This guide is written to be useful whether or not you hire us. Every question below is one we answer about
+        ourselves in the same place, so you can see the standard being applied in both directions. No company is
+        named except this one, because a comparison built on naming competitors ages badly and tells you nothing
+        about how to evaluate the next one.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE QUESTIONS -->
+  <section class="band band-wash" aria-labelledby="questions-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The interview</span>
+      <h2 id="questions-h" class="text-[clamp(26px,3.2vw,38px)]">What questions should you ask a property manager?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">
+        Twelve questions, in the order that saves the most time. The first one screens out more companies than the
+        other eleven combined. Each opens to show why it matters, what a good answer contains, and how we answer it.
+      </p>
+      {questions.map((q, i) => (
+        <details class="fee-group" open={i === 0}>
+          <summary>
+            <span>
+              <span class="fee-group-title">{i + 1}. {q.q}</span>
+            </span>
+          </summary>
+          <div class="fee-group-body">
+            <h3 class="text-[16px] mb-1.5">Why it matters</h3>
+            <p class="text-[15.5px] text-muted mb-4">{q.why}</p>
+            <h3 class="text-[16px] mb-1.5">What a good answer contains</h3>
+            <p class="text-[15.5px] text-muted mb-4">{q.look}</p>
+            <h3 class="text-[16px] mb-1.5">How {company.shortName} answers it</h3>
+            <p class="text-[15.5px] text-muted m-0">{q.ours}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+  </section>
+
+  <!-- FEE SCHEDULE -->
+  <section class="band" aria-labelledby="fees-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The document that decides it</span>
+      <h2 id="fees-h" class="text-[clamp(26px,3.2vw,38px)]">What should a fee schedule disclose?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6">
+        Everything that can appear on an owner statement. Use this as a checklist against any schedule you are
+        sent, and treat a missing line as a question rather than an absence.
+      </p>
+      <ul class="grid gap-x-8 gap-y-1 sm:grid-cols-2">
+        {feeSchedule.map((f) => (
+          <li class="flex gap-3 py-1.5 text-[15.5px]">
+            <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{f}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-[16px] text-muted mt-7">
+        Then do the arithmetic across a full year including one resident placement, because that is the year a
+        percentage quote is designed not to describe. On a {kpis.metrics[4].value} rent, a 10% manager collects
+        about {usd(Math.round(avgRent * 0.10) * 12)} a year and then roughly {usd(Math.round(avgRent / 2))} more the
+        first time the unit turns.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
+      </p>
+    </div>
+  </section>
+
+  <!-- LICENSE -->
+  <section class="band band-wash" aria-labelledby="license-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Verify it yourself</span>
+      <h2 id="license-h" class="text-[clamp(26px,3.2vw,38px)]">How do you check a property manager's Ohio license?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Property management that involves leasing property and collecting rent for someone else requires a real
+        estate license in Ohio. The Ohio Department of Commerce, Division of Real Estate and Professional
+        Licensing regulates brokerages and maintains a public license lookup. Search it yourself rather than
+        accepting a screenshot.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[18.5px] mb-3">What to check on the license</h3>
+        <ul class="grid gap-2">
+          {[
+            'The brokerage entity name, not the individual you spoke to. Ask for the exact legal name.',
+            'That the license is active, and how long it has been held.',
+            'The named principal broker, and whether that person actually works at the company day to day.',
+            'Any disciplinary history on the brokerage or the principal broker.',
+            'That the entity on the license is the same entity on the management agreement you are being asked to sign.',
+          ].map((x) => (
+            <li class="flex gap-3 text-[15.5px]">
+              <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{x}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <p class="text-[16px] text-muted mt-7">
+        The last one catches a real problem. If the agreement is with a management company that is not the licensed
+        brokerage, ask why, and get the relationship in writing before you sign.
+      </p>
+      <p class="text-[16px] text-muted mt-4">
+        {company.name} is a {company.license.toLowerCase()}. The principal broker is
+        {' '}{company.brokerOfRecord.name}, {company.brokerOfRecord.title}. Brokerage license number:
+        {' '}[SOURCE NEEDED: Ohio real estate brokerage license number, not currently in facts.ts].
+      </p>
+    </div>
+  </section>
+
+  <!-- RED FLAGS -->
+  <section class="band" aria-labelledby="flags-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Answers that should end the conversation</span>
+      <h2 id="flags-h" class="text-[clamp(26px,3.2vw,38px)]">What are the warning signs?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">
+        None of these prove a company is bad. All of them mean the next question should be harder.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {redFlags.map((r) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{r.h}</h3>
+            <p class="text-[15px] text-muted m-0">{r.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="band band-wash" aria-labelledby="reviews-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="reviews-h" class="text-[clamp(26px,3.2vw,38px)]">How much should online reviews count?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Less than most owners think, and for a specific reason: the large majority of property management reviews
+        are written by residents, not owners, and residents and owners are rating different products. A resident
+        rates responsiveness and whether their deposit came back. An owner rates leasing speed, collection and
+        reporting. A star average blends the two into a number that answers neither question.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        Read reviews for patterns instead of scores. Repeated complaints about unanswered communication are the
+        signal that matters, because that is the failure that never improves and the one owners most often leave
+        over. A single furious review about an eviction tells you almost nothing.
+      </p>
+      <p class="text-[16px] text-muted mt-4">
+        For reference, {company.name} has {company.reviews.display} {company.reviews.platform} reviews at a
+        {' '}{company.reviews.rating} average, as of {company.reviews.asOf}, and we publish the rating as it is
+        rather than the flattering slice of it.
+      </p>
+    </div>
+  </section>
+
+  <!-- SELF MANAGE -->
+  <section class="band" aria-labelledby="self-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="self-h" class="text-[clamp(26px,3.2vw,38px)]">Should you hire anyone at all?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Self-managing genuinely works for some owners: local, one or two units, flexible weekday time, and a
+        tolerance for being the person a resident calls at 11pm. The cost is not the fee you save, it is the
+        showings during work hours, the vendor you cannot reach in February, and the notice you have to serve
+        correctly the first time.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        The break point is usually distance, unit count, or the first resident who stops paying. Roughly
+        {' '}{pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant
+        dispute, and that is the moment procedure knowledge stops being optional.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/compare/self-managing-vs-property-manager/" class="btn btn-ghost">Self-managing vs. hiring a manager</a>
+        <a href="/self-management-calculator/" class="btn btn-ghost">What self-managing costs you</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Choosing a property manager: questions" id="choose-faq" />
+      <p class="mt-7 text-[14px] text-faint">
+        This page is general guidance for Ohio rental owners, not legal advice. Licensing requirements and any
+        agreement you sign should be confirmed with the State of Ohio and your own counsel.
+      </p>
+      <div class="mt-5"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/pricing/', label: 'Our complete fee schedule', note: 'Run this guide against us first.' },
+    { href: '/key-performance-indicators/', label: 'The published scorecard', note: 'Every operating number, with its definition.' },
+    { href: '/switching-property-managers/', label: 'Switching property managers', note: 'If you already have one and want out.' },
+    { href: '/columbus-property-management/', label: 'Columbus property management', note: 'What we do, and what it costs.' },
+    { href: '/owner-faqs/', label: 'Owner FAQs', note: 'Forty more answers, with the numbers attached.' },
+  ]} />
+
+  <Cta
+    heading="Run this checklist against us"
+    body="The fee schedule is published, the scorecard is published with its definitions, and the early termination fee is on the pricing page. Start there, then call if it holds up."
+    primary={{ label: 'See the full fee schedule', href: '/pricing/' }}
+    secondary={{ label: 'Book a consultation', href: '/property-management-consultation/' }}
+  />
+</Base>

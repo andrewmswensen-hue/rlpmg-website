@@ -1,0 +1,235 @@
+---
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, usd } from '../../data/facts';
+import { rentByBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * DELIBERATE EXCEPTION to the site's zero-JavaScript rule, scoped to this page
+ * and /rent-vs-sell-calculator/.
+ *
+ * These two are lead-generation tools; a calculator that cannot calculate is a
+ * downgrade. The script below is about 1KB of inline vanilla JavaScript with no
+ * dependencies and no network calls.
+ *
+ * It is progressive enhancement, not a dependency: the page ships a complete
+ * worked example in plain HTML, the formula is written out in words, and every
+ * number is readable with JavaScript disabled. The script only makes the numbers
+ * live. Search engines and answer engines get the full static content either way.
+ */
+
+const title = `Self-Management Cost Calculator | ${company.name}`;
+const description =
+  'Work out what self-managing your Columbus rental actually costs, counting your time, vacancy, ' +
+  'and the repairs you are paying retail for. Compare it against flat-fee management.';
+const breadcrumbs = [
+  { name: 'Home', path: '/' }, { name: 'Tools', path: '/tools/' },
+  { name: 'Self-management calculator', path: '/self-management-calculator/' },
+];
+
+const mid = pricing.plans[1];
+const example = {
+  rent: 1650, units: 1, hours: 6, rate: 60, vacancyDays: 30,
+};
+const ex = {
+  timeCost: example.hours * example.rate * 12,
+  vacancyCost: Math.round((example.rent / 30) * example.vacancyDays),
+  mgmtCost: mid.monthly * 12 * example.units,
+};
+
+const faq = [
+  { q: 'How much time does managing your own rental take?',
+    a: 'It varies with the property and the resident, which is why this page asks you for your own number rather than publishing an industry average. Most averages circulating online have no traceable source. Track your hours for one month and use that.' },
+  { q: 'What does self-managing actually cost?',
+    a: `Three things: the hours you spend, the vacancy you carry while finding a resident, and the premium you pay for repairs without a vendor relationship. On a ${usd(example.rent)} rent, ${example.hours} hours a month valued at ${usd(example.rate)} an hour is ${usd(ex.timeCost)} a year before a single day of vacancy.` },
+  { q: 'How much does a property manager cost in Columbus?',
+    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with no leasing fee. On the middle plan that is ${usd(mid.monthly * 12)} a year per unit.` },
+  { q: 'Is a property manager worth it for one rental?',
+    a: 'It depends on what your time is worth and how close you live to the property. The arithmetic on this page is the honest way to answer it. Some owners should keep self-managing, and we will tell you so.' },
+  { q: 'Does vacancy cost more than management fees?',
+    a: `Often, yes. A single month of vacancy on a ${usd(example.rent)} rent costs ${usd(example.rent)}, which is most of a year of flat-fee management. Speed of leasing is usually where management pays for itself.` },
+];
+
+const schemaNodes = [serviceNode({
+  path: '/self-management-calculator/',
+  name: 'Self-management cost calculator',
+  description,
+})];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+  <section class="pt-14 pb-8">
+    <div class="wrap max-w-[880px]">
+      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+        <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span>
+        <a href="/tools/" class="no-underline hover:text-crimson">Tools</a> <span aria-hidden="true">/</span>
+        <span aria-current="page">Self-management calculator</span>
+      </nav>
+      <span class="eyebrow">Owner tools</span>
+      <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em]">What is self-managing actually costing you?</h1>
+      <p class="text-[20px] text-muted mt-5 max-w-[40em]">
+        Self-managing is not free, it is just unbilled. The cost shows up in your hours, in the days a
+        unit sits empty, and in what you pay for repairs without a vendor relationship. This adds it up.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-10">
+    <div class="wrap max-w-[880px]">
+      <form class="card" id="calc" novalidate>
+        <h2 class="text-[22px] mb-1">Your numbers</h2>
+        <p class="text-[15px] text-muted mb-6">
+          Nothing is sent anywhere. This runs entirely in your browser.
+        </p>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="rent" class="block font-sans text-[13px] font-semibold text-muted mb-1.5">Monthly rent, per unit</label>
+            <input id="rent" name="rent" type="number" inputmode="numeric" min="0" step="25" value={example.rent}
+                   class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
+          </div>
+          <div>
+            <label for="units" class="block font-sans text-[13px] font-semibold text-muted mb-1.5">Units you manage</label>
+            <input id="units" name="units" type="number" inputmode="numeric" min="1" step="1" value={example.units}
+                   class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
+          </div>
+          <div>
+            <label for="hours" class="block font-sans text-[13px] font-semibold text-muted mb-1.5">Hours a month you spend on it</label>
+            <input id="hours" name="hours" type="number" inputmode="decimal" min="0" step="0.5" value={example.hours}
+                   class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
+          </div>
+          <div>
+            <label for="rate" class="block font-sans text-[13px] font-semibold text-muted mb-1.5">What an hour of your time is worth</label>
+            <input id="rate" name="rate" type="number" inputmode="numeric" min="0" step="5" value={example.rate}
+                   class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
+          </div>
+          <div class="sm:col-span-2">
+            <label for="vac" class="block font-sans text-[13px] font-semibold text-muted mb-1.5">Days vacant in a typical year</label>
+            <input id="vac" name="vac" type="number" inputmode="numeric" min="0" step="1" value={example.vacancyDays}
+                   class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
+            <p class="text-[13px] text-faint mt-1.5">Our portfolio median is 20 days on market, before turn time.</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="pb-12">
+    <div class="wrap max-w-[880px]">
+      <h2 class="text-[26px] mb-5">The comparison</h2>
+      <div class="scroll-x">
+        <table class="w-full border-collapse text-[16px]">
+          <caption class="sr-only">Annual cost of self-managing against flat-fee management</caption>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-4 border border-line font-medium">Your time, per year</th>
+              <td class="text-right p-4 border border-line tabular-nums font-semibold text-navy" id="out-time">{usd(ex.timeCost)}</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-4 border border-line font-medium">Vacancy, per year</th>
+              <td class="text-right p-4 border border-line tabular-nums font-semibold text-navy" id="out-vac">{usd(ex.vacancyCost)}</td>
+            </tr>
+            <tr class="bg-wash-soft">
+              <th scope="row" class="text-left p-4 border border-line font-bold">Total cost of self-managing</th>
+              <td class="text-right p-4 border border-line tabular-nums font-bold text-navy text-[19px]" id="out-total">{usd(ex.timeCost + ex.vacancyCost)}</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-4 border border-line font-medium">
+                {mid.name} management, per year
+                <span class="block text-[13.5px] text-faint font-normal">{usd(mid.monthly)} per unit per month, no leasing fee</span>
+              </th>
+              <td class="text-right p-4 border border-line tabular-nums font-semibold text-crimson" id="out-mgmt">{usd(ex.mgmtCost)}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-5 text-[17px] text-muted" id="out-summary">
+        On these numbers, self-managing costs {usd(ex.timeCost + ex.vacancyCost)} a year and management
+        costs {usd(ex.mgmtCost)}.
+      </p>
+      <p class="text-[14px] text-faint mt-3">
+        This deliberately leaves out what you overpay for repairs without a vendor relationship, and the
+        cost of a mistake under Ohio landlord-tenant law. Both are real and both are hard to estimate
+        honestly, so they are not counted here.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[880px]">
+      <h2 class="text-[26px] mb-4">How the arithmetic works</h2>
+      <div class="prose-rl">
+        <p>Three lines, all of which you can check by hand:</p>
+        <ol>
+          <li><strong>Your time.</strong> Hours a month, times what an hour of your time is worth, times twelve.</li>
+          <li><strong>Vacancy.</strong> Monthly rent divided by 30 gives a daily rate. Multiply by the days a unit sits empty in a year.</li>
+          <li><strong>Management.</strong> The flat monthly fee times twelve, times your unit count. There is no leasing fee to add, which is the line most comparisons miss.</li>
+        </ol>
+        <p>
+          Median rent across the units we manage is {usd(rentByBedroom['2'].median)} for a two bedroom and
+          {' '}{usd(rentByBedroom['3'].median)} for a three bedroom, if you want a sanity check on your own number.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap max-w-[820px]">
+      <Faq items={faq} heading="Common questions" id="calc-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/pricing/', label: 'What management costs', note: 'The complete published fee schedule' },
+    { href: '/compare/self-managing-vs-property-manager/', label: 'Self-managing vs hiring out', note: 'The full comparison, beyond the numbers' },
+    { href: '/rent-vs-sell-calculator/', label: 'Rent or sell?', note: 'Whether to keep the property at all' },
+    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'What your property should actually earn' },
+  ]} />
+
+  <Cta heading="Want the real number for your property?"
+       body="A free rent evaluation uses our own portfolio data and current comps, not a Zillow estimate." />
+
+  <script is:inline define:vars={{ planName: mid.name, planMonthly: mid.monthly }}>
+    // Progressive enhancement only. Everything above is already correct without this.
+    (function () {
+      var f = document.getElementById('calc');
+      if (!f) return;
+      var mid = { name: planName, monthly: planMonthly };
+      var money = function (n) {
+        return '$' + Math.round(n).toLocaleString('en-US');
+      };
+      var num = function (id, fallback) {
+        var el = document.getElementById(id);
+        var v = el ? parseFloat(el.value) : NaN;
+        return isFinite(v) && v >= 0 ? v : fallback;
+      };
+      function update() {
+        var rent = num('rent', 0), units = num('units', 1);
+        var hours = num('hours', 0), rate = num('rate', 0), vac = num('vac', 0);
+        var time = hours * rate * 12;
+        var vacancy = (rent / 30) * vac;
+        var total = time + vacancy;
+        var mgmt = mid.monthly * 12 * units;
+        document.getElementById('out-time').textContent = money(time);
+        document.getElementById('out-vac').textContent = money(vacancy);
+        document.getElementById('out-total').textContent = money(total);
+        document.getElementById('out-mgmt').textContent = money(mgmt);
+        var s = document.getElementById('out-summary');
+        if (total > mgmt) {
+          s.textContent = 'On these numbers, self-managing costs ' + money(total) +
+            ' a year and management costs ' + money(mgmt) + '. Management is ' +
+            money(total - mgmt) + ' cheaper.';
+        } else {
+          s.textContent = 'On these numbers, self-managing costs ' + money(total) +
+            ' a year and management costs ' + money(mgmt) +
+            '. Self-managing is the cheaper option for you right now.';
+        }
+      }
+      f.addEventListener('input', update);
+      update();
+    })();
+  </script>
+</Base>

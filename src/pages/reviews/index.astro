@@ -1,0 +1,227 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, kpis, pricing, usd } from '../../data/facts';
+
+/**
+ * Reviews.
+ *
+ * DELIBERATELY NO AggregateRating SCHEMA. Google's review snippet policy
+ * requires an aggregate rating in structured data to reflect reviews that are
+ * actually displayed on the page. This page currently displays none, because
+ * none have been collected with permission. Emitting the rating anyway is a
+ * structured-data violation and risks a manual action on the whole domain.
+ *
+ * Add the AggregateRating node only once real, attributed quotes are on the
+ * page. The count and rating are already in the fact bank and ready:
+ * company.reviews.count, .rating, .display.
+ *
+ * NO QUOTE ON THIS PAGE IS INVENTED. The quote slots below are placeholders.
+ */
+
+const title = 'Reviews of RL Property Management | Columbus, Ohio';
+const description =
+  `${company.name} holds a ${company.reviews.rating} star average across ${company.reviews.display} ` +
+  `Google reviews as of ${kpis.asOfLabel}. What a property management rating measures, and how to read one.`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Reviews', path: '/reviews/' }];
+
+const r = company.reviews;
+
+/**
+ * Placeholder slots. Each one stays empty until a real review is supplied with
+ * the reviewer's first name and city. Do not fill these with paraphrases.
+ */
+const quoteSlots = [
+  { audience: 'From an owner', note: 'A property owner, on reporting, communication or how a problem was handled.' },
+  { audience: 'From an owner', note: 'A property owner, on leasing speed, maintenance cost control or switching from another manager.' },
+  { audience: 'From a resident', note: 'A resident, on maintenance response or the leasing process.' },
+  { audience: 'From a resident', note: 'A resident, on move-in, the portal or how a request was resolved.' },
+];
+
+const faq = [
+  { q: 'How many reviews does RL Property Management have?',
+    a: `${r.display} reviews on ${r.platform}, with a ${r.rating} star average, as of ${r.asOf}. A property manager is reviewed by two groups at once, owners and residents, which is unusual: most local businesses have one customer type, and a property manager has two whose interests are not identical.` },
+  { q: 'What is RL Property Management’s rating?',
+    a: `${r.rating} out of 5 across ${r.display} ${r.platform} reviews. That figure is a running average over more than a decade of operating, not a snapshot of a good month.` },
+  { q: 'Why does a property management company get lower ratings than other businesses?',
+    a: 'Because roughly half the reviews come from residents, and a property manager is the party that enforces the lease. Charging for damage at move-out, assessing a late fee, declining an application or filing an eviction are all correct actions that reliably produce a one-star review. A manager with a perfect rating is usually either very new or not enforcing much.' },
+  { q: 'How should I read property management reviews?',
+    a: 'Separate the two audiences first, because owner reviews and resident reviews answer different questions. Then read the negative ones for pattern rather than heat: one angry review about a security deposit is normal, twenty about unreturned calls is a signal. Finally, check whether the company responds, and whether the responses are specific.' },
+  { q: 'Does RL Property Management pay for or filter reviews?',
+    a: '[SOURCE NEEDED: RL Property Management’s written policy on soliciting, incentivizing and responding to reviews. Nothing is claimed here until that policy is confirmed in writing.]' },
+  { q: 'Where can I read the reviews myself?',
+    a: `[SOURCE NEEDED: the direct link to the ${company.name} Google Business Profile reviews. Until it is added here, search the company name in Google Maps. The Yelp profile is linked in the site footer.]` },
+  { q: 'What do the operating numbers say, separately from the reviews?',
+    a: `Resident satisfaction across the portfolio is ${kpis.metrics[7].value} out of 5 and the lease renewal rate is ${kpis.metrics[2].value}, both published on the scorecard and refreshed quarterly. The renewal rate is the more useful of the two, because it measures what residents did rather than what they said.` },
+];
+
+const related = [
+  { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'Eight operating numbers, refreshed quarterly.' },
+  { href: '/pricing/', label: 'Pricing', note: 'The complete published fee schedule.' },
+  { href: '/about/', label: 'About the company', note: `What ${company.shortName} does, and for whom.` },
+  { href: '/team/', label: 'Our team', note: 'Every person here, with their role.' },
+  { href: '/contact-us/', label: 'Contact us', note: 'Phone, email and the office address.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="Reviews"
+    title="Reviews of RL Property Management"
+    answer={`${company.name} has a ${r.rating} star average across ${r.display} ${r.platform} reviews as of ${kpis.asOfLabel}. This page explains what a property management rating measures and how to read one properly.`}
+    breadcrumbs={breadcrumbs}
+    secondaryCta={{ label: 'See our scorecard', href: '/key-performance-indicators/' }}
+  />
+
+  <!-- THE RATING -->
+  <section class="pb-4" aria-labelledby="rating-h">
+    <div class="wrap max-w-[880px]">
+      <div class="card !bg-wash-soft flex flex-col sm:flex-row sm:items-center gap-6">
+        <div class="shrink-0 text-center sm:text-left sm:border-r sm:border-line sm:pr-7">
+          <div class="font-sans text-[clamp(46px,6vw,64px)] font-extrabold leading-none tracking-[-.05em] text-navy">
+            {r.rating}
+          </div>
+          <div class="font-sans text-[11.5px] font-bold tracking-[.14em] uppercase text-faint mt-2">
+            Out of 5
+          </div>
+        </div>
+        <div>
+          <h2 id="rating-h" class="text-[19px] mb-2">{r.display} reviews on {r.platform}</h2>
+          <p class="text-[16px] text-muted m-0">
+            A running average built since {company.founded}, not a snapshot of a good month. A
+            property manager's public reviews are written by two different groups, owners and
+            residents, which is what makes them worth reading carefully. Count and rating confirmed
+            {' '}{r.asOf}.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE QUOTES, NOT YET FILLED -->
+  <section class="band-tight" aria-labelledby="quotes-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">In their words</span>
+      <h2 id="quotes-h" class="text-[clamp(28px,3.3vw,40px)]">What do clients and residents say?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Nothing is quoted here yet, because nothing has been pulled and attributed properly. A
+        paraphrased or reconstructed review is not a review, so the slots below stay empty until
+        real ones fill them.
+      </p>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        {quoteSlots.map((s) => (
+          <div class="card !border-dashed">
+            <div class="font-sans text-[11.5px] font-bold tracking-[.14em] uppercase text-faint mb-3">
+              {s.audience}
+            </div>
+            <p class="text-[15.5px] text-navy m-0">
+              [SOURCE NEEDED: real Google review quotes with reviewer first name and city]
+            </p>
+            <p class="text-[14px] text-muted mt-3 mb-0">{s.note}</p>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-[14px] text-faint mt-6 max-w-[46em]">
+        [SOURCE NEEDED: the direct link to the {company.name} Google Business Profile reviews, so a
+        reader can verify the {r.rating} rating and {r.display} count without searching.]
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW TO READ THEM -->
+  <section class="band band-wash" aria-labelledby="read-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="read-h">What does a property management rating actually measure?</h2>
+      <p>
+        Two different things at once, which is why property management ratings sit lower than almost
+        every other local service category. A property manager has two customer groups whose
+        interests are not identical: the owner who pays the fee, and the resident who lives in the
+        building. The same review page holds both.
+      </p>
+      <p>
+        Owners rate the business outcome: was the unit leased, did rent arrive, was the repair bill
+        reasonable, did anyone call back. Residents rate the living experience, and they also rate
+        the moments where the manager enforces the lease. A deposit deduction for damage, a late fee
+        applied on the 6th, a declined application, an eviction filing: each of those is the manager
+        doing the job the owner hired them to do, and each of them reliably produces a one-star
+        review from the person on the other side.
+      </p>
+      <p>
+        That is the structural fact worth understanding before you compare star ratings between
+        managers. A very high rating on a large portfolio usually means one of three things: the
+        company is new, the reviews are mostly owners, or the lease is not being enforced. Only one
+        of those is good news for the person paying the mortgage.
+      </p>
+
+      <h2>How should an owner read a manager's reviews?</h2>
+      <p>Four steps, in order:</p>
+      <ol>
+        <li>
+          <strong>Separate owners from residents.</strong> Read the owner reviews for the business
+          question and the resident reviews for the operational one. Most reviewers say which they
+          are in the first sentence.
+        </li>
+        <li>
+          <strong>Read the negative reviews for pattern, not heat.</strong> One furious review about
+          a security deposit is background noise in this industry. Fifteen reviews about calls that
+          were never returned is a finding.
+        </li>
+        <li>
+          <strong>Check the responses.</strong> Whether a company replies matters less than whether
+          the reply is specific. A generic apology template on every one-star review tells you the
+          reviews are being managed rather than read.
+        </li>
+        <li>
+          <strong>Check the dates.</strong> A rating built mostly in 2019 describes a company that
+          may not exist any more. Recent reviews are the only ones describing the current team.
+        </li>
+      </ol>
+
+      <h2>What do reviews miss?</h2>
+      <p>
+        Almost everything an owner is actually buying. Reviews do not tell you time to lease, rent
+        achieved against market, renewal rate, or what a turn cost. Those are operating numbers, and
+        they are published separately on the
+        {' '}<a href="/key-performance-indicators/">scorecard</a>: as of {kpis.asOfLabel}, median
+        days on market is {kpis.metrics[0].value}, the lease renewal rate is
+        {' '}{kpis.metrics[2].value}, and {kpis.metrics[6].value} of rent is collected by the 5th.
+      </p>
+      <p>
+        Reviews also do not tell you what you will be charged. The full fee schedule is published on
+        the <a href="/pricing/">pricing page</a>, including the charges that only appear in a bad
+        month. Monthly management is a flat rate per unit and placing a resident costs
+        {' '}{usd(pricing.leasingFee)}.
+      </p>
+
+      <h2>Why is this page not full of five-star quotes?</h2>
+      <p>
+        Because a wall of hand-picked praise is the least informative thing a company can publish,
+        and because every quote on this site has to be traceable to a real person who actually wrote
+        it. When quotes go up here, they will carry a first name and a city, and they will not all
+        be five stars.
+      </p>
+    </div>
+  </section>
+
+  <section class="band-tight">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Questions about reviews" id="reviews-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={related} />
+
+  <Cta
+    heading="Judge us on the numbers too"
+    body="Reviews are one input. A free rent evaluation tells you what your unit should earn and what we would do with it, which is the part reviews cannot cover."
+    secondary={{ label: 'See our scorecard', href: '/key-performance-indicators/' }}
+  />
+</Base>

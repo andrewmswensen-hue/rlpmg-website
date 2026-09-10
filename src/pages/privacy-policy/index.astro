@@ -1,0 +1,350 @@
+---
+/*
+ * ===========================================================================
+ * DRAFT. NOT LEGAL ADVICE. PENDING REVIEW BY COUNSEL BEFORE PUBLICATION.
+ * ===========================================================================
+ * Written by a non-lawyer from the site's actual data flows. Every place a real
+ * legal decision is required is marked inline with [LEGAL REVIEW: question].
+ * No statute, retention period, jurisdiction or compliance claim is asserted.
+ * Do not publish this page until counsel has reviewed and resolved every marker.
+ *
+ * Background: the live rlpmg.com privacy policy is a Termageddon embed, so there
+ * was nothing to migrate and nothing crawlable. This is a first real draft.
+ */
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import { company } from '../../data/facts';
+import { longDate } from '../../lib/format';
+
+const title = 'Privacy Policy | RL Property Management';
+const description =
+  `What ${company.name} collects on rlpmg.com, where it goes, and how to reach us about it. ` +
+  `The site is static, sets no cookies of its own, and form submissions route to our CRM.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Privacy policy', path: '/privacy-policy/' },
+];
+
+const effective = '2026-09-09';
+
+const keyFacts = [
+  'Forms collect name, email, phone and property address',
+  'Submissions route to LeadSimple, our CRM, by email',
+  'This is a static site. It sets no cookies of its own',
+  'Analytics are not running on this site as of this draft',
+  'Resident accounts, payments and repairs live in Buildium and Property Meld',
+  'We do not sell your information',
+];
+
+/** The systems that actually touch data connected to this website. Named, so the
+ *  page is useful rather than generic. Roles are described, not warranted. */
+const systems = [
+  {
+    name: 'LeadSimple',
+    what: 'Customer relationship management',
+    detail:
+      'Every form on this site is routed to LeadSimple by email, where it becomes a record our team works from. Name, email, phone, property address and anything you typed into a notes field arrive with it.',
+  },
+  {
+    name: 'Buildium',
+    what: 'Property management and accounting platform',
+    detail:
+      'Rental applications, lease documents, rent payments, owner statements and resident accounts are held in Buildium, not on this website. If you are a resident or an owner under management, most of your information is there.',
+  },
+  {
+    name: 'Property Meld',
+    what: 'Maintenance coordination',
+    detail:
+      'Maintenance requests, scheduling, technician notes and repair history are held in Property Meld. Submitting a repair through the resident portal creates a record there.',
+  },
+  {
+    name: 'RentEngine',
+    what: 'Listings and leasing',
+    detail:
+      'Available homes shown on this site come from RentEngine. Inquiries about a specific listing, showing requests and prospect messages are handled in that system.',
+  },
+  {
+    name: 'Google Analytics 4 and Microsoft Clarity',
+    what: 'Website measurement, once configured',
+    detail:
+      'Neither is running on this site as of the date on this page. When they are turned on, this section will name what each one collects and how to opt out. [LEGAL REVIEW: confirm the final analytics stack, whether Clarity session recording and heatmaps will be enabled, whether IP anonymization and Google Consent Mode are configured, and whether a cookie banner is required for Ohio and for out-of-state visitors.]',
+  },
+];
+
+const faq = [
+  {
+    q: 'What information does the RL Property Management website collect?',
+    a: 'The contact form and the free rent evaluation form collect your name, email address, phone number and the address of the property you are asking about, plus anything you choose to type into a notes field. The site does not require an account and does not ask for payment details.',
+  },
+  {
+    q: 'Where do form submissions on rlpmg.com go?',
+    a: 'They route by email into LeadSimple, the customer relationship management system our team works from. A person reads the submission and follows up. Submissions are not posted to a third-party marketing list.',
+  },
+  {
+    q: 'Does rlpmg.com use cookies?',
+    a: 'The site is static and sets no cookies of its own. It ships no JavaScript, so nothing runs in your browser to track you between pages. If analytics are added later, this page will say so and will name what they set.',
+  },
+  {
+    q: 'Does RL Property Management sell my information?',
+    a: 'No. Information you send through this site is used to answer your question, price your property, or handle your account. It is not sold, and it is not rented to advertisers.',
+  },
+  {
+    q: 'Where does resident information live?',
+    a: 'Not on this website. Rental applications, screening results, lease documents, rent payments and account balances are held in Buildium. Maintenance requests and repair history are held in Property Meld. This site links to those systems and does not store their data.',
+  },
+  {
+    q: 'How do I ask what information you hold about me, or ask you to delete it?',
+    a: `Email ${company.email} or call ${company.phone} and say what you are asking for. Tell us whether you are an owner, a resident, an applicant or someone who filled out a form, because the information sits in different systems depending on which one you are.`,
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+  <!--
+    ==========================================================================
+    DRAFT PRIVACY POLICY. NOT LEGAL ADVICE. PENDING REVIEW BY COUNSEL.
+    Written by a non-lawyer from the site's real data flows. Every open legal
+    question is marked inline in the copy as [LEGAL REVIEW: question].
+    Do not publish until counsel has reviewed and resolved every marker.
+    ==========================================================================
+  -->
+
+  <PageHero
+    eyebrow="Privacy"
+    title="Privacy policy"
+    answer={`${company.name} collects the name, email, phone and property address you enter on our forms, and routes them to LeadSimple, our CRM. This site is static and sets no cookies of its own.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Contact us about your information', href: '/contact-us/' }}
+    secondaryCta={{ label: 'Read our terms', href: '/terms/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="The short version" />
+
+  <section class="band-tight" aria-labelledby="scope-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <p class="text-[14px] text-faint">
+        Effective {longDate(effective)}. This policy covers rlpmg.com. It does not cover the
+        separate platforms we link to, each of which publishes its own policy.
+      </p>
+
+      <h2 id="scope-h">What does this policy cover?</h2>
+      <p>
+        This policy covers the website at rlpmg.com and the forms on it. {company.name} is a
+        licensed Ohio real estate brokerage at {company.address.street}, {company.address.city},
+        {' '}{company.address.region} {company.address.postalCode}. The phone number is
+        {' '}{company.phone} and the email address is <a href={`mailto:${company.email}`}>{company.email}</a>.
+      </p>
+      <p>
+        It does not cover Buildium, Property Meld, RentEngine or LeadSimple, which are separate
+        companies running separate systems under their own privacy policies. It does not cover
+        our office practices, our leases, or the paperwork of an actual tenancy or management
+        engagement.
+        {' '}[LEGAL REVIEW: decide whether this policy should be website-only or should cover the
+        whole business, including residents, applicants, owners and vendors. That choice changes
+        almost every section below.]
+      </p>
+
+      <h2>What information does this site collect?</h2>
+      <p>
+        Only what you type into a form. The contact form and the free rent evaluation form ask for:
+      </p>
+      <ul>
+        <li>Your name</li>
+        <li>Your email address</li>
+        <li>Your phone number</li>
+        <li>The address of the property you are asking about</li>
+        <li>Details you choose to add, such as bedroom count, occupancy status, unit count and free-text notes</li>
+        <li>A checkbox recording that you agreed we may contact you about the request</li>
+      </ul>
+      <p>
+        The site does not create accounts, does not take payments, and does not ask for a Social
+        Security number, a date of birth, a bank account or a card number. If someone asks you for
+        any of those through a page that looks like ours, it is not ours.
+      </p>
+
+      <h2>Where does that information go?</h2>
+      <p>
+        Form submissions are delivered by email into LeadSimple, the customer relationship
+        management system our team works from. A person reads it and follows up by email or phone.
+        Nothing is auto-published, and nothing is added to an advertising audience.
+        {' '}[LEGAL REVIEW: confirm whether a data processing addendum or vendor agreement is
+        needed with LeadSimple, and with the email provider that carries submissions in transit,
+        and whether either one needs to be referenced by name in this policy.]
+      </p>
+
+      <h2>Does this website use cookies or tracking?</h2>
+      <p>
+        This is a static site. It sets no cookies of its own and it ships zero JavaScript, so
+        nothing runs in your browser to follow you from page to page. There are no advertising
+        pixels, no chat widget, and no third-party scripts loaded on page view.
+      </p>
+      <p>
+        Analytics are planned. When Google Analytics 4 and Microsoft Clarity are configured, they
+        will set their own cookies or identifiers and will collect the things those tools collect,
+        which typically includes pages viewed, approximate location derived from IP address,
+        device and browser, and how you arrived at the site. This section will be rewritten with
+        the specifics on the day they go live.
+        {' '}[LEGAL REVIEW: what disclosure, consent mechanism and opt-out language are required
+        once GA4 and Microsoft Clarity are live, including whether Clarity session recording is
+        enabled, what it captures on form pages, and whether a consent banner is required.]
+      </p>
+
+      <h2>How long is information kept?</h2>
+      <p>
+        Records connected to a signed management agreement, a lease or a tenancy are kept for as
+        long as the business and legal record requires.
+        {' '}[LEGAL REVIEW: set an actual retention period for website inquiries that never convert
+        into a client, and a separate retention period for declined rental applications and the
+        screening reports attached to them. Both are currently unstated because neither is a
+        number a non-lawyer should invent, and the second one carries screening-law consequences.]
+      </p>
+
+      <h2>Is my information sold or shared?</h2>
+      <p>
+        We do not sell your information. It is shared only with the service providers that run the
+        systems above, so that they can do the job we hired them for, and with professionals we
+        engage on a specific matter, such as an attorney handling an eviction.
+        {' '}[LEGAL REVIEW: confirm the full list of categories of recipients, and confirm whether
+        any activity on this site would count as a "sale" or as "sharing for targeted advertising"
+        under any state privacy law that reaches our visitors.]
+      </p>
+
+      <h2>What about rental applicants and screening?</h2>
+      <p>
+        Rental applications are submitted through the resident systems, not through this website,
+        and applicant screening covers credit, criminal history, income, rental history and
+        eviction records.
+        {' '}[LEGAL REVIEW: FCRA obligations. Decide the adverse-action notice language, whether
+        the consumer reporting agency used for screening must be named on this page and in the
+        notice, what the applicant's rights are to a copy of the report and to dispute it, and how
+        long screening results are retained on a declined application.]
+        {' '}Until that is settled, the
+        {' '}<a href="/residents/application-criteria/">application criteria page</a> is the
+        canonical description of what we look at.
+      </p>
+
+      <h2>Where does resident and owner information live?</h2>
+      <p>
+        Not here. This website is a set of static pages. The systems that hold real account
+        information are separate, and each publishes its own privacy policy:
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="systems-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">The systems involved</span>
+      <h2 id="systems-h" class="text-[clamp(26px,3.2vw,38px)]">Which systems touch information connected to this site?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Five, and they do different jobs. Naming them is more useful than a paragraph about
+        "trusted partners", and it tells you where to ask if you want to know what is held.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {systems.map((s) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-1">{s.name}</h3>
+            <div class="font-sans text-[12px] font-bold tracking-[.12em] uppercase text-faint mb-3">{s.what}</div>
+            <p class="text-[15px] text-muted m-0">{s.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="rights-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="rights-h">What choices do I have about my information?</h2>
+      <p>
+        You can ask what we hold, ask for a correction, ask us to delete a website inquiry, and
+        ask us to stop contacting you. Email <a href={`mailto:${company.email}`}>{company.email}</a>
+        {' '}or call {company.phone}. Tell us whether you are an owner, a resident, an applicant or
+        someone who filled out a form, because the answer sits in a different system for each.
+      </p>
+      <p>
+        [LEGAL REVIEW: which state privacy laws apply to our visitors, what rights they grant,
+        what the required response window is, what identity verification is required before we act
+        on a request, and whether an appeal process must be offered. Nothing on this page asserts
+        a statutory right, because that is counsel's call, not ours.]
+      </p>
+
+      <h2>How do I opt out of text messages or email?</h2>
+      <p>
+        For text messages, reply STOP to any message from us. The full text messaging terms,
+        including what we send and how often, are on the
+        {' '}<a href="/sms-consent/">SMS consent page</a>. For email, reply and say so, or use the
+        unsubscribe link if the message carries one. Operational email about an active tenancy or
+        an active management engagement is not marketing and does not have an unsubscribe link.
+      </p>
+
+      <h2>Is this site intended for children?</h2>
+      <p>
+        No. This site is for rental property owners and for adults looking for a place to rent. We
+        do not knowingly collect information from children.
+        {' '}[LEGAL REVIEW: confirm the age threshold to state here and whether any children's
+        privacy statute applies.]
+      </p>
+
+      <h2>How is this site secured?</h2>
+      <p>
+        The site is served over HTTPS and has no database, no login and no server-side code, which
+        removes most of the ways a marketing website leaks information. Form submissions travel by
+        email to LeadSimple, and the security of the systems listed above is governed by those
+        companies.
+        {' '}[LEGAL REVIEW: whether a breach notification commitment belongs on this page, and what
+        it should say.]
+      </p>
+
+      <h2>What happens if this policy changes?</h2>
+      <p>
+        The effective date at the top changes and the new version replaces this one on this page.
+        Analytics going live will be a change to this page.
+        {' '}[LEGAL REVIEW: whether material changes require notice to existing clients and
+        residents beyond updating this page.]
+      </p>
+
+      <h2>Who do I contact about privacy?</h2>
+      <p>
+        {company.name}, {company.address.street}, {company.address.city}, {company.address.region}
+        {' '}{company.address.postalCode}. Phone {company.phone}. Email
+        {' '}<a href={`mailto:${company.email}`}>{company.email}</a>. The office is open by
+        appointment only, so call or email rather than driving over.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Privacy questions" id="privacy-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="ask-h">
+    <div class="wrap max-w-[880px]">
+      <div class="card !bg-wash-soft">
+        <h2 id="ask-h" class="text-[21px] mb-3">Have a question about your information?</h2>
+        <p class="text-[16px] text-muted mb-5">
+          Ask a person. Call {company.phone}, email {company.email}, or use the contact page and
+          say what you are asking for.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="/contact-us/" class="btn btn-ghost">Contact us</a>
+          <a href={`tel:${company.phoneE164}`} class="btn btn-ghost">Call {company.phone}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/terms/', label: 'Terms of use', note: 'What this website is and is not.' },
+    { href: '/sms-consent/', label: 'SMS terms and consent', note: 'What we text, and how to stop it.' },
+    { href: '/accessibility/', label: 'Accessibility', note: 'The standard we build to, and how to report a barrier.' },
+    { href: '/residents/application-criteria/', label: 'Application criteria', note: 'What applicant screening looks at.' },
+    { href: '/contact-us/', label: 'Contact us', note: 'Phone, email and office address.' },
+  ]} />
+</Base>

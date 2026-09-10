@@ -1,0 +1,209 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, kpis, rentPolicy, pricing } from '../../../data/facts';
+
+/**
+ * Search intent: "pay rent RL Property Management", "when is rent due",
+ * "rent late fee columbus".
+ *
+ * Policy pattern from CONTENT_STYLE.md applies throughout this page: stated
+ * policy, then the real-world nuance, then the number. Rent is due on the 1st.
+ * In practice most residents pay between the 1st and the 5th. Late fees are
+ * assessed after the 5th.
+ */
+
+const title = 'Pay Rent | RL Property Management, Columbus Ohio';
+const description =
+  `Rent at ${company.name} is due on ${rentPolicy.dueDate} and late fees are assessed after ` +
+  `${rentPolicy.lateFeesAfter}. How to pay, what to do if you will be short, and how the ledger works.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Residents', path: '/residents/' },
+  { name: 'Pay rent', path: '/residents/pay-rent/' },
+];
+
+const collected = kpis.metrics.find((m) => m.id === 'collectedBy5')?.value;
+
+const answer =
+  `Rent is due on ${rentPolicy.dueDate} and is paid online through the resident portal. Most residents ` +
+  `pay between ${rentPolicy.practicalWindow}. Late fees are assessed after ${rentPolicy.lateFeesAfter}, ` +
+  `and ${collected} of rent is collected by then.`;
+
+const keyFacts = [
+  `Rent is due on ${rentPolicy.dueDate} of each month`,
+  `Late fees are assessed after ${rentPolicy.lateFeesAfter}`,
+  `${collected} of rent across the portfolio is collected by the 5th`,
+  `Rent on a month-to-month tenancy is ${rentPolicy.monthToMonthIncreasePct}% higher than on a signed lease`,
+  'Late fee amount: [SOURCE NEEDED: late fee amount and whether it is flat or daily]',
+  'Payment methods: [SOURCE NEEDED: accepted payment methods and any processing fee by method]',
+];
+
+const faq = [
+  { q: 'When is rent due?',
+    a: `Rent is due on ${rentPolicy.dueDate} of each month. In practice many residents pay between ${rentPolicy.practicalWindow}, and late fees are assessed after ${rentPolicy.lateFeesAfter}. Across the portfolio, ${collected} of rent is collected by the 5th as of ${kpis.asOfLabel}.` },
+  { q: 'How do I pay my rent?',
+    a: 'Rent is paid online through the resident portal, where the payment is applied to your ledger immediately and receipted. [SOURCE NEEDED: the resident portal URL, the accepted payment methods, whether autopay is available, and any per-method processing fee].' },
+  { q: 'How much is the late fee?',
+    a: `Late fees are assessed after ${rentPolicy.lateFeesAfter}. [SOURCE NEEDED: the late fee amount, whether it is a flat charge or accrues daily, and any cap].` },
+  { q: 'What if I am going to be short this month?',
+    a: `Tell us before ${rentPolicy.lateFeesAfter}, in writing through the portal, rather than after. A resident who says what is happening and when the money is coming is in a very different position from one who goes quiet. [SOURCE NEEDED: whether payment plans are offered, who approves them, and whether a late fee is waived under one].` },
+  { q: 'Do you accept partial payments?',
+    a: '[SOURCE NEEDED: whether partial payments are accepted, how they are applied against the ledger, and whether accepting one affects an eviction filing already in progress]. This matters legally in Ohio, so it should not be guessed at.' },
+  { q: 'What happens if rent is not paid at all?',
+    a: `Late fees are assessed first, then a written notice, then, if the balance stays unpaid, an eviction filing in the Franklin County Municipal Court for a Franklin County property. Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute, so the overwhelming majority of residents never see any of this. [SOURCE NEEDED: the notice sequence and timing used before a filing].` },
+  { q: 'Why is my rent higher now that my lease ended?',
+    a: `A tenancy that lapses into month-to-month rather than renewing carries a ${rentPolicy.monthToMonthIncreasePct}% higher rent. That is not a penalty, it prices the fact that the home could be vacated on short notice. Renewing is almost always the cheaper option, and we reach out ahead of the end date with terms.` },
+  { q: 'Where do I see what I owe?',
+    a: 'Your resident portal ledger shows every charge and every payment, in order, with dates. If a charge on it does not make sense, send a message through the portal rather than calling, so the question and the answer are both attached to your tenancy in writing.' },
+  { q: 'Do you report rent payments to the credit bureaus?',
+    a: '[SOURCE NEEDED: whether on-time rent payments are reported to consumer reporting agencies, and whether residents can opt in or out].' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="For residents"
+    title="Pay rent"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Go to the resident hub', href: '/residents/' }}
+    secondaryCta={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Rent, in short" />
+
+  <!-- WHEN -->
+  <section class="band-tight" aria-labelledby="when-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The dates</span>
+      <h2 id="when-h" class="text-[clamp(28px,3.3vw,40px)]">When is rent due?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        On {rentPolicy.dueDate}. In practice many residents pay between {rentPolicy.practicalWindow}, and
+        late fees are assessed after {rentPolicy.lateFeesAfter}. Across the {company.unitsManaged} homes we
+        manage, {collected} of rent is collected by the 5th as of {kpis.asOfLabel}.
+      </p>
+      <div class="grid gap-4 sm:grid-cols-3 mt-8">
+        <div class="card">
+          <div class="font-sans text-[13px] font-bold tracking-[.12em] uppercase text-faint mb-2">The 1st</div>
+          <p class="text-[15px] text-muted m-0">Rent is due. Paying here is the cleanest option and the one the lease describes.</p>
+        </div>
+        <div class="card">
+          <div class="font-sans text-[13px] font-bold tracking-[.12em] uppercase text-faint mb-2">The 1st to the 5th</div>
+          <p class="text-[15px] text-muted m-0">Where most payments actually land. No late fee is assessed in this window.</p>
+        </div>
+        <div class="card !border-2 !border-crimson">
+          <div class="font-sans text-[13px] font-bold tracking-[.12em] uppercase text-crimson mb-2">After the 5th</div>
+          <p class="text-[15px] text-muted m-0">
+            Late fees are assessed. <span class="text-crimson font-semibold">[SOURCE NEEDED: late fee amount]</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="band band-wash" aria-labelledby="how-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Where to pay</span>
+      <h2 id="how-h" class="text-[clamp(28px,3.3vw,40px)]">How do I pay my rent?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Online, through the resident portal. A portal payment is applied to your ledger immediately and
+        receipted, which means there is never an argument later about whether or when it arrived. That
+        record is worth more to you than it is to us.
+      </p>
+      <p class="text-[15px] text-crimson font-semibold mt-5">
+        [SOURCE NEEDED: the resident portal login URL, the accepted payment methods (ACH, debit, credit,
+        money order, cash pay network), any per-method processing fee, and whether autopay is available]
+      </p>
+      <div class="card mt-6">
+        <h3 class="text-[18.5px] mb-2">If you cannot get into the portal</h3>
+        <p class="text-[15.5px] text-muted m-0">
+          Do not let a login problem turn into a late fee. Email
+          {' '}<a href={`mailto:${company.email}`} class="text-crimson font-semibold no-underline hover:underline">{company.email}</a>
+          {' '}from the address on your lease, or call {company.phone} during business hours, and tell us
+          before {rentPolicy.lateFeesAfter}.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IF SHORT -->
+  <section class="band" aria-labelledby="short-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The hard month</span>
+      <h2 id="short-h" class="text-[clamp(28px,3.3vw,40px)]">What if I am going to be short this month?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Tell us before {rentPolicy.lateFeesAfter}, in writing, and say when the money is coming. A resident
+        who gets ahead of it is in a completely different position from one who goes quiet, because the
+        problem we can plan around is smaller than the one we discover.
+      </p>
+      <p class="text-[16.5px] text-muted mt-4">
+        Message through the portal rather than by text, so the conversation is attached to your tenancy and
+        neither side is relying on memory. Say the amount you can pay now and the date the rest arrives.
+      </p>
+      <p class="text-[15px] text-crimson font-semibold mt-5">
+        [SOURCE NEEDED: whether payment plans are offered to residents, who approves one, whether a late
+        fee is waived or reduced under a plan, and whether partial payments are accepted and how they are
+        applied]
+      </p>
+      <p class="text-[15px] text-muted mt-6">
+        If a balance goes unpaid, the sequence is late fees, then written notice, then a filing in the
+        county court where the property sits, which for most of our homes is the Franklin County Municipal
+        Court. Roughly {pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another
+        significant dispute, which means the overwhelming majority of residents never encounter any of it.
+      </p>
+    </div>
+  </section>
+
+  <!-- MONTH TO MONTH -->
+  <section class="band band-wash" aria-labelledby="mtm-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Renewals</span>
+      <h2 id="mtm-h" class="text-[clamp(28px,3.3vw,40px)]">Why does month-to-month cost more?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Rent on a month-to-month tenancy is {rentPolicy.monthToMonthIncreasePct}% higher than on a signed
+        lease. A month-to-month home can be vacated on short notice, which means it can sit empty and be
+        turned at any point in the year, including the months when nobody is looking. The higher rent
+        prices that risk.
+      </p>
+      <p class="text-[16.5px] text-muted mt-4">
+        The practical consequence for a resident is simple: if you are staying, renew. We reach out ahead
+        of your end date with terms, and
+        {' '}{kpis.metrics.find((m) => m.id === 'renewal')?.value} of residents renew. Moving out instead is
+        covered on the <a href="/residents/moving-out/" class="text-crimson font-semibold no-underline hover:underline">moving out</a> page.
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Rent questions" id="rent-faq" />
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/residents/', label: 'Resident hub', note: 'Every resident task in one place.' },
+    { href: '/residents/maintenance-requests/', label: 'Maintenance requests', note: 'Emergency, urgent and routine repairs.' },
+    { href: '/residents/moving-out/', label: 'Moving out', note: 'Notice, cleaning and how your deposit comes back.' },
+    { href: '/resident-faqs/', label: 'Resident FAQs', note: 'The long list, grouped by topic.' },
+    { href: '/homes-for-rent/', label: 'Homes for rent', note: 'Available homes across the Columbus metro.' },
+  ]} />
+
+  <Cta
+    heading="Something wrong with a charge?"
+    body="Send it through the portal so the question and the answer are both in writing on your tenancy. If you cannot get in, call us before the 5th."
+    primary={{ label: 'Go to the resident hub', href: '/residents/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

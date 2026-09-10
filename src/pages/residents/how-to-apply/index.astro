@@ -1,0 +1,257 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, kpis, rentPolicy, pricing, usd } from '../../../data/facts';
+
+/**
+ * Search intent: "how to apply for a rental columbus ohio", "rental application
+ * process", "what do I need to rent a house".
+ *
+ * The value of this page is removing surprises. An applicant who knows what is
+ * required before they pay a fee either qualifies and applies cleanly, or
+ * self-selects out, and both outcomes save the leasing team time.
+ *
+ * Every dollar figure and turnaround time on this page that we do not have on
+ * file is marked [SOURCE NEEDED] rather than estimated.
+ */
+
+const title = 'How to Apply for a Rental | RL Property Management, Columbus Ohio';
+const description =
+  `The rental application process at ${company.name}: what to have ready, what the application fee covers, ` +
+  `how applications are ranked, and what happens between approval and keys.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Residents', path: '/residents/' },
+  { name: 'How to apply', path: '/residents/how-to-apply/' },
+];
+
+const answer =
+  `Applying to an ${company.name} home means touring it, applying online for every adult, passing the ` +
+  `same screening every applicant gets, then signing and paying move-in funds. Applications are ranked ` +
+  `by completion, not start.`;
+
+const keyFacts = [
+  'Every adult who will live in the home applies separately',
+  'Applications are reviewed in the order they are completed, not started',
+  'Application fee: [SOURCE NEEDED: amount, and per adult or per household]',
+  'Decision turnaround: [SOURCE NEEDED: business days from a complete application to a decision]',
+  `Rent is due on ${rentPolicy.dueDate} once you move in, late fees after ${rentPolicy.lateFeesAfter}`,
+  `Approved pets carry a monthly fee that funds up to ${usd(pricing.petDamageCoverage.cap)} in pet damage coverage`,
+];
+
+const steps = [
+  {
+    n: '1',
+    h: 'See the home first',
+    p: 'Tour before you apply. An application fee is spent whether or not you take the home, so a showing is the cheapest step in the process. Check the pet policy, the available date and the utilities on the listing while you are there.',
+  },
+  {
+    n: '2',
+    h: 'Gather your documents before you start',
+    p: 'The application asks for the same things every time, and it is far faster to collect them first than to start, stall, and lose your place in line to someone who was ready.',
+  },
+  {
+    n: '3',
+    h: 'Every adult applies',
+    p: 'Each adult who will live in the home submits their own application and is screened individually, including a spouse or partner who is not on the income. Occupants under 18 are listed on the application but not screened as applicants.',
+  },
+  {
+    n: '4',
+    h: 'Screening runs',
+    p: 'Identity, income, credit, rental history and background, checked against the published criteria in exactly the same way for every applicant. Nothing about the order or the standard changes based on who is applying.',
+  },
+  {
+    n: '5',
+    h: 'Decision, then lease signing',
+    p: 'An approval comes with the terms attached: the home, the rent, the deposit and the start date. The home is not held until the lease is signed and the funds required at signing have cleared.',
+  },
+  {
+    n: '6',
+    h: 'Move-in day',
+    p: 'Utilities go into your name before you get keys, and the condition report gets filled in during your first days in the home. Both are covered on the moving in page.',
+  },
+];
+
+const documents = [
+  ['Government issued photo ID', 'For every adult applicant.'],
+  ['Proof of income', 'Recent pay stubs, an offer letter, benefit award letters, self-employment records, or another verifiable source. [SOURCE NEEDED: the exact document list accepted, and how many months are required]'],
+  ['Rental history', 'Addresses and landlord contact details going back several years. [SOURCE NEEDED: how many years of history must be listed]'],
+  ['Employer contact', 'A name and number that can confirm employment.'],
+  ['Pet details', 'Type, size, age and vaccination records for any animal moving in, including a service or assistance animal, which is not charged a pet fee.'],
+  ['Vehicle details', 'Make, model and plate for anything parking at the home.'],
+];
+
+const faq = [
+  { q: 'How do I apply for a rental with RL Property Management?',
+    a: 'Tour the home, then submit an online application for every adult who will live there. Screening covers identity, income, credit, rental history and background, applied identically to every applicant. Once approved, you sign the lease and pay the funds due at signing, and the home is held from that point.' },
+  { q: 'How much is the application fee?',
+    a: 'The application fee is [SOURCE NEEDED: application fee amount and whether it is charged per adult applicant or per household]. It pays for the screening reports, so it is spent when the reports run and is not refunded if the application is declined or if you change your mind.' },
+  { q: 'How long does it take to hear back?',
+    a: 'A complete application moves quickly; an incomplete one does not move at all. The most common delay is income documentation an applicant has not uploaded yet, or a prior landlord who has not returned our call. [SOURCE NEEDED: typical business days from a complete application to a decision].' },
+  { q: 'Does everyone in the house have to apply?',
+    a: 'Every adult who will live in the home applies and is screened separately, including adults who will not be contributing income. Occupants under 18 are listed on the application but are not screened. Adding an adult after move-in requires that person to apply and be approved first.' },
+  { q: 'Can I apply for more than one home at a time?',
+    a: 'Yes, and applicants who are moving on a deadline often do. Each home is a separate application, so a separate fee applies to each. If you are choosing between two of our homes, call ' + company.phone + ' before you pay twice.' },
+  { q: 'Does applying hold the home?',
+    a: 'No. A submitted application does not take a home off the market, and neither does an approval on its own. The home comes off the market when the lease is signed and the funds due at signing have cleared. Until then it stays listed and other applications keep coming in.' },
+  { q: 'What if I am declined?',
+    a: 'You will be told, and if the decision was based in whole or in part on a consumer report, you receive an adverse action notice naming the reporting agency so you can request your file and dispute anything wrong in it. That is your right under the federal Fair Credit Reporting Act, and it is free from the agency.' },
+  { q: 'Can I apply with a co-signer or a guarantor?',
+    a: '[SOURCE NEEDED: whether co-signers or guarantors are accepted, and if so what standard they are screened against and what they are liable for].' },
+  { q: 'Do you accept housing vouchers?',
+    a: 'Yes. Columbus City Code sections 2331.02 and 4551.03 prohibit refusing to rent to someone because their income includes housing assistance, and many surrounding Central Ohio municipalities have the same protection. Screening criteria are applied identically regardless of how income arrives.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="For applicants"
+    title="How to apply for one of our rentals"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'View available homes', href: '/homes-for-rent/' }}
+    secondaryCta={{ label: 'Read the application criteria', href: '/residents/application-criteria/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Before you start" />
+
+  <!-- THE STEPS -->
+  <section class="band-tight" aria-labelledby="steps-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The process</span>
+      <h2 id="steps-h" class="text-[clamp(28px,3.3vw,40px)]">What are the steps to apply?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Six, in order. The whole thing is designed so that an applicant who is prepared moves through it in
+        days rather than weeks.
+      </p>
+      <ol class="grid gap-4 mt-7">
+        {steps.map((s) => (
+          <li class="card !p-6 flex gap-5">
+            <span class="font-sans text-[30px] font-extrabold text-crimson leading-none shrink-0 tabular-nums" aria-hidden="true">{s.n}</span>
+            <span class="block">
+              <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">{s.h}</span>
+              <span class="block text-[15.5px] text-muted">{s.p}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
+      <p class="text-[15px] text-crimson font-semibold mt-6">
+        [SOURCE NEEDED: the application URL residents should be sent to, and whether it is the same system
+        that hosts the listings]
+      </p>
+    </div>
+  </section>
+
+  <!-- DOCUMENTS -->
+  <section class="band band-wash" aria-labelledby="docs-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Come prepared</span>
+      <h2 id="docs-h" class="text-[clamp(28px,3.3vw,40px)]">What do I need to have ready?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Six things, and having them in one folder before you start is the single biggest difference between
+        an application that gets a decision this week and one that stalls.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Documents and details required with a rental application</caption>
+          <thead>
+            <tr class="bg-white">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">What</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            {documents.map(([what, detail]) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top whitespace-nowrap">{what}</th>
+                <td class="p-3.5 border border-line align-top text-muted">{detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW APPLICATIONS ARE RANKED -->
+  <section class="band" aria-labelledby="rank-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">How the queue works</span>
+      <h2 id="rank-h" class="text-[clamp(28px,3.3vw,40px)]">If two people apply for the same home, who gets it?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The first qualified applicant to complete an application, in the order applications are completed.
+        Completed is the operative word. An application started Monday with no income documents attached
+        sits behind one filed Wednesday with everything in it.
+      </p>
+      <p class="text-[16.5px] text-muted mt-4">
+        The same criteria are applied to every applicant, in the same order, on every home. We do not hold
+        a home for a preferred applicant, we do not shop applications between homes, and we do not steer
+        anyone toward or away from a property or an area.
+      </p>
+      <div class="card !border-2 !border-navy mt-7">
+        <h3 class="text-[18.5px] mb-2">Equal housing opportunity</h3>
+        <p class="text-[15.5px] text-muted m-0">
+          {company.name} is a licensed Ohio real estate brokerage and follows federal, Ohio and City of
+          Columbus fair housing law. If you need a reasonable accommodation or a reasonable modification
+          because of a disability, at any point in the application process, tell us. That request is handled
+          separately from the screening decision and does not affect it.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AFTER APPROVAL -->
+  <section class="band band-wash" aria-labelledby="after-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Approval to keys</span>
+      <h2 id="after-h" class="text-[clamp(28px,3.3vw,40px)]">What happens after I am approved?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        You get the terms in writing, you sign, you pay the funds due at signing, and only then does the
+        home come off the market. An approval by itself does not reserve anything.
+      </p>
+      <ul class="grid gap-3 mt-6 text-[15.5px]">
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">1</span><span><strong class="text-navy">Terms in writing.</strong> The home, the rent, the lease start and end dates, the deposit and any pet terms.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">2</span><span><strong class="text-navy">Deadline to sign.</strong> <span class="text-crimson font-semibold">[SOURCE NEEDED: how long an approved applicant has to sign and fund before the home goes back on the market]</span></span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">3</span><span><strong class="text-navy">Funds due at signing.</strong> <span class="text-crimson font-semibold">[SOURCE NEEDED: security deposit amount or formula, whether first month rent is due at signing or at move-in, and accepted payment methods for move-in funds]</span></span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">4</span><span><strong class="text-navy">Utilities in your name.</strong> Required before keys are released. The list of which utilities you carry is on the <a href="/residents/moving-in/" class="text-crimson font-semibold no-underline hover:underline">moving in</a> page.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">5</span><span><strong class="text-navy">Keys and the condition report.</strong> Document the home in writing and with photos in your first days. That report is what your deposit is measured against when you leave.</span></li>
+      </ul>
+      <p class="text-[15px] text-muted mt-6">
+        Once you are in, rent is due on {rentPolicy.dueDate} and late fees are assessed after
+        {' '}{rentPolicy.lateFeesAfter}. Across our portfolio,
+        {' '}{kpis.metrics.find((m) => m.id === 'collectedBy5')?.value} of rent is collected by the 5th.
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Application questions" id="apply-faq" />
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/residents/application-criteria/', label: 'Application criteria', note: 'The written standard every application is measured against.' },
+    { href: '/homes-for-rent/', label: 'Homes for rent', note: 'What is available across the Columbus metro.' },
+    { href: '/residents/moving-in/', label: 'Moving in', note: 'Utilities, keys, insurance and the condition report.' },
+    { href: '/resident-faqs/', label: 'Resident FAQs', note: 'Rent, repairs, pets, renewals and move-out.' },
+    { href: '/residents/', label: 'Resident hub', note: 'Everything a resident needs, in one place.' },
+  ]} />
+
+  <Cta
+    heading="Ready to apply?"
+    body="Check the criteria first, collect your income documents, then apply. A complete application beats an early one every time."
+    primary={{ label: 'View available homes', href: '/homes-for-rent/' }}
+    secondary={{ label: 'Read the application criteria', href: '/residents/application-criteria/' }}
+  />
+</Base>

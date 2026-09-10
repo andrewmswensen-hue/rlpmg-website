@@ -1,0 +1,270 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, commitments, rentPolicy, areas, usd } from '../../data/facts';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * The services hub. Target intent: "what does a property manager do" and
+ * "property management services columbus". It has to answer the generic
+ * question honestly before it routes anyone to a service page.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+
+const title = 'Property Management Services in Columbus, Ohio | RL Property Management';
+const description =
+  `What a property manager actually does: marketing and leasing, screening, maintenance, rent collection, ` +
+  `owner reporting, inspections, evictions and compliance. Flat ${usd(pricing.plans[0].monthly)} to ` +
+  `${usd(pricing.plans[2].monthly)} per unit per month in Columbus, with a ${usd(pricing.leasingFee)} leasing fee.`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Services', path: '/services/' }];
+
+const answer =
+  `A property manager markets your rental, screens applicants, collects rent, coordinates repairs, inspects the ` +
+  `property, handles compliance and files evictions. ${company.name} does all eight in Columbus for a flat ` +
+  `${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month.`;
+
+const services = [
+  { href: '/services/marketing-and-leasing/', label: 'Marketing and leasing',
+    line: `Photos, syndication, showings and a signed lease. ${usd(pricing.leasingFee)} leasing fee on every plan.`,
+    pain: 'A vacant unit costs a month of rent every month it stays vacant.' },
+  { href: '/services/tenant-screening/', label: 'Tenant screening',
+    line: 'Credit, criminal, income, rental history and eviction record, applied the same way to every applicant.',
+    pain: 'One bad placement can cost more than a year of management fees.' },
+  { href: '/services/maintenance/', label: 'Maintenance',
+    line: `In-house labor at ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, materials at cost.`,
+    pain: 'The 11pm call about a furnace is the reason most owners hire out.' },
+  { href: '/services/rent-collection/', label: 'Rent collection',
+    line: `Rent due ${rentPolicy.dueDate}, late fees after ${rentPolicy.lateFeesAfter}, your money on the ${rentPolicy.ownerDisbursementDay}th.`,
+    pain: 'Chasing a late payment is the part of the job owners hate most.' },
+  { href: '/services/owner-reporting/', label: 'Owner reporting and accounting',
+    line: 'Monthly statements, a real-time owner portal, and year-end tax reporting.',
+    pain: 'A shoebox of receipts in March is not an accounting system.' },
+  { href: '/services/inspections/', label: 'Inspections',
+    line: 'Quarterly interior and exterior inspections on every managed unit.',
+    pain: 'Damage found at move-out is damage you are paying for yourself.' },
+  { href: '/services/evictions/', label: 'Evictions',
+    line: `Filed in Franklin County, managed end to end for ${usd(pricing.eviction.rlpmProcessFee)} plus ${usd(pricing.eviction.hardCostTotal)} in hard costs.`,
+    pain: 'A resident who stops paying in month three is a legal problem, not a conversation.' },
+  { href: '/services/compliance/', label: 'Compliance',
+    line: 'Ohio landlord-tenant law, fair housing, local registration and insurance requirements.',
+    pain: 'The rules that cost you money are the ones you did not know existed.' },
+];
+
+const facts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee on all three plans`,
+  `${usd(pricing.startupFeeOccupied)} startup fee on an occupied unit`,
+  `Median ${kpi('dom')} days on market, median ${kpi('turn')} days to turn a unit`,
+  `${kpi('collectedBy5')} of rent collected by the 5th`,
+  `Owner funds disbursed on the ${rentPolicy.ownerDisbursementDay}th of each month`,
+  `${company.unitsManaged} units under management across ${areas.length} Central Ohio communities`,
+  `Managing ${company.propertyTypes} since ${company.founded}`,
+];
+
+const notIncluded = [
+  ['Property photography', '$250 to $450',
+    `Not covered by the ${usd(pricing.leasingFee)} leasing fee. Billed at vendor cost plus our standard markup, by property size, on new vacant units and units that have had major cosmetic work. Existing photos keep being used at no charge while they still represent the property, and the photos are yours to keep. Effective October 1, 2026.`],
+  ['Lease renewal', usd(pricing.leaseRenewalFee), 'Charged to the owner on the date the lease renews.'],
+  ['Maintenance labor and materials', `${usd(pricing.maintenance.inHouseHourly)} per hour plus ${usd(pricing.maintenance.tripCharge)} per visit`,
+    'Materials at cost. There is no minimum charge on a work order.'],
+  ['Vendor project management', `${pricing.maintenance.vendorProjectFeePct}% of vendor cost`,
+    `Applies to vendor costs up to ${usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)}, capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project. Waived on insurance claim work.`],
+  ['Eviction', `${usd(pricing.eviction.typicalTotal)} typical`,
+    `${usd(pricing.eviction.hardCostTotal)} in hard costs plus ${usd(pricing.eviction.rlpmProcessFee)} to manage the case. A setout, if one is needed, adds more.`],
+  ['Maintenance reserve', `${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit`,
+    'Held on your account so routine repairs do not wait on a funding request. It stays your money.'],
+];
+
+const faq = [
+  { q: 'What does a property manager do?',
+    a: `A property manager runs the rental so the owner does not have to. That means eight jobs: marketing and leasing the unit, screening applicants against one written standard, collecting rent and enforcing the lease, coordinating maintenance and emergency repairs, inspecting the property on a schedule, keeping the books and issuing owner statements, handling Ohio landlord-tenant and fair housing compliance, and filing an eviction when a resident stops paying. ${company.name} does all eight for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month.` },
+  { q: 'What is included in the monthly management fee?',
+    a: `Listing and syndication, showings, full applicant screening, lease preparation, rent collection and late notices, owner statements and portal access, maintenance coordination, 24/7 emergency response, quarterly inspections, and compliance work. Placing a resident is included at ${usd(pricing.leasingFee)}. Maintenance labor, materials, lease renewals at ${usd(pricing.leaseRenewalFee)}, photography at $250 to $450, and eviction costs are billed separately.` },
+  { q: 'How much does a property manager cost in Columbus?',
+    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)}, ${usd(pricing.plans[1].monthly)} or ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan. Most Columbus managers charge 8% to 10% of collected rent plus roughly half a month of rent each time the unit is leased. The full fee schedule is published on our pricing page.` },
+  { q: 'Do I still get called at 2am about a furnace?',
+    a: 'No. Emergency response is included in the monthly fee and residents call us, not you. After-hours labor is billed at a multiplier: ' + `${pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, ${pricing.afterHours.sunday}x on Sundays.` },
+  { q: 'What kinds of property do you manage?',
+    a: `${company.propertyTypes.charAt(0).toUpperCase() + company.propertyTypes.slice(1)}. We manage ${company.unitsManaged} units across ${areas.length} Central Ohio communities in Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway counties.` },
+  { q: 'What happens if my property sits vacant?',
+    a: 'If a property has been listed for rent longer than 60 days, we proactively credit management fees back to your account. You are not paying a full management fee on a unit we have not been able to lease.' },
+  { q: 'What insurance do you require?',
+    a: `A Rental Dwelling Policy or Commercial Policy carrying at least ${usd(pricing.insuranceRequired.liabilityMin)} in liability coverage, with ${company.name} named as an additional insured. If proof of that coverage is not on file we charge $20 per unit per month until it is.` },
+  { q: 'Can I hire you for only one part of the job?',
+    a: 'No. The services on this page are sold as one management relationship, because they depend on each other. Screening standards only hold if the same team enforces the lease, and inspection findings only get fixed if the same team runs maintenance.' },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/services/',
+    name: 'Residential property management services',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Our services"
+    title="What a property manager does, and what we charge for it"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <section class="band" aria-labelledby="eight-h">
+    <div class="wrap max-w-[1000px]">
+      <span class="eyebrow">The whole job</span>
+      <h2 id="eight-h" class="text-[clamp(28px,3.3vw,40px)]">What does a property manager actually do?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-9 max-w-[46em]">
+        Eight jobs, and owners usually hire out because two or three of them have gone wrong. Each one below
+        has its own page with the process, the numbers and the parts that go sideways.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {services.map((s) => (
+          <a href={s.href} class="block card card-hover no-underline">
+            <h3 class="text-[20px] mb-2">{s.label}</h3>
+            <p class="text-[15.5px] text-muted m-0">{s.line}</p>
+            <p class="text-[14.5px] text-faint mt-3 mb-0 italic">{s.pain}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="fee-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">Where the money goes</span>
+      <h2 id="fee-h" class="text-[clamp(28px,3.3vw,40px)]">What is included in the monthly fee, and what is not?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[46em]">
+        The monthly fee covers the labor of running the property: leasing, screening, rent, coordination,
+        reporting, inspections and compliance. It does not cover physical work on the building, and no flat
+        fee ever could. Here is the honest line between the two.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]">
+          <caption class="sr-only">Charges that fall outside the monthly management fee</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Billed separately</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold whitespace-nowrap">Amount</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            {notIncluded.map(([item, amount, detail]) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">{item}</th>
+                <td class="p-3.5 border border-line align-top whitespace-nowrap font-semibold text-navy">{amount}</td>
+                <td class="p-3.5 border border-line align-top text-muted">{detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        Photography is the one owners are most often surprised by, so we say it plainly: it is not part of the
+        {' '}{usd(pricing.leasingFee)} leasing fee. Everything else that can appear on an owner statement is on the
+        {' '}<a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">pricing page</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="diff-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">How we work</span>
+      <h2 id="diff-h" class="text-[clamp(28px,3.3vw,40px)]">Which decisions do you still make?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[46em]">
+        You set the plan, and the plan sets one number: how much repair spending we handle before we call you.
+        Above that limit, nothing gets spent without your approval, except a genuine emergency where waiting
+        would make the damage worse.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3">
+        {pricing.plans.map((p) => (
+          <div class="card">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[38px] font-extrabold tracking-[-.04em] text-navy leading-none">{usd(p.repairApprovalLimit)}</div>
+            <p class="text-[15px] text-muted mt-3 mb-0">
+              Per-item repair approval limit, at {usd(p.monthly)} per unit per month.
+            </p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[15px] text-muted mt-7">
+        Rent pricing, renewals, capital work and any decision to sell stay with you. We bring the recommendation
+        and the numbers behind it.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="commit-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">What we commit to</span>
+      <h2 id="commit-h" class="text-[clamp(28px,3.3vw,40px)]">What happens when we do not perform?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[46em]">
+        Five commitments that cost us money when we fall short. They are in the Client Handbook, not just on
+        this page.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {commitments.map((c) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{c.name}</h3>
+            <p class="text-[15px] text-muted m-0">{c.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="score-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">Published results</span>
+      <h2 id="score-h" class="text-[clamp(28px,3.3vw,40px)]">How do you know a manager is doing the job?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[46em]">
+        Ask for numbers, and ask how each one is measured. Ours are published and dated. Median days on market
+        is measured as {kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)}
+      </p>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {kpis.metrics.map((m) => (
+          <div class="card !p-5">
+            <div class="font-sans text-[30px] font-extrabold tracking-[-.04em] text-navy leading-none">{m.value}</div>
+            <div class="text-[14px] text-muted mt-2">{m.label}</div>
+          </div>
+        ))}
+      </div>
+      <p class="text-[14px] text-faint mt-5">Scorecard as of {kpis.asOfLabel}.</p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Questions owners ask before hiring a manager" id="services-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/pricing/', label: 'Pricing and the complete fee schedule', note: 'Every charge that can appear on an owner statement.' },
+    { href: '/services/marketing-and-leasing/', label: 'Marketing and leasing', note: `How a unit gets listed, shown and leased at a ${usd(pricing.leasingFee)} leasing fee.` },
+    { href: '/services/maintenance/', label: 'Maintenance', note: 'Rates, approval limits and how emergencies are handled.' },
+    { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'The numbers above, with how each one is measured.' },
+    { href: '/client-handbook/', label: 'Client Handbook', note: 'The full operating document behind these services.' },
+  ]} />
+
+  <Cta
+    heading="Start with what your property should rent for"
+    body="A free rent evaluation gives you the number and the plan to get there. No obligation, and no pressure to sign anything."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

@@ -1,0 +1,236 @@
+---
+import Base from '../../layouts/Base.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, usd } from '../../data/facts';
+import { rentByBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * The second of two pages that carry inline JavaScript, by deliberate exception.
+ * See the note in src/pages/self-management-calculator/index.astro. The static
+ * worked example below is complete and correct with JavaScript disabled; the
+ * script only makes it live.
+ */
+
+const title = `Rent vs. Sell Calculator for Columbus Owners | ${company.name}`;
+const description =
+  'Compare keeping your Columbus property as a rental against selling it now. Ten-year projection ' +
+  'covering cash flow, equity, appreciation and selling costs, with the assumptions shown.';
+const breadcrumbs = [
+  { name: 'Home', path: '/' }, { name: 'Tools', path: '/tools/' },
+  { name: 'Rent vs. sell calculator', path: '/rent-vs-sell-calculator/' },
+];
+
+const mid = pricing.plans[1];
+const ex = { value: 275000, balance: 150000, rent: 1650, expenses: 450, years: 10, apprec: 3, sellCost: 8 };
+
+/** The same maths the script runs, so the page is correct without JavaScript. */
+function project(i: typeof ex) {
+  const sellNow = i.value * (1 - i.sellCost / 100) - i.balance;
+  const annualNet = (i.rent - i.expenses - mid.monthly) * 12;
+  const futureValue = i.value * Math.pow(1 + i.apprec / 100, i.years);
+  const sellLater = futureValue * (1 - i.sellCost / 100) - i.balance;
+  const cashFlow = annualNet * i.years;
+  return {
+    sellNow: Math.round(sellNow),
+    annualNet: Math.round(annualNet),
+    cashFlow: Math.round(cashFlow),
+    equityLater: Math.round(sellLater),
+    rentTotal: Math.round(sellLater + cashFlow),
+  };
+}
+const r = project(ex);
+
+const faq = [
+  { q: 'Should I rent or sell my house in Columbus?',
+    a: `It depends on three numbers: what the property clears as a rental each month, how much equity you would free up by selling now, and how long you would hold. On the example here, a ${usd(ex.value)} property renting for ${usd(ex.rent)} nets ${usd(r.annualNet)} a year after expenses and management.` },
+  { q: 'How do I know what my property would rent for?',
+    a: `${company.name} gives a free rent evaluation using our own portfolio data across ${company.unitsManaged} Columbus-area units plus current market comps, rather than an automated estimate. Median rent across our portfolio is ${usd(rentByBedroom['3'].median)} for a three bedroom.` },
+  { q: 'What does it cost to sell a house in Columbus?',
+    a: 'Selling costs generally run around 6 to 9 percent of the sale price once commission, title work, transfer taxes and typical concessions are counted. The calculator uses 8 percent by default and you can change it.' },
+  { q: 'What expenses should I count on a rental?',
+    a: 'Taxes, insurance, maintenance, and a vacancy allowance. Management is counted separately here so you can see it on its own line. Do not forget the turn between residents, which is the cost most first-time landlords miss.' },
+  { q: 'Does this account for tax?',
+    a: 'No. Depreciation, capital gains treatment and the primary-residence exclusion can all move the answer materially, and they depend on your situation. Take this arithmetic to your CPA rather than treating it as advice.' },
+  { q: 'What if I am not sure I want to be a landlord?',
+    a: 'That is a fair answer and the numbers do not settle it. Some owners should sell even when renting projects better, because they do not want the exposure. We will say so plainly when selling is the better call for you.' },
+];
+
+const schemaNodes = [serviceNode({
+  path: '/rent-vs-sell-calculator/', name: 'Rent vs. sell calculator', description,
+})];
+
+const F = [
+  { id: 'value', label: 'Current property value', v: ex.value, step: 5000, hint: 'What it would sell for today' },
+  { id: 'balance', label: 'Mortgage balance', v: ex.balance, step: 5000, hint: 'Enter 0 if it is paid off' },
+  { id: 'rent', label: 'Monthly rent', v: ex.rent, step: 25, hint: 'What it would rent for' },
+  { id: 'expenses', label: 'Monthly expenses', v: ex.expenses, step: 25, hint: 'Taxes, insurance, maintenance, vacancy allowance' },
+  { id: 'years', label: 'Years you would hold it', v: ex.years, step: 1, hint: '' },
+  { id: 'apprec', label: 'Annual appreciation, percent', v: ex.apprec, step: 0.5, hint: 'Be conservative' },
+  { id: 'sellCost', label: 'Cost to sell, percent', v: ex.sellCost, step: 0.5, hint: 'Commission, title, transfer tax, concessions' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+  <section class="pt-14 pb-8">
+    <div class="wrap max-w-[880px]">
+      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+        <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span>
+        <a href="/tools/" class="no-underline hover:text-crimson">Tools</a> <span aria-hidden="true">/</span>
+        <span aria-current="page">Rent vs. sell calculator</span>
+      </nav>
+      <span class="eyebrow">Owner tools</span>
+      <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em]">Keep it as a rental, or sell it now?</h1>
+      <p class="text-[20px] text-muted mt-5 max-w-[40em]">
+        Selling frees the equity today. Renting keeps the appreciation and the cash flow, and it keeps
+        the responsibility. This puts both on the same page so you can see the gap.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-10">
+    <div class="wrap max-w-[880px]">
+      <form class="card" id="rvs" novalidate>
+        <h2 class="text-[22px] mb-1">Your property</h2>
+        <p class="text-[15px] text-muted mb-6">Nothing is sent anywhere. This runs entirely in your browser.</p>
+        <div class="grid gap-5 sm:grid-cols-2">
+          {F.map((f) => (
+            <div class={f.id === 'sellCost' ? 'sm:col-span-2' : ''}>
+              <label for={f.id} class="block font-sans text-[13px] font-semibold text-muted mb-1.5">{f.label}</label>
+              <input id={f.id} name={f.id} type="number" inputmode="decimal" min="0" step={f.step} value={f.v}
+                     class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
+              {f.hint && <p class="text-[13px] text-faint mt-1.5">{f.hint}</p>}
+            </div>
+          ))}
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="pb-12">
+    <div class="wrap max-w-[880px]">
+      <h2 class="text-[26px] mb-5">Side by side</h2>
+      <div class="grid gap-5 md:grid-cols-2">
+        <div class="card">
+          <h3 class="text-[20px] mb-3">Sell now</h3>
+          <p class="font-sans text-[38px] font-extrabold tracking-[-.04em] text-navy leading-none" id="o-sellnow">{usd(r.sellNow)}</p>
+          <p class="text-[14.5px] text-muted mt-2 mb-0">Equity in hand after selling costs and paying off the balance.</p>
+        </div>
+        <div class="card !border-2 !border-crimson">
+          <h3 class="text-[20px] mb-3">Rent for <span id="o-years">{ex.years}</span> years, then sell</h3>
+          <p class="font-sans text-[38px] font-extrabold tracking-[-.04em] text-crimson leading-none" id="o-renttotal">{usd(r.rentTotal)}</p>
+          <p class="text-[14.5px] text-muted mt-2 mb-0">Cumulative cash flow plus equity at the end.</p>
+        </div>
+      </div>
+
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[16px]">
+          <caption class="sr-only">Rent versus sell, line by line</caption>
+          <tbody>
+            <tr><th scope="row" class="text-left p-4 border border-line font-medium">Net monthly cash flow after management</th>
+                <td class="text-right p-4 border border-line tabular-nums font-semibold" id="o-monthly">{usd(Math.round(r.annualNet / 12))}</td></tr>
+            <tr><th scope="row" class="text-left p-4 border border-line font-medium">Net annual cash flow</th>
+                <td class="text-right p-4 border border-line tabular-nums font-semibold" id="o-annual">{usd(r.annualNet)}</td></tr>
+            <tr><th scope="row" class="text-left p-4 border border-line font-medium">Cumulative cash flow over the hold</th>
+                <td class="text-right p-4 border border-line tabular-nums font-semibold" id="o-cash">{usd(r.cashFlow)}</td></tr>
+            <tr><th scope="row" class="text-left p-4 border border-line font-medium">Equity when you sell later</th>
+                <td class="text-right p-4 border border-line tabular-nums font-semibold" id="o-equity">{usd(r.equityLater)}</td></tr>
+            <tr class="bg-wash-soft"><th scope="row" class="text-left p-4 border border-line font-bold">Difference</th>
+                <td class="text-right p-4 border border-line tabular-nums font-bold text-[19px]" id="o-diff">{usd(r.rentTotal - r.sellNow)}</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-5 text-[17px] text-muted" id="o-summary">
+        On these numbers, renting for {ex.years} years comes out {usd(r.rentTotal - r.sellNow)} ahead of selling today.
+      </p>
+      <p class="text-[14px] text-faint mt-3">
+        Management is counted at {usd(mid.monthly)} a month, our {mid.name} rate, with no leasing fee.
+        Taxes are not modelled. Depreciation, capital gains and the primary-residence exclusion can move
+        this materially, so take the arithmetic to your CPA.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[880px]">
+      <h2 class="text-[26px] mb-4">What the calculator assumes</h2>
+      <div class="prose-rl">
+        <ul>
+          <li><strong>Sell now</strong> is value, minus the cost to sell, minus your mortgage balance.</li>
+          <li><strong>Appreciation</strong> compounds annually on the property value. The default of 3 percent is deliberately conservative.</li>
+          <li><strong>Cash flow</strong> is rent, minus your operating expenses, minus the flat management fee, times twelve.</li>
+          <li><strong>Rent then sell</strong> is cumulative cash flow plus equity at the end of the hold.</li>
+          <li>Rent increases are not modelled, which makes the renting case conservative.</li>
+          <li>Principal paydown is not counted as a separate gain, which also makes renting conservative.</li>
+        </ul>
+        <p>
+          Two things this cannot tell you: whether you want to be a landlord, and what your tax situation
+          does to the answer. Both matter as much as the arithmetic.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap max-w-[820px]">
+      <Faq items={faq} heading="Common questions" id="rvs-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'What your property would actually rent for' },
+    { href: '/pricing/', label: 'What management costs', note: 'The complete published fee schedule' },
+    { href: '/self-management-calculator/', label: 'Cost of self-managing', note: 'If you are leaning toward keeping it yourself' },
+    { href: '/2026-columbus-market-report/', label: '2026 Columbus market report', note: 'What the local numbers are doing' },
+  ]} />
+
+  <Cta heading="Not sure what it would rent for?"
+       body="That one number changes the whole answer. A free rent evaluation uses our own portfolio data and current comps." />
+
+  <script is:inline define:vars={{ mgmtMonthly: mid.monthly }}>
+    (function () {
+      var f = document.getElementById('rvs');
+      if (!f) return;
+      var money = function (n) {
+        var v = Math.round(n);
+        return (v < 0 ? '-$' : '$') + Math.abs(v).toLocaleString('en-US');
+      };
+      var num = function (id, fb) {
+        var el = document.getElementById(id);
+        var v = el ? parseFloat(el.value) : NaN;
+        return isFinite(v) ? v : fb;
+      };
+      function set(id, txt) { var e = document.getElementById(id); if (e) e.textContent = txt; }
+      function update() {
+        var value = num('value', 0), balance = num('balance', 0), rent = num('rent', 0);
+        var exp = num('expenses', 0), years = Math.max(0, num('years', 0));
+        var apprec = num('apprec', 0), sellCost = num('sellCost', 0);
+
+        var sellNow = value * (1 - sellCost / 100) - balance;
+        var annualNet = (rent - exp - mgmtMonthly) * 12;
+        var future = value * Math.pow(1 + apprec / 100, years);
+        var equityLater = future * (1 - sellCost / 100) - balance;
+        var cash = annualNet * years;
+        var rentTotal = equityLater + cash;
+        var diff = rentTotal - sellNow;
+
+        set('o-sellnow', money(sellNow));
+        set('o-renttotal', money(rentTotal));
+        set('o-years', String(years));
+        set('o-monthly', money(annualNet / 12));
+        set('o-annual', money(annualNet));
+        set('o-cash', money(cash));
+        set('o-equity', money(equityLater));
+        set('o-diff', money(diff));
+        set('o-summary', diff >= 0
+          ? 'On these numbers, renting for ' + years + ' years comes out ' + money(diff) + ' ahead of selling today.'
+          : 'On these numbers, selling today comes out ' + money(-diff) + ' ahead of renting for ' + years + ' years.');
+      }
+      f.addEventListener('input', update);
+      update();
+    })();
+  </script>
+</Base>

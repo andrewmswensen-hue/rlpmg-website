@@ -1,0 +1,423 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, areas, usd } from '../../data/facts';
+import { rentByBedroom, rentByMarketAndBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Target queries: "what should I rent my house for columbus", "rent estimate columbus".
+ *
+ * The page has to be worth reading before the form: an owner who learns how rent
+ * is actually set is a better client than one who just submits an address.
+ *
+ * FORM: semantic HTML only. No JavaScript, no validation script, no analytics.
+ * The action endpoint is pending, see the comment on the <form> element.
+ */
+
+const title = 'Free Rent Evaluation for Columbus, Ohio Rentals | RL Property Management';
+const description =
+  `Find out what your Columbus rental should rent for. A free written rent evaluation from ${company.name}, ` +
+  `built from the ${company.unitsManaged} units we manage and current comparable listings. No cost, no obligation.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Owners', path: '/columbus-property-management/' },
+  { name: 'Free rent evaluation', path: '/free-rent-evaluation/' },
+];
+
+const keyFacts = [
+  'Free, written, and yours whether or not you hire us',
+  `Priced against the ${company.unitsManaged} units we manage, not a national estimate tool`,
+  `Median ${kpis.metrics[0].value} days on market across the portfolio`,
+  `Average rent under management is ${kpis.metrics[4].value}`,
+  'No fee to place a resident if you do hire us',
+  'One form, no account, no phone tree',
+];
+
+/** Bedroom medians we can publish, straight from the managed portfolio. */
+const bedroomRows = Object.entries(rentByBedroom).map(([bed, v]) => ({
+  bed, median: v.median, sample: v.sample,
+}));
+
+/** Cities where our own sample supports publishing a median. Cited as ours, not as market data. */
+const cityRows = Object.entries(rentByMarketAndBedroom)
+  .map(([city, beds]) => ({
+    city,
+    beds: Object.entries(beds)
+      .sort((a, b) => Number(a[0]) - Number(b[0]))
+      .map(([bed, v]) => `${bed} bed ${usd(v.median)}`)
+      .join(', '),
+  }))
+  .sort((a, b) => a.city.localeCompare(b.city));
+
+const drivers = [
+  { h: 'Bedroom and bathroom count', p: 'The single largest driver. A third bedroom moves rent more than almost any finish you could add.' },
+  { h: 'Condition against the current comps', p: 'Rent is set against what is on the market this month, not what the house was worth two years ago. Flooring, paint and kitchen condition move the number.' },
+  { h: 'School district and location', p: 'Two identical houses ten minutes apart in the Columbus metro can be hundreds of dollars apart in rent.' },
+  { h: 'Who pays which utility', p: 'A unit where the resident pays all utilities supports higher rent than one where the owner covers water or trash. This belongs in the lease as a table.' },
+  { h: 'Pets, parking and storage', p: 'A garage, off-street parking or a pet-friendly policy each widens the applicant pool, which shortens time on market.' },
+  { h: 'Timing', p: 'Columbus leasing is seasonal. The same house listed in June and in December will not price or lease the same way.' },
+];
+
+const faq = [
+  { q: 'What should I rent my house for in Columbus?',
+    a: `It depends on bedroom count, condition, location and who pays utilities. Across the ${company.unitsManaged} units ${company.name} manages, the median is ${usd(rentByBedroom['1'].median)} for a 1 bedroom, ${usd(rentByBedroom['2'].median)} for a 2 bedroom, ${usd(rentByBedroom['3'].median)} for a 3 bedroom and ${usd(rentByBedroom['4'].median)} for a 4 bedroom. A free rent evaluation gives you a number for your specific address.` },
+  { q: 'Is the rent evaluation actually free?',
+    a: 'Yes. There is no fee, no account to create and no obligation to sign anything. You get the number and the comparable listings it came from, and you can use them to self-manage if that is what you decide to do.' },
+  { q: 'How is a rent evaluation different from an online rent estimate?',
+    a: 'A national estimate tool reads public sale records and averages them. A rent evaluation from a local manager reads what units like yours actually leased for recently, including our own, and adjusts for condition, utilities, parking and season. The gap between the two is often a hundred dollars a month in either direction.' },
+  { q: 'What happens after I submit the form?',
+    a: 'Someone from our team reviews the address, pulls comparable listings and our own leasing data for that submarket, and sends you a written rent range with the comps attached. If anything about the property is unclear we will call before guessing.' },
+  { q: 'Does pricing rent too high cost me money?',
+    a: `Yes, and usually more than the extra rent was worth. An empty unit costs the full monthly rent every month it sits, so an overpriced listing that takes two extra months to lease has to run for years to break even. Median days on market across our portfolio is ${kpis.metrics[0].value} days.` },
+  { q: 'What does it cost to have you manage the property afterward?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and no startup fee on an occupied unit. The complete fee schedule is published.` },
+  { q: 'Do you evaluate more than one property at a time?',
+    a: 'Yes. Tell us how many units you own on the form and we will evaluate the portfolio together, which is more useful than a stack of separate numbers. Portfolio owners should also ask for a portfolio quote, since monthly management is discounted at scale.' },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/free-rent-evaluation/',
+    name: 'Free rental market rent evaluation',
+    description: `A free written rent analysis for Columbus, Ohio rental property owners, based on the ${company.unitsManaged} units ${company.name} manages and current comparable listings.`,
+  }),
+];
+
+const inputCls =
+  'w-full rounded-[10px] border border-line bg-white px-3.5 py-2.5 text-[15.5px] text-navy ' +
+  'focus:border-crimson focus:outline-none';
+const labelCls = 'block font-sans text-[14px] font-semibold text-navy mb-1.5';
+const hintCls = 'block text-[13px] text-faint mt-1.5';
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Free, written, no obligation"
+    title="What should you rent your Columbus house for?"
+    answer={`Get a free written rent evaluation for your property. ${company.name} prices it against the ${company.unitsManaged} units we manage and current comparable listings, and sends you the range plus the comps behind it.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Request your evaluation', href: '#rent-evaluation-form' }}
+    secondaryCta={{ label: 'See our pricing first', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} />
+
+  <!-- WHAT YOU GET -->
+  <section class="band-tight" aria-labelledby="get-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="get-h" class="text-[clamp(26px,3.2vw,38px)]">What is in a rent evaluation?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        A rent range for your specific address, the comparable listings it came from, and a plain note on what
+        would move the number up. It is written, it is free, and it is yours to keep whether you hire us, hire
+        someone else, or manage the property yourself.
+      </p>
+      <ul class="grid gap-x-8 gap-y-1 sm:grid-cols-2 mt-6">
+        {[
+          'A rent range, not a single optimistic number',
+          'The comparable listings and recent leases behind it',
+          'What is helping and hurting the price today',
+          'Seasonal timing, if listing later would price better',
+          'An estimate of how long it should take to lease',
+          'No account, no gate, no drip sequence',
+        ].map((x) => (
+          <li class="flex gap-3 py-1.5 text-[15.5px]">
+            <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{x}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO MEDIANS -->
+  <section class="band band-wash" aria-labelledby="medians-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Our own numbers</span>
+      <h2 id="medians-h" class="text-[clamp(26px,3.2vw,38px)]">What do comparable Columbus rentals actually rent for?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7">
+        These are median rents across the units {company.name} manages, by bedroom count, as of
+        {' '}{kpis.asOfLabel}. They are our own portfolio, not a market-wide survey, and the sample size for each
+        is published so you can weigh it.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]">
+          <caption class="sr-only">Median monthly rent by bedroom count across the RL Property Management portfolio</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Bedrooms</th>
+              <th scope="col" class="text-right p-3.5 border border-line font-semibold">Median rent</th>
+              <th scope="col" class="text-right p-3.5 border border-line font-semibold">Units in the sample</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bedroomRows.map((r) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium">{r.bed} bedroom</th>
+                <td class="text-right p-3.5 border border-line tabular-nums font-bold text-crimson">{usd(r.median)}</td>
+                <td class="text-right p-3.5 border border-line tabular-nums text-muted">{r.sample}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        Average rent across every unit under management is {kpis.metrics[4].value}. Your address will not be the
+        median, which is exactly why the evaluation is worth requesting.
+      </p>
+
+      <details class="fee-group mt-7">
+        <summary>
+          <span>
+            <span class="fee-group-title">Medians by city, where our sample supports one</span>
+            <span class="fee-group-count">{cityRows.length} cities</span>
+          </span>
+        </summary>
+        <div class="fee-group-body">
+          <p class="text-[15px] text-muted mb-4">
+            Only cities where we manage at least five units of that bedroom count appear here. Anywhere else, we
+            price against public market data rather than pretending we have a local sample.
+          </p>
+          <ul class="grid gap-2 sm:grid-cols-2">
+            {cityRows.map((r) => (
+              <li class="text-[15px]">
+                <span class="font-semibold text-navy">{r.city}:</span> <span class="text-muted">{r.beds}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- HOW RENT IS SET -->
+  <section class="band" aria-labelledby="drivers-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">How the number is built</span>
+      <h2 id="drivers-h" class="text-[clamp(26px,3.2vw,38px)]">What actually sets the rent on a Columbus house?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">
+        Six things, in roughly this order of weight. Everything else is noise, including what the property is
+        worth on a sale and what the mortgage payment happens to be.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {drivers.map((d) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{d.h}</h3>
+            <p class="text-[15px] text-muted m-0">{d.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- THE COST OF OVERPRICING -->
+  <section class="band band-wash" aria-labelledby="over-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="over-h" class="text-[clamp(26px,3.2vw,38px)]">What does pricing the rent too high actually cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        A vacant month costs a full month of rent. That is the arithmetic almost nobody runs before insisting on a
+        higher listing price. If a unit would lease at market in
+        {' '}{kpis.metrics[0].value} days and you list it high enough to sit for an extra two months, you have given
+        up two full months of rent to chase an increase that would take a long time to earn it back. Meanwhile the
+        utilities stay on, the lawn still needs cutting, and the listing goes stale on the portals, which makes it
+        harder to lease at any price.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        The opposite mistake is real too. Pricing under market fills the unit fast and then locks that number in
+        for a year, and every renewal after that starts from the low base. A rent evaluation exists to keep you out
+        of both.
+      </p>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <section class="band" id="rent-evaluation-form" aria-labelledby="form-h">
+    <div class="wrap max-w-[760px]">
+      <span class="eyebrow">Request yours</span>
+      <h2 id="form-h" class="text-[clamp(26px,3.2vw,38px)]">Get your free rent evaluation</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">
+        Tell us about the property. Everything marked required is required because we cannot price without it.
+        Everything else makes the number better.
+      </p>
+
+      <!--
+        FORM ENDPOINT PENDING.
+        The CRM is LeadSimple and submissions route by email. Set the `action`
+        attribute to the LeadSimple inbound endpoint when it is issued, and keep
+        `method="post"`. Do not hardcode a destination email address in the markup.
+        No JavaScript is used or needed: this is a plain HTML post.
+      -->
+      <form method="post" action="" class="card !p-7 md:!p-9 grid gap-7">
+
+        <fieldset class="border-0 p-0 m-0 grid gap-5">
+          <legend class="font-serif text-[20px] font-semibold text-navy mb-3">About you</legend>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="first-name">First name <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="first-name" name="first_name" type="text" autocomplete="given-name" required />
+            </div>
+            <div>
+              <label class={labelCls} for="last-name">Last name <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="last-name" name="last_name" type="text" autocomplete="family-name" required />
+            </div>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="email">Email <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="email" name="email" type="email" autocomplete="email" required />
+              <span class={hintCls} id="email-hint">This is where the written evaluation is sent.</span>
+            </div>
+            <div>
+              <label class={labelCls} for="phone">Phone</label>
+              <input class={inputCls} id="phone" name="phone" type="tel" autocomplete="tel" />
+              <span class={hintCls}>Only used if something about the property needs a question.</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="border-0 p-0 m-0 grid gap-5 border-t border-line pt-7">
+          <legend class="font-serif text-[20px] font-semibold text-navy mb-3">About the property</legend>
+
+          <div>
+            <label class={labelCls} for="street">Street address <span class="text-crimson">(required)</span></label>
+            <input class={inputCls} id="street" name="property_street" type="text" autocomplete="street-address" required />
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-3">
+            <div class="sm:col-span-2">
+              <label class={labelCls} for="city">City <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="city" name="property_city" type="text" autocomplete="address-level2" list="rlpm-cities" required />
+              <datalist id="rlpm-cities">
+                {areas.map((a) => <option value={a.name}></option>)}
+              </datalist>
+            </div>
+            <div>
+              <label class={labelCls} for="zip">ZIP code</label>
+              <input class={inputCls} id="zip" name="property_zip" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" />
+            </div>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-3">
+            <div>
+              <label class={labelCls} for="beds">Bedrooms <span class="text-crimson">(required)</span></label>
+              <select class={inputCls} id="beds" name="bedrooms" required>
+                <option value="">Choose one</option>
+                <option value="studio">Studio</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5+">5 or more</option>
+              </select>
+            </div>
+            <div>
+              <label class={labelCls} for="baths">Bathrooms</label>
+              <select class={inputCls} id="baths" name="bathrooms">
+                <option value="">Choose one</option>
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="2.5">2.5</option>
+                <option value="3+">3 or more</option>
+              </select>
+            </div>
+            <div>
+              <label class={labelCls} for="sqft">Square feet</label>
+              <input class={inputCls} id="sqft" name="square_feet" type="text" inputmode="numeric" />
+            </div>
+          </div>
+
+          <fieldset class="border-0 p-0 m-0">
+            <legend class={labelCls}>Current status <span class="text-crimson">(required)</span></legend>
+            <div class="grid gap-2 mt-1">
+              {[
+                ['vacant', 'Vacant and ready to list'],
+                ['vacant-work', 'Vacant, still needs work'],
+                ['occupied', 'Occupied by a resident'],
+                ['occupied-leaving', 'Occupied, resident leaving soon'],
+                ['owner-occupied', 'I live there now'],
+                ['buying', 'I am considering buying it'],
+              ].map(([val, label], i) => (
+                <label class="flex gap-3 items-center text-[15.5px] text-navy cursor-pointer">
+                  <input type="radio" name="property_status" value={val} required={i === 0} class="accent-crimson w-4 h-4" />
+                  <span>{label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <div>
+            <label class={labelCls} for="units-owned">How many rental units do you own?</label>
+            <select class={inputCls} id="units-owned" name="units_owned">
+              <option value="">Choose one</option>
+              <option value="1">1</option>
+              <option value="2-5">2 to 5</option>
+              <option value="6-20">6 to 20</option>
+              <option value="21-50">21 to 50</option>
+              <option value="50+">More than 50</option>
+            </select>
+            <span class={hintCls}>
+              Owners with several units get a portfolio quote as well, since monthly management is discounted at scale.
+            </span>
+          </div>
+
+          <div>
+            <label class={labelCls} for="notes">Anything else we should know?</label>
+            <textarea class={inputCls} id="notes" name="notes" rows="4"></textarea>
+            <span class={hintCls}>
+              Recent updates, known problems, pets, parking, who pays which utility, your timeline. All of it helps.
+            </span>
+          </div>
+        </fieldset>
+
+        <div class="border-t border-line pt-7 grid gap-5">
+          <label class="flex gap-3 items-start text-[15px] text-muted cursor-pointer">
+            <input type="checkbox" name="contact_consent" value="yes" required class="accent-crimson w-4 h-4 mt-1 shrink-0" />
+            <span>
+              I agree that {company.name} may contact me about this request by email or phone.
+              <span class="text-crimson"> (required)</span>
+            </span>
+          </label>
+          <div>
+            <button type="submit" class="btn btn-primary">Send my rent evaluation request</button>
+          </div>
+          <p class="text-[13px] text-faint m-0">
+            We do not sell or share your information. See our
+            {' '}<a href="/privacy-policy/" class="text-crimson font-semibold no-underline hover:underline">privacy policy</a>.
+            Prefer to talk? Call {company.phone}.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Rent evaluation questions" id="rent-faq" />
+      <div class="mt-7"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'What management costs after the evaluation.' },
+    { href: '/rent-vs-sell-calculator/', label: 'Rent vs. sell calculator', note: 'Should you keep it as a rental at all?' },
+    { href: '/columbus-property-management/', label: 'Columbus property management', note: 'What we actually do for the monthly fee.' },
+    { href: '/investors/', label: 'Portfolio and investor services', note: 'If you own more than a couple of units.' },
+    { href: '/2026-columbus-market-report/', label: '2026 Columbus rental market report', note: 'The wider market data behind our pricing.' },
+  ]} />
+
+  <Cta
+    heading="Own more than one? Ask for the portfolio version"
+    body="We will evaluate the whole portfolio at once and quote management on it, which is more useful than a stack of separate numbers."
+    primary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+    secondary={{ label: 'See the fee schedule', href: '/pricing/' }}
+  />
+</Base>

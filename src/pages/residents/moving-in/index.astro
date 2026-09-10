@@ -1,0 +1,262 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, rentPolicy, pricing, kpis, usd } from '../../../data/facts';
+
+/**
+ * Search intent: "what to do before moving into a rental", "transfer utilities
+ * columbus ohio", "move in inspection checklist renter".
+ *
+ * The single most valuable thing on this page is the condition report. Most
+ * deposit disputes are decided by whether the resident documented the home in
+ * their first week, so that section is written to be acted on, not skimmed.
+ */
+
+const title = 'Moving In | RL Property Management, Columbus Ohio';
+const description =
+  `What happens between signing a lease with ${company.name} and getting keys: utilities, renters ` +
+  `insurance, the move-in condition report, and your first rent payment on ${rentPolicy.dueDate}.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Residents', path: '/residents/' },
+  { name: 'Moving in', path: '/residents/moving-in/' },
+];
+
+const answer =
+  `Before keys are released, the lease is signed, move-in funds have cleared, and utilities are in your ` +
+  `name. In your first days, complete the move-in condition report. Rent is then due on ` +
+  `${rentPolicy.dueDate} each month.`;
+
+const keyFacts = [
+  'Utilities must be in your name before keys are released',
+  'The move-in condition report is what your deposit is measured against later',
+  `Rent is due on ${rentPolicy.dueDate}, late fees after ${rentPolicy.lateFeesAfter}`,
+  'Condition report deadline: [SOURCE NEEDED: days after move-in to return it]',
+  'Renters insurance: [SOURCE NEEDED: whether it is required and the minimum liability coverage]',
+  `Approved pets carry a monthly fee funding up to ${usd(pricing.petDamageCoverage.cap)} in pet damage coverage`,
+];
+
+/** Utility providers by service across the Columbus metro. Named, not numbered. */
+const utilities = [
+  ['Electric', 'AEP Ohio is the electric utility across most of the Columbus metro. You may choose a competing supplier for the generation portion, but AEP Ohio still delivers it and reads the meter.'],
+  ['Natural gas', 'Columbia Gas of Ohio serves most of the metro. As with electric, the supplier can be chosen separately from the delivery utility.'],
+  ['Water and sewer', 'Set by the municipality rather than a single regional provider. In the city of Columbus this is the Department of Public Utilities; in suburbs such as Westerville and Dublin it is the city itself.'],
+  ['Trash', 'Municipal in most of the metro and billed with water or on the tax bill, but privately contracted in some townships and communities.'],
+  ['Internet', 'Your choice entirely. Worth arranging before move-in day rather than after, because install appointments are the long lead item.'],
+];
+
+const firstWeek = [
+  ['Complete the condition report', 'Room by room, in writing, with photos and dates. Include things you would not think to mention: a scuffed baseboard, a stiff window, a stain on a carpet, a chipped counter. This is the document your deposit is measured against when you leave.'],
+  ['Find the shutoffs', 'The main water shutoff, the electrical panel, and the gas shutoff. Locate all three before you need them at 1am. Photograph where they are.'],
+  ['Test the smoke and carbon monoxide alarms', 'Press and hold the test button on each. Report anything that does not sound, immediately.'],
+  ['Check the furnace filter', 'Note the size and the date it was last changed. A clogged filter is the most common cause of heating and cooling complaints.'],
+  ['Set up your rent payment', 'Log into the resident portal, confirm you can get in, and set up how you will pay before the 1st arrives.'],
+  ['Save the emergency number', `Put ${company.phone} in your phone now, not while you are standing in water.`],
+];
+
+const faq = [
+  { q: 'What do I need to do before I get keys?',
+    a: 'Three things: sign the lease, pay the funds due at signing so they clear, and put the utilities you are responsible for into your name effective on your lease start date. Keys are released once those are done. [SOURCE NEEDED: the key handover process and where keys are collected].' },
+  { q: 'Which utilities am I responsible for?',
+    a: 'It depends on the home, and your lease says which. Across the Columbus metro the usual providers are AEP Ohio for electric, Columbia Gas of Ohio for natural gas, and the municipality for water, sewer and trash. [SOURCE NEEDED: which utilities the RLPM lease assigns to the resident by default].' },
+  { q: 'Do I need renters insurance?',
+    a: '[SOURCE NEEDED: whether renters insurance is required under the RLPM lease, the minimum liability coverage required, and whether RL Property Management must be named as an interested party]. Regardless of the requirement, the owner insurance policy covers the building, never your belongings.' },
+  { q: 'What is the move-in condition report and why does it matter?',
+    a: 'It is a written record, with photos, of the condition of the home on the day you moved in. It matters because it is the baseline your deposit is measured against when you leave. Anything you fail to note becomes hard to argue was there before you. [SOURCE NEEDED: how many days after move-in the report must be returned].' },
+  { q: 'When is my first rent payment due?',
+    a: `Rent is due on ${rentPolicy.dueDate} of each month. If you move in mid-month, the first month is usually prorated for the days you occupy the home. Late fees are assessed after ${rentPolicy.lateFeesAfter}. [SOURCE NEEDED: whether prorated first-month rent is due at signing or on the first of the following month].` },
+  { q: 'Can I paint, mount a TV, or change the fixtures?',
+    a: 'Ask in writing first, through the portal, and get the answer in writing. Unapproved alterations are the second most common source of deposit deductions after cleaning. [SOURCE NEEDED: the lease clause covering alterations, wall mounting and painting].' },
+  { q: 'How do I get a second set of keys?',
+    a: 'Ask through the portal rather than cutting your own, so the number of keys in circulation for the home stays known. We keep two working copies of every unit. [SOURCE NEEDED: what a resident is charged for an additional key, fob or remote, and the process for requesting one].' },
+  { q: 'What if something is broken when I move in?',
+    a: `Note it on the condition report and file a maintenance request the same day. Both, not one or the other. The condition report protects your deposit; the maintenance request is what actually gets it fixed. Median time to close a repair is ${kpis.metrics.find((m) => m.id === 'repairDays')?.value} days.` },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="For new residents"
+    title="Moving in"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Go to the resident hub', href: '/residents/' }}
+    secondaryCta={{ label: 'Submit a maintenance request', href: '/residents/maintenance-requests/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Move-in, in short" />
+
+  <!-- BEFORE KEYS -->
+  <section class="band-tight" aria-labelledby="before-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Before keys</span>
+      <h2 id="before-h" class="text-[clamp(28px,3.3vw,40px)]">What has to happen before I get keys?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Three things, in order: the lease is signed, the funds due at signing clear, and the utilities you
+        are responsible for are in your name effective on your lease start date. Keys are released after
+        that, not before.
+      </p>
+      <ol class="grid gap-4 mt-7">
+        <li class="card !p-6">
+          <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">1. Sign the lease</span>
+          <span class="block text-[15.5px] text-muted">
+            Read it before you sign it, particularly the sections on utilities, alterations, pets, notice to
+            vacate and what happens to the deposit. Ask about anything that is unclear while you still have
+            leverage to ask.
+          </span>
+        </li>
+        <li class="card !p-6">
+          <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">2. Pay the funds due at signing</span>
+          <span class="block text-[15.5px] text-muted">
+            The home comes off the market when this clears, not when the application was approved.
+            <span class="text-crimson font-semibold">[SOURCE NEEDED: security deposit amount or formula,
+            whether first month rent is due at signing or at move-in, and accepted payment methods for
+            move-in funds]</span>
+          </span>
+        </li>
+        <li class="card !p-6">
+          <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">3. Put the utilities in your name</span>
+          <span class="block text-[15.5px] text-muted">
+            Effective on your lease start date, not your move date. A gap between the two is how a home
+            ends up with the power shut off on the day the movers arrive.
+          </span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band band-wash" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Who to call</span>
+      <h2 id="util-h" class="text-[clamp(28px,3.3vw,40px)]">Which utilities do I need to set up?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Your lease says which utilities you carry, and that varies by home. Across the Columbus metro these
+        are the providers you will usually be dealing with.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers across the Columbus metro</caption>
+          <thead>
+            <tr class="bg-white">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who provides it</th>
+            </tr>
+          </thead>
+          <tbody>
+            {utilities.map(([service, who]) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top whitespace-nowrap">{service}</th>
+                <td class="p-3.5 border border-line align-top text-muted">{who}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15px] text-crimson font-semibold mt-6">
+        [SOURCE NEEDED: which utilities the RLPM lease assigns to the resident by default, and whether
+        proof of transfer is required before keys are released]
+      </p>
+    </div>
+  </section>
+
+  <!-- CONDITION REPORT -->
+  <section class="band" aria-labelledby="condition-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The one that matters</span>
+      <h2 id="condition-h" class="text-[clamp(28px,3.3vw,40px)]">Why does the move-in condition report matter so much?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Because it is the document your security deposit is measured against when you leave, sometimes
+        years later. Most deposit disputes come down to one question: was this here before you moved in?
+        The condition report is the only thing that answers it.
+      </p>
+      <div class="card !border-2 !border-navy mt-7">
+        <h3 class="text-[18.5px] mb-3">How to fill it in so it actually protects you</h3>
+        <ul class="text-[15.5px] text-muted grid gap-2">
+          <li>Go room by room and write down everything, including things that seem too small to mention.</li>
+          <li>Photograph every room wide, then photograph every defect close up. Include a shot with something showing the date where you can.</li>
+          <li>Do not skip the parts you cannot see from standing height: under sinks, behind doors, the inside of the oven, the top of the refrigerator, the corners of the carpet.</li>
+          <li>Note anything that works badly rather than not at all: a window that sticks, a door that does not latch, a burner that runs cool.</li>
+          <li>Keep your own copy of what you submitted, in your own storage, not only in the portal.</li>
+        </ul>
+      </div>
+      <p class="text-[15px] text-crimson font-semibold mt-6">
+        [SOURCE NEEDED: how many days after move-in the condition report must be returned, and whether it
+        is submitted through the resident portal]
+      </p>
+      <p class="text-[15px] text-muted mt-5">
+        Anything actually broken should also be filed as a
+        {' '}<a href="/residents/maintenance-requests/" class="text-crimson font-semibold no-underline hover:underline">maintenance request</a>
+        {' '}the same day. The condition report protects your deposit; the maintenance request is what gets
+        the thing fixed.
+      </p>
+    </div>
+  </section>
+
+  <!-- FIRST WEEK -->
+  <section class="band band-wash" aria-labelledby="week-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Your first week</span>
+      <h2 id="week-h" class="text-[clamp(28px,3.3vw,40px)]">What should I do in my first week?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Six things, and all of them are easier now than they will be the first time something goes wrong.
+      </p>
+      <div class="grid gap-4 sm:grid-cols-2 mt-7">
+        {firstWeek.map(([h, p]) => (
+          <div class="card">
+            <h3 class="text-[17.5px] mb-2">{h}</h3>
+            <p class="text-[15px] text-muted m-0">{p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- INSURANCE -->
+  <section class="band" aria-labelledby="ins-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Your belongings</span>
+      <h2 id="ins-h" class="text-[clamp(28px,3.3vw,40px)]">Do I need renters insurance?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The owner's policy on the building does not cover anything of yours. Not your furniture, not your
+        electronics, not a hotel room if the home becomes uninhabitable, and not your liability if
+        something you did causes damage to the property or to a neighbor.
+      </p>
+      <p class="text-[15px] text-crimson font-semibold mt-5">
+        [SOURCE NEEDED: whether renters insurance is required under the RLPM lease, the minimum liability
+        coverage required, and whether RL Property Management must be named as an interested party]
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Move-in questions" id="movein-faq" />
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/residents/', label: 'Resident hub', note: 'Every resident task in one place.' },
+    { href: '/residents/pay-rent/', label: 'Pay rent', note: `Due on ${rentPolicy.dueDate}, late fees after ${rentPolicy.lateFeesAfter}.` },
+    { href: '/residents/maintenance-requests/', label: 'Maintenance requests', note: 'Emergency, urgent and routine repairs.' },
+    { href: '/residents/moving-out/', label: 'Moving out', note: 'Read it before you need it. It affects your deposit.' },
+    { href: '/resident-faqs/', label: 'Resident FAQs', note: 'The long list, grouped by topic.' },
+  ]} />
+
+  <Cta
+    heading="Document the home in your first week"
+    body="The condition report takes an hour and decides how your deposit is handled years later. Anything broken should also be filed as a maintenance request the same day."
+    primary={{ label: 'Submit a maintenance request', href: '/residents/maintenance-requests/' }}
+    secondary={{ label: 'Go to the resident hub', href: '/residents/' }}
+  />
+</Base>

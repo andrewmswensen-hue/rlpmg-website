@@ -1,0 +1,275 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, kpis } from '../../../data/facts';
+
+/**
+ * Search intent: "submit maintenance request", "rental repair not fixed ohio",
+ * "landlord emergency repair columbus".
+ *
+ * The useful content here is triage: what to call about at 2am, what to file in
+ * the portal, and what a resident can fix in two minutes without waiting on
+ * anyone. Getting that right saves the resident a night without heat and saves
+ * the owner an after-hours rate.
+ *
+ * The lease's own definition of an emergency is not in the fact bank, so it is
+ * marked [SOURCE NEEDED] rather than paraphrased.
+ */
+
+const title = 'Submit a Maintenance Request | RL Property Management, Columbus Ohio';
+const description =
+  `How ${company.name} residents report a repair: what counts as an emergency, what to file in the portal, ` +
+  `and what happens next. Median time to close a repair is ` +
+  `${kpis.metrics.find((m) => m.id === 'repairDays')?.value} days.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Residents', path: '/residents/' },
+  { name: 'Maintenance requests', path: '/residents/maintenance-requests/' },
+];
+
+const repairDays = kpis.metrics.find((m) => m.id === 'repairDays')?.value;
+const satisfaction = kpis.metrics.find((m) => m.id === 'satisfaction')?.value;
+
+const answer =
+  `Non-emergency repairs are filed in the resident portal in writing, with photos. Median time to close a ` +
+  `repair across the portfolio is ${repairDays} days. For an emergency, call ${company.phone}, which is ` +
+  `answered 24 hours a day.`;
+
+const keyFacts = [
+  `Median ${repairDays} days to close a maintenance request`,
+  `Emergency line answered 24 hours a day at ${company.phone}`,
+  'Routine requests go in the portal, in writing, with photos',
+  `Resident satisfaction ${satisfaction} out of 5 across the portfolio`,
+  'Fire, gas smell or immediate danger: call 911 first',
+  'Emergency definition: [SOURCE NEEDED: the lease definition of an after-hours emergency]',
+];
+
+/** Two-minute checks that resolve a real share of reported problems. */
+const selfChecks = [
+  ['Garbage disposal is humming but not turning', 'Turn it off, then press the reset button on the underside of the unit.'],
+  ['An outlet or a whole wall of outlets is dead', 'Check the GFCI outlets in the kitchen, bathrooms, garage and exterior, and press reset. Then check the breaker panel.'],
+  ['Furnace is running but the home is cold', 'Check the thermostat batteries and the setting, then check the furnace filter. A clogged filter is the most common cause of a furnace that runs and does not heat.'],
+  ['Smoke detector chirping', 'Replace the battery. A chirp is a low battery; a continuous alarm is not.'],
+  ['Toilet running constantly', 'Lift the tank lid and check that the flapper has seated. If it has not, reseat it.'],
+  ['Slow drain in one fixture', 'Try a plunger before filing. A drain backing up in more than one fixture at once is a different problem, so file that one.'],
+];
+
+const faq = [
+  { q: 'How do I submit a maintenance request?',
+    a: `File it in the resident portal, in writing, with photos of the problem. A written request is timestamped, assigned and tracked, which a text message is not. Median time to close a repair across the portfolio is ${repairDays} days as of ${kpis.asOfLabel}.` },
+  { q: 'What counts as an emergency?',
+    a: `Anything that puts a person at risk or is actively damaging the home. Call ${company.phone} for those rather than filing a portal request, at any hour. For fire, a gas smell, or an immediate danger to someone, call 911 first. [SOURCE NEEDED: the lease definition of an after-hours emergency and the list of conditions it covers].` },
+  { q: 'What do I do if I smell gas?',
+    a: 'Leave the home, do not use light switches, appliances or a phone inside, and call 911 and the gas utility from outside. In most of our service area the gas utility is Columbia Gas of Ohio. Call us after you are safe and outside, not before.' },
+  { q: 'How long will my repair take?',
+    a: `Median time to close a repair across the portfolio is ${repairDays} days as of ${kpis.asOfLabel}. Emergencies are handled immediately. Anything requiring a part on order or a specialty vendor takes longer, and you should be told that rather than left guessing.` },
+  { q: 'Will I be charged for a repair?',
+    a: 'Ordinary wear and tear and component failure are handled at the owner cost, not yours. Damage caused by a resident, a guest or a pet, and callouts where nothing was actually broken, can be charged back. [SOURCE NEEDED: the lease clause covering resident-caused damage chargebacks, and any trip charge for a missed appointment or a no-fault callout].' },
+  { q: 'Do I have to be home for the repair?',
+    a: '[SOURCE NEEDED: whether residents must be present for entry, the notice given before entry, and how key or lockbox access is handled]. Ohio law requires reasonable notice before a landlord enters except in an emergency.' },
+  { q: 'Can I do the repair myself, or hire someone?',
+    a: 'No, and this protects you. Unauthorized work is not reimbursed, and if it makes the problem worse, the cost of putting it right can be charged back. File the request instead, even if you could handle it, unless it is one of the two-minute checks listed on this page.' },
+  { q: 'My request has not been scheduled. What now?',
+    a: `Reply on the existing request in the portal rather than filing a second one, because a duplicate splits the history across two tickets. If it is still not moving, call ${company.phone} and reference the request number.` },
+  { q: 'What if the repair is my neighbor, not my home?',
+    a: 'File it anyway if the property is one of ours and it affects your home, for example water coming through a shared wall or ceiling. If we do not manage the other property, tell us what you are seeing and we will tell you who to contact.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="For residents"
+    title="Submit a maintenance request"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Go to the resident hub', href: '/residents/' }}
+    secondaryCta={{ label: `Emergency? Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Repairs, in short" />
+
+  <!-- TRIAGE -->
+  <section class="band-tight" aria-labelledby="triage-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Start here</span>
+      <h2 id="triage-h" class="text-[clamp(28px,3.3vw,40px)]">Is this an emergency or a request?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        If someone is at risk or the home is actively being damaged, call. Everything else goes in the
+        portal in writing. Getting this right matters to you, because a call at 11pm about a dripping tap
+        gets you the same answer as filing it would have, a day later.
+      </p>
+      <div class="grid gap-5 md:grid-cols-3 mt-8">
+        <div class="card !border-2 !border-crimson">
+          <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-crimson mb-2">Call 911 first</div>
+          <p class="text-[15px] text-muted m-0">
+            Fire, a gas smell, or anything that is an immediate danger to a person. Get out, call 911 from
+            outside, then call us.
+          </p>
+        </div>
+        <div class="card">
+          <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-navy mb-2">Call us, any hour</div>
+          <p class="text-[15px] text-muted m-0">
+            Anything actively damaging the home or making it unsafe to live in.
+            {' '}<a href={`tel:${company.phoneE164}`} class="text-crimson font-semibold no-underline hover:underline">{company.phone}</a>,
+            answered 24 hours a day.
+          </p>
+        </div>
+        <div class="card">
+          <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">File in the portal</div>
+          <p class="text-[15px] text-muted m-0">
+            Everything else. In writing, with photos, so it is timestamped, assigned and tracked against
+            your tenancy.
+          </p>
+        </div>
+      </div>
+      <p class="text-[15px] text-crimson font-semibold mt-6">
+        [SOURCE NEEDED: the lease definition of an after-hours emergency, and the specific list of
+        conditions RLPM treats as emergency callouts]
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT TO INCLUDE -->
+  <section class="band band-wash" aria-labelledby="include-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Make it fast</span>
+      <h2 id="include-h" class="text-[clamp(28px,3.3vw,40px)]">What should I include in the request?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Five things, and including them is the difference between one visit and three. A technician who
+        arrives knowing what they are looking at brings the right part with them.
+      </p>
+      <ul class="grid gap-3 mt-6 text-[15.5px]">
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">1</span><span><strong class="text-navy">Where it is.</strong> The room, and which fixture or appliance.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">2</span><span><strong class="text-navy">What it is doing.</strong> Leaking, not turning on, making a noise, running and not heating. Describe the behavior, not the diagnosis.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">3</span><span><strong class="text-navy">When it started</strong> and whether it is constant or intermittent. Intermittent problems are the hard ones, so say so.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">4</span><span><strong class="text-navy">Photos or a short video.</strong> A photo of a model or serial plate on an appliance is worth more than a paragraph.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">5</span><span><strong class="text-navy">Access details.</strong> Pets in the home, a gate code, parking, and the times you are available.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHAT HAPPENS NEXT -->
+  <section class="band" aria-labelledby="next-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">After you file</span>
+      <h2 id="next-h" class="text-[clamp(28px,3.3vw,40px)]">What happens after I submit a request?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        It is triaged, assigned to an in-house technician or a vendor, scheduled with you, and closed out
+        in the portal with what was done. Median time to close a repair across the portfolio is
+        {' '}{repairDays} days as of {kpis.asOfLabel}.
+      </p>
+      <div class="grid gap-4 sm:grid-cols-2 mt-7">
+        <div class="card">
+          <h3 class="text-[18px] mb-2">What we do</h3>
+          <ul class="text-[15px] text-muted grid gap-1.5">
+            <li>Triage the request and decide who handles it</li>
+            <li>Contact you to schedule, using the access details you gave</li>
+            <li>Order parts where a part is needed, and tell you</li>
+            <li>Close the request in the portal with a note on what was done</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-[18px] mb-2">What helps</h3>
+          <ul class="text-[15px] text-muted grid gap-1.5">
+            <li>Answer the scheduling call or message the same day</li>
+            <li>Secure pets before the appointment window</li>
+            <li>Reply on the existing request rather than filing a duplicate</li>
+            <li>Tell us if the problem changes or gets worse</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-[15px] text-crimson font-semibold mt-6">
+        [SOURCE NEEDED: target response times by priority level, whether residents must be present for
+        entry, and the notice given before entry]
+      </p>
+    </div>
+  </section>
+
+  <!-- SELF CHECKS -->
+  <section class="band band-wash" aria-labelledby="self-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Two minutes first</span>
+      <h2 id="self-h" class="text-[clamp(28px,3.3vw,40px)]">Is there anything I should check before I file?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Six things, and each takes under two minutes. These are not an attempt to avoid sending someone.
+        They are the six problems most likely to be solved before a technician can get to you, and every
+        one of them is a night you would otherwise spend without heat, light or a working drain.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Common problems a resident can check before filing a maintenance request</caption>
+          <thead>
+            <tr class="bg-white">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">What you are seeing</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Check this first</th>
+            </tr>
+          </thead>
+          <tbody>
+            {selfChecks.map(([symptom, check]) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">{symptom}</th>
+                <td class="p-3.5 border border-line align-top text-muted">{check}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        If the check does not solve it, file the request and say what you already tried. That is genuinely
+        useful information and it shortens the visit.
+      </p>
+    </div>
+  </section>
+
+  <!-- CHARGEBACKS -->
+  <section class="band" aria-labelledby="charge-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Who pays</span>
+      <h2 id="charge-h" class="text-[clamp(28px,3.3vw,40px)]">Will I be charged for a repair?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Not for ordinary wear and tear or for something that simply failed. Those are the owner's cost.
+        Damage caused by a resident, a guest or a pet is a different category and can be charged back to
+        you.
+      </p>
+      <p class="text-[16.5px] text-muted mt-4">
+        The clearest way to stay out of that conversation is to report problems early. A slow leak reported
+        in week one is a washer. The same leak reported in month three is a subfloor.
+      </p>
+      <p class="text-[15px] text-crimson font-semibold mt-5">
+        [SOURCE NEEDED: the lease clause covering resident-caused damage chargebacks, the rate charged to
+        residents for chargeback work, and any charge for a missed appointment]
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Maintenance questions" id="maint-faq" />
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/residents/', label: 'Resident hub', note: 'Every resident task in one place.' },
+    { href: '/residents/pay-rent/', label: 'Pay rent', note: 'Due dates, late fees and the ledger.' },
+    { href: '/residents/moving-in/', label: 'Moving in', note: 'The condition report that protects your deposit.' },
+    { href: '/resident-faqs/', label: 'Resident FAQs', note: 'The long list, grouped by topic.' },
+    { href: '/homes-for-rent/', label: 'Homes for rent', note: 'Available homes across the Columbus metro.' },
+  ]} />
+
+  <Cta
+    heading="Report it early, in writing"
+    body="A written request is timestamped, assigned and tracked. A small problem reported this week is cheaper and faster than the same problem next month."
+    primary={{ label: 'Go to the resident hub', href: '/residents/' }}
+    secondary={{ label: `Emergency? Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

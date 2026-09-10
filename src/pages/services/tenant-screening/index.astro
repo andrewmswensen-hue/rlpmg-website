@@ -1,0 +1,210 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, kpis, usd } from '../../../data/facts';
+import { serviceNode } from '../../../lib/schema';
+
+/**
+ * Intent: "tenant screening columbus", "how to screen tenants ohio",
+ * "rental application criteria".
+ *
+ * Screening is the highest-stakes decision in the whole business, and it is also
+ * the one with the most legal exposure. Nothing on this page states a protected
+ * class list, an income multiple or a credit threshold that is not in facts.ts.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+
+const title = 'Tenant Screening in Columbus, Ohio | RL Property Management';
+const description =
+  `How rental applicants are screened in Columbus: credit, criminal, income, rental history and eviction records, ` +
+  `applied the same way to every applicant. Included in flat management at ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+  { name: 'Tenant screening', path: '/services/tenant-screening/' },
+];
+
+const answer =
+  `Tenant screening checks five things: credit, criminal record, income, rental history and prior evictions. ` +
+  `${company.name} screens every applicant against one written standard, at no separate charge, as part of the ` +
+  `${usd(pricing.leasingFee)} leasing fee.`;
+
+const facts = [
+  'Five checks on every applicant: credit, criminal, income, rental history, eviction record',
+  `Included in the ${usd(pricing.leasingFee)} leasing fee, on all three plans`,
+  'One written standard, applied the same way to every applicant',
+  `${kpi('renewal')} lease renewal rate across the portfolio`,
+  `${kpi('collectedBy5')} of rent collected by the 5th of the month`,
+  `Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute`,
+  `${kpi('satisfaction')} out of 5 resident satisfaction`,
+  `${company.unitsManaged} units screened and managed since ${company.founded}`,
+];
+
+const checks = [
+  { h: 'Credit',
+    b: 'A credit report shows whether someone pays what they owe, and it shows collections from prior landlords and utilities. The score matters less than the pattern: a thin file is a different question from a file full of charge-offs. Medical debt tells you something different than a repossession.' },
+  { h: 'Criminal record',
+    b: 'A criminal background check is run on every adult applicant. How records may be weighed is constrained by fair housing guidance, so the standard has to be written down, applied identically, and defensible. [SOURCE NEEDED: RLPM written criminal record standard, including lookback period and which offense categories are considered.]' },
+  { h: 'Income',
+    b: 'Verified income, not stated income. Pay stubs, an offer letter, benefit award letters or bank statements for self-employed applicants. [SOURCE NEEDED: RLPM published minimum income multiple, for example rent to income ratio required.]' },
+  { h: 'Rental history',
+    b: 'Prior landlords are contacted directly. The useful question is not "were they a good tenant", it is "did they pay on time, did they give proper notice, and would you rent to them again". A current landlord who wants a problem resident gone has a reason to be generous.' },
+  { h: 'Eviction record',
+    b: 'Public court records are checked for prior eviction filings. A filing is not the same as a judgment, and both get looked at in context rather than as an automatic answer.' },
+];
+
+const faq = [
+  { q: 'How do you screen tenants in Ohio?',
+    a: `Every adult applicant is screened on five things: credit, criminal record, verified income, rental history from prior landlords, and public eviction records. The standard is written down before any application arrives and applied the same way to everyone, which is both the fair housing requirement and the only way to defend a denial. ${company.name} includes screening in the ${usd(pricing.leasingFee)} leasing fee.` },
+  { q: 'What are your rental application criteria?',
+    a: 'The full published criteria, including income requirements, credit thresholds, pet rules and the criminal record standard, live on our application criteria page for residents. [SOURCE NEEDED: confirm the canonical URL and the current published thresholds before this answer states numbers.]' },
+  { q: 'How much does tenant screening cost the owner?',
+    a: `Nothing separately. Screening is part of placing a resident, and placing a resident costs ${usd(pricing.leasingFee)} on every plan. Applicants pay their own application fee. [SOURCE NEEDED: current applicant application fee amount and whether it is refundable.]` },
+  { q: 'What is the biggest screening mistake landlords make?',
+    a: 'Bending the standard for someone likable. The second is screening only the applicant who will sign, rather than every adult who will live there. The third is accepting stated income without documents. Each of those shows up later as a payment problem, and by then the lease is signed.' },
+  { q: 'Can you deny an applicant for a criminal record?',
+    a: 'Not automatically, and not on a blanket basis. Fair housing guidance restricts blanket criminal record bans, so any consideration of a record has to follow a written, consistently applied standard. [SOURCE NEEDED: the specific fair housing guidance RLPM follows on criminal records, to be confirmed by counsel before publication.]' },
+  { q: 'Do you accept housing vouchers?',
+    a: '[SOURCE NEEDED: Columbus and Franklin County source of income protections, their effective dates, and RLPM policy on voucher holders. Do not publish an answer here until counsel confirms the current ordinance.]' },
+  { q: 'How long does screening take?',
+    a: '[SOURCE NEEDED: RLPM median turnaround time from completed application to decision.] The main delay is almost never the report. It is waiting on a prior landlord to call back or on an applicant to send an income document.' },
+  { q: 'What happens if a resident stops paying anyway?',
+    a: `Screening lowers the odds, it does not eliminate them. Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute. When it happens, we run the process: hard costs are ${usd(pricing.eviction.hardCostTotal)} and our fee to manage the case is ${usd(pricing.eviction.rlpmProcessFee)}.` },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/services/tenant-screening/',
+    name: 'Tenant screening',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Tenant screening"
+    title="How rental applicants get screened in Columbus"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See all services', href: '/services/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <section class="band" aria-labelledby="stakes-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Why it matters more than anything else</span>
+      <h2 id="stakes-h" class="text-[clamp(28px,3.3vw,40px)]">What does one bad placement cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        More than a year of management fees, in most cases. A resident who stops paying in month three costs you
+        the unpaid rent, the eviction hard cost of {usd(pricing.eviction.hardCostTotal)}, our
+        {' '}{usd(pricing.eviction.rlpmProcessFee)} fee to run the case, the vacancy while the unit is turned again,
+        and whatever the damage runs. Roughly {pricing.eviction.disputeRatePct}% of rentals reach eviction,
+        litigation or another significant dispute.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        That is the whole argument for a boring, written, unbending screening standard. The upside of a great
+        applicant is a renewal. The downside of a bad one is months of your money and your weekends.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="checks-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The five checks</span>
+      <h2 id="checks-h" class="text-[clamp(28px,3.3vw,40px)]">What is checked on a rental application?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Five things, on every adult who will live in the unit. Not just the person who signs.
+      </p>
+      <div class="grid gap-5">
+        {checks.map((c) => (
+          <div class="card">
+            <h3 class="text-[19.5px] mb-2">{c.h}</h3>
+            <p class="text-[15.5px] text-muted m-0">{c.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="fair-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Fair housing</span>
+      <h2 id="fair-h" class="text-[clamp(28px,3.3vw,40px)]">What makes a screening standard legal?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Three things: it exists in writing before the first application arrives, it is applied identically to
+        every applicant, and it can be explained. Fair housing law does not require you to accept everyone. It
+        requires you to apply the same rule to everyone, and to be able to show that you did.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        Protected classes come from federal law, from Ohio law, and from local Columbus and Franklin County
+        ordinances, and the local list is longer than the federal one.
+        [SOURCE NEEDED: the exact list of protected classes under federal law, Ohio law, and Columbus and Franklin
+        County ordinance, confirmed by counsel before publication.]
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        Two rules that catch self-managing owners regularly: assistance animals are not pets, so a no-pets policy
+        does not apply to them and no pet fee may be charged for them, and casual remarks during a showing can
+        create liability even when the written standard is clean. Our pet damage coverage of
+        {' '}{usd(pricing.petDamageCoverage.cap)} above the security deposit applies to approved pets. It does not
+        apply to service or assistance animals, because those are not pets.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="diy-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">If you screen your own</span>
+      <h2 id="diy-h" class="text-[clamp(28px,3.3vw,40px)]">How do you screen tenants yourself?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6">
+        This page is worth reading even if you never hire us. If you are doing it yourself, do these six things
+        in this order.
+      </p>
+      <ol class="grid gap-3.5">
+        {[
+          'Write the standard down before you list the unit, and publish it with the listing.',
+          'Screen every adult who will occupy the unit, not just the leaseholder.',
+          'Verify income with documents. Never accept a stated number.',
+          'Call the landlord before the current one, not just the current one. The current landlord may want the resident gone.',
+          'Keep the notes. Written, dated, factual notes on every applicant are your defense if a denial is challenged.',
+          'Give a proper adverse action notice when you deny based on a consumer report. [SOURCE NEEDED: the specific adverse action notice requirements under the Fair Credit Reporting Act that RLPM follows.]',
+        ].map((s, i) => (
+          <li class="card !p-5 text-[15.5px]">
+            <span class="font-sans font-bold text-crimson mr-2">{i + 1}.</span>{s}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Tenant screening questions" id="screening-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/services/marketing-and-leasing/', label: 'Marketing and leasing', note: 'How the applicant got to the application in the first place.' },
+    { href: '/services/compliance/', label: 'Compliance', note: 'Fair housing, Ohio landlord-tenant law and local registration.' },
+    { href: '/services/evictions/', label: 'Evictions', note: 'What happens when screening does not hold.' },
+    { href: '/residents/application-criteria/', label: 'Application criteria', note: 'The published standard applicants are held to.' },
+    { href: '/services/', label: 'All services', note: 'The rest of what a property manager does.' },
+  ]} />
+
+  <Cta
+    heading="Stop guessing about applicants"
+    body="We apply the same standard to every applicant on every unit, and we put the reasoning in writing. Start with a rent evaluation and we will show you what your unit should attract."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

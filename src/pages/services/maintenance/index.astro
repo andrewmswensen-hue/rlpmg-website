@@ -1,0 +1,248 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, kpis, usd } from '../../../data/facts';
+import { serviceNode } from '../../../lib/schema';
+
+/**
+ * Intent: "rental property maintenance columbus", "property management maintenance fees".
+ * The whole value of this page is that the rates are published. Nobody else
+ * publishes an hourly rate, a trip charge and a vendor markup cap.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+const m = pricing.maintenance;
+const claimFee = pricing.otherFees.find((f) => f.name === 'Insurance claim oversight');
+
+const title = 'Rental Property Maintenance in Columbus, Ohio | RL Property Management';
+const description =
+  `Published maintenance rates: ${usd(m.inHouseHourly)} per hour in-house labor plus a ${usd(m.tripCharge)} trip charge, ` +
+  `materials at cost, no minimum. ${m.vendorProjectFeePct}% vendor project fee capped at ${usd(m.vendorProjectFeeCap)}. Median ${kpi('repairDays')} days to close a repair.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+  { name: 'Maintenance', path: '/services/maintenance/' },
+];
+
+const answer =
+  `${company.name} bills in-house maintenance at ${usd(m.inHouseHourly)} per hour plus a ${usd(m.tripCharge)} ` +
+  `trip charge, materials at cost. Vendor work carries a ${m.vendorProjectFeePct}% project fee capped at ` +
+  `${usd(m.vendorProjectFeeCap)}. Median time to close a repair is ${kpi('repairDays')} days.`;
+
+const facts = [
+  `${usd(m.inHouseHourly)} per hour in-house labor, ${m.rateYear} rate`,
+  `${usd(m.tripCharge)} trip charge per visit, materials at cost`,
+  'No minimum charge on a work order',
+  `${m.vendorProjectFeePct}% vendor project fee on vendor costs up to ${usd(m.vendorProjectFeeAppliesUpTo)}, capped at ${usd(m.vendorProjectFeeCap)}`,
+  `After hours: ${pricing.afterHours.weekdayEveningAndSaturday}x weekday evenings and Saturdays, ${pricing.afterHours.sunday}x Sundays`,
+  `Median ${kpi('repairDays')} days to close a repair`,
+  `Repair approval limit of ${usd(pricing.plans[0].repairApprovalLimit)}, ${usd(pricing.plans[1].repairApprovalLimit)} or ${usd(pricing.plans[2].repairApprovalLimit)} per item, by plan`,
+  `Reserve of ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit held on your account`,
+];
+
+const rateRows = [
+  ['In-house labor', `${usd(m.inHouseHourly)} per hour`, `Plus a ${usd(m.tripCharge)} trip charge per visit. Materials at cost. No minimum charge. ${m.rateYear} rate.`],
+  ['After-hours labor', `${pricing.afterHours.weekdayEveningAndSaturday}x or ${pricing.afterHours.sunday}x`, `${pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, ${pricing.afterHours.sunday}x on Sundays.`],
+  ['Vendor project management', `${m.vendorProjectFeePct}% of vendor cost`, `Applies to vendor costs up to ${usd(m.vendorProjectFeeAppliesUpTo)}, capped at ${usd(m.vendorProjectFeeCap)} per project. Waived on insurance claim work.`],
+  ['Vendor fee on turns', `${m.turnTiers[0].pct}%, ${m.turnTiers[1].pct}%, ${m.turnTiers[2].pct}%`, `${m.turnTiers[0].pct}% on turns up to ${usd(m.turnTiers[0].upTo as number)}, ${m.turnTiers[1].pct}% from ${usd((m.turnTiers[0].upTo as number) + 1)} to ${usd(m.turnTiers[1].upTo as number)}, ${m.turnTiers[2].pct}% above ${usd(m.turnTiers[1].upTo as number)}.`],
+  ['Equipment rental', '$1 to $120 per day', 'Heating, drying and air-cleaning equipment. Varies by unit.'],
+  ['Key copies', '$2.50 each', 'We keep two working copies of every unit.'],
+  ['Insurance claim oversight', claimFee?.amount ?? '', claimFee?.note ?? ''],
+];
+
+const faq = [
+  { q: 'What do property managers charge for maintenance?',
+    a: `${company.name} charges ${usd(m.inHouseHourly)} per hour for in-house labor plus a ${usd(m.tripCharge)} trip charge per visit, with materials at cost and no minimum charge. Vendor work carries a ${m.vendorProjectFeePct}% project management fee on vendor costs up to ${usd(m.vendorProjectFeeAppliesUpTo)}, capped at ${usd(m.vendorProjectFeeCap)} per project. Those rates are published rather than quoted case by case.` },
+  { q: 'Do I have to approve every repair?',
+    a: `No, and that is what the three plans differ on. ${pricing.plans[0].name} at ${usd(pricing.plans[0].monthly)} per unit per month carries a ${usd(pricing.plans[0].repairApprovalLimit)} per-item approval limit, ${pricing.plans[1].name} at ${usd(pricing.plans[1].monthly)} carries ${usd(pricing.plans[1].repairApprovalLimit)}, and ${pricing.plans[2].name} at ${usd(pricing.plans[2].monthly)} carries ${usd(pricing.plans[2].repairApprovalLimit)}. Anything above your limit needs your approval before work starts.` },
+  { q: 'What counts as an emergency?',
+    a: 'Anything that threatens safety or is actively causing damage: no heat in winter, no water, an active leak, sewage backup, no power, a security failure such as a broken exterior door or lock, a gas smell. Those get a same-night response. A dishwasher that stopped draining is a next-business-day repair, and residents are told the difference.' },
+  { q: 'What does after-hours maintenance cost?',
+    a: `Labor is billed at ${pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, and ${pricing.afterHours.sunday}x on Sundays. That is why the emergency definition matters: it decides which calls are worth paying a multiplier for tonight instead of tomorrow morning.` },
+  { q: 'Why do you hold a maintenance reserve?',
+    a: `A reserve of ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit sits on your account so a routine repair does not wait on a funding request. It stays your money and it is returned when management ends. Without it, a small plumbing call turns into a two-day delay while funds move.` },
+  { q: 'Do you mark up materials?',
+    a: `No. Materials are provided at cost. The markup that does exist is the ${m.vendorProjectFeePct}% project management fee on outside vendor work, and it is capped at ${usd(m.vendorProjectFeeCap)} per project, so a large vendor project cannot generate an unbounded fee.` },
+  { q: 'What happens on an insurance claim?',
+    a: `${claimFee?.note} End to end claim handling is ${claimFee?.amount}. The reason to waive the project fee is simple: a claim is already an expensive month for the owner and we do not want two fees stacked on the same work.` },
+  { q: 'How fast do repairs get closed?',
+    a: `Median ${kpi('repairDays')} days from request to closed across the portfolio, as of ${kpis.asOfLabel}. Emergencies are handled the same night. The long tail is parts and vendor scheduling, particularly HVAC in July and January.` },
+  { q: 'Who is responsible for what, the resident or the owner?',
+    a: 'The lease decides. As a general division, the owner covers systems and structure while the resident covers small consumables and anything they damaged, such as filters, batteries, light bulbs and a clog they caused. Ambiguity here is what turns a small repair into an argument, so the split belongs in the lease in writing. [SOURCE NEEDED: the exact resident maintenance responsibilities listed in the RLPM lease.]' },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/services/maintenance/',
+    name: 'Rental property maintenance and repair coordination',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Maintenance"
+    title="Rental property maintenance, and what it costs"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <section class="band" aria-labelledby="rates-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Published rates</span>
+      <h2 id="rates-h" class="text-[clamp(28px,3.3vw,40px)]">What does maintenance cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[46em]">
+        Every rate is below. Ask any manager you are considering for the same four numbers: hourly labor, trip
+        charge, material markup, and vendor markup with a cap. If a quote does not include a cap on the vendor
+        markup, the vendor markup is uncapped.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Maintenance rates and fees</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Item</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold whitespace-nowrap">Amount</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rateRows.map(([item, amount, detail]) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">{item}</th>
+                <td class="p-3.5 border border-line align-top whitespace-nowrap font-semibold text-navy">{amount}</td>
+                <td class="p-3.5 border border-line align-top text-muted">{detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        There is no minimum charge on a work order, so a fifteen minute fix is billed as a fifteen minute fix
+        plus the {usd(m.tripCharge)} trip. Materials are at cost.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="limit-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Your control</span>
+      <h2 id="limit-h" class="text-[clamp(28px,3.3vw,40px)]">Who approves a repair?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">
+        You do, above your plan limit. Below it we handle the work and you see it on the statement. This is the
+        only thing the three plans differ on, and it is a real tradeoff: a low limit means more control and more
+        emails, a high limit means fewer interruptions and less visibility on small spending.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3">
+        {pricing.plans.map((p) => (
+          <div class="card">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[40px] font-extrabold tracking-[-.04em] text-navy leading-none">{usd(p.repairApprovalLimit)}</div>
+            <p class="text-[15px] text-muted mt-3 mb-0">Per item, at {usd(p.monthly)} per unit per month.</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[15px] text-muted mt-7">
+        One exception in both directions: a genuine emergency gets stabilized first, because a leak that waits
+        for an email costs more than the repair did.
+      </p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="emerg-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Emergencies</span>
+      <h2 id="emerg-h" class="text-[clamp(28px,3.3vw,40px)]">What happens at 11pm?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6">
+        The resident calls us, not you. Emergency response is included in the monthly fee. Labor after hours is
+        billed at {pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, and
+        {' '}{pricing.afterHours.sunday}x on Sundays, which is exactly why the line between an emergency and a
+        next-day repair has to be written down.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        <div class="card">
+          <h3 class="text-[18.5px] mb-2">Tonight</h3>
+          <ul class="text-[15.5px] text-muted grid gap-1.5">
+            <li>No heat in winter or no cooling in extreme heat</li>
+            <li>No water, or an active leak that is spreading</li>
+            <li>Sewage backup</li>
+            <li>No electricity to the unit</li>
+            <li>Gas smell, which goes to the utility first</li>
+            <li>A door or lock that will not secure the unit</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-[18.5px] mb-2">Next business day</h3>
+          <ul class="text-[15.5px] text-muted grid gap-1.5">
+            <li>One appliance out, with the rest of the unit fine</li>
+            <li>A slow drain</li>
+            <li>A single outlet or fixture out</li>
+            <li>Cosmetic damage</li>
+            <li>A running toilet that can be shut off at the valve</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        Giving residents that list at move-in is the cheapest maintenance policy there is, because it converts a
+        {' '}{pricing.afterHours.sunday}x Sunday call into a Monday work order without a fight.
+        [SOURCE NEEDED: the emergency definition published in the RLPM lease and resident move-in packet, to
+        confirm this list matches it exactly.]
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="turn-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Turns</span>
+      <h2 id="turn-h" class="text-[clamp(28px,3.3vw,40px)]">How is a turn between residents billed?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6">
+        A turn is the work between one resident moving out and the next moving in: clean, paint, repairs,
+        flooring where needed. Vendor cost on a turn carries a tiered fee, so the percentage falls as the
+        project grows.
+      </p>
+      <ul class="grid gap-3.5">
+        <li class="card !p-5 text-[15.5px]"><strong class="text-navy">{m.turnTiers[0].pct}%</strong> <span class="text-muted">on turns up to {usd(m.turnTiers[0].upTo as number)}</span></li>
+        <li class="card !p-5 text-[15.5px]"><strong class="text-navy">{m.turnTiers[1].pct}%</strong> <span class="text-muted">from {usd((m.turnTiers[0].upTo as number) + 1)} to {usd(m.turnTiers[1].upTo as number)}</span></li>
+        <li class="card !p-5 text-[15.5px]"><strong class="text-navy">{m.turnTiers[2].pct}%</strong> <span class="text-muted">above {usd(m.turnTiers[1].upTo as number)}</span></li>
+      </ul>
+      <p class="text-[15px] text-muted mt-6">
+        Median turn time across the portfolio is {kpi('turn')} days. If you take our turn scope and then have
+        the work done by someone else, the scope itself is $250. Every other turn charge is labor, materials
+        and vendor cost at the rates above.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Maintenance questions" id="maintenance-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/services/inspections/', label: 'Inspections', note: 'Catching the repair before it becomes an emergency.' },
+    { href: '/pricing/', label: 'Pricing', note: 'The complete fee schedule, including every maintenance rate.' },
+    { href: '/services/owner-reporting/', label: 'Owner reporting', note: 'Where maintenance charges show up on your statement.' },
+    { href: '/services/', label: 'All services', note: 'The other seven jobs a manager does.' },
+    { href: '/client-handbook/', label: 'Client Handbook', note: 'The full maintenance policy in its original form.' },
+  ]} />
+
+  <Cta
+    heading="Get off the emergency call list"
+    body="Residents call us, work gets scoped at published rates, and you see it on the statement. Start with a rent evaluation and we will walk through how your property would be handled."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

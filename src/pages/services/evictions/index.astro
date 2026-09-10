@@ -1,0 +1,247 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../../data/facts';
+import { serviceNode } from '../../../lib/schema';
+
+/**
+ * Intent: "eviction process ohio", "franklin county eviction cost",
+ * "how long does an eviction take in ohio".
+ *
+ * DELIBERATE GAPS. Ohio eviction law has specific notice periods, statutory
+ * notice language and filing stages. None of that is in facts.ts, so none of it
+ * is asserted here. Every missing legal detail is marked SOURCE NEEDED rather
+ * than guessed, because a wrong deadline on this page is worse than a gap.
+ */
+
+const e = pricing.eviction;
+
+const title = 'Eviction Process and Cost in Franklin County, Ohio | RL Property Management';
+const description =
+  `What an eviction costs in Franklin County: ${usd(e.hardCostTotal)} in hard costs (${usd(e.attorneyFee)} attorney, ` +
+  `${usd(e.countyFilingFee)} county filing) plus ${usd(e.rlpmProcessFee)} to manage the case. Setout adds ${usd(e.tagAndSetoutFee)} and ${usd(e.setoutFee)}.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+  { name: 'Evictions', path: '/services/evictions/' },
+];
+
+const answer =
+  `An eviction in Franklin County costs ${usd(e.hardCostTotal)} in hard costs: ${usd(e.attorneyFee)} to the ` +
+  `eviction attorney and ${usd(e.countyFilingFee)} to the county to file. ${company.shortName} charges ` +
+  `${usd(e.rlpmProcessFee)} to run the case, so a typical total is ${usd(e.typicalTotal)}.`;
+
+const facts = [
+  `${usd(e.attorneyFee)} attorney fee, covering filing and up to two court appearances`,
+  `${usd(e.countyFilingFee)} county filing fee for the Eviction Complaint, paid to Franklin County`,
+  `${usd(e.hardCostTotal)} total hard cost billed to the owner`,
+  `${usd(e.rlpmProcessFee)} to ${company.shortName} to manage the process, including up to two appearances`,
+  `${usd(e.typicalTotal)} typical total before any setout`,
+  `${usd(e.tagAndSetoutFee)} tag and setout to Franklin County, only if the resident has not vacated`,
+  `${usd(e.setoutFee)} setout fee to ${company.shortName}, covering bailiff and locksmith scheduling`,
+  `Roughly ${e.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute`,
+];
+
+const costRows = [
+  ['Attorney fee', usd(e.attorneyFee), 'Paid to the eviction attorney for filing and up to two court appearances.'],
+  ['Court filing fee', usd(e.countyFilingFee), 'The Eviction Complaint. Paid to Franklin County.'],
+  ['Eviction management', usd(e.rlpmProcessFee), `Paid to ${company.shortName} for running the process, including up to two appearances.`],
+  ['Tag and setout', usd(e.tagAndSetoutFee), 'Paid to Franklin County, only if the resident has not vacated.'],
+  ['Setout', usd(e.setoutFee), `Paid to ${company.shortName}, only if a setout is required. Covers bailiff and locksmith scheduling.`],
+  ['Notice posting', usd(0), 'No charge to post a 3-day or 30-day notice to vacate.'],
+  ['Lawsuit defense', '$75 per hour', 'Time spent on any lawsuit other than a normal eviction.'],
+];
+
+const stages = [
+  { h: 'Nonpayment and outreach',
+    b: `Late fees are assessed after ${rentPolicy.lateFeesAfter}, and outreach escalates from automated notice to a direct conversation. This is where you learn whether the resident had one bad month or has stopped paying. Most cases end here, which is why ${e.disputeRatePct}% is the dispute rate rather than a much larger number.` },
+  { h: 'Notice to vacate',
+    b: 'A written notice is posted at the property. We charge nothing to post a 3-day or 30-day notice. [SOURCE NEEDED: which notice applies in which situation under Ohio law, the exact notice period, the statutory language the notice must contain, and how service must be performed.]' },
+  { h: 'Filing the Eviction Complaint',
+    b: `If the notice period runs out and rent is still unpaid, the complaint is filed with the county. The filing fee is ${usd(e.countyFilingFee)} and the attorney fee is ${usd(e.attorneyFee)}. [SOURCE NEEDED: the court where Franklin County residential eviction complaints are filed, and how the hearing date is set relative to the filing date.]` },
+  { h: 'Court',
+    b: `The attorney fee and our ${usd(e.rlpmProcessFee)} management fee each cover up to two court appearances, which tells you something useful: an Ohio eviction is not always resolved in one hearing. [SOURCE NEEDED: the stages of an Ohio eviction hearing, what each addresses, and typical scheduling intervals in Franklin County.]` },
+  { h: 'Move-out or setout',
+    b: `Many residents leave once a judgment is entered, and that is the end of it. If the resident has not vacated, a setout is scheduled: ${usd(e.tagAndSetoutFee)} to Franklin County and ${usd(e.setoutFee)} to us for bailiff and locksmith scheduling. [SOURCE NEEDED: how long after a judgment a setout can be scheduled in Franklin County, and what happens to property left in the unit.]` },
+  { h: 'The unit, and the balance',
+    b: `Then the property gets turned and re-leased, and there is a balance owed that may or may not be collectible. A money judgment is not money. [SOURCE NEEDED: whether RLPM pursues collection of a judgment balance after an eviction and on what terms.]` },
+];
+
+const faq = [
+  { q: 'What does an eviction cost in Franklin County, Ohio?',
+    a: `The hard cost is ${usd(e.hardCostTotal)}: ${usd(e.attorneyFee)} to the eviction attorney and ${usd(e.countyFilingFee)} to Franklin County for the filing. ${company.name} charges ${usd(e.rlpmProcessFee)} to manage the process, so a typical case runs ${usd(e.typicalTotal)}. If the resident has not vacated and a setout is required, add ${usd(e.tagAndSetoutFee)} to the county and ${usd(e.setoutFee)} to us. Those are the filing costs only, and they do not include the rent you did not collect or the turn afterward.` },
+  { q: 'How long does an eviction take in Ohio?',
+    a: '[SOURCE NEEDED: typical elapsed time from notice to setout for a residential nonpayment eviction in Franklin County, and the statutory notice period that starts the clock. Do not publish a duration here until it is verified.] What we can say from the fee structure is that the attorney fee and our management fee each cover up to two court appearances, so a contested case involves more than one date.' },
+  { q: 'How often does it actually come to an eviction?',
+    a: `Roughly ${e.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute. It is uncommon, and it is not zero. Screening lowers the odds, and acting early lowers the cost, but any owner holding rentals long enough will eventually see one.` },
+  { q: 'Can I evict a tenant myself in Ohio?',
+    a: 'You can file without a manager, but this is the wrong place to save money. Evictions are dismissed on procedural defects, and the most common ones are the notice: wrong form, wrong period, wrong service, missing required language. A dismissal does not just cost the filing fee, it costs the weeks you have to start over. Self-help removal, meaning changing locks or shutting off utilities to force a resident out, is illegal and creates far more liability than the unpaid rent.' },
+  { q: 'What can I not do to a resident who owes rent?',
+    a: 'Change the locks, remove their belongings, shut off utilities, or remove doors and windows. Those are self-help evictions and they expose you to damages that dwarf the unpaid balance. The only lawful path is notice, filing and a court-ordered removal.' },
+  { q: 'Do you charge to post a notice?',
+    a: 'No. There is no charge to post a 3-day or 30-day notice to vacate. We would rather post a notice early and have it resolve the situation than wait until filing is the only option left.' },
+  { q: 'What if the resident pays after the notice is posted?',
+    a: 'Then the goal was achieved, which is a paying resident rather than an empty unit. Accepting payment at that stage does have procedural consequences for the case, though. [SOURCE NEEDED: how accepting rent after a notice to vacate affects an Ohio eviction case, confirmed by counsel.]' },
+  { q: 'Is an eviction covered by my management fee?',
+    a: `No. Management is ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month and covers ordinary operation. An eviction is a legal proceeding with real outside costs, so it is billed at the published amounts above rather than absorbed into everyone else's monthly fee.` },
+  { q: 'Should I try to settle instead of filing?',
+    a: 'Sometimes, and the arithmetic is the whole argument. A resident with a documented one-month problem and a written catch-up plan usually costs less than a filing plus a vacancy plus a turn. A resident who has stopped responding is not a negotiation, and every month you wait is another month of rent you will not recover.' },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/services/evictions/',
+    name: 'Eviction coordination and filing',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Evictions"
+    title="What an eviction costs and how the process runs in Franklin County"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <section class="band" aria-labelledby="cost-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Published costs</span>
+      <h2 id="cost-h" class="text-[clamp(28px,3.3vw,40px)]">What does an eviction cost in Franklin County?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[46em]">
+        {usd(e.hardCostTotal)} in hard costs plus {usd(e.rlpmProcessFee)} to manage the case, for a typical total
+        of {usd(e.typicalTotal)}. A setout, if the resident has not left, adds more. Every line is below.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Eviction costs in Franklin County, Ohio</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Item</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold whitespace-nowrap">Amount</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Paid to, and when</th>
+            </tr>
+          </thead>
+          <tbody>
+            {costRows.map(([item, amount, detail]) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">{item}</th>
+                <td class="p-3.5 border border-line align-top whitespace-nowrap font-semibold text-navy">{amount}</td>
+                <td class="p-3.5 border border-line align-top text-muted">{detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        Those are filing costs. They are not the real cost of an eviction, which is the rent that was never
+        collected, the weeks the unit is not producing, and the turn afterward. That is why the cheapest eviction
+        is the one prevented at <a href="/services/tenant-screening/" class="text-crimson font-semibold no-underline hover:underline">screening</a>,
+        and the second cheapest is the one started early.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="stages-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The process</span>
+      <h2 id="stages-h" class="text-[clamp(28px,3.3vw,40px)]">How does the eviction process work in Ohio?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Six stages. Ohio has specific requirements for the notice and the filing, and where we do not have the
+        exact statutory detail confirmed, this page says so instead of guessing. Nothing here is legal advice.
+      </p>
+      <ol class="grid gap-4">
+        {stages.map((s, i) => (
+          <li class="card">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">Stage {i + 1}</div>
+            <h3 class="text-[19.5px] mb-2">{s.h}</h3>
+            <p class="text-[15.5px] text-muted m-0">{s.b}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="never-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Do not do this</span>
+      <h2 id="never-h" class="text-[clamp(28px,3.3vw,40px)]">What can a landlord not do to remove a resident?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6">
+        Self-help eviction is illegal, and it converts a rent problem into a liability problem with a much larger
+        number attached. A landlord may not do any of the following to force a resident out.
+      </p>
+      <ul class="grid gap-3.5 sm:grid-cols-2">
+        {[
+          'Change the locks',
+          "Remove the resident's belongings",
+          'Shut off water, gas, electric or heat',
+          'Remove doors or windows',
+          'Threaten or intimidate the resident into leaving',
+          'Refuse to make required repairs to pressure a move-out',
+        ].map((x) => (
+          <li class="card !p-5 text-[15.5px] text-muted">{x}</li>
+        ))}
+      </ul>
+      <p class="text-[15px] text-muted mt-6">
+        The lawful path is notice, filing, and a court-ordered removal carried out by the bailiff. That is the
+        entire list of options.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="early-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Timing</span>
+      <h2 id="early-h" class="text-[clamp(28px,3.3vw,40px)]">When should an owner start the process?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Once the pattern is clear rather than once patience runs out. Late fees are assessed after
+        {' '}{rentPolicy.lateFeesAfter}, and a resident who is not communicating by then is a different case from
+        one who called on the 2nd to say the direct deposit was late.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        Owners who self-manage almost always wait too long, because filing feels like an escalation and waiting
+        feels like patience. It is not patience, it is unpaid rent accruing at the same rate every month with no
+        improvement in the odds of collection. Posting a notice costs nothing here, and it frequently resolves
+        the situation without a filing at all.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Eviction questions" id="eviction-faq" />
+      <p class="mt-7 text-[14px] text-faint">
+        This page is general information about property management practice, not legal advice. Eviction is a
+        court proceeding with strict procedural requirements. {company.name} works with an eviction attorney on
+        every filing, and you should consult your own counsel about your situation.
+      </p>
+      <div class="mt-5"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/services/rent-collection/', label: 'Rent collection', note: 'Everything that happens before a notice is posted.' },
+    { href: '/services/tenant-screening/', label: 'Tenant screening', note: 'The cheapest eviction is the one that never happens.' },
+    { href: '/services/compliance/', label: 'Compliance', note: 'Ohio landlord-tenant law, notices and local requirements.' },
+    { href: '/pricing/', label: 'Pricing', note: 'The eviction fee table in the context of the full schedule.' },
+    { href: '/services/', label: 'All services', note: 'The other seven jobs a manager does.' },
+  ]} />
+
+  <Cta
+    heading="Get a manager who files on time"
+    body="Notices posted at no charge, filings run with an eviction attorney, and published costs so a bad month never comes with a surprise invoice."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

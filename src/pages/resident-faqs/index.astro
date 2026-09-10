@@ -1,0 +1,229 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, kpis, rentPolicy, pricing, areas, usd } from '../../data/facts';
+
+/**
+ * The resident question index.
+ *
+ * Grouped by topic on the page for a human, flattened into one array for the
+ * FAQPage schema so an answer engine sees every question on the page. The two
+ * can never drift because they are built from the same source.
+ *
+ * Answers here are short. Where a question has a whole page behind it, the
+ * answer summarises and links rather than duplicating, so there is exactly one
+ * canonical page per topic.
+ */
+
+const title = 'Resident FAQs | RL Property Management, Columbus Ohio';
+const description =
+  `Answers for ${company.name} residents and applicants: rent due on ${rentPolicy.dueDate}, late fees ` +
+  `after ${rentPolicy.lateFeesAfter}, maintenance, pets, renewals and move-out.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Resident FAQs', path: '/resident-faqs/' },
+];
+
+const collected = kpis.metrics.find((m) => m.id === 'collectedBy5')?.value;
+const repairDays = kpis.metrics.find((m) => m.id === 'repairDays')?.value;
+const satisfaction = kpis.metrics.find((m) => m.id === 'satisfaction')?.value;
+const renewal = kpis.metrics.find((m) => m.id === 'renewal')?.value;
+
+const answer =
+  `Rent is due on ${rentPolicy.dueDate} with late fees after ${rentPolicy.lateFeesAfter}, maintenance ` +
+  `requests go through the resident portal, and emergencies are handled 24 hours a day at ` +
+  `${company.phone}. Median time to close a repair is ${repairDays} days.`;
+
+const keyFacts = [
+  `Rent is due on ${rentPolicy.dueDate}, late fees after ${rentPolicy.lateFeesAfter}`,
+  `${collected} of rent across the portfolio is collected by the 5th`,
+  `Median ${repairDays} days to close a maintenance request`,
+  `Resident satisfaction ${satisfaction} out of 5`,
+  `${renewal} of residents renew their lease`,
+  `Emergencies answered 24 hours a day at ${company.phone}`,
+];
+
+/** Grouped for humans. Flattened below for schema. */
+const groups = [
+  {
+    id: 'applying',
+    heading: 'Applying for a home',
+    items: [
+      { q: 'How do I apply for one of your rentals?',
+        a: 'Tour the home, then submit an online application for every adult who will live there. Screening covers identity, income, credit, rental history and background, applied the same way to every applicant. The full process is on our how to apply page.' },
+      { q: 'What are your application criteria?',
+        a: 'Identity, verifiable income against the rent, credit, rental history verified with prior landlords, and a criminal background check assessed individually rather than as a blanket bar. The published standard is on our application criteria page. [SOURCE NEEDED: income multiple, credit score minimum, rental history lookback].' },
+      { q: 'How much is the application fee?',
+        a: 'The fee pays for the screening reports, so it is spent when they run and is not refunded on a decline. [SOURCE NEEDED: application fee amount, and whether it is charged per adult applicant or per household].' },
+      { q: 'Does everyone have to apply?',
+        a: 'Every adult who will live in the home applies and is screened separately, including adults contributing no income. Occupants under 18 are listed on the application but are not screened. Adding an adult after move-in requires that person to apply and be approved first.' },
+      { q: 'Do you accept housing vouchers?',
+        a: 'Yes. Columbus City Code sections 2331.02 and 4551.03 prohibit refusing to rent to someone because their income includes housing assistance, and many surrounding Central Ohio municipalities have the same protection. Income is measured on amount and verifiability, never on source.' },
+      { q: 'Does submitting an application hold the home?',
+        a: 'No, and neither does an approval on its own. The home comes off the market when the lease is signed and the funds due at signing have cleared. Until then it stays listed and other applications keep arriving.' },
+    ],
+  },
+  {
+    id: 'rent',
+    heading: 'Rent and payments',
+    items: [
+      { q: 'When is rent due?',
+        a: `Rent is due on ${rentPolicy.dueDate} of each month. In practice many residents pay between ${rentPolicy.practicalWindow}, and late fees are assessed after ${rentPolicy.lateFeesAfter}. Across the portfolio ${collected} of rent is collected by the 5th as of ${kpis.asOfLabel}.` },
+      { q: 'How do I pay rent?',
+        a: 'Online through the resident portal, where a payment is applied to your ledger immediately and receipted. [SOURCE NEEDED: resident portal URL, accepted payment methods, autopay availability, and any per-method processing fee].' },
+      { q: 'How much is the late fee?',
+        a: `Late fees are assessed after ${rentPolicy.lateFeesAfter}. [SOURCE NEEDED: the late fee amount, whether it is flat or accrues daily, and any cap].` },
+      { q: 'What if I cannot pay in full this month?',
+        a: `Tell us before ${rentPolicy.lateFeesAfter}, in writing through the portal, and say when the rest arrives. [SOURCE NEEDED: whether payment plans are offered, who approves one, and whether partial payments are accepted].` },
+      { q: 'Why does month-to-month cost more?',
+        a: `A tenancy that lapses into month-to-month rather than renewing carries a ${rentPolicy.monthToMonthIncreasePct}% higher rent, because a home that can be vacated on short notice can be turned in any month of the year. Renewing is almost always cheaper.` },
+    ],
+  },
+  {
+    id: 'maintenance',
+    heading: 'Maintenance and repairs',
+    items: [
+      { q: 'How do I submit a maintenance request?',
+        a: `In the resident portal, in writing, with photos. A written request is timestamped, assigned and tracked. Median time to close a repair across the portfolio is ${repairDays} days as of ${kpis.asOfLabel}.` },
+      { q: 'What do I do in an emergency?',
+        a: `Call ${company.phone}, which is answered 24 hours a day, rather than filing a portal request. For fire, a gas smell, or immediate danger to a person, call 911 first and call us once you are safe. [SOURCE NEEDED: the lease definition of an after-hours emergency].` },
+      { q: 'Will I be charged for a repair?',
+        a: 'Not for ordinary wear and tear or component failure. Damage caused by a resident, a guest or a pet can be charged back. [SOURCE NEEDED: the lease clause covering resident-caused damage chargebacks and any missed appointment charge].' },
+      { q: 'Can I hire my own contractor and deduct it?',
+        a: 'No. Unauthorized work is not reimbursed, and if it makes the problem worse the cost of putting it right can be charged back. File the request instead.' },
+      { q: 'Do I need to be home for the repair?',
+        a: '[SOURCE NEEDED: whether residents must be present for entry, and the notice given before entry]. Ohio law requires reasonable notice before a landlord enters except in an emergency.' },
+    ],
+  },
+  {
+    id: 'living',
+    heading: 'Living in the home',
+    items: [
+      { q: 'Can I have a pet?',
+        a: `Pet policy is set per property and the listing says whether that home allows pets. Where pets are allowed, an approved pet carries a monthly pet administration fee, which funds coverage of up to ${usd(pricing.petDamageCoverage.cap)} in pet damage above the security deposit. [SOURCE NEEDED: the monthly pet administration fee amount and any limits on number, weight, species or breed].` },
+      { q: 'Is a service animal treated as a pet?',
+        a: `No. A service animal or an assistance animal is not a pet under fair housing law. No pet administration fee and no pet deposit applies to them, and the ${usd(pricing.petDamageCoverage.cap)} pet damage coverage does not apply to them either. A reasonable accommodation request is handled separately from any screening decision.` },
+      { q: 'Can I add a roommate?',
+        a: 'An adult moving in has to apply and be approved against the same criteria as the original applicants, before they move in. [SOURCE NEEDED: the lease clause covering added occupants, and any fee to add an approved occupant mid-lease].' },
+      { q: 'Can I paint or mount a TV?',
+        a: 'Ask in writing through the portal first and get the answer in writing. Unapproved alterations are the second most common source of deposit deductions after cleaning. [SOURCE NEEDED: the lease clause covering alterations, wall mounting and painting].' },
+      { q: 'Do I need renters insurance?',
+        a: '[SOURCE NEEDED: whether renters insurance is required under the RLPM lease, and the minimum liability coverage]. Either way, the owner policy on the building covers the building, never your belongings and never your liability.' },
+      { q: 'Which utilities am I responsible for?',
+        a: 'Your lease says which. Across the Columbus metro the usual providers are AEP Ohio for electric, Columbia Gas of Ohio for natural gas, and the municipality for water, sewer and trash. [SOURCE NEEDED: which utilities the RLPM lease assigns to the resident by default].' },
+    ],
+  },
+  {
+    id: 'ending',
+    heading: 'Renewals and moving out',
+    items: [
+      { q: 'How much notice do I have to give before moving out?',
+        a: 'Written notice by the deadline stated in your lease, delivered through the resident portal so it is timestamped. A conversation is not notice. [SOURCE NEEDED: the number of days of written notice required under the RLPM lease].' },
+      { q: 'When do I get my security deposit back?',
+        a: 'After move-out and inspection, with any deductions itemized in writing, sent to the forwarding address you gave in your notice. [SOURCE NEEDED: the deposit return timeline in days and the Ohio Revised Code section to cite].' },
+      { q: 'What gets deducted from my deposit?',
+        a: 'Cleaning, unapproved alterations, damage beyond normal wear and tear, items left behind, and any unpaid balance. Normal wear and tear is not deductible: worn carpet, faded paint and ordinary scuffs are the owner cost.' },
+      { q: 'Can I use my deposit as last month rent?',
+        a: `No. Rent is due on ${rentPolicy.dueDate} for every month of the term including the last, and a deposit is not a rent payment. Withholding the last month creates a balance owed, late fees, and a deduction from the deposit.` },
+      { q: 'Can I break my lease early?',
+        a: 'Contact us in writing before you do anything. Leaving early does not end the obligation by itself. [SOURCE NEEDED: whether the RLPM lease has an early termination clause, what it costs, and how a re-rent is handled].' },
+      { q: 'Will my home be shown while I am still living in it?',
+        a: 'Usually yes, during your notice period, so the home can lease close to the day you leave. Ohio law requires reasonable notice before entry. [SOURCE NEEDED: the notice given before a showing on an occupied home].' },
+    ],
+  },
+  {
+    id: 'company',
+    heading: 'About RL Property Management',
+    items: [
+      { q: 'Who is RL Property Management?',
+        a: `${company.name} is a licensed Ohio real estate brokerage founded in ${company.founded}, managing ${company.unitsManaged} single-family homes and small multifamily units across ${areas.length} communities in the Columbus metro. The office is at ${company.address.street}, ${company.address.city}, ${company.address.region} ${company.address.postalCode}.` },
+      { q: 'How do I contact you?',
+        a: `Call ${company.phone} or email ${company.email}. Current residents should use the resident portal for anything about their tenancy, so the request is attached to the property in writing. ${company.officeHoursNote}.` },
+      { q: 'How do I get a rental verification for a lender or a new landlord?',
+        a: `Send the request to ${company.email} with the property address and the name on the lease, and say where the completed verification should go. [SOURCE NEEDED: the current rental verification intake process and any turnaround commitment].` },
+      { q: 'Do you own the homes you manage?',
+        a: 'No. Each home is owned by a separate property owner, and we manage it on their behalf. That is why some policies, most obviously whether a home accepts pets, vary from one of our homes to another.' },
+      { q: 'How do I make a complaint?',
+        a: `Put it in writing through the resident portal or to ${company.email} so it is recorded and routed. Resident satisfaction across the portfolio is ${satisfaction} out of 5, which we publish precisely so that a number that moves is visible rather than hidden.` },
+    ],
+  },
+];
+
+/** One flat array for FAQPage schema, so schema and page can never disagree. */
+const faq = groups.flatMap((g) => g.items);
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="For residents and applicants"
+    title="Resident FAQs"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'View available homes', href: '/homes-for-rent/' }}
+    secondaryCta={{ label: 'Submit a maintenance request', href: '/residents/maintenance-requests/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="The numbers, first" />
+
+  <!-- JUMP LINKS. Plain anchors, no script. -->
+  <section class="band-tight" aria-labelledby="jump-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="jump-h" class="text-[19px] mb-4">Jump to a topic</h2>
+      <div class="flex flex-wrap gap-x-5 gap-y-2 text-[15.5px]">
+        {groups.map((g) => (
+          <a href={`#${g.id}`} class="text-crimson no-underline hover:underline">{g.heading}</a>
+        ))}
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        {faq.length} questions, grouped. Anything marked as needing a source is a number we will not
+        publish until it is confirmed against the lease, because an applicant would rely on it.
+      </p>
+    </div>
+  </section>
+
+  {groups.map((g, i) => (
+    <section class={i % 2 === 0 ? 'band band-wash' : 'band'} id={g.id} aria-labelledby={`${g.id}-faq-h`}>
+      <div class="wrap max-w-[820px]">
+        <Faq items={g.items} heading={g.heading} id={`${g.id}-faq`} />
+      </div>
+    </section>
+  ))}
+
+  <!-- STILL STUCK -->
+  <section class="band-tight" aria-labelledby="stuck-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Not answered here</span>
+      <h2 id="stuck-h" class="text-[clamp(26px,3vw,36px)]">What if my question is not on this page?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Ask it in the resident portal if you are a current resident, so the question and the answer are both
+        attached to your tenancy in writing. If you are not a resident yet, call {company.phone} or email
+        {' '}<a href={`mailto:${company.email}`} class="text-crimson font-semibold no-underline hover:underline">{company.email}</a>.
+        For anything that is an emergency, call rather than write, at any hour.
+      </p>
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/residents/', label: 'Resident hub', note: 'Every resident task in one place.' },
+    { href: '/residents/pay-rent/', label: 'Pay rent', note: `Due on ${rentPolicy.dueDate}, late fees after ${rentPolicy.lateFeesAfter}.` },
+    { href: '/residents/maintenance-requests/', label: 'Maintenance requests', note: 'Emergency, urgent and routine repairs.' },
+    { href: '/residents/application-criteria/', label: 'Application criteria', note: 'The published screening standard.' },
+    { href: '/homes-for-rent/', label: 'Homes for rent', note: 'Available homes across the Columbus metro.' },
+  ]} />
+
+  <Cta
+    heading="Still need something?"
+    body="Current residents should use the portal so it is in writing on the tenancy. Everyone else, call us. Emergencies are answered around the clock."
+    primary={{ label: 'View available homes', href: '/homes-for-rent/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

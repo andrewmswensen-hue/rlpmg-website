@@ -1,0 +1,267 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, kpis, rentPolicy } from '../../../data/facts';
+
+/**
+ * Search intent: "notice to vacate ohio", "how do I get my security deposit
+ * back", "move out cleaning checklist rental".
+ *
+ * NOTE ON NUMBERS: the notice period and the deposit return timeline are the two
+ * numbers a resident most wants from this page, and neither is in the fact bank.
+ * Both are marked [SOURCE NEEDED]. Do not fill them in from general knowledge of
+ * Ohio law; the lease and the statute both have to be checked against each other
+ * before either number is published.
+ */
+
+const title = 'Moving Out | RL Property Management, Columbus Ohio';
+const description =
+  `How to end a tenancy with ${company.name}: giving written notice, the cleaning standard, the final ` +
+  `walkthrough, and how your security deposit is returned.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Residents', path: '/residents/' },
+  { name: 'Moving out', path: '/residents/moving-out/' },
+];
+
+const answer =
+  `Ending a tenancy takes three things: written notice by the deadline in your lease, the home returned ` +
+  `clean and empty, and a forwarding address so the security deposit can be sent. Renewing instead avoids ` +
+  `the ${rentPolicy.monthToMonthIncreasePct}% month-to-month rent increase.`;
+
+const renewal = kpis.metrics.find((m) => m.id === 'renewal')?.value;
+
+const keyFacts = [
+  'Notice to vacate must be in writing. A conversation is not notice',
+  'Notice period: [SOURCE NEEDED: days of written notice required under the lease]',
+  'Deposit return: [SOURCE NEEDED: days after move-out, and the Ohio statute to cite]',
+  'A forwarding address in writing is required before a deposit can be sent',
+  `Rent stays due on ${rentPolicy.dueDate} through the end of the lease term, including your last month`,
+  `${renewal} of residents renew instead of moving`,
+];
+
+const deductionCauses = [
+  ['Cleaning', 'The most common deduction by a wide margin, and the most avoidable. A home returned at the standard it was delivered at does not generate one.'],
+  ['Unapproved alterations', 'Paint colors, mounted hardware, removed fixtures, and anything installed without written approval, plus the cost of returning it.'],
+  ['Damage beyond normal wear and tear', 'Holes, broken fixtures, pet damage, burns, and stains that cleaning does not remove. Faded paint and worn carpet from ordinary use are not this.'],
+  ['Items left behind', 'Furniture, appliances, trash and anything in the garage, basement or yard. Disposal is charged at cost.'],
+  ['Unpaid balances', 'Rent, late fees and any chargebacks still owed on the ledger at move-out.'],
+];
+
+const checklist = [
+  'Give written notice by the deadline in your lease, through the portal so it is timestamped.',
+  'Give a forwarding address in writing. The deposit cannot be sent without one.',
+  'Keep paying rent on the 1st through the end of the term. Notice does not end the rent obligation early.',
+  'Remove everything, including from the garage, basement, attic, shed and yard.',
+  'Clean the home fully: appliances inside and out, bathrooms, floors, windows, baseboards, light fixtures and the inside of cabinets.',
+  'Replace burned out light bulbs and the furnace filter.',
+  'Fill and touch up holes only where your lease says to, and do not paint over anything without approval.',
+  'Take dated photographs of every room after it is empty and clean. Keep them yourself.',
+  'Return every key, fob, remote and mail key.',
+  'Set utilities to end on your lease end date, not before, so the home is not dark for the walkthrough.',
+];
+
+const faq = [
+  { q: 'How much notice do I have to give before moving out?',
+    a: 'Written notice, by the deadline stated in your lease, delivered through the resident portal so it is timestamped. A conversation with a staff member is not notice. [SOURCE NEEDED: the number of days of written notice required under the RLPM lease, and whether notice must land before a specific day of the month].' },
+  { q: 'How do I give notice?',
+    a: 'In writing, through the resident portal, naming the property address, every resident on the lease, and the date you will be out. Get confirmation that it was received and keep it. Verbal notice, a text message, or telling a technician does not count.' },
+  { q: 'When do I get my security deposit back?',
+    a: 'After move-out, once the home has been inspected and any deductions have been itemized in writing, sent to the forwarding address you provided. [SOURCE NEEDED: the deposit return timeline in days, and the Ohio Revised Code section that governs it, so the page can cite the statute rather than paraphrase it].' },
+  { q: 'What gets deducted from a security deposit?',
+    a: 'Cleaning, unapproved alterations, damage beyond normal wear and tear, items left behind, and any unpaid balance on your ledger. Normal wear and tear is not deductible: worn carpet, faded paint and ordinary use are the owner cost, not yours. Deductions are itemized in writing.' },
+  { q: 'What counts as normal wear and tear?',
+    a: 'Deterioration that happens from living in a home normally over time: traffic patterns in carpet, small nail holes from hanging pictures where the lease allows it, faded paint, minor scuffs on walls. Holes, pet damage, burns, broken fixtures and stains that will not clean are not wear and tear.' },
+  { q: 'Can I break my lease early?',
+    a: 'Talk to us before you do anything, in writing. A lease is a fixed obligation, and leaving early does not end it by itself. [SOURCE NEEDED: whether the RLPM lease has an early termination clause, what it costs, and how a lease buyout or a re-rent is handled].' },
+  { q: 'Will people be shown through the home while I still live there?',
+    a: 'The home is usually marketed during the notice period, which means showings while you are still in it. Ohio law requires reasonable notice before entry. [SOURCE NEEDED: the notice given before a showing, and the showing method used on an occupied home].' },
+  { q: 'Do I still pay rent for my last month?',
+    a: `Yes. Rent is due on ${rentPolicy.dueDate} for every month of the term, including your last, and a security deposit is not a rent payment. Withholding the last month treating the deposit as rent creates a balance owed, late fees, and a deduction from the deposit itself.` },
+  { q: 'What if I want to stay instead?',
+    a: `Renew. We reach out ahead of your end date with terms, and ${renewal} of residents renew. A tenancy that lapses into month-to-month rather than renewing carries a ${rentPolicy.monthToMonthIncreasePct}% higher rent, so renewing is almost always the cheaper option.` },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="For residents"
+    title="Moving out"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Go to the resident hub', href: '/residents/' }}
+    secondaryCta={{ label: 'View available homes', href: '/homes-for-rent/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Move-out, in short" />
+
+  <!-- NOTICE -->
+  <section class="band-tight" aria-labelledby="notice-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Step one</span>
+      <h2 id="notice-h" class="text-[clamp(28px,3.3vw,40px)]">How do I give notice that I am moving out?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        In writing, through the resident portal, by the deadline in your lease. Written matters. A
+        conversation with a staff member, a text message, or telling a technician on a repair visit is not
+        notice, and none of those protect you if the date is later disputed.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[18.5px] mb-3">What the notice has to say</h3>
+        <ul class="text-[15.5px] text-muted grid gap-2">
+          <li>The property address, including the unit if there is one</li>
+          <li>Every resident named on the lease</li>
+          <li>The date you will be fully out and returning keys</li>
+          <li>A forwarding address for the security deposit</li>
+        </ul>
+      </div>
+      <p class="text-[15px] text-crimson font-semibold mt-6">
+        [SOURCE NEEDED: the number of days of written notice required under the RLPM lease, and whether
+        notice must be received before a specific day of the month to count for the following month]
+      </p>
+      <p class="text-[15px] text-muted mt-5">
+        Notice does not end the rent obligation. Rent stays due on {rentPolicy.dueDate} through the end of
+        the lease term, and late fees are still assessed after {rentPolicy.lateFeesAfter} in your final
+        month.
+      </p>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="band band-wash" aria-labelledby="check-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The list</span>
+      <h2 id="check-h" class="text-[clamp(28px,3.3vw,40px)]">What do I need to do before I hand back the keys?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Ten things. Nine of them are ordinary, and the tenth, photographing every room after it is empty
+        and clean, is the one that settles arguments.
+      </p>
+      <ol class="grid gap-2.5 mt-7">
+        {checklist.map((item, i) => (
+          <li class="flex gap-4 text-[15.5px] card !p-4">
+            <span class="font-sans font-bold text-crimson tabular-nums shrink-0" aria-hidden="true">{i + 1}</span>
+            <span class="text-muted">{item}</span>
+          </li>
+        ))}
+      </ol>
+      <p class="text-[15px] text-crimson font-semibold mt-6">
+        [SOURCE NEEDED: the written move-out cleaning standard, whether professional carpet cleaning is
+        required, and whether the resident is expected to fill nail holes]
+      </p>
+    </div>
+  </section>
+
+  <!-- DEPOSIT -->
+  <section class="band" aria-labelledby="deposit-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Your money back</span>
+      <h2 id="deposit-h" class="text-[clamp(28px,3.3vw,40px)]">How and when does my security deposit come back?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        After you are out, the home is inspected against the move-in condition report you completed when
+        you arrived, any deductions are itemized in writing, and the balance is sent to the forwarding
+        address you gave in your notice. Without a forwarding address in writing, nothing can be sent.
+      </p>
+      <p class="text-[15px] text-crimson font-semibold mt-5">
+        [SOURCE NEEDED: the deposit return timeline in days after move-out, and the Ohio Revised Code
+        section governing security deposit return, so this page cites the statute rather than paraphrasing
+        it]
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">What actually gets deducted</h3>
+      <div class="scroll-x">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Common security deposit deductions and how to avoid them</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Cause</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            {deductionCauses.map(([cause, detail]) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top whitespace-nowrap">{cause}</th>
+                <td class="p-3.5 border border-line align-top text-muted">{detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        Normal wear and tear is not deductible. Worn carpet in a traffic path, faded paint, and minor scuffs
+        from ordinary use are the owner cost. The line between wear and damage is the reason the move-in
+        condition report matters so much, and it is why the
+        {' '}<a href="/residents/moving-in/" class="text-crimson font-semibold no-underline hover:underline">moving in</a>
+        {' '}page pushes so hard on photographs.
+      </p>
+    </div>
+  </section>
+
+  <!-- SHOWINGS -->
+  <section class="band band-wash" aria-labelledby="showings-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">During your notice period</span>
+      <h2 id="showings-h" class="text-[clamp(28px,3.3vw,40px)]">Will the home be shown while I still live here?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Usually yes. The home goes back on the market during your notice period so it can lease close to
+        the day you leave, which means prospective residents will be scheduled through it while you are
+        still there. Ohio law requires reasonable notice before entry, and that applies to showings.
+      </p>
+      <p class="text-[15px] text-crimson font-semibold mt-5">
+        [SOURCE NEEDED: how much notice is given before a showing on an occupied home, and whether
+        showings on occupied homes are agent-led or self-guided]
+      </p>
+    </div>
+  </section>
+
+  <!-- RENEW INSTEAD -->
+  <section class="band" aria-labelledby="renew-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Before you go</span>
+      <h2 id="renew-h" class="text-[clamp(28px,3.3vw,40px)]">Would renewing be cheaper than moving?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Frequently, yes, and {renewal} of our residents renew. A move costs a deposit on the next home,
+        movers, utility connection fees, and time off work, none of which shows up in a rent comparison.
+        We reach out ahead of your end date with renewal terms.
+      </p>
+      <p class="text-[16.5px] text-muted mt-4">
+        Letting a lease lapse into month-to-month rather than renewing carries a
+        {' '}{rentPolicy.monthToMonthIncreasePct}% higher rent, because a home that can be vacated on short
+        notice can be turned in any month of the year. If you are staying, renew rather than drifting.
+      </p>
+      <p class="text-[16.5px] text-muted mt-4">
+        If you are moving but staying in the metro, look at what else we have open. Your rental history
+        with us is already verified.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Move-out questions" id="moveout-faq" />
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/residents/', label: 'Resident hub', note: 'Every resident task in one place.' },
+    { href: '/residents/moving-in/', label: 'Moving in', note: 'The condition report your deposit is measured against.' },
+    { href: '/residents/pay-rent/', label: 'Pay rent', note: 'Rent stays due through the end of the term.' },
+    { href: '/homes-for-rent/', label: 'Homes for rent', note: 'Staying in the metro? See what else is open.' },
+    { href: '/resident-faqs/', label: 'Resident FAQs', note: 'The long list, grouped by topic.' },
+  ]} />
+
+  <Cta
+    heading="Give notice in writing, and take photos"
+    body="Written notice through the portal, a forwarding address, and dated photos of an empty clean home. Those three things decide how the deposit conversation goes."
+    primary={{ label: 'Go to the resident hub', href: '/residents/' }}
+    secondary={{ label: 'View available homes', href: '/homes-for-rent/' }}
+  />
+</Base>

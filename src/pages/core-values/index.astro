@@ -1,0 +1,199 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, coreValues, commitments, mission, kpis, rentPolicy, usd, pricing } from '../../data/facts';
+
+/**
+ * The core values page. Six values, verbatim in substance from the live
+ * /core-values/ page and from `coreValues` in the fact bank.
+ *
+ * A values page is usually the least useful page on a company website, because
+ * it lists adjectives. This one only works if each value is tied to something a
+ * reader can check: a published commitment, a published number, or a published
+ * price. Everything paired below comes from src/data/facts.ts.
+ */
+
+const title = 'Our Core Values | RL Property Management, Columbus Ohio';
+const description =
+  `The six core values ${company.name} runs on, and the published commitments and operating ` +
+  `numbers that show whether we actually live by them.`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Core values', path: '/core-values/' }];
+
+const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+/**
+ * Each value gets one checkable pairing. The `check` string must be traceable to
+ * facts.ts. If a value has no checkable pairing, it does not get one invented.
+ */
+const checks: Record<string, string> = {
+  'Clear communication':
+    `The complete fee schedule is published, including the charges that only appear in a bad month. So are the operating numbers, refreshed quarterly.`,
+  'Do it in realtime':
+    `Median time to close a repair across the portfolio is ${kpis.metrics[5].value} days. Median time to turn a vacant unit is ${kpis.metrics[1].value} days.`,
+  'Figure it out and get it done':
+    `Owner funds are disbursed on the ${rentPolicy.ownerDisbursementDay}th of each month whether or not the month was easy, and ${kpis.metrics[6].value} of rent is collected by the 5th.`,
+  'A place for everything':
+    `Every managed property is inspected quarterly and every charge that can appear on an owner statement is written down in advance.`,
+  'We lend a hand, always':
+    `If an approved pet causes damage beyond the security deposit, we cover the difference up to ${usd(pricing.petDamageCoverage.cap)}. If a unit sits listed longer than 60 days, we credit management fees back.`,
+  'Respect clients, residents and each other':
+    `Resident satisfaction across the portfolio is ${kpis.metrics[7].value} out of 5, published on the scorecard alongside every other number.`,
+};
+
+const values = coreValues.map((v) => ({ ...v, slug: slug(v.name), check: checks[v.name] }));
+
+const faq = [
+  { q: 'What are RL Property Management’s core values?',
+    a: `Six: clear communication, do it in realtime, figure it out and get it done, a place for everything, we lend a hand always, and respect clients, residents and each other. Each one is explained on this page alongside a published number or commitment that shows whether it is being followed.` },
+  { q: 'Why does a property management company publish core values?',
+    a: 'Because property management is thousands of small judgment calls that no owner will ever see. A written value set is what a team falls back on when a situation is not covered by a process, and publishing it lets an owner hold us to it.' },
+  { q: 'What is RL Property Management’s mission?',
+    a: `${mission} That is the whole purpose statement. Everything else, including the values on this page, exists to serve it.` },
+  { q: 'How do you know whether a company actually lives by its values?',
+    a: 'Check whether the claims are attached to anything falsifiable. A company that publishes its prices, its operating numbers and its commitments in writing can be caught out. A company that publishes adjectives cannot.' },
+  { q: 'What happens when RL Property Management gets something wrong?',
+    a: `We tell the owner and we fix it. Several of our published commitments exist specifically for when things go badly: management fees are credited back after 60 days of vacancy, and pet damage above the deposit is covered up to ${usd(pricing.petDamageCoverage.cap)}.` },
+  { q: 'Do the core values apply to residents as well as owners?',
+    a: 'Yes. Two of the six name residents directly, and resident satisfaction is one of the eight numbers published on the scorecard. A resident who is treated badly leaves, and a turn costs an owner far more than a repair does.' },
+];
+
+const related = [
+  { href: '/about/', label: 'About the company', note: `What ${company.shortName} does, and for whom.` },
+  { href: '/team/', label: 'Our team', note: 'The people hired against these values.' },
+  { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'The operating numbers, refreshed quarterly.' },
+  { href: '/pricing/', label: 'Pricing', note: 'The complete published fee schedule.' },
+  { href: '/careers/', label: 'Careers', note: 'Benefits and open roles.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="Core values"
+    title="Our core values"
+    answer={`${company.name} runs on six core values: clear communication, do it in realtime, figure it out and get it done, a place for everything, we lend a hand always, and respect for clients, residents and each other.`}
+    breadcrumbs={breadcrumbs}
+    secondaryCta={{ label: 'Meet the team', href: '/team/' }}
+  />
+
+  <section class="pb-4" aria-labelledby="purpose-h">
+    <div class="wrap max-w-[880px]">
+      <div class="card !bg-wash-soft">
+        <h2 id="purpose-h" class="text-[19px] mb-3">What is the purpose behind the values?</h2>
+        <p class="text-[17px] text-muted m-0">
+          One sentence: {mission.charAt(0).toLowerCase() + mission.slice(1)} The values are how that
+          gets done on an ordinary Tuesday, when nobody is watching and the situation is not covered
+          by a process.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="why-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="why-h">Why do core values matter in property management?</h2>
+      <p>
+        Because most of this job happens out of sight. An owner sees a monthly statement and a
+        quarterly inspection report. What an owner does not see is the fifty small decisions made
+        that month: whether to replace the part or the whole unit, whether to push a late resident
+        or work out a plan, whether to call the owner about a repair that lands just over the approval limit or simply handle it.
+      </p>
+      <p>
+        No process document covers all of that. A written value set does, because it tells the
+        person making the call what to optimize for when the answer is not obvious. That is why
+        these six are stated plainly and why each one below is paired with something published that
+        would expose us if we were not following it.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="values-h">
+    <div class="wrap">
+      <span class="eyebrow">The six</span>
+      <h2 id="values-h" class="text-[clamp(28px,3.3vw,40px)]">What are the six core values?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-9 max-w-[44em]">
+        Each value, what it means in practice, and the published fact that makes it checkable.
+      </p>
+      <ol class="grid gap-6 lg:grid-cols-2">
+        {values.map((v, i) => (
+          <li class="card flex flex-col" id={v.slug}>
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-3">
+              Value {i + 1} of {values.length}
+            </div>
+            <h3 class="text-[22px] mb-3">{v.name}</h3>
+            <p class="text-[16px] text-muted flex-1 m-0">{v.body}</p>
+            {v.check && (
+              <p class="mt-5 pt-4 border-t border-line text-[14.5px] text-navy m-0">
+                <span class="font-sans font-bold text-crimson">How you can check it: </span>{v.check}
+              </p>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="practice-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">In writing</span>
+      <h2 id="practice-h" class="text-[clamp(28px,3.3vw,40px)]">What do the values look like in practice?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        They turn into commitments, and the commitments are in the Client Handbook rather than in a
+        sales conversation. These are the five that cost us money when we get something wrong.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {commitments.map((c) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{c.name}</h3>
+            <p class="text-[15px] text-muted m-0">{c.detail}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="hiring-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="hiring-h">How do the values affect hiring?</h2>
+      <p>
+        They are the standard people are hired and reviewed against, which is the only way a value
+        set survives contact with a growing team. The company is organized by function, so a
+        maintenance coordinator and a leasing assistant are measured against the same six values
+        even though their work looks nothing alike.
+      </p>
+      <p>
+        Open roles and the benefits attached to them are on the
+        {' '}<a href="/careers/">careers page</a>. The full roster, with every name and title, is on
+        the <a href="/team/">team page</a>.
+      </p>
+
+      <h2>Where can I see whether the values are working?</h2>
+      <p>
+        On the <a href="/key-performance-indicators/">scorecard</a>. Eight operating numbers,
+        refreshed quarterly, including the ones that would look bad if the work slipped: median days
+        to close a repair, portfolio occupancy, lease renewal rate and resident satisfaction. As of
+        {' '}{kpis.asOfLabel} the renewal rate is {kpis.metrics[2].value}, which is the number most
+        directly tied to whether residents are treated well.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Questions about our values" id="values-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={related} />
+
+  <Cta
+    heading="See how this works on your property"
+    body="A free rent evaluation is the fastest way to find out what we would actually do with your unit, and what it should earn."
+    secondary={{ label: 'Read the pricing', href: '/pricing/' }}
+  />
+</Base>

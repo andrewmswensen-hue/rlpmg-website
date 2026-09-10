@@ -1,0 +1,367 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, kpis, commitments, rentPolicy, usd } from '../../../data/facts';
+import { rentByBedroom } from '../../../data/markets';
+import { serviceNode } from '../../../lib/schema';
+
+/**
+ * Target: "should I hire a property manager", "is a property manager worth it",
+ * "should I self manage my rental".
+ *
+ * Written so a self-managing owner gets real value even if they decide to keep
+ * self-managing. The job list is the substance; the cost math is secondary.
+ *
+ * DELIBERATELY NO HOURS-PER-UNIT-PER-MONTH FIGURE. The numbers circulated online
+ * for this are not traceable to anything. See the [SOURCE NEEDED] marker below.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+
+const rents = [1200, 1650, 2100];
+const plan = pricing.plans[1];
+const planLow = pricing.plans[0];
+const planHigh = pricing.plans[2];
+
+/** What the flat fee works out to as a share of rent, at three Columbus rents. */
+const share = rents.map((rent) => ({
+  rent,
+  annualRent: rent * 12,
+  annualFee: plan.monthly * 12,
+  pct: (((plan.monthly * 12) / (rent * 12)) * 100).toFixed(1),
+  /** Days of vacancy that cost the same as a year of management. */
+  daysOfVacancy: Math.round((plan.monthly * 12) / (rent / 30)),
+}));
+
+/** A repair, priced at our published labor rates, normal hours and Sunday. */
+const REPAIR_HOURS = 2;
+const repairNormal = pricing.maintenance.inHouseHourly * REPAIR_HOURS + pricing.maintenance.tripCharge;
+const repairSunday = pricing.maintenance.inHouseHourly * pricing.afterHours.sunday * REPAIR_HOURS + pricing.maintenance.tripCharge;
+
+const mid = share[1];
+
+const title = 'Should You Hire a Property Manager or Self-Manage? | RL Property Management';
+const description =
+  `The full job list for a Columbus rental: marketing, screening, rent collection, maintenance, inspections, ` +
+  `Ohio compliance, accounting and evictions. Plus what management costs, at ${usd(plan.monthly)} per unit per ` +
+  `month flat, and when self-managing is the right answer.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Compare', path: '/compare/' },
+  { name: 'Self-managing vs a property manager', path: '/compare/self-managing-vs-property-manager/' },
+];
+
+const answer =
+  `Hire a manager when the work, the legal exposure or the distance costs you more than the fee. ` +
+  `${company.name} charges ${usd(planLow.monthly)} to ${usd(planHigh.monthly)} per unit per month, flat, ` +
+  `with a ${usd(pricing.leasingFee)} leasing fee. Self-managing one nearby unit can work well.`;
+
+const facts = [
+  `Flat management runs ${usd(planLow.monthly)} to ${usd(planHigh.monthly)} per unit per month`,
+  `On a ${usd(mid.rent)} rent that is ${mid.pct}% of gross rent for the year`,
+  `A year of management costs about the same as ${mid.daysOfVacancy} days of vacancy at ${usd(mid.rent)} rent`,
+  `Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute`,
+  `A Franklin County eviction costs ${usd(pricing.eviction.hardCostTotal)} in hard costs before anyone's time`,
+  `Portfolio results: ${kpi('dom')} median days on market, ${kpi('renewal')} renewal rate, ${kpi('collectedBy5')} of rent collected by the 5th`,
+  `Median ${kpi('repairDays')} days to close a repair, ${kpi('turn')} days to turn a unit`,
+  `Self-managing is a real option. This page lists the work either way`,
+];
+
+/** The eight jobs. Written so a self-manager can use them as a checklist. */
+const jobs = [
+  {
+    h: 'Marketing and leasing the unit',
+    b: `Pricing the unit against live comparables, photographing it, writing the listing, syndicating it to every major portal, answering inquiries within hours rather than days, and running showings. Vacancy is the most expensive thing that happens to a rental, so speed here is worth more than almost anything else you do. Median days on market across our portfolio is ${kpi('dom')}. ${kpis.domDefinition}`,
+    diy: 'Doable if you can answer inquiries during the workday and show the unit on evenings and weekends. Most lost leases are lost to a slow reply, not to a bad property.',
+  },
+  {
+    h: 'Screening applicants within fair housing law',
+    b: 'Five checks on every adult who will live there: credit, criminal record, verified income, rental history from prior landlords, and public eviction records. The legal requirement is not that you accept everyone, it is that you write the standard down before the first application arrives, apply it identically to every applicant, and can show that you did.',
+    diy: 'The highest-risk job on the list for a self-manager, and the one where a casual remark during a showing can create liability even when the written standard is clean. Assistance animals are not pets, so a no-pets policy does not apply to them.',
+  },
+  {
+    h: 'Rent collection and late notices',
+    b: `Rent is due on ${rentPolicy.dueDate}. In practice many residents pay between ${rentPolicy.practicalWindow}, and late fees are assessed after ${rentPolicy.lateFeesAfter}. The job is an online payment method that works, a ledger that is right, and a notice that goes out on the same day every month whether or not you feel like sending it. ${kpi('collectedBy5')} of rent across our portfolio is collected by the 5th.`,
+    diy: 'The part self-managers underestimate is not collecting the rent, it is enforcing the late fee against someone whose kid you know. Consistency is the whole system.',
+  },
+  {
+    h: 'Maintenance coordination and after-hours calls',
+    b: `Triaging the request, deciding whether it is an emergency, finding someone who will actually show up, approving the cost, and closing it out. Our in-house labor is ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, materials at cost, with no minimum charge. After hours runs ${pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays and ${pricing.afterHours.sunday}x on Sundays, which is why a ${REPAIR_HOURS}-hour repair is ${usd(repairNormal)} on a Tuesday and ${usd(repairSunday)} on a Sunday. Median time to close a repair is ${kpi('repairDays')} days.`,
+    diy: 'This is the job that decides whether self-managing is tolerable. It is not the volume of calls, it is that you cannot predict which weekend they land on.',
+  },
+  {
+    h: 'Inspections',
+    b: 'A move-in condition report with dated photographs, periodic inspections during the tenancy, and a move-out inspection compared against the move-in record. We inspect quarterly. The move-in report is the document that decides every security deposit dispute, and it is the one self-managers most often skip.',
+    diy: 'Cheap to do properly and expensive to have skipped. Photograph every room, every appliance, and the meters, and date-stamp all of it.',
+  },
+  {
+    h: 'Ohio landlord-tenant compliance',
+    b: 'Lease terms that hold up, the correct notice before an eviction filing, security deposit handling and return, local rental registration where it applies, and the habitability obligations that run for the whole tenancy. Columbus and Franklin County add local requirements on top of Ohio law. [SOURCE NEEDED: the specific Ohio Revised Code notice periods, security deposit return deadline and interest requirements, and the current Columbus rental registration requirement, each confirmed by counsel before this page states them.]',
+    diy: 'The rules are learnable. The risk is that you learn some of them after you needed them, and the notice you posted incorrectly is the reason a case gets dismissed and refiled.',
+  },
+  {
+    h: 'Accounting, statements and 1099s',
+    b: `Separating security deposits from operating funds, tracking income and expense by property so your return is defensible, issuing owner statements, and filing the year-end information returns for contractors you paid. We disburse owner funds on the ${rentPolicy.ownerDisbursementDay}th of each month, ${rentPolicy.disbursementNote}, with monthly statements and a real-time owner portal. [SOURCE NEEDED: the IRS Form 1099-NEC filing threshold and deadline that applies to a landlord paying contractors.]`,
+    diy: 'A separate bank account per entity and a real bookkeeping file, from day one. Retrofitting this in April is worse than doing it in January.',
+  },
+  {
+    h: 'Evictions',
+    b: `Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute. In Franklin County the hard cost is ${usd(pricing.eviction.hardCostTotal)}: ${usd(pricing.eviction.attorneyFee)} to the eviction attorney for filing and up to two court appearances, and ${usd(pricing.eviction.countyFilingFee)} to the county for the Eviction Complaint. If the resident has not left after judgment, a tag and setout adds ${usd(pricing.eviction.tagAndSetoutFee)} to the county. We charge ${usd(pricing.eviction.rlpmProcessFee)} to run the process and ${usd(pricing.eviction.setoutFee)} if a setout is required.`,
+    diy: 'You can file yourself. What you cannot do is unwind a defective notice, and the lost month while you refile usually costs more than the attorney would have.',
+  },
+];
+
+/** Where self-managing genuinely makes sense. This section is the reason the page is credible. */
+const selfManageWins = [
+  'One unit, close to where you live, that you can reach in fifteen minutes.',
+  'A long-tenured resident who pays on time and asks for very little.',
+  'A schedule with real flexibility, so a Tuesday morning showing is not a problem.',
+  'Genuine comfort with the legal side, or a lawyer you already use for the lease and notices.',
+  'A rent low enough that a management fee is a large share of the income. Run that number before anything else.',
+];
+
+const hireInstead = [
+  'You live somewhere else, or you are about to.',
+  'You own more than a couple of units, or you intend to.',
+  'You are already behind on the paperwork, the inspections or the late notices.',
+  'A resident stopped paying and you have not sent anything in writing yet.',
+  'The property has sat vacant longer than you expected and you are not sure why.',
+  'You have started making exceptions to your own rules for people you like.',
+];
+
+const faq = [
+  { q: 'Should I hire a property manager?',
+    a: `Hire one when the work, the legal exposure or the distance costs you more than the fee. ${company.name} charges ${usd(planLow.monthly)} to ${usd(planHigh.monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee, which on a ${usd(mid.rent)} rent is ${mid.pct}% of gross rent for the year. Self-managing a single nearby unit with a stable resident is a reasonable choice. Managing several units remotely, while working full time, usually is not.` },
+  { q: 'Is a property manager worth it for one rental property?',
+    a: `Sometimes. The honest test is arithmetic plus tolerance. A year of management on ${plan.name} costs about the same as ${mid.daysOfVacancy} days of vacancy at ${usd(mid.rent)} rent, so if a manager leases the unit meaningfully faster, or renews a resident you would have lost, the fee can pay for itself. If the unit is around the corner, the resident is long-tenured, and the paperwork is current, self-managing that one property is defensible.` },
+  { q: 'How many hours does it take to self-manage a rental property?',
+    a: 'It depends on the property, the resident and the month, and the hours-per-unit figures circulated online are not traceable to any published study. [SOURCE NEEDED: a defensible hours-per-unit-per-month figure for self-management, with a citable source.] What is predictable is the shape rather than the total: quiet months are close to zero, and a turn, a major repair or a nonpaying resident consumes far more time than a year of quiet ones.' },
+  { q: 'What does a property manager actually do?',
+    a: 'Eight jobs: marketing and leasing, screening applicants within fair housing law, rent collection and late notices, maintenance coordination including after-hours emergencies, inspections, Ohio landlord-tenant compliance, accounting and year-end reporting, and evictions when they are needed. Each of those is listed out on this page so you can run them yourself if you decide to.' },
+  { q: 'What is the most expensive mistake a self-managing landlord makes?',
+    a: `Screening loosely, and then acting slowly when it goes wrong. A resident who stops paying in month three costs the unpaid rent, the ${usd(pricing.eviction.hardCostTotal)} eviction hard cost in Franklin County, the vacancy while the unit is turned, and the repairs. Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute, so the question is not whether it happens, it is what your process does when it does.` },
+  { q: 'Can I self-manage from out of state?',
+    a: 'You can, and the failure mode is predictable: you end up dependent on whichever contractor answers the phone, with nobody who has physically seen the property since the last resident moved in. Remote self-management works when you have a trusted local person who will walk the unit. Without that, the distance is the problem, not the workload.' },
+  { q: 'What does it cost to switch from self-managing to a manager?',
+    a: `Nothing to start on an occupied unit: our startup fee is ${usd(pricing.startupFeeOccupied)}. On a vacant unit the fee varies by unit count and plan and is quoted in writing before you sign. A maintenance reserve of ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit is held on your account so routine repairs do not wait on a funding request, and it stays your money.` },
+  { q: 'Will a property manager get me more rent?',
+    a: `Not automatically, and any manager who promises that is guessing. What a manager changes is time on market, renewal rate and collection discipline. Across our portfolio that runs ${kpi('dom')} median days on market, a ${kpi('renewal')} renewal rate, ${kpi('occupancy')} occupancy and ${kpi('collectedBy5')} of rent collected by the 5th. Ask any manager for their numbers and the definition behind each one.` },
+  { q: 'What should I do first if I want to compare the two?',
+    a: `Price the property honestly, then run the vacancy math. A free rent evaluation gives you a written rent range and the comparables behind it, and it is yours to keep whether you hire us, hire someone else or keep managing it yourself. Portfolio medians across the ${company.unitsManaged} units we manage are ${usd(rentByBedroom['2'].median)} for a 2 bed and ${usd(rentByBedroom['3'].median)} for a 3 bed.` },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/compare/self-managing-vs-property-manager/',
+    name: 'Residential property management for self-managing owners',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="The decision, with the work listed out"
+    title="Should you hire a property manager, or keep self-managing?"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See what management costs', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <!-- THE HONEST FRAME -->
+  <section class="band" aria-labelledby="frame-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Before the pitch</span>
+      <h2 id="frame-h" class="text-[clamp(28px,3.3vw,40px)]">What question are you actually answering?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Not "is a property manager worth it" in the abstract. The real question is whether the eight jobs
+        below cost you more, in money, risk and weekends, than a flat fee of {usd(planLow.monthly)} to
+        {' '}{usd(planHigh.monthly)} per unit per month. For some owners the answer is no, and we would
+        rather say so on this page than three months into an agreement.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        So this page lists the work first. Run it as a checklist against your own property. If you already do
+        all eight, consistently, and the property is close by, you have your answer and you do not need us.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE EIGHT JOBS -->
+  <section class="band band-wash" aria-labelledby="jobs-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The whole job</span>
+      <h2 id="jobs-h" class="text-[clamp(28px,3.3vw,40px)]">What does managing a rental actually involve?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Eight jobs. Each one has a version you can do yourself, and each one has a way it goes wrong.
+      </p>
+      <div class="grid gap-5">
+        {jobs.map((j, i) => (
+          <div class="card">
+            <h3 class="text-[19.5px] mb-2">
+              <span class="font-sans text-crimson font-bold mr-2">{i + 1}.</span>{j.h}
+            </h3>
+            <p class="text-[15.5px] text-muted m-0">{j.b}</p>
+            <p class="text-[15px] text-navy mt-3.5 mb-0 pt-3.5 border-t border-line">
+              <strong class="font-sans text-[13px] font-bold tracking-[.1em] uppercase text-faint block mb-1.5">If you do it yourself</strong>
+              {j.diy}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- THE MATH -->
+  <section class="band" aria-labelledby="math-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">The arithmetic</span>
+      <h2 id="math-h" class="text-[clamp(28px,3.3vw,40px)]">What does a property manager cost against what a rental earns?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        A year of flat management on {plan.name} at {usd(plan.monthly)} per unit per month, set against a year
+        of gross rent, and against the vacancy it would take to cost the same amount. Daily rent is monthly
+        rent divided by 30.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Annual management fee against annual gross rent, at three Columbus rents</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Monthly rent</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Gross rent, 12 months</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Management, 12 months</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Share of gross rent</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Equivalent vacant days</th>
+            </tr>
+          </thead>
+          <tbody>
+            {share.map((s) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium tabular-nums">{usd(s.rent)}</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(s.annualRent)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(s.annualFee)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">{s.pct}%</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">{s.daysOfVacancy}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        Read the last column carefully, because it cuts both ways. At {usd(mid.rent)} rent, a full year of
+        management costs what {mid.daysOfVacancy} vacant days cost. If a manager leases your unit that much
+        faster than you would, the fee is paid for. If it does not, it is not. Median days on market across
+        our portfolio is {kpi('dom')} and median days to turn a unit is {kpi('turn')}.
+      </p>
+      <p class="text-[15.5px] text-muted mt-4">
+        We deliberately do not publish an hours-per-unit-per-month figure for self-management.
+        [SOURCE NEEDED: a defensible hours-per-unit-per-month figure for self-management, with a citable
+        source.] The numbers circulating online for this are not traceable, and putting one here would make
+        every other number on the page less trustworthy.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHEN SELF MANAGING IS RIGHT -->
+  <section class="band band-wash" aria-labelledby="self-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Where we are not the answer</span>
+      <h2 id="self-h" class="text-[clamp(28px,3.3vw,40px)]">When does self-managing make sense?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7">
+        When most of these are true at the same time. One or two is not enough.
+      </p>
+      <ul class="grid gap-2.5">
+        {selfManageWins.map((s) => (
+          <li class="card !p-4.5 text-[15.5px] flex gap-3">
+            <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{s}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-[15.5px] text-muted mt-7">
+        That last one deserves the arithmetic. On {plan.name} at {usd(plan.monthly)}, management is
+        {' '}{share[0].pct}% of gross rent at {usd(share[0].rent)} and {share[2].pct}% at {usd(share[2].rent)}.
+        The lower the rent, the larger the bite, which is the strongest single argument for self-managing a
+        low-rent unit you live near.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHEN TO HIRE -->
+  <section class="band" aria-labelledby="hire-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The other direction</span>
+      <h2 id="hire-h" class="text-[clamp(28px,3.3vw,40px)]">When should you stop self-managing?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7">
+        Any one of these is a reason to get a quote. Three of them together is a reason to move now.
+      </p>
+      <ul class="grid gap-2.5">
+        {hireInstead.map((s) => (
+          <li class="card !p-4.5 text-[15.5px] flex gap-3">
+            <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{s}</span>
+          </li>
+        ))}
+      </ul>
+      <p class="text-[15.5px] text-muted mt-7">
+        The last one is the quiet killer. Every self-managing owner who ends up in a bad eviction started by
+        making one reasonable exception for someone they liked. A written standard exists so that decision is
+        already made before you have to make it.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT YOU GET -->
+  <section class="band band-wash" aria-labelledby="commit-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">If you do hand it over</span>
+      <h2 id="commit-h" class="text-[clamp(28px,3.3vw,40px)]">What does the flat fee commit us to?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        These are the parts most agreements leave vague, written down.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {commitments.map((c) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{c.name}</h3>
+            <p class="text-[15px] text-muted m-0">{c.detail}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[15.5px] text-muted mt-8">
+        The complete fee schedule, including every situational charge, is on the
+        {' '}<a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">pricing page</a>.
+        If a charge is not on that list, we do not make it.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Self-managing questions" id="selfmanage-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/compare/flat-fee-vs-percentage-property-management/', label: 'Flat fee vs percentage management', note: 'If you have decided to hire someone, this is the next question.' },
+    { href: '/tools/vacancy-cost-calculator/', label: 'Vacancy cost calculator', note: 'What an empty unit costs per day, worked out.' },
+    { href: '/tools/maintenance-reserve-calculator/', label: 'Maintenance reserve calculator', note: 'How much to hold per unit, and why.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge, published.' },
+    { href: '/services/', label: 'What we actually do', note: 'The eight jobs, one page each.' },
+  ]} />
+
+  <Cta
+    heading="Get the numbers before you decide"
+    body="A free written rent evaluation gives you a rent range and the comparables behind it. It is yours to keep whether you hire us, hire someone else, or keep managing the property yourself."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

@@ -1,0 +1,307 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, kpis, areas } from '../../data/facts';
+import { personNode } from '../../lib/schema';
+
+/**
+ * The team page exists to close an E-E-A-T gap: the site had no named people,
+ * no author entity and no Person schema, so searching the broker's name plus
+ * the company returned nothing.
+ *
+ * Names and titles are taken verbatim from the current live /about/ page roster.
+ * NOTHING ELSE IS ASSERTED ABOUT ANY INDIVIDUAL. No tenures, no credentials, no
+ * biographies, no certifications. Where a bio would help, the page says a source
+ * is needed rather than inventing one.
+ *
+ * Peter Lohmann's slug must stay `peter-lohmann`: src/lib/schema.ts references
+ * https://rlpmg.com/team/#peter-lohmann as the organization's founder and
+ * employee, and as the author of every blog post.
+ */
+
+const title = 'Our Team | RL Property Management, Columbus Ohio';
+const description =
+  `The people at ${company.name} in Columbus, Ohio, led by ${company.brokerOfRecord.name}, ` +
+  `${company.brokerOfRecord.title}. Every name, every role, in leasing, maintenance, resident support and operations.`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Team', path: '/team/' }];
+
+/** "Licensed real estate brokerage in the State of Ohio", lowercased for mid-sentence use.
+ *  Only the first letter changes, so "State of Ohio" keeps its capitals. */
+const lic = company.license.charAt(0).toLowerCase() + company.license.slice(1);
+
+const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+/**
+ * The roster, exactly as published on the live About page on 2026-09-09.
+ * Group assignment is derived from each person's own job title and nothing else.
+ */
+const groups = [
+  {
+    id: 'leadership',
+    name: 'Leadership',
+    note: 'Brokerage, operations, maintenance and people leadership.',
+    people: [
+      { name: 'Peter Lohmann',    title: company.brokerOfRecord.title },
+      { name: 'Brennan Ball',     title: 'VP of Operations' },
+      { name: 'Micheal McKibben', title: 'Maintenance Director' },
+      { name: 'Lauren Niziol',    title: 'People Operations Director' },
+    ],
+  },
+  {
+    id: 'owner-service',
+    name: 'Owner and client service',
+    note: 'The owner-facing roles, plus the front desk that answers the phone.',
+    people: [
+      { name: 'Bethany Blackthorne', title: 'Client Lead' },
+      { name: 'Scott Fritz',         title: 'Business Development Manager' },
+      { name: 'JD Robbs',            title: 'Operations Specialist' },
+      { name: 'Damali Lockwood',     title: 'Receptionist' },
+    ],
+  },
+  {
+    id: 'leasing',
+    name: 'Leasing and vacant units',
+    note: 'Listing, showing and leasing units that are empty, and getting them ready to show.',
+    people: [
+      { name: 'Sara Marion',      title: 'Leasing Lead' },
+      { name: 'Kendra Menchavez', title: 'Leasing Assistant' },
+      { name: 'Tiffany Haynes',   title: 'Vacant Unit Manager' },
+      { name: 'Criss Tenorio',    title: 'Vacant Unit Assistant' },
+      { name: 'Jose Carranco',    title: 'Vacant Unit Coordinator' },
+      { name: 'Robyn Fabin',      title: 'Showing Specialist' },
+    ],
+  },
+  {
+    id: 'residents',
+    name: 'Resident support',
+    note: 'The resident side of the business: requests, questions and lease matters.',
+    people: [
+      { name: 'Felipe Medina', title: 'Tenant Lead' },
+    ],
+  },
+  {
+    id: 'maintenance',
+    name: 'Maintenance',
+    note: 'Coordinators who schedule the work and technicians who do it.',
+    people: [
+      { name: 'Hammad Bhatti',        title: 'Occupied Maintenance Coordinator' },
+      { name: 'Zulaiz Ashraf',        title: 'Internal Maintenance Scheduler' },
+      { name: 'Damaris Aguilar',      title: 'Maintenance Coordinator' },
+      { name: 'Adam Abdullah',        title: 'Maintenance Coordinator' },
+      { name: 'Christopher Braghman', title: 'Maintenance Technician' },
+      { name: 'Adam Thompson',        title: 'Maintenance Technician' },
+      { name: 'Shaun Fent',           title: 'Maintenance Technician' },
+      { name: 'Draia Evans',          title: 'Maintenance Technician' },
+      { name: 'Shawn Smith',          title: 'Maintenance Technician' },
+      { name: 'Robert Northup',       title: 'Maintenance Tech' },
+    ],
+  },
+  {
+    id: 'people-marketing',
+    name: 'People operations and marketing',
+    note: 'Hiring and internal support, plus the people who write and publish what you are reading.',
+    people: [
+      { name: 'Elgine Jabagat',   title: 'People Operations Support Specialist' },
+      { name: 'Andrew Swensen',   title: 'Marketing Manager' },
+      { name: 'Ernesto Gonzalez', title: 'Marketing Assistant' },
+    ],
+  },
+].map((g) => ({ ...g, people: g.people.map((p) => ({ ...p, slug: slug(p.name) })) }));
+
+const roster = groups.flatMap((g) => g.people);
+const headcount = roster.length;
+
+/**
+ * The only biography on this page. Every clause traces to src/data/facts.ts or
+ * to src/lib/schema.ts, which already names him as the organization's founder.
+ */
+const peterBio =
+  `${company.brokerOfRecord.name} founded ${company.name} in ${company.founded} and is its ` +
+  `${company.brokerOfRecord.title}. He is the broker of record for the firm, which is a ` +
+  `${lic}, and the named reviewer on the pages of this site.`;
+
+const faq = [
+  { q: 'Who is the broker of record at RL Property Management?',
+    a: `${company.brokerOfRecord.name}. He is ${company.brokerOfRecord.title} of ${company.name}, a ${lic} founded in ${company.founded}, and he is the named reviewer on the pages of this site.` },
+  { q: 'How many people work at RL Property Management?',
+    a: `${headcount} people, working out of ${company.address.city}, Ohio. Every one of them is named on this page with their role: leadership, owner service, leasing and vacant units, resident support, maintenance, and people operations and marketing.` },
+  { q: 'Who will I actually talk to?',
+    a: 'Owners deal with the client service group. Residents deal with resident support and the maintenance coordinators. Leasing questions on a vacant unit go to the leasing group. Each of those is a named person rather than a shared inbox with nobody behind it.' },
+  { q: 'Does RL Property Management use in-house maintenance technicians?',
+    a: `Yes. Maintenance is a department here, with a Maintenance Director, coordinators who schedule the work and technicians who do it. In-house labor is billed at an hourly rate published on the pricing page, and vendors are used where the work calls for a licensed trade.` },
+  { q: 'Who writes the content on this website?',
+    a: `Pages and articles are published by ${company.name} and reviewed by ${company.brokerOfRecord.name}, ${company.brokerOfRecord.title}. The marketing roles that produce them are listed on this page. The review date appears at the bottom of every page.` },
+  { q: 'Where is the team based?',
+    a: `${company.address.street}, ${company.address.city}, ${company.address.region} ${company.address.postalCode}. ${company.officeHoursNote}. Nothing in the portfolio is managed remotely from another state.` },
+  { q: 'Is RL Property Management hiring?',
+    a: 'Open roles, when there are any, are listed on the careers page along with the benefits offered. The company hires in Columbus for maintenance, leasing, resident support and operations.' },
+];
+
+const schemaNodes = [
+  personNode({
+    slug: 'peter-lohmann',
+    name: company.brokerOfRecord.name,
+    title: company.brokerOfRecord.title,
+    bio: peterBio,
+  }),
+  ...roster
+    .filter((p) => p.slug !== 'peter-lohmann')
+    .map((p) => personNode({ slug: p.slug, name: p.name, title: p.title })),
+  {
+    '@type': 'ItemList',
+    '@id': `${company.url}/team/#roster`,
+    name: `${company.name} team`,
+    numberOfItems: headcount,
+    itemListElement: roster.map((p, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: { '@id': `${company.url}/team/#${p.slug}` },
+    })),
+  },
+];
+
+const related = [
+  { href: '/about/', label: 'About the company', note: `What ${company.shortName} does, and for whom.` },
+  { href: '/core-values/', label: 'Core values', note: 'The six values this team is hired and measured against.' },
+  { href: '/careers/', label: 'Careers', note: 'Open roles and what the benefits are.' },
+  { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'What this team actually produces, in numbers.' },
+  { href: '/contact-us/', label: 'Contact us', note: 'Phone, email and the office address.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Our team"
+    title="The people who manage your property"
+    answer={`${company.name} is led by ${company.brokerOfRecord.name}, ${company.brokerOfRecord.title}. ${headcount} people in Columbus, Ohio manage ${company.unitsManaged} units across leasing, maintenance, resident support and operations. Every name and role is below.`}
+    breadcrumbs={breadcrumbs}
+    secondaryCta={{ label: 'Contact us', href: '/contact-us/' }}
+    wide
+  />
+
+  <!-- BROKER OF RECORD -->
+  <section class="band-tight" aria-labelledby="broker-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="broker-h" class="text-[clamp(26px,3vw,36px)] mb-6">Who is the broker of record?</h2>
+      <div class="card !p-8 md:!p-10" id="peter-lohmann">
+        <span class="eyebrow">Broker of record</span>
+        <h3 class="text-[clamp(24px,2.6vw,32px)] mb-1">{company.brokerOfRecord.name}</h3>
+        <p class="font-sans text-[13px] font-bold tracking-[.13em] uppercase text-crimson m-0 mb-5">
+          {company.brokerOfRecord.title}
+        </p>
+        <p class="text-[17px] text-muted m-0">{peterBio}</p>
+        <p class="text-[17px] text-muted mt-4 mb-0">
+          Every page on this site carries a verification date and his name as reviewer, so a reader
+          can see when a figure was last checked and who checked it. He is also the author entity on
+          the articles published in <a href="/blog/" class="text-crimson font-semibold no-underline hover:underline">Insights</a>.
+        </p>
+        <p class="text-[14px] text-faint mt-6 mb-0">
+          [SOURCE NEEDED: a fuller biography for Peter Lohmann, including years in Columbus real
+          estate, license number, prior roles, and any speaking, writing or industry work worth
+          citing. Nothing beyond title and role is published here because nothing beyond title and
+          role has been verified.]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY THIS PAGE EXISTS -->
+  <section class="band-tight" aria-labelledby="why-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="why-h">Why does a property manager publish its team?</h2>
+      <p>
+        Because you are handing an asset worth several hundred thousand dollars to strangers, and
+        you should be able to see who they are. A management company that lists no names is asking
+        for that trust without offering anything checkable in return.
+      </p>
+      <p>
+        There is a practical reason too. When a repair goes sideways or a lease question needs a
+        real answer, the useful thing is knowing which function owns it. The groups below are the
+        actual departments: leasing and vacant units, resident support, maintenance, owner service,
+        and the people who run hiring and publishing.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE ROSTER -->
+  <section class="band band-wash" aria-labelledby="roster-h">
+    <div class="wrap">
+      <span class="eyebrow">Everyone, by function</span>
+      <h2 id="roster-h" class="text-[clamp(28px,3.3vw,40px)]">Who works at RL Property Management?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-9 max-w-[44em]">
+        {headcount} people, grouped by what they do. Titles are current as of {kpis.asOfLabel}.
+      </p>
+
+      {groups.map((g) => (
+        <div class="mb-11" id={g.id}>
+          <h3 class="text-[22px] mb-1">{g.name}</h3>
+          <p class="text-[15px] text-muted mt-0 mb-5">{g.note}</p>
+          <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {g.people.map((p) => (
+              <li class="card !p-5" id={p.slug === 'peter-lohmann' ? undefined : p.slug}>
+                <h4 class="text-[18px] mb-1">
+                  {p.slug === 'peter-lohmann'
+                    ? <a href="#peter-lohmann" class="no-underline text-navy hover:text-crimson">{p.name}</a>
+                    : p.name}
+                </h4>
+                <p class="font-sans text-[14px] text-muted m-0">{p.title}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <p class="text-[14px] text-faint max-w-[44em]">
+        [SOURCE NEEDED: individual biographies, tenure with the company, licenses and
+        certifications, and headshots for each team member. Only names and job titles are published
+        here, because only names and job titles are currently verified.]
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW THE TEAM IS ORGANIZED -->
+  <section class="band-tight" aria-labelledby="org-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="org-h">How is the team organized?</h2>
+      <p>
+        By function, not by property. Leasing people lease, maintenance people maintain, and the
+        client service group owns the owner relationship. The alternative model, one generalist
+        handling every task on a slice of the portfolio, means the same person is showing a unit at
+        4pm and taking a water-heater call at 4:05.
+      </p>
+      <p>
+        Maintenance is the largest group here, which is deliberate: repairs are where owner money
+        actually goes and where a slow manager costs the most. Median time to close a repair across
+        the portfolio is {kpis.metrics[5].value} days, published on the
+        {' '}<a href="/key-performance-indicators/">scorecard</a> and refreshed quarterly.
+      </p>
+
+      <h2>Where does the team work?</h2>
+      <p>
+        Out of {company.address.city}, Ohio, covering {areas.length} Central Ohio communities.
+        {' '}{company.officeHoursNote}, so call {company.phone} or email
+        {' '}<a href={`mailto:${company.email}`}>{company.email}</a> rather than stopping in.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Questions about the team" id="team-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={related} />
+
+  <Cta
+    heading="Talk to a person, not a form"
+    body="A free rent evaluation puts a real number on your unit. If you would rather just ask a question first, call the office."
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

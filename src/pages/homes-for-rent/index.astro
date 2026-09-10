@@ -1,0 +1,387 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, kpis, rentPolicy, pricing, areas, areaUrl, usd } from '../../data/facts';
+import { rentByBedroom } from '../../data/markets';
+
+/**
+ * The highest-traffic renter page on the site.
+ *
+ * Search intent: "houses for rent columbus ohio", "3 bedroom house for rent
+ * [city] ohio", "pet friendly rentals columbus", "houses for rent near me".
+ *
+ * The job of this page is to turn a searcher into a showing and then an
+ * application. The listings themselves are a live feed; everything around them
+ * is the static content that will actually rank and that answers the four
+ * questions every renter has before they call: how do I see it, what do I need
+ * to qualify, what does it cost to apply, can I have a pet.
+ *
+ * LISTINGS FEED: pending. See the placeholder section below.
+ */
+
+const title = 'Homes for Rent in Columbus, Ohio | RL Property Management';
+const description =
+  `Houses and small multifamily rentals available now across the Columbus, Ohio metro from ${company.name}. ` +
+  `See current listings, book a showing, and apply online. Median 3 bedroom rent is ${usd(rentByBedroom['3'].median)}.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Homes for rent', path: '/homes-for-rent/' },
+];
+
+const answer =
+  `${company.name} manages ${company.unitsManaged} rental homes across the Columbus, Ohio metro. ` +
+  `Browse what is available now, book a showing, and apply online. Median rent runs ` +
+  `${usd(rentByBedroom['2'].median)} for a two bedroom and ${usd(rentByBedroom['3'].median)} for a three bedroom.`;
+
+const keyFacts = [
+  `${company.unitsManaged} homes under management across ${areas.length} Columbus area communities`,
+  `Median rent across the portfolio: 1 bed ${usd(rentByBedroom['1'].median)}, 2 bed ${usd(rentByBedroom['2'].median)}, 3 bed ${usd(rentByBedroom['3'].median)}, 4 bed ${usd(rentByBedroom['4'].median)}`,
+  `Rent is due on ${rentPolicy.dueDate}, late fees are assessed after ${rentPolicy.lateFeesAfter}`,
+  `Resident satisfaction ${kpis.metrics.find((m) => m.id === 'satisfaction')?.value} out of 5`,
+  `Repairs close in a median of ${kpis.metrics.find((m) => m.id === 'repairDays')?.value} days`,
+  `Approved pets are covered up to ${usd(pricing.petDamageCoverage.cap)} in damage above the deposit`,
+];
+
+/** Bedroom rows for the rent table. Read from the fact bank, never typed. */
+const bedroomRows = Object.entries(rentByBedroom).map(([beds, v]) => ({
+  beds,
+  median: v.median,
+  sample: v.sample,
+}));
+
+const dom = kpis.metrics.find((m) => m.id === 'dom')?.value;
+const occupancy = kpis.metrics.find((m) => m.id === 'occupancy')?.value;
+const repairDays = kpis.metrics.find((m) => m.id === 'repairDays')?.value;
+
+const faq = [
+  { q: 'What homes do you have for rent in Columbus, Ohio right now?',
+    a: `${company.name} manages ${company.unitsManaged} single-family homes and small multifamily units across ${areas.length} communities in the Columbus metro, and the list of what is available changes weekly. Current listings appear on this page. If nothing on the list fits, call ${company.phone} and tell us what you are looking for.` },
+  { q: 'How do I schedule a showing?',
+    a: 'Every listing carries its own showing option, so you book the home you want to see rather than calling a general line and waiting for a callback. [SOURCE NEEDED: whether showings are self-guided, agent-led, or both, and any identity or payment card verification required to book one].' },
+  { q: 'How much does it cost to apply?',
+    a: 'The application fee is [SOURCE NEEDED: application fee amount, and whether it is charged per adult applicant or per household]. It is charged when you submit, and it covers the cost of running the screening reports.' },
+  { q: 'Do you allow pets?',
+    a: `Many of our homes accept pets, and the specific listing says whether that home does. Approved pets carry a monthly pet administration fee, which funds coverage of up to ${usd(pricing.petDamageCoverage.cap)} in pet damage above the security deposit. Service animals and assistance animals are not pets, are not charged a pet fee, and are handled under fair housing law. [SOURCE NEEDED: monthly pet administration fee amount, pet deposit if any, and the number, size or breed limits that apply].` },
+  { q: 'What do I need to qualify for a rental?',
+    a: 'Every applicant is screened on the same published criteria: identity, income, credit, rental history, and background. The thresholds are listed in full on our application criteria page so you can check yourself before you pay an application fee. [SOURCE NEEDED: income multiple, credit score minimum, and rental history requirements].' },
+  { q: 'How fast do your rentals get leased?',
+    a: `Median days on market across the portfolio is ${dom} days as of ${kpis.asOfLabel}, measured as ${kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)} Portfolio occupancy is ${occupancy}. A home you like will not sit for long, so book the showing before you finish comparing.` },
+  { q: 'Do you rent to applicants using a housing voucher?',
+    a: 'Yes. Columbus City Code sections 2331.02 and 4551.03 prohibit refusing to rent to someone because their income includes housing assistance, and many surrounding Central Ohio municipalities have the same protection. We apply the same screening criteria to every applicant regardless of how the income arrives.' },
+  { q: 'What areas do you have rentals in?',
+    a: `We manage homes in ${areas.length} communities across the Columbus metro, including Columbus, Dublin, Upper Arlington, Westerville, Worthington, Gahanna, Hilliard, Powell, Reynoldsburg, New Albany, Grove City, Bexley and Pickerington, spanning Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway counties.` },
+  { q: 'Who handles repairs once I move in?',
+    a: `We do. Maintenance requests go through the resident portal and are handled by in-house technicians and vetted vendors. Median time to close a repair is ${repairDays} days, and emergency coverage runs 24 hours a day.` },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="For renters"
+    title="Houses for rent in Columbus, Ohio"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Start an application', href: '/residents/how-to-apply/' }}
+    secondaryCta={{ label: 'See what you need to qualify', href: '/residents/application-criteria/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="The short version" />
+
+  <!--
+    ============================================================================
+    LIVE LISTINGS FEED: NOT YET INTEGRATED.
+
+    The live vacancy feed is RentEngine (rentengine.io/c/rlpmg). It is not known
+    yet whether RentEngine exposes an API we can build against at build time or
+    only an embeddable page.
+
+    Nothing is embedded here on purpose. This site ships zero JavaScript and no
+    third-party iframes, so a vendor widget cannot be dropped in without a
+    decision about what it costs in page speed, layout stability and privacy.
+
+    When the integration is decided, replace the placeholder panel below with
+    either a build-time fetch of the feed rendered as static cards, or a plain
+    outbound link to the hosted listing page. Do not add a client script.
+    ============================================================================
+  -->
+  <section class="band-tight" aria-labelledby="listings-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Available now</span>
+      <h2 id="listings-h" class="text-[clamp(28px,3.3vw,40px)]">What is available right now</h2>
+      <div class="card !bg-wash-soft mt-6">
+        <p class="text-[16.5px] text-muted m-0">
+          <strong class="text-navy">Listings placeholder.</strong> The live vacancy feed is not connected to
+          this page yet. Until it is, call {company.phone} or email
+          {' '}<a href={`mailto:${company.email}`} class="text-crimson font-semibold no-underline hover:underline">{company.email}</a>
+          {' '}and tell us the bedroom count, the areas you are looking in, and your target move-in date.
+          We will send you what is open.
+        </p>
+        <p class="text-[15px] text-crimson font-semibold mt-4 mb-0">
+          [SOURCE NEEDED: whether the RentEngine listing feed exposes an API for a build-time render, or
+          whether this section should link out to the hosted listing page instead]
+        </p>
+      </div>
+      <p class="text-[15px] text-faint mt-5">
+        Everything below applies to every home we lease, so you can work out whether you qualify and what
+        the process looks like before a specific home is even open.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW TO SEE A HOME -->
+  <section class="band band-wash" aria-labelledby="see-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Step one</span>
+      <h2 id="see-h" class="text-[clamp(28px,3.3vw,40px)]">How do I see one of your homes?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        You book the showing from the listing for the specific home, not from a general contact form.
+        That is deliberate. It means you are scheduled against a real address and a real time window
+        instead of waiting on a callback that may come after the home is gone.
+      </p>
+      <ol class="mt-6 grid gap-4">
+        <li class="card !p-5">
+          <span class="block font-serif text-[18px] font-semibold text-navy mb-1">1. Find the home</span>
+          <span class="block text-[15.5px] text-muted">
+            Check the bedroom count, the rent, the pet policy and the available date on the listing before
+            you book. Those four things rule out most mismatches.
+          </span>
+        </li>
+        <li class="card !p-5">
+          <span class="block font-serif text-[18px] font-semibold text-navy mb-1">2. Book a showing</span>
+          <span class="block text-[15.5px] text-muted">
+            Showings are booked per home.
+            <span class="text-crimson font-semibold">[SOURCE NEEDED: whether showings are self-guided with
+            a lockbox code, agent-led, or both, and what identity verification is required to book]</span>
+          </span>
+        </li>
+        <li class="card !p-5">
+          <span class="block font-serif text-[18px] font-semibold text-navy mb-1">3. Apply the same day if you want it</span>
+          <span class="block text-[15.5px] text-muted">
+            Applications are reviewed in the order they are completed, not in the order they are started.
+            An application missing income documents sits behind a complete one filed later.
+          </span>
+        </li>
+      </ol>
+      <p class="text-[15px] text-muted mt-6">
+        Median days on market across our portfolio is {dom} days as of {kpis.asOfLabel}. Homes priced at
+        market in good condition move faster than that.
+      </p>
+    </div>
+  </section>
+
+  <!-- QUALIFYING -->
+  <section class="band" aria-labelledby="qualify-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Before you pay a fee</span>
+      <h2 id="qualify-h" class="text-[clamp(28px,3.3vw,40px)]">What do I need to qualify?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Five things, checked the same way for every applicant on every home: identity, income, credit,
+        rental history and a background check. We publish the standard so you can check yourself against
+        it before you spend anything.
+      </p>
+      <ul class="mt-6 grid gap-3">
+        <li class="flex gap-3 text-[15.5px]"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">1</span><span><strong class="text-navy">Identity.</strong> A government issued photo ID for every adult who will live in the home.</span></li>
+        <li class="flex gap-3 text-[15.5px]"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">2</span><span><strong class="text-navy">Income.</strong> Verifiable income against the rent. <span class="text-crimson font-semibold">[SOURCE NEEDED: the income multiple required, for example gross monthly income of at least a set multiple of rent, and which documents are accepted as proof]</span></span></li>
+        <li class="flex gap-3 text-[15.5px]"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">3</span><span><strong class="text-navy">Credit.</strong> A credit report is pulled for every adult applicant. <span class="text-crimson font-semibold">[SOURCE NEEDED: minimum credit score, and how open collections, medical debt and prior bankruptcy are treated]</span></span></li>
+        <li class="flex gap-3 text-[15.5px]"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">4</span><span><strong class="text-navy">Rental history.</strong> We contact prior landlords. <span class="text-crimson font-semibold">[SOURCE NEEDED: how many years of rental history are verified, and how prior evictions, judgments and balances owed are treated]</span></span></li>
+        <li class="flex gap-3 text-[15.5px]"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">5</span><span><strong class="text-navy">Background.</strong> A criminal background check is run for every adult applicant, and the result is assessed individually. <span class="text-crimson font-semibold">[SOURCE NEEDED: the written criminal screening standard, including lookback period and the individualized assessment process]</span></span></li>
+      </ul>
+      <p class="text-[15px] text-muted mt-6">
+        The full standard, including how we treat each of the items above, lives on the
+        {' '}<a href="/residents/application-criteria/" class="text-crimson font-semibold no-underline hover:underline">application criteria</a> page.
+      </p>
+    </div>
+  </section>
+
+  <!-- COST TO APPLY -->
+  <section class="band band-wash" aria-labelledby="cost-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Money up front</span>
+      <h2 id="cost-h" class="text-[clamp(28px,3.3vw,40px)]">What does it cost to apply, and what is due at move-in?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        There are two separate moments where money moves: the application fee when you submit, and the
+        move-in funds when you sign. Nothing else is due between them.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Costs an applicant should expect, in order</caption>
+          <thead>
+            <tr class="bg-white">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">When</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">What</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">When you submit</th>
+              <td class="p-3.5 border border-line align-top text-muted">Application fee, which pays for the screening reports</td>
+              <td class="p-3.5 border border-line align-top text-crimson font-semibold">[SOURCE NEEDED: application fee, and whether it is per adult or per household]</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">When you are approved</th>
+              <td class="p-3.5 border border-line align-top text-muted">Security deposit</td>
+              <td class="p-3.5 border border-line align-top text-crimson font-semibold">[SOURCE NEEDED: security deposit amount or formula, and the deadline to pay it after approval]</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Before you get keys</th>
+              <td class="p-3.5 border border-line align-top text-muted">First month of rent, prorated if you move mid-month</td>
+              <td class="p-3.5 border border-line align-top text-muted">The rent shown on the listing</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">Monthly, if you have a pet</th>
+              <td class="p-3.5 border border-line align-top text-muted">Pet administration fee, which funds pet damage coverage above the deposit</td>
+              <td class="p-3.5 border border-line align-top text-crimson font-semibold">[SOURCE NEEDED: monthly pet administration fee amount]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        After move-in, rent is due on {rentPolicy.dueDate}. In practice most residents pay between
+        {' '}{rentPolicy.practicalWindow}, and late fees are assessed after {rentPolicy.lateFeesAfter}. Across the
+        portfolio, {kpis.metrics.find((m) => m.id === 'collectedBy5')?.value} of rent is collected by the 5th.
+      </p>
+    </div>
+  </section>
+
+  <!-- PETS -->
+  <section class="band" aria-labelledby="pets-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Pet friendly rentals</span>
+      <h2 id="pets-h" class="text-[clamp(28px,3.3vw,40px)]">Can I have a pet?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        In many of our homes, yes, and the listing for each home says so. Pet policy is set per property,
+        because the owner of that property makes the call, so a home that says no pets is not a decision
+        we can reverse for an individual applicant.
+      </p>
+      <p class="text-[16.5px] text-muted mt-4">
+        Where pets are allowed, an approved pet carries a monthly pet administration fee. That fee funds
+        real coverage: if an approved pet causes damage beyond normal wear and tear and the cost runs past
+        the security deposit, up to {usd(pricing.petDamageCoverage.cap)} of the difference is covered. That
+        protects the owner, and it is the reason pets are welcome in as many of our homes as they are.
+      </p>
+      <div class="card mt-6">
+        <h3 class="text-[18.5px] mb-2">Service animals and assistance animals are not pets</h3>
+        <p class="text-[15.5px] text-muted m-0">
+          A service animal or an assistance animal is not a pet under fair housing law. No pet
+          administration fee applies, no pet deposit applies, and the {usd(pricing.petDamageCoverage.cap)}
+          {' '}pet damage coverage described above does not apply to them either. Requests for a reasonable
+          accommodation are handled separately from the pet policy and are reviewed the same way for every
+          applicant.
+        </p>
+      </div>
+      <p class="text-[15px] text-crimson font-semibold mt-5">
+        [SOURCE NEEDED: monthly pet administration fee amount, pet deposit if any, and any limits on number,
+        weight, species or breed]
+      </p>
+    </div>
+  </section>
+
+  <!-- RENTS -->
+  <section class="band band-wash" aria-labelledby="rents-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">What things cost</span>
+      <h2 id="rents-h" class="text-[clamp(28px,3.3vw,40px)]">What do homes rent for in the Columbus metro?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Median rent across the {company.unitsManaged} homes we manage runs from
+        {' '}{usd(rentByBedroom['1'].median)} for a one bedroom to {usd(rentByBedroom['4'].median)} for a four
+        bedroom. These are our own leases, not a market estimate, so they are what people are actually
+        paying right now.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse bg-white text-[15.5px] rounded-[12px] overflow-hidden">
+          <caption class="sr-only">Median rent by bedroom count across the RL Property Management portfolio</caption>
+          <thead>
+            <tr class="bg-white">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Bedrooms</th>
+              <th scope="col" class="text-right p-3.5 border border-line font-semibold">Median rent</th>
+              <th scope="col" class="text-right p-3.5 border border-line font-semibold">Units in the sample</th>
+            </tr>
+          </thead>
+          <tbody>
+            {bedroomRows.map((r) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium">{r.beds} bedroom</th>
+                <td class="text-right p-3.5 border border-line tabular-nums font-semibold text-navy">{usd(r.median)}</td>
+                <td class="text-right p-3.5 border border-line tabular-nums text-muted">{r.sample}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15px] text-faint mt-5">
+        Median rent across the whole portfolio is
+        {' '}{kpis.metrics.find((m) => m.id === 'avgRent')?.value}, as of {kpis.asOfLabel}. Rent on any
+        individual home depends on the home, not on this table.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHERE -->
+  <section class="band" aria-labelledby="where-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Where we lease</span>
+      <h2 id="where-h" class="text-[clamp(28px,3.3vw,40px)]">Where do you have rentals?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Across {areas.length} communities in the Columbus metro, spanning Franklin, Delaware, Fairfield,
+        Licking, Union, Madison and Pickaway counties. If you are searching by suburb, start here.
+      </p>
+      <div class="flex flex-wrap gap-x-5 gap-y-2 mt-6 text-[15.5px]">
+        {areas.map((a) => (
+          <a href={areaUrl(a)} class="text-crimson no-underline hover:underline">{a.name}</a>
+        ))}
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        Not every community has something open every week. Tell us the areas you are searching and the
+        bedroom count you need, and we will tell you what is coming up.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAIR HOUSING -->
+  <section class="band-tight" aria-labelledby="fh-h">
+    <div class="wrap max-w-[880px]">
+      <div class="card !border-2 !border-navy">
+        <h2 id="fh-h" class="text-[21px] mb-3">Equal housing opportunity</h2>
+        <p class="text-[15.5px] text-muted m-0">
+          {company.name} is a licensed Ohio real estate brokerage and follows federal, Ohio and City of
+          Columbus fair housing law. Every applicant is screened against the same written criteria, in the
+          order applications are completed. We do not steer applicants toward or away from any home or any
+          area. Applicants who need a reasonable accommodation or a reasonable modification because of a
+          disability should tell us, and the request is handled separately from the screening decision.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Renter questions about our Columbus homes" id="homes-faq" />
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/residents/how-to-apply/', label: 'How to apply', note: 'The application, start to keys, and what to have ready.' },
+    { href: '/residents/application-criteria/', label: 'Application criteria', note: 'The written standard every applicant is screened against.' },
+    { href: '/residents/moving-in/', label: 'Moving in', note: 'Utilities, keys, and the condition report.' },
+    { href: '/resident-faqs/', label: 'Resident FAQs', note: 'Rent, repairs, pets, renewals and move-out, answered.' },
+    { href: '/residents/', label: 'Resident hub', note: 'Everything a current resident needs in one place.' },
+  ]} />
+
+  <Cta
+    heading="Found one you like?"
+    body="Applications are reviewed in the order they are completed. Check the criteria first, then apply, and have your income documents ready when you do."
+    primary={{ label: 'Start an application', href: '/residents/how-to-apply/' }}
+    secondary={{ label: 'See application criteria', href: '/residents/application-criteria/' }}
+  />
+</Base>

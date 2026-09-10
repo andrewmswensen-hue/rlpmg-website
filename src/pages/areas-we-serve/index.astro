@@ -1,0 +1,372 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, areas, areaUrl, usd } from '../../data/facts';
+import { markets } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * The "where we work" hub. Links to all 35 areas and back-links from every one.
+ *
+ * Two jobs. First, it is the routing table: an owner lands here from the nav and
+ * gets to their own suburb in one click. Second, it carries the one piece of
+ * genuinely useful information that is true across the whole footprint and that
+ * no competitor publishes: which county an area sits in and therefore which
+ * municipal court hears an eviction for an address there.
+ *
+ * SCHEMA: this page emits Service only. There is exactly one LocalBusiness node
+ * on this site, on the organization, tied to the Cross Pointe office. No area
+ * page carries an address, a geo or a phone of its own.
+ *
+ * SOURCES
+ *  - Court jurisdiction, every county below, is quoted from Ohio Revised Code
+ *    1901.02: https://codes.ohio.gov/ohio-revised-code/section-1901.02
+ *    "The Franklin county municipal court has jurisdiction within Franklin county."
+ *    "Beginning January 2, 2000, the Fairfield county municipal court has
+ *     jurisdiction within Fairfield county."
+ *    "The Delaware municipal court has jurisdiction within Delaware county."
+ *    "The Licking county municipal court has jurisdiction within Licking county."
+ *    "The Circleville municipal court has jurisdiction within Pickaway county."
+ *    "The Madison county municipal court has jurisdiction within Madison county."
+ *    "The Marysville municipal court has jurisdiction within Union county."
+ *  - ORC 5323.02 county auditor rental registration:
+ *    https://codes.ohio.gov/ohio-revised-code/section-5323.02
+ *    Franklin County Auditor FAQ: https://auditor.franklincountyohio.gov/Real-Estate/Rental-Registration
+ *  - Counties for the ten markets not in facts.ts `areas`, all verified 2026-09-09:
+ *    Lewis Center is an unincorporated community in Orange Township, Delaware County
+ *    (https://en.wikipedia.org/wiki/Lewis_Center,_Ohio). Galloway is unincorporated in
+ *    Prairie Township, Franklin County (https://en.wikipedia.org/wiki/Galloway,_Ohio).
+ *    Commercial Point is a village in Pickaway County
+ *    (https://en.wikipedia.org/wiki/Commercial_Point,_Ohio). Plain City is a village in
+ *    Madison and Union counties (https://en.wikipedia.org/wiki/Plain_City,_Ohio).
+ *    Pataskala, Johnstown and Granville are in Licking County; Groveport and Whitehall
+ *    are in Franklin County; South Bloomfield is in Pickaway County.
+ */
+
+const title = 'Areas We Serve in Central Ohio | RL Property Management';
+const description =
+  `${company.name} manages single-family and small multifamily rentals in ${markets.length} Central Ohio communities, ` +
+  `from Columbus out to Delaware, Licking, Fairfield, Pickaway, Madison and Union counties. Flat pricing, ${usd(pricing.leasingFee)} leasing fee.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+];
+
+/**
+ * The three Columbus neighborhoods are children of the Columbus page, not peers
+ * of Dublin. Treating a neighborhood as a city is the hierarchy error the old
+ * site made, and it puts the child page in competition with its own parent.
+ */
+const NEIGHBORHOOD_URL: Record<string, string> = {
+  'Clintonville':    '/property-management-columbus-ohio/clintonville/',
+  'German Village':  '/property-management-columbus-ohio/german-village/',
+  'Short North':     '/property-management-columbus-ohio/short-north/',
+};
+const NEIGHBORHOODS = Object.keys(NEIGHBORHOOD_URL);
+
+/** The ten markets that are in markets.ts but not in the legacy `areas` list. */
+const EXTRA: Record<string, { slug: string; county: string }> = {
+  'Lewis Center':     { slug: 'lewis-center',     county: 'Delaware' },
+  'Pataskala':        { slug: 'pataskala',        county: 'Licking' },
+  'Galloway':         { slug: 'galloway',         county: 'Franklin' },
+  'Johnstown':        { slug: 'johnstown',        county: 'Licking' },
+  'Groveport':        { slug: 'groveport',        county: 'Franklin' },
+  'Whitehall':        { slug: 'whitehall',        county: 'Franklin' },
+  'Commercial Point': { slug: 'commercial-point', county: 'Pickaway' },
+  'Plain City':       { slug: 'plain-city',       county: 'Madison and Union' },
+  'South Bloomfield': { slug: 'south-bloomfield', county: 'Pickaway' },
+  'Granville':        { slug: 'granville',        county: 'Licking' },
+};
+
+/** Columbus is the anchor. Canal Winchester keeps its existing URL, which has equity. */
+const urlFor = (city: string) => {
+  if (NEIGHBORHOOD_URL[city]) return NEIGHBORHOOD_URL[city];
+  if (city === 'Columbus') return '/property-management-columbus-ohio/';
+  const a = areas.find((x) => x.name === city);
+  if (a) return areaUrl(a);
+  const e = EXTRA[city];
+  return e ? `/property-management-${e.slug}-ohio/` : '/areas-we-serve/';
+};
+const countyFor = (city: string) => {
+  const a = areas.find((x) => x.name === city);
+  return a ? a.county : (EXTRA[city]?.county ?? 'Franklin');
+};
+
+/** Which court hears an eviction, by county. Every line quoted from ORC 1901.02. */
+const courts = [
+  { county: 'Franklin',  court: 'Franklin County Municipal Court',  where: '375 S. High St., Columbus' },
+  { county: 'Delaware',  court: 'Delaware Municipal Court',         where: 'Delaware' },
+  { county: 'Licking',   court: 'Licking County Municipal Court',   where: 'Newark' },
+  { county: 'Fairfield', court: 'Fairfield County Municipal Court', where: 'Lancaster' },
+  { county: 'Pickaway',  court: 'Circleville Municipal Court',      where: 'Circleville' },
+  { county: 'Madison',   court: 'Madison County Municipal Court',   where: 'London' },
+  { county: 'Union',     court: 'Marysville Municipal Court',       where: 'Marysville' },
+];
+
+/** Group the areas by county so the list reads as geography, not as an alphabet. */
+const COUNTY_ORDER = ['Franklin', 'Delaware', 'Licking', 'Fairfield', 'Pickaway', 'Madison', 'Union', 'Madison and Union'];
+const byCounty = COUNTY_ORDER.map((county) => ({
+  county,
+  cities: markets
+    .filter((m) => !NEIGHBORHOODS.includes(m.city) && m.city !== 'Columbus' && countyFor(m.city) === county)
+    .map((m) => ({ ...m, href: urlFor(m.city) }))
+    .sort((a, b) => a.city.localeCompare(b.city)),
+})).filter((g) => g.cities.length > 0);
+
+const keyFacts = [
+  `${markets.length} Central Ohio communities across seven counties`,
+  'One office, at 750 Cross Pointe Rd in Columbus, not a branch in every suburb',
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month everywhere we work`,
+  `${usd(pricing.leasingFee)} leasing fee in every one of these markets`,
+  'Franklin County Municipal Court hears evictions for every Franklin County address',
+  'A one-time, no-fee rental registration with the county auditor is required in Franklin County',
+];
+
+const faq = [
+  { q: 'What areas does RL Property Management serve?',
+    a: `${company.name} manages rental property in ${markets.length} Central Ohio communities. The core of the portfolio is Columbus and the inner Franklin County suburbs, and the footprint extends into Delaware, Licking, Fairfield, Pickaway, Madison and Union counties. If you own a rental inside that area, we can take it on.` },
+  { q: 'Do you have an office in my suburb?',
+    a: `No. ${company.name} runs one office, at ${company.address.street} in ${company.address.city}, and works the whole metro from it. A manager with a storefront in your suburb is not closer to your property in any way that changes an outcome. What changes outcomes is knowing which court hears the eviction, who bills the water, and whether the city requires rental registration.` },
+  { q: 'Which court hears an eviction in Central Ohio?',
+    a: 'The municipal court for the county the property sits in. Franklin County Municipal Court at 375 S. High St. in Columbus hears every Franklin County eviction. Delaware County goes to Delaware Municipal Court, Licking County to Licking County Municipal Court, Fairfield County to Fairfield County Municipal Court, Pickaway County to Circleville Municipal Court, Madison County to Madison County Municipal Court, and Union County to Marysville Municipal Court. Territorial jurisdiction for all of these is set by Ohio Revised Code 1901.02.' },
+  { q: 'Do you manage property in an area where you have no units today?',
+    a: 'Yes. Every community listed on this page is one we will take on. Some of them we already work daily, some we do not have a unit in yet, and the pricing and the process are the same either way.' },
+  { q: 'Does pricing change by city?',
+    a: `No. Flat monthly management is ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, and the leasing fee is ${usd(pricing.leasingFee)}, in every market on this list. There is no travel surcharge and no outer-ring rate.` },
+  { q: 'Do I have to register my rental with the county?',
+    a: 'In Franklin County, yes. Ohio Revised Code 5323.02 requires an owner of residential rental property in any Ohio county over 200,000 people to file the owner name, address and telephone number with the county auditor. It is a one-time filing with no fee, and the information has to be updated within 60 days of any change. An owner who lives outside Ohio also has to name an Ohio resident as agent for service of process.' },
+  { q: 'Are Clintonville, German Village and the Short North separate cities?',
+    a: 'No. All three are Columbus neighborhoods inside Franklin County, so Columbus ordinances, Columbus utilities and Franklin County Municipal Court apply to all of them. They have their own pages because their housing stock and their historic-district rules differ sharply from the rest of the city, not because they are separate jurisdictions.' },
+  { q: 'What kind of property do you manage?',
+    a: `${company.propertyTypes.charAt(0).toUpperCase() + company.propertyTypes.slice(1)}, which is what most of Central Ohio's rental stock actually is. Scattered single-family houses, doubles, and small apartment buildings, rather than large institutional complexes.` },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/areas-we-serve/',
+    name: 'Residential property management',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Areas we serve across Central Ohio"
+    answer={`${company.name} manages single-family and small multifamily rentals in ${markets.length} Central Ohio communities across seven counties, from Columbus out to Delaware, Newark, Lancaster and Marysville. Flat pricing, ${usd(pricing.leasingFee)} leasing fee, everywhere.`}
+    breadcrumbs={breadcrumbs}
+    secondaryCta={{ label: 'See pricing', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} />
+
+  <!-- COLUMBUS, THE ANCHOR -->
+  <section class="band-tight" aria-labelledby="cbus-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="cbus-h" class="text-[clamp(26px,3vw,36px)]">Where is most of the portfolio?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Columbus. It is by a wide margin our largest market, and it is the only one of these
+        communities with its own rental registration ordinance, its own historic district
+        commissions and its own municipal water utility. If you own in the city, start there.
+      </p>
+      <div class="card !border-2 !border-navy !p-8 md:!p-10 mt-7">
+        <span class="eyebrow">The anchor page</span>
+        <h3 class="text-[26px] mb-3">
+          <a href="/property-management-columbus-ohio/" class="text-navy no-underline hover:text-crimson">
+            Property management in Columbus, Ohio
+          </a>
+        </h3>
+        <p class="text-[16.5px] text-muted mb-5">
+          Rents by bedroom across the units we manage in Columbus, the rental registry passed in
+          April 2026, who bills the water and why an unpaid tenant water bill lands on the owner,
+          and what an eviction costs at Franklin County Municipal Court.
+        </p>
+        <ul class="grid gap-3 sm:grid-cols-3">
+          {NEIGHBORHOODS.map((n) => (
+            <li>
+              <a href={NEIGHBORHOOD_URL[n]} class="block card !p-4 no-underline card-hover">
+                <span class="block font-serif text-[17px] font-semibold text-navy">{n}</span>
+                <span class="block text-[14px] text-muted mt-1">Columbus neighborhood</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE FULL LIST, BY COUNTY -->
+  <section class="band band-wash" aria-labelledby="list-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">The full list</span>
+      <h2 id="list-h" class="text-[clamp(28px,3.3vw,40px)]">Which communities do we manage rental property in?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        All {markets.length}, grouped by county rather than alphabetically, because the county is what
+        decides which court hears an eviction and which auditor you register the property with.
+      </p>
+
+      {byCounty.map((g) => (
+        <div class="mb-9">
+          <h3 class="text-[21px] mb-1.5">{g.county} County</h3>
+          <p class="text-[14.5px] text-faint mb-4">
+            Evictions are heard by {courts.find((c) => g.county.startsWith(c.county))?.court ?? 'the county municipal court'}.
+          </p>
+          <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {g.cities.map((c) => (
+              <li>
+                <a href={c.href} class="block card !p-4 no-underline card-hover">
+                  <span class="block font-serif text-[17px] font-semibold text-navy">{c.city}</span>
+                  <span class="block text-[14px] text-muted mt-1">
+                    {c.tier === 'coverage'
+                      ? 'We will take on rental property here'
+                      : 'Rent data and local rules'}
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- COURTS -->
+  <section class="band" aria-labelledby="court-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">Public record</span>
+      <h2 id="court-h" class="text-[clamp(28px,3.3vw,40px)]">Which court hears an eviction for my address?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        The municipal court for the county the property sits in, not the county you live in and not
+        the city on the mailing address. Territorial jurisdiction for every one of these is set by
+        Ohio Revised Code 1901.02.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Municipal court with eviction jurisdiction, by county</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">County</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Court that hears the eviction</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Sits in</th>
+            </tr>
+          </thead>
+          <tbody>
+            {courts.map((c) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium">{c.county}</th>
+                <td class="p-3.5 border border-line text-navy font-semibold">{c.court}</td>
+                <td class="p-3.5 border border-line text-muted">{c.where}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        An eviction in Ohio is a forcible entry and detainer action under Revised Code Chapter 1923.
+        The hard cost in Franklin County is {usd(pricing.eviction.hardCostTotal)}:
+        {' '}{usd(pricing.eviction.attorneyFee)} to the eviction attorney and
+        {' '}{usd(pricing.eviction.countyFilingFee)} to the county for the filing. Full detail is on the
+        {' '}<a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">pricing page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band band-wash" aria-labelledby="reg-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">Before you rent it out</span>
+      <h2 id="reg-h" class="text-[clamp(28px,3.3vw,40px)]">Do I have to register my rental anywhere?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        In Franklin County, yes, and there are two separate filings that owners often confuse.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2 mt-7">
+        <div class="card">
+          <h3 class="text-[18.5px] mb-2">The county filing, everywhere in Franklin County</h3>
+          <p class="text-[15px] text-muted m-0">
+            Ohio Revised Code 5323.02 requires the owner of residential rental property in any Ohio
+            county over 200,000 people to file the owner name, address and telephone number with the
+            county auditor. One time, no fee, updated within 60 days of any change. An owner living
+            outside Ohio also has to name an Ohio resident as agent for service of process.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-[18.5px] mb-2">The city filing, inside Columbus only</h3>
+          <p class="text-[15px] text-muted m-0">
+            Columbus City Council enacted Chapter 4515 of the Columbus City Codes on April 20, 2026,
+            creating an annual registry of residential rental properties at {usd(15)} per unit, capped
+            at {usd(1500)} per complex. It applies to property inside Columbus city limits. It does not
+            apply in Dublin, Westerville, Grove City or any other municipality on this list.
+          </p>
+        </div>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        City limits and mailing addresses do not match in Central Ohio. Franklin County still contains
+        unincorporated township islands surrounded by Columbus, and plenty of properties carry a
+        Columbus mailing address while sitting in another municipality or a township. The parcel record
+        at the Franklin County Auditor is what settles it, and it is what we check before we quote a
+        registration obligation.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK A METRO THIS WIDE -->
+  <section class="band" aria-labelledby="how-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">One office, one team</span>
+      <h2 id="how-h" class="text-[clamp(28px,3.3vw,40px)]">How do you cover a metro this wide from one office?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6 max-w-[44em]">
+        With in-house technicians who drive the whole footprint, a maintenance dispatch that routes by
+        geography rather than by whoever is free, and self-guided showings so a prospect in Pataskala is
+        not waiting on an agent to drive out from Columbus. The alternative, a storefront in every
+        suburb, costs money and improves nothing an owner can measure.
+      </p>
+      <ul class="grid gap-x-8 gap-y-1 sm:grid-cols-2">
+        {[
+          `In-house labor at ${usd(pricing.maintenance.inHouseHourly)} an hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, materials at cost`,
+          'Self-guided and agent-led showings in every market on this list',
+          'Quarterly interior and exterior inspections with photos',
+          'One custom lease, reviewed by counsel, used across all seven counties',
+          '24/7 emergency response, whichever county the furnace fails in',
+          'Eviction filed at the correct county court, with a local eviction attorney',
+        ].map((x) => (
+          <li class="flex gap-3 py-2 text-[15.5px]">
+            <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{x}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Questions about where we work" id="areas-faq" />
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks
+    heading="Where to go next"
+    links={[
+      { href: '/property-management-columbus-ohio/', label: 'Property management in Columbus', note: 'The anchor page, with rents, the registry and the court.' },
+      { href: '/pricing/', label: 'Pricing', note: `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, published in full.` },
+      { href: '/services/', label: 'What we do', note: 'Leasing, screening, maintenance, rent collection, evictions.' },
+      { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'What your unit should earn, priced against our own data.' },
+    ]}
+  />
+
+  <Cta
+    heading="Tell us where the property is"
+    body="Give us the address and we will tell you what it should rent for, which court would hear an eviction on it, and whether the city requires registration. No charge and no obligation."
+    secondary={{ label: 'See pricing', href: '/pricing/' }}
+  />
+</Base>

@@ -1,0 +1,259 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, usd } from '../../../data/facts';
+
+/**
+ * The screening standard, published.
+ *
+ * FAIR HOUSING: this page describes criteria applied consistently to every
+ * applicant. It never describes a preferred applicant, never characterises who
+ * lives in a home or an area, and never implies a protected class is treated
+ * differently. Any edit to this page should keep that true.
+ *
+ * Every threshold on this page is marked [SOURCE NEEDED] on purpose. Publishing
+ * an invented income multiple or credit minimum would be worse than publishing
+ * nothing, because applicants would rely on it and the leasing team would be
+ * held to it.
+ */
+
+const title = 'Rental Application Criteria | RL Property Management, Columbus Ohio';
+const description =
+  `The written screening standard ${company.name} applies to every rental applicant: identity, income, ` +
+  `credit, rental history and background, applied consistently and within fair housing law.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Residents', path: '/residents/' },
+  { name: 'Application criteria', path: '/residents/application-criteria/' },
+];
+
+const answer =
+  `Every adult applicant for an ${company.name} home is screened on the same five things: identity, ` +
+  `verifiable income, credit, rental history and a background check. The same standard applies on every ` +
+  `home, for every applicant.`;
+
+const keyFacts = [
+  'Every adult who will live in the home is screened separately',
+  'The same criteria apply to every applicant on every home',
+  'Income requirement: [SOURCE NEEDED: income multiple of monthly rent]',
+  'Credit standard: [SOURCE NEEDED: minimum score and how collections are treated]',
+  'Rental history: [SOURCE NEEDED: years verified and how prior evictions are treated]',
+  'A declined applicant receives an adverse action notice naming the reporting agency',
+];
+
+const criteria = [
+  {
+    h: 'Identity',
+    a: 'Every adult applicant provides a government issued photo ID, and the name on the application has to match it.',
+    detail: 'This is the one criterion with no judgment in it. We verify that the person applying is the person being screened, and the person named on the lease is the person who moves in.',
+    unknown: null,
+  },
+  {
+    h: 'Income',
+    a: 'Income has to be verifiable and it has to be sufficient against the rent on that specific home.',
+    detail: 'Income is measured on the total household, and the source of that income does not matter. Wages, self-employment, retirement, disability, Social Security, child support, housing assistance and any other lawful, verifiable source count the same way. What we verify is that the money is real and that it arrives.',
+    unknown: 'income multiple required against monthly rent, which documents are accepted as proof, and how many months of history are required',
+  },
+  {
+    h: 'Credit',
+    a: 'A credit report is pulled for every adult applicant and measured against a published standard.',
+    detail: 'A credit report is a payment-history document, not a character document, and it is read that way. Balances owed to a prior landlord or utility carry more weight than an old medical account, because they describe the same obligation you are applying to take on.',
+    unknown: 'minimum credit score, and how open collections, medical debt, charge-offs and a prior bankruptcy are each treated',
+  },
+  {
+    h: 'Rental history',
+    a: 'We contact prior landlords directly and verify what you reported on the application.',
+    detail: 'What we ask is narrow and the same every time: did you pay on time, did you give proper notice, was the home returned in reasonable condition, and would they rent to you again. A first-time renter with no rental history is not automatically declined; the other criteria carry more of the decision.',
+    unknown: 'how many years of rental history are verified, and how a prior eviction filing, an eviction judgment, or a balance owed to a former landlord is treated, including any lookback period',
+  },
+  {
+    h: 'Background check',
+    a: 'A criminal background check is run for every adult applicant, and results are assessed individually rather than as a blanket bar.',
+    detail: 'A blanket refusal to rent to anyone with any record is a fair housing problem, so it is not what we do. Where a record appears, the assessment looks at the nature of the conduct, how long ago it happened, and whether it bears on the safety of the property, neighbors or staff.',
+    unknown: 'the written criminal screening standard, including the lookback period, which categories of offense are considered, and the individualized assessment process',
+  },
+];
+
+const faq = [
+  { q: 'What are the rental application criteria at RL Property Management?',
+    a: 'Every adult applicant is screened on five things: government issued photo identification, verifiable income against the rent, credit, rental history verified with prior landlords, and a criminal background check assessed individually. The same standard applies to every applicant on every home.' },
+  { q: 'How much income do I need to qualify?',
+    a: 'Income has to be verifiable and sufficient against the rent on that specific home, and it is measured across the whole household. [SOURCE NEEDED: the income multiple of monthly rent required, and the accepted proof of income documents].' },
+  { q: 'What credit score do I need?',
+    a: '[SOURCE NEEDED: minimum credit score, and how open collections, medical debt, charge-offs and prior bankruptcy are treated]. A credit report is read as a record of whether obligations get paid, so balances owed to a prior landlord or utility carry more weight than an old medical account.' },
+  { q: 'Will an eviction on my record disqualify me?',
+    a: '[SOURCE NEEDED: how prior eviction filings, eviction judgments and balances owed to former landlords are treated, including any lookback period]. Rental history is verified directly with prior landlords in every case, and what you disclose on the application is compared against what they report.' },
+  { q: 'Do you deny applicants with a criminal record?',
+    a: 'There is no blanket bar. A criminal background check is run for every adult applicant, and where a record appears it is assessed individually on the nature of the conduct, how long ago it occurred, and whether it bears on the safety of the property, neighbors or staff. [SOURCE NEEDED: the written criminal screening standard and lookback period].' },
+  { q: 'Do you rent to applicants with a housing voucher or other public assistance?',
+    a: 'Yes. Columbus City Code sections 2331.02 and 4551.03 prohibit refusing to rent to someone because their income includes housing assistance, and many surrounding Central Ohio municipalities have the same protection. Income is measured the same way regardless of source, and no applicant is asked for a larger deposit because of how their income arrives.' },
+  { q: 'What happens if my application is declined?',
+    a: 'You are told, and where the decision relied in whole or in part on a consumer report you receive an adverse action notice naming the consumer reporting agency that supplied it. The federal Fair Credit Reporting Act gives you the right to a free copy of that file from the agency and the right to dispute anything inaccurate in it.' },
+  { q: 'Can I have a service animal or an assistance animal?',
+    a: `Yes. A service animal or an assistance animal is not a pet under fair housing law. No pet administration fee and no pet deposit applies to them, and the ${usd(pricing.petDamageCoverage.cap)} pet damage coverage that the pet fee funds does not apply to them either. A request for a reasonable accommodation is handled separately from the screening decision and does not affect it.` },
+  { q: 'Does every adult have to be screened?',
+    a: 'Yes. Every adult who will live in the home applies and is screened separately, including adults who contribute no income. Occupants under 18 are listed on the application but are not screened. Adding an adult after move-in requires that person to apply and be approved before they move in.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="Published screening standard"
+    title="Rental application criteria"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'View available homes', href: '/homes-for-rent/' }}
+    secondaryCta={{ label: 'How to apply', href: '/residents/how-to-apply/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="The standard, in short" />
+
+  <!-- WHY PUBLISHED -->
+  <section class="band-tight" aria-labelledby="why-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Why this page exists</span>
+      <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Why publish the criteria at all?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        So you can check yourself against it before you spend an application fee, and so nobody has to
+        wonder whether the standard moved for someone else. A written standard applied the same way every
+        time is also the practical safeguard against a fair housing complaint, which is why it is written
+        down rather than held in somebody's head.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE FIVE CRITERIA -->
+  <section class="band band-wash" aria-labelledby="criteria-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The five checks</span>
+      <h2 id="criteria-h" class="text-[clamp(28px,3.3vw,40px)]">What is checked, and how?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">
+        Five checks, run in the same order on every application. Nothing outside this list factors into the
+        decision.
+      </p>
+      <div class="grid gap-5">
+        {criteria.map((c, i) => (
+          <div class="card">
+            <div class="flex gap-4 items-baseline">
+              <span class="font-sans text-[13px] font-bold text-faint tabular-nums shrink-0" aria-hidden="true">0{i + 1}</span>
+              <div>
+                <h3 class="text-[20px] mb-2">{c.h}</h3>
+                <p class="text-[16px] text-navy font-medium m-0">{c.a}</p>
+                <p class="text-[15.5px] text-muted mt-3 mb-0">{c.detail}</p>
+                {c.unknown && (
+                  <p class="text-[14.5px] text-crimson font-semibold mt-3 mb-0">
+                    [SOURCE NEEDED: {c.unknown}]
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSISTENCY -->
+  <section class="band" aria-labelledby="consistent-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">How it is applied</span>
+      <h2 id="consistent-h" class="text-[clamp(28px,3.3vw,40px)]">Is the standard the same for everyone?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Yes. The same criteria, in the same order, on every home and for every applicant. Applications are
+        reviewed in the order they are completed, and the first qualified completed application gets the
+        home.
+      </p>
+      <ul class="grid gap-3 mt-6 text-[15.5px]">
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>No applicant is asked for a larger deposit, a co-signer, or extra documentation that another applicant on the same home would not be asked for.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>No applicant is directed toward or away from a home or an area. If you ask which of our homes would suit you, we answer with bedrooms, rent, pet policy and available date.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>Income is measured on amount and verifiability, never on where it comes from.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>A criminal record is assessed individually, not used as a blanket bar.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>Reasonable accommodation and reasonable modification requests are handled separately from the screening decision and do not affect it.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAIR HOUSING -->
+  <section class="band band-wash" aria-labelledby="fh-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Your rights</span>
+      <h2 id="fh-h" class="text-[clamp(28px,3.3vw,40px)]">What fair housing protections apply here?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Federal, Ohio and local law all apply, and the local layer in Central Ohio is broader than the
+        federal one. The federal Fair Housing Act prohibits discrimination in housing on the basis of race,
+        color, national origin, religion, sex, familial status and disability. Ohio law adds ancestry and
+        military status. Columbus City Code sections 2331.02 and 4551.03 add source of income, which means
+        a lawful, verifiable income source cannot be the reason an application is refused, and many
+        surrounding Central Ohio municipalities have adopted the same protection.
+      </p>
+      <div class="card !border-2 !border-navy mt-7">
+        <h3 class="text-[18.5px] mb-2">If you need an accommodation</h3>
+        <p class="text-[15.5px] text-muted m-0">
+          An applicant or resident with a disability may request a reasonable accommodation in our rules,
+          policies or services, or a reasonable modification to the home. Tell us at any point, including
+          during the application. That request is handled separately from the screening decision, it does
+          not delay the application, and it does not affect the outcome. Call {company.phone} or email
+          {' '}<a href={`mailto:${company.email}`} class="text-crimson font-semibold no-underline hover:underline">{company.email}</a>.
+        </p>
+      </div>
+      <p class="text-[15px] text-faint mt-6">
+        {company.name} is a licensed Ohio real estate brokerage. This page describes our screening
+        standard, not legal advice.
+      </p>
+    </div>
+  </section>
+
+  <!-- IF DECLINED -->
+  <section class="band" aria-labelledby="declined-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">If the answer is no</span>
+      <h2 id="declined-h" class="text-[clamp(28px,3.3vw,40px)]">What happens if I am declined?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        You are told, and where the decision relied on a consumer report you receive an adverse action
+        notice naming the consumer reporting agency that supplied it. The federal Fair Credit Reporting Act
+        then gives you two rights worth using: a free copy of that file from the agency, and the right to
+        dispute anything in it that is wrong. Reports do contain errors, and a corrected report can change
+        an outcome.
+      </p>
+      <p class="text-[16px] text-muted mt-4">
+        The application fee is not refunded on a decline, because it paid for the reports that were
+        actually run.
+      </p>
+      <p class="text-[15px] text-crimson font-semibold mt-5">
+        [SOURCE NEEDED: whether a declined applicant may appeal a screening decision, and the current
+        appeals intake process, which historically lived at /tenant-appeal-form-page/]
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Screening questions" id="criteria-faq" />
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/residents/how-to-apply/', label: 'How to apply', note: 'The six steps, and what to have ready.' },
+    { href: '/homes-for-rent/', label: 'Homes for rent', note: 'What is available across the Columbus metro.' },
+    { href: '/residents/moving-in/', label: 'Moving in', note: 'What happens between approval and keys.' },
+    { href: '/resident-faqs/', label: 'Resident FAQs', note: 'Rent, repairs, pets, renewals and move-out.' },
+    { href: '/residents/', label: 'Resident hub', note: 'Everything a resident needs, in one place.' },
+  ]} />
+
+  <Cta
+    heading="Check yourself against the standard, then apply"
+    body="An applicant who reads this page first either applies with everything in hand or saves an application fee. Both are better than a surprise."
+    primary={{ label: 'View available homes', href: '/homes-for-rent/' }}
+    secondary={{ label: 'Start an application', href: '/residents/how-to-apply/' }}
+  />
+</Base>

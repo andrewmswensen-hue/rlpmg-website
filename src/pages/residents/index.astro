@@ -1,0 +1,220 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, kpis, rentPolicy, pricing, usd } from '../../data/facts';
+
+/**
+ * The resident hub. One page that routes a current or future resident to the
+ * right task in one click: pay, repair, apply, move in, move out.
+ *
+ * This page does not duplicate the detail on the child pages. It answers "where
+ * do I go" and gives the handful of numbers a resident actually needs to know.
+ */
+
+const title = 'Resident Resources | RL Property Management, Columbus Ohio';
+const description =
+  `Pay rent, submit a maintenance request, apply for a home, and handle move-in and move-out with ` +
+  `${company.name}. Rent is due on ${rentPolicy.dueDate}, late fees are assessed after ${rentPolicy.lateFeesAfter}.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Residents', path: '/residents/' },
+];
+
+const answer =
+  `Residents of ${company.name} pay rent and submit maintenance requests through the resident portal. ` +
+  `Rent is due on ${rentPolicy.dueDate} and late fees are assessed after ${rentPolicy.lateFeesAfter}. ` +
+  `Median time to close a repair is ${kpis.metrics.find((m) => m.id === 'repairDays')?.value} days.`;
+
+const satisfaction = kpis.metrics.find((m) => m.id === 'satisfaction')?.value;
+const repairDays = kpis.metrics.find((m) => m.id === 'repairDays')?.value;
+const collected = kpis.metrics.find((m) => m.id === 'collectedBy5')?.value;
+const renewal = kpis.metrics.find((m) => m.id === 'renewal')?.value;
+
+const keyFacts = [
+  `Rent is due on ${rentPolicy.dueDate}, late fees after ${rentPolicy.lateFeesAfter}`,
+  `${collected} of rent is collected by the 5th across the portfolio`,
+  `Median ${repairDays} days to close a maintenance request`,
+  `Resident satisfaction ${satisfaction} out of 5`,
+  `${renewal} of residents renew their lease`,
+  `Emergency maintenance coverage 24 hours a day at ${company.phone}`,
+];
+
+const tasks = [
+  { h: 'Pay rent', p: `Due on ${rentPolicy.dueDate}, late fees after ${rentPolicy.lateFeesAfter}. Where to pay and what happens if you are short.`, href: '/residents/pay-rent/' },
+  { h: 'Submit a maintenance request', p: `What counts as an emergency, what does not, and how a request moves. Median ${repairDays} days to close.`, href: '/residents/maintenance-requests/' },
+  { h: 'Apply for a home', p: 'The application start to finish, and what to have ready before you pay a fee.', href: '/residents/how-to-apply/' },
+  { h: 'Application criteria', p: 'The written standard every applicant is screened against, published so you can check yourself first.', href: '/residents/application-criteria/' },
+  { h: 'Moving in', p: 'Utilities, keys, renters insurance and the condition report that protects your deposit.', href: '/residents/moving-in/' },
+  { h: 'Moving out', p: 'Notice, cleaning, the final walkthrough and how your deposit comes back.', href: '/residents/moving-out/' },
+];
+
+const faq = [
+  { q: 'How do I pay my rent?',
+    a: `Rent is paid online through the resident portal. It is due on ${rentPolicy.dueDate}. In practice many residents pay between ${rentPolicy.practicalWindow}, and late fees are assessed after ${rentPolicy.lateFeesAfter}. Across the portfolio, ${collected} of rent is collected by the 5th.` },
+  { q: 'How do I submit a maintenance request?',
+    a: `Non-emergency maintenance requests go through the resident portal, in writing, with photos where it helps. Median time to close a repair across the portfolio is ${repairDays} days. For a true emergency, call ${company.phone} rather than filing a portal request.` },
+  { q: 'Who do I call after hours?',
+    a: `Call ${company.phone}. Emergency maintenance coverage runs 24 hours a day. If there is fire, a gas smell, or an immediate risk to someone's safety, call 911 first and then call us.` },
+  { q: 'How do I get a copy of my lease?',
+    a: 'Your signed lease and every notice we have sent you live in your resident portal account. If you cannot get into the portal, email ' + company.email + ' from the address on your lease and we will get you back in.' },
+  { q: 'Can I add a roommate or a pet after I move in?',
+    a: 'Both require written approval before the person or the animal moves in, and an adult roommate has to apply and be screened against the same criteria as the original applicants. [SOURCE NEEDED: the lease clause covering added occupants and pets, including any fee to add an approved pet mid-lease].' },
+  { q: 'What happens when my lease is ending?',
+    a: `We reach out ahead of the end date with renewal terms. ${renewal} of residents renew. If a lease is allowed to lapse into month-to-month rather than renewed, rent increases by ${rentPolicy.monthToMonthIncreasePct}%, so a renewal is almost always the cheaper option.` },
+  { q: 'How do I verify my tenancy for a lender or a new landlord?',
+    a: `Send the request to ${company.email} with the property address and the name on the lease, and tell us where the completed verification should go. [SOURCE NEEDED: the current rental verification intake process and any turnaround commitment].` },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="For residents"
+    title="Resident resources"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Submit a maintenance request', href: '/residents/maintenance-requests/' }}
+    secondaryCta={{ label: 'View available homes', href: '/homes-for-rent/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="The numbers that matter to a resident" />
+
+  <!-- TASK ROUTER -->
+  <section class="band-tight" aria-labelledby="tasks-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Start here</span>
+      <h2 id="tasks-h" class="text-[clamp(28px,3.3vw,40px)]">What do you need to do?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Six things cover almost every reason a resident contacts us. Pick the one you came for.
+      </p>
+      <ul class="grid gap-4 sm:grid-cols-2 mt-7">
+        {tasks.map((t) => (
+          <li>
+            <a href={t.href} class="block card card-hover no-underline h-full">
+              <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">{t.h}</span>
+              <span class="block text-[15px] text-muted">{t.p}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- PORTAL -->
+  <section class="band band-wash" aria-labelledby="portal-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The portal</span>
+      <h2 id="portal-h" class="text-[clamp(28px,3.3vw,40px)]">What is the resident portal for?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Four things: paying rent, filing maintenance requests, reading your lease and notices, and seeing
+        your ledger. Using it rather than text or email matters, because everything filed there is
+        timestamped and attached to your tenancy, which is what protects you in a disagreement later.
+      </p>
+      <div class="grid gap-4 sm:grid-cols-2 mt-7">
+        <div class="card">
+          <h3 class="text-[18px] mb-2">What is in it</h3>
+          <ul class="text-[15px] text-muted grid gap-1.5">
+            <li>Your signed lease and any addenda</li>
+            <li>Your full payment ledger, charge by charge</li>
+            <li>Every maintenance request and its status</li>
+            <li>Notices we have sent you</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-[18px] mb-2">If you cannot get in</h3>
+          <p class="text-[15px] text-muted m-0">
+            Email <a href={`mailto:${company.email}`} class="text-crimson font-semibold no-underline hover:underline">{company.email}</a>
+            {' '}from the address on your lease, or call {company.phone} during business hours. Do not miss a
+            rent payment over a login problem. Tell us before {rentPolicy.lateFeesAfter}.
+          </p>
+        </div>
+      </div>
+      <p class="text-[15px] text-crimson font-semibold mt-6">
+        [SOURCE NEEDED: the resident portal login URL, the portal software name, and the mobile app name if
+        residents are meant to use one]
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="band" aria-labelledby="expect-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">What to expect from us</span>
+      <h2 id="expect-h" class="text-[clamp(28px,3.3vw,40px)]">What can a resident expect from us?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        A written answer to anything you send, repairs that get scheduled rather than acknowledged, and
+        rules applied the same way to every resident. Resident satisfaction across the portfolio is
+        {' '}{satisfaction} out of 5, and {renewal} of residents renew when their lease ends.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        <div class="card">
+          <div class="font-sans text-[40px] font-extrabold text-navy leading-none tracking-[-.04em]">{repairDays}</div>
+          <div class="font-sans text-[13.5px] text-faint mt-2">median days to close a repair</div>
+        </div>
+        <div class="card">
+          <div class="font-sans text-[40px] font-extrabold text-navy leading-none tracking-[-.04em]">{satisfaction}</div>
+          <div class="font-sans text-[13.5px] text-faint mt-2">resident satisfaction, out of 5</div>
+        </div>
+        <div class="card">
+          <div class="font-sans text-[40px] font-extrabold text-navy leading-none tracking-[-.04em]">{renewal}</div>
+          <div class="font-sans text-[13.5px] text-faint mt-2">of residents renew their lease</div>
+        </div>
+      </div>
+      <p class="text-[14px] text-faint mt-5">
+        Portfolio figures as of {kpis.asOfLabel}, across the {company.unitsManaged} homes we manage.
+      </p>
+    </div>
+  </section>
+
+  <!-- PET COVERAGE -->
+  <section class="band band-wash" aria-labelledby="pet-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Pets</span>
+      <h2 id="pet-h" class="text-[clamp(28px,3.3vw,40px)]">What does the pet fee actually pay for?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Coverage of up to {usd(pricing.petDamageCoverage.cap)} in pet damage above the security deposit. If
+        an approved pet causes damage beyond normal wear and tear and the repair costs more than the
+        deposit, that coverage absorbs the difference rather than the bill landing on you or on the owner.
+        It is funded by the monthly pet administration fee, and it is why pets are allowed in as many of
+        our homes as they are.
+      </p>
+      <p class="text-[16px] text-muted mt-4">
+        Service animals and assistance animals are not pets. No pet fee applies to them, and this coverage
+        does not apply to them either.
+      </p>
+      <p class="text-[15px] text-crimson font-semibold mt-5">
+        [SOURCE NEEDED: monthly pet administration fee amount charged to residents]
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Common resident questions" id="residents-faq" />
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/residents/pay-rent/', label: 'Pay rent', note: `Due on ${rentPolicy.dueDate}, late fees after ${rentPolicy.lateFeesAfter}.` },
+    { href: '/residents/maintenance-requests/', label: 'Maintenance requests', note: 'Emergency, urgent and routine, and what happens next.' },
+    { href: '/resident-faqs/', label: 'Resident FAQs', note: 'The long list, grouped by topic.' },
+    { href: '/homes-for-rent/', label: 'Homes for rent', note: 'Available homes across the Columbus metro.' },
+    { href: '/contact-us/', label: 'Contact us', note: `Call ${company.phone} or email ${company.email}.` },
+  ]} />
+
+  <Cta
+    heading="Something broken? Tell us in writing."
+    body="A request filed in the portal is timestamped, tracked and assigned. A text message is none of those things. For a true emergency, call us instead."
+    primary={{ label: 'Submit a maintenance request', href: '/residents/maintenance-requests/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

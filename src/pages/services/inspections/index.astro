@@ -1,0 +1,180 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, kpis, usd } from '../../../data/facts';
+import { serviceNode } from '../../../lib/schema';
+
+/**
+ * Intent: "rental property inspections columbus", "how often should a rental be
+ * inspected". Quarterly inspections are in the included list on the pricing page.
+ * Anything about move-in and move-out condition reports is marked SOURCE NEEDED.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+const preFee = pricing.otherFees.find((f) => f.name === 'New unit pre-signature inspection');
+
+const title = 'Rental Property Inspections in Columbus, Ohio | RL Property Management';
+const description =
+  `Quarterly inspections are included on every managed unit at ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month. How often a rental should be inspected, what is checked, and what an inspection actually prevents.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+  { name: 'Inspections', path: '/services/inspections/' },
+];
+
+const answer =
+  `${company.name} inspects every managed unit quarterly, and it is included in the flat ` +
+  `${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit monthly fee. Inspections catch ` +
+  `lease violations, deferred maintenance and unauthorized occupants while they are still cheap to fix.`;
+
+const facts = [
+  'Quarterly inspections on every managed unit, included in the monthly fee',
+  `Flat management from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month`,
+  `${preFee?.amount ?? ''} pre-signature inspection on a new unit, ${preFee?.note?.toLowerCase() ?? ''}`,
+  `Median ${kpi('repairDays')} days to close a repair found on an inspection`,
+  `Repairs run at ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, materials at cost`,
+  `Approved pet damage covered up to ${usd(pricing.petDamageCoverage.cap)} above the security deposit`,
+  `${kpi('satisfaction')} out of 5 resident satisfaction`,
+  'Key pickup at our office is free, and an owner property visit is billed at the labor rate',
+];
+
+const whatWeLookFor = [
+  { h: 'Water, everywhere it can hide',
+    b: 'Under sinks, around the water heater, at the base of toilets, in the ceiling below an upstairs bath, at the foundation line in the basement. Water is the single most expensive thing a rental does quietly. A supply line drip found on a quarterly inspection is a small repair. The same drip found at move-out is subfloor, cabinets and possibly mold remediation.' },
+  { h: 'HVAC and the filter',
+    b: 'Filters get checked because a clogged filter kills a system slowly and expensively, and because it is the cheapest preventable failure in the whole portfolio. Ohio HVAC fails in January and July, which are the two worst months to be scheduling emergency service at an after-hours multiplier.' },
+  { h: 'Smoke and carbon monoxide detectors',
+    b: 'Present, mounted and functioning. This is a life safety item and a liability item at the same time. [SOURCE NEEDED: the smoke and carbon monoxide detector requirements that apply to rentals in Columbus and Franklin County, and who is responsible for testing under the RLPM lease.]' },
+  { h: 'Occupancy and pets',
+    b: `Who is actually living there, and what is actually living there. An unauthorized pet is a lease matter and a money matter: our ${usd(pricing.petDamageCoverage.cap)} pet damage coverage applies to approved pets, not to an animal nobody disclosed. Service and assistance animals are not pets and are handled under fair housing rules.` },
+  { h: 'Housekeeping and lease compliance',
+    b: 'Not a judgment about how someone lives. It is a search for the specific conditions that cause damage or violate the lease: blocked egress, a space heater running full time, a grill on a wood deck, standing garbage that will bring pests, a room converted into something it is not.' },
+  { h: 'The exterior nobody looks at',
+    b: 'Gutters, downspout discharge, grading against the foundation, roof edges, tree limbs on the roofline, and the condition of walks and steps. Most of the expensive interior water problems start at one of those six.' },
+];
+
+const faq = [
+  { q: 'How often should a rental property be inspected?',
+    a: `Quarterly is the standard we run, and every managed unit gets it at no separate charge. Quarterly is frequent enough to catch a leak, a filter, an unauthorized occupant or a hoarding situation before it compounds, and infrequent enough that it does not read as harassment to a good resident. An annual inspection is common in the industry and, in our experience, catches problems a full season late.` },
+  { q: 'Are inspections included in the management fee?',
+    a: `Yes. Quarterly inspections are included on all three plans, at ${usd(pricing.plans[0].monthly)}, ${usd(pricing.plans[1].monthly)} and ${usd(pricing.plans[2].monthly)} per unit per month. Repairs that come out of an inspection are billed at the published maintenance rates: ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, materials at cost.` },
+  { q: 'Do you have to give the resident notice before entering?',
+    a: 'Yes. Ohio law requires reasonable notice before a landlord enters an occupied unit except in an emergency. [SOURCE NEEDED: the exact notice period Ohio law requires before entry, and the wording of the entry notice RLPM uses.] In practice, notice is scheduled well in advance for a quarterly inspection, and the resident does not need to be home.' },
+  { q: 'What does an inspection actually catch?',
+    a: 'Water where it should not be, a filter nobody changed, a detector that was removed, an occupant or a pet who is not on the lease, and the deferred maintenance an owner cannot see from a rent check. The pattern across a portfolio is consistent: the expensive claims are almost always something that was visible for months.' },
+  { q: 'Do you inspect at move-in and move-out?',
+    a: '[SOURCE NEEDED: whether move-in and move-out condition reports are included in the monthly fee or billed at the labor rate, and whether photo documentation is standard.] What is not in question is why it matters: without a dated, photographed move-in condition report, a security deposit deduction is very hard to defend.' },
+  { q: 'Can I inspect my own property?',
+    a: `Yes, it is your property, and an owner property visit is billed at the labor rate if we coordinate it. Key pickup at our office is free. What you should not do is drop in on a resident without notice, because that is both a legal problem and the fastest way to lose a good renewal.` },
+  { q: 'Do you inspect before taking on a property?',
+    a: `Yes. A new unit pre-signature inspection is ${preFee?.amount ?? ''}, ${preFee?.note?.toLowerCase() ?? ''} It exists so both sides know the actual condition before an agreement is signed, rather than arguing about it in month two.` },
+  { q: 'What happens when an inspection finds a problem?',
+    a: `It becomes a work order, subject to your plan's repair approval limit of ${usd(pricing.plans[0].repairApprovalLimit)}, ${usd(pricing.plans[1].repairApprovalLimit)} or ${usd(pricing.plans[2].repairApprovalLimit)} per item. If it is a lease violation rather than a repair, it becomes a written notice to the resident with a date to correct it. Median time to close a repair across the portfolio is ${kpi('repairDays')} days.` },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/services/inspections/',
+    name: 'Rental property inspections',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Inspections"
+    title="How often a rental should be inspected, and what we look for"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See all services', href: '/services/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <section class="band" aria-labelledby="often-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The cadence</span>
+      <h2 id="often-h" class="text-[clamp(28px,3.3vw,40px)]">How often should a rental be inspected?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Quarterly. That is what every managed unit gets here, included in the monthly fee. Quarterly is frequent
+        enough to catch a slow leak, a missing detector or an undisclosed pet in the season it started, and rare
+        enough that a good resident does not feel policed.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        Annual inspections, which are common, mean a problem that starts in February is discovered the following
+        February. Water damage does not wait for your schedule. Neither does a resident quietly moving three
+        additional people into a two bedroom.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="look-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The checklist</span>
+      <h2 id="look-h" class="text-[clamp(28px,3.3vw,40px)]">What gets checked on a rental inspection?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Six categories. If you inspect your own rentals, this list is the useful part of this page.
+      </p>
+      <div class="grid gap-5">
+        {whatWeLookFor.map((x) => (
+          <div class="card">
+            <h3 class="text-[19.5px] mb-2">{x.h}</h3>
+            <p class="text-[15.5px] text-muted m-0">{x.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="econ-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Why it pays</span>
+      <h2 id="econ-h" class="text-[clamp(28px,3.3vw,40px)]">What does an inspection prevent?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The gap between a small repair and a large one is almost always time. A supply line that weeps is an hour
+        of labor at {usd(pricing.maintenance.inHouseHourly)} per hour plus the
+        {' '}{usd(pricing.maintenance.tripCharge)} trip charge. The same failure discovered after it has run into
+        a subfloor is a vendor project, and vendor projects carry the
+        {' '}{pricing.maintenance.vendorProjectFeePct}% project management fee on top of the vendor invoice,
+        capped at {usd(pricing.maintenance.vendorProjectFeeCap)}.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        The second thing inspections protect is the deposit conversation at move-out. A documented condition
+        history is the difference between a defensible deduction and an argument you lose. If you hire us to
+        manage an insurance claim, end to end claim handling is $1,250 and the
+        {' '}{pricing.maintenance.vendorProjectFeePct}% project fee is waived on that work.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Inspection questions" id="inspections-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/services/maintenance/', label: 'Maintenance', note: 'What happens to a repair once an inspection finds it.' },
+    { href: '/services/compliance/', label: 'Compliance', note: 'Entry notice, habitability and local requirements.' },
+    { href: '/services/tenant-screening/', label: 'Tenant screening', note: 'Fewer inspection surprises start at the application.' },
+    { href: '/pricing/', label: 'Pricing', note: 'What is included in the monthly fee and what is not.' },
+    { href: '/services/', label: 'All services', note: 'The other seven jobs a manager does.' },
+  ]} />
+
+  <Cta
+    heading="Find out what your property is hiding"
+    body="Quarterly inspections are part of management here, not an add-on. Start with a rent evaluation and we will tell you what your unit should earn and what it needs first."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

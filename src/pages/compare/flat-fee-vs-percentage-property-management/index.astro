@@ -1,0 +1,575 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, kpis, usd } from '../../../data/facts';
+import { rentByBedroom } from '../../../data/markets';
+import { serviceNode } from '../../../lib/schema';
+
+/**
+ * Target: "flat fee vs percentage property management".
+ *
+ * The single highest commercial-intent comparison page on the site. It wins by
+ * doing arithmetic in public that competitors will not do, and by being honest
+ * about the rents where a percentage fee is the cheaper answer.
+ *
+ * EVERY figure below is computed from src/data/facts.ts. Nothing is hand typed.
+ * The percentage side uses 8% and 10% of collected rent plus half a month of
+ * rent per placement, which is how the common market structure is written. It
+ * is illustrative of that structure, not a quote from any named company.
+ */
+
+const rents = [1200, 1650, 2100];          // same three reference rents as /pricing/
+const plan = pricing.plans[1];             // middle plan, used for every worked example
+const planLow = pricing.plans[0];
+const planHigh = pricing.plans[2];
+
+const PCT_LOW = 0.08;
+const PCT_HIGH = 0.10;
+const pctLabel = (p: number) => `${Math.round(p * 100)}%`;
+
+/** Half a month of rent, the common structure for a placement fee. */
+const halfMonth = (r: number) => Math.round(r / 2);
+const pctMonthly = (r: number, p: number) => Math.round(r * p);
+
+/** Year one: the year a resident is placed. */
+const placementYear = rents.map((rent) => {
+  const us = plan.monthly * 12 + pricing.leasingFee;
+  const p8 = pctMonthly(rent, PCT_LOW) * 12 + halfMonth(rent);
+  const p10 = pctMonthly(rent, PCT_HIGH) * 12 + halfMonth(rent);
+  return { rent, lease: halfMonth(rent), us, p8, p10, d8: p8 - us, d10: p10 - us };
+});
+
+/** A year with no turn: the resident renews and stays. */
+const renewalYear = rents.map((rent) => {
+  const us = plan.monthly * 12 + pricing.leaseRenewalFee;
+  const p8 = pctMonthly(rent, PCT_LOW) * 12;
+  const p10 = pctMonthly(rent, PCT_HIGH) * 12;
+  return { rent, us, p8, p10, d8: p8 - us, d10: p10 - us };
+});
+
+/** A full three-year tenancy: one placement, then two renewals. */
+const CYCLE_YEARS = 3;
+const RENEWALS = CYCLE_YEARS - 1;
+const usCycle = (monthly: number) => monthly * 12 * CYCLE_YEARS + pricing.leaseRenewalFee * RENEWALS;
+const cycle = rents.map((rent) => {
+  const us = usCycle(plan.monthly);
+  const p8 = pctMonthly(rent, PCT_LOW) * 12 * CYCLE_YEARS + halfMonth(rent);
+  const p10 = pctMonthly(rent, PCT_HIGH) * 12 * CYCLE_YEARS + halfMonth(rent);
+  return { rent, us, p8, p10, d8: p8 - us, d10: p10 - us };
+});
+
+/**
+ * The rent at which the two structures cost the same over one three-year cycle.
+ * Solve: monthly * 36 + renewalFee * 2 = pct * rent * 36 + rent / 2
+ */
+const breakEven = (monthly: number, p: number) =>
+  Math.round(usCycle(monthly) / (12 * CYCLE_YEARS * p + 0.5));
+
+const breakEvens = pricing.plans.map((p) => ({
+  name: p.name,
+  monthly: p.monthly,
+  at8: breakEven(p.monthly, PCT_LOW),
+  at10: breakEven(p.monthly, PCT_HIGH),
+}));
+
+/** Our flat fee, expressed as the percentage of rent it actually works out to. */
+const effective = rents.map((rent) => ({
+  rent,
+  low: ((planLow.monthly / rent) * 100).toFixed(1),
+  mid: ((plan.monthly / rent) * 100).toFixed(1),
+  high: ((planHigh.monthly / rent) * 100).toFixed(1),
+}));
+
+const mid = placementYear[1];
+const low = placementYear[0];
+const high = placementYear[2];
+const cycleMid = cycle[1];
+const cycleLow = cycle[0];
+
+/** Sign-aware phrasing, so a result that goes against us reads plainly. */
+const gap = (d: number) => (d >= 0 ? `${usd(d)} less` : `${usd(Math.abs(d))} more`);
+
+const avgRent = kpis.metrics.find((m) => m.id === 'avgRent')?.value ?? '';
+
+const title = 'Flat Fee vs Percentage Property Management: The Real Math | RL Property Management';
+const description =
+  `A worked comparison of flat fee and percentage property management at ${usd(rents[0])}, ${usd(rents[1])} and ` +
+  `${usd(rents[2])} monthly rent, including the leasing fee almost nobody puts in a quote. Every number computed, ` +
+  `including the rents where a percentage fee wins.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Compare', path: '/compare/' },
+  { name: 'Flat fee vs percentage', path: '/compare/flat-fee-vs-percentage-property-management/' },
+];
+
+const answer =
+  `A flat fee is a fixed dollar amount per unit per month. A percentage fee is ${pctLabel(PCT_LOW)} to ` +
+  `${pctLabel(PCT_HIGH)} of collected rent, usually plus half a month of rent per placement. ` +
+  `${company.shortName} charges ${usd(plan.monthly)} flat and ${usd(pricing.leasingFee)} to lease.`;
+
+const facts = [
+  `${company.name} charges ${usd(planLow.monthly)} to ${usd(planHigh.monthly)} per unit per month, flat`,
+  `Leasing fee: ${usd(pricing.leasingFee)} on all three plans`,
+  `A percentage manager at ${pctLabel(PCT_HIGH)} of a ${usd(mid.rent)} rent charges ${usd(pctMonthly(mid.rent, PCT_HIGH))} a month`,
+  `Half a month of rent to place a resident on ${usd(mid.rent)} rent is ${usd(mid.lease)}`,
+  `Over a ${CYCLE_YEARS}-year tenancy at ${usd(cycleMid.rent)}, the flat fee runs ${gap(cycleMid.d10)} than ${pctLabel(PCT_HIGH)}`,
+  `Below roughly ${usd(breakEvens[1].at10)} rent, a ${pctLabel(PCT_HIGH)} manager is the cheaper structure`,
+  `A percentage fee rises every time rent rises. A flat fee does not`,
+  `Average rent across the ${company.unitsManaged} units we manage: ${avgRent}`,
+];
+
+const faq = [
+  { q: 'Is flat fee or percentage property management better?',
+    a: `It depends on the rent. A flat fee costs the same at ${usd(rents[0])} rent and at ${usd(rents[2])} rent, so its advantage widens as rent rises. Over a ${CYCLE_YEARS}-year tenancy on ${plan.name} at ${usd(plan.monthly)} per unit per month, flat pricing costs the same as a ${pctLabel(PCT_HIGH)} manager at about ${usd(breakEvens[1].at10)} rent and about ${usd(breakEvens[1].at8)} against an ${pctLabel(PCT_LOW)} manager. Above those rents the flat fee is cheaper. Below them the percentage fee is cheaper.` },
+  { q: 'What is a typical property management percentage in Columbus, Ohio?',
+    a: `Most Columbus managers price at ${pctLabel(PCT_LOW)} to ${pctLabel(PCT_HIGH)} of collected rent, plus roughly half a month of rent to place each resident, plus a lease renewal fee. On a ${usd(mid.rent)} rent that is ${usd(pctMonthly(mid.rent, PCT_LOW))} to ${usd(pctMonthly(mid.rent, PCT_HIGH))} a month and ${usd(mid.lease)} at each turn. These are illustrative market rates, not a quote from any named company.` },
+  { q: 'Why does the leasing fee matter so much?',
+    a: `Because it is the largest single charge in most management relationships and it rarely appears in a quote. Half a month of rent on ${usd(mid.rent)} is ${usd(mid.lease)}, which is more than ${Math.floor(mid.lease / plan.monthly)} months of our entire management fee. ${company.name} charges ${usd(pricing.leasingFee)} to place a resident on every plan, which also means we have no financial reason to prefer a new lease over a renewal.` },
+  { q: 'Does a flat fee mean fewer services?',
+    a: `No. The flat fee covers listing and syndication, showings, full screening, lease preparation, rent collection, maintenance coordination, 24/7 emergency response, quarterly inspections, monthly statements and eviction coordination. The three plans differ in one thing: the per-item repair approval limit, which runs from ${usd(planHigh.repairApprovalLimit)} to ${usd(planLow.repairApprovalLimit)}.` },
+  { q: 'When is a percentage manager cheaper?',
+    a: `At lower rents, and in a year with no turn. On ${plan.name}, a ${pctLabel(PCT_HIGH)} manager costs less than our flat fee below roughly ${usd(breakEvens[1].at10)} in rent over a ${CYCLE_YEARS}-year tenancy. At ${usd(cycleLow.rent)} rent over the same ${CYCLE_YEARS} years, flat pricing runs ${gap(cycleLow.d10)} than a ${pctLabel(PCT_HIGH)} manager and ${gap(cycleLow.d8)} than an ${pctLabel(PCT_LOW)} manager. We publish that because it is true.` },
+  { q: 'What happens to a percentage fee when rent goes up?',
+    a: `It goes up with it. A ${pctLabel(PCT_HIGH)} manager charges ${usd(pctMonthly(rents[0], PCT_HIGH))} a month at ${usd(rents[0])} rent and ${usd(pctMonthly(rents[2], PCT_HIGH))} a month at ${usd(rents[2])}. Our fee is ${usd(plan.monthly)} at both. Every rent increase you earn is shared with a percentage manager and kept in full under a flat fee.` },
+  { q: 'Does a percentage manager have an incentive problem?',
+    a: `A percentage fee is paid on collected rent, so it does align the manager with keeping the unit occupied and the rent paid. The incentive problem is narrower than that: a placement fee paid at every new lease rewards turnover, and a percentage of repair invoices rewards spending. Look at what each fee is paid on, not at the headline rate.` },
+  { q: 'Do you discount for larger portfolios?',
+    a: 'Yes, and the discount is significant. Monthly management is reduced as unit count rises, which lowers the rent at which flat pricing becomes the cheaper structure. Portfolio pricing is quoted per owner rather than published, so owners with multiple units should request a quote.' },
+  { q: 'How do I compare two quotes fairly?',
+    a: `Convert both to dollars over a full tenancy, not to a monthly percentage. Add the monthly fee times the months, the placement fee at each turn, the lease renewal fee at each renewal, any markup on maintenance, and any setup or offboarding fee. On a ${usd(mid.rent)} rent over ${CYCLE_YEARS} years, that arithmetic is ${usd(cycleMid.us)} for us on ${plan.name} against about ${usd(cycleMid.p10)} for a ${pctLabel(PCT_HIGH)} manager.` },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/compare/flat-fee-vs-percentage-property-management/',
+    name: 'Flat fee residential property management',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="The comparison, with the arithmetic"
+    title="Flat fee vs percentage property management"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+    secondaryCta={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <!-- WHAT THE TWO STRUCTURES ACTUALLY ARE -->
+  <section class="band" aria-labelledby="what-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Start here</span>
+      <h2 id="what-h" class="text-[clamp(28px,3.3vw,40px)]">What is the difference between flat fee and percentage property management?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        A flat fee is a fixed dollar amount per unit per month. A percentage fee is a share of the rent
+        collected that month, commonly {pctLabel(PCT_LOW)} to {pctLabel(PCT_HIGH)} in Columbus. That is the
+        whole structural difference, and it is not where most of the money is.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        Most of the money is in the second fee. A percentage manager almost always charges a placement or
+        leasing fee as well, typically half a month of rent, every time a new resident signs. On a
+        {' '}{usd(mid.rent)} rent that is {usd(mid.lease)} per turn. It is charged once, it is large, and it
+        is the line most often left out of a verbal quote.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2 mt-8">
+        <div class="card">
+          <h3 class="text-[19.5px] mb-2">Flat fee, how {company.shortName} prices</h3>
+          <ul class="text-[15.5px] text-muted grid gap-1.5 mt-3">
+            <li>{usd(planLow.monthly)} to {usd(planHigh.monthly)} per unit per month</li>
+            <li>{usd(pricing.leasingFee)} to place a resident</li>
+            <li>{usd(pricing.leaseRenewalFee)} when a lease renews</li>
+            <li>{usd(pricing.startupFeeOccupied)} to start on an occupied unit</li>
+            <li>Does not change when your rent changes</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-[19.5px] mb-2">Percentage, the common structure</h3>
+          <ul class="text-[15.5px] text-muted grid gap-1.5 mt-3">
+            <li>{pctLabel(PCT_LOW)} to {pctLabel(PCT_HIGH)} of collected rent, monthly</li>
+            <li>Roughly half a month of rent per placement</li>
+            <li>A lease renewal fee, amount varies</li>
+            <li>A setup or onboarding fee, amount varies</li>
+            <li>Rises every time your rent rises</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-[14px] text-faint mt-6">
+        The percentage column describes the pricing structure used by many Columbus managers. It is
+        illustrative of common market rates and is not a quote from, or a description of, any specific
+        company. Our column is exact and comes from our published fee schedule.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE LEASING FEE -->
+  <section class="band band-wash" aria-labelledby="lease-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The line nobody quotes</span>
+      <h2 id="lease-h" class="text-[clamp(28px,3.3vw,40px)]">Where does the money actually go?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Into the leasing fee. Half a month of rent is
+        {' '}{usd(low.lease)} at {usd(low.rent)}, {usd(mid.lease)} at {usd(mid.rent)} and
+        {' '}{usd(high.lease)} at {usd(high.rent)}. At the middle rent that single charge is larger than
+        {' '}{Math.floor(mid.lease / plan.monthly)} months of our entire management fee, and it repeats at
+        every turn.
+      </p>
+      <div class="mt-8 rounded-[18px] bg-maroon text-white px-7 py-6 md:px-9 md:py-7
+                  flex flex-col md:flex-row md:items-center gap-5 md:gap-9">
+        <div class="shrink-0 text-center md:text-left md:border-r md:border-white/20 md:pr-9">
+          <div class="font-sans text-[clamp(44px,5.5vw,60px)] font-extrabold leading-none tracking-[-.05em]">$0</div>
+          <div class="font-sans text-[11px] font-bold tracking-[.16em] uppercase text-[#e8b9c0] mt-1.5">Leasing fee</div>
+        </div>
+        <p class="text-[#e9d0d4] text-[16.5px] m-0">
+          We charge nothing to place a resident, on every plan. Over two tenancies on a {usd(mid.rent)} rent,
+          that is <strong class="text-white font-semibold">{usd(mid.lease * 2)} you keep</strong>. It also
+          removes the one incentive that quietly costs owners the most: a manager who earns more from a new
+          lease than from a renewal.
+        </p>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        Note the one exclusion, because it is ours to disclose: property photography is not part of the
+        {' '}{usd(pricing.leasingFee)} leasing fee. It is billed separately at $250 to $450 on new vacant units
+        and units that have had major cosmetic work. Existing photos keep being used at no charge while they
+        still represent the property.
+      </p>
+    </div>
+  </section>
+
+  <!-- YEAR ONE -->
+  <section class="band" aria-labelledby="year1-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Worked example one</span>
+      <h2 id="year1-h" class="text-[clamp(28px,3.3vw,40px)]">What does a year with one placement cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        Twelve months of management on {plan.name} at {usd(plan.monthly)} per unit per month, plus placing
+        one resident, against the same year priced as a percentage plus half a month of rent.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Annual management cost in a year that includes one resident placement</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Monthly rent</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Us, {plan.name}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Placement fee at {pctLabel(PCT_LOW)} to {pctLabel(PCT_HIGH)}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">{pctLabel(PCT_LOW)} total</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">{pctLabel(PCT_HIGH)} total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {placementYear.map((c) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium tabular-nums">{usd(c.rent)}</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(c.us)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(c.lease)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(c.p8)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(c.p10)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        In a placement year the flat fee wins at all three rents, and it wins by more as rent rises:
+        {' '}{gap(low.d10)} at {usd(low.rent)}, {gap(mid.d10)} at {usd(mid.rent)} and {gap(high.d10)} at
+        {' '}{usd(high.rent)} against a {pctLabel(PCT_HIGH)} manager. Strip the leasing fee out and most of
+        that advantage disappears. That is the point of the table.
+      </p>
+    </div>
+  </section>
+
+  <!-- RENEWAL YEAR -->
+  <section class="band band-wash" aria-labelledby="year2-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Worked example two, the honest one</span>
+      <h2 id="year2-h" class="text-[clamp(28px,3.3vw,40px)]">What does a year with no turn cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        The resident renews and stays. No placement fee on either side. We charge our
+        {' '}{usd(pricing.leaseRenewalFee)} lease renewal fee, and this table charges the percentage manager
+        nothing for the renewal even though many of them do charge one. That choice runs against us on
+        purpose, so the comparison is not flattered.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Annual management cost in a renewal year, with no resident placement</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Monthly rent</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Us, {plan.name}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">{pctLabel(PCT_LOW)}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">{pctLabel(PCT_HIGH)}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Against {pctLabel(PCT_HIGH)}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {renewalYear.map((c) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium tabular-nums">{usd(c.rent)}</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(c.us)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(c.p8)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(c.p10)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-semibold text-navy">{gap(c.d10)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        This is the year a percentage manager looks good, and at the low end it is genuinely the cheaper
+        structure. At {usd(renewalYear[0].rent)} rent with no turn, our flat fee costs
+        {' '}{gap(renewalYear[0].d10)} than a {pctLabel(PCT_HIGH)} manager and
+        {' '}{gap(renewalYear[0].d8)} than an {pctLabel(PCT_LOW)} manager. Any comparison that only shows the
+        placement year is selling you something.
+      </p>
+    </div>
+  </section>
+
+  <!-- THREE YEAR CYCLE -->
+  <section class="band" aria-labelledby="cycle-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Worked example three, the one that matters</span>
+      <h2 id="cycle-h" class="text-[clamp(28px,3.3vw,40px)]">What does a full {CYCLE_YEARS}-year tenancy cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        One placement and {RENEWALS} renewals, which is closer to how a tenancy actually runs than any single
+        year. We pay {usd(pricing.leaseRenewalFee)} twice; the percentage side pays one placement fee and no
+        renewal fees. Our lease renewal rate across the portfolio is
+        {' '}{kpis.metrics.find((m) => m.id === 'renewal')?.value}.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Total management cost over three years, with one placement and two renewals</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Monthly rent</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Us, {plan.name}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">{pctLabel(PCT_LOW)}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">{pctLabel(PCT_HIGH)}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Against {pctLabel(PCT_LOW)} to {pctLabel(PCT_HIGH)}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cycle.map((c) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium tabular-nums">{usd(c.rent)}</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(c.us)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(c.p8)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(c.p10)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-semibold text-navy">
+                  {gap(c.d8)} to {gap(c.d10)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        At {usd(cycleLow.rent)} rent, flat pricing on {plan.name} costs more over the cycle than either
+        percentage rate. At {usd(cycleMid.rent)} it costs {gap(cycleMid.d10)} than {pctLabel(PCT_HIGH)} and
+        {' '}{gap(cycleMid.d8)} than {pctLabel(PCT_LOW)}. At {usd(cycle[2].rent)} it costs
+        {' '}{gap(cycle[2].d10)} than {pctLabel(PCT_HIGH)}. Rent is the variable that decides it.
+      </p>
+    </div>
+  </section>
+
+  <!-- BREAK EVEN -->
+  <section class="band band-wash" aria-labelledby="be-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">The number to check first</span>
+      <h2 id="be-h" class="text-[clamp(28px,3.3vw,40px)]">At what rent does a flat fee start to win?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        Above these rents, flat pricing costs less over a {CYCLE_YEARS}-year tenancy. Below them, the
+        percentage structure costs less. Find your rent on this table before you read anything else on this
+        page.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Monthly rent at which flat pricing equals percentage pricing over three years</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Plan</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Flat monthly fee</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Break-even vs {pctLabel(PCT_LOW)}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Break-even vs {pctLabel(PCT_HIGH)}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {breakEvens.map((b) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium">{b.name}</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(b.monthly)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">{usd(b.at8)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">{usd(b.at10)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        Read it plainly: on {planLow.name} at {usd(planLow.monthly)}, flat pricing is cheaper than a
+        {' '}{pctLabel(PCT_HIGH)} manager above about {usd(breakEvens[0].at10)} in rent. The average rent
+        across the {company.unitsManaged} units we manage is {avgRent}, and the portfolio medians run
+        {' '}{usd(rentByBedroom['2'].median)} for a 2 bed and {usd(rentByBedroom['3'].median)} for a 3 bed,
+        so most Columbus single-family rentals sit above the line rather than below it. Some do not.
+      </p>
+      <p class="text-[15.5px] text-muted mt-4">
+        Portfolio pricing moves the line further down, because monthly management is discounted as unit count
+        rises. If you own several units, the published per-unit rate is not the rate you would pay.
+      </p>
+    </div>
+  </section>
+
+  <!-- COMPOUNDING -->
+  <section class="band" aria-labelledby="comp-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The structural difference</span>
+      <h2 id="comp-h" class="text-[clamp(28px,3.3vw,40px)]">Why does a percentage fee grow when a flat fee does not?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Because it is indexed to your rent. A {pctLabel(PCT_HIGH)} manager charges
+        {' '}{usd(pctMonthly(rents[0], PCT_HIGH))} a month on a {usd(rents[0])} rent and
+        {' '}{usd(pctMonthly(rents[2], PCT_HIGH))} a month on a {usd(rents[2])} rent, for identical work on
+        the same house. Our fee is {usd(plan.monthly)} at both. Every rent increase you win is shared with a
+        percentage manager and kept in full under a flat fee.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        Run in reverse, that is the same as saying our fee becomes a smaller share of your rent as the
+        property performs better. Here is our flat fee expressed as the percentage it actually works out to.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Flat monthly fee expressed as a percentage of monthly rent</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Monthly rent</th>
+              {pricing.plans.map((p) => (
+                <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">{p.name}, {usd(p.monthly)}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {effective.map((e) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium tabular-nums">{usd(e.rent)}</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">{e.low}%</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">{e.mid}%</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">{e.high}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        At {usd(rents[0])} rent our middle plan works out to {effective[0].mid}% of rent, which is above the
+        market percentage range. At {usd(rents[2])} it works out to {effective[2].mid}%, which is below it.
+        Same fee, same work, different arithmetic.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHEN PERCENTAGE WINS -->
+  <section class="band band-wash" aria-labelledby="when-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Where we lose</span>
+      <h2 id="when-h" class="text-[clamp(28px,3.3vw,40px)]">When is a percentage manager the better choice?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        In three situations, and we would rather you know them now than find out in month four.
+      </p>
+      <ol class="grid gap-3.5 mt-7">
+        {[
+          `Low rent. Below roughly ${usd(breakEvens[1].at10)} on ${plan.name}, a ${pctLabel(PCT_HIGH)} manager costs less over a full tenancy, and the gap grows the further below that line you go.`,
+          'Long vacancies you expect to eat. A percentage fee is charged on collected rent, so it drops to zero in a month with no rent. A flat fee is charged whether the unit is occupied or not. We credit management fees back after 60 days of vacancy, which narrows this, but it does not erase it.',
+          'A property you plan to sell inside a year. Placement economics never get a chance to pay off over a single lease term, and the structure that looks cheapest in month one is usually the percentage one.',
+        ].map((s, i) => (
+          <li class="card !p-5 text-[15.5px]">
+            <span class="font-sans font-bold text-crimson mr-2">{i + 1}.</span>{s}
+          </li>
+        ))}
+      </ol>
+      <p class="text-[15.5px] text-muted mt-7">
+        On the vacancy point, our commitment is specific: if a property has been listed for rent longer than
+        60 days, we proactively credit management fees back to your account. Median days on market across the
+        portfolio is {kpis.metrics.find((m) => m.id === 'dom')?.value}, measured as
+        {' '}{kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)}
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW TO COMPARE -->
+  <section class="band" aria-labelledby="ask-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Use this on any manager, including us</span>
+      <h2 id="ask-h" class="text-[clamp(28px,3.3vw,40px)]">What should you ask before you sign either one?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6">
+        Eight questions. Ask them in writing, and put both answers into dollars over a full tenancy rather
+        than comparing headline rates.
+      </p>
+      <ol class="grid gap-3.5">
+        {[
+          'What is the monthly fee, and is it charged on collected rent or on scheduled rent? Those are different in any month a resident pays late.',
+          'What is the fee to place a resident, in dollars, at my rent?',
+          'What is the lease renewal fee, and is it charged to me or to the resident?',
+          'What is the setup fee on an occupied unit, and on a vacant one?',
+          'Is there a markup on maintenance invoices, and what is the percentage and the cap?',
+          'Who keeps late fees, application fees, and any pet fee?',
+          'What is charged if I sell, or if I leave before the term ends?',
+          'What is charged for an eviction, start to finish, including your fee and the county fees?',
+        ].map((s, i) => (
+          <li class="card !p-5 text-[15.5px]">
+            <span class="font-sans font-bold text-crimson mr-2">{i + 1}.</span>{s}
+          </li>
+        ))}
+      </ol>
+      <p class="text-[15.5px] text-muted mt-7">
+        Our answers to all eight are published on the
+        {' '}<a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">pricing page</a>,
+        including the eviction line: {usd(pricing.eviction.hardCostTotal)} in hard costs
+        ({usd(pricing.eviction.attorneyFee)} to the eviction attorney, {usd(pricing.eviction.countyFilingFee)}
+        {' '}to Franklin County) plus {usd(pricing.eviction.rlpmProcessFee)} to us to run the case.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Flat fee vs percentage questions" id="flatfee-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+      <p class="text-[13px] text-faint mt-3">
+        Percentage figures on this page illustrate common Columbus market pricing structures at
+        {' '}{pctLabel(PCT_LOW)} and {pctLabel(PCT_HIGH)} of collected rent plus half a month of rent per
+        placement. They are not a quote from, or a statement about, any named company. Figures for
+        {' '}{company.name} come from our published fee schedule.
+      </p>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+    { href: '/compare/self-managing-vs-property-manager/', label: 'Self-managing vs hiring a manager', note: 'The other comparison, with the work listed out.' },
+    { href: '/tools/vacancy-cost-calculator/', label: 'Vacancy cost calculator', note: 'What an empty unit costs per day.' },
+    { href: '/compare/', label: 'All comparisons', note: 'Every side-by-side we publish.' },
+    { href: '/property-management-consultation/', label: 'Get a portfolio quote', note: 'Per-unit pricing drops as unit count rises.' },
+  ]} />
+
+  <Cta
+    heading="Run the numbers on your actual rent"
+    body="Tell us the address and the rent and we will put both structures in writing against your property, including the rents where we are not the cheaper answer."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

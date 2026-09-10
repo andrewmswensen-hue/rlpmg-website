@@ -1,0 +1,208 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, usd } from '../../../data/facts';
+import { serviceNode } from '../../../lib/schema';
+
+/**
+ * Intent: "ohio landlord tenant law", "rental registration columbus",
+ * "fair housing rental".
+ *
+ * DELIBERATE GAPS. This page names the areas of law an owner has to comply with
+ * and what happens operationally, but it does not state a statute cite, a
+ * protected class list, a deposit deadline or a registration requirement that is
+ * not in facts.ts. Each of those is marked SOURCE NEEDED for counsel to fill.
+ */
+
+const insuranceFee = pricing.otherFees.find((f) => f.name === 'Failure to provide evidence of additional insured');
+const lawsuitFee = pricing.otherFees.find((f) => f.name === 'Lawsuit defense');
+
+const title = 'Ohio Landlord Tenant Law and Rental Compliance in Columbus | RL Property Management';
+const description =
+  `The compliance obligations a Columbus rental owner carries: fair housing, Ohio landlord-tenant law, local ` +
+  `rental registration, insurance and lease documentation. What ${company.name} handles and what stays with you.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+  { name: 'Compliance', path: '/services/compliance/' },
+];
+
+const answer =
+  `A Columbus rental owner must comply with fair housing law, Ohio landlord-tenant law, local registration and ` +
+  `inspection rules, and insurance obligations. ${company.name} handles the operating side and works from a ` +
+  `custom lease reviewed by legal counsel.`;
+
+const facts = [
+  'Custom lease, reviewed by legal counsel, on every managed unit',
+  'One written screening standard applied identically to every applicant',
+  `${usd(pricing.insuranceRequired.liabilityMin)} minimum liability coverage required, with ${company.name} named as an additional insured`,
+  `${insuranceFee?.amount ?? ''} until proof of that coverage is on file`,
+  `${lawsuitFee?.amount ?? ''} for time spent on any lawsuit other than a normal eviction`,
+  `${usd(0)} to post a 3-day or 30-day notice to vacate`,
+  `Licensed real estate brokerage in the State of Ohio since ${company.founded}`,
+  `Approved pet damage covered to ${usd(pricing.petDamageCoverage.cap)}; service and assistance animals are not pets`,
+];
+
+const areasOfLaw = [
+  { h: 'Fair housing',
+    b: 'The highest-consequence area, because a violation is not a fine on a form, it is a complaint and potentially a lawsuit. Protected classes come from federal law, from Ohio law, and from Columbus and Franklin County ordinances, and the local list is longer than the federal one. [SOURCE NEEDED: the exact list of protected classes under federal law, Ohio law, and Columbus and Franklin County ordinance, confirmed by counsel.] The operational answer is the same regardless of the list: one written standard, applied identically, documented every time.' },
+  { h: 'Source of income',
+    b: 'Whether a landlord may decline an applicant because they hold a housing voucher is governed by local ordinance in Central Ohio, and the answer differs by jurisdiction. [SOURCE NEEDED: the current Columbus and Franklin County source of income ordinances, their effective dates, which properties they cover, and RLPM policy on voucher holders.]' },
+  { h: 'Ohio landlord-tenant law',
+    b: 'Ohio law sets what a landlord must do to keep a unit habitable, what notice must be given before entering, how security deposits are handled and returned, and how a tenancy is ended. [SOURCE NEEDED: the Ohio Revised Code chapter governing residential landlord-tenant obligations, the required notice period before entry, and the security deposit return deadline and interest rules.]' },
+  { h: 'Security deposits',
+    b: 'Deposits are the most common source of a small claims case against a landlord, and almost every loss comes from the same two failures: no dated move-in condition documentation, and a deduction that was not itemized in writing within the required window. [SOURCE NEEDED: the Ohio security deposit return deadline, itemization requirement, interest rule and the penalty for noncompliance.]' },
+  { h: 'Local registration and inspection',
+    b: 'Columbus and several suburbs impose their own requirements on rental property, which can include registration, contact information on file, and inspection regimes. These are ordinance-level rules that change, and they differ between the City of Columbus and a suburb a mile away. [SOURCE NEEDED: current City of Columbus residential rental registration requirements, fee, renewal cycle and penalties, plus which of our other service communities have their own registration or inspection programs.]' },
+  { h: 'Lead-based paint',
+    b: 'Federal disclosure rules apply to housing built before 1978, which is a large share of the Columbus rental stock, particularly in the older neighborhoods. [SOURCE NEEDED: the federal lead-based paint disclosure and pamphlet requirements RLPM follows, and how disclosure is documented in the lease packet.]' },
+  { h: 'Insurance',
+    b: `We require a Rental Dwelling Policy or Commercial Policy carrying at least ${usd(pricing.insuranceRequired.liabilityMin)} in liability coverage, with ${company.name} named as an additional insured. If proof is not on file the charge is ${insuranceFee?.amount ?? ''}. This is not paperwork for its own sake: an uninsured or underinsured claim on a managed property is the fastest way for an owner to lose more than the property earns in a decade.` },
+];
+
+const faq = [
+  { q: 'What does Ohio landlord-tenant law require of a landlord?',
+    a: 'In broad terms: keep the unit habitable and in compliance with building and housing codes, make required repairs, give proper notice before entering, handle and return security deposits according to statute, and follow the required process to end a tenancy or evict. [SOURCE NEEDED: the governing Ohio Revised Code chapter and the specific duties it lists, confirmed by counsel before this answer states them individually.] This page is general information, not legal advice.' },
+  { q: 'Do I have to register my rental property in Columbus?',
+    a: '[SOURCE NEEDED: whether the City of Columbus requires residential rental registration, what it costs, how often it renews, which properties are covered and the penalty for not registering. Do not publish an answer until this is verified against the current city code.] Requirements also differ by suburb, so a property in one of our service communities may face rules a Columbus property does not.' },
+  { q: 'What are the fair housing rules for renting a property?',
+    a: 'You may set standards, and you may not apply them selectively. Write the standard before you advertise, publish it with the listing, apply it identically to every applicant, and document every decision. Advertising language matters too, since describing an ideal resident rather than the property is where many complaints start. [SOURCE NEEDED: the exact protected class list under federal, Ohio and local law, confirmed by counsel.]' },
+  { q: 'Are service animals treated like pets?',
+    a: `No. Service and assistance animals are not pets. A no-pets policy does not apply to them and pet fees are not charged for them. Our ${usd(pricing.petDamageCoverage.cap)} pet damage coverage, which sits above the security deposit and is funded by a monthly pet administration fee, applies to approved pets only, not to service or assistance animals. [SOURCE NEEDED: the documentation a housing provider may lawfully request for an assistance animal request in Ohio, confirmed by counsel.]` },
+  { q: 'What insurance do I need on a rental property?',
+    a: `A Rental Dwelling Policy or Commercial Policy carrying at least ${usd(pricing.insuranceRequired.liabilityMin)} in liability coverage, with ${company.name} named as an additional insured. If proof of coverage is not on file we charge ${insuranceFee?.amount ?? ''} until it is. A homeowner's policy on a property you no longer occupy is one of the most common and most dangerous gaps we see.` },
+  { q: 'Who is liable if something goes wrong, me or the manager?',
+    a: `You own the property, so you carry the ownership liability, which is exactly why the insurance requirement exists and why we are named as an additional insured. We carry the responsibility for operating within the law on your behalf. If a lawsuit other than a normal eviction arises, our time on it is billed at ${lawsuitFee?.amount ?? ''}.` },
+  { q: 'Does using a property manager make me compliant?',
+    a: 'It moves the operating work to a team that does it every day, and it gets you a lease reviewed by counsel and a documented, consistent process. It does not transfer ownership obligations, and no manager should tell you it does. Keep your own counsel and your own insurance agent.' },
+  { q: 'What is the most common compliance mistake owners make?',
+    a: 'Improvising the screening decision. The second is a handshake lease or a downloaded template that does not match Ohio requirements. The third is a security deposit deduction with no move-in documentation behind it. All three are cheap to prevent and expensive to lose.' },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/services/compliance/',
+    name: 'Rental compliance and Ohio landlord-tenant coordination',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Compliance"
+    title="Ohio landlord-tenant law and what a Columbus rental owner has to comply with"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See all services', href: '/services/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <section class="band" aria-labelledby="why-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The exposure</span>
+      <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Why does compliance cost owners money?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Because the rules that cost you money are the ones you did not know existed. A fair housing complaint, a
+        security deposit case, a registration penalty and a lead disclosure failure all share a shape: the owner
+        was not being careless about a rule they knew, they were operating without knowing the rule was there.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        The other shape they share is documentation. Nearly every one of these is winnable with a written
+        standard, a dated record and a lease that says what everyone thought it said. That is what a manager is
+        actually selling you here, and it is why this page tells you what we have verified and what we have not.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="law-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The seven areas</span>
+      <h2 id="law-h" class="text-[clamp(28px,3.3vw,40px)]">What laws apply to a rental property in Columbus?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Seven areas, from federal down to a suburb's own ordinance. Where the exact requirement is not confirmed
+        in our own documentation, this page says so rather than guessing, because a wrong legal detail is worse
+        than a gap.
+      </p>
+      <div class="grid gap-5">
+        {areasOfLaw.map((a) => (
+          <div class="card">
+            <h3 class="text-[19.5px] mb-2">{a.h}</h3>
+            <p class="text-[15.5px] text-muted m-0">{a.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="ours-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Division of labor</span>
+      <h2 id="ours-h" class="text-[clamp(28px,3.3vw,40px)]">What do we handle, and what stays with you?</h2>
+      <div class="grid gap-5 sm:grid-cols-2 mt-7">
+        <div class="card">
+          <h3 class="text-[18.5px] mb-3">We handle</h3>
+          <ul class="text-[15.5px] text-muted grid gap-1.5">
+            <li>A custom lease reviewed by legal counsel</li>
+            <li>One written screening standard, applied consistently</li>
+            <li>Required notices, posted at no charge</li>
+            <li>Entry notice and inspection scheduling</li>
+            <li>Security deposit handling and documentation</li>
+            <li>Eviction coordination with an eviction attorney</li>
+            <li>Records that support a decision if it is challenged</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-[18.5px] mb-3">Stays with you</h3>
+          <ul class="text-[15.5px] text-muted grid gap-1.5">
+            <li>Ownership liability for the property</li>
+            <li>Insurance, at {usd(pricing.insuranceRequired.liabilityMin)} minimum liability with us as additional insured</li>
+            <li>Your own legal counsel and tax professional</li>
+            <li>Entity structure and title</li>
+            <li>Decisions on rent, renewals, capital work and selling</li>
+            <li>Mortgage, property tax and any HOA obligations</li>
+          </ul>
+        </div>
+      </div>
+      <p class="text-[15px] text-muted mt-7">
+        We are a licensed real estate brokerage in the State of Ohio, not a law firm. Nothing on this page is
+        legal advice, and an owner should have their own counsel for their own situation.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Compliance questions" id="compliance-faq" />
+      <p class="mt-7 text-[14px] text-faint">
+        General information about property management practice in Central Ohio, not legal advice. Ordinances and
+        statutes change. Verify anything on this page against the current code, or ask your attorney, before
+        relying on it.
+      </p>
+      <div class="mt-5"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/services/tenant-screening/', label: 'Tenant screening', note: 'Where fair housing compliance is won or lost.' },
+    { href: '/services/evictions/', label: 'Evictions', note: 'Notices, filing and the process in Franklin County.' },
+    { href: '/services/inspections/', label: 'Inspections', note: 'Entry notice, habitability and documentation.' },
+    { href: '/pricing/', label: 'Pricing', note: 'Including the insurance and lawsuit defense charges.' },
+    { href: '/services/', label: 'All services', note: 'The other seven jobs a manager does.' },
+  ]} />
+
+  <Cta
+    heading="Operate on a documented process"
+    body="A lease reviewed by counsel, one screening standard applied every time, and records that hold up if a decision is challenged."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

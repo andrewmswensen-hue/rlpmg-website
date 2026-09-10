@@ -1,0 +1,197 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, kpis, rentPolicy, usd } from '../../../data/facts';
+import { serviceNode } from '../../../lib/schema';
+
+/**
+ * Intent: "rental listing service columbus", "how to market a rental property".
+ * The commercial hook is the $0 leasing fee. The educational hook is that
+ * vacancy, not the fee, is what actually costs an owner money.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+const photoFee = pricing.otherFees.find((f) => f.name === 'Property photography');
+
+const title = 'Rental Marketing and Leasing in Columbus, Ohio | RL Property Management';
+const description =
+  `How a Columbus rental gets photographed, priced, syndicated, shown and leased. ` +
+  `${usd(pricing.leasingFee)} leasing fee on every plan, median ${kpi('dom')} days on market. Photography is billed separately at $250 to $450.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+  { name: 'Marketing and leasing', path: '/services/marketing-and-leasing/' },
+];
+
+const answer =
+  `Marketing a rental means pricing it to the comps, photographing it well, syndicating the listing everywhere, ` +
+  `and showing it quickly. ${company.name} charges ${usd(pricing.leasingFee)} to lease a unit, and median time ` +
+  `on market is ${kpi('dom')} days.`;
+
+const facts = [
+  `${usd(pricing.leasingFee)} leasing fee on all three plans, every time the unit turns`,
+  `Median ${kpi('dom')} days on market across the portfolio`,
+  `Median ${kpi('turn')} days to turn a unit between residents`,
+  `${kpi('renewal')} lease renewal rate, so units turn less often`,
+  `${kpi('occupancy')} portfolio occupancy`,
+  `Average rent under management ${kpi('avgRent')}`,
+  'Photography is billed separately at $250 to $450, not included',
+  `${usd(pricing.leaseRenewalFee)} lease renewal fee, charged on the renewal date`,
+];
+
+const steps = [
+  { h: 'Price it against what actually leased',
+    b: 'Asking rent is set from recent leased comparables, not from active listings. Active listings are asking prices, and an overpriced unit can sit for weeks without ever telling you it is overpriced. A unit priced 5 percent high does not lease 5 percent slower, it stalls.' },
+  { h: 'Get it rent ready before it goes live',
+    b: `The turn happens first, not during marketing. Photographing a half-finished unit costs you the first and best week of exposure. Median turn time across our portfolio is ${kpi('turn')} days.` },
+  { h: 'Photograph it properly',
+    b: `Photos are the listing. Professional photography runs $250 to $450 depending on property size, billed at vendor cost plus our standard markup. It is not covered by the ${usd(pricing.leasingFee)} leasing fee. Existing photos keep being used at no charge while they still represent the property, and the photos are yours to keep.` },
+  { h: 'Syndicate to every major portal',
+    b: 'The listing goes out to the major rental portals at once rather than to one site at a time, so the whole demand pool sees it in the same week. The first ten days of a listing produce most of the qualified inquiry.' },
+  { h: 'Show it without making people wait',
+    b: 'Self-guided and agent-led showings both run. A prospect who has to wait four days for a Saturday open house has already toured three other units. Speed of showing is the single most controllable input to days on market.' },
+  { h: 'Screen, then sign',
+    b: 'Every applicant runs through the same written standard: credit, criminal, income, rental history and eviction record. Lease preparation is on a custom lease reviewed by legal counsel, and it is included in the leasing fee.' },
+];
+
+const faq = [
+  { q: 'How much does it cost to lease a rental property in Columbus?',
+    a: `${company.name} charges ${usd(pricing.leasingFee)} to place a resident, on every plan. Most Columbus managers charge roughly half a month of rent, which on the ${kpi('avgRent')} average rent under our management is a few hundred to over eight hundred dollars each time the unit turns. Photography is the one leasing cost we bill separately, at $250 to $450.` },
+  { q: 'How long does it take to rent a house in Columbus?',
+    a: `Median days on market across our portfolio is ${kpi('dom')}. That is measured as ${kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)} Individual units vary widely with price, condition, season and location. A unit that has sat past 60 days is almost always a pricing or condition problem, not a marketing problem.` },
+  { q: 'Is photography included in the leasing fee?',
+    a: `No. Photography is billed separately at $250 to $450, by property size, at vendor cost plus our standard markup. It applies to new vacant units and units that have had major cosmetic work, effective October 1, 2026. If your existing photos still represent the property we keep using them at no charge, and the photos are yours to keep.` },
+  { q: 'What happens if my property does not lease?',
+    a: 'If a property has been listed for rent longer than 60 days, we proactively credit management fees back to your account. Before that point you get a recommendation, usually a price change or a condition fix, with the showing and inquiry data behind it.' },
+  { q: 'Who sets the asking rent?',
+    a: 'You do. We bring the recommendation, built from recent leased comparables in the same submarket, plus what our own units at that price point are doing. You approve the number before the listing goes live.' },
+  { q: 'Do you charge a leasing fee again when the resident renews?',
+    a: `No. A renewal is ${usd(pricing.leaseRenewalFee)}, charged to the owner on the date the lease renews. Because we charge nothing to place a new resident, we have no financial reason to prefer a turn over a renewal. Our renewal rate is ${kpi('renewal')}.` },
+  { q: 'When do you need possession of the unit?',
+    a: 'At least 14 days before an executed lease starts. If a unit is not handed over by then, the fee for failure to provide possession is 3 months of rent, because a resident with a signed lease and nowhere to move is a real liability, not a scheduling inconvenience.' },
+  { q: 'Do you list the property on the MLS?',
+    a: '[SOURCE NEEDED: whether RLPM lists rental units on the Columbus REALTORS MLS and whether a cooperating broker commission is offered.]' },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/services/marketing-and-leasing/',
+    name: 'Rental marketing and leasing',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Marketing and leasing"
+    title="How a Columbus rental gets marketed and leased"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See pricing', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <section class="band" aria-labelledby="cost-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The real cost of a vacancy</span>
+      <h2 id="cost-h" class="text-[clamp(28px,3.3vw,40px)]">What does vacancy actually cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        A vacant month costs a full month of rent, and you still pay the mortgage, the taxes, the insurance and
+        the utilities that month. On the {kpi('avgRent')} average rent under our management, thirty extra days
+        vacant costs more than a year of flat management on {pricing.plans[0].name}.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        This is why leasing fees deserve scrutiny in both directions. A manager who charges half a month of rent
+        to lease a unit is paid more when your unit turns. A manager who charges {usd(pricing.leasingFee)} is not.
+        Neither arrangement makes a unit lease faster on its own, but only one of them is neutral about whether
+        your resident renews.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="steps-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The process</span>
+      <h2 id="steps-h" class="text-[clamp(28px,3.3vw,40px)]">How do you market a rental property?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Six steps, in this order. Owners who self-manage usually get five of them right and lose two weeks on
+        the sixth.
+      </p>
+      <ol class="grid gap-5">
+        {steps.map((s, i) => (
+          <li class="card">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">Step {i + 1}</div>
+            <h3 class="text-[19.5px] mb-2">{s.h}</h3>
+            <p class="text-[15.5px] text-muted m-0">{s.b}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="photo-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Said plainly</span>
+      <h2 id="photo-h" class="text-[clamp(28px,3.3vw,40px)]">Is photography included?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        No. Photography is billed separately at $250 to $450. It is the one part of leasing that is not covered
+        by the {usd(pricing.leasingFee)} fee, and we would rather say so on this page than surprise you on a
+        statement.
+      </p>
+      <div class="card mt-6">
+        <h3 class="text-[18.5px] mb-2">{photoFee?.name}</h3>
+        <p class="text-[15.5px] text-muted m-0"><strong class="text-navy">{photoFee?.amount}</strong>. {photoFee?.note}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="stall-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Diagnosis</span>
+      <h2 id="stall-h" class="text-[clamp(28px,3.3vw,40px)]">Why is my rental not renting?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6">
+        Almost always one of four things, and the inquiry data tells you which.
+      </p>
+      <ul class="grid gap-4">
+        <li class="card !p-5"><strong class="text-navy">Few views, few inquiries.</strong> <span class="text-muted">The listing is not reaching people or the photos are not earning a click. Fix the photos and the syndication first.</span></li>
+        <li class="card !p-5"><strong class="text-navy">Views but no inquiries.</strong> <span class="text-muted">Price is above what the photos and the description justify. This is a pricing problem, and it will not resolve on its own.</span></li>
+        <li class="card !p-5"><strong class="text-navy">Inquiries but no showings.</strong> <span class="text-muted">Response time or showing availability. A prospect who cannot tour within about 48 hours is touring something else.</span></li>
+        <li class="card !p-5"><strong class="text-navy">Showings but no applications.</strong> <span class="text-muted">The unit does not match the listing. Condition, smell, a dated kitchen, a parking or laundry issue that photos hid.</span></li>
+      </ul>
+      <p class="text-[15px] text-muted mt-6">
+        Past 60 days on the market, we credit management fees back to your account while we work the problem.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Marketing and leasing questions" id="leasing-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/services/tenant-screening/', label: 'Tenant screening', note: 'What happens to an application once it comes in.' },
+    { href: '/pricing/', label: 'Pricing', note: `The ${usd(pricing.leasingFee)} leasing fee in the context of the whole fee schedule.` },
+    { href: '/services/', label: 'All services', note: 'The other seven jobs a manager does.' },
+    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'What your unit should ask, from leased comparables.' },
+    { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'Days on market, turn time and renewal rate, with definitions.' },
+  ]} />
+
+  <Cta
+    heading="Find out what your unit should rent for"
+    body="A rent evaluation gives you the number, the comparables behind it, and what it would take to get there. It costs nothing and it does not obligate you to anything."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

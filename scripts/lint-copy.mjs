@@ -20,12 +20,18 @@ async function walk(dir, exts) {
 }
 
 const BANNED_WORDS = [
-  'leverage', 'utilize', 'robust', 'seamless', 'cutting-edge', 'best-in-class',
+  'utilize', 'robust', 'seamless', 'cutting-edge', 'best-in-class',
   'world-class', 'synergy', 'holistic', 'bespoke', 'curated', 'elevate',
   'unlock', 'empower', 'passionate', 'we pride ourselves',
   'look no further', 'in today\'s market', 'peace of mind',
 ];
 const HEDGES = ['we believe', 'we think', 'in our opinion', 'arguably', 'it could be argued'];
+/**
+ * "leverage" as marketing jargon, not as the ordinary noun meaning bargaining
+ * power. "the leverage is not the party with the information" is fine English;
+ * "leverage our expertise" is not.
+ */
+const JARGON_LEVERAGE = /\b(leveraging|leverages|leverage)\s+(our|your|their|its|the\s+power|technology|data|expertise|scale)\b/i;
 const ABSOLUTES = ['best in columbus', 'number one', 'the best property manage', 'unbeatable', 'guaranteed results'];
 /** "#1" as a claim, not as part of a hex colour like #123143. */
 const RANK_CLAIM = /#1\b(?![0-9a-f])/i;
@@ -49,6 +55,7 @@ for (const f of [...await walk('src/pages', ['.astro']), ...await walk('src/comp
   const s = await readFile(f, 'utf8');
   const lower = s.toLowerCase();
   for (const w of BANNED_WORDS) if (lower.includes(w)) warnings.push(`${f}: banned word "${w}"`);
+  if (JARGON_LEVERAGE.test(s)) warnings.push(`${f}: "leverage" used as marketing jargon`);
   for (const h of HEDGES) if (lower.includes(h)) errors.push(`${f}: hedging phrase "${h}"`);
   for (const a of ABSOLUTES) if (lower.includes(a)) warnings.push(`${f}: unprovable absolute "${a}"`);
   if (RANK_CLAIM.test(s)) warnings.push(`${f}: unprovable rank claim "#1"`);

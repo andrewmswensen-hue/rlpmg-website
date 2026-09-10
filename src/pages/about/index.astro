@@ -1,0 +1,218 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, mission, coreValues, areas, usd, priceRange } from '../../data/facts';
+
+/**
+ * The company page. Its job is entity clarity: who this business is, what it
+ * does, where, for whom, and who runs it. Everything factual here traces to
+ * src/data/facts.ts or to the current live /about/ page copy.
+ */
+
+const title = 'About RL Property Management | Columbus, Ohio Property Managers';
+const description =
+  `RL Property Management is a licensed Ohio brokerage founded in ${company.founded}, managing ` +
+  `${company.unitsManaged} ${company.propertyTypes} across the Columbus metro on flat monthly pricing.`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }];
+
+/** "Licensed real estate brokerage in the State of Ohio", lowercased for mid-sentence use.
+ *  Only the first letter changes, so "State of Ohio" keeps its capitals. */
+const lic = company.license.charAt(0).toLowerCase() + company.license.slice(1);
+
+const keyFacts = [
+  `Founded in ${company.founded} in Columbus, Ohio`,
+  `${company.unitsManaged} units under management`,
+  `${company.license}`,
+  `Flat pricing of ${priceRange()} per unit per month`,
+  `${usd(pricing.leasingFee)} leasing fee on every plan`,
+  `${areas.length} communities served across Central Ohio`,
+];
+
+/** Who we work with, from the current live About page. */
+const clients = [
+  'Long-term, well-capitalized investors who are growing a portfolio',
+  'Owners of 1 to 99 rental units who want the day-to-day handled',
+  'Accidental landlords who inherited a rental or could not sell one',
+  'Out-of-state investors who need someone local at the property',
+  'Owners of Class A, Class B and well-maintained Class C property in the Columbus metro',
+];
+
+/** What is different, from the current live About page, with numbers added from facts.ts. */
+const differences = [
+  { h: 'Pricing you can read before you call',
+    p: `Monthly management is a flat ${priceRange()} per unit. Placing a resident costs ${usd(pricing.leasingFee)}. The full fee schedule, including the charges that only show up in a bad month, is published on the pricing page.` },
+  { h: 'Quarterly inspections, not annual ones',
+    p: 'Every managed property is inspected quarterly. Small problems found in month three are cheaper than the same problems found in month eleven.' },
+  { h: 'A custom lease reviewed by legal counsel',
+    p: 'The lease is not a form download. It is a custom document, reviewed by counsel, written against Ohio landlord-tenant law and Franklin County practice.' },
+  { h: 'We publish our operating numbers',
+    p: `The scorecard is public and refreshed quarterly: ${kpis.metrics[0].value} median days on market, ${kpis.metrics[3].value} occupancy, ${kpis.metrics[6].value} of rent collected by the 5th.` },
+  { h: 'Local since 2013',
+    p: `The team works out of ${company.address.city}, Ohio, and the properties are in Franklin County and the counties that touch it. Nothing is managed remotely from another state.` },
+  { h: 'We are selective about the work',
+    p: 'We take on property in a defined service area and a defined property profile. Saying no to the rest is what makes the yes worth something.' },
+];
+
+const faq = [
+  { q: 'What is RL Property Management?',
+    a: `${company.name} is a residential property management company and ${lic}, founded in ${company.founded} and based in ${company.address.city}, Ohio. It manages ${company.unitsManaged} ${company.propertyTypes} across the Columbus metro.` },
+  { q: 'How long has RL Property Management been in business?',
+    a: `Since ${company.founded}. The company has operated continuously in Columbus, Ohio since then and is a ${lic}.` },
+  { q: 'How many units does RL Property Management manage?',
+    a: `${company.unitsManaged} units, as of ${kpis.asOfLabel}. The portfolio is ${company.propertyTypes}, not large apartment communities.` },
+  { q: 'Who owns RL Property Management?',
+    a: `${company.brokerOfRecord.name} is ${company.brokerOfRecord.title}. He is the broker of record for the firm and the named reviewer on the pages of this site. The full team is listed on the team page.` },
+  { q: 'What kind of owners does RL Property Management work with?',
+    a: 'Owners of 1 to 99 rental units, including long-term investors growing a portfolio, out-of-state investors who need a local operator, and accidental landlords. The property profile is Class A, Class B and well-maintained Class C in the Columbus metro.' },
+  { q: 'What areas does RL Property Management serve?',
+    a: `${areas.length} communities across Central Ohio, centered on Columbus and Franklin County and extending into Delaware, Fairfield, Licking, Union, Madison and Pickaway counties.` },
+  { q: 'What does RL Property Management charge?',
+    a: `A flat ${priceRange()} per unit per month depending on plan, a ${usd(pricing.leasingFee)} leasing fee, ${usd(pricing.leaseRenewalFee)} for a lease renewal, and ${usd(pricing.startupFeeOccupied)} to bring an occupied unit under management. The complete fee schedule is published.` },
+  { q: 'Is RL Property Management a licensed brokerage?',
+    a: `Yes. ${company.name} is a ${lic}, with ${company.brokerOfRecord.name} as ${company.brokerOfRecord.title}.` },
+];
+
+const related = [
+  { href: '/team/', label: 'Our team', note: 'Every person here, with their role.' },
+  { href: '/core-values/', label: 'Core values', note: 'The six values the company runs on.' },
+  { href: '/pricing/', label: 'Pricing', note: 'The complete published fee schedule.' },
+  { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'The operating numbers, refreshed quarterly.' },
+  { href: '/areas-we-serve/', label: 'Areas we serve', note: `All ${areas.length} Central Ohio communities.` },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="About us"
+    title="About RL Property Management"
+    answer={`${company.name} is a licensed Ohio brokerage founded in ${company.founded}, managing ${company.unitsManaged} ${company.propertyTypes} across the Columbus metro on flat pricing of ${priceRange()} per unit per month.`}
+    breadcrumbs={breadcrumbs}
+    secondaryCta={{ label: 'Meet the team', href: '/team/' }}
+  />
+
+  <KeyFacts items={keyFacts} />
+
+  <section class="band-tight" aria-labelledby="what-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="what-h">What does RL Property Management do?</h2>
+      <p>
+        We manage {company.propertyTypes} for people who own them as investments. That covers
+        marketing and leasing a vacant unit, screening applicants, writing and renewing leases,
+        collecting rent, coordinating maintenance, inspecting the property quarterly, keeping the
+        owner compliant with Ohio landlord-tenant law, and running an eviction when one becomes
+        unavoidable.
+      </p>
+      <p>
+        The purpose is one sentence: {mission.charAt(0).toLowerCase() + mission.slice(1)} An owner
+        should not be fielding an 11pm call about a furnace, chasing rent that is nineteen days late,
+        or discovering in month eight that nobody ever walked the property.
+      </p>
+
+      <h2>Who does RL Property Management work with?</h2>
+      <p>
+        Owners of 1 to 99 units in the Columbus metro. Portfolios in that range are large enough to
+        behave like a business and small enough that one bad turn is felt. We work with:
+      </p>
+      <ul>
+        {clients.map((c) => <li>{c}</li>)}
+      </ul>
+      <p>
+        We are selective about who we work with and where we manage, and that is deliberate. A
+        defined service area and a defined property profile is what lets a team of this size
+        actually be at the property when something goes wrong.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="diff-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">The difference</span>
+      <h2 id="diff-h" class="text-[clamp(28px,3.3vw,40px)]">What makes RL Property Management different?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Most of it comes down to publishing things other managers keep private: the prices, the
+        operating numbers, and the names of the people doing the work.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2 mt-2">
+        {differences.map((d) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{d.h}</h3>
+            <p class="text-[15px] text-muted m-0">{d.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="where-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="where-h">Where does RL Property Management operate?</h2>
+      <p>
+        Across {areas.length} communities in Central Ohio, anchored in Columbus and Franklin County
+        and reaching into Delaware, Fairfield, Licking, Union, Madison and Pickaway counties.
+        Evictions run through the Franklin County Municipal Court, which is where the great majority
+        of the portfolio sits.
+      </p>
+      <p>
+        The office is at {company.address.street}, {company.address.city}, {company.address.region}
+        {' '}{company.address.postalCode}. {company.officeHoursNote}, so call ahead rather than
+        stopping by.
+      </p>
+      <p>
+        <a href="/areas-we-serve/">See all {areas.length} areas we serve</a>.
+      </p>
+
+      <h2>Who runs the company?</h2>
+      <p>
+        {company.brokerOfRecord.name} is {company.brokerOfRecord.title} and the broker of record.
+        The rest of the team, every name and every title, is on the
+        {' '}<a href="/team/">team page</a>. Leasing, maintenance, resident support, owner reporting
+        and people operations are separate functions with named people in them, rather than one
+        generalist covering all of it.
+      </p>
+
+      <h2>What does RL Property Management believe?</h2>
+      <p>
+        Six core values, and they are operating instructions rather than wall art:
+        {coreValues.map((v, i) => (
+          <span>{i === 0 ? ' ' : ', '}{v.name.toLowerCase()}</span>
+        ))}. Each one is explained, with what it looks like in practice, on the
+        {' '}<a href="/core-values/">core values page</a>.
+      </p>
+
+      <h2>How is RL Property Management paid?</h2>
+      <p>
+        A flat {priceRange()} per unit per month, depending on which of the three plans you pick.
+        The plans differ in one thing, the per-item repair approval limit. Placing a resident costs
+        {' '}{usd(pricing.leasingFee)} on every plan, a lease renewal is {usd(pricing.leaseRenewalFee)},
+        and bringing an occupied unit under management costs {usd(pricing.startupFeeOccupied)}.
+      </p>
+      <p>
+        A flat fee means our revenue does not rise when your rent does, and a
+        {' '}{usd(pricing.leasingFee)} leasing fee means we have no financial reason to prefer a new
+        lease over a renewal. The full schedule, including maintenance rates and eviction costs, is
+        on the <a href="/pricing/">pricing page</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Questions about the company" id="about-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={related} />
+
+  <Cta
+    heading="See what your property should rent for"
+    body="A free rent evaluation gives you a number for your unit and a plan for the vacancy. Own several? Ask for a portfolio quote instead."
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

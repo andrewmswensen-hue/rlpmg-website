@@ -1,0 +1,193 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, kpis, rentPolicy, usd } from '../../../data/facts';
+import { serviceNode } from '../../../lib/schema';
+
+/**
+ * Intent: "rent collection service", "what happens if my tenant does not pay".
+ * Policy pattern from CONTENT_STYLE: stated policy, real-world nuance, the number.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+
+const title = 'Rent Collection for Columbus Rental Owners | RL Property Management';
+const description =
+  `Rent is due ${rentPolicy.dueDate}, late fees are assessed after ${rentPolicy.lateFeesAfter}, and owner funds are ` +
+  `disbursed on the ${rentPolicy.ownerDisbursementDay}th. ${kpi('collectedBy5')} of rent is collected by the 5th. What happens when a resident stops paying.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services/' },
+  { name: 'Rent collection', path: '/services/rent-collection/' },
+];
+
+const answer =
+  `Rent is due ${rentPolicy.dueDate}, most residents pay by ${rentPolicy.lateFeesAfter}, and late fees are ` +
+  `assessed after ${rentPolicy.lateFeesAfter}. ${company.name} collects ${kpi('collectedBy5')} of rent by the 5th ` +
+  `and disburses owner funds on the ${rentPolicy.ownerDisbursementDay}th.`;
+
+const facts = [
+  `Rent due ${rentPolicy.dueDate} of the month`,
+  `Late fees assessed after ${rentPolicy.lateFeesAfter}`,
+  `${kpi('collectedBy5')} of rent collected by the 5th`,
+  `Owner disbursement on the ${rentPolicy.ownerDisbursementDay}th, ${rentPolicy.disbursementNote}`,
+  'Online payment, with automated late notices',
+  `${usd(0)} to post a 3-day or 30-day notice to vacate`,
+  `Month-to-month tenancy carries a ${rentPolicy.monthToMonthIncreasePct}% rent increase`,
+  `${kpi('occupancy')} portfolio occupancy`,
+];
+
+const timeline = [
+  { when: `The ${rentPolicy.dueDate}`, what: 'Rent is due in full. Residents pay online, and most of the portfolio is on autopay or pays within the first few days.' },
+  { when: 'The 2nd to the 5th', what: `The practical payment window. A payment landing on the 3rd is not a problem, it is a pay cycle. Automated reminders go out during this stretch.` },
+  { when: `After ${rentPolicy.lateFeesAfter}`, what: 'Late fees are assessed. Contact escalates from automated notice to direct outreach, and we find out whether this is a one-month cash problem or the start of a pattern.' },
+  { when: 'Notice stage', what: `If rent stays unpaid, a notice to vacate is posted at the property. We do not charge to post a 3-day or 30-day notice. [SOURCE NEEDED: the exact day of the month RLPM posts the 3-day notice, and the statutory notice period and required notice language under Ohio law.]` },
+  { when: 'Filing', what: `If the notice period runs out with rent still unpaid, the case is filed in Franklin County. Hard cost is ${usd(pricing.eviction.hardCostTotal)}, and our fee to manage the case is ${usd(pricing.eviction.rlpmProcessFee)}.` },
+  { when: `The ${rentPolicy.ownerDisbursementDay}th`, what: `Collected funds are disbursed electronically to owners, and take ${rentPolicy.disbursementNote}.` },
+];
+
+const faq = [
+  { q: 'When is rent due, and when are late fees charged?',
+    a: `Rent is due ${rentPolicy.dueDate}. In practice many residents pay between ${rentPolicy.practicalWindow}. Late fees are assessed after ${rentPolicy.lateFeesAfter}. Across the portfolio, ${kpi('collectedBy5')} of rent is collected by the 5th as of ${kpis.asOfLabel}. [SOURCE NEEDED: the late fee amount or percentage charged under the RLPM lease.]` },
+  { q: 'When do I get my money?',
+    a: `Owner funds are disbursed electronically on the ${rentPolicy.ownerDisbursementDay}th of each month and take ${rentPolicy.disbursementNote}. The gap between the 5th and the 10th exists so the month closes cleanly: payments clear, maintenance invoices post, and the statement you receive matches the deposit you receive.` },
+  { q: 'What happens if my tenant does not pay rent?',
+    a: `Late fees are assessed after ${rentPolicy.lateFeesAfter} and contact escalates from automated notice to direct outreach. If rent stays unpaid, a notice to vacate is posted, and we charge nothing to post it. If the notice period passes without payment, the case is filed in Franklin County. Hard costs are ${usd(pricing.eviction.hardCostTotal)} and our fee to run the case is ${usd(pricing.eviction.rlpmProcessFee)}. Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute.` },
+  { q: 'Should I accept a partial payment?',
+    a: 'It depends on what stage you are at, and it is not a casual decision. Accepting partial rent after a notice has been served can affect the case. [SOURCE NEEDED: how accepting partial payment after a notice to vacate affects an Ohio eviction case, confirmed by counsel.] What we can say without qualification is that a payment plan should be in writing, dated, and specific about amounts.' },
+  { q: 'Do you offer payment plans?',
+    a: 'Case by case, and only in writing. A resident with one bad month and a documented reason is a different situation from a resident who is three months behind and not answering. The first is worth working with, because a turn plus a vacancy plus an eviction costs the owner far more than a two-month catch-up plan.' },
+  { q: 'What happens when a lease ends and the resident stays?',
+    a: `A month-to-month tenancy carries a ${rentPolicy.monthToMonthIncreasePct}% rent increase. Month to month costs the owner real money in unpredictability, so it is priced accordingly, and it gives the resident a clear financial reason to sign a renewal instead. A renewal is ${usd(pricing.leaseRenewalFee)} to the owner.` },
+  { q: 'Can I collect rent myself and hire you for everything else?',
+    a: 'No. Rent collection is where lease enforcement actually happens, and splitting it from management means the party with the leverage is not the party with the information. It also breaks the accounting, since your statement would no longer reflect what was actually collected.' },
+  { q: 'What if I take over a unit whose resident is already behind?',
+    a: 'That is a delinquent tenant setup, and it is $300. It applies when we take over an occupied unit whose resident owes more than $300. The fee covers reconstructing the ledger, establishing what is actually owed, and starting collection from a defensible position rather than a guess.' },
+];
+
+const schemaNodes = [
+  serviceNode({
+    path: '/services/rent-collection/',
+    name: 'Rent collection and lease enforcement',
+    description,
+  }),
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Rent collection"
+    title="How rent gets collected, and what happens when it does not"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See all services', href: '/services/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <section class="band" aria-labelledby="policy-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The policy</span>
+      <h2 id="policy-h" class="text-[clamp(28px,3.3vw,40px)]">When is rent due?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Rent is due {rentPolicy.dueDate}. In practice many residents pay between {rentPolicy.practicalWindow},
+        because that is when paychecks land. Late fees are assessed after {rentPolicy.lateFeesAfter}.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        That distinction is the whole art of rent collection. A payment on the 3rd is a pay cycle, not a warning
+        sign, and treating it like one burns goodwill you will want later. A payment that has not arrived by the
+        6th is information. Across our portfolio, {kpi('collectedBy5')} of rent is collected by the 5th as of
+        {' '}{kpis.asOfLabel}.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="timeline-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Month by month</span>
+      <h2 id="timeline-h" class="text-[clamp(28px,3.3vw,40px)]">What does the collection month look like?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Same sequence every month, so nobody has to decide in the moment what to do about a late resident.
+      </p>
+      <ol class="grid gap-4">
+        {timeline.map((t) => (
+          <li class="card">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-crimson mb-2">{t.when}</div>
+            <p class="text-[15.5px] text-muted m-0">{t.what}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="nonpay-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The hard case</span>
+      <h2 id="nonpay-h" class="text-[clamp(28px,3.3vw,40px)]">What happens if my tenant does not pay?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Nonpayment gets handled as a process, not a negotiation. Late fees are assessed after
+        {' '}{rentPolicy.lateFeesAfter}. Outreach escalates from automated notice to a direct conversation, which
+        is where you learn whether this is one bad month or the start of a pattern. If rent stays unpaid, a notice
+        to vacate is posted, and we charge nothing to post a 3-day or 30-day notice.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        Filing is the last step, and the numbers are published:
+        {' '}{usd(pricing.eviction.hardCostTotal)} in hard costs, which is
+        {' '}{usd(pricing.eviction.attorneyFee)} to the eviction attorney and
+        {' '}{usd(pricing.eviction.countyFilingFee)} to Franklin County, plus
+        {' '}{usd(pricing.eviction.rlpmProcessFee)} to us to manage the case. Roughly
+        {' '}{pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        The expensive mistake owners make here is waiting. Every month of delay is another month of rent you will
+        not collect, and it does not improve the odds of getting paid. The full process is on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="pay-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Your side of it</span>
+      <h2 id="pay-h" class="text-[clamp(28px,3.3vw,40px)]">Why do owners get paid on the 10th and not the 6th?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Because the month has to close before it can be reported. Payments clear, maintenance invoices post, and
+        the statement you receive matches the deposit you receive. Disbursement is electronic on the
+        {' '}{rentPolicy.ownerDisbursementDay}th and takes {rentPolicy.disbursementNote}.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        A manager who pays out faster than the books close is either holding a float or sending you a number that
+        will be corrected later. Neither is better than waiting four days.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Rent collection questions" id="rent-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/services/evictions/', label: 'Evictions', note: 'What filing in Franklin County actually costs and involves.' },
+    { href: '/services/owner-reporting/', label: 'Owner reporting', note: 'The statement that arrives with your disbursement.' },
+    { href: '/services/tenant-screening/', label: 'Tenant screening', note: 'The cheapest way to avoid a collection problem.' },
+    { href: '/pricing/', label: 'Pricing', note: 'Flat monthly management, and every other fee.' },
+    { href: '/services/', label: 'All services', note: 'The other seven jobs a manager does.' },
+  ]} />
+
+  <Cta
+    heading="Stop chasing rent"
+    body="Rent comes in on a published schedule, late fees are enforced without a phone call from you, and your deposit lands on the 10th."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>
