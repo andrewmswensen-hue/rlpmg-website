@@ -260,6 +260,26 @@ export const coreValues = [
  * Operating commitments from the Client Handbook. These answer objections and
  * they are quotable, which is exactly what an answer engine wants.
  */
+/**
+ * Rental registration, written once and reused across all 23 area pages.
+ *
+ * Andrew, 2026-09-10: registration is our job to track, not the owner's to
+ * worry about. It only becomes their problem if they self-manage. So these
+ * pages state the obligation, then say we handle it, rather than publishing 21
+ * perishable per-city claims we would then have to keep current.
+ */
+export const rentalRegistration = {
+  /** Statewide. Applies to every residential rental in Ohio. */
+  state:
+    'Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number with the county auditor, along with the property address and parcel number, within 60 days of acquiring it and again within 60 days of any change. There is no fee. Not filing draws a special assessment under R.C. 5323.99.',
+  /** Columbus, passed 2026-04-20, verified against the ordinance coverage. */
+  columbus:
+    'The City of Columbus added its own citywide registry on April 20, 2026 under City Code Chapter 4515: annual registration with Building and Zoning Services at $15 per unit, capped at $1,500 per complex, and a safety inspection of common areas and building systems every three years. The city has not yet published the portal or the first deadline.',
+  /** The reframe. This is the sentence that belongs on every area page. */
+  weHandleIt:
+    'Keeping up with which registration applies to which address is our job, not yours. We file the county auditor registration as your designated agent during onboarding, we track the municipal programmes across the communities we work in, and we handle the filings and renewals. This is one of the obligations that quietly becomes your problem the moment you self-manage.',
+} as const;
+
 export const commitments = [
   { name: 'Owner funds disbursed on the 10th',
     detail: 'Rent is disbursed electronically on the 10th of each month. It takes about 2 to 3 business days to reach your account.' },
