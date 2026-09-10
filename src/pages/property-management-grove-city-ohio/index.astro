@@ -85,7 +85,7 @@ const keyFacts = [
 
 const faq = [
   { q: 'What county is Grove City, Ohio in?',
-    a: 'Franklin County. That answers two questions at once for a rental owner: an eviction is filed at Franklin County Municipal Court, 375 S. High St., Columbus, where Eviction Court sits in Courtroom 11B, and the rental owner information required by Ohio Revised Code 5323.02 is filed with the Franklin County Auditor. Grove City is its own municipality with its own council and its own code, but both of those functions are county functions, not city ones.' },
+    a: 'Franklin County. That settles two things at once: an eviction is filed at Franklin County Municipal Court, 375 S. High St., Columbus, where Eviction Court sits in Courtroom 11B, and the rental owner information required by Ohio Revised Code 5323.02 is filed with the Franklin County Auditor. Grove City has its own council and its own code, but both of those are county functions.' },
   { q: 'Which court hears an eviction in Grove City, Ohio?',
     a: 'Franklin County Municipal Court, 375 S. High St., Columbus, OH 43215, with Eviction Court in Courtroom 11B. Eviction jurisdiction in Ohio follows the county under R.C. 1901.02. Before the filing, Ohio requires a three-day notice to leave the premises under R.C. 1923.04 with specific statutory language, served by certified mail, handed to the resident, or left at the property. A notice with the wrong wording gets the case dismissed and costs you about three weeks.' },
   { q: 'Who provides water and sewer in Grove City, Ohio?',
@@ -95,11 +95,11 @@ const faq = [
   { q: 'Do I have to register my Grove City rental property?',
     a: 'Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file their name, address and telephone number, plus the property street address and permanent parcel number, with the auditor of the county where the property sits, and to update it within 60 days of any change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99, statutory range $50 to $150, with the Franklin County Auditor stating $150 per tax year. A property manager can file as the owner designated agent, and we do. [SOURCE NEEDED: confirm whether the City of Grove City separately requires residential rental registration, a rental licence or periodic rental inspection, and at what fee.]' },
   { q: 'What kind of rental property is there in Grove City?',
-    a: 'A genuinely mixed stock, which is what makes the city hard to generalise about. Around the Town Center and the older grid off Broadway and Park Street there are smaller mid-century houses on modest lots. Moving out toward Stringtown Road, Hoover Road, Buckeye Parkway and the Route 665 corridor, the stock gets newer, larger and more subdivision-shaped, with three and four bedroom houses on full-size lots. Grove City has kept building, so there is genuinely recent construction in the rental pool as well. [SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Grove City, Ohio.]' },
+    a: 'A genuinely mixed stock, which is what makes the city hard to generalise about. Around the Town Center and the older grid off Broadway and Park Street the houses are smaller and mid-century. Out toward Stringtown Road, Hoover Road, Buckeye Parkway and the Route 665 corridor the stock is newer, larger and subdivision-shaped, three and four bedrooms on full-size lots, some of it recent construction. [SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Grove City, Ohio.]' },
   { q: 'How much does property management cost in Grove City?',
     a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. On a ${usd(rent['3'].median)} three bedroom, a manager charging 10% of collected rent takes about ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year plus roughly ${usd(Math.round(rent['3'].median / 2))} again each time the unit turns. Photography is not included in the leasing fee and is billed separately at $250 to $450. Every other charge is published on the pricing page.` },
   { q: 'Is Grove City a good place to own a rental?',
-    a: `It is one of the steadier parts of the metro to own in, for unglamorous reasons: three and four bedroom houses attract households that move for schools and jobs rather than on a whim, which usually means longer tenancies and fewer turns than a market of small units. The trade is a higher repair bill per event, because a larger house has more of everything. The number that decides whether it works is the reserve, not the rent. Our maintenance reserve calculator will run that for you at no charge.` },
+    a: `It is one of the steadier parts of the metro to own in, for unglamorous reasons: three and four bedroom houses attract households that move for schools and jobs, which usually means longer tenancies and fewer turns than a market of small units. The trade is a higher repair bill per event, because a larger house has more of everything. The reserve decides whether it works, not the rent. Our maintenance reserve calculator runs that at no charge.` },
 ];
 
 const schemaNodes = [
@@ -145,11 +145,10 @@ const schemaNodes = [
         {' '}[SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Grove City, Ohio.]
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        This is why a single Grove City rent number is close to useless, and why a manager who quotes you one
-        without asking your cross streets is guessing. The two ends of the city do not share a rent, a reserve, a
-        turn cost or a resident profile. A 1958 house near the old Town Center might need a service panel, a sewer
-        lateral and a roof inside ten years. A 2015 house off Hoover Road will not, but it will rent to a family
-        with a school-district decision behind it, which changes how you handle a renewal.
+        This is why a single Grove City rent number is close to useless, and why a manager who quotes one
+        without asking your cross streets is guessing. A 1958 house near the old Town Center might need a service
+        panel, a sewer lateral and a roof inside ten years. A 2015 house off Hoover Road will not, but it rents to
+        a family with a school-district decision behind it, which changes how you handle a renewal.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -186,9 +185,9 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        That last row is the one owners miss. A subdivision built in one go ages in one go. Everyone's roof, water
-        heater and furnace reach end of life in the same three-year window, and the vendors get busy exactly when
-        you need them. Plan the reserve for that with the
+        That last row is the one owners miss. A subdivision built in one go ages in one go: every roof, water
+        heater and furnace reaches end of life in the same three-year window, and the vendors get busy exactly
+        when you need them. Plan for it with the
         {' '}<a href="/tools/maintenance-reserve-calculator/" class="text-crimson font-semibold no-underline hover:underline">maintenance reserve calculator</a>,
         {' '}free whether or not you hire us.
       </p>
@@ -203,30 +202,27 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4">
         Franklin County, and Franklin County Municipal Court. The court sits at 375 S. High St., Columbus, OH
         43215, and Eviction Court is in Courtroom 11B. Eviction jurisdiction in Ohio follows the county under
-        R.C. 1901.02, not the municipality, so the fact that Grove City has its own mayor, council and codified
-        ordinances does not move the filing. This is simpler than it is for a city on a county line, and it is
-        worth knowing precisely rather than approximately: a case filed in the wrong court costs the filing fee
-        and the calendar.
+        R.C. 1901.02, not the municipality, so Grove City having its own mayor, council and codified ordinances
+        does not move the filing. A case filed in the wrong court costs the filing fee and the calendar.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Ohio requires a three-day notice to leave the premises under R.C. 1923.04 before the complaint can be
-        filed, carrying specific statutory language, served by certified mail, handed to the resident, or left at
-        the property. Get the wording wrong and the case is dismissed. Our published costs are
-        {' '}{usd(pricing.eviction.countyFilingFee)} to Franklin County,
-        {' '}{usd(pricing.eviction.attorneyFee)} to the eviction attorney for the filing and up to two
-        appearances, and {usd(pricing.eviction.rlpmProcessFee)} to us to run the process, which is
-        {' '}{usd(pricing.eviction.typicalTotal)} before any setout. The whole sequence is on the
+        filed, carrying specific statutory language. Get the wording wrong and the case is dismissed. Our
+        published costs are {usd(pricing.eviction.countyFilingFee)} to Franklin County,
+        {' '}{usd(pricing.eviction.attorneyFee)} to the eviction attorney and
+        {' '}{usd(pricing.eviction.rlpmProcessFee)} to us, which is {usd(pricing.eviction.typicalTotal)} before
+        any setout. The sequence is on the
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
       </p>
       <h3 class="text-[21px] mt-9 mb-3">Do you have to register a Grove City rental property?</h3>
       <p class="text-[16.5px] text-muted">
-        Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires every owner of residential rental
-        property to file their name, address and telephone number, plus the property street address and permanent
-        parcel number, with the auditor of the county the property sits in, and to update within 60 days of any
-        change. There is no filing fee. Failing to file draws a special assessment on the property under
-        R.C. 5323.99; the statutory range is $50 to $150 and the Franklin County Auditor states $150 per tax year.
-        Owners holding title through an LLC or a trust have to name the responsible member, officer or trustee,
-        which is the part most often skipped. A manager may file as the owner designated agent, and we do.
+        Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires every owner of residential
+        rental property to file their name, address and telephone number, plus the property street address and
+        permanent parcel number, with the auditor of the county the property sits in, and to update within 60
+        days of any change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99;
+        the statutory range is $50 to $150 and the Franklin County Auditor states $150 per tax year. Owners
+        holding title through an LLC or a trust must name the responsible member, officer or trustee. A manager
+        may file as the owner designated agent, and we do.
       </p>
       <p class="text-[16.5px] text-muted mt-5">
         [SOURCE NEEDED: confirm against the Grove City codified ordinances whether the City of Grove City
@@ -241,12 +237,12 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides water and sewer in Grove City, and who pays?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        The City of Columbus supplies the water, which surprises owners who assume a city the size of Grove City
-        must be on its own system. Grove City appears on the Columbus Department of Public Utilities water and
-        sewer contract community list, and the Columbus Division of Water has been replacing meters in Grove City
-        under the Columbus Enhanced Meter Project. Grove City's own notice describes participation as mandatory
-        for all customers served by the Columbus Division of Water, under Columbus City Code 1105.038. Your
-        Columbus-supplied meter is subject to a Columbus ordinance even though your house is not in Columbus.
+        The City of Columbus supplies the water, which surprises owners who assume a city this size runs its own
+        system. Grove City appears on the Columbus Department of Public Utilities water and sewer contract
+        community list, and the Columbus Division of Water has been replacing meters in Grove City under the
+        Columbus Enhanced Meter Project. Grove City's own notice describes participation as mandatory for all
+        customers served by the Columbus Division of Water, under Columbus City Code 1105.038. Your meter is
+        subject to a Columbus ordinance even though your house is not in Columbus.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         What Grove City runs itself is the local infrastructure. Its Public Service Department maintains the
@@ -289,10 +285,10 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        The exposure to know about: Columbus states that the property owner is ultimately responsible for all
-        charges, even where a Tenant Billing Agreement puts the account in the resident's name. A resident who
-        leaves owing a water balance can leave it attached to your parcel. We put the accounts in the resident's
-        name at lease signing and check the balances at move-out, while there is still a deposit to settle against.
+        The exposure: Columbus states that the property owner is ultimately responsible for all charges, even
+        where a Tenant Billing Agreement puts the account in the resident's name, so a resident who leaves owing a
+        water balance can leave it attached to your parcel. We check balances at move-out, while there is still a
+        deposit to settle against.
       </p>
     </div>
   </section>
@@ -304,10 +300,10 @@ const schemaNodes = [
       <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Grove City rental earn, and what does management cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Across the units we manage in Grove City, the median rent is {usd(rent['3'].median)} for a three bedroom
-        and {usd(rent['4'].median)} for a four bedroom. Those are our own portfolio medians rather than a market
-        index, and we publish a market and bedroom median only where at least five of our units support it, which
-        is why there is no one or two bedroom figure here. Treat both numbers as a starting point rather than a
-        valuation: the range inside Grove City is wide enough that the address matters more than the city name.
+        and {usd(rent['4'].median)} for a four bedroom. Those are our own portfolio medians, not a market index,
+        and we publish a market and bedroom median only where at least five of our units support it, which is why
+        there is no one or two bedroom figure here. Treat both as a starting point: the range inside Grove City is
+        wide enough that the address matters more than the city name.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (
@@ -320,9 +316,9 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16.5px] text-muted mt-7">
-        The three plans differ in one variable: how large a repair we can approve before we call you. Everything
-        else is identical. On a {usd(rent['3'].median)} three bedroom, a manager charging 10% of collected rent
-        takes about {usd(Math.round(rent['3'].median * 0.1) * 12)} a year and roughly
+        The three plans differ in one variable: how large a repair we can approve before we call you. On a
+        {' '}{usd(rent['3'].median)} three bedroom, a manager charging 10% of collected rent takes about
+        {' '}{usd(Math.round(rent['3'].median * 0.1) * 12)} a year and roughly
         {' '}{usd(Math.round(rent['3'].median / 2))} again each time the unit turns. Our middle plan is
         {' '}{usd(pricing.plans[1].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}. If you
         raise the rent, our number does not move.

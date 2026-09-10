@@ -156,10 +156,10 @@ const schemaNodes = [
         districts, different housing stock and different rent levels.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        This matters commercially. A rent comparison, a market report or a crime statistic labelled "Blacklick"
-        may be describing either one, and an owner who prices a Jefferson Township house off Blacklick Estates
-        data will list too low and never know why it let in four days. When we price a Blacklick property we work
-        from the parcel and from comparable listings on the same side of the county, not from a place name.
+        This matters commercially. A rent comparison or market report labelled "Blacklick" may be describing
+        either one, and an owner who prices a Jefferson Township house off Blacklick Estates data will list too
+        low and never know why it let in four days. When we price a Blacklick property we work from the parcel
+        and from comparable listings on the same side of the county, not from a place name.
       </p>
     </div>
   </section>
@@ -172,10 +172,10 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4">
         It follows the county, not the postal address and not whether the parcel is incorporated. A Franklin
         County parcel is filed at Franklin County Municipal Court, 375 S. High St., Columbus, where the eviction
-        division sits in Courtroom 11B, and that is true whether the property is in unincorporated Jefferson
-        Township or inside a neighbouring city. A parcel on the Licking County side of the 43004 area goes to
-        Licking County Municipal Court instead. Ohio Revised Code 1901.02 is what fixes each municipal court to
-        its territory. Being unincorporated does not create a township court and does not move the case.
+        division sits in Courtroom 11B, whether the property is in unincorporated Jefferson Township or inside a
+        neighbouring city. A parcel on the Licking County side of the 43004 area goes to Licking County
+        Municipal Court instead. Ohio Revised Code 1901.02 fixes each municipal court to its territory, and
+        being unincorporated does not create a township court.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Before any court sees the case, Ohio requires a three-day notice to leave the premises under R.C. 1923.04,
@@ -250,10 +250,9 @@ const schemaNodes = [
         on public sewer. It carries a servicing obligation, it constrains how many people can reasonably occupy
         the property, and a failure is a five-figure event rather than a call to the utility.
         [SOURCE NEEDED: confirm the local health district operating permit, servicing and inspection requirements
-        for household sewage treatment systems on unincorporated Franklin County parcels.] Where a suburb buys
-        City of Columbus water under contract, Columbus states that the property owner is ultimately responsible
-        for all charges even with a tenant billing agreement in place, so a resident who leaves owing water can
-        leave the balance pointed at your parcel.
+        for household sewage treatment systems on unincorporated Franklin County parcels.] Where a property is on
+        City of Columbus water, Columbus states that the owner is ultimately responsible for all charges even
+        with a tenant billing agreement in place.
       </p>
     </div>
   </section>
@@ -269,9 +268,9 @@ const schemaNodes = [
         along Blacklick Creek. We are not giving you a median year built here, and the reason is worth stating:
         the US Census publishes place-level tables for incorporated places and census-designated places, and
         Blacklick is neither. [SOURCE NEEDED: a defensible median year structure built for the Blacklick area,
-        for example a ZIP code tabulation area figure for 43004 with the source and vintage named.] For a
-        comparison point, the median Reynoldsburg structure immediately to the south was built in 1984, per US
-        Census ACS 2024 5-year estimates.
+        for example a ZIP code tabulation area figure for 43004 with the source and vintage named.] For
+        comparison, the median Reynoldsburg structure immediately south was built in 1984, per US Census ACS
+        2024 5-year estimates.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         The lack of clean place-level data is itself the reason to be careful here. Automated valuation tools and
@@ -300,8 +299,8 @@ const schemaNodes = [
         threshold we set before we will call a number a market median. Across our whole portfolio the median is
         {' '}{usd(rentByBedroom['3'].median)} for a three bedroom and {usd(rentByBedroom['2'].median)} for a two
         bedroom. The nearest market where we do publish our own figure is Reynoldsburg, at
-        {' '}{usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)} for a three bedroom. Those are portfolio
-        numbers, clearly labelled as such, and they are not a substitute for pricing your specific address.
+        {' '}{usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)} for a three bedroom. Neither is a
+        substitute for pricing your specific address.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (

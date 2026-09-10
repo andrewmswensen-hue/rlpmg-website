@@ -84,6 +84,22 @@ const EXTRA: Record<string, { slug: string; county: string }> = {
   'Granville':        { slug: 'granville',        county: 'Licking' },
 };
 
+/**
+ * Which area pages actually exist, discovered at build time.
+ *
+ * The hub lists every market we serve, but only some of them have a page yet.
+ * Linking to one that does not exist sends a reader to a 404 and wastes crawl
+ * budget, so an area without a page is listed as plain text with the coverage
+ * line instead. This glob means the links appear on their own as pages land,
+ * with no list to maintain by hand.
+ */
+const built = new Set(
+  Object.keys(import.meta.glob('../property-management-*/index.astro'))
+    .concat(Object.keys(import.meta.glob('../property-management-columbus-ohio/*/index.astro')))
+    .map((f) => f.replace(/^\.\./, '').replace(/index\.astro$/, '')),
+);
+const hasPage = (url: string) => built.has(url);
+
 /** Columbus is the anchor. Canal Winchester keeps its existing URL, which has equity. */
 const urlFor = (city: string) => {
   if (NEIGHBORHOOD_URL[city]) return NEIGHBORHOOD_URL[city];
@@ -115,7 +131,7 @@ const byCounty = COUNTY_ORDER.map((county) => ({
   county,
   cities: markets
     .filter((m) => !NEIGHBORHOODS.includes(m.city) && m.city !== 'Columbus' && countyFor(m.city) === county)
-    .map((m) => ({ ...m, href: urlFor(m.city) }))
+    .map((m) => { const href = urlFor(m.city); return { ...m, href, live: hasPage(href) }; })
     .sort((a, b) => a.city.localeCompare(b.city)),
 })).filter((g) => g.cities.length > 0);
 
@@ -221,14 +237,17 @@ const schemaNodes = [
           <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {g.cities.map((c) => (
               <li>
-                <a href={c.href} class="block card !p-4 no-underline card-hover">
-                  <span class="block font-serif text-[17px] font-semibold text-navy">{c.city}</span>
-                  <span class="block text-[14px] text-muted mt-1">
-                    {c.tier === 'coverage'
-                      ? 'We will take on rental property here'
-                      : 'Rent data and local rules'}
-                  </span>
-                </a>
+                {c.live ? (
+                  <a href={c.href} class="block card !p-4 no-underline card-hover">
+                    <span class="block font-serif text-[17px] font-semibold text-navy">{c.city}</span>
+                    <span class="block text-[14px] text-muted mt-1">Rent data and local rules</span>
+                  </a>
+                ) : (
+                  <div class="block card !p-4 !shadow-none">
+                    <span class="block font-serif text-[17px] font-semibold text-navy">{c.city}</span>
+                    <span class="block text-[14px] text-muted mt-1">We manage rental property here</span>
+                  </div>
+                )}
               </li>
             ))}
           </ul>

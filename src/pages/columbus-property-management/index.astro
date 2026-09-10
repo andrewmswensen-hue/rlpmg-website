@@ -7,6 +7,7 @@ import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
 import { company, pricing, kpis, rentPolicy, areas, areaUrl, usd } from '../../data/facts';
+import { partitionAreas } from '../../lib/areas';
 import { rentByBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 
@@ -23,6 +24,8 @@ const title = 'Property Management in Columbus, Ohio | RL Property Management';
 const description =
   `${company.name} manages ${company.unitsManaged} single-family and small multifamily rentals across the Columbus, Ohio metro. ` +
   `Flat pricing from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee.`;
+
+const { linked: linkedAreas, unlinked: namedAreas } = partitionAreas(areas, areaUrl);
 
 const breadcrumbs = [
   { name: 'Home', path: '/' },
@@ -268,8 +271,11 @@ const schemaNodes = [
         counties. Each has its own page with local rent data and what we actually manage there.
       </p>
       <ul class="flex flex-wrap gap-x-5 gap-y-2 text-[15.5px]">
-        {areas.map((a) => (
-          <li><a href={areaUrl(a)} class="text-crimson no-underline hover:underline font-medium">{a.name}</a></li>
+        {linkedAreas.map((a) => (
+          <li><a href={a.href} class="text-crimson no-underline hover:underline font-medium">{a.name}</a></li>
+        ))}
+        {namedAreas.map((a) => (
+          <li><span class="text-muted font-medium">{a.name}</span></li>
         ))}
       </ul>
       <p class="text-[15.5px] text-muted mt-6">

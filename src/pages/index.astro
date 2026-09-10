@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Faq from '../components/Faq.astro';
 import { company, pricing, kpis, areas, areaUrl, usd } from '../data/facts';
+import { partitionAreas } from '../lib/areas';
 import { totalActiveDoors } from '../data/markets';
 import { serviceNode } from '../lib/schema';
 
@@ -9,6 +10,8 @@ const title = 'Columbus, Ohio Property Management | RL Property Management';
 const description =
   `Columbus property management with published pricing and no leasing fee. ${company.unitsManaged} units under ` +
   `management, a ${usd(pricing.leasingFee)} leasing fee, and a performance scorecard we update quarterly.`;
+
+const { linked: linkedAreas, unlinked: namedAreas } = partitionAreas(areas, areaUrl);
 
 const heroStats = kpis.metrics.filter((m) => ['dom', 'collectedBy5', 'renewal', 'repairDays'].includes(m.id));
 
@@ -223,15 +226,21 @@ const schemaNodes = [serviceNode({
         </p>
       </div>
       <ul class="grid gap-3 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
-        {areas.map((a) => (
+        {linkedAreas.map((a) => (
           <li>
-            <a href={areaUrl(a)}
+            <a href={a.href}
                class="block bg-white border border-line rounded-[12px] px-4 py-3.5 text-center no-underline font-sans text-[14.5px] font-medium text-navy hover:border-crimson hover:text-crimson transition-colors">
               {a.name}
             </a>
           </li>
         ))}
       </ul>
+      {namedAreas.length > 0 && (
+        <p class="text-center text-[15px] text-muted mt-6">
+          We also manage in {namedAreas.map((a) => a.name).join(', ')}.
+          <a href="/areas-we-serve/" class="text-crimson font-semibold no-underline hover:underline"> See the full service area →</a>
+        </p>
+      )}
     </div>
   </section>
 

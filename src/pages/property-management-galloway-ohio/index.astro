@@ -1,0 +1,328 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { rentByMarketAndBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Galloway, Ohio. Target query: "property management galloway ohio".
+ *
+ * The differentiating fact: "Galloway, OH 43119" is a postal label, not a
+ * jurisdiction. The community itself is unincorporated southern Prairie
+ * Township in western Franklin County, but the 43119 ZIP also covers parcels
+ * that sit inside the City of Columbus corporation limits. The eviction court
+ * is Franklin County Municipal Court either way, which is exactly why owners
+ * stop checking: the thing that does change is whether Columbus city code,
+ * Columbus city income tax and Columbus police apply, or whether you are on
+ * township zoning with the Franklin County Sheriff.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - Galloway is an unincorporated community in southern Prairie Township,
+ *    Franklin County, west of Columbus, at Galloway Road and Sullivant Avenue:
+ *    en.wikipedia.org/wiki/Galloway,_Ohio.
+ *  - The 43119 ZIP carries a Galloway mailing address and covers a large part of
+ *    western Franklin County as well as parts of western Columbus; the Galloway
+ *    post office itself sits inside the city of Columbus, roughly two miles
+ *    north of the community: zipdatamaps.com/43119 and the same source.
+ *  - Prairie Township offices, 6725 Alkire Rd., Galloway, OH 43119:
+ *    prairietownship.org.
+ *  - Franklin County Municipal Court, civil and eviction division, 375 S. High
+ *    St., 3rd floor, Columbus, OH 43215, jurisdiction per R.C. 1901.02
+ *    (docs/area-research-verified.md).
+ *  - R.C. 5323.02 owner filing with the county auditor. The Franklin County
+ *    Auditor states a $150 per tax year penalty; statutory range $50 to $150
+ *    under R.C. 5323.99 (docs/area-research-verified.md).
+ *  - R.C. 1923.04 three-day notice to leave the premises.
+ *  - Township zoning authority sits in R.C. Chapter 519.
+ *
+ * Rent figure IS publishable for Galloway: rentByMarketAndBedroom has a 3 bedroom
+ * entry with a sample of 7, above the 5-unit floor. It is labelled as our own
+ * portfolio median. No door counts. No per-market days on market.
+ */
+
+const CITY = 'Galloway';
+const PATH = '/property-management-galloway-ohio/';
+
+const rent = rentByMarketAndBedroom[CITY];
+
+const title = 'Property Management in Galloway, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Galloway, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. A Galloway mailing address does not tell you which jurisdiction you are in.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Galloway', path: PATH },
+];
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Galloway unit turns`,
+  'Galloway is unincorporated Prairie Township, western Franklin County',
+  'Evictions go to Franklin County Municipal Court, 375 S. High St., Columbus',
+  'A 43119 mailing address can be township or inside the Columbus city limits',
+  `Median rent across the units we manage in Galloway: ${usd(rent['3'].median)} for a 3 bedroom`,
+];
+
+const faq = [
+  { q: 'Is Galloway, Ohio a city?',
+    a: 'No. Galloway is an unincorporated community in southern Prairie Township, in western Franklin County, at the intersection of Galloway Road and Sullivant Avenue. It has no mayor, no council and no municipal code of its own. Prairie Township governs land use under Ohio Revised Code Chapter 519, and the Franklin County Sheriff provides law enforcement in the unincorporated portion.' },
+  { q: 'What county is Galloway, Ohio in?',
+    a: 'Franklin County. The whole 43119 area sits in Franklin County, so the eviction court and the county auditor are the same regardless of which side of a corporation line a given parcel falls on. That consistency is exactly why owners stop checking the rest.' },
+  { q: 'Which court hears an eviction in Galloway, Ohio?',
+    a: 'Franklin County Municipal Court. The civil and eviction division sits at 375 S. High St., 3rd floor, Columbus, OH 43215, and its jurisdiction runs countywide under Ohio Revised Code 1901.02. That is true for a Galloway parcel in unincorporated Prairie Township and for one inside the Columbus city limits. Before filing, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, with specific statutory language and correct service.' },
+  { q: 'Does a Galloway mailing address mean I am in the City of Columbus?',
+    a: 'Not necessarily, and this is the thing to check. The 43119 ZIP carries a Galloway mailing address and covers a large stretch of western Franklin County, including parcels inside the City of Columbus and parcels in unincorporated Prairie Township. The Galloway post office itself sits inside Columbus, about two miles north of the actual community. Pull the parcel on the Franklin County Auditor site and read the taxing district. It decides your zoning authority, your code enforcement, your police response and whether a municipal income tax applies to residents.' },
+  { q: 'Do I have to register a Galloway rental property?',
+    a: 'Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number plus the property address and parcel number with the county auditor, and to update it within 60 days of any change. There is no fee. The Franklin County Auditor states a penalty of $150 per tax year for failing to file, within a statutory range of $50 to $150 under R.C. 5323.99. This applies to a township parcel and a city parcel alike.' },
+  { q: 'What does a rental in Galloway rent for?',
+    a: `Across the units we manage in Galloway, the median rent is ${usd(rent['3'].median)} for a three bedroom. That is our own portfolio median, not a market survey and not a public rent index. We do not publish a bedroom-level figure for Galloway at any other bedroom count, because our sample there does not reach the five-unit floor we set before publishing one.` },
+  { q: 'What kind of rental property is in Galloway?',
+    a: 'Mostly detached single-family houses on conventional suburban lots, built as western Franklin County filled in from the 1970s onward, with pockets of newer subdivision construction and some older acreage parcels closer to the original crossroads. Three bedroom houses are the working stock and the reason our Galloway median is a three bedroom number. Applicants here are typically working households priced out of the inner suburbs, which makes screening and the first late-rent conversation matter more than marketing does.' },
+  { q: 'How much does property management cost in Galloway?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. On a ${usd(rent['3'].median)} house, a manager charging 10% of collected rent takes about ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year plus roughly half a month of rent every time the unit turns. Photography is not included in the leasing fee and is billed separately at $250 to $450.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Galloway, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'Place',
+      name: 'Galloway, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Galloway, Ohio"
+    answer={`${company.name} manages Galloway rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Galloway is unincorporated Franklin County, so evictions go to Franklin County Municipal Court.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Galloway, at a glance" />
+
+  <!-- THE HOOK: the mailing address is not the jurisdiction. -->
+  <section class="band-tight" aria-labelledby="jurisdiction-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="jurisdiction-h" class="text-[clamp(26px,3.2vw,38px)]">Is a Galloway address in the City of Columbus or not?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        It depends on the parcel, and a Galloway mailing address will not tell you. Galloway itself is an
+        unincorporated community in southern Prairie Township, at Galloway Road and Sullivant Avenue in western
+        Franklin County. But the 43119 ZIP that carries the Galloway mailing address covers a much larger area
+        than the community, including parcels that were annexed into the City of Columbus years ago. The Galloway
+        post office is itself inside the Columbus city limits, about two miles north of the crossroads it is
+        named after.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Here is why owners let this slide: the thing they check first, the eviction court, is the same either
+        way. Franklin County Municipal Court hears the case whether the house is township or city. So the first
+        question comes back consistent, the owner concludes the jurisdiction question is settled, and the rest
+        goes unchecked.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">What changes between an unincorporated Galloway parcel and one inside the Columbus city limits</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">What</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Unincorporated Prairie Township</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Inside the City of Columbus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Eviction court</th>
+              <td class="p-3.5 border border-line text-muted">Franklin County Municipal Court</td>
+              <td class="p-3.5 border border-line text-muted">Franklin County Municipal Court</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Rental owner filing</th>
+              <td class="p-3.5 border border-line text-muted">Franklin County Auditor, R.C. 5323.02</td>
+              <td class="p-3.5 border border-line text-muted">Franklin County Auditor, R.C. 5323.02</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Zoning authority</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Prairie Township, under R.C. Chapter 519</td>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbus zoning code</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Law enforcement</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Franklin County Sheriff</td>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbus Division of Police</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Municipal income tax on residents</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">None. A township cannot levy one.</td>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbus municipal income tax applies</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        How to settle it in two minutes: look the parcel up on the Franklin County Auditor site and read the
+        taxing district on the parcel record. That is the authoritative answer, not the mailing address and not
+        what the listing said. We do this on every Galloway property at onboarding and put the result in the
+        property file, because it decides who we call when something goes wrong.
+      </p>
+      <p class="text-[16px] text-muted mt-5">
+        [SOURCE NEEDED: confirm whether the City of Columbus operates a residential rental registration or
+        rental inspection programme that would apply to an annexed 43119 parcel but not to an unincorporated
+        one, and confirm Prairie Township code enforcement responsibilities for residential rental property.]
+      </p>
+    </div>
+  </section>
+
+  <!-- COURT AND EVICTION -->
+  <section class="band band-wash" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Evictions</span>
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Galloway, Ohio?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Franklin County Municipal Court, whose civil and eviction division sits at 375 S. High St., 3rd floor,
+        Columbus, OH 43215. Jurisdiction runs countywide under Ohio Revised Code 1901.02, which is why a
+        township parcel and a city parcel land in the same courtroom.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Before the filing, Ohio requires a three-day notice to leave the premises under R.C. 1923.04. The notice
+        carries specific statutory language and has to be served correctly, by certified mail, handed to the
+        resident, or left at the property. Get the wording or the service wrong and the case is dismissed, which
+        puts you roughly three weeks behind with another month of unpaid rent stacked on top.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner</h3>
+        <ul class="grid gap-2 text-[15.5px] text-muted mb-0 list-none pl-0">
+          <li><strong class="text-navy">{usd(pricing.eviction.attorneyFee)}</strong> to the eviction attorney, filing plus up to two appearances</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.countyFilingFee)}</strong> to Franklin County for the eviction complaint</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.rlpmProcessFee)}</strong> to us to run the process end to end</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.typicalTotal)}</strong> typical total before any setout</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.tagAndSetoutFee)}</strong> to the county and {usd(pricing.eviction.setoutFee)} to us if a setout is required</li>
+        </ul>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        Across the portfolio, {pricing.eviction.disputeRatePct}% of tenancies reach a dispute. The full
+        procedure is on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band-tight" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Galloway rental property?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Yes, with the Franklin County Auditor, and this one does not depend on which side of the corporation
+        line you are on. Ohio Revised Code 5323.02 requires every owner of residential rental property to file
+        their name, address and telephone number, plus the property street address and permanent parcel number,
+        with the auditor of the county the property sits in. Any change has to be updated within 60 days. There
+        is no filing fee.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The Franklin County Auditor states a penalty of $150 per tax year for failing to file, inside a statutory
+        range of $50 to $150 under R.C. 5323.99, assessed against the property and appealable to the county board
+        of revision. Owners holding through an LLC or a trust have to name the responsible officer, member or
+        trustee, and that is the part that most often gets missed. The statute lets an owner designate a property
+        manager as the filing agent, and that is part of onboarding here.
+      </p>
+    </div>
+  </section>
+
+  <!-- MARKET AND RENT -->
+  <section class="band band-wash" aria-labelledby="market-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="market-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Galloway rental earn, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Across the units we manage in Galloway, the median rent is {usd(rent['3'].median)} for a three bedroom.
+        That is our own portfolio median from our own book, not a market survey and not a public rent index
+        relabelled. We are not publishing a figure for any other bedroom count in Galloway, because the sample
+        does not reach the five-unit floor we set before we will put a number in print.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The stock behind that number is detached single-family houses on conventional suburban lots, built as
+        western Franklin County filled in from the 1970s onward, with newer subdivision pockets and some older
+        acreage closer to the original crossroads. Three bedroom houses are the working product here. Most of
+        the demand is working households, often families, and the leasing job is less about marketing reach than
+        about screening carefully and then handling the first missed rent payment properly, in the first week,
+        rather than in the second month.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        On a {usd(rent['3'].median)} house, a manager charging 10% of collected rent takes about
+        {' '}{usd(Math.round(rent['3'].median * 0.1) * 12)} a year, and roughly
+        {' '}{usd(Math.round(rent['3'].median / 2))} again every time the unit turns. Our middle plan is
+        {' '}{usd(pricing.plans[1].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}.
+        Percentage figures describe common Columbus market rates, not a quote from any named company.
+        Photography is not included in the leasing fee and is billed separately at $250 to $450.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">Where in the Galloway area we work</h3>
+      <p class="text-[16.5px] text-muted">
+        The Galloway Road and Sullivant Avenue crossroads, the Alkire Road corridor past the Prairie Township
+        offices at 6725 Alkire Rd., the West Broad Street frontage, and the subdivisions filling the ground
+        between them out toward the Big Darby watershed. Most of the area feeds the South-Western City School
+        District. [SOURCE NEEDED: confirm the school district for any specific 43119 address before stating it,
+        because the district boundary and the Columbus corporation line do not follow each other.]
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Galloway rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band-tight" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Galloway property management questions</h2>
+      <Faq items={faq} heading="Galloway property management questions" id="galloway-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-hilliard-ohio/', label: 'Hilliard property management', note: 'North, incorporated, newer stock and its own city code.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, and the right one if your parcel was annexed.' },
+    { href: '/property-management-dublin-ohio/', label: 'Dublin property management', note: 'Northeast, and split across three counties.' },
+    { href: '/property-management-upper-arlington-ohio/', label: 'Upper Arlington property management', note: 'East, pre-war and mid-century houses.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Galloway rental should earn"
+    body="Tell us the address and we will price it against the units we already manage in Galloway and the comparable listings live right now, and confirm which jurisdiction the parcel actually sits in. No charge."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

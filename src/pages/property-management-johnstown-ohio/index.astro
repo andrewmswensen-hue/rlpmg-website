@@ -1,0 +1,310 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Johnstown, Ohio. Target query: "property management johnstown ohio".
+ *
+ * The differentiating fact: Johnstown is the Licking County community sitting
+ * closest to Intel's Ohio One site, and it is the one market in our footprint
+ * where owners are underwriting on a story rather than on current rent. The
+ * honest page is the one that states the confirmed timeline with its dates
+ * attached, states that Intel's own filings raised the possibility of slowing
+ * or pausing construction, and then tells an owner to underwrite the rent the
+ * house earns today.
+ *
+ * DELIBERATE RESTRAINT: nothing on this page projects job counts, population
+ * growth, rent growth or a completion date beyond what Intel itself has stated.
+ * A wrong claim about Intel is worse than a gap.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - Johnstown is a city in Licking County. Population 5,182 at the 2020 census,
+ *    estimated 5,310 in 2023: en.wikipedia.org/wiki/Johnstown,_Ohio.
+ *  - Intel's Ohio One campus is a stated $28 billion investment in two fabs,
+ *    physically in Licking County, carrying a New Albany address, immediately
+ *    south of Johnstown: Intel newsroom "Ohio One Construction Timeline Update"
+ *    and siliconheartland.newalbanyohio.org.
+ *  - 28 February 2025: Naga Chandrasekaran, EVP and chief global operations
+ *    officer, Intel Foundry Manufacturing, notified Ohio employees of revised
+ *    completion dates. Reported as Mod 1 construction complete 2030 and
+ *    operational by end of 2031; Mod 2 complete 2031 and operational 2032:
+ *    Intel newsroom, and abc6onyourside.com and datacenterdynamics.com coverage
+ *    of that notice.
+ *  - Intel's 2025 quarterly SEC filings stated the company could slow, pause or
+ *    discontinue construction at Ohio One absent a significant external customer
+ *    for its Intel 14A node: reported by abc6onyourside.com, July and August 2025.
+ *  - Johnstown-Monroe Local School District completed a six-classroom high
+ *    school expansion, adding capacity for roughly 150 students, citing expected
+ *    growth: 10tv.com and spectrumnews1.com, March 2025.
+ *  - A Municipal Utility Coalition of Licking County including Alexandria,
+ *    Granville and Johnstown sought Ohio EPA designation as the water and sewer
+ *    service provider for western Licking County, in competition with another
+ *    utility: thereportingproject.org.
+ *  - Eviction jurisdiction follows the county under R.C. 1901.02. Licking County
+ *    goes to Licking County Municipal Court (docs/area-research-verified.md).
+ *  - R.C. 5323.02 owner filing with the county auditor, penalty R.C. 5323.99.
+ *
+ * NO qualifying entry in rentByMarketAndBedroom for Johnstown. No rent median is
+ * published here. No door counts. No per-market days on market.
+ */
+
+const CITY = 'Johnstown';
+const PATH = '/property-management-johnstown-ohio/';
+
+const title = 'Property Management in Johnstown, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Johnstown, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Johnstown is Licking County, and closest to the Intel site.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Johnstown', path: PATH },
+];
+
+const publishesOwnRent = canPublishOwnRent(CITY);
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Johnstown unit turns`,
+  'Johnstown is in Licking County, not Franklin County',
+  'Evictions are filed at Licking County Municipal Court in Newark',
+  'The R.C. 5323 owner filing goes to the Licking County Auditor',
+  'Intel Ohio One sits in Licking County immediately south of Johnstown',
+];
+
+const faq = [
+  { q: 'What county is Johnstown, Ohio in?',
+    a: 'Licking County. Johnstown is a Licking County city, so the eviction complaint, the R.C. 5323 rental owner filing and the deed all run through Licking County rather than Franklin. Owners looking at Johnstown because of the Intel site frequently arrive from New Albany listings and assume Franklin County applies. It does not.' },
+  { q: 'Which court hears an eviction in Johnstown, Ohio?',
+    a: 'Licking County Municipal Court, in Newark. Ohio Revised Code 1901.02 ties municipal court jurisdiction to territory, and Johnstown is Licking County territory. A forcible entry and detainer action on a Johnstown rental is filed there, not at Franklin County Municipal Court in downtown Columbus. A complaint filed in the wrong court is dismissed, the filing fee is lost, and the calendar resets by roughly three weeks.' },
+  { q: 'Where exactly is the Intel site in relation to Johnstown?',
+    a: 'Intel’s Ohio One campus is physically in Licking County, immediately south of Johnstown, and carries a New Albany address. That address is why national coverage calls it a New Albany project while the property tax, the school district pressure and the water and sewer questions land on Licking County communities, Johnstown foremost among them.' },
+  { q: 'What is the current status of Intel Ohio One?',
+    a: 'The most recent company statement we have verified is from 28 February 2025, when Intel notified its Ohio employees of revised completion dates. As reported, construction of the first fab was moved to 2030 with operations beginning by the end of 2031, and the second fab to completion in 2031 and operations in 2032. Separately, Intel’s 2025 quarterly SEC filings stated the company could slow, pause or discontinue construction at the Ohio site if it does not secure a significant external customer for its Intel 14A process. We are not going to characterise it beyond that.' },
+  { q: 'Should I underwrite a Johnstown rental on Intel?',
+    a: 'No. Underwrite it on the rent the house earns today, with the vacancy and repair assumptions you would use anywhere else in Licking County. A completion date that has already moved once, and a public filing that contemplates pausing construction, is not a rent forecast. If the project delivers on the current schedule, that is upside you did not pay for. If you buy on the story and the story moves again, you are holding a negative-cash-flow house in a market of 5,000 people.' },
+  { q: 'Do I have to register a Johnstown rental property?',
+    a: 'Yes, with the Licking County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number plus the property address and parcel number with the county auditor, and to update it within 60 days of any change. There is no fee, and missing it draws a special assessment of $50 to $150 under R.C. 5323.99. [SOURCE NEEDED: confirm whether the City of Johnstown separately requires residential rental registration, a rental licence or periodic rental inspection, and at what fee.]' },
+  { q: 'What does a rental in Johnstown rent for?',
+    a: 'We are not publishing a bedroom-level median for Johnstown. Our own sample there is below the five-unit floor we set before publishing a market-level figure, and in a market this small a published number built on two or three units would be misleading rather than helpful. Send an address and we will price it against live comparables.' },
+  { q: 'How much does property management cost in Johnstown?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. We do not charge a distance surcharge for Licking County. Photography is not included in the leasing fee and is billed separately at $250 to $450.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Johnstown, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Johnstown, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Licking County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Johnstown, Ohio"
+    answer={`${company.name} manages Johnstown rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Johnstown is a Licking County city, so evictions go to Licking County Municipal Court.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Johnstown, at a glance" />
+
+  <!-- COURT: county first, because owners arrive here from New Albany listings. -->
+  <section class="band-tight" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Johnstown, Ohio?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Licking County Municipal Court, in Newark. Johnstown is a Licking County city, and Ohio Revised Code
+        1901.02 ties municipal court jurisdiction to territory, so a forcible entry and detainer action on a
+        Johnstown rental is filed in Newark rather than at Franklin County Municipal Court at 375 S. High St. in
+        Columbus.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        This trips owners here more than almost anywhere else in our footprint, for a specific reason. Most
+        people looking at Johnstown got there by way of New Albany, which is Franklin County, and the Intel
+        campus itself carries a New Albany address while sitting in Licking County. So the mental model arrives
+        pre-loaded with the wrong county. A complaint filed in the wrong court is dismissed, the fee is gone,
+        and you restart roughly three weeks behind.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Before the filing, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, with
+        specific statutory language and correct service. That part is identical statewide.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner</h3>
+        <ul class="grid gap-2 text-[15.5px] text-muted mb-0 list-none pl-0">
+          <li><strong class="text-navy">{usd(pricing.eviction.attorneyFee)}</strong> to the eviction attorney, filing plus up to two appearances</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.countyFilingFee)}</strong> county filing fee for the eviction complaint</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.rlpmProcessFee)}</strong> to us to run the process end to end</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.typicalTotal)}</strong> typical total before any setout</li>
+        </ul>
+        <p class="text-[14px] text-faint mt-4 mb-0">
+          The {usd(pricing.eviction.countyFilingFee)} figure is the Franklin County eviction complaint fee from
+          our published schedule. [SOURCE NEEDED: confirm the current Licking County Municipal Court filing fee
+          for a forcible entry and detainer complaint, which may differ.]
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE HOOK: Intel, stated precisely and no further. -->
+  <section class="band band-wash" aria-labelledby="intel-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The thing everyone asks about</span>
+      <h2 id="intel-h" class="text-[clamp(26px,3.2vw,38px)]">What is actually happening with Intel near Johnstown?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Intel is building its Ohio One campus, a stated $28 billion project of two semiconductor fabrication
+        plants, in Licking County immediately south of Johnstown. It carries a New Albany address, which is why
+        most national coverage attaches it to a Franklin County suburb, while the school district pressure and
+        the water and sewer questions land on Licking County communities.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The dates have moved. On 28 February 2025 Intel notified its Ohio employees of revised completion dates.
+        As reported, the first fab moved to construction completion in 2030 with operations beginning by the end
+        of 2031, and the second to completion in 2031 with operations in 2032. Separately, Intel stated in its
+        2025 quarterly SEC filings that it could slow, pause or discontinue construction at the Ohio site if it
+        does not secure a significant external customer for its Intel 14A process.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        We are not going to characterise it beyond those two facts, and we are not going to publish a job
+        number, a population projection or a rent forecast attached to it. Local officials have said publicly
+        that the delays have been difficult to plan around, and planning around them is precisely what an owner
+        is being asked to do.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What has actually already happened in Johnstown</h3>
+        <p class="text-[16px] text-muted mt-0">
+          The Johnstown-Monroe Local School District completed a six-classroom expansion at its high school,
+          adding capacity for roughly 150 more students, explicitly citing expected growth. And a Municipal
+          Utility Coalition of Licking County, including Alexandria, Granville and Johnstown, has been seeking
+          Ohio EPA designation as the water and sewer provider for western Licking County, in competition with
+          another utility. Those are real, funded, local decisions. They are a better read on the direction of
+          this market than any construction schedule.
+        </p>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        [SOURCE NEEDED: re-verify the current Intel Ohio One construction status and the current Ohio EPA
+        determination on western Licking County water and sewer service before relying on this section. The
+        statements above were confirmed as of the verification date on this page and this is a fast-moving
+        situation.]
+      </p>
+    </div>
+  </section>
+
+  <!-- THE OWNER ADVICE -->
+  <section class="band-tight" aria-labelledby="underwrite-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="underwrite-h" class="text-[clamp(26px,3.2vw,38px)]">Should you underwrite a Johnstown rental on Intel?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        No. Underwrite it on the rent the house earns today, with the vacancy, turn and repair assumptions you
+        would apply to any other outer-ring Licking County property. Treat anything the project delivers as
+        upside you did not pay for.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The argument for that is arithmetic, not pessimism. Johnstown had 5,182 residents at the 2020 census and
+        an estimated 5,310 in 2023. In a rental market that small, one motivated buyer paying a growth premium
+        moves the comparable sales, and the next buyer prices off that comp rather than off the rent roll. If
+        the schedule slips again, and it has slipped once, the person holding the premium is the one who bought
+        the story. We have taken over Licking County properties where the owner’s spreadsheet had a rent
+        number in it that the market had never actually paid.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The other side of a small market is thin comparables. There are not many rental houses in Johnstown at
+        any given moment, which means a listing priced 8% high does not sit slightly longer, it sits a month
+        longer, and a month of vacancy in a small market costs more than the entire annual management fee. We
+        price off live comparables and we tell you when we think the number you want is not there.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION AND PRICING -->
+  <section class="band band-wash" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Compliance and cost</span>
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Johnstown rental, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Yes, with the Licking County Auditor. Ohio Revised Code 5323.02 requires every owner of residential
+        rental property to file their name, address and telephone number plus the property street address and
+        permanent parcel number with the auditor of the county the property sits in, and to update it within 60
+        days of any change. No fee. Missing it draws a special assessment of $50 to $150 under R.C. 5323.99. If
+        you hold through an LLC or a trust, name the responsible officer, member or trustee. The statute lets an
+        owner designate a property manager as the filing agent, and that is part of onboarding here.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        [SOURCE NEEDED: confirm against the Johnstown codified ordinances whether the City of Johnstown
+        separately requires residential rental registration, a rental licence or periodic rental inspection, and
+        at what fee. The county filing under R.C. 5323 applies either way.]
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        {publishesOwnRent
+          ? 'Our portfolio sample in Johnstown now supports a published median. Update this page before relying on it.'
+          : 'We are not publishing a bedroom-level rent median for Johnstown. Our sample is below the five-unit floor we set before publishing a market-level figure, and in a market of roughly five thousand people a median built on two or three units would mislead rather than inform.'}
+        {' '}Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at
+        $250 to $450.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Johnstown rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band-tight" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Johnstown property management questions</h2>
+      <Faq items={faq} heading="Johnstown property management questions" id="johnstown-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-pataskala-ohio/', label: 'Pataskala property management', note: 'South, same county and same court, very different housing stock.' },
+    { href: '/property-management-westerville-ohio/', label: 'Westerville property management', note: 'West, Franklin County, and its own municipal electric utility.' },
+    { href: '/property-management-gahanna-ohio/', label: 'Gahanna property management', note: 'Southwest, established suburban stock inside Franklin County.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with rents, the registry and the court.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Johnstown rental should earn today"
+    body="Tell us the address and we will price it against live comparable listings, using the rent the market is actually paying rather than the rent a construction schedule implies. No charge."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

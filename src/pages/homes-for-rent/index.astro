@@ -7,6 +7,7 @@ import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
 import { company, kpis, rentPolicy, pricing, areas, areaUrl, usd } from '../../data/facts';
+import { partitionAreas } from '../../lib/areas';
 import { rentByBedroom } from '../../data/markets';
 
 /**
@@ -28,6 +29,8 @@ const title = 'Homes for Rent in Columbus, Ohio | RL Property Management';
 const description =
   `Houses and small multifamily rentals available now across the Columbus, Ohio metro from ${company.name}. ` +
   `See current listings, book a showing, and apply online. Median 3 bedroom rent is ${usd(rentByBedroom['3'].median)}.`;
+
+const { linked: linkedAreas, unlinked: namedAreas } = partitionAreas(areas, areaUrl);
 
 const breadcrumbs = [
   { name: 'Home', path: '/' },
@@ -333,8 +336,11 @@ const faq = [
         Licking, Union, Madison and Pickaway counties. If you are searching by suburb, start here.
       </p>
       <div class="flex flex-wrap gap-x-5 gap-y-2 mt-6 text-[15.5px]">
-        {areas.map((a) => (
-          <a href={areaUrl(a)} class="text-crimson no-underline hover:underline">{a.name}</a>
+        {linkedAreas.map((a) => (
+          <a href={a.href} class="text-crimson no-underline hover:underline">{a.name}</a>
+        ))}
+        {namedAreas.map((a) => (
+          <span class="text-muted">{a.name}</span>
         ))}
       </div>
       <p class="text-[15px] text-muted mt-6">

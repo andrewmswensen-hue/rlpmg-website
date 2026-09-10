@@ -69,19 +69,19 @@ const keyFacts = [
 
 const faq = [
   { q: 'What county is New Albany, Ohio in?',
-    a: 'Most of New Albany is in Franklin County, with a portion of the city extending into Licking County. The county the parcel sits in decides which municipal court hears an eviction under Ohio Revised Code 1901.02 and which county auditor takes the R.C. 5323 rental owner filing. A New Albany mailing address does not settle the question on its own.' },
+    a: 'Most of New Albany is in Franklin County, with a portion of the city extending into Licking County. The county decides which municipal court hears an eviction under Ohio Revised Code 1901.02 and which auditor takes the R.C. 5323 owner filing. A New Albany mailing address does not settle it.' },
   { q: 'Which court hears an eviction in New Albany, Ohio?',
-    a: 'A Franklin County parcel is filed at Franklin County Municipal Court, 375 S. High St., Columbus, OH 43215, where the eviction division sits in Courtroom 11B. A parcel on the Licking County side of the city goes to Licking County Municipal Court instead. Before either court sees the case, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, with specific statutory language, served by certified mail, handed to the resident, or left at the property.' },
+    a: 'A Franklin County parcel is filed at Franklin County Municipal Court, 375 S. High St., Columbus, OH 43215, where the eviction division sits in Courtroom 11B. A parcel on the Licking County side of the city goes to Licking County Municipal Court instead. Before either court sees the case, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, with specific statutory language.' },
   { q: 'What is the New Albany community development charge, and does it affect a rental owner?',
-    a: 'It is a charge levied by the New Albany Community Authority on the assessed valuation of each chargeable parcel inside the Community District, in mills set by the Board of Trustees and capped at 9.75 mills. It is currently collected by Franklin County alongside property tax in January and June, and it is in addition to ordinary property taxes rather than part of them. For an owner that means the carrying cost on a chargeable New Albany parcel is higher than a tax estimate pulled off a listing site suggests. Confirm with the county treasurer whether your specific parcel is chargeable, and at what current millage, before you underwrite a purchase.' },
+    a: 'It is a charge levied by the New Albany Community Authority on the assessed valuation of each chargeable parcel inside the Community District, in mills set by the Board of Trustees and capped at 9.75 mills. Franklin County currently collects it alongside property tax in January and June, in addition to ordinary property taxes rather than as part of them. So the carrying cost on a chargeable parcel is higher than a tax estimate pulled off a listing site suggests. Confirm with the county treasurer whether your parcel is chargeable, and at what millage, before you underwrite a purchase.' },
   { q: 'Do New Albany deed restrictions or an HOA affect renting my house out?',
     a: 'Possibly, and it is a title question rather than a city question. The architectural consistency you see across residential New Albany is largely the product of private covenants and association architectural review recorded against parcels, not a municipal design ordinance applied to every house. What binds you is whatever is recorded against your parcel, which can include exterior approval requirements and, in some associations, limits on leasing. [SOURCE NEEDED: confirm which New Albany subdivisions carry recorded leasing restrictions or rental caps, and confirm what the City of New Albany codified ordinances require by way of exterior or architectural review for an existing single-family house.] Read the recorded declaration before you buy.' },
   { q: 'Do I have to register my New Albany rental property with anyone?',
     a: 'Yes, with the county auditor, not with the city. Ohio Revised Code 5323.02 requires the owner of residential rental property to file owner details and the permanent parcel number within 60 days of acquiring the property and again within 60 days of any change. There is no fee. For New Albany that is the Franklin County Auditor or the Licking County Auditor depending on the parcel. Failing to file draws a special assessment of $50 to $150 under R.C. 5323.99, and the Franklin County Auditor states $150 per tax year. This is separate from any homeowner association obligation.' },
   { q: 'Who provides water and sewer in New Albany, Ohio?',
-    a: 'New Albany is a City of Columbus water and sewer contract community, so water and sanitary sewer come from the Columbus system under contract. Columbus states that the property owner is ultimately responsible for all charges even where a tenant billing agreement is in place, which is a real exposure at move-out. Electricity is distributed by AEP Ohio and natural gas by Columbia Gas of Ohio. On our standard lease the resident holds every utility account in their own name.' },
+    a: 'New Albany is a City of Columbus water and sewer contract community. Columbus states the property owner is ultimately responsible for all charges even where a tenant billing agreement is in place, which is a real exposure at move-out. Electricity is AEP Ohio and gas is Columbia Gas of Ohio. On our lease the resident holds every account in their own name.' },
   { q: 'What does a rental in New Albany, Ohio rent for?',
-    a: `We do not publish a New Albany rent median, because our sample there is below the five-unit threshold we set before calling a number a market median, and we will not present a public rent index as our own rent roll. Across our whole portfolio the median is ${usd(rentByBedroom['3'].median)} for a 3 bedroom and ${usd(rentByBedroom['4'].median)} for a 4 bedroom. The nearest comparable market where we do publish our own figure is Dublin at ${usd(rentByMarketAndBedroom['Dublin']['3'].median)} for a 3 bedroom. [SOURCE NEEDED: US Census ACS 2024 5-year median gross rent for New Albany, Ohio.]` },
+    a: `We do not publish a New Albany rent median, because our sample there is below the five-unit threshold we set before calling a number a market median. Across our whole portfolio the median is ${usd(rentByBedroom['3'].median)} for a 3 bedroom and ${usd(rentByBedroom['4'].median)} for a 4 bedroom. The nearest comparable market where we do publish our own figure is Dublin at ${usd(rentByMarketAndBedroom['Dublin']['3'].median)} for a 3 bedroom. [SOURCE NEEDED: US Census ACS 2024 5-year median gross rent for New Albany, Ohio.]` },
   { q: 'How much does property management cost in New Albany?',
     a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Flat pricing matters most where rents are high, because a percentage fee scales with your rent and ours does not. As an illustration, on a house renting at ${usd(3000)} a month a 10% manager collects ${usd(3600)} a year, while our lowest plan is ${usd(pricing.plans[0].monthly * 12)} a year at the same house.` },
 ];
@@ -181,12 +181,11 @@ const schemaNodes = [
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The county line also decides your R.C. 5323.02 filing. Every Ohio owner of residential rental property
-        must file owner details and the parcel number with the auditor of the county the property sits in,
-        within 60 days of acquiring it and within 60 days of any change. There is no fee. The penalty is a
-        special assessment of $50 to $150 under R.C. 5323.99, and the Franklin County Auditor states $150 per
+        The county line also decides your R.C. 5323.02 filing, which every Ohio rental owner owes to the auditor
+        of the county the property sits in, within 60 days of purchase and of any change. No fee. The penalty is
+        a special assessment of $50 to $150 under R.C. 5323.99, and the Franklin County Auditor states $150 per
         tax year. Owners holding title through an LLC or a trust must name the responsible officer, member or
-        trustee, the line that most often gets left blank. We file as the owner designated agent at onboarding.
+        trustee, the line most often left blank. We file as the owner designated agent at onboarding.
       </p>
       <p class="text-[16px] text-muted mt-5">
         [SOURCE NEEDED: confirm against the New Albany codified ordinances whether the city separately requires
@@ -237,8 +236,7 @@ const schemaNodes = [
         Columbus states that the property owner is ultimately responsible for all charges, even where a tenant
         billing agreement puts the account in the resident's name. A resident who leaves owing water can leave
         that balance pointed at your parcel. We put the accounts in the resident name at lease signing and check
-        them again at move-out, before the deposit is settled. On a large New Albany house with irrigation, that
-        final water read is not a formality.
+        them again at move-out. On a large house with irrigation, that final read is not a formality.
       </p>
     </div>
   </section>
@@ -249,11 +247,11 @@ const schemaNodes = [
       <span class="eyebrow">The market</span>
       <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in New Albany?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Predominantly newer detached single-family houses on planned streets, larger than the metro average, with
-        condominium and villa product in defined pockets and very little of the pre-war or early postwar stock
-        that dominates the older inner suburbs. [SOURCE NEEDED: US Census ACS 2024 5-year median year structure
-        built for New Albany, Ohio.] For comparison, the median Reynoldsburg structure was built in 1984 and the
-        median Upper Arlington structure in 1959, both per US Census ACS 2024 5-year estimates.
+        Predominantly newer detached single-family houses on planned streets, larger than the metro average,
+        with condominium and villa product in defined pockets and very little of the pre-war stock that
+        dominates the older inner suburbs. [SOURCE NEEDED: US Census ACS 2024 5-year median year structure built
+        for New Albany, Ohio.] For comparison, the median Reynoldsburg structure was built in 1984 and the median
+        Upper Arlington structure in 1959, both per US Census ACS 2024 5-year estimates.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Newer does not mean cheaper to run, and this is where New Albany owners get caught. A twenty-year-old
@@ -269,11 +267,11 @@ const schemaNodes = [
       <h3 class="text-[21px] mt-9 mb-3">Where in New Albany we work</h3>
       <p class="text-[16.5px] text-muted">
         The village centre and Market Street, the Dublin Granville Road and Johnstown Road corridors, Kitzmiller
-        Road, Central College Road, Reynoldsburg New Albany Road, and the eastern edge running toward the Licking
-        County line. New Albany Plain Local Schools serves most of the city and is a large part of why houses
-        here rent where they do, but the district boundary and the city boundary are not the same line, so check
-        the parcel rather than the postal address. [SOURCE NEEDED: confirm which school districts serve the
-        Licking County portion of New Albany.]
+        Road, Central College Road, Reynoldsburg New Albany Road, and the eastern edge toward the Licking County
+        line. New Albany Plain Local Schools serves most of the city and is a large part of why houses here rent
+        where they do, but the district boundary and the city boundary are not the same line, so check the parcel
+        rather than the postal address. [SOURCE NEEDED: confirm which school districts serve the Licking County
+        portion of New Albany.]
       </p>
     </div>
   </section>
@@ -283,13 +281,12 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a New Albany rental earn, and what does management cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        We are not publishing a New Albany rent median. Our managed sample there is below the five-unit threshold
-        we set before we will call a number a market median, and the alternative, quoting a public rent index and
-        letting it read as our own rent roll, is the thing we criticise other pages for. Across our whole
-        portfolio the median is {usd(rentByBedroom['3'].median)} for a three bedroom and
-        {' '}{usd(rentByBedroom['4'].median)} for a four bedroom. The closest market where we do publish our own
-        figure is Dublin, at {usd(rentByMarketAndBedroom['Dublin']['3'].median)} for a three bedroom and
-        {' '}{usd(rentByMarketAndBedroom['Dublin']['4'].median)} for a four bedroom.
+        We are not publishing a New Albany rent median. Our managed sample there is below the five-unit
+        threshold we set before we will call a number a market median, and quoting a public rent index as though
+        it came off our rent roll is the thing we criticise other pages for. Across our whole portfolio the
+        median is {usd(rentByBedroom['3'].median)} for a three bedroom and {usd(rentByBedroom['4'].median)} for a
+        four bedroom. The closest market where we do publish our own figure is Dublin, at
+        {' '}{usd(rentByMarketAndBedroom['Dublin']['3'].median)} for a three bedroom.
         [SOURCE NEEDED: US Census ACS 2024 5-year median gross rent for New Albany, Ohio.]
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
