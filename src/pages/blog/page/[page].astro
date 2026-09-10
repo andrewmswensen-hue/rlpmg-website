@@ -1,0 +1,53 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../../layouts/Base.astro';
+import PostCard from '../../../components/PostCard.astro';
+import { allPosts } from '../../../lib/blog';
+import { company } from '../../../data/facts';
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const posts = await allPosts();
+  return paginate(posts, { pageSize: 24 });
+};
+
+const { page } = Astro.props;
+const title = `Insights, page ${page.currentPage} of ${page.lastPage} | ${company.name}`;
+const description = `Page ${page.currentPage} of the ${company.name} archive on owning rental property in Columbus, Ohio.`;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Insights', path: '/blog/' },
+  { name: `Page ${page.currentPage}`, path: `/blog/page/${page.currentPage}/` },
+];
+---
+<Base {title} {description} {breadcrumbs} noindex={page.currentPage > 1}>
+  <section class="pt-14 pb-8">
+    <div class="wrap">
+      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+        <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span>
+        <a href="/blog/" class="no-underline hover:text-crimson">Insights</a> <span aria-hidden="true">/</span>
+        <span aria-current="page">Page {page.currentPage}</span>
+      </nav>
+      <h1 class="text-[clamp(28px,3.4vw,40px)]">All articles</h1>
+      <p class="text-[17px] text-muted mt-3">
+        Page {page.currentPage} of {page.lastPage}. {page.total} articles in total.
+      </p>
+    </div>
+  </section>
+
+  <section class="pb-14">
+    <div class="wrap">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {page.data.map((p) => <PostCard post={p} />)}
+      </div>
+      <nav class="flex flex-wrap items-center justify-between gap-4 mt-11 pt-7 border-t border-line" aria-label="Pagination">
+        {page.url.prev
+          ? <a href={page.url.prev} class="btn btn-ghost">← Newer</a>
+          : <span></span>}
+        <span class="font-sans text-[14px] text-faint">Page {page.currentPage} of {page.lastPage}</span>
+        {page.url.next
+          ? <a href={page.url.next} class="btn btn-ghost">Older →</a>
+          : <span></span>}
+      </nav>
+    </div>
+  </section>
+</Base>

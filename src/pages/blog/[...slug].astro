@@ -1,0 +1,104 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import Cta from '../../components/Cta.astro';
+import { allPosts, related, slugify, excerpt } from '../../lib/blog';
+import { company } from '../../data/facts';
+import { longDate, readingTime } from '../../lib/format';
+import { articleNode } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const posts = await allPosts();
+  return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post, posts } }));
+}
+
+const { post, posts } = Astro.props;
+const d = post.data;
+const { Content } = await render(post);
+const rel = related(post, posts, 4);
+const desc = (d.description?.trim() || excerpt(post.body ?? '')).slice(0, 300);
+const mins = readingTime(post.body ?? '');
+const path = `/blog/${d.slug}/`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Insights', path: '/blog/' },
+  ...(d.categories[0] ? [{ name: d.categories[0], path: `/blog/category/${slugify(d.categories[0])}/` }] : []),
+  { name: d.title, path },
+];
+
+const schemaNodes = [articleNode({
+  path, title: d.title, description: desc,
+  datePublished: d.pubDate.toISOString(),
+  dateModified: (d.updatedDate ?? d.pubDate).toISOString(),
+  image: d.heroImage,
+  wordCount: (post.body ?? '').split(/\s+/).length,
+  keywords: [...d.categories, ...d.tags],
+})];
+---
+<Base title={`${d.title} | ${company.name}`} description={desc} {breadcrumbs} {schemaNodes}
+      datePublished={d.pubDate.toISOString()} dateModified={(d.updatedDate ?? d.pubDate).toISOString()}
+      ogImage={d.heroImage}>
+  <article>
+    <header class="pt-12 pb-8">
+      <div class="wrap max-w-[760px]">
+        <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+          <a href="/" class="no-underline hover:text-crimson">Home</a>
+          <span aria-hidden="true"> / </span>
+          <a href="/blog/" class="no-underline hover:text-crimson">Insights</a>
+          {d.categories[0] && (
+            <>
+              <span aria-hidden="true"> / </span>
+              <a href={`/blog/category/${slugify(d.categories[0])}/`} class="no-underline hover:text-crimson">{d.categories[0]}</a>
+            </>
+          )}
+        </nav>
+        <h1 class="text-[clamp(30px,3.9vw,46px)] tracking-[-.02em]">{d.title}</h1>
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-1.5 mt-5 text-[14px] text-faint font-sans">
+          <span>By <a href="/team/#peter-lohmann" class="text-navy font-semibold no-underline hover:text-crimson">{company.brokerOfRecord.name}</a></span>
+          <span aria-hidden="true">·</span>
+          <time datetime={d.pubDate.toISOString()}>{longDate(d.pubDate)}</time>
+          {d.updatedDate && d.updatedDate.valueOf() !== d.pubDate.valueOf() && (
+            <>
+              <span aria-hidden="true">·</span>
+              <span>Updated {longDate(d.updatedDate)}</span>
+            </>
+          )}
+          <span aria-hidden="true">·</span>
+          <span>{mins} min read</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap max-w-[760px] pb-14">
+      <div class="prose-rl"><Content /></div>
+
+      {d.categories.length > 0 && (
+        <div class="mt-11 pt-6 border-t border-line">
+          <h2 class="font-sans text-[11.5px] font-bold tracking-[.14em] uppercase text-faint mb-3">Filed under</h2>
+          <div class="flex flex-wrap gap-2">
+            {d.categories.map((c) => (
+              <a href={`/blog/category/${slugify(c)}/`}
+                 class="border border-line rounded-full px-3.5 py-1.5 text-[13.5px] no-underline text-navy hover:border-crimson hover:text-crimson">{c}</a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </article>
+
+  {rel.length > 0 && (
+    <section class="band-tight band-wash">
+      <div class="wrap">
+        <h2 class="text-[24px] mb-6">Keep reading</h2>
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {rel.map((p) => <PostCard post={p} showExcerpt={false} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <Cta heading="Wondering what your Columbus rental should earn?"
+       body="A free, data-backed rent evaluation using our own portfolio numbers and current market comps." />
+</Base>

@@ -1,0 +1,67 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostCard from '../../components/PostCard.astro';
+import Cta from '../../components/Cta.astro';
+import { allPosts, categoryIndex } from '../../lib/blog';
+import { company } from '../../data/facts';
+
+const posts = await allPosts();
+const cats = await categoryIndex();
+const recent = posts.slice(0, 12);
+const sortedCats = [...cats.entries()].sort((a, b) => b[1].posts.length - a[1].posts.length);
+
+const title = `Rental Property Insights for Columbus Owners | ${company.name}`;
+const description =
+  `${posts.length} articles on owning rental property in Columbus, Ohio: pricing, screening, ` +
+  `maintenance, Ohio landlord-tenant law and local market data, written by a licensed brokerage.`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Insights', path: '/blog/' }];
+---
+<Base {title} {description} {breadcrumbs}>
+  <section class="pt-14 pb-9">
+    <div class="wrap max-w-[880px]">
+      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+        <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">Insights</span>
+      </nav>
+      <span class="eyebrow">Insights</span>
+      <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em]">Owning rental property in Columbus, explained</h1>
+      <p class="text-[20px] text-muted mt-5 max-w-[40em]">
+        {posts.length} articles written by a licensed Ohio brokerage that manages {company.unitsManaged} units
+        in this market. Pricing, screening, maintenance, Ohio landlord-tenant law, and what the local
+        numbers actually say.
+      </p>
+    </div>
+  </section>
+
+  <section class="band-tight border-y border-line bg-wash-soft">
+    <div class="wrap">
+      <h2 class="font-sans text-[11.5px] font-bold tracking-[.14em] uppercase text-faint mb-4">Browse by topic</h2>
+      <ul class="flex flex-wrap gap-2.5">
+        {sortedCats.map(([slug, c]) => (
+          <li>
+            <a href={`/blog/category/${slug}/`}
+               class="inline-flex items-baseline gap-2 bg-white border border-line rounded-full px-4 py-2 no-underline
+                      text-[14.5px] font-medium text-navy hover:border-crimson hover:text-crimson transition-colors">
+              {c.name}<span class="text-[12px] text-faint">{c.posts.length}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 class="text-[26px] mb-7">Latest</h2>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {recent.map((p) => <PostCard post={p} />)}
+      </div>
+      <p class="mt-9">
+        <a href="/blog/page/2/" class="btn btn-ghost">Browse the full archive</a>
+      </p>
+    </div>
+  </section>
+
+  <Cta heading="Have a question this did not answer?"
+       body="Tell us about your property and we will give you a straight answer, whether or not you hire us."
+       primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }} />
+</Base>
