@@ -196,8 +196,24 @@ export const areas = [
   { name: 'Ashville',          slug: 'ashville',          county: 'Pickaway' },
 ] as const;
 
-export const areaUrl = (a: { slug: string; existingUrl?: string }) =>
-  a.existingUrl ?? `/property-management-${a.slug}-ohio/`;
+/**
+ * The canonical URL for an area.
+ *
+ * Three rules, in order:
+ *  1. An area that already has a page on the live site keeps that exact URL,
+ *     because it already has search equity. Canal Winchester is the odd one out:
+ *     it has no `-ohio` suffix and it stays that way.
+ *  2. A Columbus neighbourhood nests UNDER the Columbus page rather than sitting
+ *     as its peer. Clintonville is part of Columbus, so a flat
+ *     /property-management-clintonville-ohio/ would compete with the anchor page
+ *     instead of reinforcing it.
+ *  3. Everything else follows /property-management-<slug>-ohio/.
+ */
+export const areaUrl = (a: { slug: string; existingUrl?: string; neighborhoodOf?: string }) => {
+  if (a.existingUrl) return a.existingUrl;
+  if (a.neighborhoodOf === 'Columbus') return `/property-management-columbus-ohio/${a.slug}/`;
+  return `/property-management-${a.slug}-ohio/`;
+};
 
 export const coreValues = [
   { name: 'Clear communication',   body: 'Every resident request, owner update and internal process is communicated directly and in plain language.' },

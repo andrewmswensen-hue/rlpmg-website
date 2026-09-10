@@ -1,0 +1,498 @@
+---
+/*
+ * ===========================================================================
+ * DRAFT. PENDING REVIEW BY COUNSEL AND BY OPERATIONS.
+ * ===========================================================================
+ * For contractors who want work from RLPM.
+ *
+ * HARD RULE APPLIED HERE: insurance requirements, license requirements, payment
+ * terms and any payment schedule are NOT stated, because nobody supplied them.
+ * They are marked SOURCE NEEDED markers and must be filled in by operations
+ * before this page goes live. Do not let a template fill them in.
+ *
+ * The only vendor economics stated are the published project management fee and
+ * turn tiers, which come from src/data/facts.ts and already appear on the
+ * pricing page as owner-facing charges.
+ *
+ * FORM: semantic HTML, no JavaScript, no hardcoded email address. The action
+ * endpoint is pending, see the comment on the form element.
+ */
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, areas, usd } from '../../data/facts';
+
+const title = 'Vendor Application | Work With RL Property Management';
+const description =
+  `Apply to work with ${company.name} as a contractor across the Columbus, Ohio metro. Repairs, unit turns ` +
+  `and projects across ${company.unitsManaged} managed units. One form, no phone tree.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Vendor application', path: '/vendor-application/' },
+];
+
+const keyFacts = [
+  `${company.unitsManaged} units under management across Central Ohio`,
+  `Work is concentrated in ${company.propertyTypes}`,
+  'Repairs, unit turns, and larger projects',
+  'Scheduling and repair history run through one system, Property Meld',
+  'A real person reviews every application',
+  `Questions: ${company.phone}`,
+];
+
+/** The published project management fee, which is what a vendor most wants to
+ *  understand about how our jobs are structured. These are owner-facing charges
+ *  from the published fee schedule. */
+const tiers = pricing.maintenance.turnTiers;
+const tier1 = tiers[0].upTo as number;
+const tier2 = tiers[1].upTo as number;
+
+const turnTiers = [
+  ['Vendor projects', `${pricing.maintenance.vendorProjectFeePct}% of vendor cost`,
+   `Applies to vendor costs up to ${usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)}, capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project.`],
+  [`Turns up to ${usd(tier1)}`, `${tiers[0].pct}%`, 'The first tier on a unit turn.'],
+  [`Turns ${usd(tier1 + 1)} to ${usd(tier2)}`, `${tiers[1].pct}%`, 'The second tier.'],
+  [`Turns above ${usd(tier2)}`, `${tiers[2].pct}%`, 'The third tier.'],
+  ['Insurance claim work', 'Waived', 'The project management fee is waived on property and casualty insurance claim work.'],
+];
+
+const process = [
+  { n: '1', h: 'You apply', p: 'The form below. Tell us what you do, where you work, and how to reach you. It takes a few minutes and there is no account to create.' },
+  { n: '2', h: 'We review it', p: 'A person reads it and checks it against what we currently need. Trades where we already have good coverage move slower than trades where we do not. [SOURCE NEEDED: how long review takes, and who owns vendor onboarding.]' },
+  { n: '3', h: 'We verify your paperwork', p: 'Insurance, licensing and tax documentation are confirmed before any work is assigned. [SOURCE NEEDED: the exact documents required, and who collects them.]' },
+  { n: '4', h: 'You get in the system', p: 'Approved vendors are set up so work orders, scheduling and repair history run through one place rather than a chain of text messages.' },
+  { n: '5', h: 'You get a first job', p: 'Usually something small and well defined, so both sides can see how the other works before anything larger is on the line.' },
+];
+
+const faq = [
+  {
+    q: 'What kind of work does RL Property Management send to vendors?',
+    a: `Repairs, unit turns and larger projects across ${company.unitsManaged} units, mostly ${company.propertyTypes}, in the Columbus metro. Our in-house maintenance team covers a lot of routine work, so outside vendors are used where specialized trade work, licensed work or extra capacity is needed.`,
+  },
+  {
+    q: 'How does the project management fee affect me as a vendor?',
+    a: `The ${pricing.maintenance.vendorProjectFeePct}% project management fee is a published charge on the owner's statement for our oversight of vendor work, on vendor costs up to ${usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)} and capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project. Unit turns run on tiers instead: ${tiers[0].pct}% up to ${usd(tier1)}, ${tiers[1].pct}% from ${usd(tier1 + 1)} to ${usd(tier2)}, and ${tiers[2].pct}% above ${usd(tier2)}. It is waived on insurance claim work. [SOURCE NEEDED: confirm this fee is billed to the owner and is not deducted from vendor invoices.]`,
+  },
+  {
+    q: 'What insurance do I need to carry?',
+    a: '[SOURCE NEEDED: vendor insurance requirements, including coverage types, minimum limits, and whether RL Property Management must be named as an additional insured or certificate holder.] Nothing is stated here because inventing an insurance requirement would be worse than leaving it blank. Call the office and ask, and this page will carry the answer once it is confirmed.',
+  },
+  {
+    q: 'What licenses do I need?',
+    a: '[SOURCE NEEDED: trade license, contractor registration and permit requirements RLPM expects a vendor to hold, and which jurisdictions those must be current in.] Requirements vary by trade and by city across the metro, so this page will not guess at them.',
+  },
+  {
+    q: 'How and when do vendors get paid?',
+    a: '[SOURCE NEEDED: payment terms, payment schedule, how invoices are submitted, and the tax documentation required before a first payment.] Not stated here because a payment term is a commitment, and a website is not the place to invent one.',
+  },
+  {
+    q: 'What areas do you send work in?',
+    a: `${areas.length} communities across Central Ohio, anchored in Columbus and Franklin County and reaching into Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. Tell us your actual service radius on the form. A vendor who covers three suburbs well is more useful to us than one who claims the whole metro.`,
+  },
+  {
+    q: 'How does scheduling and communication work?',
+    a: 'Work orders, scheduling and repair history run through Property Meld, so a job has one record instead of living in someone’s text messages. Residents get scheduling updates from the same system, which is most of why repairs close faster.',
+  },
+  {
+    q: 'What happens after I submit the application?',
+    a: 'A person reads it and follows up. If we do not have a need in your trade right now, the application stays on file rather than disappearing. [SOURCE NEEDED: review timeline to publish here.]',
+  },
+];
+
+const inputCls =
+  'w-full rounded-[10px] border border-line bg-white px-3.5 py-2.5 text-[15.5px] text-navy ' +
+  'focus:border-crimson focus:outline-none';
+const labelCls = 'block font-sans text-[14px] font-semibold text-navy mb-1.5';
+const hintCls = 'block text-[13px] text-faint mt-1.5';
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+  <!--
+    ==========================================================================
+    DRAFT VENDOR APPLICATION PAGE. PENDING REVIEW BY COUNSEL AND OPERATIONS.
+    Insurance requirements, license requirements, payment terms and payment
+    schedule are deliberately NOT stated. They are marked inline as
+    SOURCE NEEDED markers and must be supplied by operations before this page
+    goes live. Do not fill them in from a template.
+    ==========================================================================
+  -->
+
+  <PageHero
+    eyebrow="For contractors"
+    title="Work with RL Property Management as a vendor"
+    answer={`${company.name} works with outside contractors across the Columbus metro on repairs, turns and projects. Apply below. Insurance, license and payment terms are confirmed during review, before any work is assigned.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Apply now', href: '#vendor-application-form' }}
+    secondaryCta={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+
+  <KeyFacts items={keyFacts} heading="The short version" />
+
+  <section class="band-tight" aria-labelledby="work-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="work-h">What work does RL Property Management send out?</h2>
+      <p>
+        Repairs, unit turns and larger projects across {company.unitsManaged} units, mostly
+        {' '}{company.propertyTypes}, spread across {areas.length} Central Ohio communities. Our
+        own maintenance team handles a large share of routine work at an in-house labor rate of
+        {' '}{usd(pricing.maintenance.inHouseHourly)} per hour plus a
+        {' '}{usd(pricing.maintenance.tripCharge)} trip charge, so outside vendors come in for
+        specialized trade work, licensed work, and capacity when several turns land at once.
+      </p>
+      <p>
+        [SOURCE NEEDED: the trades RLPM actually hires out and the ones covered in house, so this
+        page can name them instead of describing the work in general terms.]
+      </p>
+
+      <h2>What is it like to work with us?</h2>
+      <p>
+        Three things are true of the work, and they are the three things most contractors ask
+        about before anything else.
+      </p>
+      <ul>
+        <li>
+          <strong>The volume is steady, not seasonal spikes.</strong> {company.unitsManaged} units
+          generate repairs every week of the year. Turns cluster in the leasing season, but the
+          repair flow does not stop in February.
+        </li>
+        <li>
+          <strong>One system, not a chain of text messages.</strong> Work orders, scheduling,
+          photos and history live in Property Meld. A job has a record. So does the conversation.
+        </li>
+        <li>
+          <strong>The scope is written down.</strong> We scope turns before the work starts, which
+          is how a bid stays a bid. Median time to close a repair across the portfolio is
+          {' '}{kpis.metrics[5].value} days, and that number depends on vendors who show up when
+          they said they would.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band band-wash" aria-labelledby="fee-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Published, not negotiated in the dark</span>
+      <h2 id="fee-h" class="text-[clamp(26px,3.2vw,38px)]">How is vendor work priced to the owner?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        We publish our own fee schedule, so a vendor can see exactly how the job is structured
+        before working on one. These are charges that appear on the property owner's statement for
+        our oversight of the project.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]">
+          <caption class="sr-only">Published project management fees on vendor work and unit turns</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Work</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold whitespace-nowrap">Fee</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Detail</th>
+            </tr>
+          </thead>
+          <tbody>
+            {turnTiers.map(([item, amount, detail]) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top">{item}</th>
+                <td class="p-3.5 border border-line align-top whitespace-nowrap font-semibold text-navy">{amount}</td>
+                <td class="p-3.5 border border-line align-top text-muted">{detail}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15px] text-muted mt-6 max-w-[44em]">
+        [SOURCE NEEDED: confirm that this project management fee is billed to the owner and is not
+        deducted from a vendor's invoice, so this section can say so plainly.]
+        {' '}The complete schedule is on the <a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">pricing page</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="band-tight" aria-labelledby="req-h">
+    <div class="wrap max-w-[880px] prose-rl">
+      <h2 id="req-h">What do you require from a vendor?</h2>
+      <p>
+        Insurance, licensing and tax documentation are confirmed before any work is assigned. The
+        specifics are not published on this page yet, and they are not going to be guessed at here.
+      </p>
+      <ul>
+        <li>
+          <strong>Insurance.</strong> [SOURCE NEEDED: required coverage types, minimum limits, and
+          whether {company.name} must be named as an additional insured or certificate holder, and
+          how a certificate is submitted and kept current.]
+        </li>
+        <li>
+          <strong>Licensing.</strong> [SOURCE NEEDED: trade license and contractor registration
+          requirements by trade, which jurisdictions they must be current in, and who pulls permits
+          on a job.]
+        </li>
+        <li>
+          <strong>Tax and payment setup.</strong> [SOURCE NEEDED: the tax documentation required
+          before a first payment, and how invoices are submitted.]
+        </li>
+        <li>
+          <strong>Background and screening.</strong> [SOURCE NEEDED: whether technicians entering
+          occupied units are screened, by whom, and against what standard. This one matters to
+          residents and should be answered on this page.]
+          {' '}[LEGAL REVIEW: what may lawfully be required or asked of a vendor's employees, and
+          how any background screening of vendor personnel must be disclosed and handled.]
+        </li>
+      </ul>
+      <p>
+        Until those are confirmed by operations, the honest answer is: call {company.phone} and ask,
+        and this page will carry the answer once it is settled. What is on the form below is enough
+        to start the conversation.
+      </p>
+
+      <h2>How do vendors get paid?</h2>
+      <p>
+        [SOURCE NEEDED: payment terms, payment schedule, invoicing method and any retainage on
+        larger projects. Nothing is stated here on purpose. A payment term is a commitment, and a
+        website is not the place to invent one.]
+      </p>
+
+      <h2>Is applying an agreement?</h2>
+      <p>
+        No. Submitting the form below starts a conversation. It does not create a relationship and
+        it does not assign any work.
+        {' '}[LEGAL REVIEW: whether a written vendor agreement is required before work is assigned,
+        what it must contain, how independent contractor status is documented, and what
+        indemnification, hold-harmless and lien-waiver terms are wanted. Also confirm whether any
+        language on this page needs to state that a vendor is an independent contractor and not an
+        employee or agent of the company.]
+      </p>
+    </div>
+  </section>
+
+  <section class="band" aria-labelledby="proc-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">What happens next</span>
+      <h2 id="proc-h" class="text-[clamp(26px,3.2vw,38px)]">How does the application process work?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Five steps. A person is involved at every one of them.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {process.map((s) => (
+          <div class="card">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">Step {s.n}</div>
+            <h3 class="text-[18.5px] mb-2">{s.h}</h3>
+            <p class="text-[15px] text-muted m-0">{s.p}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-wash" id="vendor-application-form" aria-labelledby="form-h">
+    <div class="wrap max-w-[760px]">
+      <span class="eyebrow">Apply</span>
+      <h2 id="form-h" class="text-[clamp(26px,3.2vw,38px)]">Vendor application</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">
+        Everything marked required is required because we cannot evaluate the application without
+        it. Do not send certificates, license copies or tax forms through this form. We will ask for
+        documents directly once the application is reviewed.
+      </p>
+
+      <!--
+        FORM ENDPOINT PENDING.
+        Submissions are intended to route to LeadSimple, the CRM, the same way the
+        owner-side forms do. Set the `action` attribute to the endpoint when it is
+        issued and keep `method="post"`. Do NOT hardcode a destination email
+        address in this markup. No JavaScript is used or needed: this is a plain
+        HTML post, and the page works with scripting disabled.
+      -->
+      <form method="post" action="" class="card !p-7 md:!p-9 grid gap-7">
+
+        <fieldset class="border-0 p-0 m-0 grid gap-5">
+          <legend class="font-serif text-[20px] font-semibold text-navy mb-3">Your business</legend>
+
+          <div>
+            <label class={labelCls} for="company-name">Business name <span class="text-crimson">(required)</span></label>
+            <input class={inputCls} id="company-name" name="business_name" type="text" autocomplete="organization" required />
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="contact-name">Contact name <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="contact-name" name="contact_name" type="text" autocomplete="name" required />
+            </div>
+            <div>
+              <label class={labelCls} for="role">Your role</label>
+              <input class={inputCls} id="role" name="contact_role" type="text" autocomplete="organization-title" />
+              <span class={hintCls}>Owner, dispatcher, estimator, whoever we should actually call.</span>
+            </div>
+          </div>
+
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label class={labelCls} for="email">Email <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div>
+              <label class={labelCls} for="phone">Phone <span class="text-crimson">(required)</span></label>
+              <input class={inputCls} id="phone" name="phone" type="tel" autocomplete="tel" required />
+            </div>
+          </div>
+
+          <div>
+            <label class={labelCls} for="website">Website</label>
+            <input class={inputCls} id="website" name="website" type="url" autocomplete="url" inputmode="url" />
+            <span class={hintCls}>Optional. A Google Business Profile or a Facebook page is fine too.</span>
+          </div>
+
+          <div>
+            <label class={labelCls} for="years">Years in business</label>
+            <select class={inputCls} id="years" name="years_in_business">
+              <option value="">Choose one</option>
+              <option value="under-1">Less than 1</option>
+              <option value="1-3">1 to 3</option>
+              <option value="4-9">4 to 9</option>
+              <option value="10-19">10 to 19</option>
+              <option value="20+">20 or more</option>
+            </select>
+          </div>
+
+          <div>
+            <label class={labelCls} for="crew-size">How many people are on your crew?</label>
+            <select class={inputCls} id="crew-size" name="crew_size">
+              <option value="">Choose one</option>
+              <option value="1">Just me</option>
+              <option value="2-4">2 to 4</option>
+              <option value="5-10">5 to 10</option>
+              <option value="11-25">11 to 25</option>
+              <option value="25+">More than 25</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset class="border-0 p-0 m-0 grid gap-5 border-t border-line pt-7">
+          <legend class="font-serif text-[20px] font-semibold text-navy mb-3">What you do</legend>
+
+          <div>
+            <label class={labelCls} for="trades">Trades and services you provide <span class="text-crimson">(required)</span></label>
+            <textarea class={inputCls} id="trades" name="trades" rows="3" required></textarea>
+            <span class={hintCls}>
+              In your own words. Be specific about what you will and will not take, because that is
+              more useful to us than a long list.
+            </span>
+          </div>
+
+          <div>
+            <label class={labelCls} for="service-area">Service area <span class="text-crimson">(required)</span></label>
+            <textarea class={inputCls} id="service-area" name="service_area" rows="2" required></textarea>
+            <span class={hintCls}>
+              The cities, suburbs or ZIP codes you actually cover. A tight radius you serve well beats
+              a claim on the whole metro.
+            </span>
+          </div>
+
+          <fieldset class="border-0 p-0 m-0">
+            <legend class={labelCls}>What size work are you looking for?</legend>
+            <div class="grid gap-2 mt-1">
+              {[
+                ['small-repairs', 'Small repairs and service calls'],
+                ['turns', 'Unit turns'],
+                ['projects', 'Larger projects and renovations'],
+                ['emergency', 'After-hours and emergency work'],
+                ['insurance', 'Insurance claim work'],
+              ].map(([val, label]) => (
+                <label class="flex gap-3 items-center text-[15.5px] text-navy cursor-pointer">
+                  <input type="checkbox" name="work_types" value={val} class="accent-crimson w-4 h-4" />
+                  <span>{label}</span>
+                </label>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset class="border-0 p-0 m-0">
+            <legend class={labelCls}>Do you currently carry business insurance? <span class="text-crimson">(required)</span></legend>
+            <div class="grid gap-2 mt-1">
+              {[
+                ['yes', 'Yes, and I can provide a certificate'],
+                ['yes-no-cert', 'Yes, but I would need to request a certificate'],
+                ['no', 'Not currently'],
+              ].map(([val, label], i) => (
+                <label class="flex gap-3 items-center text-[15.5px] text-navy cursor-pointer">
+                  <input type="radio" name="has_insurance" value={val} required={i === 0} class="accent-crimson w-4 h-4" />
+                  <span>{label}</span>
+                </label>
+              ))}
+            </div>
+            <span class={hintCls}>
+              Do not attach a certificate here. We will ask for documents directly during review.
+            </span>
+          </fieldset>
+
+          <div>
+            <label class={labelCls} for="licenses">Trade licenses or registrations you hold</label>
+            <textarea class={inputCls} id="licenses" name="licenses" rows="2"></textarea>
+            <span class={hintCls}>
+              Name the license type and the jurisdiction. Do not put license numbers in this form.
+            </span>
+          </div>
+
+          <div>
+            <label class={labelCls} for="references">Property managers or investors you currently work with</label>
+            <textarea class={inputCls} id="references" name="references" rows="2"></textarea>
+            <span class={hintCls}>Optional, and it helps. Names only, we will ask before contacting anyone.</span>
+          </div>
+
+          <div>
+            <label class={labelCls} for="notes">Anything else we should know?</label>
+            <textarea class={inputCls} id="notes" name="notes" rows="4"></textarea>
+            <span class={hintCls}>
+              Your typical response time, whether you take after-hours calls, capacity you have open
+              right now, or anything that makes you a better fit than the last person who applied.
+            </span>
+          </div>
+        </fieldset>
+
+        <div class="border-t border-line pt-7 grid gap-5">
+          <label class="flex gap-3 items-start text-[15px] text-muted cursor-pointer">
+            <input type="checkbox" name="contact_consent" value="yes" required class="accent-crimson w-4 h-4 mt-1 shrink-0" />
+            <span>
+              I agree that {company.name} may contact me about this application by email or phone.
+              <span class="text-crimson"> (required)</span>
+            </span>
+          </label>
+          <div>
+            <button type="submit" class="btn btn-primary">Submit vendor application</button>
+          </div>
+          <p class="text-[13px] text-faint m-0">
+            Submitting this form starts a conversation. It is not an agreement, and it does not
+            assign any work. See our
+            {' '}<a href="/privacy-policy/" class="text-crimson font-semibold no-underline hover:underline">privacy policy</a>
+            {' '}and <a href="/terms/" class="text-crimson font-semibold no-underline hover:underline">terms of use</a>.
+            Prefer to talk? Call {company.phone}.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="band-tight">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Vendor questions" id="vendor-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/services/maintenance/', label: 'How our maintenance works', note: 'The system your work orders would run through.' },
+    { href: '/pricing/', label: 'Pricing', note: 'The published fee schedule, including project management fees.' },
+    { href: '/careers/', label: 'Careers', note: 'If you would rather be on the in-house team.' },
+    { href: '/about/', label: 'About the company', note: `Who ${company.shortName} is and what we manage.` },
+    { href: '/contact-us/', label: 'Contact us', note: 'Phone, email and office address.' },
+  ]} />
+
+  <Cta
+    heading="Rather just talk it through?"
+    body="Call the office, say what you do and where you work, and we will tell you straight whether we have a need in your trade right now."
+    primary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+    secondary={{ label: 'Contact us', href: '/contact-us/' }}
+  />
+</Base>

@@ -1,0 +1,292 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../../data/facts';
+import { rentByBedroom, rentByMarketAndBedroom } from '../../../data/markets';
+import { serviceNode } from '../../../lib/schema';
+
+/**
+ * Clintonville. A CHILD of the Columbus page, not a peer of Dublin.
+ *
+ * SCHEMA. Service with areaServed set to the single City of Columbus, because
+ * Clintonville is a Columbus neighborhood and not a municipality. No LocalBusiness,
+ * no address, no geo. The only LocalBusiness node on this site is the organization
+ * at 750 Cross Pointe Rd.
+ *
+ * RENT DATA. We have no publishable Clintonville median. Our data is at zip level
+ * and the sample is too small to defend, so this page shows the Columbus city
+ * medians (ours, labelled) and the portfolio-wide medians (ours, labelled), and says
+ * plainly that it does not publish a neighborhood median. Never present market data
+ * as ours.
+ *
+ * SOURCES, pulled 2026-09-09
+ *  - Franklin County Municipal Court jurisdiction: ORC 1901.02, "The Franklin county
+ *    municipal court has jurisdiction within Franklin county."
+ *    https://codes.ohio.gov/ohio-revised-code/section-1901.02
+ *    Address 375 S. High St., Columbus: https://franklincountymunicourt.org/
+ *  - Columbus rental registry, Chapter 4515 of the Columbus City Codes, passed
+ *    April 20, 2026, $15 per unit capped at $1,500 per complex, triennial safety
+ *    inspection of common areas and critical building systems:
+ *    https://www.sciototitle.com/scioto-blog/columbus-city-council-passes-rental-registry-and-property-inspection-ordinance
+ *  - ORC 5323.02 county auditor filing: https://codes.ohio.gov/ohio-revised-code/section-5323.02
+ *  - Water and sewer owner liability and lien: Columbus City Code 1105.045 and 1147.16.
+ *    http://columbus-oh.elaws.us/code/coor_title11_ch1105_sec1105.045
+ *  - Clinton Township "consists of many scattered islands of land surrounded by the
+ *    city of Columbus": https://en.wikipedia.org/wiki/Clinton_Township,_Franklin_County,_Ohio
+ *    and https://radio.wosu.org/post/curious-cbus-why-was-clinton-township-never-fully-annexed-city
+ *  - Housing eras by sub-district (South Clintonville early 20th century, North
+ *    Clintonville 1930s to 1950s, Beechwold Cape Cod influenced):
+ *    https://www.redfin.com/blog/columbus-oh-neighborhoods/clintonville/
+ *  - Whetstone Park of Roses, 13 acres, opened 1953:
+ *    https://en.wikipedia.org/wiki/Columbus_Park_of_Roses
+ *  - Columbus historic district commissions are the Historic Resources Commission,
+ *    German Village, Victorian Village and Italian Village. Clintonville has none of
+ *    its own: https://germanvillage.com/residents/historic_districts/
+ */
+
+const PATH = '/property-management-columbus-ohio/clintonville/';
+const PARENT = '/property-management-columbus-ohio/';
+
+const title = 'Property Management in Clintonville, Columbus OH | RL Property Management';
+const description =
+  `${company.name} manages rental houses and doubles in Clintonville, a Columbus neighborhood in Franklin County. ` +
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, ${usd(pricing.leasingFee)} leasing fee, ` +
+  `plus what the 1920s to 1950s housing stock actually costs to run.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Columbus', path: PARENT },
+  { name: 'Clintonville', path: PATH },
+];
+
+const cbus = rentByMarketAndBedroom['Columbus'];
+
+const keyFacts = [
+  'A Columbus neighborhood in Franklin County, zip codes 43202 and 43214',
+  'Evictions are heard at Franklin County Municipal Court, 375 S. High St.',
+  `Columbus rental registry applies: ${usd(15)} per unit per year, capped at ${usd(1500)} per complex`,
+  'Water and sewer billed by the City of Columbus, with the owner liable for unpaid charges',
+  'Housing stock is mostly 1920s to 1950s: bungalows, Cape Cods, Foursquares and doubles',
+  'No neighborhood architectural review commission, unlike German Village or Victorian Village',
+];
+
+const faq = [
+  { q: 'Is Clintonville part of Columbus?',
+    a: 'Yes. Clintonville is a Columbus neighborhood inside Franklin County, running roughly from North Broadway up to Morse Road between the Olentangy River and I-71. Because it is inside city limits, Columbus ordinances apply: the rental registry, the source of income protections, Columbus water and sewer, and Columbus Division of Refuse Collection. One caution. Clinton Township survives as scattered unincorporated islands surrounded by Columbus, so a Columbus mailing address is not proof of a Columbus taxing district. Check the parcel record at the Franklin County Auditor before assuming which rules apply.' },
+  { q: 'Which court hears an eviction in Clintonville?',
+    a: 'Franklin County Municipal Court, at 375 S. High St. in downtown Columbus. Ohio Revised Code 1901.02 gives that court jurisdiction throughout Franklin County, so a Clintonville eviction is filed in the same building as one from any other part of the county. It is a forcible entry and detainer action under Revised Code Chapter 1923.' },
+  { q: 'Are there historic district rules on a Clintonville rental?',
+    a: 'Clintonville has no architectural review commission of its own. Columbus runs neighborhood commissions for German Village, Victorian Village and Italian Village, plus a citywide Historic Resources Commission, and Clintonville is not one of the named neighborhood districts. In practice that means a roof, a window replacement or a porch rebuild in Clintonville is a building permit question rather than a design review question, which is a meaningful difference in both cost and timeline. [SOURCE NEEDED: confirm whether any Clintonville parcels fall inside a Columbus Historic Resources Commission district or carry an individual local historic listing, which would change this answer for those specific addresses.]' },
+  { q: 'What kind of houses are Clintonville rentals?',
+    a: 'Mostly single-family houses and doubles built between about 1915 and 1955. South Clintonville is the older end, with Foursquares, Craftsman bungalows and side-by-side doubles on tight lots. North Clintonville is largely 1930s through 1950s: Cape Cods, small colonials and early ranches. Beechwold, at the north end, carries Tudor and Cape Cod stock on curving streets. Very little of the neighborhood was built after 1960, so an owner should expect original or first-replacement systems rather than new construction.' },
+  { q: 'What should I budget for on a 1920s Clintonville house?',
+    a: `The four items that show up most: original wood windows with failed glazing, galvanized or partly replaced supply lines, knob and tube that was mostly but not entirely removed, and a slate or three-layer asphalt roof reaching the end of its life. In-house labor runs ${usd(pricing.maintenance.inHouseHourly)} an hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge with materials at cost, and a reserve of ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit is held on your account so routine work does not wait on a funding request.` },
+  { q: 'Who bills the water on a Clintonville rental, and who is liable?',
+    a: 'The City of Columbus Department of Public Utilities bills water, sewer and stormwater. The resident can be put on the bill through the city Tenant Billing Agreement, but Columbus City Code 1105.045 is titled "Unpaid charges a lien. Owner liable." and section 1147.16 does the same for sewer. The owner stays liable and unpaid charges attach to the property, so they surface at sale or refinance. Electric is AEP Ohio, gas is Columbia Gas of Ohio, and both go in the resident name.' },
+  { q: 'Does the city collect trash from a Clintonville double?',
+    a: 'Yes, if the building is four attached units or fewer, which covers essentially every double and small building in Clintonville. Columbus Division of Refuse Collection services those at no separate charge. A building of five units or more has to contract a private hauler, and that cost belongs in the pro forma.' },
+  { q: 'How much does property management cost in Clintonville?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee and no startup fee on an occupied unit. Pricing does not vary by Columbus neighborhood. Full detail is on the pricing page.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({ path: PATH, name: 'Residential property management in Clintonville, Columbus, Ohio', description }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Columbus',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="A Columbus neighborhood"
+    title="Property management in Clintonville"
+    answer={`${company.name} manages rental houses and doubles in Clintonville for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Clintonville is Columbus, Franklin County, so Franklin County Municipal Court hears evictions.`}
+    breadcrumbs={breadcrumbs}
+    secondaryCta={{ label: 'See pricing', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Clintonville, the short version" />
+
+  <!-- WHERE -->
+  <section class="band-tight" aria-labelledby="where-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="where-h" class="text-[clamp(26px,3vw,36px)]">Where is Clintonville, and is it its own city?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Clintonville is a Columbus neighborhood, not a municipality. It runs north from North Broadway
+        to Morse Road, bounded by the Olentangy River on the west and I-71 on the east, with High Street
+        as its spine. Zip codes 43202 in the south and 43214 in the north. It sits in Franklin County,
+        so every Franklin County rule on the Columbus page applies here unchanged.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        One local wrinkle is worth knowing before you buy. Clinton Township was never fully annexed
+        into Columbus, and it survives as scattered unincorporated islands surrounded by the city. A
+        Columbus mailing address does not prove a Columbus taxing district. The parcel record at the
+        Franklin County Auditor is what settles it, and it decides whether the Columbus rental registry
+        applies to your property at all.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        [SOURCE NEEDED: whether any parcels inside the commonly used Clintonville boundaries sit in
+        unincorporated Clinton Township rather than the City of Columbus. The township islands are
+        documented; their exact current boundaries relative to Clintonville are not confirmed here.]
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">What is actually here</span>
+      <h2 id="stock-h" class="text-[clamp(28px,3.3vw,40px)]">What kind of rental housing does Clintonville have?</h2>
+      <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
+        Houses and doubles built between roughly 1915 and 1955, with very little after 1960. That one
+        fact drives almost everything about owning here: the rents, the turn cost, the capital plan and
+        the kind of resident the neighborhood attracts.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-7">
+        {[
+          { h: 'South Clintonville', p: 'The oldest end, closest to campus and North Broadway. Craftsman bungalows, American Foursquares and side-by-side doubles on narrow lots along Indianola, Calumet, Como and Weber. The heaviest concentration of two-unit buildings in the neighborhood.' },
+          { h: 'North Clintonville', p: 'Largely 1930s through 1950s. Cape Cods, small colonials and early ranches, more consistent lot sizes, detached garages off alleys or side drives. The most predictable maintenance profile of the three.' },
+          { h: 'Beechwold', p: 'The north end, including the curving streets of Old Beechwold west of High. Tudor and Cape Cod influenced stock, larger lots, mature trees, and the highest price per foot in Clintonville.' },
+        ].map((x) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{x.h}</h3>
+            <p class="text-[15px] text-muted m-0">{x.p}</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[15px] text-muted mt-7">
+        Landmarks an owner should know because residents ask about them: Whetstone Park, with the
+        13-acre Park of Roses that opened in 1953, sits off High Street at the north end. The Olentangy
+        Trail runs the western edge. High Street between North Broadway and Morse carries the retail
+        spine, and proximity to it is the single largest driver of rent variation inside the
+        neighborhood. Schools are Columbus City Schools.
+      </p>
+    </div>
+  </section>
+
+  <!-- RENT -->
+  <section class="band" aria-labelledby="rent-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">Our own numbers, honestly labelled</span>
+      <h2 id="rent-h" class="text-[clamp(28px,3.3vw,40px)]">What do Clintonville rentals rent for?</h2>
+      <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
+        We do not publish a Clintonville median, because our sample inside the neighborhood is too
+        small to be honest about. What we can publish is the two figures that actually come from our
+        leases, both labelled for what they are.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2 mt-7">
+        <div class="card">
+          <h3 class="text-[18.5px] mb-3">Across the units we manage in Columbus</h3>
+          <ul class="text-[15.5px] text-muted">
+            {['1', '2', '3', '4'].map((b) => (
+              <li class="flex justify-between py-1.5 border-b border-line last:border-0">
+                <span>{b} bedroom</span>
+                <span class="font-semibold text-navy tabular-nums">{usd(cbus[b].median)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="card">
+          <h3 class="text-[18.5px] mb-3">Across the {company.unitsManaged} units we manage, portfolio-wide</h3>
+          <ul class="text-[15.5px] text-muted">
+            {Object.entries(rentByBedroom).map(([b, v]) => (
+              <li class="flex justify-between py-1.5 border-b border-line last:border-0">
+                <span>{b} bedroom</span>
+                <span class="font-semibold text-navy tabular-nums">{usd(v.median)}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        Clintonville generally prices above the Columbus city median for the same bedroom count, driven
+        by walkability to High Street, the school assignment and the condition of the stock. A rent
+        evaluation on the specific address is the only way to put a number on it, and it costs nothing.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        The left column is our own Columbus leases. The right column is our whole portfolio across the
+        metro. Neither is a Clintonville figure and neither is presented as one.
+      </p>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section class="band band-wash" aria-labelledby="rules-h">
+    <div class="wrap max-w-[900px]">
+      <span class="eyebrow">Compliance</span>
+      <h2 id="rules-h" class="text-[clamp(28px,3.3vw,40px)]">What does a Clintonville owner have to file, and with whom?</h2>
+      <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
+        Two filings, both easy to miss, and one of them is new as of 2026.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2 mt-7">
+        <div class="card">
+          <h3 class="text-[18.5px] mb-2">Columbus rental registry</h3>
+          <p class="text-[15px] text-muted m-0">
+            Chapter 4515 of the Columbus City Codes, enacted April 20, 2026. Annual registration with
+            the Department of Building and Zoning Services at {usd(15)} per unit, capped at
+            {' '}{usd(1500)} per complex, including a safety inspection of common areas and critical
+            building systems every three years. It applies to property inside Columbus city limits,
+            which is nearly all of Clintonville.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-[18.5px] mb-2">Franklin County Auditor filing</h3>
+          <p class="text-[15px] text-muted m-0">
+            Ohio Revised Code 5323.02 requires the owner of residential rental property to file name,
+            address and telephone number with the county auditor. One time, no fee, updated within 60
+            days of any change. An owner living outside Ohio must also name an Ohio resident as agent
+            for service of process.
+          </p>
+        </div>
+      </div>
+      <p class="text-[15px] text-muted mt-6">
+        Inside Columbus, source of income protections also apply. You cannot refuse an applicant
+        because part of the rent will be paid by a Housing Choice Voucher, and if you use an income
+        multiple, the voucher portion is subtracted before the test runs. Full detail on both is on the
+        {' '}<a href={PARENT} class="text-crimson font-semibold no-underline hover:underline">Columbus page</a>.
+      </p>
+      <p class="text-[15px] text-muted mt-4">
+        Rent is due {rentPolicy.dueDate}, late fees are assessed after {rentPolicy.lateFeesAfter}, and
+        owner funds go out on the {rentPolicy.ownerDisbursementDay}th.
+      </p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Clintonville questions" id="clintonville-faq" />
+      <div class="mt-8">
+        <Verified date="2026-09-09" />
+      </div>
+    </div>
+  </section>
+
+  <RelatedLinks
+    heading="Where to go next"
+    links={[
+      { href: PARENT, label: 'Property management in Columbus', note: 'The full local reference: registry, court, utilities, rents.' },
+      { href: '/property-management-columbus-ohio/short-north/', label: 'Short North', note: 'The High Street corridor south of campus.' },
+      { href: '/property-management-worthington-ohio/', label: 'Worthington', note: 'Straight up High Street, just past Clintonville.' },
+      { href: '/pricing/', label: 'Pricing', note: `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month.` },
+      { href: '/areas-we-serve/', label: 'All areas we serve', note: 'Every Central Ohio community, grouped by county.' },
+    ]}
+  />
+
+  <Cta
+    heading="What should your Clintonville rental earn?"
+    body="Send us the address. You get a rent number priced against our own Columbus leases, a read on the condition items that matter in 1920s stock, and a plain answer on the registry."
+    secondary={{ label: 'See pricing', href: '/pricing/' }}
+  />
+</Base>

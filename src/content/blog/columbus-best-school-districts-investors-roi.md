@@ -117,7 +117,7 @@ Not every profitable rental needs to sit in a district with a perfect school rat
 
 ### Why These Districts Work
 
-Districts like **[Hilliard](/property-management-hilliard-ohio/), [Worthington](/property-management-worthington-ohio/), and [Westerville](/property-management-westerville-ohio/)** offer a sweet spot:
+Districts like **[Hilliard](/blog/property-management-hilliard-ohio/), [Worthington](/blog/property-management-worthington-ohio/), and [Westerville](/blog/property-management-westerville-ohio/)** offer a sweet spot:
 
 - **Home prices are $100K, $300K lower** than elite districts like New Albany or Upper Arlington.
 - Families still want to live there because the schools have **solid reputations** and **consistent performance**.
@@ -274,7 +274,7 @@ Best if you’re willing to sacrifice short-term income for long-term equity gro
 ### Path B: Balanced Investment Strategy
 
 - **Ideal for:** Small portfolio owners and first-time landlords
-- **Where to invest:** [**Hilliard**](/property-management-hilliard-ohio/), [**Worthington**](/property-management-worthington-ohio/), [**Westerville**](/property-management-westerville-ohio/)
+- **Where to invest:** [**Hilliard**](/blog/property-management-hilliard-ohio/), [**Worthington**](/blog/property-management-worthington-ohio/), [**Westerville**](/blog/property-management-westerville-ohio/)
 - **Why it works:** These districts balance affordability with solid school ratings and stable tenants.
 - **Expected ROI:** Moderate cash flow and appreciation, with strong tenant retention
 

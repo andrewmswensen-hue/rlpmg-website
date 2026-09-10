@@ -71,7 +71,7 @@ There’s a meaningful difference between a property that’s “available” an
 
 Properties that look “mostly fine” lease slower. A stained carpet, a dripping faucet, or a patchy paint job might seem minor, but they signal to prospective tenants that the landlord cuts corners. In a competitive market, renters have options, and they’ll choose the property that feels taken care of over the one that feels neglected (even if the rent is slightly lower).
 
-RLPM’s rent-ready standard exists for this reason. Every property is inspected before listing to confirm it meets a defined condition threshold. This protects the owner (faster lease-up, better tenants) and the tenant (clear expectations from day one). If your property isn’t there yet, the [turnover cost article](/rental-property-turnover-cost-columbus) covers what a turn scope looks like and what it typically costs in the Columbus market.
+RLPM’s rent-ready standard exists for this reason. Every property is inspected before listing to confirm it meets a defined condition threshold. This protects the owner (faster lease-up, better tenants) and the tenant (clear expectations from day one). If your property isn’t there yet, the [turnover cost article](/blog/rental-property-turnover-cost-columbus/) covers what a turn scope looks like and what it typically costs in the Columbus market.
 
 ## The Spring Leasing Window in Columbus
 

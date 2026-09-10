@@ -1,0 +1,229 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, usd } from '../../data/facts';
+
+/**
+ * The /compare/ hub.
+ *
+ * Comparison content is the highest commercial-intent material on the site after
+ * /pricing/. The hub exists to route the query, state the house rules for how we
+ * compare (no named competitors, every number published, the losses shown too),
+ * and pass authority down to the individual comparisons.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+
+const plan = pricing.plans[1];
+const planLow = pricing.plans[0];
+const planHigh = pricing.plans[2];
+const REF_RENT = 1650;
+const halfMonth = Math.round(REF_RENT / 2);
+
+const comparisons = [
+  {
+    href: '/compare/flat-fee-vs-percentage-property-management/',
+    name: 'Flat fee vs percentage property management',
+    question: 'Should I pay a flat monthly fee or a percentage of rent?',
+    body: `A worked comparison at ${usd(1200)}, ${usd(REF_RENT)} and ${usd(2100)} in monthly rent, over a single year and over a full three-year tenancy. It includes the leasing fee that rarely appears in a quote, and the break-even rent below which a percentage manager is genuinely cheaper.`,
+    stat: `${usd(halfMonth)}`,
+    statNote: `the placement fee on ${usd(REF_RENT)} rent`,
+  },
+  {
+    href: '/compare/self-managing-vs-property-manager/',
+    name: 'Self-managing vs hiring a property manager',
+    question: 'Should I hire a property manager, or keep doing it myself?',
+    body: `The eight jobs a manager does, written so you can run them yourself as a checklist: marketing, screening, rent collection, maintenance, inspections, Ohio compliance, accounting and evictions. Plus what management costs against a year of gross rent, and when self-managing is the better answer.`,
+    stat: `${usd(planLow.monthly)} to ${usd(planHigh.monthly)}`,
+    statNote: 'per unit, per month, flat',
+  },
+];
+
+const rules = [
+  {
+    h: 'We never name a competitor',
+    b: 'Every comparison describes a pricing structure, such as a manager charging 8% to 10% of collected rent plus half a month of rent per placement. Those are illustrative of common Columbus market rates. They are not a quote from, or a claim about, any specific company.',
+  },
+  {
+    h: 'Our own numbers are exact and published',
+    b: `Our side of every comparison comes from our published fee schedule: ${usd(planLow.monthly)} to ${usd(planHigh.monthly)} per unit per month, ${usd(pricing.leasingFee)} to place a resident, ${usd(pricing.leaseRenewalFee)} at renewal, ${usd(pricing.startupFeeOccupied)} to start on an occupied unit.`,
+  },
+  {
+    h: 'We show the cases where we lose',
+    b: `A flat fee is not the cheaper structure at every rent, and hiring a manager is not right for every owner. Both comparisons state the conditions under which the other answer wins, with the arithmetic. A comparison that never loses is a sales page.`,
+  },
+  {
+    h: 'The arithmetic is on the page',
+    b: 'Every table shows the inputs, the assumption behind each one, and the result, so you can substitute your own rent and re-run it. Nothing is computed behind a form.',
+  },
+];
+
+const title = 'Compare Property Management Options in Columbus | RL Property Management';
+const description =
+  `Side-by-side comparisons for Columbus rental owners: flat fee vs percentage management, and self-managing ` +
+  `vs hiring a manager. Real arithmetic at real rents, including the cases where the other answer wins.`;
+
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Compare', path: '/compare/' }];
+
+const answer =
+  `Two comparisons for Columbus rental owners: flat fee against percentage management, and self-managing ` +
+  `against hiring a manager. Both show the arithmetic at real rents, and both state where the other answer ` +
+  `is the better one.`;
+
+const facts = [
+  `${company.name} charges ${usd(planLow.monthly)} to ${usd(planHigh.monthly)} per unit per month, flat`,
+  `Leasing fee: ${usd(pricing.leasingFee)} on all three plans`,
+  `A percentage manager typically charges 8% to 10% of rent plus about half a month per placement`,
+  `On ${usd(REF_RENT)} rent, half a month is ${usd(halfMonth)} every time the unit turns`,
+  `We publish the rents at which a percentage manager costs less than we do`,
+  `Portfolio results: ${kpi('dom')} median days on market, ${kpi('renewal')} renewal rate, ${kpi('occupancy')} occupancy`,
+  'No competitor is named on any comparison page',
+  'Every figure traces to our published fee schedule or our portfolio data',
+];
+
+const faq = [
+  { q: 'Is flat fee or percentage property management better?',
+    a: `It depends on the rent. A flat fee does not change when rent rises, so its advantage widens as rent goes up, and a percentage fee is cheaper at lower rents. ${company.name} charges ${usd(plan.monthly)} per unit per month on ${plan.name} with a ${usd(pricing.leasingFee)} leasing fee. The full comparison page works the arithmetic at three rents and publishes the break-even point in both directions.` },
+  { q: 'Should I hire a property manager?',
+    a: `Hire one when the work, the legal exposure or the distance costs more than the fee. Self-managing a single nearby unit with a stable resident is a reasonable choice. Managing several units remotely while working full time usually is not. The comparison page lists all eight jobs so you can run them as a checklist either way.` },
+  { q: 'Why do you not name the competitors you compare against?',
+    a: 'Because naming a company would make the page an argument about that company rather than about pricing structures, and because a competitor\'s fees change without notice while a structure does not. Our comparisons describe how percentage pricing works and use common Columbus market rates, then put exact, published figures on our own side.' },
+  { q: 'How can I check these numbers myself?',
+    a: `Every figure on our side comes from the published fee schedule on the pricing page, and every portfolio figure carries its sample size and an as-of date of ${kpis.asOfLabel}. The tables show their inputs, so you can substitute your own rent and re-run any of them on paper.` },
+  { q: 'What should I ask any property manager before signing?',
+    a: `Get eight things in writing: the monthly fee and whether it is charged on collected or scheduled rent, the placement fee in dollars at your rent, the lease renewal fee, the setup fee on an occupied and a vacant unit, any markup on maintenance and its cap, who keeps late and application fees, what is charged if you sell or leave early, and the full cost of an eviction. Ours are all published, including the ${usd(pricing.eviction.hardCostTotal)} eviction hard cost in Franklin County.` },
+  { q: 'Do you publish the cases where hiring you is the wrong choice?',
+    a: 'Yes. The flat fee comparison names the rents below which a percentage manager costs less over a full tenancy, and the self-managing comparison lists the conditions under which self-managing is the better decision. Both are on the pages, not in fine print.' },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="Side by side, with the arithmetic"
+    title="Compare your property management options"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'See our pricing', href: '/pricing/' }}
+    secondaryCta={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <!-- THE COMPARISONS -->
+  <section class="band" aria-labelledby="cmp-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">The comparisons</span>
+      <h2 id="cmp-h" class="text-[clamp(28px,3.3vw,40px)]">Which decision are you making?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Two questions, in the order most owners hit them. Whether to hire anyone comes first. What structure
+        to hire on comes second.
+      </p>
+      <ul class="grid gap-5">
+        {comparisons.map((c) => (
+          <li>
+            <a href={c.href} class="block card card-hover no-underline">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-5">
+                <div class="shrink-0 sm:w-[190px] sm:border-r sm:border-line sm:pr-5">
+                  <div class="font-sans text-[26px] font-extrabold tracking-[-.035em] text-crimson leading-tight">{c.stat}</div>
+                  <div class="font-sans text-[11.5px] font-bold tracking-[.13em] uppercase text-faint mt-1.5">{c.statNote}</div>
+                </div>
+                <div>
+                  <h3 class="text-[21px] mb-1.5">{c.name}</h3>
+                  <p class="font-sans text-[14.5px] font-semibold text-navy m-0">{c.question}</p>
+                  <p class="text-[15.5px] text-muted mt-2.5 mb-0">{c.body}</p>
+                </div>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- HOW WE COMPARE -->
+  <section class="band band-wash" aria-labelledby="rules-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The house rules</span>
+      <h2 id="rules-h" class="text-[clamp(28px,3.3vw,40px)]">How do we compare ourselves to anyone else?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Four rules, applied to every comparison on this site. They exist because most comparison content in
+        this industry is written by the company that wins it.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2">
+        {rules.map((r) => (
+          <div class="card">
+            <h3 class="text-[18.5px] mb-2">{r.h}</h3>
+            <p class="text-[15px] text-muted m-0">{r.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT TO ASK -->
+  <section class="band" aria-labelledby="ask-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Take this to anyone, including us</span>
+      <h2 id="ask-h" class="text-[clamp(28px,3.3vw,40px)]">What should you ask before you sign with any manager?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-6">
+        Eight questions, in writing. Convert both answers into dollars over a full tenancy rather than
+        comparing headline rates, because the headline rate is rarely where the money is.
+      </p>
+      <ol class="grid gap-3.5">
+        {[
+          'What is the monthly fee, and is it charged on collected rent or scheduled rent?',
+          'What is the fee to place a resident, in dollars, at my rent?',
+          'What is the lease renewal fee, and who pays it?',
+          'What is the setup fee on an occupied unit, and on a vacant one?',
+          'Is there a markup on maintenance invoices, and what is the percentage and the cap?',
+          'Who keeps late fees, application fees and any pet fee?',
+          'What is charged if I sell the property, or leave before the term ends?',
+          'What does an eviction cost start to finish, including your fee and the county fees?',
+        ].map((s, i) => (
+          <li class="card !p-5 text-[15.5px]">
+            <span class="font-sans font-bold text-crimson mr-2">{i + 1}.</span>{s}
+          </li>
+        ))}
+      </ol>
+      <p class="text-[15.5px] text-muted mt-7">
+        Our answers to all eight are on the
+        {' '}<a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">pricing page</a>,
+        including the full fee schedule and the eviction line: {usd(pricing.eviction.hardCostTotal)} in hard
+        costs plus {usd(pricing.eviction.rlpmProcessFee)} to us to run the case.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Comparison questions" id="compare-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+      <p class="text-[13px] text-faint mt-3">
+        Percentage figures used in these comparisons illustrate common Columbus market pricing structures.
+        They are not a quote from, or a statement about, any named company. Figures for {company.name} come
+        from our published fee schedule.
+      </p>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'The numbers behind our side of every comparison.' },
+    { href: '/tools/', label: 'Owner tools and calculators', note: 'Vacancy cost, maintenance reserves, rent vs. sell.' },
+    { href: '/columbus-property-management/', label: 'Columbus property management', note: 'What we do for the monthly fee.' },
+    { href: '/owner-faqs/', label: 'Owner FAQs', note: 'The long tail of questions owners actually ask.' },
+    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'A written rent range for your address.' },
+  ]} />
+
+  <Cta
+    heading="Compare us against your actual numbers"
+    body="Tell us the address and the current rent and we will put our side in writing, including the cases where another structure would cost you less."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

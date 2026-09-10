@@ -1,0 +1,234 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, kpis, usd } from '../../data/facts';
+import { rentByBedroom } from '../../data/markets';
+
+/**
+ * The /tools/ hub. Linked from the main navigation.
+ *
+ * These are decision tools for owners, not lead magnets. Nothing is gated, there
+ * is no email wall, and every one of them works with JavaScript disabled. That is
+ * deliberate: gating kills the links and citations these pages would otherwise earn.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+
+const DAYS_IN_MONTH = 30;
+const dailyThreeBed = Math.round(rentByBedroom['3'].median / DAYS_IN_MONTH);
+const domDays = Number(kpi('dom'));
+const turnDays = Number(kpi('turn'));
+const cycleDays = domDays + turnDays;
+
+const tools = [
+  {
+    href: '/tools/vacancy-cost-calculator/',
+    name: 'Vacancy cost calculator',
+    question: 'What is an empty unit costing me per day?',
+    body: `Daily cost is monthly rent divided by ${DAYS_IN_MONTH}. At the ${usd(rentByBedroom['3'].median)} portfolio median for a 3 bed that is ${usd(dailyThreeBed)} a day. The page also prices the decision owners get wrong most often: whether to hold out for a higher rent.`,
+    stat: `${usd(dailyThreeBed)} a day`,
+    statNote: 'median 3 bed',
+  },
+  {
+    href: '/tools/maintenance-reserve-calculator/',
+    name: 'Maintenance reserve calculator',
+    question: 'How much should I hold per unit for repairs?',
+    body: `${company.shortName} requires ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit depending on the plan. The page works the number out at our published labor rates and separates the working float from the capital budget, which are different things.`,
+    stat: `${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)}`,
+    statNote: 'held per unit',
+  },
+  {
+    href: '/rent-vs-sell-calculator/',
+    name: 'Rent vs. sell calculator',
+    question: 'Should I keep this house as a rental, or sell it?',
+    body: 'For owners deciding whether a house they no longer live in should become a rental. It compares the proceeds of a sale against the cash flow and appreciation of holding it.',
+    stat: 'Hold or sell',
+    statNote: 'side by side',
+  },
+  {
+    href: '/self-management-calculator/',
+    name: 'Self-management calculator',
+    question: 'What is self-managing actually costing me?',
+    body: 'Prices out the work you are already doing, against a flat management fee, so the comparison is in dollars rather than in feelings about how much time it takes.',
+    stat: 'Your time',
+    statNote: 'priced in dollars',
+  },
+  {
+    href: '/2026-columbus-market-report/',
+    name: '2026 Columbus rental market report',
+    question: 'What is the Columbus rental market actually doing?',
+    body: `Rent levels, demand and what is changing across Central Ohio, with the data behind it. The wider market context for every number on the calculators.`,
+    stat: '2026',
+    statNote: 'market data',
+  },
+];
+
+const title = 'Owner Tools and Calculators for Columbus Rentals | RL Property Management';
+const description =
+  `Free calculators and worked examples for Columbus rental property owners: vacancy cost, maintenance ` +
+  `reserves, rent vs. sell, and the cost of self-managing. No sign-up, no email gate, and each one shows ` +
+  `the arithmetic.`;
+
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Tools', path: '/tools/' }];
+
+const answer =
+  `Five free tools for Columbus rental owners: vacancy cost, maintenance reserves, rent vs. sell, the cost ` +
+  `of self-managing, and the 2026 market report. No sign-up and no email gate. Each one shows its arithmetic.`;
+
+const facts = [
+  'Nothing here is gated. No email, no account, no sales call',
+  `Vacancy: a ${usd(rentByBedroom['3'].median)} 3 bed costs ${usd(dailyThreeBed)} for every day it sits empty`,
+  `Reserves: ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit, by plan`,
+  `A typical turn and lease-up cycle runs ${cycleDays} days: ${turnDays} to turn plus ${domDays} on market`,
+  `Every figure is drawn from the ${company.unitsManaged} units we manage, and the source is named`,
+  `Portfolio occupancy ${kpi('occupancy')}, renewal rate ${kpi('renewal')}`,
+  'Each page works with JavaScript disabled and prints cleanly',
+  'Use them against any manager, including us',
+];
+
+const faq = [
+  { q: 'Are these calculators free?',
+    a: `Yes, and none of them are gated. There is no email wall, no account and no sales call attached to any of them. Every figure comes from our published fee schedule or from the ${company.unitsManaged} units ${company.name} manages, and the source is named on each page.` },
+  { q: 'Why are these worked examples instead of interactive widgets?',
+    a: 'Because a page that teaches the formula is more useful than a box that hides it. You can follow the arithmetic, check it against your own property, and disagree with an assumption. An interactive widget gives you an answer with no way to audit it, and it stops working the moment a script fails to load.' },
+  { q: 'Which tool should I start with?',
+    a: `The vacancy cost calculator, in almost every case. Vacancy is the largest controllable cost in a rental and the one owners consistently under-price. At the ${usd(rentByBedroom['3'].median)} portfolio median for a 3 bed, every vacant day costs ${usd(dailyThreeBed)}, and a typical turn and lease-up cycle of ${cycleDays} days costs more than most owners spend on repairs in a year.` },
+  { q: 'Do the numbers apply outside Columbus?',
+    a: 'The formulas do. The rent medians, day counts and fee figures are ours, drawn from Central Ohio, so an owner in another market should substitute local rents and their own manager\'s published rates. The structure of each calculation holds anywhere.' },
+  { q: 'Can I use these to evaluate a different property manager?',
+    a: 'Yes, and that is the intended use. Take the fee questions from the comparison pages and the rate structure from the reserve calculator to any manager you are considering, ours included, and ask them to fill in their own numbers in writing.' },
+  { q: 'How often are the numbers updated?',
+    a: `Every figure carries a verified date and comes from a single fact bank, so the pages cannot disagree with each other. The current portfolio figures are as of ${kpis.asOfLabel}. Pricing is verified against the ${company.name} Client Handbook.` },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="Free, ungated, no email required"
+    title="Owner tools and calculators"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See our pricing', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <!-- THE TOOLS -->
+  <section class="band" aria-labelledby="tools-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Five tools</span>
+      <h2 id="tools-h" class="text-[clamp(28px,3.3vw,40px)]">Which tool answers your question?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
+        Each one is built around a single question an owner actually asks. Pick the question, not the tool.
+      </p>
+      <ul class="grid gap-5">
+        {tools.map((t) => (
+          <li>
+            <a href={t.href} class="block card card-hover no-underline">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-5">
+                <div class="shrink-0 sm:w-[170px] sm:border-r sm:border-line sm:pr-5">
+                  <div class="font-sans text-[24px] font-extrabold tracking-[-.03em] text-crimson leading-tight">{t.stat}</div>
+                  <div class="font-sans text-[11.5px] font-bold tracking-[.13em] uppercase text-faint mt-1.5">{t.statNote}</div>
+                </div>
+                <div>
+                  <h3 class="text-[21px] mb-1.5">{t.name}</h3>
+                  <p class="font-sans text-[14.5px] font-semibold text-navy m-0">{t.question}</p>
+                  <p class="text-[15.5px] text-muted mt-2.5 mb-0">{t.body}</p>
+                </div>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- WHY NOT WIDGETS -->
+  <section class="band band-wash" aria-labelledby="why-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Why they look like this</span>
+      <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Why are these worked examples instead of interactive widgets?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Because you can check a worked example and you cannot check a widget. Each page states the formula in
+        plain language, shows two or three fully worked cases at real Columbus rents, and gives you a table to
+        run against your own property. If you disagree with an assumption, you can see exactly which one it is.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        There is a practical reason as well. Every page on this site runs with zero JavaScript, so it loads
+        instantly, prints cleanly, works on a bad connection, and stays readable to a screen reader. A
+        calculator that fails silently when a script does not load is worse than a table.
+      </p>
+      <p class="text-[17.5px] text-muted mt-4">
+        Nothing here is gated. If a number on one of these pages helps you decide to keep self-managing, that
+        is a fine outcome. The pages are worth reading whether or not you ever call us.
+      </p>
+    </div>
+  </section>
+
+  <!-- WHERE THE NUMBERS COME FROM -->
+  <section class="band" aria-labelledby="src-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Provenance</span>
+      <h2 id="src-h" class="text-[clamp(28px,3.3vw,40px)]">Where do the numbers come from?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7">
+        Three sources, and each page names which one it is using.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3">
+        <div class="card">
+          <h3 class="text-[18.5px] mb-2">Our portfolio</h3>
+          <p class="text-[15px] text-muted m-0">
+            Rent medians and operating results across the {company.unitsManaged} units we manage, as of
+            {' '}{kpis.asOfLabel}. Sample sizes are published alongside the medians.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-[18.5px] mb-2">Our fee schedule</h3>
+          <p class="text-[15px] text-muted m-0">
+            Labor rates, vendor fees, reserve amounts and management pricing, taken from the
+            {' '}{company.name} Client Handbook. All of it is published on the pricing page.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-[18.5px] mb-2">Your own inputs</h3>
+          <p class="text-[15px] text-muted m-0">
+            Carrying costs, turn costs and component replacement quotes are specific to your property. Each
+            page says which lines you have to supply rather than estimating them for you.
+          </p>
+        </div>
+      </div>
+      <p class="text-[15.5px] text-muted mt-8">
+        Where a figure would need a source we do not have, the page says so in plain text rather than
+        estimating. That is the rule for every page on this site.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Questions about these tools" id="tools-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/compare/flat-fee-vs-percentage-property-management/', label: 'Flat fee vs percentage management', note: 'The full comparison, with the arithmetic.' },
+    { href: '/compare/self-managing-vs-property-manager/', label: 'Self-managing vs a property manager', note: 'The whole job list, either way.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on a statement.' },
+    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'A written rent range for your address.' },
+    { href: '/2026-columbus-market-report/', label: '2026 Columbus market report', note: 'The wider market data behind these numbers.' },
+  ]} />
+
+  <Cta
+    heading="Run the tools, then get the number for your property"
+    body="A free written rent evaluation gives you a rent range and the comparables behind it, which is the input every calculator on this page needs."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

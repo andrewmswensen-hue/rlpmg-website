@@ -46,7 +46,7 @@ The goal of this video is to narrow your search to companies that present a clea
 
 Stay tuned for future videos covering steps 3 through 5!
 
-For more help on choosing a property manager, see our previous blog post on “[What to ask a Prospective Property Management Company](/what-to-ask-a-prospective-property-management-company)”.
+For more help on choosing a property manager, see our previous blog post on “[What to ask a Prospective Property Management Company](/blog/what-to-ask-a-prospective-property-management-company/)”.
 
 If you are looking for a property management team that has several decades of experience dealing with nothing but property management, do not hesitate to reach out to RL Property Management Group. [Contact Us.](/columbus-property-management)
 

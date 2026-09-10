@@ -43,7 +43,7 @@ For self-managing landlords, staying on top of these risks can be overwhelming, 
 
 ## Avoiding Common Pitfalls in Fair Housing Compliance for Landlords
 
-Even with the best intentions, landlords can find themselves in violation of Fair Housing or local housing laws ([read more about Fair Housing in Columbus, Ohio, here](/fair-housing-laws-for-columbus-landlords/)). Here are some common pitfalls that lead to non-compliance and how to avoid them.
+Even with the best intentions, landlords can find themselves in violation of Fair Housing or local housing laws ([read more about Fair Housing in Columbus, Ohio, here](/blog/fair-housing-laws-for-columbus-landlords/)). Here are some common pitfalls that lead to non-compliance and how to avoid them.
 
 ## Unintentional Discrimination
 

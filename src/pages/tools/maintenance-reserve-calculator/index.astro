@@ -1,0 +1,433 @@
+---
+import Base from '../../../layouts/Base.astro';
+import PageHero from '../../../components/PageHero.astro';
+import KeyFacts from '../../../components/KeyFacts.astro';
+import Faq from '../../../components/Faq.astro';
+import Verified from '../../../components/Verified.astro';
+import RelatedLinks from '../../../components/RelatedLinks.astro';
+import Cta from '../../../components/Cta.astro';
+import { company, pricing, kpis, usd } from '../../../data/facts';
+import { rentByBedroom } from '../../../data/markets';
+
+/**
+ * Target: "maintenance reserve calculator", "how much to save per unit for
+ * repairs", "rental property repair reserve".
+ *
+ * A worked-example page, not an interactive widget. The site runs zero
+ * JavaScript. Every repair figure below is computed from the published labor and
+ * vendor rates in src/data/facts.ts, so the page teaches the arithmetic using
+ * prices a reader can verify against our fee schedule.
+ *
+ * NOTHING here states a typical component lifespan or a typical annual repair
+ * spend. Those numbers are not in the fact bank. See the [SOURCE NEEDED] markers.
+ */
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+
+const m = pricing.maintenance;
+const RESERVE_MIN = pricing.reserves.min;
+const RESERVE_MAX = pricing.reserves.max;
+
+/** A repair priced at our published rates, at each of the three time bands. */
+const REPAIR_HOURS = 2;
+const labor = (mult: number) => m.inHouseHourly * mult * REPAIR_HOURS + m.tripCharge;
+const repairBands = [
+  { when: 'Weekday, normal hours', mult: 1, total: labor(1),
+    note: `${usd(m.inHouseHourly)} per hour times ${REPAIR_HOURS} hours, plus the ${usd(m.tripCharge)} trip charge.` },
+  { when: 'Weekday evening or Saturday', mult: pricing.afterHours.weekdayEveningAndSaturday, total: labor(pricing.afterHours.weekdayEveningAndSaturday),
+    note: `Labor at ${pricing.afterHours.weekdayEveningAndSaturday}x, trip charge unchanged.` },
+  { when: 'Sunday', mult: pricing.afterHours.sunday, total: labor(pricing.afterHours.sunday),
+    note: `Labor at ${pricing.afterHours.sunday}x, trip charge unchanged.` },
+];
+const repairNormal = repairBands[0].total;
+const repairSunday = repairBands[2].total;
+
+/** Vendor work. The project management fee is 15% of vendor cost up to $3,000, capped at $450. */
+const vendorFee = (cost: number) =>
+  Math.min(Math.round(Math.min(cost, m.vendorProjectFeeAppliesUpTo) * (m.vendorProjectFeePct / 100)), m.vendorProjectFeeCap);
+const vendorJobs = [1000, 2500, m.vendorProjectFeeAppliesUpTo, 6000].map((c) => ({
+  cost: c, fee: vendorFee(c), total: c + vendorFee(c),
+}));
+
+/** Turn work is tiered separately. */
+const turnPct = (cost: number) => {
+  for (const t of m.turnTiers) if (t.upTo === null || cost <= t.upTo) return t.pct;
+  return m.turnTiers[m.turnTiers.length - 1].pct;
+};
+const turnJobs = [8000, 20000, 30000].map((c) => ({
+  cost: c, pct: turnPct(c), fee: Math.round(c * (turnPct(c) / 100)), total: c + Math.round(c * (turnPct(c) / 100)),
+}));
+
+/** What a reserve level actually buys, and what it costs to rebuild over a year. */
+const reserveLevels = [RESERVE_MIN, RESERVE_MAX].map((r) => ({
+  amount: r,
+  normalRepairs: Math.floor(r / repairNormal),
+  sundayRepairs: Math.floor(r / repairSunday),
+  monthlyRebuild: Math.round(r / 12),
+  /** The reserve expressed against a month of median 3 bed rent. */
+  vsRent: ((r / rentByBedroom['3'].median) * 100).toFixed(0),
+}));
+
+/** Portfolio-level sizing: what a reserve costs across a small portfolio. */
+const portfolioSizes = [1, 5, 10, 25];
+
+const title = 'Maintenance Reserve Calculator for Rental Units | RL Property Management';
+const description =
+  `How much to hold per unit for repairs, worked out at published Columbus rates. ${company.name} requires ` +
+  `${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit depending on plan, and a ${REPAIR_HOURS}-hour in-house ` +
+  `repair runs ${usd(repairNormal)} on a weekday.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Tools', path: '/tools/' },
+  { name: 'Maintenance reserve calculator', path: '/tools/maintenance-reserve-calculator/' },
+];
+
+const answer =
+  `Hold enough per unit to cover a routine repair without a funding request. ${company.name} requires ` +
+  `${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit depending on plan. A ${REPAIR_HOURS}-hour in-house ` +
+  `repair is ${usd(repairNormal)} on a weekday and ${usd(repairSunday)} on a Sunday.`;
+
+const facts = [
+  `${company.shortName} holds a reserve of ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit, by plan`,
+  'The reserve stays your money and is returned when management ends',
+  `In-house labor is ${usd(m.inHouseHourly)} per hour plus a ${usd(m.tripCharge)} trip charge, ${m.rateYear} rate`,
+  `No minimum charge on maintenance work, and materials are provided at cost`,
+  `A ${REPAIR_HOURS}-hour repair runs ${usd(repairNormal)} on a weekday and ${usd(repairSunday)} on a Sunday`,
+  `Vendor project management is ${m.vendorProjectFeePct}% of vendor cost up to ${usd(m.vendorProjectFeeAppliesUpTo)}, capped at ${usd(m.vendorProjectFeeCap)}`,
+  `Rebuilding a ${usd(RESERVE_MAX)} reserve over twelve months is ${usd(reserveLevels[1].monthlyRebuild)} a month`,
+  `Median ${kpi('repairDays')} days to close a repair across the portfolio`,
+];
+
+const faq = [
+  { q: 'How much should I hold in reserve per rental unit?',
+    a: `Enough to cover a routine repair without anyone waiting on a funding request. ${company.name} requires ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit depending on the plan, held on your account. At our published rates a ${REPAIR_HOURS}-hour in-house repair is ${usd(repairNormal)} on a weekday, so a ${usd(RESERVE_MIN)} reserve covers roughly ${reserveLevels[0].normalRepairs} of them and a ${usd(RESERVE_MAX)} reserve covers roughly ${reserveLevels[1].normalRepairs}. That reserve is a working float, not your capital plan. Both are explained on this page.` },
+  { q: 'Why does a property manager hold a maintenance reserve?',
+    a: `So a repair can be authorized and completed the same day instead of waiting on a transfer. Without a float, every small job turns into a funding request, and the delay costs more than the repair. The money stays yours: it sits on your account, it is spent only on your property, and it is returned when management ends. Median time to close a repair across our portfolio is ${kpi('repairDays')} days.` },
+  { q: 'What does a repair actually cost?',
+    a: `In-house labor is ${usd(m.inHouseHourly)} per hour at the ${m.rateYear} rate, plus a ${usd(m.tripCharge)} trip charge per visit, with materials at cost and no minimum charge. After hours multiplies the labor: ${pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, ${pricing.afterHours.sunday}x on Sundays. So the same ${REPAIR_HOURS}-hour job is ${usd(repairNormal)} on a Tuesday morning and ${usd(repairSunday)} on a Sunday.` },
+  { q: 'How is vendor work billed?',
+    a: `At vendor cost plus a project management fee of ${m.vendorProjectFeePct}% of vendor cost, applied to costs up to ${usd(m.vendorProjectFeeAppliesUpTo)} and capped at ${usd(m.vendorProjectFeeCap)} per project. A ${usd(vendorJobs[0].cost)} job carries a ${usd(vendorJobs[0].fee)} fee; a ${usd(vendorJobs[3].cost)} job carries ${usd(vendorJobs[3].fee)}, because the cap has been reached. The fee is waived entirely on insurance claim work.` },
+  { q: 'What is the difference between a reserve and a capital budget?',
+    a: 'The reserve is a float for the repairs that happen this month. A capital budget is a monthly set-aside for the items that fail once a decade: roof, furnace, water heater, service panel, sewer line. The reserve keeps the property running. The capital budget keeps a single failure from becoming a forced sale or a HELOC draw. Size them separately and never spend one on the other.' },
+  { q: 'How do I set a capital budget without guessing?',
+    a: 'Take each major component, get a real replacement quote from a contractor you would actually hire, estimate the years left on it, and divide the quote by the months remaining. Sum across components and that is your monthly set-aside. It is your own quotes and your own inspection that make the number defensible. [SOURCE NEEDED: a citable table of component replacement costs and useful lives for Central Ohio single-family rentals, if this page is to publish typical figures.]' },
+  { q: 'What does it cost to rebuild the reserve after a big repair?',
+    a: `Spread over twelve months, ${usd(RESERVE_MIN)} is ${usd(reserveLevels[0].monthlyRebuild)} a month and ${usd(RESERVE_MAX)} is ${usd(reserveLevels[1].monthlyRebuild)} a month. Most owners top the reserve back up out of the monthly disbursement rather than sending money in, which is the simpler mechanic and the one we default to.` },
+  { q: 'What about turn costs?',
+    a: `Turns are billed on their own tiered schedule rather than the standard project fee: ${m.turnTiers[0].pct}% on turns up to ${usd(m.turnTiers[0].upTo as number)}, ${m.turnTiers[1].pct}% from there to ${usd(m.turnTiers[1].upTo as number)}, and ${m.turnTiers[2].pct}% above that. A turn is a planned event, so it is budgeted against the vacancy rather than drawn from the working reserve. [SOURCE NEEDED: a typical unit turn cost range for RLPM-managed Columbus single-family units, with the underlying sample.]` },
+  { q: 'Does the reserve cover pet damage?',
+    a: `It does not need to, up to a point. If an approved pet causes damage beyond normal wear and tear and the cost exceeds the security deposit, we cover the difference up to ${usd(pricing.petDamageCoverage.cap)}. That coverage is funded by a monthly pet administration fee and does not apply to service or assistance animals, because those are not pets.` },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs}>
+
+  <PageHero
+    eyebrow="Worked example, no sign-up"
+    title="How much should you hold in reserve per rental unit?"
+    answer={answer}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+    secondaryCta={{ label: 'See all tools', href: '/tools/' }}
+  />
+
+  <KeyFacts items={facts} />
+
+  <!-- TWO DIFFERENT NUMBERS -->
+  <section class="band" aria-labelledby="two-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Get this right first</span>
+      <h2 id="two-h" class="text-[clamp(28px,3.3vw,40px)]">What is a maintenance reserve, and what is it not?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        A maintenance reserve is a working float held per unit so a repair can be authorized and completed
+        without waiting on a funding request. It is not a capital budget. Owners who confuse the two end up
+        with a healthy float and no plan for the furnace.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-2 mt-8">
+        <div class="card">
+          <h3 class="text-[19.5px] mb-2">The working reserve</h3>
+          <p class="text-[15.5px] text-muted m-0">
+            Held on your account, per unit. {company.name} requires {usd(RESERVE_MIN)} to {usd(RESERVE_MAX)}
+            per unit depending on the plan. It covers the repairs that arrive this month. It stays your money
+            and it is returned when management ends.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-[19.5px] mb-2">The capital budget</h3>
+          <p class="text-[15.5px] text-muted m-0">
+            A monthly set-aside you hold yourself, for the components that fail once a decade: roof, furnace,
+            water heater, service panel, sewer line. It is sized from real replacement quotes on your specific
+            property, not from a rule of thumb.
+          </p>
+        </div>
+      </div>
+      <p class="text-[15px] text-faint mt-6">
+        The reserve amount is set by plan. [SOURCE NEEDED: which reserve amount applies to which of the three
+        plans, so this page can state the mapping rather than the range.]
+      </p>
+    </div>
+  </section>
+
+  <!-- THE FORMULA -->
+  <section class="band band-wash" aria-labelledby="formula-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The formula</span>
+      <h2 id="formula-h" class="text-[clamp(28px,3.3vw,40px)]">How do you calculate a maintenance reserve?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Start with the largest repair you want handled without a phone call, and hold at least that much. On
+        our plans the per-item repair approval limit and the reserve are the two halves of the same decision:
+        the limit says what we can authorize, and the reserve is what funds it.
+      </p>
+      <div class="card !bg-white mt-8">
+        <h3 class="text-[19px] mb-3.5">Three lines, in order</h3>
+        <ol class="grid gap-2.5 text-[16px]">
+          <li>
+            <strong class="text-navy">The float.</strong> The cost of one to two routine repairs at your
+            manager's published labor rate. Ours is {usd(m.inHouseHourly)} an hour plus a {usd(m.tripCharge)}
+            trip charge, so a {REPAIR_HOURS}-hour job is {usd(repairNormal)} before materials.
+          </li>
+          <li>
+            <strong class="text-navy">The refill.</strong> The float divided by twelve, set aside monthly out
+            of your disbursement. {usd(RESERVE_MAX)} divided by twelve is
+            {' '}{usd(reserveLevels[1].monthlyRebuild)} a month.
+          </li>
+          <li>
+            <strong class="text-navy">The capital line.</strong> For each major component, a real replacement
+            quote divided by the months you expect it to last, summed. This one is yours to build, because it
+            depends on the age of your specific roof and furnace.
+          </li>
+        </ol>
+        <p class="text-[15px] text-muted mt-5 mb-0">
+          Lines 1 and 2 are operating money. Line 3 is capital. Keeping them in separate columns is what stops
+          a busy repair year from quietly eating the roof fund.
+        </p>
+      </div>
+      <p class="text-[15px] text-faint mt-6">
+        We do not publish a typical annual repair spend per unit, because we have not published the underlying
+        sample. [SOURCE NEEDED: median annual maintenance spend per unit across RLPM-managed units, with the
+        sample size and the period it covers.]
+      </p>
+    </div>
+  </section>
+
+  <!-- WHAT A REPAIR COSTS -->
+  <section class="band" aria-labelledby="repair-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Worked example one</span>
+      <h2 id="repair-h" class="text-[clamp(28px,3.3vw,40px)]">What does a routine repair cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        The same {REPAIR_HOURS}-hour in-house job, at each of the three time bands, at our published
+        {' '}{m.rateYear} rates. Materials are billed at cost on top, and there is no minimum charge.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Cost of a two-hour in-house repair at each time band</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">When the call comes in</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Labor rate</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">{REPAIR_HOURS}-hour total</th>
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">How it is built</th>
+            </tr>
+          </thead>
+          <tbody>
+            {repairBands.map((b) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium">{b.when}</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(m.inHouseHourly * b.mult)} per hour</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(b.total)}</td>
+                <td class="p-3.5 border-b border-line text-muted">{b.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        The Sunday row is the argument for a reserve rather than a phone call. A {usd(repairSunday)} emergency
+        that has to wait until Monday for funding is a resident without heat for a night, and the complaint
+        that follows costs more than the difference between {usd(repairNormal)} and {usd(repairSunday)}.
+      </p>
+    </div>
+  </section>
+
+  <!-- VENDOR WORK -->
+  <section class="band band-wash" aria-labelledby="vendor-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Worked example two</span>
+      <h2 id="vendor-h" class="text-[clamp(28px,3.3vw,40px)]">What does vendor work cost on top of the vendor?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        A project management fee of {m.vendorProjectFeePct}% of vendor cost, applied to costs up to
+        {' '}{usd(m.vendorProjectFeeAppliesUpTo)} and capped at {usd(m.vendorProjectFeeCap)} per project.
+        Because it is capped, the fee stops growing on larger jobs.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">Vendor project management fee at four project sizes</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Vendor invoice</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Project management fee</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Total to you</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Fee as a share of the job</th>
+            </tr>
+          </thead>
+          <tbody>
+            {vendorJobs.map((v) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium tabular-nums">{usd(v.cost)}</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(v.fee)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">{usd(v.total)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{((v.fee / v.cost) * 100).toFixed(1)}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        The fee is waived entirely on property and casualty insurance claim work. Turns run on a separate
+        tiered schedule:
+        {turnJobs.map((t, i) => (
+          <span>{' '}{usd(t.cost)} at {t.pct}% is {usd(t.fee)}{i < turnJobs.length - 1 ? ',' : '.'}</span>
+        ))}
+      </p>
+    </div>
+  </section>
+
+  <!-- SIZING THE RESERVE -->
+  <section class="band" aria-labelledby="size-h">
+    <div class="wrap max-w-[940px]">
+      <span class="eyebrow">Worked example three</span>
+      <h2 id="size-h" class="text-[clamp(28px,3.3vw,40px)]">What does each reserve level actually buy?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
+        The two ends of our published range, translated into repairs at our own rates and into the monthly
+        amount it takes to rebuild the reserve over a year.
+      </p>
+      <div class="scroll-x">
+        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
+               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+          <caption class="sr-only">What each reserve level covers and what it costs to rebuild</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Reserve held per unit</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Weekday repairs at {usd(repairNormal)}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Sunday repairs at {usd(repairSunday)}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Rebuild over 12 months</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Share of one month's 3 bed rent</th>
+            </tr>
+          </thead>
+          <tbody>
+            {reserveLevels.map((r) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border-b border-line font-medium tabular-nums">{usd(r.amount)}</th>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">{r.normalRepairs}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-navy font-semibold">
+                  {r.sundayRepairs === 0 ? 'Under 1' : r.sundayRepairs}
+                </td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(r.monthlyRebuild)} a month</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{r.vsRent}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[15.5px] text-muted mt-6">
+        The last column uses the {usd(rentByBedroom['3'].median)} portfolio median rent for a 3 bed. A
+        {' '}{usd(RESERVE_MIN)} reserve is {reserveLevels[0].vsRent}% of one month of that rent, and a
+        {' '}{usd(RESERVE_MAX)} reserve is {reserveLevels[1].vsRent}%. It is a one-time float, not a recurring
+        charge, which is why the rebuild column matters more than the headline number.
+      </p>
+      <div class="card !bg-wash-soft mt-8">
+        <h3 class="text-[19px] mb-3.5">Across a portfolio</h3>
+        <p class="text-[15.5px] text-muted mb-4">
+          The reserve is per unit, so it scales linearly. This is the working capital a portfolio ties up at
+          each end of the range.
+        </p>
+        <div class="scroll-x">
+          <table class="w-full border-collapse text-[15.5px] bg-white">
+            <caption class="sr-only">Total reserve held across a portfolio, at each end of the published range</caption>
+            <thead>
+              <tr class="bg-wash-soft">
+                <th scope="col" class="text-left p-3 border border-line font-semibold">Units</th>
+                <th scope="col" class="text-right p-3 border border-line font-semibold">At {usd(RESERVE_MIN)} per unit</th>
+                <th scope="col" class="text-right p-3 border border-line font-semibold">At {usd(RESERVE_MAX)} per unit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {portfolioSizes.map((n) => (
+                <tr>
+                  <th scope="row" class="text-left p-3 border border-line font-medium tabular-nums">{n}</th>
+                  <td class="text-right p-3 border border-line tabular-nums text-navy">{usd(RESERVE_MIN * n)}</td>
+                  <td class="text-right p-3 border border-line tabular-nums text-navy">{usd(RESERVE_MAX * n)}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="text-[15px] text-muted mt-4 mb-0">
+          It remains your money the entire time. It sits on your account, it is spent only on your properties,
+          and it is returned when management ends.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RUN IT YOURSELF -->
+  <section class="band band-wash" aria-labelledby="own-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Run it against your own property</span>
+      <h2 id="own-h" class="text-[clamp(28px,3.3vw,40px)]">How do you set your own number?</h2>
+      <p class="text-[17.5px] text-muted mt-4 mb-7">
+        Six lines. Fill them in once per property and revisit them annually.
+      </p>
+      <ol class="grid gap-3.5">
+        {[
+          'Your manager\'s hourly labor rate, times two hours, plus any trip charge. That is one routine repair.',
+          'Multiply by two. That is your working reserve floor: enough for two repairs without a funding request.',
+          'Divide the floor by twelve. That is the monthly amount to hold back out of your disbursement to keep it full.',
+          'List your major components: roof, furnace, air conditioner, water heater, service panel, sewer line, windows, flooring.',
+          'For each one, write down a real replacement quote and the months you expect it to last, then divide. Sum the results.',
+          'Add lines 3 and 5. That is your true monthly maintenance number, and it is almost always larger than the one owners carry in their heads.',
+        ].map((s, i) => (
+          <li class="card !p-5 text-[15.5px]">
+            <span class="font-sans font-bold text-crimson mr-2">{i + 1}.</span>{s}
+          </li>
+        ))}
+      </ol>
+      <p class="text-[15.5px] text-muted mt-7">
+        Line 5 is the one people skip, and it is the one that decides whether a failed furnace in February is
+        an expense or an emergency. Our quarterly inspections exist mostly to give you the inputs for it: what
+        is aging, what is failing, and what should be quoted now rather than replaced under pressure.
+      </p>
+    </div>
+  </section>
+
+  <section class="band band-wash">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <Faq items={faq} heading="Maintenance reserve questions" id="reserve-faq" />
+      <div class="mt-8"><Verified date="2026-09-09" /></div>
+      <p class="text-[13px] text-faint mt-3">
+        Labor and vendor rates are the published {m.rateYear} rates from the {company.name} Client Handbook.
+        Repair totals on this page are illustrations of the rate structure applied to a {REPAIR_HOURS}-hour
+        job before materials, not quotes for any specific work.
+      </p>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/tools/vacancy-cost-calculator/', label: 'Vacancy cost calculator', note: 'What an empty unit costs per day.' },
+    { href: '/services/maintenance/', label: 'How maintenance works', note: 'Triage, approval limits and after-hours response.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every maintenance charge, published.' },
+    { href: '/tools/', label: 'All owner tools', note: 'Calculators and the market report.' },
+    { href: '/compare/self-managing-vs-property-manager/', label: 'Self-managing vs a manager', note: 'Who coordinates the repair, and what that is worth.' },
+  ]} />
+
+  <Cta
+    heading="See every maintenance charge before you sign anything"
+    body="The complete fee schedule is published, including labor, after-hours multipliers, vendor fees and the turn tiers. If a charge is not on that list, we do not make it."
+    primary={{ label: 'See the full fee schedule', href: '/pricing/' }}
+    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+  />
+</Base>

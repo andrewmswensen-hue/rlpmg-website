@@ -64,7 +64,8 @@ const jsonld = graph(
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     {!noindex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
 
-    {markdownTwin && (
+    {/* No twin is generated for noindexed pages, so do not advertise one. */}
+    {markdownTwin && !noindex && (
       <link rel="alternate" type="text/markdown" href={mdHref} title={`${title} (Markdown)`} />
     )}
     <link rel="alternate" type="application/rss+xml" title={`${company.name} blog`} href="/rss.xml" />

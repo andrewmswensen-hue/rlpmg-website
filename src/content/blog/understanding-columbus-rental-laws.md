@@ -20,7 +20,7 @@ tags:
 
 Recent housing initiatives, like the Housing for All Columbus program, have introduced new rules to address local needs, such as protections for LGBTQ+ tenants and those using housing assistance. While these changes aim to promote equity, they also mean landlords must stay on their toes. Failing to comply can lead to legal headaches, financial penalties, or even damage to your reputation.
 
-In recent blogs, we reviewed the [hidden risks of non-compliance](/blog/fair-housing-laws-for-columbus-landlords) and shared [essential dos and don’ts for landlords](/fair-housing-laws-for-columbus-landlords). This time, we’re diving deeper into Columbus-specific rental laws to help you stay ahead of the curve. In this article, we’ll break down the key (unique) Columbus rental laws and show you how to stay compliant.
+In recent blogs, we reviewed the [hidden risks of non-compliance](/blog/fair-housing-laws-for-columbus-landlords) and shared [essential dos and don’ts for landlords](/blog/fair-housing-laws-for-columbus-landlords/). This time, we’re diving deeper into Columbus-specific rental laws to help you stay ahead of the curve. In this article, we’ll break down the key (unique) Columbus rental laws and show you how to stay compliant.
 
 ## Overview of Columbus-Specific Rental Laws
 
