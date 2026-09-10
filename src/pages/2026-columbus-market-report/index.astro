@@ -1,0 +1,59 @@
+---
+import { getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Cta from '../../components/Cta.astro';
+import Verified from '../../components/Verified.astro';
+import { company } from '../../data/facts';
+import { longDate } from '../../lib/format';
+
+const entry = await getEntry('longform', '2026-columbus-market-report');
+if (!entry) throw new Error('missing longform entry: 2026-columbus-market-report');
+const { Content, headings } = await render(entry);
+const d = entry.data;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: '2026 market report', path: '/2026-columbus-market-report/' }];
+const toc = headings.filter((h) => h.depth === 2);
+---
+<Base title={`${d.title} | ${company.name}`} description={d.description} {breadcrumbs}
+      dateModified={d.updatedDate?.toISOString()}>
+  <section class="pt-14 pb-8">
+    <div class="wrap max-w-[820px]">
+      <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+        <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span> <span aria-current="page">2026 market report</span>
+      </nav>
+      <h1 class="text-[clamp(30px,3.9vw,46px)] tracking-[-.02em]">{d.title}</h1>
+      <p class="text-[19px] text-muted mt-5 max-w-[42em]">{d.description}</p>
+    </div>
+  </section>
+
+  {toc.length > 2 && (
+    <section class="pb-10">
+      <div class="wrap max-w-[820px]">
+        <nav class="card !bg-wash-soft" aria-labelledby="toc-h">
+          <h2 id="toc-h" class="text-[19px] mb-3">On this page</h2>
+          <ol class="grid gap-x-8 gap-y-1 sm:grid-cols-2 list-decimal pl-5">
+            {toc.map((h) => (
+              <li class="text-[15px]">
+                <a href={`#${h.slug}`} class="no-underline text-navy hover:text-crimson">{h.text}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      </div>
+    </section>
+  )}
+
+  <section class="pb-14">
+    <div class="wrap max-w-[820px]">
+      <div class="prose-rl"><Content /></div>
+      <div class="mt-11 pt-6 border-t border-line">
+        <Verified date="2026-09-09" />
+        {d.updatedDate && (
+          <p class="text-[13px] text-faint mt-1">Source document last updated {longDate(d.updatedDate)}.</p>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <Cta heading="Questions this did not answer?"
+       body="Call us or ask for a free rent evaluation. We will give you a straight answer either way." />
+</Base>
