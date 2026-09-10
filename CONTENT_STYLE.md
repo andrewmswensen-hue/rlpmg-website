@@ -98,3 +98,22 @@ leverage, utilize, robust, seamless, cutting-edge, best-in-class, world-class,
 synergy, holistic, bespoke, curated, elevate, unlock, empower, journey,
 passionate, dedicated to excellence, peace of mind (overused, earn it instead),
 "we pride ourselves on", "in today's market", "look no further".
+
+## The filter for any fact that was not on the old site
+
+Andrew, 2026-09-10. Before adding a number, policy or process detail that
+rlpmg.com did not already publish, it has to pass this:
+
+1. Is this absolutely necessary for clients and owners to know?
+2. Is it already covered in the PMA or the Client Handbook?
+3. Is it necessary for their research?
+4. Is it common for their research before they get started?
+
+A fact earns its place if it passes 1, or if it passes both 3 and 4. If the
+Handbook already covers it, point at the Handbook instead of restating it: two
+copies of a number is how they drift apart.
+
+This is the test that decides whether a `[SOURCE NEEDED]` marker becomes a
+question for the team or just gets deleted along with the sentence around it.
+Most of them should get deleted. A page that says less, confidently, beats a
+page that hedges about a detail nobody was looking for.
