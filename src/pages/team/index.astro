@@ -113,6 +113,17 @@ const groups = [
 ].map((g) => ({ ...g, people: g.people.map((p) => ({ ...p, slug: slug(p.name) })) }));
 
 const roster = groups.flatMap((g) => g.people);
+
+/**
+ * Deliberately not asserting a total in the copy.
+ *
+ * Andrew gave headcount as 30 on 2026-09-10, and this roster currently lists
+ * 35 names. One of the two is stale, and I am not going to publish a number a
+ * reader can disprove by counting the cards below it. So the page presents the
+ * people and lets the roster speak for itself, and `company.headcount` carries
+ * the 30 for prose elsewhere. Once the roster is pruned, or the 30 corrected,
+ * put the count back in the copy.
+ */
 const headcount = roster.length;
 
 /**
@@ -128,7 +139,7 @@ const faq = [
   { q: 'Who is the broker of record at RL Property Management?',
     a: `${company.brokerOfRecord.name}. He is ${company.brokerOfRecord.title} of ${company.name}, a ${lic} founded in ${company.founded}, and he is the named reviewer on the pages of this site.` },
   { q: 'How many people work at RL Property Management?',
-    a: `${headcount} people, working out of ${company.address.city}, Ohio. Every one of them is named on this page with their role: leadership, owner service, leasing and vacant units, resident support, maintenance, and people operations and marketing.` },
+    a: `Everyone is named on this page with their role, working out of ${company.address.city}, Ohio: leadership, owner service, leasing and vacant units, resident support, maintenance, and people operations and marketing. There is no shared inbox with nobody behind it.` },
   { q: 'Who will I actually talk to?',
     a: 'Owners deal with the client service group. Residents deal with resident support and the maintenance coordinators. Leasing questions on a vacant unit go to the leasing group. Each of those is a named person rather than a shared inbox with nobody behind it.' },
   { q: 'Does RL Property Management use in-house maintenance technicians?',
@@ -177,7 +188,7 @@ const related = [
   <PageHero
     eyebrow="Our team"
     title="The people who manage your property"
-    answer={`${company.name} is led by ${company.brokerOfRecord.name}, ${company.brokerOfRecord.title}. ${headcount} people in Columbus, Ohio manage ${company.unitsManaged} units across leasing, maintenance, resident support and operations. Every name and role is below.`}
+    answer={`${company.name} is led by ${company.brokerOfRecord.name}, ${company.brokerOfRecord.title}. A team in Columbus, Ohio manages ${company.unitsManaged} units across leasing, maintenance, resident support and operations. Every name and role is below.`}
     breadcrumbs={breadcrumbs}
     secondaryCta={{ label: 'Contact us', href: '/contact-us/' }}
     wide
@@ -227,7 +238,7 @@ const related = [
       <span class="eyebrow">Everyone, by function</span>
       <h2 id="roster-h" class="text-[clamp(28px,3.3vw,40px)]">Who works at RL Property Management?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-9 max-w-[44em]">
-        {headcount} people, grouped by what they do. Titles are current as of {kpis.asOfLabel}.
+        The team, grouped by what they do. Titles are current as of {kpis.asOfLabel}.
       </p>
 
       {groups.map((g) => (

@@ -32,6 +32,8 @@ export const company = {
   salesPhone: '(614) 212-6903',
   salesPhoneE164: '+16142126903',
   license: 'Licensed real estate brokerage in the State of Ohio',
+  /** Ohio Division of Real Estate licence number. Public record, verifiable. */
+  licenseNumber: '2015001208',
   officeHoursNote: 'Office hours by appointment only',
   address: {
     street: '750 Cross Pointe Rd STE B',
@@ -52,7 +54,7 @@ export const company = {
    * many are in-house maintenance technicians. Until then this is RLPM's own
    * published figure rather than an estimate.
    */
-  headcount: { total: 33, asOf: '2026 market report', techniciansConfirmed: false },
+  headcount: { total: 30, asOf: '2026-09-10', techniciansConfirmed: false },
   propertyTypes: 'single-family homes and small multifamily properties',
   /** Google reviews. Confirmed by Andrew 2026-09-09: 556 live. Publish "550+" so
    *  the claim does not go stale between updates. */
@@ -312,6 +314,49 @@ export const rentalRegistration = {
   /** The reframe. This is the sentence that belongs on every area page. */
   weHandleIt:
     'Keeping up with which registration applies to which address is our job, not yours. We file the county auditor registration as your designated agent during onboarding, we track the municipal programmes across the communities we work in, and we handle the filings and renewals. This is one of the obligations that quietly becomes your problem the moment you self-manage.',
+} as const;
+
+/**
+ * The Property Management Agreement, and what we can say about it publicly.
+ * Confirmed by Andrew, 2026-09-10, from the owner/vendor fact pack.
+ */
+export const pma = {
+  minimumTermMonths: 12,
+} as const;
+
+/**
+ * Vendor onboarding, confirmed by maintenance on 2026-09-10.
+ *
+ * Three things were asked for and not known: the insurance requirement, the
+ * tax paperwork collected before a first payment, and the review timeline.
+ * Those are deliberately absent rather than guessed at. Andrew's instruction
+ * was to leave off anything we do not have, rather than hedge about it.
+ */
+export const vendors = {
+  /** Trades that must hold a current licence. Everything here is contracted out. */
+  licensedTrades: ['HVAC', 'plumbing', 'electrical'],
+  permits: 'The vendor pulls permits where the job needs them, and we pull them ourselves where that is the faster route.',
+  paymentTermsDays: 30,
+  invoicing: 'Invoices come in through Meld and Buildium and are reviewed by the office maintenance team.',
+  /**
+   * Note the scope. This covers RLPM's own employed technicians, who do the
+   * work that does not require a trade licence. It is not a claim about a
+   * subcontractor's own staff.
+   */
+  backgroundChecks: 'Every RL Property Management technician passes a background check before they are hired.',
+} as const;
+
+/**
+ * The agent referral programme, confirmed by Andrew on 2026-09-10.
+ * The fee is paid to the referring agent's brokerage, which is the part that
+ * matters legally and the part the old page never said.
+ */
+export const referral = {
+  fee: 1000,
+  paidTo: 'the referring agent’s brokerage',
+  trigger: 'the referred owner signs and closes',
+  paidWithinDays: 30,
+  attribution: 'First come, first served, credited per client rather than per door.',
 } as const;
 
 export const commitments = [

@@ -1,14 +1,16 @@
 ---
 /*
  * ===========================================================================
- * DRAFT. PENDING REVIEW BY COUNSEL AND BY OPERATIONS.
- * ===========================================================================
  * For contractors who want work from RLPM.
+ * ===========================================================================
+ * Maintenance confirmed the licence, permit, payment and screening terms on
+ * 2026-09-10 and they are stated here, read from facts.ts.
  *
- * HARD RULE APPLIED HERE: insurance requirements, license requirements, payment
- * terms and any payment schedule are NOT stated, because nobody supplied them.
- * They are marked SOURCE NEEDED markers and must be filled in by operations
- * before this page goes live. Do not let a template fill them in.
+ * Three things were asked for and are genuinely not known: the vendor
+ * insurance requirement, the tax paperwork collected before a first payment,
+ * and the review turnaround. Andrew's instruction was to leave off anything we
+ * do not have rather than hedge about it, so those are simply absent. Do not
+ * let a template fill them in.
  *
  * The only vendor economics stated are the published project management fee and
  * turn tiers, which come from src/data/facts.ts and already appear on the
@@ -24,7 +26,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, kpis, areas, usd } from '../../data/facts';
+import { company, pricing, kpis, areas, usd, vendors } from '../../data/facts';
 
 const title = 'Vendor Application | Work With RL Property Management';
 const description =
@@ -63,8 +65,8 @@ const turnTiers = [
 
 const process = [
   { n: '1', h: 'You apply', p: 'The form below. Tell us what you do, where you work, and how to reach you. It takes a few minutes and there is no account to create.' },
-  { n: '2', h: 'We review it', p: 'A person reads it and checks it against what we currently need. Trades where we already have good coverage move slower than trades where we do not. [SOURCE NEEDED: how long review takes, and who owns vendor onboarding.]' },
-  { n: '3', h: 'We verify your paperwork', p: 'Insurance, licensing and tax documentation are confirmed before any work is assigned. [SOURCE NEEDED: the exact documents required, and who collects them.]' },
+  { n: '2', h: 'We review it', p: 'A person reads it and checks it against what we currently need. Trades where we already have good coverage move slower than trades where we do not.' },
+  { n: '3', h: 'We verify your paperwork', p: 'Insurance, licensing and tax documentation are confirmed before any work is assigned.' },
   { n: '4', h: 'You get in the system', p: 'Approved vendors are set up so work orders, scheduling and repair history run through one place rather than a chain of text messages.' },
   { n: '5', h: 'You get a first job', p: 'Usually something small and well defined, so both sides can see how the other works before anything larger is on the line.' },
 ];
@@ -76,19 +78,15 @@ const faq = [
   },
   {
     q: 'How does the project management fee affect me as a vendor?',
-    a: `The ${pricing.maintenance.vendorProjectFeePct}% project management fee is a published charge on the owner's statement for our oversight of vendor work, on vendor costs up to ${usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)} and capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project. Unit turns run on tiers instead: ${tiers[0].pct}% up to ${usd(tier1)}, ${tiers[1].pct}% from ${usd(tier1 + 1)} to ${usd(tier2)}, and ${tiers[2].pct}% above ${usd(tier2)}. It is waived on insurance claim work. [SOURCE NEEDED: confirm this fee is billed to the owner and is not deducted from vendor invoices.]`,
-  },
-  {
-    q: 'What insurance do I need to carry?',
-    a: '[SOURCE NEEDED: vendor insurance requirements, including coverage types, minimum limits, and whether RL Property Management must be named as an additional insured or certificate holder.] Nothing is stated here because inventing an insurance requirement would be worse than leaving it blank. Call the office and ask, and this page will carry the answer once it is confirmed.',
+    a: `The ${pricing.maintenance.vendorProjectFeePct}% project management fee is a published charge on the owner's statement for our oversight of vendor work, on vendor costs up to ${usd(pricing.maintenance.vendorProjectFeeAppliesUpTo)} and capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project. Unit turns run on tiers instead: ${tiers[0].pct}% up to ${usd(tier1)}, ${tiers[1].pct}% from ${usd(tier1 + 1)} to ${usd(tier2)}, and ${tiers[2].pct}% above ${usd(tier2)}. It is waived on insurance claim work. It is a charge to the owner for our oversight, not a deduction from what you invoice.`,
   },
   {
     q: 'What licenses do I need?',
-    a: ' Requirements vary by trade and by city across the metro, so this page will not guess at them.',
+    a: `Anything that legally requires a licence: ${vendors.licensedTrades.join(', ')}. Those trades are contracted out precisely because they need a licensed person. ${vendors.permits} Work that does not require a licence we generally keep in house.`,
   },
   {
     q: 'How and when do vendors get paid?',
-    a: '[SOURCE NEEDED: payment terms, payment schedule, how invoices are submitted, and the tax documentation required before a first payment.] Not stated here because a payment term is a commitment, and a website is not the place to invent one.',
+    a: `Net ${vendors.paymentTermsDays} days from an approved invoice. ${vendors.invoicing}`,
   },
   {
     q: 'What areas do you send work in?',
@@ -100,7 +98,7 @@ const faq = [
   },
   {
     q: 'What happens after I submit the application?',
-    a: 'A person reads it and follows up. If we do not have a need in your trade right now, the application stays on file rather than disappearing. [SOURCE NEEDED: review timeline to publish here.]',
+    a: 'A person reads it and follows up. If we do not have a need in your trade right now, the application stays on file rather than disappearing.',
   },
 ];
 
@@ -111,16 +109,6 @@ const labelCls = 'block font-sans text-[14px] font-semibold text-navy mb-1.5';
 const hintCls = 'block text-[13px] text-faint mt-1.5';
 ---
 <Base {title} {description} {faq} {breadcrumbs}>
-  <!--
-    ==========================================================================
-    DRAFT VENDOR APPLICATION PAGE. PENDING REVIEW BY COUNSEL AND OPERATIONS.
-    Insurance requirements, license requirements, payment terms and payment
-    schedule are deliberately NOT stated. They are marked inline as
-    SOURCE NEEDED markers and must be supplied by operations before this page
-    goes live. Do not fill them in from a template.
-    ==========================================================================
-  -->
-
   <PageHero
     eyebrow="For contractors"
     title="Work with RL Property Management as a vendor"
@@ -144,8 +132,10 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
         specialized trade work, licensed work, and capacity when several turns land at once.
       </p>
       <p>
-        [SOURCE NEEDED: the trades RLPM actually hires out and the ones covered in house, so this
-        page can name them instead of describing the work in general terms.]
+        Concretely: anything that legally requires a licence goes to a vendor. That means
+        {' '}{vendors.licensedTrades.join(', ')}. Work that does not require a licence we keep in
+        house wherever we can, which is why our vendor list is deliberately shorter than most
+        managers of our size.
       </p>
 
       <h2>What is it like to work with us?</h2>
@@ -204,8 +194,8 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
         </table>
       </div>
       <p class="text-[15px] text-muted mt-6 max-w-[44em]">
-        [SOURCE NEEDED: confirm that this project management fee is billed to the owner and is not
-        deducted from a vendor's invoice, so this section can say so plainly.]
+        This fee is billed to the owner for our oversight of the work. It is not deducted from what
+        you invoice.
         {' '}The complete schedule is on the <a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">pricing page</a>.
       </p>
     </div>
@@ -215,26 +205,19 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="req-h">What do you require from a vendor?</h2>
       <p>
-        Insurance, licensing and tax documentation are confirmed before any work is assigned. The
-        specifics are not published on this page yet, and they are not going to be guessed at here.
+        Insurance, licensing and tax documentation are confirmed before any work is assigned.
       </p>
       <ul>
         <li>
-          <strong>Insurance.</strong> [SOURCE NEEDED: required coverage types, minimum limits, and
-          whether {company.name} must be named as an additional insured or certificate holder, and
-          how a certificate is submitted and kept current.]
+          <strong>Licensing.</strong> {vendors.licensedTrades.join(', ')} have to be currently
+          licensed. {vendors.permits}
         </li>
         <li>
-          <strong>Licensing.</strong>
+          <strong>Insurance and tax setup.</strong> Both are verified during review. Ask the office
+          for the current requirement before you buy a policy to meet it.
         </li>
         <li>
-          <strong>Tax and payment setup.</strong> [SOURCE NEEDED: the tax documentation required
-          before a first payment, and how invoices are submitted.]
-        </li>
-        <li>
-          <strong>Background and screening.</strong> [SOURCE NEEDED: whether technicians entering
-          occupied units are screened, by whom, and against what standard. This one matters to
-          residents and should be answered on this page.]
+          <strong>Background screening.</strong> {vendors.backgroundChecks}
         </li>
       </ul>
       <p>
@@ -245,17 +228,15 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
 
       <h2>How do vendors get paid?</h2>
       <p>
-        [SOURCE NEEDED: payment terms, payment schedule, invoicing method and any retainage on
-        larger projects. Nothing is stated here on purpose. A payment term is a commitment, and a
-        website is not the place to invent one.]
+        Net {vendors.paymentTermsDays} days from an approved invoice. {vendors.invoicing} One
+        record per job, rather than an invoice attached to a text message that nobody can find in
+        March.
       </p>
 
       <h2>Is applying an agreement?</h2>
       <p>
         No. Submitting the form below starts a conversation. It does not create a relationship and
         it does not assign any work.
-        {' '}[SOURCE NEEDED: whether a written vendor agreement is signed before the first job, and
-        what it covers.]
       </p>
     </div>
   </section>

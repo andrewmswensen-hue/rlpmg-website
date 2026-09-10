@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, kpis, rentPolicy, areas, usd } from '../../data/facts';
+import { company, pricing, kpis, rentPolicy, areas, usd, pma } from '../../data/facts';
 import { serviceNode } from '../../lib/schema';
 import LegalNote from '../../components/LegalNote.astro';
 
@@ -58,7 +58,7 @@ const categories = [
       { q: 'How many units does RL Property Management manage?',
         a: `${company.unitsManaged} units across the Columbus, Ohio metro, all ${company.propertyTypes}.` },
       { q: 'Is RL Property Management licensed?',
-        a: `Yes. ${company.name} is a licensed real estate brokerage in the State of Ohio, regulated by the Ohio Department of Commerce, Division of Real Estate and Professional Licensing. Brokerage license number: [SOURCE NEEDED: Ohio real estate brokerage license number, not currently in facts.ts].` },
+        a: `Yes. ${company.name} is a licensed real estate brokerage in the State of Ohio, regulated by the Ohio Department of Commerce, Division of Real Estate and Professional Licensing. Brokerage license number ${company.licenseNumber}, which you can verify yourself through the Ohio eLicense lookup rather than taking our word for it.` },
       { q: 'What kinds of property does RL Property Management manage?',
         a: `${company.propertyTypes.charAt(0).toUpperCase() + company.propertyTypes.slice(1)}, in buildings that do not require on-site staff. Properties need to be rent-ready or close to it. If a property needs a full renovation first, we refer contractors and revisit management once the work is finished.` },
       { q: 'Do you manage homeowner or condominium associations?',
@@ -90,7 +90,7 @@ const categories = [
       { q: 'Is a maintenance reserve required?',
         a: `Yes. ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit, ${pricing.reserves.note}. It is held on your account so routine repairs are not waiting on a funding request. It stays your money and it is returned when management ends.` },
       { q: 'How long is the Property Management Agreement?',
-        a: `[SOURCE NEEDED: minimum term of the Property Management Agreement, not currently in facts.ts]. The early termination fee is tiered by where you are in the term: ${pricing.otherFees.find((f) => f.name === 'Early termination')?.note}` },
+        a: `${pma.minimumTermMonths} months to start. The early termination fee is tiered by where you are in the term: ${pricing.otherFees.find((f) => f.name === 'Early termination')?.note}` },
       { q: 'Is there an early termination fee?',
         a: `Yes. ${pricing.otherFees.find((f) => f.name === 'Early termination')?.note} It is published rather than buried, because you should be able to price your exit before you sign.` },
       { q: 'Do I need insurance on my rental property?',
@@ -130,7 +130,7 @@ const categories = [
       { q: 'Do you leave the utilities on between residents?',
         a: 'Yes. Utilities stay active while a unit is vacant so repairs can be done, the unit shows properly, and the pipes do not freeze in a Columbus January.' },
       { q: 'Do you accept housing choice vouchers?',
-        a: 'Some Columbus-area jurisdictions prohibit source-of-income discrimination, which means an applicant cannot be declined solely because their income comes from a housing voucher. In those jurisdictions we accept voucher holders and screen them through the normal process. [SOURCE NEEDED: current list of Columbus-area jurisdictions with source-of-income protection, and the effective date, not currently in facts.ts.]' },
+        a: 'Some Columbus-area jurisdictions prohibit source-of-income discrimination, which means an applicant cannot be declined solely because their income comes from a housing voucher. In those jurisdictions we accept voucher holders and screen them through the normal process. Columbus adopted that protection in March 2021, effective the following July, and several suburbs have their own version.' },
       { q: 'How often do residents renew?',
         a: `The lease renewal rate across the portfolio is ${kpis.metrics[2].value}, as of ${kpis.asOfLabel}. A renewal costs the owner ${usd(pricing.leaseRenewalFee)} and avoids a turn entirely, which is the cheapest month in the whole business.` },
       { q: 'What happens if a resident goes month to month?',
@@ -146,7 +146,7 @@ const categories = [
       { q: 'How do you handle an eviction?',
         a: 'A local eviction attorney files through the Franklin County Municipal Court, and we run the process end to end, including up to two court appearances. Before filing we look for the cheaper outcome first: a payment plan, a pay-and-stay arrangement, or a negotiated move-out, because any of those usually costs the owner less than a judgment.' },
       { q: 'How long does an eviction take in Franklin County?',
-        a: '[SOURCE NEEDED: typical elapsed time from first notice to setout in Franklin County, not currently in facts.ts.] The sequence itself is fixed: a written notice to leave the premises, then a filed Eviction Complaint, then a hearing, then a writ and setout if the resident has not vacated.' },
+        a: 'Add up the statutory steps and an uncontested nonpayment case runs roughly five to seven weeks from the day the notice goes up. That is the floor, not a forecast for your case. The sequence itself is fixed: a written notice to leave the premises, then a filed Eviction Complaint, then a hearing, then a writ and setout if the resident has not vacated.' },
       { q: 'How often do rentals end up in eviction or litigation?',
         a: `Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute. It is not common, and it is not rare enough to leave out of your budget.` },
       { q: 'Do you cover pet damage?',

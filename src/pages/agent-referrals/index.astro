@@ -6,16 +6,19 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, kpis, areas, usd } from '../../data/facts';
+import { company, pricing, kpis, areas, usd, referral } from '../../data/facts';
 import { serviceNode } from '../../lib/schema';
 
 /**
  * For licensed real estate agents who refer owners to us.
  *
- * NOTHING about the referral fee amount, the payment timing or the terms is
- * stated on this page, because none of it is in the fact bank. Every one of those
- * is marked [SOURCE NEEDED] rather than estimated. Do not fill them in from
- * memory or from what another brokerage pays.
+ * The fee, the trigger, the timing and the attribution rule were confirmed by
+ * Andrew on 2026-09-10 and are read from facts.ts. Do not retype them here.
+ *
+ * One thing is deliberately not on this page: what happens to the client when
+ * they eventually sell. It is the question agents ask first, and there is no
+ * documented policy to point at, so the page says nothing rather than offering
+ * a verbal assurance in writing.
  *
  * The form is plain semantic HTML. No JavaScript, and no email address in the
  * markup. See the comment on the <form> element for the endpoint.
@@ -42,8 +45,8 @@ const facts = [
   `${usd(pricing.leasingFee)} leasing fee, so your client is not charged half a month to place a resident`,
   `${company.reviews.display} Google reviews at ${company.reviews.rating} stars`,
   `Portfolio results: ${kpi('dom')} median days on market, ${kpi('renewal')} renewal rate, ${kpi('occupancy')} occupancy`,
-  `Referral fee: [SOURCE NEEDED: the referral fee amount or formula]`,
-  `Paid: [SOURCE NEEDED: when the referral fee is paid and what triggers payment]`,
+  `${usd(referral.fee)} referral fee, paid to ${referral.paidTo}`,
+  `Paid when ${referral.trigger}, typically within ${referral.paidWithinDays} days`,
 ];
 
 const whyRefer = [
@@ -76,13 +79,11 @@ const goodFit = [
 
 const faq = [
   { q: 'Do you pay real estate agents a referral fee?',
-    a: `Yes. ${company.name} pays a referral fee to licensed agents who refer a rental owner to us. [SOURCE NEEDED: the referral fee amount or formula, and whether it differs by unit count or by whether the unit is occupied at handoff.]` },
+    a: `Yes. ${usd(referral.fee)} for a referred owner who signs with us, paid to ${referral.paidTo} rather than to the agent directly, which is how a referral fee has to move between licensees. Your brokerage decides how it reaches you. It is a flat ${usd(referral.fee)}, not a percentage, so it does not change with the number of doors or whether the unit is occupied at handoff.` },
   { q: 'When is the referral fee paid?',
-    a: '[SOURCE NEEDED: what event triggers payment, for example a signed management agreement or a placed resident, and how long after that event the fee is paid.] Whatever the trigger, it is stated in the referral agreement before you send the first client, not after.' },
-  { q: 'What are the terms of the referral program?',
-    a: '[SOURCE NEEDED: the full written terms, including whether the referring agent must hold an active license, how long a referred owner stays attributed to the referring agent, what happens if two agents refer the same owner, and any jurisdiction or brokerage restrictions.] Ask us for the current agreement and we will send it in writing.' },
-  { q: 'Will you try to take my client when they sell?',
-    a: '[SOURCE NEEDED: RLPM policy on listing referred properties for sale, and the written commitment to return a referred owner to the referring agent at the point of sale.] This is the question every agent asks first, and it deserves a written answer rather than a verbal assurance, so we will not publish one here until the policy is documented.' },
+    a: `When the referred owner actually closes with us. We pay it out straight away at that point, and in practice that means within ${referral.paidWithinDays} days. Nothing is held back to a later anniversary or tied to how long the owner stays.` },
+  { q: 'What happens if two agents refer the same owner?',
+    a: `${referral.attribution} So if an owner you referred later brings us a second property, that is the same client and the same relationship rather than a second fee. Ask us for the current agreement and we will send it in writing.` },
   { q: 'What areas do you cover?',
     a: `Columbus and ${areas.length - 1} other Central Ohio communities across Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. If the property is outside that footprint, tell us anyway and we will say plainly whether we can serve it.` },
   { q: 'What kind of owner is a good referral?',
@@ -90,7 +91,7 @@ const faq = [
   { q: 'What will my client pay?',
     a: `Flat management of ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, ${usd(pricing.leasingFee)} to place a resident, ${usd(pricing.leaseRenewalFee)} at renewal, and ${usd(pricing.startupFeeOccupied)} to start on an occupied unit. Portfolio owners are quoted separately, at a discount. The complete fee schedule is published on our pricing page.` },
   { q: 'How fast will you contact the owner?',
-    a: '[SOURCE NEEDED: RLPM committed response time for a referred owner.] What we can say is that the referral form goes to a person rather than a queue, and that you get the outcome back in writing either way.' },
+    a: 'The referral form goes to a person rather than a queue, and you get the outcome back in writing either way.' },
   { q: 'Can I refer an owner outside Ohio?',
     a: 'We manage in Central Ohio only, so a property outside that footprint is not something we can take on. If an owner you work with is buying in Central Ohio, that is a referral we can act on even before they close.' },
 ];
@@ -149,22 +150,20 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">The part you care about</span>
       <h2 id="terms-h" class="text-[clamp(28px,3.3vw,40px)]">What does the referral fee pay, and when?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        {company.name} pays a referral fee to licensed agents. The amount, the trigger and the terms are set
-        out in a written referral agreement, and they are not published on this page yet.
+        A flat {usd(referral.fee)} for a referred owner who signs with us. No percentage, no sliding scale,
+        and no waiting to see how long the client stays.
       </p>
       <div class="card !bg-white mt-8">
-        <h3 class="text-[19px] mb-3.5">Pending confirmation</h3>
+        <h3 class="text-[19px] mb-3.5">The terms</h3>
         <ul class="grid gap-2.5 text-[15.5px] text-muted">
-          <li><strong class="text-navy">Fee amount.</strong> [SOURCE NEEDED: the referral fee amount or formula, and whether it varies by unit count or by occupancy at handoff.]</li>
-          <li><strong class="text-navy">Payment trigger.</strong> [SOURCE NEEDED: the event that earns the fee, for example a signed management agreement or a placed resident.]</li>
-          <li><strong class="text-navy">Payment timing.</strong> [SOURCE NEEDED: how long after the trigger the fee is paid, and by what method.]</li>
-          <li><strong class="text-navy">Attribution window.</strong> [SOURCE NEEDED: how long a referred owner stays attributed to the referring agent, and how duplicate referrals are handled.]</li>
-          <li><strong class="text-navy">Eligibility.</strong> [SOURCE NEEDED: license requirements, brokerage consent requirements and any geographic restrictions.]</li>
-          <li><strong class="text-navy">Sale of a referred property.</strong> [SOURCE NEEDED: the written policy on returning a referred owner to the referring agent when the property is sold.]</li>
+          <li><strong class="text-navy">Fee.</strong> {usd(referral.fee)} flat. It does not change with the number of doors, and it does not change if the unit is occupied at handoff.</li>
+          <li><strong class="text-navy">Who it is paid to.</strong> {referral.paidTo.charAt(0).toUpperCase() + referral.paidTo.slice(1)}, which is how a referral fee moves between licensees. Your brokerage decides how it reaches you.</li>
+          <li><strong class="text-navy">What earns it.</strong> The referred owner signs and closes with us.</li>
+          <li><strong class="text-navy">When it is paid.</strong> Straight away at closing, in practice within {referral.paidWithinDays} days.</li>
+          <li><strong class="text-navy">Attribution.</strong> {referral.attribution}</li>
         </ul>
         <p class="text-[15px] text-muted mt-5 mb-0">
-          We would rather leave those blank than publish a number we have not confirmed. Ask for the current
-          referral agreement and we will send it before you refer anyone.
+          Ask for the current referral agreement and we will send it before you refer anyone.
         </p>
       </div>
     </div>
@@ -204,7 +203,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <ol class="grid gap-3.5">
         {[
           'We confirm receipt to you, and confirm the property is inside our service area.',
-          'We contact the owner. [SOURCE NEEDED: RLPM committed response time for a referred owner.]',
+          'We contact the owner. The referral goes to a person, not a queue.',
           'The owner gets a rent evaluation and a written quote, including the full published fee schedule.',
           'You get the outcome in writing: engaged, declined, or still deciding, with the reason.',
         ].map((s, i) => (

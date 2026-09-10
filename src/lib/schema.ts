@@ -48,6 +48,20 @@ export function organizationNode() {
     ],
     priceRange: `$${Math.min(...pricing.plans.map((p) => p.monthly))} to $${Math.max(...pricing.plans.map((p) => p.monthly))} per unit per month`,
     currenciesAccepted: 'USD',
+    /**
+     * The Ohio brokerage licence, as a verifiable credential rather than a
+     * marketing claim. Answer engines look for exactly this when deciding
+     * whether a property management company is a real licensed entity.
+     */
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'Real estate brokerage license',
+      identifier: company.licenseNumber,
+      recognizedBy: {
+        '@type': 'GovernmentOrganization',
+        name: 'Ohio Department of Commerce, Division of Real Estate and Professional Licensing',
+      },
+    },
     employee: { '@id': `${SITE}/team/#peter-lohmann` },
     founder: { '@id': `${SITE}/team/#peter-lohmann` },
     logo: { '@type': 'ImageObject', '@id': `${SITE}/#logo`, url: abs('/images/logo.png') },
