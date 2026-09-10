@@ -66,7 +66,7 @@ This decision doesn’t fall on the owner alone.
 
 RLPM’s in-house maintenance team checks appliance condition as part of every quarterly inspection, watching for the early signs (unusual noise, inconsistent temperatures, repeated minor faults) before they turn into a failure mid-lease. When an appliance is approaching the replace threshold, the team brings the owner a repair-or-replace recommendation with real cost numbers attached, not a guess.
 
-How much of that decision needs an owner’s sign-off depends on the management plan. The Passive plan carries a $1,500 maintenance approval limit, Standard sits at $750, and Premium is set at $350. A repair or replacement under the plan’s threshold moves forward without a separate approval call; anything above it goes to the owner first.
+How much of that decision needs an owner’s sign-off depends on the management plan. Plan One carries a $1,500 maintenance approval limit, Plan Two sits at $750, and Premium is set at $350. A repair or replacement under the plan’s threshold moves forward without a separate approval call; anything above it goes to the owner first.
 
 When a unit is nearing the end of its expected life and a tenant is already moving out, RLPM folds the replacement into the turn scope rather than waiting for it to fail mid-lease. It’s the same purchase, made on RLPM’s timeline instead of the appliance’s.
 

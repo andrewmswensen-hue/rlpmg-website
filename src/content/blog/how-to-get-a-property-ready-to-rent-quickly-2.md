@@ -47,6 +47,6 @@ By doing a thorough job when you prepare your rental unit, you should be able to
 
 ## Contact Us for Help
 
-At RL Property Management, our team manages around 600 units, so we’re dealing with up to 30 turnovers at a time. To successfully manage properties at scale without compromising on service to our clients, we lean heavily on our checklists and processes to ensure that we can deliver a high-quality living experience for the resident and a high-quality return on investment for the property owner.
+At RL Property Management, our team manages more than 700 units, so we’re dealing with up to 30 turnovers at a time. To successfully manage properties at scale without compromising on service to our clients, we lean heavily on our checklists and processes to ensure that we can deliver a high-quality living experience for the resident and a high-quality return on investment for the property owner.
 
 If you have questions about property management here in Franklin County, Ohio, or what we can do for you, [get in touch](/contact-us/) with our team today.

@@ -86,7 +86,7 @@ Here is what the process and the hard costs look like for a typical uncontested 
 | RLPM eviction process management fee | $199 |
 | Typical out-of-pocket for an RLPM client | ~$450 |
 
-RLPM uses professional local attorneys for court filings rather than sending owners or staff to argue cases, and makes the effort to recover these costs from the resident where possible. Filing for money damages alongside possession raises the filing fee (currently $186 for two causes), which is a case-by-case decision with the attorney.
+RLPM uses professional local attorneys for court filings rather than sending owners or staff to argue cases, and makes the effort to recover these costs from the resident where possible. Filing for money damages alongside possession raises the filing fee (currently $186 for two causes [SOURCE NEEDED: confirm the current two-cause filing fee]), which is a case-by-case decision with the attorney.
 
 The timeline from filing runs roughly like this: Franklin County Municipal Court sets the hearing 2 to 3 weeks after filing, depending on service. If the court grants judgment for possession, the tenant typically has a short window before a red tag is posted and a bailiff-supervised set-out can be scheduled. End to end, an uncontested case usually lands around six weeks from notice to possession, per the timelines published by [Ohio Legal Help](https://www.ohiolegalhelp.org/eviction-timeline). Contested cases, counterclaims, or continuances can stretch the process to months.
 

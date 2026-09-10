@@ -74,7 +74,7 @@ Here’s what a typical turnover looks like for a single-family rental or small 
 | Landscaping / exterior cleanup | $50 to $300 |
 | Re-keying locks | $75 to $150 |
 | Vacancy carrying costs (utilities, insurance, lawn) | $200 to $400/mo |
-| Lost rent (avg. 3 to 5 weeks vacancy) | $1,050 to $1,750 |
+| Lost rent (avg. 3 to 5 weeks vacancy) | $1,050 to $1,700+ |
 | Estimated Total | $2,225 to $7,050 |
 
 The wide range reflects the reality: a well-maintained property with a responsible tenant might turn for under $2,500. A property that’s been neglected, or where the tenant caused damage beyond the security deposit, can easily exceed $5,000. The variable that matters most isn’t any single line item. It’s the vacancy duration. Every week that unit sits empty adds $300 to $400 to the total, and that number compounds fast.

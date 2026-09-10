@@ -28,4 +28,4 @@ One of the best ways to increase occupancy in your rental properties is to enfor
 
 Though this process can take some time, it’s worth it in the long run. Good tenants tend to result in longer leasing timelines and yield competitive rent rates, both of which are good for your bottom line.
 
-As you consider your property investment goals and how to improve your NOI, please don’t hesitate to [contact us](/contact-us/) with your questions. Our team at RL Property Management is responsible for more than 600 units in the Columbus area and have more than a decade of experience helping property owners like you improve their portfolio performance.
+As you consider your property investment goals and how to improve your NOI, please don’t hesitate to [contact us](/contact-us/) with your questions. Our team at RL Property Management is responsible for more than 700 units in the Columbus area and have more than a decade of experience helping property owners like you improve their portfolio performance.

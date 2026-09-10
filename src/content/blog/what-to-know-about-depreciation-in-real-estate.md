@@ -33,4 +33,4 @@ If eventually you do sell your property for a profit, however, be prepared to pa
 
 For more about how depreciation helps investors build wealth, be sure to [read this post.](/blog/building-wealth-with-depreciation-a-tax-strategy-for-property-investors/) In addition to reducing a property owner’s tax liability, depreciation can also increase your property’s cash flow and help you defer capital gains taxes when you sell a property. Before pursuing any tax strategy, it’s advisable to consult an accountant who can ensure you’re staying up-to-date with current tax laws.
 
-To learn more about investing in Columbus, get in touch with our team at RL Property Management. We manage more than 600 units throughout Franklin County, and we’d love to help you achieve success with your investment. [Contact us](/contact-us/) to learn more.
+To learn more about investing in Columbus, get in touch with our team at RL Property Management. We manage more than 700 units throughout Franklin County, and we’d love to help you achieve success with your investment. [Contact us](/contact-us/) to learn more.

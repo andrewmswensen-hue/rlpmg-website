@@ -70,7 +70,7 @@ There is no reliable public benchmark for hours per unit per month, so treat any
 
 Vacancy is the largest swing factor here and the easiest to measure. RL Property Management’s [2026 Columbus Single-Family Rental Market Report](/2026-columbus-market-report/) puts well-priced single-family rentals in desirable submarkets at 14 to 21 days to lease once rent-ready. Watch those two qualifiers. *Well-priced* and *once rent-ready* are variables a self-managing owner controls, and both get left on the table by pricing off a neighbor’s asking rent rather than recent signed leases, or by listing a unit that shows as almost finished.
 
-Two occupancy figures belong side by side, since they usually get quoted apart. The market report puts occupancy above 95% for well-managed Columbus properties against 93.9% nationally (Arbor, Q2 2026), which is a market observation. RL Property Management’s own [live KPI scorecard](/key-performance-indicators/) showed 91% occupancy, a median 11 days on market, and 12 days to turn as of July 2026. Different questions, different numbers; the live page is the honest place to check either. On a $1,400 rental each vacant day costs about $46, and a listing on four platforms instead of 45 is where those days come from.
+Two occupancy figures belong side by side, since they usually get quoted apart. The market report puts occupancy above 95% for well-managed Columbus properties against 93.9% nationally (Arbor, Q2 2026), which is a market observation. RL Property Management’s own [live KPI scorecard](/key-performance-indicators/) showed 91% occupancy, a median 20 days on market, and 12 days to turn as of September 2026. Different questions, different numbers; the live page is the honest place to check either. On a $1,400 rental each vacant day costs about $46, and a listing on four platforms instead of 45 is where those days come from.
 
 ### Retail pricing on repairs, and repairs you did not see coming
 
@@ -213,7 +213,7 @@ That is a different question, and it comes first. Decide whether to keep the pro
 
 **How long does it take to lease a Columbus rental?**
 
-Well-priced single-family rentals in desirable Columbus submarkets lease in 14 to 21 days once rent-ready, per RL Property Management’s 2026 market report, and its live KPI scorecard showed a median 11 days on market in July 2026. The company plans around a four to six week average and does not promise a timeline, because quality placement outperforms speed over a long hold.
+Well-priced single-family rentals in desirable Columbus submarkets lease in 14 to 21 days once rent-ready, per RL Property Management’s 2026 market report, and its live KPI scorecard showed a median 20 days on market in July 2026. The company plans around a four to six week average and does not promise a timeline, because quality placement outperforms speed over a long hold.
 
 ### Run the numbers on your own property
 

@@ -125,7 +125,7 @@ So what should you do? The commonly recommended sequence (written notice to the 
 
 ## The Turn: Getting the Unit Back on the Market
 
-Vacancy is the largest cost in the move-out sequence, and the one most sensitive to how fast the scope gets written. RLPM’s [2026 Columbus Single-Family Rental Market Report](/2026-columbus-market-report/) puts well-priced single-family rentals in desirable submarkets at 14 to 21 days to lease once rent-ready. RLPM’s [live KPI scorecard](/key-performance-indicators/) showed a median 11 days on market against 12 days to turn as of July 2026, so the turn accounts for roughly half of a typical vacancy window. A turn that drags two extra weeks in November puts the listing up in December.
+Vacancy is the largest cost in the move-out sequence, and the one most sensitive to how fast the scope gets written. RLPM’s [2026 Columbus Single-Family Rental Market Report](/2026-columbus-market-report/) puts well-priced single-family rentals in desirable submarkets at 14 to 21 days to lease once rent-ready. RLPM’s [live KPI scorecard](/key-performance-indicators/) showed a median 20 days on market against 12 days to turn as of September 2026, so the turn accounts for roughly half of a typical vacancy window. A turn that drags two extra weeks in November puts the listing up in December.
 
 1. **Scope from the inspection, same day.** The move-out report becomes the work order, with no second visit to rediscover what you photographed.
 2. **Sequence the trades.** Repairs and drywall, then paint, then floors, then cleaning. Cleaning before paint is the common ordering mistake, and it costs a day.

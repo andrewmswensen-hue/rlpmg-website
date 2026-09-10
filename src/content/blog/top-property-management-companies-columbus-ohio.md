@@ -75,8 +75,8 @@ The criteria used to evaluate each company on this list:
 |---|---|
 | Founded | 2013 (13 years) |
 | CEO | Peter Lohmann |
-| Google Rating | 4.3 (500+ reviews, as of April 2026) |
-| Units Managed | 750+ |
+| Google Rating | 4.3 (550+ reviews, as of April 2026) |
+| Units Managed | 700+ |
 | Specialty | Single-family, small multifamily (under 100 units), out-of-state investors |
 | Pricing | Flat-rate tiered: Passive $117/mo, Standard $137/mo, Premium $184/mo per unit |
 | Leasing Fee | $0 (across all plans) |
@@ -229,7 +229,7 @@ The list above is a starting point, not a decision. The right PM for you depends
 
 **3. How often do you inspect properties?** Quarterly is the minimum for quality PM. Annual is weak. No inspections between tenant turnover is a structural red flag.
 
-**4. What’s your actual process and cost for eviction?** Ask for a specific dollar figure and timeline. In Franklin County, expect roughly six weeks and around $230 in hard costs ($130 filing fee plus $100 attorney fee), plus the PM’s own fee on top of that. If the answer is vague, they don’t do evictions often enough.
+**4. What’s your actual process and cost for eviction?** Ask for a specific dollar figure and timeline. In Franklin County, expect roughly six weeks and around $230 in hard costs ($123 filing fee plus $150 attorney fee), plus the PM’s own fee on top of that. If the answer is vague, they don’t do evictions often enough.
 
 **5. Can I see your published performance data?** The best PMs track days on market, lease-up time, renewal rate, occupancy, and rent collection. Some publish these publicly. The ones who can’t produce a scorecard on request are operating without one.
 

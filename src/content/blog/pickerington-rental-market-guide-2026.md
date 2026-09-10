@@ -62,7 +62,7 @@ Rent data on Pickerington varies more than sale price data, mostly because diffe
 | 3-bedroom apartment | $2,030 |
 | 4-bedroom apartment | $2,761 |
 | Single-family rental home (average) | $2,039 |
-| Single-family range observed | $1,595 to $2,750+ |
+| Single-family range observed | $1,595 to $2,700+ |
 
 Sources: [Apartment Finder](https://www.apartmentfinder.com/Ohio/Pickerington-Apartments) (April 2026, apartment figures); [RentCafe](https://www.rentcafe.com/houses-for-rent/us/oh/fairfield-county/pickerington/) (January 2026, single-family figures). Figures move monthly; confirm current comps before pricing a listing.
 
@@ -89,7 +89,7 @@ The table below is illustrative only, built around current Pickerington medians.
 | Line Item | Illustrative Monthly Figure |
 |---|---|
 | Estimated gross rent (mid-tier 3 to 4BR home) | $2,100 |
-| RLPM Standard plan management fee | −$137 |
+| RLPM Plan Two management fee | −$137 |
 | Leasing fee (all RLPM plans) | $0 |
 | Net before debt service, taxes, insurance, and reserves | $1,963 |
 

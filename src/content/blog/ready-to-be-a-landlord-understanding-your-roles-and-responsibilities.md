@@ -36,4 +36,4 @@ In looking at this condensed list of landlord responsibilities, a property manag
 
 ## Contact Us to Learn More
 
-At RL Property Management, our team manages more than 600 units in the greater Columbus area. If you have questions about property management here in Franklin County, Ohio, or what we can do for you, [get in touch](/contact-us/) with our team today.
+At RL Property Management, our team manages more than 700 units in the greater Columbus area. If you have questions about property management here in Franklin County, Ohio, or what we can do for you, [get in touch](/contact-us/) with our team today.

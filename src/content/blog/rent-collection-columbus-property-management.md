@@ -70,9 +70,9 @@ Non-payment eviction is the last resort, not the first move. A property manager�
 
 The first alternative explored is a pay-and-stay arrangement. In situations where the tenant has a documented hardship and a viable payment plan, and where the history suggests they’re likely to perform on that plan, a formal agreement to pay arrears over a short window, combined with immediate resumption of regular rent, can be in everyone’s interest. This isn’t charity; it’s a calculation. An eviction costs time and money on both sides. If the tenant can cure the delinquency, avoiding an eviction filing often serves the owner better than pursuing one.
 
-When alternatives are exhausted or inapplicable, the eviction process in Ohio moves through approximately three formal steps and takes roughly six weeks from start to finish. The 3-day notice has already been served. If the tenant neither pays nor vacates, an eviction complaint is filed in the local municipal court, Franklin County, in most Columbus-area cases. The filing fee in Franklin County is $130. A hearing is scheduled, typically within a few weeks. If the court rules in favor of the landlord and the tenant still hasn’t vacated, a writ of restitution is issued and a bailiff oversees the physical removal.
+When alternatives are exhausted or inapplicable, the eviction process in Ohio moves through approximately three formal steps and takes roughly six weeks from start to finish. The 3-day notice has already been served. If the tenant neither pays nor vacates, an eviction complaint is filed in the local municipal court, Franklin County, in most Columbus-area cases. The filing fee in Franklin County is $123. A hearing is scheduled, typically within a few weeks. If the court rules in favor of the landlord and the tenant still hasn’t vacated, a writ of restitution is issued and a bailiff oversees the physical removal.
 
-The hard costs for owners working with RLPM: the $130 Franklin County filing fee, a $100 attorney fee for professional legal representation at the hearing, and a $199 RLPM management fee for handling the process, totaling approximately $429. RLPM makes reasonable efforts to recover those costs from the resident where possible.
+The hard costs for owners working with RLPM: the $123 Franklin County filing fee, a $150 attorney fee for professional legal representation at the hearing, and a $199 RLPM management fee for handling the process, totaling approximately $429. RLPM makes reasonable efforts to recover those costs from the resident where possible.
 
 One number worth keeping in mind: approximately 3.5% of RLPM-managed rentals escalate to eviction, litigation, or significant dispute. That figure reflects the benefit of rigorous tenant screening on the front end. Quality placement reduces the probability of arriving at this stage significantly.
 
@@ -114,7 +114,7 @@ The process from 3-day notice through a court ruling and writ of restitution typ
 
 **What does an eviction cost a property owner working with RLPM?**
 
-The total cost is approximately $429: $130 in Franklin County filing fees, $100 in attorney fees, and $199 in RLPM management fees for handling the process. RLPM pursues recovery of those costs from the resident where possible.
+The total cost is approximately $429: $123 in Franklin County filing fees, $100 in attorney fees, and $199 in RLPM management fees for handling the process. RLPM pursues recovery of those costs from the resident where possible.
 
 **What happens if a tenant proposes a payment plan instead of being evicted?**
 

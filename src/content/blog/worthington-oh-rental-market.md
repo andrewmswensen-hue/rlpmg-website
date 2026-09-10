@@ -69,7 +69,7 @@ Rental pricing in Worthington is relatively tight, with clear ceilings based on 
 | **Property Type** | **Typical Rent Range** | **Notes** |
 |---|---|---|
 | 1-Bed Apartment/Condo | $1,250 to $1,450 | Most inventory clusters near ~$1,300 to $1,400 |
-| 2-Bed Units / Doubles | $1,450 to $1,750 | Strong demand; sensitive to conditions |
+| 2-Bed Units / Doubles | $1,450 to $1,700+ | Strong demand; sensitive to conditions |
 | Single-Family Homes (3BR) | $1,900 to $2,400 | Median around ~$2,000+ depending on updates |
 | Larger / Premium Homes | $2,500+ | Limited renter pool; pricing discipline required |
 

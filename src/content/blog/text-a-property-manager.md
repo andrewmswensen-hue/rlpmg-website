@@ -17,7 +17,7 @@ categories:
 
 ## How Does “Text a Property Manager” Work?
 
-With over 13 years of experience in property management and a portfolio of more than 650 units in Columbus, Ohio, RL Property Management has become a trusted source for expert property management advice. We’re now sharing that expertise directly with you through our new texting service, designed to make professional guidance accessible and convenient. Simply text us at **614-810-4269**, and a member of our team will respond with tailored insights and recommendations.
+With over 13 years of experience in property management and a portfolio of more than 700 units in Columbus, Ohio, RL Property Management has become a trusted source for expert property management advice. We’re now sharing that expertise directly with you through our new texting service, designed to make professional guidance accessible and convenient. Simply text us at **614-810-4269**, and a member of our team will respond with tailored insights and recommendations.
 
 ## What Can You Ask?
 

@@ -45,4 +45,4 @@ Some of the above advantages may also be considered a disadvantage depending on 
 
 While multifamily properties do have similarities to single family rental units, there are challenges and expectations that come when scaling your management responsibilities.
 
-To learn more about what you can expect when adding multifamilies to your ownership or management portfolio, [get in touch](/contact-us/)with us at RL Property Management. We’re happy to share some of what we’ve learned as we’ve scaled our business to include management of more than 600 units in the greater Columbus area.
+To learn more about what you can expect when adding multifamilies to your ownership or management portfolio, [get in touch](/contact-us/)with us at RL Property Management. We’re happy to share some of what we’ve learned as we’ve scaled our business to include management of more than 700 units in the greater Columbus area.

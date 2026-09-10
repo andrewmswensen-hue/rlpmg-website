@@ -52,4 +52,4 @@ Because a multi-family property’s value hinges on its net operating income, it
 
 Lastly, it’s worth considering the ways in which a professional property management company can help you increase NOI and decrease operational expenses. Hiring experienced professionals who know the market and industry best practices is one of the easiest steps you can take to save money and time. Many, like ours at RL Property Management in Columbus, will also manage and run reports for you, which you can then draw upon as you make ownership decisions going forward.
 
-To learn more about owning rental property in Central Ohio, [get in touch](/contact-us/) with us at RL Property Management. Our team manages more than 600 units in the greater Franklin County area, and we have the expertise and professionalism to help you get the most out of your strategic investment.
+To learn more about owning rental property in Central Ohio, [get in touch](/contact-us/) with us at RL Property Management. Our team manages more than 700 units in the greater Franklin County area, and we have the expertise and professionalism to help you get the most out of your strategic investment.

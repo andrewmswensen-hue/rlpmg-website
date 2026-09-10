@@ -132,7 +132,7 @@ Before filing, a property manager typically pursues alternatives: payment plan a
 
 ### The Eviction Process
 
-When eviction is necessary, RL Property Management uses professional local attorneys to handle the court process. The standard Franklin County eviction runs approximately three steps and six weeks from filing to possession. Hard costs are specific: $130 in [Franklin County](https://www.fcmcclerk.com/) filing fees plus $100 in attorney fees, with a management fee of $199 for the process itself, bringing the total client cost to approximately $429. RL Property Management makes reasonable efforts to recover those costs from the resident through the collection process.
+When eviction is necessary, RL Property Management uses professional local attorneys to handle the court process. The standard Franklin County eviction runs approximately three steps and six weeks from filing to possession. Hard costs are specific: $123 in [Franklin County](https://www.fcmcclerk.com/) filing fees plus $100 in attorney fees, with a management fee of $199 for the process itself, bringing the total client cost to approximately $429. RL Property Management makes reasonable efforts to recover those costs from the resident through the collection process.
 
 ### Move-Out, Security Deposit, and Re-Leasing
 
