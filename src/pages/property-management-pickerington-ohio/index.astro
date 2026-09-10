@@ -224,8 +224,7 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-5">
         Settle it by parcel, not by postmark. Look the property up on the county auditor's parcel record, which
         shows the taxing district, and confirm the utility account before assuming who bills the water. We do
-        this at onboarding for every property, because getting it wrong once means a resident with no water on
-        move-in day.
+        this at onboarding, because getting it wrong once means a resident with no water on move-in day.
       </p>
     </div>
   </section>
@@ -243,11 +242,11 @@ const schemaNodes = [
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Here is the part that catches Fairfield County owners. The statute applies in every Ohio county, but the
-        duty it puts on a county auditor to notify owners about the requirement attaches to counties over 200,000
-        in population. Fairfield County recorded 158,921 residents in the 2020 decennial census, comfortably
-        below that. A Fairfield County owner is therefore less likely to be reminded, while the obligation and
-        the R.C. 5323.99 assessment of $50 to $150 are unchanged. A manager may file as the owner designated
-        agent, and we do that at onboarding. What we file and when is on the
+        duty it puts on an auditor to notify owners attaches to counties over 200,000 in population, and
+        Fairfield County recorded 158,921 residents in the 2020 decennial census. A Fairfield County owner is
+        therefore less likely to be reminded, while the obligation and the R.C. 5323.99 assessment of $50 to $150
+        are unchanged. A manager may file as the owner designated agent, and we do that at onboarding, as set out
+        on the
         {' '}<a href="/services/compliance/" class="text-crimson font-semibold no-underline hover:underline">compliance page</a>.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
@@ -299,11 +298,10 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        The billing cycle matters because it decides how fast an arrears becomes your problem. Pickerington bills
-        water and sewer monthly for the previous month's use, sends bills on the first and makes them due on the
-        fifteenth. Rent is due on {rentPolicy.dueDate} with late fees after {rentPolicy.lateFeesAfter}. A resident
-        sliding on one is usually sliding on the other, and the utility balance is the earlier signal. We check
-        balances at move-out, before the deposit is settled.
+        The billing cycle matters because it decides how fast an arrears becomes your problem. Pickerington
+        bills monthly for the previous month's use, sends bills on the first and makes them due on the fifteenth.
+        Rent is due on {rentPolicy.dueDate} with late fees after {rentPolicy.lateFeesAfter}. A resident sliding on
+        one is usually sliding on the other, and the utility balance is the earlier signal.
       </p>
       <p class="text-[16px] text-muted mt-5">
         [SOURCE NEEDED: confirm who supplies water and sewer to unincorporated Violet Township addresses that
@@ -383,7 +381,7 @@ const schemaNodes = [
 
   <Cta
     heading="Find out what your Pickerington rental should earn"
-    body="Tell us the address and we will price it against comparable listings live right now, confirm which county the parcel is in, and tell you exactly what filing that implies. No charge, and no obligation to hire us."
+    body="Tell us the address and we will price it against comparable listings, confirm which county the parcel is in, and tell you what filing that implies. No charge, and no obligation to hire us."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Talk to us about a portfolio', href: '/property-management-consultation/' }}
   />

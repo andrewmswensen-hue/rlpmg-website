@@ -177,10 +177,9 @@ const schemaNodes = [
         question by looking up a Columbus ordinance, you have looked in the wrong book.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The trap runs both ways, and the second half is the part almost nobody explains. Some things about your
-        Bexley rental are decided at city hall and some at the county, and the city being independent does not
-        change the county ones. Getting it backwards costs a filing fee, three weeks off a turn, or a violation
-        letter sent to the wrong department.
+        The trap runs both ways, and the second half is the part nobody explains. Some things are decided at
+        city hall and some at the county, and independence does not change the county ones. Getting it backwards
+        costs a filing fee, three weeks off a turn, or a letter answered to the wrong department.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -213,11 +212,10 @@ const schemaNodes = [
       <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Bexley?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Franklin County Municipal Court, at 375 S. High St., Columbus, OH 43215, where Eviction Court sits in
-        Courtroom 11B. Eviction jurisdiction in Ohio follows the county under R.C. 1901.02, so Bexley's
-        independence does not create a Bexley eviction court. Bexley Mayor's Court exists, and owners sometimes
-        assume it is the venue, but a mayor's court is a limited jurisdiction court run by a magistrate. It hears
-        minor misdemeanour and traffic matters arising inside the city. It does not hear a forcible entry and
-        detainer action, which is the legal name for an eviction, and it does not hear a claim for unpaid rent.
+        Courtroom 11B. Eviction jurisdiction follows the county under R.C. 1901.02, so Bexley's independence does
+        not create a Bexley eviction court. Owners sometimes assume Bexley Mayor's Court is the venue. It is a
+        limited jurisdiction court run by a magistrate, hearing minor misdemeanour and traffic matters arising
+        inside the city, and it hears neither a forcible entry and detainer action nor a claim for unpaid rent.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Before any of that, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, carrying
@@ -303,10 +301,9 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        The line that matters: Columbus states that the property owner is ultimately responsible for all charges,
-        even where a Tenant Billing Agreement puts the account in the resident's name. A resident who leaves owing
-        a water balance can leave it attached to your parcel. We check the balances at move-out, while there is
-        still a deposit to settle against.
+        The line that matters: Columbus states that the property owner is ultimately responsible for all
+        charges, even under a Tenant Billing Agreement, so an unpaid balance can end up attached to your parcel.
+        We check balances at move-out, while there is still a deposit to settle against.
       </p>
     </div>
   </section>
@@ -324,13 +321,12 @@ const schemaNodes = [
         {' '}[SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Bexley, Ohio.]
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Age changes the job. A house from the 1920s carries original service lines, plaster rather than drywall,
-        older sewer laterals, boilers in some cases, and roofs and windows on a replacement cycle rather than a
-        repair cycle. That is not a reason to avoid Bexley. It is a reason to price a reserve before you buy
-        rather than in February when a resident calls at 11pm about no heat. The
+        Age changes the job. A house from the 1920s carries original service lines, plaster, older sewer
+        laterals, and roofs and windows on a replacement cycle rather than a repair cycle. Price a reserve before
+        you buy rather than in February when a resident calls at 11pm about no heat. The
         {' '}<a href="/tools/maintenance-reserve-calculator/" class="text-crimson font-semibold no-underline hover:underline">maintenance reserve calculator</a>
-        {' '}does that arithmetic free. And because Bexley notices exterior condition, a deferred repair turns into
-        a letter faster here than elsewhere, which is why we
+        {' '}does that free. And because Bexley notices exterior condition, a deferred repair becomes a letter
+        faster here, which is why we
         {' '}<a href="/services/inspections/" class="text-crimson font-semibold no-underline hover:underline">inspect on a schedule</a>.
       </p>
     </div>
@@ -360,10 +356,10 @@ const schemaNodes = [
       <h3 class="text-[21px] mt-10 mb-3">What we will not tell you about Bexley rents</h3>
       <p class="text-[16.5px] text-muted">
         We publish our own portfolio medians only where at least five units support the figure, and Bexley does
-        not clear that bar, so there is no Bexley median here and we will not borrow a public index and present it
-        as our book. Portfolio-wide across the Columbus metro our median is {usd(rentByBedroom['2'].median)} for a
-        two bedroom and {usd(rentByBedroom['3'].median)} for a three bedroom. Those are metro-wide, and Bexley is
-        not an average slice of the metro. For a real number on a real address, ask for a rent evaluation.
+        not clear that bar, so there is no Bexley median here and we will not borrow a public index and call it
+        our book. Portfolio-wide across the metro our median is {usd(rentByBedroom['2'].median)} for a two
+        bedroom and {usd(rentByBedroom['3'].median)} for a three bedroom. Bexley is not an average slice of the
+        metro, so for a real address, ask for a rent evaluation.
       </p>
       <p class="text-[14px] text-faint mt-5">
         Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at $250
@@ -401,7 +397,7 @@ const schemaNodes = [
 
   <Cta
     heading="Find out what your Bexley rental should earn"
-    body="Tell us the address and we will price it against comparable listings live right now, and tell you plainly what the older housing stock is likely to cost you to hold. No charge, and no obligation to hire us."
+    body="Tell us the address and we will price it against comparable listings live right now. No charge, and no obligation to hire us."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Talk to us about a portfolio', href: '/property-management-consultation/' }}
   />

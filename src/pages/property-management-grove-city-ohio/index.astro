@@ -183,9 +183,8 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        That last row is the one owners miss. A subdivision built in one go ages in one go: every roof, water
-        heater and furnace reaches end of life in the same three-year window, and the vendors get busy exactly
-        when you need them. Plan for it with the
+        That last row is the one owners miss. A subdivision built in one go ages in one go, and the vendors get
+        busy exactly when you need them. Plan for it with the
         {' '}<a href="/tools/maintenance-reserve-calculator/" class="text-crimson font-semibold no-underline hover:underline">maintenance reserve calculator</a>,
         {' '}free whether or not you hire us.
       </p>
@@ -205,11 +204,10 @@ const schemaNodes = [
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Ohio requires a three-day notice to leave the premises under R.C. 1923.04 before the complaint can be
-        filed, carrying specific statutory language. Get the wording wrong and the case is dismissed. Our
-        published costs are {usd(pricing.eviction.countyFilingFee)} to Franklin County,
-        {' '}{usd(pricing.eviction.attorneyFee)} to the eviction attorney and
-        {' '}{usd(pricing.eviction.rlpmProcessFee)} to us, which is {usd(pricing.eviction.typicalTotal)} before
-        any setout. The sequence is on the
+        filed, with specific statutory language. Wrong wording, dismissed case. Our published costs are
+        {' '}{usd(pricing.eviction.countyFilingFee)} to Franklin County, {usd(pricing.eviction.attorneyFee)} to
+        the eviction attorney and {usd(pricing.eviction.rlpmProcessFee)} to us, which is
+        {' '}{usd(pricing.eviction.typicalTotal)} before any setout, set out on the
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
       </p>
       <h3 class="text-[21px] mt-9 mb-3">Do you have to register a Grove City rental property?</h3>
@@ -217,10 +215,10 @@ const schemaNodes = [
         Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires every owner of residential
         rental property to file their name, address and telephone number, plus the property street address and
         permanent parcel number, with the auditor of the county the property sits in, and to update within 60
-        days of any change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99;
-        the statutory range is $50 to $150 and the Franklin County Auditor states $150 per tax year. Owners
-        holding title through an LLC or a trust must name the responsible member, officer or trustee. A manager
-        may file as the owner designated agent, and we do.
+        days of any change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99
+        of $50 to $150, with the Franklin County Auditor stating $150 per tax year. Owners holding title through
+        an LLC or a trust must name the responsible member, officer or trustee. A manager may file as the owner
+        designated agent, and we do.
       </p>
       <p class="text-[16.5px] text-muted mt-5">
         [SOURCE NEEDED: confirm against the Grove City codified ordinances whether the City of Grove City
@@ -298,9 +296,9 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4">
         Across the units we manage in Grove City, the median rent is {usd(rent['3'].median)} for a three bedroom
         and {usd(rent['4'].median)} for a four bedroom. Those are our own portfolio medians, not a market index,
-        and we publish a market and bedroom median only where at least five of our units support it, which is why
-        there is no one or two bedroom figure here. Treat both as a starting point: the range inside Grove City is
-        wide enough that the address matters more than the city name.
+        and we publish one only where at least five of our units support it, which is why there is no one or two
+        bedroom figure here. The range inside Grove City is wide enough that the address matters more than the
+        city name.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (
@@ -364,7 +362,7 @@ const schemaNodes = [
 
   <Cta
     heading="Find out what your Grove City rental should earn"
-    body="Tell us the address and we will price it against the units we already manage in Grove City and the comparable listings live right now, and tell you which end of the market you are actually in. No charge, and no obligation to hire us."
+    body="Tell us the address and we will price it against the units we already manage in Grove City, and tell you which end of the market you are actually in. No charge, and no obligation to hire us."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Talk to us about a portfolio', href: '/property-management-consultation/' }}
   />
