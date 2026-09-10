@@ -15,7 +15,8 @@
     "build:preview": "astro build && node scripts/make-preview.mjs /rlpmg-website",
     "check:links": "node scripts/check-links.mjs",
     "check:meta": "node scripts/check-meta.mjs",
-    "check:duplication": "node scripts/check-duplication.mjs"
+    "check:duplication": "node scripts/check-duplication.mjs",
+    "check:numbers": "node scripts/check-numbers.mjs"
   },
   "dependencies": {
     "astro": "^5.13.0",
