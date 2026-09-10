@@ -144,12 +144,34 @@ export const pricing = {
     countyFilingFee: 123,
     countyFilingFeeAppliesTo: 'Franklin County',
     /**
-     * [SOURCE NEEDED: eviction complaint filing fees for Delaware, Fairfield,
-     * Licking, Union, Madison and Pickaway county municipal courts. Without
-     * these, every area page outside Franklin County has to leave the filing
-     * cost blank, which is the one number an owner in those markets most wants.]
+     * Filing fees at the other municipal courts in our footprint, pulled from
+     * each court's own published schedule on 2026-09-10. These change, so the
+     * `verified` date matters as much as the number.
+     *
+     * Delaware is still open: delawareohio.net refuses automated requests, and
+     * I am not going to work around a site's bot policy for a number somebody
+     * can get with a phone call. Call the clerk on (740) 203-1550.
      */
-    otherCountyFilingFees: null,
+    otherCountyFilingFees: [
+      { court: 'Licking County Municipal Court', city: 'Newark', fee: 110,
+        note: 'Forcible entry and detainer, including regular mail and bailiff service for up to two defendants. Writ of restitution is a further $50.',
+        verified: '2026-09-10', source: 'Court cost schedule effective 2025-01-10' },
+      { court: 'Fairfield County Municipal Court', city: 'Lancaster', fee: 140,
+        note: 'Eviction complaint filing fee.',
+        verified: '2026-09-10', source: 'Court eviction packet, rev. 2024-10-24' },
+      { court: 'Delaware Municipal Court', city: 'Delaware', fee: null,
+        note: '[SOURCE NEEDED: eviction filing deposit. The court website blocks automated access, so this one needs a call to the clerk.]',
+        verified: null, source: null },
+    ],
+    /**
+     * Not a Franklin County quirk. Both the Franklin and Fairfield county
+     * courts state it in identical language on their own filing instructions,
+     * because it follows from the Ohio rule that an entity cannot represent
+     * itself in court. It matters commercially: most investors hold in an LLC,
+     * so for them the eviction attorney is not an optional line item.
+     */
+    entityMustUseAttorney:
+      'Only the deeded property owner can file an eviction complaint without an attorney. A corporation, LLC or trust must be represented by an attorney at every stage, including the filing and the court appearance, and a power of attorney does not get around it.',
     hardCostTotal: 273,        // attorney + county, billed to the owner
     rlpmProcessFee: 199,       // paid to RLPM to run the process, up to 2 appearances
     tagAndSetoutFee: 80,       // paid to Franklin County, if required
