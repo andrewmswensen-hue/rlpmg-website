@@ -16,6 +16,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { company } from '../data/facts';
 import { graph, organizationNode, websiteNode, webPageNode, breadcrumbNode, faqNode } from '../lib/schema';
+import { metaDescription } from '../lib/blog';
 
 export interface Props {
   title: string;
@@ -39,6 +40,13 @@ const {
   datePublished, dateModified, markdownTwin = true, bodyClass = '',
 } = Astro.props;
 
+/**
+ * Safety net. Pages are written by many hands and a description that runs past
+ * roughly 160 characters simply gets truncated in the search result, wasting the
+ * tail. Trim here so no page can ship an over-long one, at a word boundary.
+ */
+const metaDesc = metaDescription(description);
+
 const path = Astro.url.pathname;
 const canonical = new URL(path, Astro.site ?? company.url).href;
 const ogAbs = new URL(ogImage, Astro.site ?? company.url).href;
@@ -47,7 +55,7 @@ const mdHref = path === '/' ? '/index.md' : `${path.replace(/\/$/, '')}.md`;
 const jsonld = graph(
   organizationNode(),
   websiteNode(),
-  webPageNode({ path, title, description, datePublished, dateModified, breadcrumbs }),
+  webPageNode({ path, title, description: metaDesc, datePublished, dateModified, breadcrumbs }),
   breadcrumbs.length ? breadcrumbNode(path, breadcrumbs) : null,
   faq.length ? faqNode(path, faq) : null,
   ...schemaNodes,
@@ -59,7 +67,7 @@ const jsonld = graph(
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={metaDesc} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     {!noindex && <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
@@ -79,13 +87,13 @@ const jsonld = graph(
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={company.name} />
     <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={metaDesc} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogAbs} />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={metaDesc} />
     <meta name="twitter:image" content={ogAbs} />
 
     <meta name="geo.region" content="US-OH" />

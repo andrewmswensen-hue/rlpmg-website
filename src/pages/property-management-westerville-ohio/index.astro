@@ -1,0 +1,374 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { rentByMarketAndBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Westerville, Ohio. Target query: "property management westerville ohio".
+ *
+ * The differentiating fact for Westerville is the municipal electric utility.
+ * Westerville does not sit on AEP Ohio. The city owns and runs its own Electric
+ * Division and bills electric, water, sewer and refuse on one municipal utility
+ * account. That changes every utility transfer, every vacancy, and every
+ * move-out reconciliation in this city, and no competitor page mentions it.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - Westerville Electric Division, municipally owned and operated, serving the
+ *    city's residents and more than 2,100 businesses, staffed 24 hours a day:
+ *    westerville.org/services/electric and business.westerville.org
+ *    /why-westerville/municipal-utilities/ ("the only municipally owned and
+ *    operated electric provider in Central Ohio"). The westerville.org host
+ *    refuses automated fetching, so these were read through search indexing of
+ *    the official pages rather than a direct fetch.
+ *  - Utility Billing handles meter reading, billing and collections for electric,
+ *    water, sewer and refuse across more than 16,000 accounts, office at
+ *    21 S. State Street, Westerville OH 43081:
+ *    westerville.org/services/utility-billing.
+ *  - City electric division established 1898, first water treatment plant 1901:
+ *    same source.
+ *  - American Municipal Power member community: amppartners.org/news
+ *    /member-spotlight/westerville-ohio/.
+ *  - Westerville lies in Franklin and Delaware counties:
+ *    en.wikipedia.org/wiki/Westerville,_Ohio. Population 39,190 at the 2020 census.
+ *  - Court jurisdiction follows the county under R.C. 1901.02. Franklin County
+ *    Municipal Court eviction division, 375 S. High St., 3rd floor, Columbus
+ *    43215. Delaware Municipal Court hears FED actions for Delaware County parcels.
+ *  - Owner filing with the county auditor: R.C. 5323.02, penalty R.C. 5323.99.
+ *  - Median year structure built 1982: US Census, ACS 2024 5-year estimates.
+ *  - Columbus lists Westerville under water and sewer contract communities for
+ *    various parts of the city: columbus.gov Water & Sewer Contract Communities.
+ *    The split between city-supplied and Columbus-supplied service is not
+ *    resolved and is marked SOURCE NEEDED rather than guessed.
+ *
+ * Rent figures are our own portfolio medians and qualify for Westerville at 3 and
+ * 4 bedrooms (sample of 5 or more). No door counts, no per-market days on market.
+ */
+
+const CITY = 'Westerville';
+const PATH = '/property-management-westerville-ohio/';
+const MEDIAN_YEAR_BUILT = 1982;
+
+const title = 'Property Management in Westerville, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Westerville, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Westerville runs its own municipal electric utility, which changes every utility transfer.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Westerville', path: PATH },
+];
+
+const rent = rentByMarketAndBedroom[CITY];
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Westerville unit turns`,
+  'Electricity comes from the City of Westerville, not from AEP Ohio',
+  'Electric, water, sewer and refuse arrive on one municipal utility account',
+  `Median rent across the units we manage in Westerville: ${usd(rent['3'].median)} for a 3 bedroom`,
+  `Median Westerville home was built in ${MEDIAN_YEAR_BUILT} (US Census, ACS 2024 5-year estimates)`,
+];
+
+const faq = [
+  { q: 'Who provides electricity in Westerville, Ohio?',
+    a: 'The City of Westerville does. Westerville owns and operates its own Electric Division, which the city describes as the only municipally owned and operated electric provider in central Ohio, and it has run its own electric system since 1898. Westerville rentals are not AEP Ohio accounts. Electric, water, sewer and refuse are billed together by the city Utility Billing office at 21 S. State Street.' },
+  { q: 'How does the Westerville municipal utility change a move-in or move-out?',
+    a: 'It collapses four utilities into one account and one office, which is simpler when it is handled and worse when it is not. A resident who transfers electric in Westerville also transfers water, sewer and refuse in the same step, so a single missed transfer leaves all four in the owner name. We confirm the transfer date against the lease start rather than taking a resident at their word, and we check the account again at move-out before a deposit is settled.' },
+  { q: 'Which court hears an eviction in Westerville, Ohio?',
+    a: 'For most Westerville addresses, Franklin County Municipal Court, at 375 S. High St., 3rd floor, Columbus, OH 43215. Westerville lies in two counties, mostly Franklin with a northern portion in Delaware County, and jurisdiction follows the county under Ohio Revised Code 1901.02. A parcel north of the county line is filed at Delaware Municipal Court instead. Filing in the wrong court costs you the fee and the calendar time.' },
+  { q: 'Do I have to register my Westerville rental property with anyone?',
+    a: 'Yes, with the county auditor, not with the city. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number and the parcel number with the auditor of the county the property sits in, and to update it within 60 days of any change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99, which the Franklin County Auditor states as $150 per tax year. A manager can file as the owner designated agent, and we do.' },
+  { q: 'What does a rental in Westerville, Ohio rent for?',
+    a: `Across the units we manage in Westerville, the median rent is ${usd(rent['3'].median)} for a 3 bedroom and ${usd(rent['4'].median)} for a 4 bedroom. Those are our own portfolio medians, not a market survey and not a public rent index. Westerville sits above our portfolio-wide median, which reflects the housing stock rather than anything we do differently there.` },
+  { q: 'What kind of rental property is there in Westerville?',
+    a: `Mostly detached single-family houses. The median Westerville home was built in ${MEDIAN_YEAR_BUILT} according to US Census ACS 2024 5-year estimates, which is the newest stock of the older inner-ring suburbs and roughly two decades newer than Upper Arlington or Worthington. A 1980s house is past its first furnace, its first air conditioner and usually its first roof, but it is under the 1978 line, so federal lead-based paint disclosure does not apply to most of it.` },
+  { q: 'How much does property management cost in Westerville?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Because the fee is a fixed dollar amount, a Westerville house renting at ${usd(rent['3'].median)} costs the same to manage as one renting at ${usd(1200)}. A manager charging 10% of collected rent would take about ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year on that same house.` },
+  { q: 'What does an eviction cost in Westerville?',
+    a: `The hard cost is ${usd(pricing.eviction.hardCostTotal)}, made up of a ${usd(pricing.eviction.countyFilingFee)} county filing fee and ${usd(pricing.eviction.attorneyFee)} to the eviction attorney for the filing and up to two appearances. We charge ${usd(pricing.eviction.rlpmProcessFee)} to run the process, so a typical total is ${usd(pricing.eviction.typicalTotal)} before any setout. A setout adds ${usd(pricing.eviction.tagAndSetoutFee)} to the county and ${usd(pricing.eviction.setoutFee)} to us. Roughly ${pricing.eviction.disputeRatePct}% of cases are contested.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Westerville, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Westerville, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Westerville, Ohio"
+    answer={`${company.name} manages single-family and small multifamily rentals in Westerville for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee. Westerville runs its own electric utility, which changes every utility transfer.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Westerville, at a glance" />
+
+  <!-- THE MUNICIPAL UTILITY. The single most useful thing on this page. -->
+  <section class="band-tight" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides electricity in Westerville, and why does it matter to an owner?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The City of Westerville does. Westerville owns and operates its own Electric Division, which the city
+        describes as the only municipally owned and operated electric provider in central Ohio, and it has been
+        in the electric business since 1898. That single fact separates Westerville from every other suburb in
+        this metro, and it is the thing a manager who works the whole region will get wrong on your property.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Everywhere else we work, a resident sets up electric with AEP Ohio, gas with Columbia Gas of Ohio, and
+        water with the city or with Columbus, in three separate calls to three separate companies. In Westerville
+        the city bills electric, water, sewer and refuse together on one municipal utility account, run out of the
+        Utility Billing office at 21 S. State Street. Westerville also opened its own water treatment plant in
+        1901 and remains a member community of American Municipal Power, the nonprofit joint-action agency that
+        supplies wholesale power to Ohio municipal systems.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Westerville, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who customarily pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Westerville, Electric Division</td>
+              <td class="p-3.5 border border-line text-muted">Resident, in their own name, on our standard lease</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water and sewer</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Westerville, billed with the electric account</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Refuse and recycling</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Westerville, billed with the electric account</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="text-[21px] mt-9 mb-3">What the one-account structure actually does to a turn</h3>
+      <p class="text-[16.5px] text-muted">
+        It cuts both ways, and the direction depends entirely on whether somebody is watching the account. When it
+        works, a resident makes one call and four utilities move on the same day. When it does not, one missed
+        transfer leaves electric, water, sewer and refuse all sitting in your name, and you find out three weeks
+        later on a bill you were not expecting. The same thing happens in reverse at move-out: a resident who
+        closes the account early leaves a vacant house without power in February, which is how a burst pipe
+        becomes a claim.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        So we do three specific things on a Westerville property. We confirm the account transfer date against the
+        lease start date rather than trusting a resident who says it is handled. We keep the account in the owner
+        name through the vacancy, deliberately, so heat and power stay on while the unit is being turned and shown.
+        And we check the account again at move-out before we settle a deposit, because in Ohio unpaid water and
+        sewer can follow the property rather than the person who ran up the balance.
+      </p>
+      <p class="text-[16px] text-muted mt-5">
+        [SOURCE NEEDED: confirm which parts of Westerville are served by the City of Westerville water system and
+        which parts fall under the City of Columbus water and sewer contract. The Columbus contract community list
+        names Westerville for various parts of the city, and the boundary is not published in a form we could
+        verify.]
+      </p>
+    </div>
+  </section>
+
+  <!-- COURT -->
+  <section class="band band-wash" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">If it goes wrong</span>
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Westerville, Ohio?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Franklin County Municipal Court, at 375 S. High St., 3rd floor, Columbus, OH 43215, for the large majority
+        of Westerville addresses. Westerville is one city in two counties, mostly Franklin with a northern portion
+        in Delaware County, and Ohio Revised Code 1901.02 ties jurisdiction to the county the parcel sits in. A
+        Delaware County parcel is filed at Delaware Municipal Court instead. Two houses a few streets apart can
+        answer to different courts.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Before any court sees the case, Ohio requires a three-day notice to leave the premises under R.C. 1923.04,
+        carrying specific statutory language, served by certified mail, handed to the resident, or left at the
+        property. Wrong wording gets the case dismissed and you start again three weeks later with another month
+        of lost rent behind you. This is the part self-managing owners most often get wrong, and it is the part
+        that costs the most.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The money is knowable in advance. The hard cost is {usd(pricing.eviction.hardCostTotal)}, being
+        {' '}{usd(pricing.eviction.countyFilingFee)} to the county and {usd(pricing.eviction.attorneyFee)} to the
+        eviction attorney for the filing and up to two appearances. We charge
+        {' '}{usd(pricing.eviction.rlpmProcessFee)} to run the process, so a typical case totals
+        {' '}{usd(pricing.eviction.typicalTotal)} before any setout. The full sequence, including what happens if
+        the resident contests, is on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band-tight" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Westerville rental property?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Yes, with the county auditor, and it is free. Ohio Revised Code 5323.02 requires every owner of residential
+        rental property to file their name, address and telephone number, plus the property street address and
+        permanent parcel number, with the auditor of the county the property sits in, within 60 days of acquiring
+        it and within 60 days of any change. Miss it and the auditor can place a special assessment on the
+        property under R.C. 5323.99. The Franklin County Auditor states $150 per tax year.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Owners who hold title through an LLC or a trust also have to name the responsible officer, member or
+        trustee. That is the line most often left blank, and a filing missing it is not a filing. The statute lets
+        an owner designate a property manager as the agent who files, and that is part of onboarding here.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        [SOURCE NEEDED: confirm against the Westerville codified ordinances whether the City of Westerville
+        operates a separate residential rental registration, rental licence or periodic rental inspection
+        programme, and at what fee. The R.C. 5323 county auditor filing applies either way.]
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Westerville?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Mostly detached single-family houses, and newer ones than you find closer in. The median Westerville home
+        was built in {MEDIAN_YEAR_BUILT}, according to US Census ACS 2024 5-year estimates, which puts the typical
+        house about two decades newer than Worthington and more than twenty years newer than Upper Arlington.
+        Uptown Westerville around State and Main holds the nineteenth-century core, Otterbein University anchors
+        the blocks around it, and the bulk of the rental stock sits in the subdivisions built out from the 1970s
+        through the 1990s.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        A {MEDIAN_YEAR_BUILT} house behaves in a specific way, and it is not the way a new build behaves. It is
+        past its first furnace and its first air conditioner, usually on its second roof, and on original kitchen
+        cabinets and original bathroom tile that still function but no longer photograph well. Water heaters are
+        on their third or fourth cycle. The good news is that a house of that age sits comfortably on the safe
+        side of the 1978 line, so the federal lead-based paint disclosure rules that govern most of Upper
+        Arlington and much of Worthington do not reach the typical Westerville rental.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        What that means for a budget: plan for mechanical replacement rather than cosmetic surprise. A furnace or
+        an air handler that is on its second unit will need a third one on your watch, and the difference between
+        an owner who planned for it and one who did not is whether the call comes as a scheduled replacement in
+        September or as an 11pm no-heat call in January. Our in-house maintenance rate is
+        {' '}{usd(pricing.maintenance.inHouseHourly)} per hour with a {usd(pricing.maintenance.tripCharge)} trip
+        charge and no minimum, and after-hours work is billed at
+        {' '}{pricing.afterHours.weekdayEveningAndSaturday} times the rate on weekday evenings and Saturdays and
+        {' '}{pricing.afterHours.sunday} times on Sundays. Which is a good argument for the September appointment.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">Where in Westerville we work</h3>
+      <p class="text-[16.5px] text-muted">
+        Uptown Westerville, the Otterbein University blocks, Highlands, Spring Grove, the Cleveland Avenue and
+        Sunbury Road corridors, Huber Village, Westar, and the newer sections north and east toward the Delaware
+        County line. Houses across the city feed the Westerville City School District. Hoover Reservoir sits on
+        the eastern edge, Alum Creek runs through the middle, and the Westerville Sports Complex and the Hoff
+        Woods and Highlands park system are the landmarks residents navigate by. Otterbein keeps a steady base of
+        staff and graduate demand that does not track the family rental cycle.
+      </p>
+    </div>
+  </section>
+
+  <!-- RENT AND PRICING -->
+  <section class="band-tight" aria-labelledby="rent-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Westerville rental earn, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Across the units we manage in Westerville, the median rent is {usd(rent['3'].median)} for a three bedroom
+        and {usd(rent['4'].median)} for a four bedroom. Those are our own portfolio medians from our own book, not
+        a market survey and not a public rent index republished as though we measured it. We publish them only
+        where we manage enough units in a city to make the number mean something.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        The three plans differ in one variable: how large a repair we can approve without calling you first. That
+        is the whole difference. Nothing else changes between them.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        A manager charging 10% of collected rent on a {usd(rent['3'].median)} Westerville house takes about
+        {' '}{usd(Math.round(rent['3'].median * 0.1) * 12)} a year, plus roughly
+        {' '}{usd(Math.round(rent['3'].median / 2))} again every time the unit turns. Our middle plan is
+        {' '}{usd(pricing.plans[1].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}. The gap
+        widens every time you raise the rent, because our number does not move when your rent does.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
+        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at
+        $250 to $450.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Westerville rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band-wash" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Westerville property management questions</h2>
+      <Faq items={faq} heading="Westerville property management questions" id="westerville-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-worthington-ohio/', label: 'Worthington property management', note: 'West across I-270, older stock and a design review district.' },
+    { href: '/property-management-upper-arlington-ohio/', label: 'Upper Arlington property management', note: 'Southwest, the oldest housing stock we manage.' },
+    { href: '/property-management-dublin-ohio/', label: 'Dublin property management', note: 'West, larger lots and a three-county eviction problem.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with every neighbourhood we work.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Westerville rental should earn"
+    body="Tell us the address and we will price it against the units we already manage in Westerville and the comparable listings live right now. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

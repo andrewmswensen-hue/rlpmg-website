@@ -3,21 +3,44 @@ import { render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import PostCard from '../../components/PostCard.astro';
 import Cta from '../../components/Cta.astro';
-import { allPosts, related, slugify, excerpt } from '../../lib/blog';
+import { allPosts, related, slugify, excerpt, metaDescription, pageTitle } from '../../lib/blog';
 import { company } from '../../data/facts';
 import { longDate, readingTime } from '../../lib/format';
 import { articleNode } from '../../lib/schema';
 
 export async function getStaticPaths() {
   const posts = await allPosts();
-  return posts.map((post) => ({ params: { slug: post.data.slug }, props: { post, posts } }));
+  /**
+   * Some posts in a recurring series share a templated WordPress excerpt, which
+   * would ship identical meta descriptions on several pages. Where a description
+   * is not unique, fall back to an excerpt of that post's own body, which is
+   * unique by construction.
+   */
+  const seen = new Map<string, number>();
+  for (const p of posts) {
+    const d = (p.data.description ?? '').trim();
+    if (d) seen.set(d, (seen.get(d) ?? 0) + 1);
+  }
+  const shared = new Set([...seen.entries()].filter(([, n]) => n > 1).map(([d]) => d));
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post, posts, descriptionIsShared: shared.has((post.data.description ?? '').trim()) },
+  }));
 }
 
-const { post, posts } = Astro.props;
+const { post, posts, descriptionIsShared } = Astro.props;
 const d = post.data;
 const { Content } = await render(post);
 const rel = related(post, posts, 4);
-const desc = (d.description?.trim() || excerpt(post.body ?? '')).slice(0, 300);
+/**
+ * A recurring series shares both its WordPress excerpt and its opening sentence,
+ * so a plain body excerpt is still not unique. For those, lead with the post's
+ * own title, which for a dated series carries the one thing that differs.
+ */
+const baseDesc = d.description?.trim() || excerpt(post.body ?? '');
+const desc = metaDescription(
+  descriptionIsShared ? `${d.title}. ${excerpt(post.body ?? '', 110)}` : baseDesc,
+);
 const mins = readingTime(post.body ?? '');
 const path = `/blog/${d.slug}/`;
 
@@ -37,7 +60,7 @@ const schemaNodes = [articleNode({
   keywords: [...d.categories, ...d.tags],
 })];
 ---
-<Base title={`${d.title} | ${company.name}`} description={desc} {breadcrumbs} {schemaNodes}
+<Base title={pageTitle(d.title, company.name)} description={desc} {breadcrumbs} {schemaNodes}
       datePublished={d.pubDate.toISOString()} dateModified={(d.updatedDate ?? d.pubDate).toISOString()}
       ogImage={d.heroImage}>
   <article>

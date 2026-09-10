@@ -2,7 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import PostCard from '../../../components/PostCard.astro';
 import Cta from '../../../components/Cta.astro';
-import { categoryIndex } from '../../../lib/blog';
+import { categoryIndex, metaDescription, pageTitle } from '../../../lib/blog';
 import { company } from '../../../data/facts';
 
 export async function getStaticPaths() {
@@ -16,10 +16,10 @@ export async function getStaticPaths() {
 const { name, posts, slug, all } = Astro.props;
 const others = all.filter(([s]) => s !== slug).sort((a, b) => b[1].posts.length - a[1].posts.length).slice(0, 10);
 
-const title = `${name} | ${company.name}`;
-const description =
+const title = pageTitle(`${name} in Columbus`, company.name);
+const description = metaDescription(
   `${posts.length} ${posts.length === 1 ? 'article' : 'articles'} on ${name.toLowerCase()} for rental property ` +
-  `owners in Columbus, Ohio, from a licensed brokerage managing ${company.unitsManaged} units.`;
+  `owners in Columbus, Ohio, from a licensed Ohio brokerage.`);
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Insights', path: '/blog/' },

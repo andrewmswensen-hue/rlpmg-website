@@ -1,0 +1,375 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { rentByMarketAndBedroom } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Reynoldsburg, Ohio. Target query: "property management reynoldsburg ohio".
+ * This URL already exists on the live site and already ranks, so the path is
+ * fixed and must not change.
+ *
+ * The differentiating fact for Reynoldsburg is that the city sits across three
+ * county lines: Franklin, Licking and Fairfield. Which municipal court hears an
+ * eviction, and which county auditor takes the Ohio R.C. 5323 owner filing, both
+ * depend on the parcel rather than on the mailing address. National competitor
+ * pages assume Franklin County for every Reynoldsburg address.
+ *
+ * SOURCES (verified 2026-09-09):
+ *  - Reynoldsburg spans Fairfield, Franklin and Licking counties:
+ *    en.wikipedia.org/wiki/Reynoldsburg,_Ohio.
+ *  - Court jurisdiction follows the county under R.C. 1901.02:
+ *    codes.ohio.gov/ohio-revised-code/section-1901.02. Franklin County Municipal
+ *    Court eviction division address and courtroom:
+ *    franklincountymunicourt.org/Courts/Eviction-Court.
+ *  - Owner filing with the county auditor: R.C. 5323.02, penalty R.C. 5323.99.
+ *    Franklin County Auditor states $150 per tax year.
+ *  - Three-day notice to leave the premises: R.C. 1923.04.
+ *  - Median year structure built 1984: US Census, ACS 2024 5-year estimates.
+ *    Recorded in docs/area-research-verified.md.
+ *  - AEP Ohio distributes electricity across central Ohio; Columbia Gas of Ohio
+ *    is the central Ohio gas distributor. Both per docs/area-research-verified.md.
+ *
+ * Rent figures are our own portfolio medians. Reynoldsburg qualifies at 2 and 3
+ * bedrooms (samples of 7 and 16). No door counts, no per-market days on market.
+ */
+
+const CITY = 'Reynoldsburg';
+const PATH = '/property-management-reynoldsburg-ohio/';
+
+const title = 'Property Management in Reynoldsburg, Ohio | RL Property Management';
+const description =
+  `Flat-fee property management for Reynoldsburg, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Reynoldsburg sits in three counties, so your address decides which court hears an eviction.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Reynoldsburg', path: PATH },
+];
+
+const rent = rentByMarketAndBedroom[CITY];
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Reynoldsburg unit turns`,
+  'Reynoldsburg lies in Franklin, Licking and Fairfield counties',
+  'Franklin County parcels: eviction filed at 375 S. High St., Columbus',
+  'Median year built in Reynoldsburg is 1984 (US Census, ACS 2024 5-year estimates)',
+  `Median rent across the units we manage in Reynoldsburg: ${usd(rent['3'].median)} for a 3 bedroom`,
+];
+
+const courts = [
+  {
+    county: 'Franklin County',
+    court: 'Franklin County Municipal Court',
+    where: '375 S. High St., Columbus, OH 43215. Eviction Court sits in Courtroom 11B.',
+    note: 'This covers the large majority of Reynoldsburg addresses, including Olde Reynoldsburg, the Brice Road corridor and most of the East Main Street frontage.',
+  },
+  {
+    county: 'Licking County',
+    court: 'Licking County Municipal Court',
+    where: 'Licking County. Hears forcible entry and detainer cases arising in the county.',
+    note: 'This covers the northeastern edge of the city, past the county line toward Summit Station Road and the Licking Heights school area.',
+  },
+  {
+    county: 'Fairfield County',
+    court: 'Fairfield County Municipal Court',
+    where: 'Fairfield County. Hears forcible entry and detainer cases arising in the county.',
+    note: 'This covers the small southern slice of Reynoldsburg below the Franklin County line.',
+  },
+];
+
+const faq = [
+  { q: 'What county is Reynoldsburg, Ohio in?',
+    a: 'Reynoldsburg sits in three counties. Most of the city is in Franklin County, with a northeastern portion in Licking County and a smaller southern portion in Fairfield County. The mailing address says Reynoldsburg either way, so the only reliable way to know is the permanent parcel number and the auditor record it belongs to.' },
+  { q: 'Which court hears an eviction in Reynoldsburg, Ohio?',
+    a: 'It depends on which county the parcel is in, because Ohio Revised Code 1901.02 fixes each municipal court to a territory. A Franklin County parcel is filed at Franklin County Municipal Court, 375 S. High St., Columbus, where Eviction Court sits in Courtroom 11B. A Licking County parcel goes to Licking County Municipal Court and a Fairfield County parcel goes to Fairfield County Municipal Court. File in the wrong court and you lose the filing fee and roughly three weeks of calendar.' },
+  { q: 'Do I have to register my Reynoldsburg rental property with anyone?',
+    a: 'Yes, with the county auditor, not with the city. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number along with the parcel number, and to update it within 60 days of any change. For Reynoldsburg that is the Franklin, Licking or Fairfield County auditor depending on the parcel. Failing to file draws a special assessment of $50 to $150 under R.C. 5323.99, and the Franklin County Auditor states $150 per tax year. A property manager can file as the owner designated agent, and we do.' },
+  { q: 'How old are the houses in Reynoldsburg?',
+    a: 'The median Reynoldsburg structure was built in 1984, per US Census ACS 2024 5-year estimates. That puts most of the rental stock somewhere between the end of its second and the end of its third mechanical life. Original furnaces and air conditioners from that era are gone, but first-replacement equipment installed in the 2000s is now aging out, and 1980s builder-grade polybutylene and galvanised supply lines still turn up.' },
+  { q: 'What does a rental in Reynoldsburg, Ohio rent for?',
+    a: `Across the units we manage in Reynoldsburg, the median rent is ${usd(rent['3'].median)} for a 3 bedroom and ${usd(rent['2'].median)} for a 2 bedroom. Those are our own portfolio medians from units we actually manage, not a market survey and not a public rent index.` },
+  { q: 'Does the City of Reynoldsburg require a rental licence or inspection?',
+    a: '[SOURCE NEEDED: confirm against the Reynoldsburg codified ordinances whether the City of Reynoldsburg operates a long-term residential rental registration, rental licence or periodic rental inspection programme, and the fee.] The Ohio county auditor filing under R.C. 5323 applies either way, and short-term rental rules are a separate question from long-term residential letting.' },
+  { q: 'How much does property management cost in Reynoldsburg?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. On a ${usd(rent['3'].median)} Reynoldsburg house, a manager charging 10% of collected rent takes about ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year, plus roughly ${usd(Math.round(rent['3'].median / 2))} again at every turn. Our lowest plan is ${usd(pricing.plans[0].monthly * 12)} a year and the placement is ${usd(pricing.leasingFee)}.` },
+  { q: 'What does an eviction cost in Reynoldsburg?',
+    a: `The hard cost is ${usd(pricing.eviction.hardCostTotal)}: ${usd(pricing.eviction.countyFilingFee)} to the county for the eviction complaint and ${usd(pricing.eviction.attorneyFee)} to the eviction attorney for the filing and up to two appearances. We charge ${usd(pricing.eviction.rlpmProcessFee)} to run the process, so a typical total is ${usd(pricing.eviction.typicalTotal)} before any setout. If a setout is required, add ${usd(pricing.eviction.tagAndSetoutFee)} to the county and ${usd(pricing.eviction.setoutFee)} to us. Court costs outside Franklin County can differ, so confirm the filing fee for a Licking or Fairfield County parcel before you budget.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Reynoldsburg, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Reynoldsburg, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Franklin County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Reynoldsburg, Ohio"
+    answer={`${company.name} manages single-family and small multifamily rentals in Reynoldsburg for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee. Reynoldsburg spans three counties, so your parcel decides the court.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Reynoldsburg, at a glance" />
+
+  <!-- THE THREE-COUNTY PROBLEM. The differentiating fact for this page. -->
+  <section class="band-tight" aria-labelledby="county-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="county-h" class="text-[clamp(26px,3.2vw,38px)]">What county is Reynoldsburg in, and which court hears an eviction?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Reynoldsburg is one city sitting in three counties. Most of it is in Franklin County, a northeastern
+        piece is in Licking County, and a southern piece is in Fairfield County. Every one of those addresses
+        says Reynoldsburg, Ohio on the envelope, which is exactly why owners get this wrong. Ohio Revised Code
+        1901.02 fixes each municipal court to a defined territory, so the county your parcel falls in decides
+        which court hears a forcible entry and detainer action, the legal name for an eviction. The same county
+        line decides which auditor takes your rental owner filing.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Eviction court by county for Reynoldsburg, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">If your parcel is in</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">You file at</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Where, and what it covers</th>
+            </tr>
+          </thead>
+          <tbody>
+            {courts.map((c) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top whitespace-nowrap">{c.county}</th>
+                <td class="p-3.5 border border-line align-top font-semibold text-navy">{c.court}</td>
+                <td class="p-3.5 border border-line align-top text-muted">{c.where} {c.note}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        [SOURCE NEEDED: filing addresses, civil jurisdiction limits and current eviction complaint filing fees
+        for Licking County Municipal Court and Fairfield County Municipal Court.] The Franklin County figures
+        are published on our
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+      <p class="text-[16px] text-muted mt-5">
+        Before any of those courts sees the case, Ohio requires a three-day notice to leave the premises under
+        R.C. 1923.04, carrying specific statutory language, served by certified mail, handed to the resident, or
+        left at the property. A notice with the wrong wording gets the case dismissed and you restart the clock.
+        The practical answer for a Reynoldsburg owner is simple: know your county before you have a problem, not
+        after. We pull the parcel number and the auditor record at onboarding and write the correct court into
+        the file, so nobody is looking it up at the point a resident has stopped paying.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band band-wash" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Compliance</span>
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Reynoldsburg rental property?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Yes, with the county auditor. Ohio Revised Code 5323.02 requires every owner of residential rental
+        property to file their name, address and telephone number, plus the property street address and permanent
+        parcel number, with the auditor of the county the property sits in. There is no fee. The filing is due
+        within 60 days of acquiring the property and any change has to be updated within 60 days. Miss it and the
+        auditor can place a special assessment on the property under R.C. 5323.99. The statutory range is $50 to
+        $150 and the Franklin County Auditor states $150 per tax year.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        In Reynoldsburg that means the Franklin, Licking or Fairfield County auditor, and it is not always the
+        one you assume. An owner who bought two houses a mile apart on the east side of the city can genuinely
+        owe two filings to two different auditors. The statute lets an owner designate a property manager as the
+        agent who files, and that is part of onboarding here. Owners who hold title through an LLC or a trust
+        have to name the responsible officer, member or trustee, which is the part that most often gets missed.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        [SOURCE NEEDED: confirm against the Reynoldsburg codified ordinances whether the City of Reynoldsburg
+        separately requires long-term residential rental registration, a rental licence or periodic rental
+        inspection, and at what fee.] Any city programme sits on top of the R.C. 5323 filing rather than
+        replacing it.
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band-tight" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in Reynoldsburg, and who pays them?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Electricity in Reynoldsburg is distributed by AEP Ohio and natural gas by Columbia Gas of Ohio, the two
+        utilities that serve central Ohio. Water and sewer is the one to check per address, because the city
+        boundary and the county boundary do not line up here.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Reynoldsburg, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Who customarily pays</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water and sewer</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">[SOURCE NEEDED: confirm the water and sanitary sewer provider for Reynoldsburg addresses, and whether the city is a City of Columbus contract community]</td>
+              <td class="p-3.5 border border-line text-muted">Resident, in their own name, on our standard lease</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio</td>
+              <td class="p-3.5 border border-line text-muted">Resident</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        Why this matters to an owner: where a suburb buys City of Columbus water under contract, Columbus states
+        that the property owner is ultimately responsible for all charges even when a tenant billing agreement is
+        in place. A resident who moves out owing a water balance can leave that balance pointed at your parcel.
+        We put utility accounts in the resident name at lease signing and check them again at move-out, before
+        the deposit is settled.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Reynoldsburg?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The median Reynoldsburg structure was built in 1984, per US Census ACS 2024 5-year estimates, which makes
+        it a genuinely different asset from a pre-war Upper Arlington house or a 2001 build in Canal Winchester.
+        Reynoldsburg is mostly post-1960 subdivision development: split levels, tri-levels, ranches and two-storey
+        colonials on modest lots, plus a smaller nineteenth-century core along East Main Street, the old National
+        Road, and a meaningful stock of two and three bedroom condominiums and small multifamily buildings.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        That age band has a specific maintenance profile, and it is the part owners underestimate. A 1984 house
+        is on its second furnace and second air conditioner, not its first, and the replacements installed in the
+        early 2000s are now the ones failing. Original wood windows and aluminium sliders have usually been swapped
+        once. Cast iron waste stacks, galvanised supply lines and polybutylene runs still show up. Fifty-year
+        maples planted with the subdivision are now over the roofline. None of that is a reason not to own here.
+        It is a reason to have a capital plan instead of a series of surprises, which is what a $6,000 furnace
+        failure in February becomes when there is no reserve behind it.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">Where in Reynoldsburg we work</h3>
+      <p class="text-[16.5px] text-muted">
+        Olde Reynoldsburg and the East Main Street corridor, the Brice Road corridor, Waggoner Road, Taylor Road,
+        Rosehill Road, Livingston Avenue, Graham Road, Summit Road, and the newer development on the Licking
+        County side toward Summit Station Road. Blacklick Woods Metro Park sits on the western edge on Livingston
+        Avenue, and the Ohio Department of Agriculture has its headquarters on East Main Street. Reynoldsburg
+        City Schools serves most of the city, but the district boundary does not follow the municipal boundary,
+        and parcels on the Licking County side can fall in a different district. [SOURCE NEEDED: confirm which
+        school districts serve the Licking County and Fairfield County portions of Reynoldsburg.] Get this wrong
+        in a listing and you will draw applications from families who withdraw once they check the district.
+      </p>
+    </div>
+  </section>
+
+  <!-- RENT AND PRICING -->
+  <section class="band-tight" aria-labelledby="rent-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Reynoldsburg rental earn, and what does management cost?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Across the units we manage in Reynoldsburg, the median rent is {usd(rent['3'].median)} for a three
+        bedroom and {usd(rent['2'].median)} for a two bedroom. Those are our own numbers from our own portfolio,
+        not a market survey, and we say so because plenty of local pages quote a public rent index as though it
+        came off their own rent roll.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        Here is the arithmetic on a {usd(rent['3'].median)} Reynoldsburg house. A manager charging 10% of
+        collected rent takes about {usd(Math.round(rent['3'].median * 0.1) * 12)} a year, and roughly
+        {' '}{usd(Math.round(rent['3'].median / 2))} again every time the unit turns, which on a market this size
+        is often every second or third year. Our lowest plan is {usd(pricing.plans[0].monthly * 12)} a year and
+        the placement is {usd(pricing.leasingFee)}. The gap is not the headline monthly number. It is the leasing
+        fee that lands in the same month your unit sat empty.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        Two other numbers matter on a market of this age. In-house maintenance labour is
+        {' '}{usd(pricing.maintenance.inHouseHourly)} per hour in {pricing.maintenance.rateYear} with a
+        {' '}{usd(pricing.maintenance.tripCharge)} trip charge and no minimum, and materials are provided at cost.
+        Where we coordinate an outside vendor on a project, the project management fee is
+        {' '}{pricing.maintenance.vendorProjectFeePct}% and it caps at {usd(pricing.maintenance.vendorProjectFeeCap)}.
+        On an eighties house those two lines will show up more often than the management fee does.
+      </p>
+      <p class="text-[14px] text-faint mt-4">
+        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
+        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at
+        $250 to $450.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Reynoldsburg rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band-wash" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Reynoldsburg property management questions</h2>
+      <Faq items={faq} heading="Reynoldsburg property management questions" id="reynoldsburg-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
+        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-09-09" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-blacklick-ohio/', label: 'Blacklick property management', note: 'Immediately north, and mostly unincorporated township.' },
+    { href: '/property-management-gahanna-ohio/', label: 'Gahanna property management', note: 'North, wholly inside Franklin County.' },
+    { href: '/property-management-canal-winchester/', label: 'Canal Winchester property management', note: 'South, newer stock and a Fairfield County edge.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor market, west along Livingston and Main.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Reynoldsburg rental should earn"
+    body="Tell us the address and we will price it against the units we already manage in Reynoldsburg and the comparable listings live right now. We will also tell you which county your parcel is in. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

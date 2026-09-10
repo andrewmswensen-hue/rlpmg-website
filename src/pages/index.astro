@@ -7,8 +7,8 @@ import { serviceNode } from '../lib/schema';
 
 const title = 'Columbus, Ohio Property Management | RL Property Management';
 const description =
-  `${company.name} manages ${company.unitsManaged} single-family and small multifamily rentals across the ` +
-  `Columbus, Ohio metro. Flat pricing from ${usd(pricing.plans[0].monthly)} per unit per month, and no leasing fee.`;
+  `Columbus property management with published pricing and no leasing fee. ${company.unitsManaged} units under ` +
+  `management, a ${usd(pricing.leasingFee)} leasing fee, and a performance scorecard we update quarterly.`;
 
 const heroStats = kpis.metrics.filter((m) => ['dom', 'collectedBy5', 'renewal', 'repairDays'].includes(m.id));
 

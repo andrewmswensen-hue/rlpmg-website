@@ -68,12 +68,10 @@ import { serviceNode } from '../../lib/schema';
 const CITY = 'Columbus';
 const PATH = '/property-management-columbus-ohio/';
 
-const title = 'Property Management in Columbus, Ohio | RL Property Management';
+const title = 'Columbus Neighborhoods We Manage Rentals In | RL Property Management';
 const description =
-  `${company.name} manages single-family and small multifamily rentals across Columbus, Ohio. ` +
-  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, ` +
-  `${usd(pricing.leasingFee)} leasing fee, plus what an owner needs to know about the Columbus rental registry, ` +
-  `Franklin County Municipal Court and who pays the water.`;
+  `Managing rentals inside Columbus city limits: which court hears an eviction, who bills the water, ` +
+  `the county auditor filing every owner owes, and what rent looks like by neighborhood.`;
 
 const breadcrumbs = [
   { name: 'Home', path: '/' },
@@ -152,12 +150,25 @@ const schemaNodes = [
     },
   },
 ];
+
+/**
+ * This is the AREA page for the city of Columbus, and the parent of the three
+ * neighbourhood pages. It is deliberately NOT the page targeting "property
+ * management columbus ohio"; that is /columbus-property-management/, the owner
+ * hub, which has the existing search equity.
+ *
+ * Two pages with the same title and the same opening paragraph compete with each
+ * other and split the signal, so this one is scoped to the local operating
+ * detail an owner inside city limits actually needs: court, utilities, the
+ * county auditor filing, and rent by neighbourhood. It links up to the hub for
+ * services and pricing rather than repeating them.
+ */
 ---
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
 
   <PageHero
     eyebrow="Franklin County"
-    title="Property management in Columbus, Ohio"
+    title="Managing rentals inside Columbus city limits"
     answer={`${company.name} manages single-family and small multifamily rentals across Columbus for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Columbus is Franklin County, so evictions are heard at Franklin County Municipal Court.`}
     breadcrumbs={breadcrumbs}
     secondaryCta={{ label: 'See pricing', href: '/pricing/' }}

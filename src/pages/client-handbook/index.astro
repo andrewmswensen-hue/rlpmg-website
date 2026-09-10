@@ -5,6 +5,7 @@ import Cta from '../../components/Cta.astro';
 import Verified from '../../components/Verified.astro';
 import { company } from '../../data/facts';
 import { longDate } from '../../lib/format';
+import { metaDescription, pageTitle } from '../../lib/blog';
 
 const entry = await getEntry('longform', 'client-handbook');
 if (!entry) throw new Error('missing longform entry: client-handbook');
@@ -13,7 +14,7 @@ const d = entry.data;
 const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Client handbook', path: '/client-handbook/' }];
 const toc = headings.filter((h) => h.depth === 2);
 ---
-<Base title={`${d.title} | ${company.name}`} description={d.description} {breadcrumbs}
+<Base title={pageTitle(d.title, company.name)} description={metaDescription(d.description)} {breadcrumbs}
       dateModified={d.updatedDate?.toISOString()}>
   <section class="pt-14 pb-8">
     <div class="wrap max-w-[820px]">

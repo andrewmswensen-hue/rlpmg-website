@@ -14,6 +14,32 @@ export async function allPosts(): Promise<Post[]> {
   return posts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 }
 
+/**
+ * Fit a meta description to what a search result actually displays.
+ * Cuts at a sentence end where one is close to the limit, otherwise at a word.
+ */
+export const metaDescription = (text: string, len = 155) => {
+  const t = (text || '').replace(/\s+/g, ' ').trim();
+  if (t.length <= len) return t;
+  const cut = t.slice(0, len);
+  const sentence = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('? '), cut.lastIndexOf('! '));
+  if (sentence > len * 0.6) return cut.slice(0, sentence + 1);
+  const word = cut.lastIndexOf(' ');
+  return cut.slice(0, word > 0 ? word : len).replace(/[,;:]$/, '') + '...';
+};
+
+/**
+ * Build a page title that fits.
+ *
+ * Append the brand only when the whole thing still fits inside the roughly 60
+ * characters Google shows. On a long article headline the brand is the least
+ * useful part, so it is the part that goes.
+ */
+export const pageTitle = (title: string, brand: string, max = 60) => {
+  const full = `${title} | ${brand}`;
+  return full.length <= max ? full : title;
+};
+
 /** Category slug to display name, built from what the posts actually carry. */
 export async function categoryIndex() {
   const posts = await allPosts();
@@ -41,8 +67,14 @@ export function related(post: Post, all: Post[], n = 4): Post[] {
   return [...sameCat, ...rest].slice(0, n);
 }
 
-/** Strip markdown so an excerpt reads cleanly. */
-export const excerpt = (body: string, len = 165) => {
+/**
+ * Strip markdown so an excerpt reads cleanly.
+ *
+ * Default length is 155 because Google truncates a description around 155 to 160
+ * characters, and anything past that is invisible in the result. Truncation is at
+ * a word boundary, never mid-word.
+ */
+export const excerpt = (body: string, len = 155) => {
   const t = body
     .replace(/^---[\s\S]*?---/, '')
     .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
