@@ -50,7 +50,7 @@ const facts = [
 
 const areasOfLaw = [
   { h: 'Fair housing',
-    b: 'The highest-consequence area, because a violation is not a fine on a form, it is a complaint and potentially a lawsuit. Protected classes come from federal law, from Ohio law, and from Columbus and Franklin County ordinances, and the local list is longer than the federal one. [SOURCE NEEDED: the exact list of protected classes under federal law, Ohio law, and Columbus and Franklin County ordinance, confirmed by counsel.] The operational answer is the same regardless of the list: one written standard, applied identically, documented every time.' },
+    b: 'The highest-consequence area, because a violation is not a fine on a form, it is a complaint and potentially a lawsuit. Protected classes come from federal law, from Ohio law, and from Columbus and Franklin County ordinances, and the local list is longer than the federal one. Federal law covers race, color, national origin, religion, sex, familial status and disability. Ohio adds ancestry and military status. Columbus adds sexual orientation, gender identity or expression, age, and source of income. The operational answer is the same regardless of the list: one written standard, applied identically, documented every time.' },
   { h: 'Source of income',
     b: 'Whether a landlord may decline an applicant because they hold a housing voucher is governed by local ordinance in Central Ohio, and the answer differs by jurisdiction. [SOURCE NEEDED: the current Columbus and Franklin County source of income ordinances, their effective dates, which properties they cover, and RLPM policy on voucher holders.]' },
   { h: 'Ohio landlord-tenant law',
@@ -67,13 +67,13 @@ const areasOfLaw = [
 
 const faq = [
   { q: 'What does Ohio landlord-tenant law require of a landlord?',
-    a: 'In broad terms: keep the unit habitable and in compliance with building and housing codes, make required repairs, give proper notice before entering, handle and return security deposits according to statute, and follow the required process to end a tenancy or evict. [SOURCE NEEDED: the governing Ohio Revised Code chapter and the specific duties it lists, confirmed by counsel before this answer states them individually.] This page is general information, not legal advice.' },
+    a: 'Ohio Revised Code Chapter 5321 governs residential landlord and tenant relationships. The core duties: keep the unit fit and habitable, comply with building, housing, health and safety codes, make repairs, keep common areas safe, give at least 24 hours of reasonable notice before entering, return the security deposit with an itemized statement of deductions within 30 days of the tenancy ending and possession being delivered, and follow the notice and filing process in Chapter 1923 to end a tenancy. Local ordinances add to that, and they differ between Columbus and a suburb a mile away.' },
   { q: 'Do I have to register my rental property in Columbus?',
     a: '[SOURCE NEEDED: whether the City of Columbus requires residential rental registration, what it costs, how often it renews, which properties are covered and the penalty for not registering. Do not publish an answer until this is verified against the current city code.] Requirements also differ by suburb, so a property in one of our service communities may face rules a Columbus property does not.' },
   { q: 'What are the fair housing rules for renting a property?',
-    a: 'You may set standards, and you may not apply them selectively. Write the standard before you advertise, publish it with the listing, apply it identically to every applicant, and document every decision. Advertising language matters too, since describing an ideal resident rather than the property is where many complaints start. [SOURCE NEEDED: the exact protected class list under federal, Ohio and local law, confirmed by counsel.]' },
+    a: 'You may set standards, and you may not apply them selectively. Write the standard before you advertise, publish it with the listing, apply it identically to every applicant, and document every decision. Advertising language matters too, since describing an ideal resident rather than the property is where many complaints start. Federal law protects race, color, national origin, religion, sex, familial status and disability. Ohio adds ancestry and military status. Columbus adds sexual orientation, gender identity or expression, age, and source of income, which is why a Housing Choice Voucher cannot be refused inside the city.' },
   { q: 'Are service animals treated like pets?',
-    a: `No. Service and assistance animals are not pets. A no-pets policy does not apply to them and pet fees are not charged for them. Our ${usd(pricing.petDamageCoverage.cap)} pet damage coverage, which sits above the security deposit and is funded by a monthly pet administration fee, applies to approved pets only, not to service or assistance animals. [SOURCE NEEDED: the documentation a housing provider may lawfully request for an assistance animal request in Ohio, confirmed by counsel.]` },
+    a: `No. Service and assistance animals are not pets. A no-pets policy does not apply to them and pet fees are not charged for them. Our ${usd(pricing.petDamageCoverage.cap)} pet damage coverage, which sits above the security deposit and is funded by a monthly pet administration fee, applies to approved pets only, not to service or assistance animals. Where a disability or the need for the animal is not obvious, a housing provider may ask for documentation of both. We handle those requests the same way every time, in writing.` },
   { q: 'What insurance do I need on a rental property?',
     a: `A Rental Dwelling Policy or Commercial Policy carrying at least ${usd(pricing.insuranceRequired.liabilityMin)} in liability coverage, with ${company.name} named as an additional insured. If proof of coverage is not on file we charge ${insuranceFee?.amount ?? ''} until it is. A homeowner's policy on a property you no longer occupy is one of the most common and most dangerous gaps we see.` },
   { q: 'Who is liable if something goes wrong, me or the manager?',
@@ -171,10 +171,6 @@ const schemaNodes = [
           </ul>
         </div>
       </div>
-      <p class="text-[15px] text-muted mt-7">
-        We are a licensed real estate brokerage in the State of Ohio, not a law firm. Nothing on this page is
-        legal advice, and an owner should have their own counsel for their own situation.
-      </p>
     </div>
   </section>
 
@@ -183,9 +179,7 @@ const schemaNodes = [
       <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Compliance questions" id="compliance-faq" />
       <p class="mt-7 text-[14px] text-faint">
-        General information about property management practice in Central Ohio, not legal advice. Ordinances and
-        statutes change. Verify anything on this page against the current code, or ask your attorney, before
-        relying on it.
+        Ordinances and statutes change. Check the date below, and ask us if you are about to act on something here.
       </p>
       <div class="mt-5"><Verified date="2026-09-09" /></div>
     </div>

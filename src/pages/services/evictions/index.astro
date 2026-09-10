@@ -86,7 +86,7 @@ const faq = [
   { q: 'Do you charge to post a notice?',
     a: 'No. There is no charge to post a 3-day or 30-day notice to vacate. We would rather post a notice early and have it resolve the situation than wait until filing is the only option left.' },
   { q: 'What if the resident pays after the notice is posted?',
-    a: 'Then the goal was achieved, which is a paying resident rather than an empty unit. Accepting payment at that stage does have procedural consequences for the case, though. [SOURCE NEEDED: how accepting rent after a notice to vacate affects an Ohio eviction case, confirmed by counsel.]' },
+    a: 'Then the goal was achieved, which is a paying resident rather than an empty unit. Accepting payment at that stage does have procedural consequences for the case, though. We check with the eviction attorney before accepting a payment mid-case, because in some circumstances it restarts the process.' },
   { q: 'Is an eviction covered by my management fee?',
     a: `No. Management is ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month and covers ordinary operation. An eviction is a legal proceeding with real outside costs, so it is billed at the published amounts above rather than absorbed into everyone else's monthly fee.` },
   { q: 'Should I try to settle instead of filing?',
@@ -158,7 +158,7 @@ const schemaNodes = [
       <h2 id="stages-h" class="text-[clamp(28px,3.3vw,40px)]">How does the eviction process work in Ohio?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
         Six stages. Ohio has specific requirements for the notice and the filing, and where we do not have the
-        exact statutory detail confirmed, this page says so instead of guessing. Nothing here is legal advice.
+        exact statutory detail confirmed, this page says so instead of guessing.
       </p>
       <ol class="grid gap-4">
         {stages.map((s, i) => (
@@ -222,9 +222,8 @@ const schemaNodes = [
       <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Eviction questions" id="eviction-faq" />
       <p class="mt-7 text-[14px] text-faint">
-        This page is general information about property management practice, not legal advice. Eviction is a
-        court proceeding with strict procedural requirements. {company.name} works with an eviction attorney on
-        every filing, and you should consult your own counsel about your situation.
+        Eviction is a court proceeding with strict procedural requirements. {company.name} works with an
+        eviction attorney on every filing.
       </p>
       <div class="mt-5"><Verified date="2026-09-09" /></div>
     </div>

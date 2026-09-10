@@ -112,7 +112,7 @@ On the other hand, being **too strict** can send the wrong message. Tenants who 
 
 **“When tenants know the rules won’t bend, they stop testing the limits.”**
 
-### a typical percentage-based manager Trends
+### Columbus Property Management Trends
 
 In the **Columbus rental market**, professional managers are increasingly standardizing **3-day grace periods**. This timeframe allows for weekends or minor banking delays while reinforcing that rent is due on time, every time.
 

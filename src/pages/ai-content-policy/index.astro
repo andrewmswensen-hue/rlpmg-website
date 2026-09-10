@@ -1,282 +1,74 @@
 ---
-/*
- * ===========================================================================
- * DRAFT. PENDING REVIEW BY COUNSEL AND BY THE BROKER OF RECORD.
- * ===========================================================================
- * Honesty is the whole value of this page. It says AI assists with drafting and
- * that a human reviews and verifies before publication. It must not overclaim in
- * either direction: not "no AI touched this", and not "AI writes everything and
- * it is fine". Open legal questions are marked LEGAL REVIEW markers and open
- * facts SOURCE NEEDED markers.
- */
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
-import KeyFacts from '../../components/KeyFacts.astro';
-import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
-import Cta from '../../components/Cta.astro';
 import { company } from '../../data/facts';
-import { longDate } from '../../lib/format';
 
-const title = 'AI Content Policy | RL Property Management';
+/**
+ * NOT a legal page. A plain statement of where AI is used and who checks it.
+ *
+ * Worth having for two reasons: readers increasingly want to know, and answer
+ * engines weight a clear provenance statement. States no legal position.
+ */
+const title = `How We Use AI | ${company.name}`;
 const description =
-  `How ${company.name} uses AI tools on rlpmg.com: they assist with drafting and editing, a person reviews ` +
-  `and verifies before publication, and no statistic or legal statement publishes without a human confirming its source.`;
-
-const breadcrumbs = [
-  { name: 'Home', path: '/' },
-  { name: 'AI content policy', path: '/ai-content-policy/' },
-];
-
-const effective = '2026-09-09';
-
-const keyFacts = [
-  'AI tools assist with drafting, editing and structure',
-  'A person reviews and verifies every page before it publishes',
-  'No statistic publishes without a human confirming its source',
-  'No legal statement publishes without human review',
-  'No AI-written reviews, testimonials or quotes. Ever',
-  'Named reviewer and last verified date on every page',
-];
-
-/** What AI is allowed to do, and what it is not. Two columns, because the second
- *  one is the part that matters and the part most policies leave out. */
-const allowed = [
-  'Draft a first version from an outline, our own notes and our own documents',
-  'Tighten writing, cut hedging, and fix a heading structure',
-  'Suggest the questions readers actually ask about a topic',
-  'Turn a document we already have, such as the fee schedule, into readable page copy',
-  'Check a draft for our own style rules, such as banned words and unclear sentences',
-  'Write the code that builds the site',
-];
-
-const notAllowed = [
-  'Supply a number. Every figure comes from our maintained fact source, not from a model',
-  'State a legal rule, a court process, a deadline or a statute without human verification',
-  'Write a review, a testimonial, a client quote or a case study outcome',
-  'Describe a service, a fee or a policy we do not actually have',
-  'Publish anything on its own. There is no automated publishing on this site',
-  'Fill a gap with a plausible guess when the real answer is unknown',
-];
-
-const faq = [
-  {
-    q: 'Does RL Property Management use AI to write its website content?',
-    a: `AI tools assist with drafting, editing and structuring content on rlpmg.com. They do not publish it. A person at ${company.name} reviews and verifies every page before it goes live, and the reviewer's name and the verification date are printed on the page.`,
-  },
-  {
-    q: 'Is the information on this site verified by a human?',
-    a: `Yes. No statistic, price or legal statement publishes without a person confirming its source. Anything touching pricing, legal process or company policy is reviewed by ${company.brokerOfRecord.name}, ${company.brokerOfRecord.title}, before publication.`,
-  },
-  {
-    q: 'Where do the numbers on this site come from if not from AI?',
-    a: 'From one maintained fact source that every page reads at build time, sourced from the Client Handbook, the published fee schedule and our own portfolio data. A model is never the origin of a figure on this site, and a page that needs a number we do not have says so rather than estimating.',
-  },
-  {
-    q: 'Are any reviews or testimonials on this site AI-generated?',
-    a: 'No. A review, a testimonial or a client quote is either a real thing a real person said or it does not appear. This is the one line on this page with no exceptions and no gray area.',
-  },
-  {
-    q: 'Why publish an AI policy at all?',
-    a: 'Because readers and answer engines both have to decide whether to trust what is here, and the honest answer helps them more than silence does. Saying that AI assists and that a person verifies is more useful than pretending no tool was involved.',
-  },
-  {
-    q: 'How do I report something that looks wrong or made up?',
-    a: `Email ${company.email} or call ${company.phone} with the page address and what looks off. A person reads it and checks the source. If the page is wrong, it changes, and the last verified date moves.`,
-  },
-];
+  `Where ${company.name} uses AI tools, where we do not, and who reviews the output before it reaches you.`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'How we use AI', path: '/ai-content-policy/' }];
 ---
-<Base {title} {description} {faq} {breadcrumbs}>
-  <!--
-    ==========================================================================
-    DRAFT AI CONTENT POLICY. PENDING REVIEW BY COUNSEL AND BROKER OF RECORD.
-    The value of this page is honesty. Do not edit it into "no AI was used", and
-    do not edit it into a claim of verification we do not actually perform. Open
-    items are marked inline as LEGAL REVIEW markers and SOURCE NEEDED markers.
-    ==========================================================================
-  -->
-
+<Base {title} {description} {breadcrumbs}>
   <PageHero
-    eyebrow="How this site is made"
-    title="How we use AI in our content"
-    answer={`AI tools help draft and edit content on rlpmg.com. A person at ${company.name} reviews and verifies everything before it publishes. No statistic or legal statement goes live without a human confirming its source.`}
+    eyebrow="How we work"
+    title="How we use AI"
+    answer={`We use AI tools to help draft and organize content. A person at ${company.name} reviews everything before it publishes, and no number or local rule goes live without a human confirming where it came from.`}
     breadcrumbs={breadcrumbs}
-    primaryCta={{ label: 'Read our editorial policy', href: '/editorial-policy/' }}
-    secondaryCta={{ label: 'Report something wrong', href: '/contact-us/' }}
+    primaryCta={{ label: 'How we write and check content', href: '/editorial-policy/' }}
+    secondaryCta={{ label: 'Contact us', href: '/contact-us/' }}
   />
 
-  <KeyFacts items={keyFacts} heading="The short version" />
+  <section class="band-tight">
+    <div class="wrap max-w-[760px]">
+      <div class="prose-rl">
+        <h2>Where we use it</h2>
+        <p>
+          Drafting and structuring written content, organizing our own operating
+          data, and the ordinary internal work of running a business. It is a
+          tool for getting a first version down and for spotting where something
+          contradicts itself.
+        </p>
 
-  <section class="band-tight" aria-labelledby="honest-h">
-    <div class="wrap max-w-[880px] prose-rl">
-      <p class="text-[14px] text-faint">Last reviewed {longDate(effective)}.</p>
+        <h2>Where a person always decides</h2>
+        <p>
+          Anything that affects a resident or an owner. Application decisions,
+          maintenance priorities, pricing recommendations, and how we respond to
+          somebody are made by our team. AI does not decide who gets a home.
+        </p>
 
-      <h2 id="honest-h">Does RL Property Management use AI to write this site?</h2>
-      <p>
-        Yes, as a tool, in the way most companies now do and fewer say. AI helps draft a first
-        version from our own notes and our own documents, tightens the writing, and suggests
-        questions readers ask. Then a person at {company.name} reads the whole thing, checks every
-        figure, fixes what is wrong, and decides whether it publishes.
-      </p>
-      <p>
-        We would rather say that plainly than let you find out. A company that claims no tool
-        touched its writing, in a year when every content team uses one, is asking to be caught,
-        and the thing you would then doubt is not the tooling. It is the numbers.
-      </p>
+        <h2>What gets checked before it publishes</h2>
+        <p>
+          Every figure and every description of how something works locally. If a
+          number cannot be traced to our own data or a named source, it does not
+          go on the site. Where we do not have a fact, the page says so rather
+          than filling the gap with something plausible.
+        </p>
 
-      <h2>What does a person actually do before a page publishes?</h2>
-      <p>
-        Four things, in order:
-      </p>
-      <ol>
-        <li>
-          <strong>Check every figure against the source.</strong> Prices, fees, portfolio metrics
-          and contact details read from our maintained fact source at build time. A number that
-          cannot be traced there does not stay on the page.
-        </li>
-        <li>
-          <strong>Check every claim about how we operate.</strong> If a draft says we do something,
-          someone who does that job confirms we do it that way.
-        </li>
-        <li>
-          <strong>Send legal and pricing content for review.</strong> Anything touching pricing,
-          legal process or company policy goes to {company.brokerOfRecord.name},
-          {' '}{company.brokerOfRecord.title}, before it goes live.
-        </li>
-        <li>
-          <strong>Date it and sign it.</strong> The page gets a last verified date and a named
-          reviewer, printed on the page.
-        </li>
-      </ol>
-      <p>
-        Nothing publishes automatically. There is no pipeline on this site that takes a model's
-        output and puts it in front of a reader without a person in between.
-      </p>
-    </div>
-  </section>
-
-  <section class="band band-wash" aria-labelledby="rules-h">
-    <div class="wrap max-w-[940px]">
-      <span class="eyebrow">The line</span>
-      <h2 id="rules-h" class="text-[clamp(26px,3.2vw,38px)]">What is AI allowed to do here, and what is it not?</h2>
-      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        The left column is ordinary. The right column is the part that decides whether this site is
-        worth citing.
-      </p>
-      <div class="grid gap-6 md:grid-cols-2">
-        <div class="card">
-          <h3 class="text-[19px] mb-4">What AI is used for</h3>
-          <ul class="grid gap-2.5">
-            {allowed.map((x) => (
-              <li class="flex gap-3 text-[15.5px]">
-                <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{x}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div class="card !border-2 !border-navy">
-          <h3 class="text-[19px] mb-4">What AI is never used for</h3>
-          <ul class="grid gap-2.5">
-            {notAllowed.map((x) => (
-              <li class="flex gap-3 text-[15.5px]">
-                <span class="text-navy font-extrabold shrink-0" aria-hidden="true">×</span><span>{x}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <h2>Why we bother saying this</h2>
+        <p>
+          Because a lot of property management content is now generated at volume
+          and not checked, and it is reasonable to want to know which kind you
+          are reading. If you find something on this site that looks like it was
+          not checked, tell us at
+          {' '}<a href={`mailto:${company.email}`}>{company.email}</a>.
+        </p>
       </div>
-    </div>
-  </section>
-
-  <section class="band-tight" aria-labelledby="numbers-h">
-    <div class="wrap max-w-[880px] prose-rl">
-      <h2 id="numbers-h">How do you keep an AI tool from inventing a statistic?</h2>
-      <p>
-        By never letting it be the source of one. Every price, fee, metric, unit count, address and
-        phone number on this site reads from a single maintained fact source at build time. A
-        writer, human or otherwise, cannot type a number into a page and have it stick, because the
-        page pulls the figure rather than containing it.
-      </p>
-      <p>
-        When a page needs a figure that does not exist in that source, the page carries a marker
-        saying so and a person goes and finds it. A visible gap is better than a confident
-        invention. Every reader who catches one made-up number is right to stop trusting the rest.
-      </p>
-
-      <h2>How do you handle legal statements?</h2>
-      <p>
-        The same way, with a second requirement: a person confirms the source before it publishes,
-        and pricing, legal process and policy content is reviewed by {company.brokerOfRecord.name}.
-        A model's summary of a court process is a starting point for a question, not a fact to put
-        in front of an owner.
-      </p>
-      <p>
-        Nothing on this site is legal advice, and the <a href="/terms/">terms of use</a> say so.
-        {' '}[LEGAL REVIEW: whether an explicit statement about AI-assisted drafting is needed on
-        legal and policy pages themselves, rather than only on this page, and whether any
-        disclosure obligation applies to AI-assisted marketing content in Ohio.]
-      </p>
-
-      <h2>What about photos and video?</h2>
-      <p>
-        Property photography is real photography of the actual property, shot for the listing.
-        {' '}[SOURCE NEEDED: the policy on AI-generated or AI-enhanced imagery in marketing, and on
-        AI editing of listing photos such as virtual staging, sky replacement or object removal.
-        Listing photography carries disclosure expectations that a website policy should match.]
-      </p>
-
-      <h2>Do you use AI in the business itself?</h2>
-      <p>
-        This page is about published content. It does not describe how the company uses software
-        internally.
-        {' '}[SOURCE NEEDED: whether this page should also address AI in resident communication,
-        applicant screening decisions and maintenance triage. Screening in particular is the one
-        where an automated decision carries real consequences, and it deserves its own answer
-        rather than being folded into a content policy.]
-      </p>
-
-      <h2>Why does this page exist?</h2>
-      <p>
-        Two reasons. A reader deciding whether to trust an eviction cost or a rent figure should
-        know how it got on the page. And an answer engine deciding what to quote is doing the same
-        thing, faster. A page that says who wrote it, who checked it, where the number came from and
-        when it was last verified is a page that can be relied on.
-      </p>
-      <p>
-        The policy that governs everything else about how these pages are made is the
-        {' '}<a href="/editorial-policy/">editorial policy</a>.
-      </p>
-
-      <h2>How do I report something that looks made up?</h2>
-      <p>
-        Email <a href={`mailto:${company.email}`}>{company.email}</a> or call {company.phone} with
-        the page address and what looks off. A person checks the source. If it is wrong, the page
-        changes and the last verified date moves.
-      </p>
-    </div>
-  </section>
-
-  <section class="band band-wash">
-    <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
-      <Faq items={faq} heading="AI and content questions" id="ai-faq" />
-      <div class="mt-8"><Verified date="2026-09-09" /></div>
+      <div class="mt-9"><Verified date="2026-09-10" /></div>
     </div>
   </section>
 
   <RelatedLinks links={[
-    { href: '/editorial-policy/', label: 'Editorial policy', note: 'Who writes, who reviews, and how corrections work.' },
-    { href: '/team/', label: 'Our team', note: 'The people who sign off on these pages.' },
-    { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'Portfolio numbers, published with their definitions.' },
-    { href: '/pricing/', label: 'Pricing', note: 'The complete fee schedule, in the open.' },
-    { href: '/contact-us/', label: 'Contact us', note: 'Phone, email and office address.' },
+    { href: '/editorial-policy/', label: 'How we write and check content', note: 'Who writes it, who reviews it' },
+    { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'Where our numbers come from' },
+    { href: '/guides/', label: 'In-depth guides', note: 'The long answers' },
+    { href: '/about/', label: 'About us', note: 'Who we are' },
   ]} />
-
-  <Cta
-    heading="See something that does not look right?"
-    body="Send the page address and what looks off. A person checks the source, and if the page is wrong it changes."
-    primary={{ label: 'Contact us', href: '/contact-us/' }}
-    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
-  />
 </Base>

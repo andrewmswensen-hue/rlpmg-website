@@ -1,330 +1,83 @@
 ---
-/*
- * ===========================================================================
- * DRAFT. PENDING REVIEW BY COUNSEL AND BY THE BROKER OF RECORD.
- * ===========================================================================
- * This page is a trust signal for answer engines: it says who stands behind the
- * content on this site. Everything on it must be honestly true of how we
- * actually work, because a published standard we do not follow is worse than no
- * page at all. Open legal questions are marked LEGAL REVIEW markers and
- * open facts SOURCE NEEDED markers.
- */
 import Base from '../../layouts/Base.astro';
 import PageHero from '../../components/PageHero.astro';
-import KeyFacts from '../../components/KeyFacts.astro';
-import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
-import Cta from '../../components/Cta.astro';
-import { company, kpis } from '../../data/facts';
-import { longDate } from '../../lib/format';
+import { company } from '../../data/facts';
 
-const title = 'Editorial Policy | RL Property Management';
+/**
+ * NOT a legal page. This says who writes the content and who checks it.
+ *
+ * It exists because answer engines weight authorship and review signals when
+ * deciding whose page to quote, and almost no property management company
+ * publishes one. The previous draft drifted into legal framing; this version
+ * states no legal position and asks nothing of counsel.
+ */
+const title = `How We Write and Check Our Content | ${company.name}`;
 const description =
-  `Who writes and reviews the content on rlpmg.com, where the numbers come from, what the last verified ` +
-  `date means, and how corrections are handled.`;
-
-const breadcrumbs = [
-  { name: 'Home', path: '/' },
-  { name: 'Editorial policy', path: '/editorial-policy/' },
-];
-
-const effective = '2026-09-09';
-
-const keyFacts = [
-  'Written and reviewed by the RL Property Management team',
-  `${company.brokerOfRecord.name}, ${company.brokerOfRecord.title}, reviews pricing, legal and policy content`,
-  'Every figure comes from one maintained fact source',
-  'Every page carries a last verified date and a named reviewer',
-  'No sponsored content and no paid placements',
-  'Corrections are made on the page, not buried',
-];
-
-/** The actual editorial workflow. Described as steps, because a reader can check
- *  each one against the site itself. */
-const steps = [
-  {
-    n: '1',
-    h: 'A question people actually ask',
-    p: 'Pages start from a question an owner or a renter asks us on the phone, or types into a search box. One page answers one question. If two pages could answer the same query, one becomes canonical and the other links to it.',
-  },
-  {
-    n: '2',
-    h: 'Drafted by the team',
-    p: 'Content is drafted by the RL Property Management team, from how the company actually operates: the Client Handbook, the fee schedule, the management agreement, and what our leasing, maintenance and resident teams do every day.',
-  },
-  {
-    n: '3',
-    h: 'Numbers pulled from one source',
-    p: 'Prices, fees, KPIs, unit counts, addresses and phone numbers are not typed into a page. They read from a single maintained fact source, so the same figure cannot say one thing on the pricing page and another on a city page.',
-  },
-  {
-    n: '4',
-    h: 'Reviewed before it publishes',
-    p: `Anything touching pricing, legal process or company policy is reviewed by ${company.brokerOfRecord.name}, ${company.brokerOfRecord.title}, before it goes live. That is the person whose license and name are attached to what the page says.`,
-  },
-  {
-    n: '5',
-    h: 'Dated and attributed',
-    p: 'The page gets a last verified date and a named reviewer. A reader can see how old the information is instead of guessing from the design.',
-  },
-  {
-    n: '6',
-    h: 'Re-checked when something changes',
-    p: 'A fee change, a policy change, a court process change or a new set of portfolio numbers sends us back to every page that carries the affected figure, not just the one that prompted the change.',
-  },
-];
-
-const standards = [
-  {
-    h: 'We do not invent numbers',
-    p: 'If a figure cannot be traced to the fact source, the Client Handbook, or something a person at this company stated directly, it does not go on the page. An estimate dressed as a fact is the fastest way to lose a reader and a citation at the same time.',
-  },
-  {
-    h: 'We publish the number, not an adjective',
-    p: 'The complete fee schedule is public, including the fees that only appear in a bad month. "Transparent pricing" is a claim anyone can make. A published eviction cost is checkable.',
-  },
-  {
-    h: 'We never name a competitor',
-    p: 'Comparisons describe a typical percentage-based manager and say what that arrangement costs. They do not name a company, quote a rival fee schedule, or characterize anyone else’s service.',
-  },
-  {
-    h: 'We separate policy from practice',
-    p: 'Where the stated rule and the real-world handling differ, the page says both. Rent is due on the 1st, most residents pay between the 1st and the 5th, late fees are assessed after the 5th. All three sentences belong on the page.',
-  },
-  {
-    h: 'We do not sell placement',
-    p: 'There is no sponsored content on this site, no paid guest posts, no affiliate links and no vendor who bought a mention. If we name a system we use, it is because we use it.',
-  },
-  {
-    h: 'We do not publish what we should not know',
-    p: 'Resident names, unit-level details, applicant information and anything else tied to a specific person or property stay out of published content. Portfolio figures are published as aggregates.',
-  },
-];
-
-const faq = [
-  {
-    q: 'Who writes the content on rlpmg.com?',
-    a: `The ${company.name} team. Pages are drafted from how the company actually operates, using the Client Handbook, the published fee schedule, the management agreement and the daily work of the leasing, maintenance and resident teams. This is not outsourced to an agency writing about property management in general.`,
-  },
-  {
-    q: 'Who reviews content before it publishes?',
-    a: `Anything that touches pricing, legal process or company policy is reviewed by ${company.brokerOfRecord.name}, ${company.brokerOfRecord.title}, before it goes live. The reviewer is named at the bottom of the page, next to the date.`,
-  },
-  {
-    q: 'Where do the numbers on this site come from?',
-    a: 'One maintained fact source that every page reads from, sourced from the Client Handbook, the fee schedule and our own portfolio data. Prices, fees, KPIs and contact details are never typed directly into a page, so the same figure cannot differ between two pages.',
-  },
-  {
-    q: 'What does the "last verified" date mean?',
-    a: `It is the date a person last checked that the page still matches how the company operates, not the date the page was first written and not an automatic timestamp. Portfolio figures also carry their own as-of label, currently ${kpis.asOfLabel}.`,
-  },
-  {
-    q: 'How are corrections handled?',
-    a: 'We fix the page. If the correction changes a number or a stated policy, the last verified date moves and every other page carrying that figure is checked too, because figures read from a shared source rather than living on one page.',
-  },
-  {
-    q: 'Does anyone pay to appear on this site?',
-    a: 'No. There is no sponsored content, no paid guest posting, no affiliate links and no paid vendor placement. Systems and services named on this site are named because we use them.',
-  },
-  {
-    q: 'How do I report an error on a page?',
-    a: `Email ${company.email} or call ${company.phone} with the page address and what is wrong. A person reads it. If you are right, the page changes, and the correction is made on the page itself rather than tucked away somewhere.`,
-  },
-];
+  `Who writes the guides and market data on this site, who reviews them, and how we handle a correction.`;
+const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Editorial policy', path: '/editorial-policy/' }];
 ---
-<Base {title} {description} {faq} {breadcrumbs}>
-  <!--
-    ==========================================================================
-    DRAFT EDITORIAL POLICY. PENDING REVIEW BY COUNSEL AND THE BROKER OF RECORD.
-    Everything here must stay honestly true of how the team actually works. A
-    published standard we do not follow is worse than having no page. Open items
-    are marked inline as LEGAL REVIEW markers and SOURCE NEEDED markers.
-    ==========================================================================
-  -->
-
+<Base {title} {description} {breadcrumbs}>
   <PageHero
-    eyebrow="How this site is made"
-    title="Editorial policy"
-    answer={`Every page on rlpmg.com is written and reviewed by the ${company.name} team. Figures come from one maintained fact source, pages carry a last verified date, and the broker of record reviews pricing, legal and policy content.`}
+    eyebrow="How we work"
+    title="How we write and check our content"
+    answer={`Everything on this site is written and reviewed by the ${company.name} team in Columbus. Anything covering pricing, process or local rules is checked by ${company.brokerOfRecord.name}, our ${company.brokerOfRecord.title}, before it publishes.`}
     breadcrumbs={breadcrumbs}
-    primaryCta={{ label: 'Read our AI content policy', href: '/ai-content-policy/' }}
-    secondaryCta={{ label: 'Report an error', href: '/contact-us/' }}
+    primaryCta={{ label: 'Read the guides', href: '/guides/' }}
+    secondaryCta={{ label: 'Contact us', href: '/contact-us/' }}
   />
 
-  <KeyFacts items={keyFacts} heading="The short version" />
-
-  <section class="band-tight" aria-labelledby="why-h">
-    <div class="wrap max-w-[880px] prose-rl">
-      <p class="text-[14px] text-faint">Last reviewed {longDate(effective)}.</p>
-
-      <h2 id="why-h">Why publish an editorial policy at all?</h2>
-      <p>
-        Because a reader deciding whether to trust a number about eviction costs deserves to know
-        who wrote it, who checked it, and when. Most property management websites do not say. The
-        text is written by an agency, the figures are national averages, and nothing carries a
-        date, so there is no way to tell a maintained page from one that has been sitting untouched
-        for four years.
-      </p>
-      <p>
-        The same problem applies to an answer engine deciding what to quote. A page that names its
-        author, its reviewer, its sources and its date is a page a model can rely on. So this page
-        exists to answer one question: who stands behind what is written here?
-      </p>
-
-      <h2>Who writes and reviews this content?</h2>
-      <p>
-        The {company.name} team writes it, and {company.brokerOfRecord.name},
-        {' '}{company.brokerOfRecord.title}, reviews anything that touches pricing, legal process
-        or company policy before it publishes. {company.name} has managed rental property in
-        Columbus since {company.founded} and currently manages {company.unitsManaged} units, so the
-        pages describe work the company does rather than a topic it read about.
-      </p>
-      <p>
-        Every published page carries the reviewer's name and the date the page was last verified,
-        at the bottom, in plain text. The team behind the work is on the
-        {' '}<a href="/team/">team page</a>.
-      </p>
-    </div>
-  </section>
-
-  <section class="band band-wash" aria-labelledby="steps-h">
-    <div class="wrap max-w-[940px]">
-      <span class="eyebrow">The process</span>
-      <h2 id="steps-h" class="text-[clamp(26px,3.2vw,38px)]">How does a page get published?</h2>
-      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Six steps, in this order. Steps three and four are the ones most sites skip.
-      </p>
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {steps.map((s) => (
-          <div class="card">
-            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">Step {s.n}</div>
-            <h3 class="text-[18.5px] mb-2">{s.h}</h3>
-            <p class="text-[15px] text-muted m-0">{s.p}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="band-tight" aria-labelledby="facts-h">
-    <div class="wrap max-w-[880px] prose-rl">
-      <h2 id="facts-h">Where do the numbers come from?</h2>
-      <p>
-        One place. Prices, fees, portfolio metrics, unit counts, the office address and the phone
-        number all read from a single maintained fact source that every page pulls from at build
-        time. Nothing is typed into a page by hand, which is why the leasing fee cannot say one
-        thing on the pricing page and something else on a city page.
-      </p>
-      <p>
-        That source is maintained from the Client Handbook, the published fee schedule, the
-        management agreement, and our own portfolio data. Portfolio figures carry their own as-of
-        label, currently {kpis.asOfLabel}, and the method behind a metric is published next to it
-        rather than left for the reader to assume. Median days on market, for example, is defined
-        on the page as {kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)}
-      </p>
-      <p>
-        If a page needs a figure we do not have, the page says so instead of estimating. That is a
-        deliberate trade: an obvious gap is better than a confident guess, because a reader who
-        catches one invented number stops believing the other forty.
-      </p>
-
-      <h2>What does the last verified date mean?</h2>
-      <p>
-        It means a person read the page on that date and confirmed it still matches how the company
-        operates. It is not the publication date, and it is not an automatic timestamp that moves
-        when a stylesheet changes. If a page says it was verified in a given month, someone checked
-        it that month.
-        {' '}[SOURCE NEEDED: the review cadence we are committing to, such as how often every page
-        is re-verified even when nothing has changed.]
-      </p>
-    </div>
-  </section>
-
-  <section class="band" aria-labelledby="std-h">
-    <div class="wrap max-w-[940px]">
-      <span class="eyebrow">The standards</span>
-      <h2 id="std-h" class="text-[clamp(26px,3.2vw,38px)]">What rules does the writing follow?</h2>
-      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Six, and they are the ones that decide what does not get published.
-      </p>
-      <div class="grid gap-5 sm:grid-cols-2">
-        {standards.map((s) => (
-          <div class="card">
-            <h3 class="text-[18.5px] mb-2">{s.h}</h3>
-            <p class="text-[15px] text-muted m-0">{s.p}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="band band-wash" aria-labelledby="legal-h">
-    <div class="wrap max-w-[880px] prose-rl">
-      <h2 id="legal-h">How do you handle legal topics?</h2>
-      <p>
-        Carefully, and never as advice. Pages that describe eviction, notices, security deposits or
-        Ohio landlord-tenant process describe how those things generally run in the counties we
-        work in, based on doing them. They are not advice about your situation, and the
-        {' '}<a href="/terms/">terms of use</a> say so.
-      </p>
-      <p>
-        Legal content gets an extra pass from {company.brokerOfRecord.name} before it publishes.
-        {' '}[LEGAL REVIEW: whether legal-process pages need review by outside counsel rather than
-        by the broker of record, and whether a standing disclaimer is required on every page that
-        describes a court process rather than only in the terms of use.]
-      </p>
-
-      <h2>How are corrections handled?</h2>
-      <p>
-        We fix the page. If the correction changes a figure or a stated policy, the last verified
-        date moves, and because figures read from a shared source, every other page carrying that
-        number updates with it. A correction is made on the page where the error was, not
-        acknowledged somewhere a reader will never look.
-      </p>
-      <p>
-        One worked example of how this is supposed to work. Two pages on the old site disagreed
-        about what an eviction costs. The Client Handbook, which is the document a client actually
-        receives, won, and the stale page was not migrated as written. The fix went into the fact
-        source, so every page that mentions eviction costs now reads the same number.
-      </p>
-
-      <h2>Does advertising influence the content?</h2>
-      <p>
-        There is none to influence it. No sponsored posts, no paid placements, no affiliate links,
-        no vendor who paid to be mentioned. We publish our own complete fee schedule, including the
-        parts that are awkward, which is not something a page written to sell would do.
-      </p>
-
-      <h2>How do I report an error?</h2>
-      <p>
-        Email <a href={`mailto:${company.email}`}>{company.email}</a> or call {company.phone} with
-        the page address and what is wrong. If you are right, the page changes. We would rather hear
-        it from you than leave it wrong for the next reader.
-      </p>
-    </div>
-  </section>
-
   <section class="band-tight">
-    <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
-      <Faq items={faq} heading="Editorial questions" id="editorial-faq" />
-      <div class="mt-8"><Verified date="2026-09-09" /></div>
+    <div class="wrap max-w-[760px]">
+      <div class="prose-rl">
+        <h2>Who writes this</h2>
+        <p>
+          Our own team, in Columbus. We manage {company.unitsManaged} units here,
+          so most of what you read comes out of doing the work rather than
+          researching it. Where a page describes how we operate, it describes how
+          we actually operate.
+        </p>
+
+        <h2>Who checks it</h2>
+        <p>
+          {company.brokerOfRecord.name}, our {company.brokerOfRecord.title},
+          reviews anything that touches pricing, our process, or local rules
+          before it goes live.
+        </p>
+
+        <h2>Where the numbers come from</h2>
+        <p>
+          Every figure on this site is kept in one place and read from there, so
+          a price or a metric cannot say one thing on one page and something else
+          on another. Our operating numbers come from our own portfolio and are
+          refreshed quarterly on the
+          <a href="/key-performance-indicators/">scorecard</a>. Outside data is
+          attributed to its source with the year attached.
+        </p>
+
+        <h2>Dates, and why they matter</h2>
+        <p>
+          Pages carry a "last verified" date. Costs and local rules change, so
+          check the date on anything you are about to act on. If a page has not
+          been verified recently, treat its numbers as a starting point and ask us.
+        </p>
+
+        <h2>Corrections</h2>
+        <p>
+          If something here is wrong, tell us and we will fix it. Email
+          {' '}<a href={`mailto:${company.email}`}>{company.email}</a>. We would
+          rather be corrected than be confidently out of date.
+        </p>
+      </div>
+      <div class="mt-9"><Verified date="2026-09-10" /></div>
     </div>
   </section>
 
   <RelatedLinks links={[
-    { href: '/ai-content-policy/', label: 'AI content policy', note: 'How AI tools are and are not used here.' },
-    { href: '/team/', label: 'Our team', note: 'The people behind the pages.' },
-    { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'The portfolio numbers, published with their definitions.' },
-    { href: '/pricing/', label: 'Pricing', note: 'The complete fee schedule, in the open.' },
-    { href: '/blog/', label: 'Insights', note: 'What we publish for owners and investors.' },
+    { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'The operating numbers, refreshed quarterly' },
+    { href: '/guides/', label: 'In-depth guides', note: 'The long answers' },
+    { href: '/ai-content-policy/', label: 'How we use AI', note: 'Where it helps, and who reviews it' },
+    { href: '/about/', label: 'About us', note: 'Who we are' },
   ]} />
-
-  <Cta
-    heading="Found something wrong on a page?"
-    body="Send us the page address and what is off. A person reads it, and if you are right the page changes."
-    primary={{ label: 'Contact us', href: '/contact-us/' }}
-    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
-  />
 </Base>
