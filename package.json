@@ -11,10 +11,11 @@
     "lint:copy": "node scripts/lint-copy.mjs",
     "check:redirects": "node scripts/check-redirects.mjs",
     "check:schema": "node scripts/check-schema.mjs",
-    "verify": "npm run build && node scripts/check-schema.mjs && node scripts/lint-copy.mjs && node scripts/check-redirects.mjs && node scripts/check-meta.mjs && node scripts/check-links.mjs",
+    "verify": "npm run build && node scripts/check-schema.mjs && node scripts/lint-copy.mjs && node scripts/check-redirects.mjs && node scripts/check-meta.mjs && node scripts/check-links.mjs && node scripts/check-duplication.mjs",
     "build:preview": "astro build && node scripts/make-preview.mjs /rlpmg-website",
     "check:links": "node scripts/check-links.mjs",
-    "check:meta": "node scripts/check-meta.mjs"
+    "check:meta": "node scripts/check-meta.mjs",
+    "check:duplication": "node scripts/check-duplication.mjs"
   },
   "dependencies": {
     "astro": "^5.13.0",

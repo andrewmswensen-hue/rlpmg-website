@@ -141,9 +141,9 @@ const schemaNodes = [
         Reynoldsburg is one city sitting in three counties. Most of it is in Franklin County, a northeastern
         piece is in Licking County, and a southern piece is in Fairfield County. Every one of those addresses
         says Reynoldsburg, Ohio on the envelope, which is exactly why owners get this wrong. Ohio Revised Code
-        1901.02 fixes each municipal court to a defined territory, so the county your parcel falls in decides
-        which court hears a forcible entry and detainer action, the legal name for an eviction. The same county
-        line decides which auditor takes your rental owner filing.
+        1901.02 fixes each municipal court to a territory, so the county your parcel falls in decides which
+        court hears a forcible entry and detainer action, the legal name for an eviction, and which auditor
+        takes your rental owner filing.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -189,12 +189,11 @@ const schemaNodes = [
       <span class="eyebrow">Compliance</span>
       <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Reynoldsburg rental property?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Yes, with the county auditor. Ohio Revised Code 5323.02 requires every owner of residential rental
-        property to file their name, address and telephone number, plus the property street address and permanent
-        parcel number, with the auditor of the county the property sits in. There is no fee. The filing is due
-        within 60 days of acquiring the property and any change has to be updated within 60 days. Miss it and the
-        auditor can place a special assessment on the property under R.C. 5323.99. The statutory range is $50 to
-        $150 and the Franklin County Auditor states $150 per tax year.
+        Yes, with the county auditor. Ohio Revised Code 5323.02 requires every rental owner to file owner
+        details and the permanent parcel number with the auditor of the county the property sits in, within 60
+        days of purchase and of any change. There is no fee. Miss it and the auditor can place a special
+        assessment of $50 to $150 on the property under R.C. 5323.99, and the Franklin County Auditor states
+        $150 per tax year.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         In Reynoldsburg that means the Franklin, Licking or Fairfield County auditor, and it is not always the
@@ -325,10 +324,10 @@ const schemaNodes = [
       <p class="text-[16.5px] text-muted mt-5">
         Two other numbers matter on a market of this age. In-house maintenance labour is
         {' '}{usd(pricing.maintenance.inHouseHourly)} per hour in {pricing.maintenance.rateYear} with a
-        {' '}{usd(pricing.maintenance.tripCharge)} trip charge and no minimum, and materials are provided at cost.
-        Where we coordinate an outside vendor on a project, the project management fee is
-        {' '}{pricing.maintenance.vendorProjectFeePct}% and it caps at {usd(pricing.maintenance.vendorProjectFeeCap)}.
-        On an eighties house those two lines will show up more often than the management fee does.
+        {' '}{usd(pricing.maintenance.tripCharge)} trip charge and no minimum, materials at cost. On an outside
+        vendor project the fee is {pricing.maintenance.vendorProjectFeePct}% and it caps at
+        {' '}{usd(pricing.maintenance.vendorProjectFeeCap)}. On an eighties house those two lines show up more
+        often than the management fee does.
       </p>
       <p class="text-[14px] text-faint mt-4">
         Percentage figures describe common Columbus market rates. They are not a quote from any named company.
