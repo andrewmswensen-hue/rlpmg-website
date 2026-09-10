@@ -76,9 +76,9 @@ const faq = [
   { q: 'Who provides water and sewer in Gahanna, Ohio?',
     a: 'Gahanna is a City of Columbus water and sewer contract community, so the water in a Gahanna rental comes from the Columbus system. That matters financially, because Columbus states the property owner is ultimately responsible for all charges even where a tenant billing agreement is in place. Electricity is distributed by AEP Ohio and natural gas by Columbia Gas of Ohio. On our standard lease the resident holds every utility account in their own name.' },
   { q: 'Is RL Property Management actually based in Gahanna?',
-    a: `Our office is at ${company.address.street}, in the ${company.address.postalCode} ZIP code, which is the Gahanna ZIP, at the Cross Pointe Road and Taylor Station Road corner. The mailing city of record on our address is ${company.address.city}. [SOURCE NEEDED: confirm whether the 750 Cross Pointe Rd parcel sits inside the City of Gahanna corporate limits or inside the City of Columbus.] Office hours are by appointment. Being close does not by itself make anyone a better manager, but it does mean key pickup and an in-person walkthrough are short trips rather than a scheduling problem.` },
+    a: `Our office is at ${company.address.street}, in the ${company.address.postalCode} ZIP code, which is the Gahanna ZIP, at the Cross Pointe Road and Taylor Station Road corner. The mailing city of record on our address is ${company.address.city}. Office hours are by appointment. Being close does not by itself make anyone a better manager, but it does mean key pickup and an in-person walkthrough are short trips rather than a scheduling problem.` },
   { q: 'What does a rental in Gahanna, Ohio rent for?',
-    a: `We do not publish a Gahanna-specific rent median, because our sample in Gahanna is below the five-unit threshold we set for publishing a market-level number, and we will not dress a public rent index up as our own rent roll. Across our whole portfolio the median is ${usd(rentByBedroom['3'].median)} for a 3 bedroom and ${usd(rentByBedroom['2'].median)} for a 2 bedroom. [SOURCE NEEDED: US Census ACS 2024 5-year median gross rent for Gahanna, Ohio.] A rent evaluation on your specific address is free and takes about a day.` },
+    a: `We do not publish a Gahanna-specific rent median, because our sample in Gahanna is below the five-unit threshold we set for publishing a market-level number, and we will not dress a public rent index up as our own rent roll. Across our whole portfolio the median is ${usd(rentByBedroom['3'].median)} for a 3 bedroom and ${usd(rentByBedroom['2'].median)} for a 2 bedroom. A rent evaluation on your specific address is free and takes about a day.` },
   { q: 'How much does property management cost in Gahanna?',
     a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. The three plans differ in one variable, the per-item repair approval limit: ${usd(pricing.plans[0].repairApprovalLimit)}, ${usd(pricing.plans[1].repairApprovalLimit)} and ${usd(pricing.plans[2].repairApprovalLimit)}. Because the fee is a fixed dollar figure, raising your rent does not raise our fee.` },
 ];
@@ -224,8 +224,7 @@ const schemaNodes = [
         concentrated near the Hamilton Road and Morse Road corridors. Gahanna grew outward from an
         early-nineteenth-century village core along Big Walnut Creek, so the housing runs from a small historic
         centre near Creekside through decades of postwar and late-century subdivision to newer building on the
-        northern and eastern edges. [SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for
-        Gahanna, Ohio.]
+        northern and eastern edges.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         For an owner the practical consequence is that two Gahanna houses a mile apart can be twenty-five years
@@ -239,8 +238,7 @@ const schemaNodes = [
       <p class="text-[16.5px] text-muted">
         {company.address.street}, in the {company.address.postalCode} ZIP code, at the Cross Pointe Road and
         Taylor Station Road corner near Interstate 270 and John Glenn Columbus International Airport. The mailing
-        city of record on our address is {company.address.city}. [SOURCE NEEDED: confirm whether the
-        750 Cross Pointe Rd parcel is inside the City of Gahanna corporate limits or the City of Columbus.]
+        city of record on our address is {company.address.city}.
         {' '}{company.officeHoursNote}. Key pickup at our office is free, and there is no charge to post a
         three-day or thirty-day notice to vacate. Proximity is not a strategy and we are not going to claim it
         makes us better managers. It does mean a Gahanna owner collecting keys, or a Gahanna resident dropping
@@ -270,8 +268,7 @@ const schemaNodes = [
         off our rent roll. Across our whole portfolio the median is {usd(rentByBedroom['3'].median)} for a three
         bedroom and {usd(rentByBedroom['2'].median)} for a two bedroom, and the nearest market where we do publish
         our own figure is Reynoldsburg at {usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)} for a three
-        bedroom. Gahanna generally prices above Reynoldsburg. [SOURCE NEEDED: US Census ACS 2024 5-year median
-        gross rent for Gahanna, Ohio.]
+        bedroom. Gahanna generally prices above Reynoldsburg.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (

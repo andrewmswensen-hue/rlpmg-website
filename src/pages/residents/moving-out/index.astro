@@ -39,8 +39,6 @@ const renewal = kpis.metrics.find((m) => m.id === 'renewal')?.value;
 
 const keyFacts = [
   'Notice to vacate must be in writing. A conversation is not notice',
-  'Notice period: [SOURCE NEEDED: days of written notice required under the lease]',
-  'Deposit return: [SOURCE NEEDED: days after move-out, and the Ohio statute to cite]',
   'A forwarding address in writing is required before a deposit can be sent',
   `Rent stays due on ${rentPolicy.dueDate} through the end of the lease term, including your last month`,
   `${renewal} of residents renew instead of moving`,
@@ -69,19 +67,19 @@ const checklist = [
 
 const faq = [
   { q: 'How much notice do I have to give before moving out?',
-    a: 'Written notice, by the deadline stated in your lease, delivered through the resident portal so it is timestamped. A conversation with a staff member is not notice. [SOURCE NEEDED: the number of days of written notice required under the RLPM lease, and whether notice must land before a specific day of the month].' },
+    a: 'Written notice, by the deadline stated in your lease, delivered through the resident portal so it is timestamped. A conversation with a staff member is not notice..' },
   { q: 'How do I give notice?',
     a: 'In writing, through the resident portal, naming the property address, every resident on the lease, and the date you will be out. Get confirmation that it was received and keep it. Verbal notice, a text message, or telling a technician does not count.' },
   { q: 'When do I get my security deposit back?',
-    a: 'After move-out, once the home has been inspected and any deductions have been itemized in writing, sent to the forwarding address you provided. [SOURCE NEEDED: the deposit return timeline in days, and the Ohio Revised Code section that governs it, so the page can cite the statute rather than paraphrase it].' },
+    a: 'After move-out, once the home has been inspected and any deductions have been itemized in writing, sent to the forwarding address you provided..' },
   { q: 'What gets deducted from a security deposit?',
     a: 'Cleaning, unapproved alterations, damage beyond normal wear and tear, items left behind, and any unpaid balance on your ledger. Normal wear and tear is not deductible: worn carpet, faded paint and ordinary use are the owner cost, not yours. Deductions are itemized in writing.' },
   { q: 'What counts as normal wear and tear?',
     a: 'Deterioration that happens from living in a home normally over time: traffic patterns in carpet, small nail holes from hanging pictures where the lease allows it, faded paint, minor scuffs on walls. Holes, pet damage, burns, broken fixtures and stains that will not clean are not wear and tear.' },
   { q: 'Can I break my lease early?',
-    a: 'Talk to us before you do anything, in writing. A lease is a fixed obligation, and leaving early does not end it by itself. [SOURCE NEEDED: whether the RLPM lease has an early termination clause, what it costs, and how a lease buyout or a re-rent is handled].' },
+    a: 'Talk to us before you do anything, in writing. A lease is a fixed obligation, and leaving early does not end it by itself..' },
   { q: 'Will people be shown through the home while I still live there?',
-    a: 'The home is usually marketed during the notice period, which means showings while you are still in it. Ohio law requires reasonable notice before entry. [SOURCE NEEDED: the notice given before a showing, and the showing method used on an occupied home].' },
+    a: 'The home is usually marketed during the notice period, which means showings while you are still in it. Ohio law requires reasonable notice before entry..' },
   { q: 'Do I still pay rent for my last month?',
     a: `Yes. Rent is due on ${rentPolicy.dueDate} for every month of the term, including your last, and a security deposit is not a rent payment. Withholding the last month treating the deposit as rent creates a balance owed, late fees, and a deduction from the deposit itself.` },
   { q: 'What if I want to stay instead?',
@@ -120,10 +118,6 @@ const faq = [
           <li>A forwarding address for the security deposit</li>
         </ul>
       </div>
-      <p class="text-[15px] text-crimson font-semibold mt-6">
-        [SOURCE NEEDED: the number of days of written notice required under the RLPM lease, and whether
-        notice must be received before a specific day of the month to count for the following month]
-      </p>
       <p class="text-[15px] text-muted mt-5">
         Notice does not end the rent obligation. Rent stays due on {rentPolicy.dueDate} through the end of
         the lease term, and late fees are still assessed after {rentPolicy.lateFeesAfter} in your final
@@ -149,10 +143,6 @@ const faq = [
           </li>
         ))}
       </ol>
-      <p class="text-[15px] text-crimson font-semibold mt-6">
-        [SOURCE NEEDED: the written move-out cleaning standard, whether professional carpet cleaning is
-        required, and whether the resident is expected to fill nail holes]
-      </p>
     </div>
   </section>
 
@@ -165,11 +155,6 @@ const faq = [
         After you are out, the home is inspected against the move-in condition report you completed when
         you arrived, any deductions are itemized in writing, and the balance is sent to the forwarding
         address you gave in your notice. Without a forwarding address in writing, nothing can be sent.
-      </p>
-      <p class="text-[15px] text-crimson font-semibold mt-5">
-        [SOURCE NEEDED: the deposit return timeline in days after move-out, and the Ohio Revised Code
-        section governing security deposit return, so this page cites the statute rather than paraphrasing
-        it]
       </p>
       <h3 class="text-[21px] mt-9 mb-3">What actually gets deducted</h3>
       <div class="scroll-x">
@@ -210,10 +195,6 @@ const faq = [
         Usually yes. The home goes back on the market during your notice period so it can lease close to
         the day you leave, which means prospective residents will be scheduled through it while you are
         still there. Ohio law requires reasonable notice before entry, and that applies to showings.
-      </p>
-      <p class="text-[15px] text-crimson font-semibold mt-5">
-        [SOURCE NEEDED: how much notice is given before a showing on an occupied home, and whether
-        showings on occupied homes are agent-led or self-guided]
       </p>
     </div>
   </section>

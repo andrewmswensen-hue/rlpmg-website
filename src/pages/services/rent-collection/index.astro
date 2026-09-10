@@ -47,14 +47,14 @@ const timeline = [
   { when: `The ${rentPolicy.dueDate}`, what: 'Rent is due in full. Residents pay online, and most of the portfolio is on autopay or pays within the first few days.' },
   { when: 'The 2nd to the 5th', what: `The practical payment window. A payment landing on the 3rd is not a problem, it is a pay cycle. Automated reminders go out during this stretch.` },
   { when: `After ${rentPolicy.lateFeesAfter}`, what: 'Late fees are assessed. Contact escalates from automated notice to direct outreach, and we find out whether this is a one-month cash problem or the start of a pattern.' },
-  { when: 'Notice stage', what: `If rent stays unpaid, a notice to vacate is posted at the property. We do not charge to post a 3-day or 30-day notice. [SOURCE NEEDED: the exact day of the month RLPM posts the 3-day notice, and the statutory notice period and required notice language under Ohio law.]` },
+  { when: 'Notice stage', what: `If rent stays unpaid, a notice to vacate is posted at the property. We do not charge to post a 3-day or 30-day notice. R.C. 1923.04 requires at least three days before an action can be filed, and the notice has to carry a specific paragraph of statutory language to be valid.` },
   { when: 'Filing', what: `If the notice period runs out with rent still unpaid, the case is filed in Franklin County. Hard cost is ${usd(pricing.eviction.hardCostTotal)}, and our fee to manage the case is ${usd(pricing.eviction.rlpmProcessFee)}.` },
   { when: `The ${rentPolicy.ownerDisbursementDay}th`, what: `Collected funds are disbursed electronically to owners, and take ${rentPolicy.disbursementNote}.` },
 ];
 
 const faq = [
   { q: 'When is rent due, and when are late fees charged?',
-    a: `Rent is due ${rentPolicy.dueDate}. In practice many residents pay between ${rentPolicy.practicalWindow}. Late fees are assessed after ${rentPolicy.lateFeesAfter}. Across the portfolio, ${kpi('collectedBy5')} of rent is collected by the 5th as of ${kpis.asOfLabel}. [SOURCE NEEDED: the late fee amount or percentage charged under the RLPM lease.]` },
+    a: `Rent is due ${rentPolicy.dueDate}. In practice many residents pay between ${rentPolicy.practicalWindow}. Late fees are assessed after ${rentPolicy.lateFeesAfter}. Across the portfolio, ${kpi('collectedBy5')} of rent is collected by the 5th as of ${kpis.asOfLabel}.` },
   { q: 'When do I get my money?',
     a: `Owner funds are disbursed electronically on the ${rentPolicy.ownerDisbursementDay}th of each month and take ${rentPolicy.disbursementNote}. The gap between the 5th and the 10th exists so the month closes cleanly: payments clear, maintenance invoices post, and the statement you receive matches the deposit you receive.` },
   { q: 'What happens if my tenant does not pay rent?',

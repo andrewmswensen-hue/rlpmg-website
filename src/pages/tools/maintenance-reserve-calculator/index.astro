@@ -111,11 +111,11 @@ const faq = [
   { q: 'What is the difference between a reserve and a capital budget?',
     a: 'The reserve is a float for the repairs that happen this month. A capital budget is a monthly set-aside for the items that fail once a decade: roof, furnace, water heater, service panel, sewer line. The reserve keeps the property running. The capital budget keeps a single failure from becoming a forced sale or a HELOC draw. Size them separately and never spend one on the other.' },
   { q: 'How do I set a capital budget without guessing?',
-    a: 'Take each major component, get a real replacement quote from a contractor you would actually hire, estimate the years left on it, and divide the quote by the months remaining. Sum across components and that is your monthly set-aside. It is your own quotes and your own inspection that make the number defensible. [SOURCE NEEDED: a citable table of component replacement costs and useful lives for Central Ohio single-family rentals, if this page is to publish typical figures.]' },
+    a: 'Take each major component, get a real replacement quote from a contractor you would actually hire, estimate the years left on it, and divide the quote by the months remaining. Sum across components and that is your monthly set-aside. It is your own quotes and your own inspection that make the number defensible.' },
   { q: 'What does it cost to rebuild the reserve after a big repair?',
     a: `Spread over twelve months, ${usd(RESERVE_MIN)} is ${usd(reserveLevels[0].monthlyRebuild)} a month and ${usd(RESERVE_MAX)} is ${usd(reserveLevels[1].monthlyRebuild)} a month. Most owners top the reserve back up out of the monthly disbursement rather than sending money in, which is the simpler mechanic and the one we default to.` },
   { q: 'What about turn costs?',
-    a: `Turns are billed on their own tiered schedule rather than the standard project fee: ${m.turnTiers[0].pct}% on turns up to ${usd(m.turnTiers[0].upTo as number)}, ${m.turnTiers[1].pct}% from there to ${usd(m.turnTiers[1].upTo as number)}, and ${m.turnTiers[2].pct}% above that. A turn is a planned event, so it is budgeted against the vacancy rather than drawn from the working reserve. [SOURCE NEEDED: a typical unit turn cost range for RLPM-managed Columbus single-family units, with the underlying sample.]` },
+    a: `Turns are billed on their own tiered schedule rather than the standard project fee: ${m.turnTiers[0].pct}% on turns up to ${usd(m.turnTiers[0].upTo as number)}, ${m.turnTiers[1].pct}% from there to ${usd(m.turnTiers[1].upTo as number)}, and ${m.turnTiers[2].pct}% above that. A turn is a planned event, so it is budgeted against the vacancy rather than drawn from the working reserve.` },
   { q: 'Does the reserve cover pet damage?',
     a: `It does not need to, up to a point. If an approved pet causes damage beyond normal wear and tear and the cost exceeds the security deposit, we cover the difference up to ${usd(pricing.petDamageCoverage.cap)}. That coverage is funded by a monthly pet administration fee and does not apply to service or assistance animals, because those are not pets.` },
 ];
@@ -162,8 +162,7 @@ const faq = [
         </div>
       </div>
       <p class="text-[15px] text-faint mt-6">
-        The reserve amount is set by plan. [SOURCE NEEDED: which reserve amount applies to which of the three
-        plans, so this page can state the mapping rather than the range.]
+        The reserve amount is set by plan.
       </p>
     </div>
   </section>
@@ -204,8 +203,7 @@ const faq = [
       </div>
       <p class="text-[15px] text-faint mt-6">
         We do not publish a typical annual repair spend per unit, because we have not published the underlying
-        sample. [SOURCE NEEDED: median annual maintenance spend per unit across RLPM-managed units, with the
-        sample size and the period it covers.]
+        sample.
       </p>
     </div>
   </section>

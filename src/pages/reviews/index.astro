@@ -51,10 +51,6 @@ const faq = [
     a: 'Because roughly half the reviews come from residents, and a property manager is the party that enforces the lease. Charging for damage at move-out, assessing a late fee, declining an application or filing an eviction are all correct actions that reliably produce a one-star review. A manager with a perfect rating is usually either very new or not enforcing much.' },
   { q: 'How should I read property management reviews?',
     a: 'Separate the two audiences first, because owner reviews and resident reviews answer different questions. Then read the negative ones for pattern rather than heat: one angry review about a security deposit is normal, twenty about unreturned calls is a signal. Finally, check whether the company responds, and whether the responses are specific.' },
-  { q: 'Does RL Property Management pay for or filter reviews?',
-    a: '[SOURCE NEEDED: RL Property Management’s written policy on soliciting, incentivizing and responding to reviews. Nothing is claimed here until that policy is confirmed in writing.]' },
-  { q: 'Where can I read the reviews myself?',
-    a: `[SOURCE NEEDED: the direct link to the ${company.name} Google Business Profile reviews. Until it is added here, search the company name in Google Maps. The Yelp profile is linked in the site footer.]` },
   { q: 'What do the operating numbers say, separately from the reviews?',
     a: `Resident satisfaction across the portfolio is ${kpis.metrics[7].value} out of 5 and the lease renewal rate is ${kpis.metrics[2].value}, both published on the scorecard and refreshed quarterly. The renewal rate is the more useful of the two, because it measures what residents did rather than what they said.` },
 ];
@@ -119,18 +115,11 @@ const related = [
             <div class="font-sans text-[11.5px] font-bold tracking-[.14em] uppercase text-faint mb-3">
               {s.audience}
             </div>
-            <p class="text-[15.5px] text-navy m-0">
-              [SOURCE NEEDED: real Google review quotes with reviewer first name and city]
-            </p>
             <p class="text-[14px] text-muted mt-3 mb-0">{s.note}</p>
           </div>
         ))}
       </div>
 
-      <p class="text-[14px] text-faint mt-6 max-w-[46em]">
-        [SOURCE NEEDED: the direct link to the {company.name} Google Business Profile reviews, so a
-        reader can verify the {r.rating} rating and {r.display} count without searching.]
-      </p>
     </div>
   </section>
 

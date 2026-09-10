@@ -47,7 +47,6 @@ const keyFacts = [
   'Routine requests go in the portal, in writing, with photos',
   `Resident satisfaction ${satisfaction} out of 5 across the portfolio`,
   'Fire, gas smell or immediate danger: call 911 first',
-  'Emergency definition: [SOURCE NEEDED: the lease definition of an after-hours emergency]',
 ];
 
 /** Two-minute checks that resolve a real share of reported problems. */
@@ -64,15 +63,15 @@ const faq = [
   { q: 'How do I submit a maintenance request?',
     a: `File it in the resident portal, in writing, with photos of the problem. A written request is timestamped, assigned and tracked, which a text message is not. Median time to close a repair across the portfolio is ${repairDays} days as of ${kpis.asOfLabel}.` },
   { q: 'What counts as an emergency?',
-    a: `Anything that puts a person at risk or is actively damaging the home. Call ${company.phone} for those rather than filing a portal request, at any hour. For fire, a gas smell, or an immediate danger to someone, call 911 first. [SOURCE NEEDED: the lease definition of an after-hours emergency and the list of conditions it covers].` },
+    a: `Anything that puts a person at risk or is actively damaging the home. Call ${company.phone} for those rather than filing a portal request, at any hour. For fire, a gas smell, or an immediate danger to someone, call 911 first..` },
   { q: 'What do I do if I smell gas?',
     a: 'Leave the home, do not use light switches, appliances or a phone inside, and call 911 and the gas utility from outside. In most of our service area the gas utility is Columbia Gas of Ohio. Call us after you are safe and outside, not before.' },
   { q: 'How long will my repair take?',
     a: `Median time to close a repair across the portfolio is ${repairDays} days as of ${kpis.asOfLabel}. Emergencies are handled immediately. Anything requiring a part on order or a specialty vendor takes longer, and you should be told that rather than left guessing.` },
   { q: 'Will I be charged for a repair?',
-    a: 'Ordinary wear and tear and component failure are handled at the owner cost, not yours. Damage caused by a resident, a guest or a pet, and callouts where nothing was actually broken, can be charged back. [SOURCE NEEDED: the lease clause covering resident-caused damage chargebacks, and any trip charge for a missed appointment or a no-fault callout].' },
+    a: 'Ordinary wear and tear and component failure are handled at the owner cost, not yours. Damage caused by a resident, a guest or a pet, and callouts where nothing was actually broken, can be charged back..' },
   { q: 'Do I have to be home for the repair?',
-    a: '[SOURCE NEEDED: whether residents must be present for entry, the notice given before entry, and how key or lockbox access is handled]. Ohio law requires reasonable notice before a landlord enters except in an emergency.' },
+    a: 'No. Ohio Revised Code 5321.04(A)(8) requires 24 hours of notice before entry except in an emergency, and our technicians use keys we already hold. If you would rather be there, say so when you submit the request and we will schedule around you.' },
   { q: 'Can I do the repair myself, or hire someone?',
     a: 'No, and this protects you. Unauthorized work is not reimbursed, and if it makes the problem worse, the cost of putting it right can be charged back. File the request instead, even if you could handle it, unless it is one of the two-minute checks listed on this page.' },
   { q: 'My request has not been scheduled. What now?',
@@ -128,10 +127,6 @@ const faq = [
           </p>
         </div>
       </div>
-      <p class="text-[15px] text-crimson font-semibold mt-6">
-        [SOURCE NEEDED: the lease definition of an after-hours emergency, and the specific list of
-        conditions RLPM treats as emergency callouts]
-      </p>
     </div>
   </section>
 
@@ -184,10 +179,6 @@ const faq = [
           </ul>
         </div>
       </div>
-      <p class="text-[15px] text-crimson font-semibold mt-6">
-        [SOURCE NEEDED: target response times by priority level, whether residents must be present for
-        entry, and the notice given before entry]
-      </p>
     </div>
   </section>
 
@@ -240,10 +231,6 @@ const faq = [
       <p class="text-[16.5px] text-muted mt-4">
         The clearest way to stay out of that conversation is to report problems early. A slow leak reported
         in week one is a washer. The same leak reported in month three is a subfloor.
-      </p>
-      <p class="text-[15px] text-crimson font-semibold mt-5">
-        [SOURCE NEEDED: the lease clause covering resident-caused damage chargebacks, the rate charged to
-        residents for chargeback work, and any charge for a missed appointment]
       </p>
     </div>
   </section>

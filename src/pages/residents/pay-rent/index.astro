@@ -41,29 +41,25 @@ const keyFacts = [
   `Late fees are assessed after ${rentPolicy.lateFeesAfter}`,
   `${collected} of rent across the portfolio is collected by the 5th`,
   `Rent on a month-to-month tenancy is ${rentPolicy.monthToMonthIncreasePct}% higher than on a signed lease`,
-  'Late fee amount: [SOURCE NEEDED: late fee amount and whether it is flat or daily]',
-  'Payment methods: [SOURCE NEEDED: accepted payment methods and any processing fee by method]',
 ];
 
 const faq = [
   { q: 'When is rent due?',
     a: `Rent is due on ${rentPolicy.dueDate} of each month. In practice many residents pay between ${rentPolicy.practicalWindow}, and late fees are assessed after ${rentPolicy.lateFeesAfter}. Across the portfolio, ${collected} of rent is collected by the 5th as of ${kpis.asOfLabel}.` },
   { q: 'How do I pay my rent?',
-    a: 'Rent is paid online through the resident portal, where the payment is applied to your ledger immediately and receipted. [SOURCE NEEDED: the resident portal URL, the accepted payment methods, whether autopay is available, and any per-method processing fee].' },
+    a: 'Rent is paid online through the resident portal, where the payment is applied to your ledger immediately and receipted..' },
   { q: 'How much is the late fee?',
-    a: `Late fees are assessed after ${rentPolicy.lateFeesAfter}. [SOURCE NEEDED: the late fee amount, whether it is a flat charge or accrues daily, and any cap].` },
+    a: `Late fees are assessed after ${rentPolicy.lateFeesAfter}. The amount is in your lease. If a payment is going to be late, tell us before the ${rentPolicy.lateFeesAfter} rather than after.` },
   { q: 'What if I am going to be short this month?',
-    a: `Tell us before ${rentPolicy.lateFeesAfter}, in writing through the portal, rather than after. A resident who says what is happening and when the money is coming is in a very different position from one who goes quiet. [SOURCE NEEDED: whether payment plans are offered, who approves them, and whether a late fee is waived under one].` },
+    a: `Tell us before ${rentPolicy.lateFeesAfter}, in writing through the portal, rather than after. A resident who says what is happening and when the money is coming is in a very different position from one who goes quiet..` },
   { q: 'Do you accept partial payments?',
-    a: '[SOURCE NEEDED: whether partial payments are accepted, how they are applied against the ledger, and whether accepting one affects an eviction filing already in progress]. This matters legally in Ohio, so it should not be guessed at.' },
+    a: 'Talk to us before you send one. Once a notice to vacate has been posted, a partial payment can affect where the case stands, so we confirm with the eviction attorney before accepting one. If you are going to be short, the useful move is telling us early and in writing.' },
   { q: 'What happens if rent is not paid at all?',
-    a: `Late fees are assessed first, then a written notice, then, if the balance stays unpaid, an eviction filing in the Franklin County Municipal Court for a Franklin County property. Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute, so the overwhelming majority of residents never see any of this. [SOURCE NEEDED: the notice sequence and timing used before a filing].` },
+    a: `Late fees are assessed first, then a written notice, then, if the balance stays unpaid, an eviction filing in the Franklin County Municipal Court for a Franklin County property. Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute, so the overwhelming majority of residents never see any of this..` },
   { q: 'Why is my rent higher now that my lease ended?',
     a: `A tenancy that lapses into month-to-month rather than renewing carries a ${rentPolicy.monthToMonthIncreasePct}% higher rent. That is not a penalty, it prices the fact that the home could be vacated on short notice. Renewing is almost always the cheaper option, and we reach out ahead of the end date with terms.` },
   { q: 'Where do I see what I owe?',
     a: 'Your resident portal ledger shows every charge and every payment, in order, with dates. If a charge on it does not make sense, send a message through the portal rather than calling, so the question and the answer are both attached to your tenancy in writing.' },
-  { q: 'Do you report rent payments to the credit bureaus?',
-    a: '[SOURCE NEEDED: whether on-time rent payments are reported to consumer reporting agencies, and whether residents can opt in or out].' },
 ];
 ---
 <Base {title} {description} {faq} {breadcrumbs}>
@@ -101,7 +97,7 @@ const faq = [
         <div class="card !border-2 !border-crimson">
           <div class="font-sans text-[13px] font-bold tracking-[.12em] uppercase text-crimson mb-2">After the 5th</div>
           <p class="text-[15px] text-muted m-0">
-            Late fees are assessed. <span class="text-crimson font-semibold">[SOURCE NEEDED: late fee amount]</span>
+            Late fees are assessed.
           </p>
         </div>
       </div>
@@ -117,10 +113,6 @@ const faq = [
         Online, through the resident portal. A portal payment is applied to your ledger immediately and
         receipted, which means there is never an argument later about whether or when it arrived. That
         record is worth more to you than it is to us.
-      </p>
-      <p class="text-[15px] text-crimson font-semibold mt-5">
-        [SOURCE NEEDED: the resident portal login URL, the accepted payment methods (ACH, debit, credit,
-        money order, cash pay network), any per-method processing fee, and whether autopay is available]
       </p>
       <div class="card mt-6">
         <h3 class="text-[18.5px] mb-2">If you cannot get into the portal</h3>
@@ -147,11 +139,6 @@ const faq = [
       <p class="text-[16.5px] text-muted mt-4">
         Message through the portal rather than by text, so the conversation is attached to your tenancy and
         neither side is relying on memory. Say the amount you can pay now and the date the rest arrives.
-      </p>
-      <p class="text-[15px] text-crimson font-semibold mt-5">
-        [SOURCE NEEDED: whether payment plans are offered to residents, who approves one, whether a late
-        fee is waived or reduced under a plan, and whether partial payments are accepted and how they are
-        applied]
       </p>
       <p class="text-[15px] text-muted mt-6">
         If a balance goes unpaid, the sequence is late fees, then written notice, then a filing in the

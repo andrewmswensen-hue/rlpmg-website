@@ -93,7 +93,7 @@ const faq = [
   { q: 'Is it worth holding out for a higher rent?',
     a: `Only if the wait is short. ${usd(RENT_CUT)} a month is ${usd(RENT_CUT * 12)} over a year. On a ${usd(three.rent)} 3 bed, that is the same as ${three.daysPerCut} extra vacant days, and on a ${usd(two.rent)} 2 bed it is ${two.daysPerCut} days. If holding the higher price costs more days than that, the lower rent earned more money. This is the single most useful calculation on this page.` },
   { q: 'What costs are there beyond the lost rent?',
-    a: `Three groups. Turn costs, meaning paint, cleaning, flooring and repairs between residents. [SOURCE NEEDED: a typical unit turn cost range for RLPM-managed Columbus single-family units, with the underlying sample.] Carrying costs, meaning mortgage, property tax, insurance, lawn and snow, and the utilities that revert to you. And re-leasing costs, meaning marketing, showings, screening and photography, which run ${usd(pricing.leasingFee)} with us apart from photography at $250 to $450 where new photos are needed.` },
+    a: `Three groups. Turn costs, meaning paint, cleaning, flooring and repairs between residents. Carrying costs, meaning mortgage, property tax, insurance, lawn and snow, and the utilities that revert to you. And re-leasing costs, meaning marketing, showings, screening and photography, which run ${usd(pricing.leasingFee)} with us apart from photography at $250 to $450 where new photos are needed.` },
   { q: 'Do I still pay a management fee while the unit is empty?',
     a: `Yes, and this is where a flat fee and a percentage fee differ. A percentage fee is charged on collected rent, so it falls to zero in a month with no rent. Our flat fee is charged whether the unit is occupied or not. The offset is a written commitment: if a property has been listed for rent longer than ${VACANCY_CREDIT_DAYS} days, we proactively credit management fees back to your account.` },
   { q: 'What actually shortens a vacancy?',
@@ -350,7 +350,7 @@ const faq = [
       <ul class="grid gap-2.5 mt-7">
         {[
           'Your carrying costs. Mortgage principal and interest, property tax, insurance, lawn and snow, and every utility that reverts to your name the day the resident leaves.',
-          'Your turn cost. Paint, cleaning, flooring, trash-out and the repairs that only surface once the unit is empty. [SOURCE NEEDED: a typical unit turn cost range for RLPM-managed Columbus single-family units, with the underlying sample.]',
+          'Your turn cost. Paint, cleaning, flooring, trash-out and the repairs that only surface once the unit is empty.',
           `Re-leasing. With us that is ${usd(pricing.leasingFee)}, apart from photography at $250 to $450 where the unit is newly vacant or has had major cosmetic work. Elsewhere it is commonly half a month of rent.`,
         ].map((s) => (
           <li class="card !p-4.5 text-[15.5px] flex gap-3">

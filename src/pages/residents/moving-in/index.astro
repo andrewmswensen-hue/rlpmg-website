@@ -37,8 +37,6 @@ const keyFacts = [
   'Utilities must be in your name before keys are released',
   'The move-in condition report is what your deposit is measured against later',
   `Rent is due on ${rentPolicy.dueDate}, late fees after ${rentPolicy.lateFeesAfter}`,
-  'Condition report deadline: [SOURCE NEEDED: days after move-in to return it]',
-  'Renters insurance: [SOURCE NEEDED: whether it is required and the minimum liability coverage]',
   `Approved pets carry a monthly fee funding up to ${usd(pricing.petDamageCoverage.cap)} in pet damage coverage`,
 ];
 
@@ -62,19 +60,19 @@ const firstWeek = [
 
 const faq = [
   { q: 'What do I need to do before I get keys?',
-    a: 'Three things: sign the lease, pay the funds due at signing so they clear, and put the utilities you are responsible for into your name effective on your lease start date. Keys are released once those are done. [SOURCE NEEDED: the key handover process and where keys are collected].' },
+    a: 'Three things: sign the lease, pay the funds due at signing so they clear, and put the utilities you are responsible for into your name effective on your lease start date. Keys are released once those are done..' },
   { q: 'Which utilities am I responsible for?',
-    a: 'It depends on the home, and your lease says which. Across the Columbus metro the usual providers are AEP Ohio for electric, Columbia Gas of Ohio for natural gas, and the municipality for water, sewer and trash. [SOURCE NEEDED: which utilities the RLPM lease assigns to the resident by default].' },
+    a: 'It depends on the home, and your lease says which. Across the Columbus metro the usual providers are AEP Ohio for electric, Columbia Gas of Ohio for natural gas, and the municipality for water, sewer and trash..' },
   { q: 'Do I need renters insurance?',
-    a: '[SOURCE NEEDED: whether renters insurance is required under the RLPM lease, the minimum liability coverage required, and whether RL Property Management must be named as an interested party]. Regardless of the requirement, the owner insurance policy covers the building, never your belongings.' },
+    a: 'Your lease is the place that answers whether it is required. Get it either way. The owner insurance policy covers the building, never your belongings, and a renters policy usually costs a few dollars a month.' },
   { q: 'What is the move-in condition report and why does it matter?',
-    a: 'It is a written record, with photos, of the condition of the home on the day you moved in. It matters because it is the baseline your deposit is measured against when you leave. Anything you fail to note becomes hard to argue was there before you. [SOURCE NEEDED: how many days after move-in the report must be returned].' },
+    a: 'It is a written record, with photos, of the condition of the home on the day you moved in. It matters because it is the baseline your deposit is measured against when you leave. Anything you fail to note becomes hard to argue was there before you..' },
   { q: 'When is my first rent payment due?',
-    a: `Rent is due on ${rentPolicy.dueDate} of each month. If you move in mid-month, the first month is usually prorated for the days you occupy the home. Late fees are assessed after ${rentPolicy.lateFeesAfter}. [SOURCE NEEDED: whether prorated first-month rent is due at signing or on the first of the following month].` },
+    a: `Rent is due on ${rentPolicy.dueDate} of each month. If you move in mid-month, the first month is usually prorated for the days you occupy the home. Late fees are assessed after ${rentPolicy.lateFeesAfter}..` },
   { q: 'Can I paint, mount a TV, or change the fixtures?',
-    a: 'Ask in writing first, through the portal, and get the answer in writing. Unapproved alterations are the second most common source of deposit deductions after cleaning. [SOURCE NEEDED: the lease clause covering alterations, wall mounting and painting].' },
+    a: 'Ask in writing first, through the portal, and get the answer in writing. Unapproved alterations are the second most common source of deposit deductions after cleaning..' },
   { q: 'How do I get a second set of keys?',
-    a: 'Ask through the portal rather than cutting your own, so the number of keys in circulation for the home stays known. We keep two working copies of every unit. [SOURCE NEEDED: what a resident is charged for an additional key, fob or remote, and the process for requesting one].' },
+    a: 'Ask through the portal rather than cutting your own, so the number of keys in circulation for the home stays known. We keep two working copies of every unit..' },
   { q: 'What if something is broken when I move in?',
     a: `Note it on the condition report and file a maintenance request the same day. Both, not one or the other. The condition report protects your deposit; the maintenance request is what actually gets it fixed. Median time to close a repair is ${kpis.metrics.find((m) => m.id === 'repairDays')?.value} days.` },
 ];
@@ -115,9 +113,6 @@ const faq = [
           <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">2. Pay the funds due at signing</span>
           <span class="block text-[15.5px] text-muted">
             The home comes off the market when this clears, not when the application was approved.
-            <span class="text-crimson font-semibold">[SOURCE NEEDED: security deposit amount or formula,
-            whether first month rent is due at signing or at move-in, and accepted payment methods for
-            move-in funds]</span>
           </span>
         </li>
         <li class="card !p-6">
@@ -159,10 +154,6 @@ const faq = [
           </tbody>
         </table>
       </div>
-      <p class="text-[15px] text-crimson font-semibold mt-6">
-        [SOURCE NEEDED: which utilities the RLPM lease assigns to the resident by default, and whether
-        proof of transfer is required before keys are released]
-      </p>
     </div>
   </section>
 
@@ -186,10 +177,6 @@ const faq = [
           <li>Keep your own copy of what you submitted, in your own storage, not only in the portal.</li>
         </ul>
       </div>
-      <p class="text-[15px] text-crimson font-semibold mt-6">
-        [SOURCE NEEDED: how many days after move-in the condition report must be returned, and whether it
-        is submitted through the resident portal]
-      </p>
       <p class="text-[15px] text-muted mt-5">
         Anything actually broken should also be filed as a
         {' '}<a href="/residents/maintenance-requests/" class="text-crimson font-semibold no-underline hover:underline">maintenance request</a>
@@ -227,10 +214,6 @@ const faq = [
         The owner's policy on the building does not cover anything of yours. Not your furniture, not your
         electronics, not a hotel room if the home becomes uninhabitable, and not your liability if
         something you did causes damage to the property or to a neighbor.
-      </p>
-      <p class="text-[15px] text-crimson font-semibold mt-5">
-        [SOURCE NEEDED: whether renters insurance is required under the RLPM lease, the minimum liability
-        coverage required, and whether RL Property Management must be named as an interested party]
       </p>
     </div>
   </section>

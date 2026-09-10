@@ -95,7 +95,7 @@ const faq = [
   { q: 'Do I have to register my Grove City rental property?',
     a: 'Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file their name, address and telephone number, plus the property street address and permanent parcel number, with the auditor of the county where the property sits, and to update within 60 days of any change. There is no filing fee, and failing to file draws a special assessment under R.C. 5323.99 of $50 to $150, with the Franklin County Auditor stating $150 per tax year.' },
   { q: 'What kind of rental property is there in Grove City?',
-    a: 'A genuinely mixed stock, which is what makes the city hard to generalise about. Around the Town Center and the older grid off Broadway and Park Street the houses are smaller and mid-century. Out toward Stringtown Road, Hoover Road, Buckeye Parkway and the Route 665 corridor the stock is newer, larger and subdivision-shaped, three and four bedrooms on full-size lots, some of it recent construction. [SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Grove City, Ohio.]' },
+    a: 'A genuinely mixed stock, which is what makes the city hard to generalise about. Around the Town Center and the older grid off Broadway and Park Street the houses are smaller and mid-century. Out toward Stringtown Road, Hoover Road, Buckeye Parkway and the Route 665 corridor the stock is newer, larger and subdivision-shaped, three and four bedrooms on full-size lots, some of it recent construction.' },
   { q: 'How much does property management cost in Grove City?',
     a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. On a ${usd(rent['3'].median)} three bedroom, a manager charging 10% of collected rent takes about ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year plus roughly ${usd(Math.round(rent['3'].median / 2))} again each time the unit turns. Photography is not included in the leasing fee and is billed separately at $250 to $450. Every other charge is published on the pricing page.` },
   { q: 'Is Grove City a good place to own a rental?',
@@ -140,8 +140,7 @@ const schemaNodes = [
         one-car garage or none. Out toward Stringtown Road, Hoover Road, Buckeye Parkway and the Route 665
         corridor the stock is newer, larger and subdivision-shaped: three and four bedrooms, attached two-car
         garages, full basements, some of it barely a decade old.
-        {' '}[SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Grove City, Ohio.]
-      </p>
+        </p>
       <p class="text-[17.5px] text-muted mt-5">
         This is why a single Grove City rent number is close to useless, and why a manager who quotes one
         without asking your cross streets is guessing. A 1958 house near the old Town Center might need a service

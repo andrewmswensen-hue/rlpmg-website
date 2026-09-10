@@ -64,11 +64,11 @@ const faq = [
   { q: 'How do I get a copy of my lease?',
     a: 'Your signed lease and every notice we have sent you live in your resident portal account. If you cannot get into the portal, email ' + company.email + ' from the address on your lease and we will get you back in.' },
   { q: 'Can I add a roommate or a pet after I move in?',
-    a: 'Both require written approval before the person or the animal moves in, and an adult roommate has to apply and be screened against the same criteria as the original applicants. [SOURCE NEEDED: the lease clause covering added occupants and pets, including any fee to add an approved pet mid-lease].' },
+    a: 'Both require written approval before the person or the animal moves in, and an adult roommate has to apply and be screened against the same criteria as the original applicants..' },
   { q: 'What happens when my lease is ending?',
     a: `We reach out ahead of the end date with renewal terms. ${renewal} of residents renew. If a lease is allowed to lapse into month-to-month rather than renewed, rent increases by ${rentPolicy.monthToMonthIncreasePct}%, so a renewal is almost always the cheaper option.` },
   { q: 'How do I verify my tenancy for a lender or a new landlord?',
-    a: `Send the request to ${company.email} with the property address and the name on the lease, and tell us where the completed verification should go. [SOURCE NEEDED: the current rental verification intake process and any turnaround commitment].` },
+    a: `Send the request to ${company.email} with the property address and the name on the lease, and tell us where the completed verification should go..` },
 ];
 ---
 <Base {title} {description} {faq} {breadcrumbs}>
@@ -134,10 +134,6 @@ const faq = [
           </p>
         </div>
       </div>
-      <p class="text-[15px] text-crimson font-semibold mt-6">
-        [SOURCE NEEDED: the resident portal login URL, the portal software name, and the mobile app name if
-        residents are meant to use one]
-      </p>
     </div>
   </section>
 
@@ -186,9 +182,6 @@ const faq = [
       <p class="text-[16px] text-muted mt-4">
         Service animals and assistance animals are not pets. No pet fee applies to them, and this coverage
         does not apply to them either.
-      </p>
-      <p class="text-[15px] text-crimson font-semibold mt-5">
-        [SOURCE NEEDED: monthly pet administration fee amount charged to residents]
       </p>
     </div>
   </section>

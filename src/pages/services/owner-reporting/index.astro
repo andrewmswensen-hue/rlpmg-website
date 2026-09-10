@@ -60,7 +60,7 @@ const faq = [
   { q: 'When are owner funds disbursed?',
     a: `Electronically on the ${rentPolicy.ownerDisbursementDay}th of each month, taking ${rentPolicy.disbursementNote}. The days between the 5th and the 10th are when the month closes: payments clear and invoices post, so the statement and the deposit agree.` },
   { q: 'Do I get a 1099 for my rental property?',
-    a: `Yes. A property manager reports rent collected on your behalf to the IRS and to you. [SOURCE NEEDED: which 1099 form RL Property Management issues to owners, the reporting threshold, and the date it is sent each year.] Your accountant will also want the annual statement, which shows income and expenses by category for the full year.` },
+    a: `Yes. A property manager reports rent collected on your behalf to the IRS and to you. Your accountant will also want the annual statement, which shows income and expenses by category for the full year.` },
   { q: 'Is there an accounting fee?',
     a: `${techFee?.amount ?? ''} per business entity per year. ${techFee?.note ?? ''} It is per entity rather than per unit, so an owner holding several properties in one LLC pays it once.` },
   { q: 'What if I move my property into an LLC?',
@@ -138,7 +138,7 @@ const schemaNodes = [
       </p>
       <ul class="grid gap-4">
         <li class="card !p-5"><strong class="text-navy">The annual statement.</strong> <span class="text-muted">Income and expense by category for the full year, per property.</span></li>
-        <li class="card !p-5"><strong class="text-navy">Your 1099.</strong> <span class="text-muted">Rent collected on your behalf, reported to you and to the IRS. [SOURCE NEEDED: the specific 1099 form RLPM issues to owners, the reporting threshold and the annual send date.]</span></li>
+        <li class="card !p-5"><strong class="text-navy">Your 1099.</strong> <span class="text-muted">Rent collected on your behalf, reported to you and to the IRS.</span></li>
         <li class="card !p-5"><strong class="text-navy">Capital improvement records.</strong> <span class="text-muted">Kept separately from repairs all year, because your CPA depreciates one and deducts the other.</span></li>
         <li class="card !p-5"><strong class="text-navy">Mortgage, insurance and tax records.</strong> <span class="text-muted">These are yours, not ours, unless we pay them from your account. Keep them where the statement can be reconciled against them.</span></li>
       </ul>

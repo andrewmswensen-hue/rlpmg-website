@@ -116,11 +116,11 @@ const faq = [
   { q: 'Does the Fairfield County Auditor remind me to register?',
     a: 'Do not count on it. R.C. 5323.02 requires the filing statewide, but the statutory duty on a county auditor to notify owners of the requirement attaches to counties with populations over 200,000. Fairfield County recorded 158,921 residents in the 2020 decennial census, below that line. The duty to file is yours regardless of whether anyone writes to you about it, and the penalty under R.C. 5323.99 applies regardless too.' },
   { q: 'Who provides water and sewer in Pickerington, Ohio?',
-    a: 'The City of Pickerington runs its own utility, at 100 Lockville Rd, Pickerington, OH 43147, telephone 614-833-2289. Water and sewer are billed monthly for the previous month of use, bills go out on the first and are due on the fifteenth. Pickerington is not a City of Columbus water and sewer contract community, so nothing about the Columbus arrangement applies here. Electricity is AEP Ohio and natural gas is Columbia Gas of Ohio. [SOURCE NEEDED: confirm who supplies water and sewer to unincorporated Violet Township addresses that carry a Pickerington mailing address but sit outside the city limits.]' },
+    a: 'The City of Pickerington runs its own utility, at 100 Lockville Rd, Pickerington, OH 43147, telephone 614-833-2289. Water and sewer are billed monthly for the previous month of use, bills go out on the first and are due on the fifteenth. Pickerington is not a City of Columbus water and sewer contract community, so nothing about the Columbus arrangement applies here. Electricity is AEP Ohio and natural gas is Columbia Gas of Ohio.' },
   { q: 'Is my Pickerington address actually in the City of Pickerington?',
     a: 'Often not. Many addresses with a Pickerington mailing address sit in unincorporated Violet Township, Fairfield County, rather than inside the city. The court and the auditor stay the same, because Violet Township is Fairfield County. What changes is city utility service, city zoning and city code enforcement, none of which reach an address outside the corporation limit. Check the parcel with the county auditor rather than trusting the postmark.' },
   { q: 'What kind of rental property is there in Pickerington?',
-    a: 'Predominantly detached single-family houses in subdivisions built from the 1990s onward: three and four bedrooms, attached garages, full basements. Old Pickerington Village at the centre is a small older core and the exception. Demand is driven heavily by the Pickerington Local School District, which means families, longer tenancies and a leasing season that peaks before the school year. [SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Pickerington, Ohio.]' },
+    a: 'Predominantly detached single-family houses in subdivisions built from the 1990s onward: three and four bedrooms, attached garages, full basements. Old Pickerington Village at the centre is a small older core and the exception. Demand is driven heavily by the Pickerington Local School District, which means families, longer tenancies and a leasing season that peaks before the school year.' },
   { q: 'How much does property management cost in Pickerington?',
     a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Nothing about the price changes because the property is in Fairfield County rather than Franklin. Photography is not included in the leasing fee and is billed separately at $250 to $450. Every other charge that can appear on an owner statement is published on the pricing page.` },
 ];
@@ -301,8 +301,6 @@ const schemaNodes = [
         one is usually sliding on the other, and the utility balance is the earlier signal.
       </p>
       <p class="text-[16px] text-muted mt-5">
-        [SOURCE NEEDED: confirm who supplies water and sewer to unincorporated Violet Township addresses that
-        carry a Pickerington mailing address but sit outside the city limits.]
       </p>
     </div>
   </section>
@@ -317,8 +315,7 @@ const schemaNodes = [
         Route 256 corridor. Old Pickerington Village at the centre is a small older core and the exception.
         Demand runs heavily through the Pickerington Local School District, which means families rather than
         singles, longer tenancies, and a leasing season that peaks before the school year.
-        {' '}[SOURCE NEEDED: US Census ACS 2024 5-year median year structure built for Pickerington, Ohio.]
-      </p>
+        </p>
       <p class="text-[17.5px] text-muted mt-5">
         We do not publish a Pickerington rent median, because we publish a market and bedroom median only where
         at least five of our own units support it and Pickerington does not clear that bar. Portfolio-wide across
