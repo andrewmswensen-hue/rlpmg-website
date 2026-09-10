@@ -1,5 +1,6 @@
 ---
 title: "Top 10 Questions to Ask When Hiring a Property Management Company"
+seoTitle: "Top 10 Questions to Ask a Property Management Company"
 description: "Don’t Hire the Wrong Property Manager Hiring a property management company is one of the most important decisions you can make as a rental property owner. The right partner can protect your asset, boost your returns, and free up your time. But the wrong one? They can cost you thousands in missed ren"
 pubDate: "2025-04-09T10:00:08Z"
 updatedDate: "2026-09-10T00:00:00Z"

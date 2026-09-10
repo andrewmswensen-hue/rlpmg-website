@@ -1,5 +1,6 @@
 ---
 title: "Why It’s Worth Your Time (and Money) to Find the Very Best Tenants"
+seoTitle: "Why It Is Worth the Effort to Find the Best Tenants"
 description: "Investing in real estate is a smart way to diversify your portfolio and generate income. In 2021 alone, the estimated market size of property management in the U.S. surpassed $101 billion, according to data from Statista Research Department. Clearly, there are real growth opportunities to be had wit"
 pubDate: "2022-06-07T14:00:33Z"
 updatedDate: "2022-06-08T15:10:21Z"

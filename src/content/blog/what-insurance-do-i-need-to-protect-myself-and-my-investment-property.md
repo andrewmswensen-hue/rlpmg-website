@@ -1,5 +1,6 @@
 ---
 title: "What Insurance Do I Need to Protect Myself and My Investment Property?"
+seoTitle: "What Insurance Do I Need for My Investment Property?"
 description: "Navigating insurance options is always tricky no matter the type of insurance. For property investors, wading through the numerous insurance coverage offerings and policies can feel especially overwhelming, but it’s imperative to protect yourself against property losses, claims from a tenant, or pot"
 pubDate: "2023-03-09T15:00:29Z"
 updatedDate: "2023-03-08T16:10:29Z"

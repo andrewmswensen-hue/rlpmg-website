@@ -1,5 +1,6 @@
 ---
 title: "Adapting to a Competitive Rental Market: Investor Strategies for the New Year"
+seoTitle: "Investor Strategies for a Competitive Rental Market"
 description: "As the Columbus rental market continues to evolve, landlords face increasing competition. A growing population, an influx of investors, and rising tenant expectations mean that standing out is more important than ever. Successfully navigating this environment requires a blend of strategic upgrades,"
 pubDate: "2024-12-23T12:36:58Z"
 updatedDate: "2024-12-03T17:02:20Z"

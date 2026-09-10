@@ -1,5 +1,6 @@
 ---
 title: "The Most Expensive Part of Owning Multi-Family Real Estate in Columbus"
+seoTitle: "The Most Expensive Part of Multi-Family in Columbus"
 description: "Before investing in real estate, it’s important to conduct a cash-flow analysis to understand your anticipated income and expenses for a given property. For new investors or new-to-the-area investors, it can sometimes be difficult to accurately predict what that cash flow will be. As a property mana"
 pubDate: "2021-10-05T15:30:49Z"
 updatedDate: "2021-10-22T19:03:41Z"

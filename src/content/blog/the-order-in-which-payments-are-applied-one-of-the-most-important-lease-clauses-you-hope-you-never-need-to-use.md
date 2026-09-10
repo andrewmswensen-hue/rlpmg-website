@@ -1,5 +1,6 @@
 ---
 title: "The Order in Which Payments Are Applied: One of the Most Important Lease Clauses You Hope You Never Need to Use"
+seoTitle: "The Order Payments Are Applied: A Key Lease Clause"
 description: "Your investment property relies on a steady stream of monthly income in order to meet your own financial obligations as well as generate revenue, but one thing a lot of people may not think about when it comes to receiving rent and other payments from their residents is the order in which those paym"
 pubDate: "2021-09-14T14:00:24Z"
 updatedDate: "2021-10-22T18:51:05Z"

@@ -1,5 +1,6 @@
 ---
 title: "What Does In-House Maintenance Actually Cost? (Columbus PM Rate Comparison)"
+seoTitle: "What In-House Maintenance Costs: Columbus Rates"
 description: "Maintenance is where property management costs either make sense or quietly spiral. Before signing with any Columbus PM company, here is what the numbers actually look like. TL;DR Columbus property management companies handle maintenance through three main models: in-house hourly rates, vendor marku"
 pubDate: "2026-06-09T13:09:02Z"
 updatedDate: "2026-06-09T13:10:04Z"

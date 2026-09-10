@@ -1,5 +1,6 @@
 ---
 title: "RL Property Management Acquires Core Select’s Property Management Business"
+seoTitle: "RL Property Management Acquires Core Select Business"
 description: "RL Property Management Group Grows Rental Unit Business 45% with Acquisition of Core Select Group’s Property Management Division Acquisition vaults RL Property Management Group into the top 5 of similar companies within Central Ohio COLUMBUS, OHIO, April 14, 2020, RL Property Management Group, a fu"
 pubDate: "2020-05-26T16:47:39Z"
 updatedDate: "2021-02-05T22:45:45Z"

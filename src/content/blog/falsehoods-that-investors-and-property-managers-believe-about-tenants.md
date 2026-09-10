@@ -1,5 +1,6 @@
 ---
 title: "Falsehoods That Investors and Property Managers Believe About Tenants"
+seoTitle: "Falsehoods Investors Believe About Tenants"
 description: "All of these assumptions are wrong. They won’t declare bankruptcy while living at the property And if they do, you can evict them They won’t make partial payments They won’t make partial online payments They understand your late fee policy They will pay the water bill They will report water leaks su"
 pubDate: "2019-09-20T22:07:58Z"
 updatedDate: "2019-09-20T22:12:37Z"

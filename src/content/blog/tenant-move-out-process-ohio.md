@@ -1,5 +1,6 @@
 ---
 title: "How to Handle a Tenant Move-Out in Columbus, Ohio (Timeline, Deposits, and Next Steps)"
+seoTitle: "How to Handle a Tenant Move-Out in Columbus, Ohio"
 description: "Move-out is the point in a tenancy where Ohio law gets specific and expensive. Here is the sequence that keeps a Columbus landlord out of a deposit dispute. TL;DR An Ohio tenant move-out runs on one hard deadline: under ORC 5321.16(B), the itemized deduction list and any money owed are due within 30"
 pubDate: "2026-09-04T14:26:53Z"
 updatedDate: "2026-09-08T14:38:05Z"

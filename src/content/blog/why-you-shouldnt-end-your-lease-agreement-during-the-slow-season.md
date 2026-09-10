@@ -1,5 +1,6 @@
 ---
 title: "Why You Shouldn’t End Your Lease Agreement During the Slow Season"
+seoTitle: "Why Not to End a Lease During the Slow Season"
 description: "Guess what? You don’t have to commit to a 12-month lease agreement. The length of your lease can be whatever you want it to be, and while 12 months is typically a standard length, there are good reasons why you may not always want yours to be. Modifying Your Lease Length Can Be Good for"
 pubDate: "2024-09-17T14:00:52Z"
 updatedDate: "2024-09-24T17:18:08Z"

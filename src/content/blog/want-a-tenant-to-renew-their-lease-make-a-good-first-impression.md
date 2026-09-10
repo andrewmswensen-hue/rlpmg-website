@@ -1,5 +1,6 @@
 ---
 title: "Want a Tenant to Renew Their Lease? Make a Good First Impression"
+seoTitle: "Want a Tenant to Renew? Make a Good First Impression"
 description: "You’ve done all the right things to secure a high-quality tenant. You have a great resident in your property who pays their rent on time, is not disruptive and follows the rules. Now, the question is, how do you keep them? Ways to Retain a Resident at Renewal While surprising to some, studies sugges"
 pubDate: "2023-02-07T15:00:59Z"
 updatedDate: "2023-01-24T14:19:56Z"

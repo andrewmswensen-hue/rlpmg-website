@@ -1,5 +1,6 @@
 ---
 title: "Blurring the Lines Between Property Management and Asset Management"
+seoTitle: "Property Management vs. Asset Management: The Overlap"
 description: "Most people who get into real estate do so for the potential returns the investment will generate. It’s a highly strategic process, and in theory, the better the property, the greater the earning potential it will have. With each property, investors must weigh the risks and opportunities it presents"
 pubDate: "2022-09-08T14:00:14Z"
 updatedDate: "2022-09-07T15:36:30Z"

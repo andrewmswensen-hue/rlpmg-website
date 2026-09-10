@@ -1,5 +1,6 @@
 ---
 title: "Should You Consider Digital Marketing for Your Rental Property?"
+seoTitle: "Should You Use Digital Marketing for Your Rental?"
 description: "It’s no surprise that 99.9 percent of our lease applicants find us through digital real estate websites. Because an online presence is so important to securing new tenants, you might be wondering if you should also consider amping up your digital marketing to fill vacant units. Read on for some insi"
 pubDate: "2023-02-16T15:00:39Z"
 updatedDate: "2023-01-24T14:45:29Z"

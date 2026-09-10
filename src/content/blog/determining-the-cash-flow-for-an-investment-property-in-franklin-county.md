@@ -1,5 +1,6 @@
 ---
 title: "Determining the Cash Flow for an Investment Property in Franklin County"
+seoTitle: "How to Determine Cash Flow in Franklin County"
 description: "If you’re looking to buy an investment property in the greater Columbus area, one of the biggest questions you likely have is how much money will the property make? On a monthly basis, what can you expect your cash flow to be? When looking at cash flow, there are two major components to consider."
 pubDate: "2021-09-21T14:00:17Z"
 updatedDate: "2021-10-22T18:59:17Z"

@@ -1,5 +1,6 @@
 ---
 title: "Portal Wars: Where Should You List Your Columbus Rental to Find Tenants Fast?"
+seoTitle: "Where Should You List Your Columbus Rental?"
 description: "If you’re a landlord in Columbus, Ohio, one question can quietly determine whether your property leases in 10 days or sits vacant for a month: Where should you list your rental to attract qualified tenants quickly? Renters today are not driving around looking for yard signs. They are opening Zillow"
 pubDate: "2026-02-21T22:03:30Z"
 updatedDate: "2026-03-05T22:08:17Z"

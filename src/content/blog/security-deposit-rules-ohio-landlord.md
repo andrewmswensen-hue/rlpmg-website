@@ -1,5 +1,6 @@
 ---
 title: "Security Deposit Rules in Ohio: What Landlords Can and Can’t Deduct"
+seoTitle: "Ohio Security Deposits: What Landlords Can Deduct"
 description: "A tenant hands back the keys. The clock starts. Under Ohio law, you have 30 days to either return the deposit or send a written, itemized deduction list, and what you charge better be defensible. Here’s the full breakdown of Ohio security deposit law for landlords. TL;DR Ohio sets no cap on securit"
 pubDate: "2026-07-21T09:21:24Z"
 updatedDate: "2026-06-30T18:57:21Z"

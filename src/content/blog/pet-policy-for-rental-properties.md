@@ -1,5 +1,6 @@
 ---
 title: "Pet Policies for Rental Properties: Why Every Landlord Needs One"
+seoTitle: "Pet Policies for Rentals: Why Every Landlord Needs One"
 description: "Pets are increasingly common in rental housing, and many tenants search specifically for pet-friendly homes. However, allowing animals in a rental property without clear written rules can create costly problems. A structured pet policy protects the property, reduces liability, and establishes expect"
 pubDate: "2026-03-10T17:25:29Z"
 updatedDate: "2026-03-23T22:02:08Z"

@@ -1,5 +1,6 @@
 ---
 title: "Why Your Rental Listing Isn’t Getting Applications (And How to Fix It)"
+seoTitle: "Why Your Rental Listing Is Not Getting Applications"
 description: "Your listing has been live for two weeks. A handful of views, zero inquiries, zero applications, and the mortgage payment doesn’t pause while you wait. The good news: this problem is diagnosable, and the diagnosis usually comes down to one of three things. TL;DR A rental listing getting no applicati"
 pubDate: "2026-08-20T10:25:46Z"
 updatedDate: "2026-08-11T15:39:38Z"

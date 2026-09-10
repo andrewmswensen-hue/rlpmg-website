@@ -1,5 +1,6 @@
 ---
 title: "Social Media, Marketing and Scaling Your Property Management Business"
+seoTitle: "Social Media and Scaling a Property Management Business"
 description: "The real estate industry leans heavily on relationships. Like so many opportunities, it’s not always what you know, but who you know. And to stay in the know, you have to be on social media. How to Elevate Your Social Media Game For investors or property managers interested in expanding their portfo"
 pubDate: "2022-10-25T14:00:45Z"
 updatedDate: "2022-09-21T16:41:58Z"

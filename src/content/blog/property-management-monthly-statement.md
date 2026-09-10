@@ -1,5 +1,6 @@
 ---
 title: "What Should Your Property Manager’s Monthly Statement Actually Show You?"
+seoTitle: "What Your Property Manager Monthly Statement Shows"
 description: "Your monthly statement is a window into how your property manager runs their business. If it’s confusing, vague, or late, that’s the company telling you something important. TL;DR A property management monthly statement should clearly show rent collected, fees charged against your management agreeme"
 pubDate: "2026-05-28T15:58:06Z"
 updatedDate: "2026-06-03T13:51:33Z"

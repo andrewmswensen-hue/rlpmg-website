@@ -1,5 +1,6 @@
 ---
 title: "How Professional Photos Affect Lease-Up Time (And What “Good Enough” Actually Costs You)"
+seoTitle: "How Professional Photos Affect Lease-Up Time"
 description: "Your listing is already competing against dozens of professionally photographed properties on the same platform. The photos you upload in the next 20 minutes will either help you lease faster, or quietly cost you hundreds of dollars you’ll never get back. TL;DR Listings with 10 or more quality phot"
 pubDate: "2026-05-31T13:52:25Z"
 updatedDate: "2026-06-03T14:01:07Z"

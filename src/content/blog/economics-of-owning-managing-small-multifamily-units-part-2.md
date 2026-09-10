@@ -1,5 +1,6 @@
 ---
 title: "Economics of Owning & Managing Small Multifamily Units (Part 2)"
+seoTitle: "Economics of Small Multifamily Units (Part 2)"
 description: "In Part 1 on the economics of owning and managing small multifamily units, we discussed the advantages and disadvantages of adding multifamily properties to your investment portfolio. On the whole, we believe this type of rental property generally adds value in terms of ROI and is a smart choice, pr"
 pubDate: "2022-03-08T15:00:07Z"
 updatedDate: "2022-03-11T15:30:31Z"

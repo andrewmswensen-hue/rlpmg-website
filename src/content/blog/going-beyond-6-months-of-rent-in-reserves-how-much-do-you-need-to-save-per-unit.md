@@ -1,5 +1,6 @@
 ---
 title: "Going Beyond 6 Months of Rent in Reserves, How Much Do You Need to Save Per Unit?"
+seoTitle: "How Much Should You Save in Reserves Per Rental Unit?"
 description: "For every unit you manage, you’re going to have unexpected expenses from time-to-time. It may be a water heater that goes out, a furnace that dies in the middle of winter, a roof or window that needs to be replaced, and a whole host of other expenses that you may not always anticipate. These"
 pubDate: "2021-08-02T17:17:20Z"
 updatedDate: "2021-10-22T17:14:51Z"

@@ -1,5 +1,6 @@
 ---
 title: "Mid-Summer Maintenance Checklist: Keep Your Columbus Rental Performing in the Heat"
+seoTitle: "Mid-Summer Maintenance Checklist for Columbus Rentals"
 description: "Why Summer Maintenance Isn’t Optional for Smart Investors Columbus summers are no joke. High humidity, sudden rainstorms, and relentless heat can put serious stress on your rental property. If you’ve already tackled some summer prep, great. But staying proactive mid-season can be the difference betw"
 pubDate: "2025-08-04T10:45:13Z"
 updatedDate: "2025-08-11T14:55:27Z"

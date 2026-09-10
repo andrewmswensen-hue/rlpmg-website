@@ -1,5 +1,6 @@
 ---
 title: "Is it a Good Idea to Offer Incentives to Prospective Applicants?"
+seoTitle: "Should You Offer Incentives to Rental Applicants?"
 description: "You might feel tempted to pull out all the stops when trying to fill a vacant rental property. Don’t. Even if it takes a little longer to find a good applicant, it’s worth the extra time you may need to seek out a high-quality tenants. That said, it doesn’t necessarily mean you can’t offer incentive"
 pubDate: "2023-02-21T15:00:43Z"
 updatedDate: "2023-01-24T14:52:39Z"

@@ -1,5 +1,6 @@
 ---
 title: "Columbus Rental Registry Update: What Landlords and Property Owners Should Know"
+seoTitle: "Columbus Rental Registry Update for Property Owners"
 description: "The conversation around a potential rental registry in Columbus, Ohio, continues to evolve, and recent public hearings show the issue is becoming one of the most closely watched housing policy debates in Central Ohio. Columbus City Council is exploring legislation that would require rental property"
 pubDate: "2026-03-04T18:17:14Z"
 updatedDate: "2026-03-23T17:25:13Z"

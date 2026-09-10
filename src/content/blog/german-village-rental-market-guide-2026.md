@@ -1,5 +1,6 @@
 ---
 title: "2026 Rental Market Guide: Renting Your Property in German Village"
+seoTitle: "German Village Rental Market Guide 2026 (Columbus)"
 description: "German Village remains one of Columbus’s most resilient rental neighborhoods thanks to walkability, historic charm, and proximity to downtown employers. In 2026, well-priced rentals typically lease in 15 to 35 days, with spring and summer moving fastest. Realistic rents depend more on parking, outdoor"
 pubDate: "2026-01-14T16:19:58Z"
 updatedDate: "2026-04-14T16:03:57Z"

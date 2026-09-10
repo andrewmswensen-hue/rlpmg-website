@@ -1,5 +1,6 @@
 ---
 title: "What Ohio Landlords Need to Know About HUD’s 2026 Fair Housing Guidance Changes"
+seoTitle: "HUD 2026 Fair Housing Changes: An Ohio Landlord Guide"
 description: "HUD just pulled the playbook that landlords and property managers have relied on for years. But the law it was built on hasn’t moved an inch. Here’s what Ohio landlords need to understand right now. Disclaimer: This article is informational only and does not constitute legal advice. Consult a qualif"
 pubDate: "2026-04-10T15:12:39Z"
 updatedDate: "2026-04-17T16:58:57Z"

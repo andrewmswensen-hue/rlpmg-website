@@ -1,5 +1,6 @@
 ---
 title: "The Timing of Capital Expenditures: When to Plan for Big Expenses"
+seoTitle: "When to Plan Capital Expenditures on a Columbus Rental"
 description: "Why Timing Matters for Any Long-Term Investment Strategy Large property expenses rarely feel “big”; they feel sudden. A roof that fails during a January cold snap or an HVAC system that quits during a humid Columbus summer can instantly derail cash flow, even for experienced investors. That stress u"
 pubDate: "2025-12-22T10:06:16Z"
 updatedDate: "2025-12-19T21:16:36Z"

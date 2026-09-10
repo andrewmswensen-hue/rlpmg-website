@@ -1,5 +1,6 @@
 ---
 title: "RL Property Management Guest Appearance on The Take Action Real Estate Podcast"
+seoTitle: "RLPM on The Take Action Real Estate Podcast"
 description: "Peter Lohmann with RL Property Management Group joined the team at Core Rentals as a guest on their great and local to Columbus podcast “Take Action Real Estate”. Hosts Brian and John discuss RL’s history, data tracking, the challenges of a property management company and many other topics. You can"
 pubDate: "2019-04-15T18:01:40Z"
 updatedDate: "2019-08-05T22:33:32Z"

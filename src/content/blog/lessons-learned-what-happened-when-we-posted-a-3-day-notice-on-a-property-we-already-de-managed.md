@@ -1,5 +1,6 @@
 ---
 title: "Lessons Learned: What Happened When We Posted a 3-day Notice on a Property We Already De-managed"
+seoTitle: "We Posted a 3-Day Notice on a De-Managed Property"
 description: "When it comes to hiring a property management company, you need to trust them. If you don’t trust that they have your best interests at heart, there’s no value in hiring them in the first place. Because it’s central to our business to build trust that we want you to be successful with your"
 pubDate: "2022-04-19T14:00:52Z"
 updatedDate: "2022-04-12T14:03:49Z"

@@ -1,5 +1,6 @@
 ---
 title: "Questions to Ask When Interviewing a Property Management Company in Columbus"
+seoTitle: "Questions to Ask a Columbus Property Management Company"
 description: "Owning a rental property in Columbus, Ohio, can be a lucrative way to earn passive income and diversify your portfolio, but it’s not without its challenges and commitment. Self-managing rental properties requires owners to be quite hands-on at times (for example, who’s going to field that 4a.m. main"
 pubDate: "2024-03-26T14:46:54Z"
 updatedDate: "2024-08-16T15:05:18Z"

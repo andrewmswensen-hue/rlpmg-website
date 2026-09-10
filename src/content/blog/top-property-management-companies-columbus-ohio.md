@@ -1,5 +1,6 @@
 ---
 title: "The Top 5 Property Management Companies in Columbus, Ohio (2026 Guide)"
+seoTitle: "The Top 5 Property Management Companies in Columbus"
 description: "Choosing the wrong property manager in Columbus costs money every month the mistake continues. Here’s an honest evaluation framework, the top companies in each category, and the questions that separate a good PM from a great one. TL;DR Columbus has strong property management options across every nic"
 pubDate: "2026-04-17T11:00:29Z"
 updatedDate: "2026-06-02T15:56:59Z"

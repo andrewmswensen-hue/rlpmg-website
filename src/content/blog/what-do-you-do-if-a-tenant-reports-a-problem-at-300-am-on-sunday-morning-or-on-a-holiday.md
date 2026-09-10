@@ -1,5 +1,6 @@
 ---
 title: "What Do You Do If a Tenant Reports a Problem at 3:00 AM on Sunday Morning, or on a Holiday?"
+seoTitle: "What to Do When a Tenant Reports a 3 AM Problem"
 description: "It’s the classic nightmare scenario. Your phone starts ringing in the middle of the night or on a long holiday weekend. Before you even tap accept on the phone, you can feel the frantic energy coming from the resident on the other end. So, what to do? If a tenant calls you in a"
 pubDate: "2021-12-28T15:00:54Z"
 updatedDate: "2021-12-07T20:17:19Z"

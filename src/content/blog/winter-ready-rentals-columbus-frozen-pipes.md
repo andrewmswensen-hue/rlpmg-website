@@ -1,5 +1,6 @@
 ---
 title: "Winter-Ready Rentals in Columbus: Essential Maintenance Tips to Prevent Frozen Pipes and Protect Older Properties"
+seoTitle: "Winter-Ready Rentals in Columbus: Prevent Frozen Pipes"
 description: "After Columbus’s recent Level 3 snow emergency, one thing became very clear: winter here isn’t just inconvenient, it can get expensive fast, especially for rental property owners. Heavy snow, prolonged freezing temperatures, ice, and sudden cold snaps put serious strain on homes across Central Ohio"
 pubDate: "2026-02-05T21:15:24Z"
 updatedDate: "2026-02-06T16:44:13Z"

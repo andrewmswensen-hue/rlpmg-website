@@ -1,5 +1,6 @@
 ---
 title: "Pets: What You Can Specify as Allowable in a Franklin County Lease Agreement"
+seoTitle: "Pet Terms You Can Set in a Franklin County Lease"
 description: "More than 60 percent of U.S. households own at least one pet, and that includes renters who may be looking at one of your Central Ohio properties. As a landlord or property manager, having a clearly defined pet policy in your lease agreement is essential to setting expectations for your tenants as w"
 pubDate: "2021-10-26T14:00:32Z"
 updatedDate: "2021-10-22T19:51:44Z"

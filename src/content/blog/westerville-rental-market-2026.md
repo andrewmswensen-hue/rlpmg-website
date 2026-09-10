@@ -1,5 +1,6 @@
 ---
 title: "2026 Westerville (Columbus, OH) Rental Market Guide for Investors"
+seoTitle: "Westerville Rental Market Guide 2026 for Investors"
 description: "A Fortune 500 headquarters just announced 210 new jobs. The city is pouring $30 million into shovel-ready commercial sites. And the school district keeps pulling families north. Here’s what rental investors should know about Westerville heading into the second half of 2026. TL;DR Westerville is one"
 pubDate: "2026-04-17T10:28:41Z"
 updatedDate: "2026-04-17T17:00:03Z"

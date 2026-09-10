@@ -1,5 +1,6 @@
 ---
 title: "How to Keep Great Tenants in Columbus: Your Retention Playbook"
+seoTitle: "How to Keep Great Tenants in Columbus: A Playbook"
 description: "Finding a great tenant for your Columbus rental property feels good. But the work isn’t over once they sign the lease. The real key to long-term success is keeping those excellent tenants. This simple step saves you significant time, money, and plenty of headaches down the road. This playbook will w"
 pubDate: "2025-06-23T11:35:53Z"
 updatedDate: "2025-05-27T16:56:04Z"

@@ -1,5 +1,6 @@
 ---
 title: "Growing Your Real Estate Portfolio Without Doubling Your To-Do List"
+seoTitle: "Grow Your Portfolio Without Doubling Your To-Do List"
 description: "We all want to do more with less, yet this can feel impossible when trying to grow our real estate portfolio. More properties means more work, right? Fortunately, it doesn’t have to. There are ways to scale your portfolio without also scaling your to-do list. Ways to Scale Your Investment Portfolio"
 pubDate: "2023-08-08T14:00:06Z"
 updatedDate: "2023-07-25T15:20:39Z"

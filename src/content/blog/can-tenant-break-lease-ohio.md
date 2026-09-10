@@ -1,5 +1,6 @@
 ---
 title: "Can a Tenant Break a Lease in Ohio? (What Landlords Should Know)"
+seoTitle: "Can a Tenant Break a Lease in Ohio? What to Know"
 description: "A tenant announces they’re leaving early. Before you panic or start drafting demand letters, it’s worth knowing exactly where Ohio law puts you, and where it puts them. TL;DR Ohio tenants can legally break a lease under a limited set of circumstances: active military deployment, a landlord’s failur"
 pubDate: "2026-06-22T13:35:45Z"
 updatedDate: "2026-06-09T13:53:13Z"

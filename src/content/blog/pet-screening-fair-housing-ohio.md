@@ -1,5 +1,6 @@
 ---
 title: "Pet Screening, Service Animals, and Fair Housing Compliance: What Landlords Need to Know"
+seoTitle: "Pet Screening, Service Animals and Fair Housing"
 description: "Pet screening helps landlords reduce risk, but Fair Housing laws limit how animals can be evaluated. Service animals and emotional support animals are not considered pets, which means standard pet fees and restrictions do not apply. The key is having a consistent screening process for pets while fol"
 pubDate: "2026-03-31T19:47:03Z"
 updatedDate: "2026-03-31T19:47:03Z"

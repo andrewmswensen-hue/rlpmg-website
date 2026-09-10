@@ -1,5 +1,6 @@
 ---
 title: "Does a Property Management Company Handle Maintenance and Repairs?"
+seoTitle: "Does a Property Manager Handle Maintenance and Repairs?"
 description: "Handling maintenance and repairs can be one of the most time-consuming parts of property ownership. Not only is there the actual work of fixing the unit itself, there is also the logistics of contracting the maintenance person and coordinating schedules with the resident and other affected individua"
 pubDate: "2021-12-21T15:00:36Z"
 updatedDate: "2021-12-07T20:12:45Z"

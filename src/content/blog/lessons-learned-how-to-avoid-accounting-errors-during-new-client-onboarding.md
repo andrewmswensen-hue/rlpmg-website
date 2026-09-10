@@ -1,5 +1,6 @@
 ---
 title: "Lessons Learned: How to Avoid Accounting Errors During New Client Onboarding"
+seoTitle: "How to Avoid Accounting Errors in Client Onboarding"
 description: "As a business, we’re always learning new ways to refine our processes to best accommodate our clients and their needs, but we’ll admit that working in property management can be a humbling experience, especially during periods of growth. Truth be told, we’ve made our share of mistakes during our com"
 pubDate: "2022-02-03T15:00:57Z"
 updatedDate: "2022-02-02T20:56:47Z"

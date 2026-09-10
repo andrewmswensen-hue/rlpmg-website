@@ -1,5 +1,6 @@
 ---
 title: "Future-Proofing Your Rental Property: Investments That Pay Off Long-Term"
+seoTitle: "Future-Proofing Your Rental Property Investments"
 description: "Owning rental properties isn’t just about managing the present, it’s about planning for the future. Future-proofing your property means making strategic investments today that reduce expenses, increase value, and attract tenants over the long haul. With advancements in energy efficiency, smart home t"
 pubDate: "2024-11-25T13:05:10Z"
 updatedDate: "2024-11-06T16:48:01Z"

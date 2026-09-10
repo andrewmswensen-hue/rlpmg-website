@@ -1,5 +1,6 @@
 ---
 title: "How Overpricing Your Columbus Rental Creates the Vacancy It Was Supposed to Prevent"
+seoTitle: "How Overpricing Your Columbus Rental Creates Vacancy"
 description: "The clock on a vacant unit starts the moment a tenant gives notice, and in today’s Columbus rental market, it costs more than most owners expect. Here’s what the numbers say about pricing, vacancy, and the gap between the two. TL;DR Franklin County’s rental market shifted in May 2026: available inve"
 pubDate: "2026-06-09T19:56:29Z"
 updatedDate: "2026-09-10T00:00:00Z"

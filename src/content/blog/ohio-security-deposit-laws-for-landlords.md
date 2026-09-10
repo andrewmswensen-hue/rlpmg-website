@@ -1,5 +1,6 @@
 ---
 title: "Security Deposit Rules in Ohio: What Changed and What Still Trips Up Landlords"
+seoTitle: "Ohio Security Deposit Rules: What Trips Up Landlords"
 description: "Why Security Deposits Are a Growing Risk for Ohio Landlords Security deposits remain one of the most common sources of conflict between landlords and tenants in Ohio, and the risk has grown in recent years. The law itself has not dramatically changed, but enforcement, tenant awareness, and court exp"
 pubDate: "2026-01-30T21:19:25Z"
 updatedDate: "2026-01-30T21:19:25Z"

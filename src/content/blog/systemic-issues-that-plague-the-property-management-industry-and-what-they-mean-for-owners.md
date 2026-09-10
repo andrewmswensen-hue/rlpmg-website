@@ -1,5 +1,6 @@
 ---
 title: "Systemic Issues that Plague the Property Management Industry, and What They Mean for Owners"
+seoTitle: "Systemic Issues in Property Management, and Why"
 description: "Real estate investors looking to grow their portfolios often turn to a property management company to relieve much of the day-to-day burden of taking care of the rental property and making sure it is occupied by good-quality tenants. As owners go online to search for a PM company to hire, they likel"
 pubDate: "2024-01-23T15:00:09Z"
 updatedDate: "2024-01-23T16:09:29Z"

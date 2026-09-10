@@ -1,5 +1,6 @@
 ---
 title: "Ready for 2025? Year-End Financial Moves Every Investor Should Make"
+seoTitle: "Year-End Financial Moves Every Investor Should Make"
 description: "Owning rental property can be a rewarding investment, but a profitable portfolio requires careful year-end financial planning to stay on track. As the year draws to a close, landlords and investors alike can benefit from taking a thorough look at their financials, assessing refinancing options, expl"
 pubDate: "2024-12-16T12:18:26Z"
 updatedDate: "2024-12-03T17:02:49Z"

@@ -1,5 +1,6 @@
 ---
 title: "How Quarterly Property Inspections Protect Your Columbus Rentals"
+seoTitle: "How Quarterly Inspections Protect Columbus Rentals"
 description: "A slow leak under a bathroom sink costs a few dollars to fix in March. Left alone until December, it can cost $3,000 in subfloor and drywall repairs. The difference between those two outcomes is usually one thing: whether anyone looked. TL;DR A quarterly rental property inspection checks safety equi"
 pubDate: "2026-08-03T14:48:35Z"
 updatedDate: "2026-08-11T15:39:52Z"

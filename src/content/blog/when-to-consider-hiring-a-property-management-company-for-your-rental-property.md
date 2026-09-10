@@ -1,5 +1,6 @@
 ---
 title: "When to Consider Hiring a Property Management Company For Your Rental Property"
+seoTitle: "When to Consider Hiring a Property Manager"
 description: "To be fully transparent, you might not need to hire a property management company. If you enjoy the problem solving, have time to handle after-hours emergencies, and aren’t frustrated by navigating the byzantine processes put in place by local governments, you are more than capable of managing your"
 pubDate: "2021-08-02T13:32:00Z"
 updatedDate: "2021-10-22T17:06:47Z"

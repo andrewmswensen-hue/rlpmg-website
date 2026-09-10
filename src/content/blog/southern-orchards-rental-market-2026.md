@@ -1,5 +1,6 @@
 ---
 title: "2026 Rental Market Guide: Renting Your Property in Southern Orchards"
+seoTitle: "Southern Orchards Rental Market Guide 2026 (Columbus)"
 description: "Southern Orchards continues to draw steady renter demand in 2026 due to its proximity to Downtown Columbus, Nationwide Children’s Hospital, and nearby revitalizing neighborhoods like German Village and Olde Town East. Recent data show median rents of $1,425 to $1,625/month, depending on the dataset and"
 pubDate: "2026-03-28T19:30:56Z"
 updatedDate: "2026-04-14T16:04:38Z"

@@ -1,5 +1,6 @@
 ---
 title: "Interview with a Property Manager, Part 1: Q&A with Peter Lohmann, Co-founder and CEO of RL Property Management"
+seoTitle: "Interview with Peter Lohmann, RLPM CEO (Part 1)"
 description: "RL Property Management has been serving owners and residents throughout the greater Columbus area for a decade. Read on to learn more about Peter Lohmann’s start as a property investor and gain insight into how to grow your real estate investment portfolio. How did you get started investing in real"
 pubDate: "2024-01-09T15:00:19Z"
 updatedDate: "2024-01-23T16:01:04Z"

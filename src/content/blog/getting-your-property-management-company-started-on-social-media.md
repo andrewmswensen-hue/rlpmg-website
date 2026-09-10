@@ -1,5 +1,6 @@
 ---
 title: "Getting Your Property Management Company Started on Social Media"
+seoTitle: "Getting Your Property Management Company on Social"
 description: "If there’s one basic rule for marketing and advertising, it’s “go where your people are.” Your people (a.k.a prospective tenants or real estate investors)? Yep, they’re on social media. Whether your goal is to invest in more rental properties or to fill your existing units with high-quality tenants,"
 pubDate: "2022-02-22T15:00:59Z"
 updatedDate: "2022-02-02T20:44:25Z"

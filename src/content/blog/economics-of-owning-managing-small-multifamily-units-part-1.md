@@ -1,5 +1,6 @@
 ---
 title: "Economics of Owning & Managing Small Multifamily Units (Part 1)"
+seoTitle: "Economics of Small Multifamily Units (Part 1)"
 description: "Most people pursue real estate investment opportunities because of the economic returns they can bring, not because they enjoy receiving middle-of-the-night tenant calls. But whether you own one property or 100, you know that each unit’s ROI potential can be impacted by a host of factors, including"
 pubDate: "2022-03-03T15:00:12Z"
 updatedDate: "2022-03-11T15:31:20Z"

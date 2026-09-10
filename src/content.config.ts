@@ -6,6 +6,15 @@ const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/blog' }),
   schema: z.object({
     title: z.string(),
+    /**
+     * Search-result title. The <title> tag only. Never rendered as the H1.
+     *
+     * Peter's headlines are written to be read, and many run past the roughly
+     * 60 characters Google shows, so they get cut mid-word in the results.
+     * This field carries a short, front-loaded version for search while the
+     * post keeps the headline he wrote. URLs and H1s are untouched.
+     */
+    seoTitle: z.string().optional(),
     description: z.string().default(''),
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),

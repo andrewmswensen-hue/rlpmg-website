@@ -1,5 +1,6 @@
 ---
 title: "How a $300 Rental Property Inspection Can Save You Thousands in Repairs"
+seoTitle: "How a $300 Rental Inspection Saves You Thousands"
 description: "For self-managing and out-of-state landlords, keeping tabs on a property’s condition is tough. Tenants may not report minor issues until they escalate, local code violations slip through the cracks, and wear-and-tear adds up. What’s more, properties often sit vacant between or before leases, waiting"
 pubDate: "2025-02-04T15:51:34Z"
 updatedDate: "2025-02-04T16:27:27Z"

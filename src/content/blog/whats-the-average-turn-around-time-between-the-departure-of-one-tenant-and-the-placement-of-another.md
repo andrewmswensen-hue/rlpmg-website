@@ -1,5 +1,6 @@
 ---
 title: "What’s the Average Turn-Around Time Between the Departure of One Tenant and the Placement of Another?"
+seoTitle: "What Is the Average Turnaround Time Between Tenants?"
 description: "The goal of an investment property is for it generate revenue for you through rental income, but we can’t talk about rental properties and investment opportunities without also talking about vacancies. Vacancies between tenants or during a major renovation project means you could be going through we"
 pubDate: "2021-11-09T15:00:39Z"
 updatedDate: "2021-11-04T18:32:35Z"

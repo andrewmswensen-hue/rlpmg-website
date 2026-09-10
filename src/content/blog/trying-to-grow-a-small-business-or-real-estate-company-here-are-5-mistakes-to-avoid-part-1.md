@@ -1,5 +1,6 @@
 ---
 title: "Trying to Grow a Small Business or Real Estate Company? Here are 5 Mistakes to Avoid (Part 1)"
+seoTitle: "Growing a Real Estate Company: 5 Mistakes (Part 1)"
 description: "As with any new challenge in life, mistakes are an inevitable part of navigating the learning curve. Fortunately, there are ways to minimize the amount of mistakes you make by learning from those who have gone before you. As small business owners ourselves, we have definitely made our share of error"
 pubDate: "2021-10-21T14:00:14Z"
 updatedDate: "2021-10-22T19:07:22Z"

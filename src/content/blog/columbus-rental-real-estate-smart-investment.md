@@ -1,5 +1,6 @@
 ---
 title: "Why Rental Real Estate Remains a Smart Move (Even in Uncertain Times)"
+seoTitle: "Why Rental Real Estate Is Still a Smart Investment"
 description: "When the economy shifts or headlines spark concern, it’s natural for investors to second-guess their next move. Inflation, interest rates, global conflict… these factors create a storm of uncertainty that can leave even seasoned property owners feeling stuck. But here’s the truth: real estate isn’t"
 pubDate: "2025-07-08T17:23:45Z"
 updatedDate: "2025-07-08T17:30:27Z"

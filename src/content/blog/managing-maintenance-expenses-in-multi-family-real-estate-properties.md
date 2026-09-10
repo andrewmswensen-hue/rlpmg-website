@@ -1,5 +1,6 @@
 ---
 title: "Managing Maintenance Expenses in Multi-Family Real Estate Properties"
+seoTitle: "Managing Maintenance Expenses in Multi-Family Rentals"
 description: "Any homeowner knows just how much work it can be to stay on top of home maintenance and repairs. Even something that seems like a simple fix can result in multiple trips to the hardware store and cost a lot more than you might expect. Now scale that up for an investor who owns one,"
 pubDate: "2022-07-12T14:00:18Z"
 updatedDate: "2022-07-13T17:20:17Z"

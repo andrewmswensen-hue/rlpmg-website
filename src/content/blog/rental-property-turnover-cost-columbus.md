@@ -1,5 +1,6 @@
 ---
 title: "What Does a Rental Property Turnover Actually Cost in Columbus?"
+seoTitle: "What Does a Rental Turnover Cost in Columbus?"
 description: "A tenant moves out. The clock starts. Every day that unit sits empty costs money, and the repair bills haven’t even arrived yet. Here’s what Columbus landlords should budget for, and how to keep turnover from quietly draining their investment. TL;DR A single tenant turnover in Columbus typically co"
 pubDate: "2026-04-14T14:27:43Z"
 updatedDate: "2026-09-10T00:00:00Z"

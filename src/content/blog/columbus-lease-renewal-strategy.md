@@ -1,5 +1,6 @@
 ---
 title: "Columbus Lease Renewal Strategy: Maximize ROI with Smart Retention"
+seoTitle: "Columbus Lease Renewal Strategy: Maximize Your ROI"
 description: "Lease Renewals Are a Financial Decision, Not a Given Most Columbus rental property owners and real estate investors assume that lease renewals are just routine paperwork. But in reality, every renewal is a strategic financial decision that can either boost or drain your portfolio’s performance. Not"
 pubDate: "2025-08-25T09:19:53Z"
 updatedDate: "2025-08-22T20:29:22Z"

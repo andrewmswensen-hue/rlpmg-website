@@ -1,5 +1,6 @@
 ---
 title: "The Move-In Inspection: What Columbus Landlords Should Document (And Why)"
+seoTitle: "The Move-In Inspection: What Landlords Should Document"
 description: "The tenancy starts the moment a tenant picks up the keys. What you document in the next 30 minutes will determine whether you have any legal standing at move-out (or none at all). TL;DR A move-in inspection creates the documented baseline that makes security deposit deductions defensible at move-out"
 pubDate: "2026-06-12T13:10:13Z"
 updatedDate: "2026-06-09T13:23:36Z"

@@ -1,5 +1,6 @@
 ---
 title: "SDIRAs for Real Estate: How Real Estate Pros Can Build Passive Income Before Retirement"
+seoTitle: "SDIRAs for Real Estate: Passive Income for Retirement"
 description: "DISCLAIMER: This article was contributed by a third-party guest writer and is provided for informational purposes only. It does not constitute financial, tax, or legal advice. SDIRAs (Self-Directed Individual Retirement Accounts) involve complex rules and potential risks. Before making any investmen"
 pubDate: "2025-06-27T14:02:52Z"
 updatedDate: "2025-08-12T14:19:07Z"

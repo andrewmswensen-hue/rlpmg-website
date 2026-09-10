@@ -1,5 +1,6 @@
 ---
 title: "How Does My Current Mortgage Affect a New Mortgage if I Want to Rent My Property?"
+seoTitle: "How Your Mortgage Affects Renting Out Your Property"
 description: "Turning your single-family home into a rental property can be a good way to bring in additional cash flow and capitalize on other benefits and incentives that come with owning real estate. A question many property owners have, however, is how they will finance their new home if they choose to rent o"
 pubDate: "2023-04-11T16:00:19Z"
 updatedDate: "2023-03-30T19:11:32Z"

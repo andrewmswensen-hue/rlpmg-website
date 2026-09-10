@@ -1,5 +1,6 @@
 ---
 title: "5 Frustrations Facing Property Owners (And How to Deal with Them)"
+seoTitle: "5 Frustrations Facing Property Owners, and the Fixes"
 description: "Anyone who owns rental properties knows it can come with many rewards, but it’s also not without its share of hard work and challenges. Often owners come to us frustrated and in need of help because they’re struggling with the management aspect of their rental properties or because they’ve had it up"
 pubDate: "2022-06-21T14:00:44Z"
 updatedDate: "2022-06-08T15:32:08Z"

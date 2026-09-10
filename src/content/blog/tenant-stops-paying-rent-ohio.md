@@ -1,5 +1,6 @@
 ---
 title: "What Happens When a Tenant Stops Paying Rent in Ohio? (Step-by-Step)"
+seoTitle: "What Happens When a Tenant Stops Paying Rent in Ohio?"
 description: "The rent didn’t arrive on the 1st. It’s now the 6th, the grace period is gone, and the tenant isn’t answering texts. What you do over the next 30 days determines whether this costs you a late fee or a five-figure loss. TL;DR When a tenant stops paying rent in Ohio, the process runs in"
 pubDate: "2026-08-06T15:10:55Z"
 updatedDate: "2026-08-11T15:39:25Z"

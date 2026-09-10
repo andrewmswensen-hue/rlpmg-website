@@ -1,5 +1,6 @@
 ---
 title: "Columbus Lease Renewal Strategy: When to Raise Rent and When to Hold"
+seoTitle: "Lease Renewals: When to Raise Rent and When to Hold"
 description: "Renewal offers on leases signed last spring are going out right now. On most of them, the decision is worth more than the rent difference it turns on. TL;DR Raise rent at renewal when the gap to market is 10% or more, when the resident has gone two years without an increase, or when the"
 pubDate: "2026-09-01T14:20:06Z"
 updatedDate: "2026-09-08T14:31:59Z"

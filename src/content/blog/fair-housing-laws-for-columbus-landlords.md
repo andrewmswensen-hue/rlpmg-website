@@ -1,5 +1,6 @@
 ---
 title: "Fair Housing Laws for Columbus Landlords: Your Guide to Staying Compliant"
+seoTitle: "Fair Housing Laws for Columbus Landlords: A Guide"
 description: "Being a landlord comes with plenty of responsibilities, and following Fair Housing laws for Columbus landlords is one of the most important. These laws are in place to ensure everyone has a fair chance at finding housing free from discrimination. For landlords in Columbus, Ohio, knowing and followin"
 pubDate: "2025-01-06T10:03:04Z"
 updatedDate: "2025-01-03T18:43:49Z"

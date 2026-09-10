@@ -1,5 +1,6 @@
 ---
 title: "Lease Renewals & Rent Increases: How to Handle Them Strategically"
+seoTitle: "Lease Renewals and Rent Increases: A Strategy Guide"
 description: "Why Strategic Lease Renewals Matter Lease renewals and rent increases can feel like walking a tightrope. Raise the rent too much, and you risk losing a reliable tenant. Don’t raise it at all, and you’re leaving money on the table. But with the right strategy, you don’t have to choose. Smart lease ma"
 pubDate: "2025-10-15T14:19:32Z"
 updatedDate: "2025-10-15T14:19:55Z"

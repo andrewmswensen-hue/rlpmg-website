@@ -1,5 +1,6 @@
 ---
 title: "2025 Wrap-Up: Key Trends and Forecasts for the 2026 Columbus Rental Market"
+seoTitle: "2026 Columbus Rental Market Trends and Forecast"
 description: "As 2025 comes to a close, the Columbus and Central Ohio rental market continues to show resilience compared to many national markets. Population growth, limited home affordability, and steady employment support rental demand heading into 2026. Owners who focus on property condition, realistic pricin"
 pubDate: "2025-12-30T15:52:18Z"
 updatedDate: "2026-01-05T17:18:11Z"

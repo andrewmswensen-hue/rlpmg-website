@@ -1,5 +1,6 @@
 ---
 title: "Budgeting for Major Repairs: How to Plan for Capital Expenses"
+seoTitle: "Budgeting for Major Repairs on a Columbus Rental"
 description: "Why Major Repairs Catch Landlords Off Guard It’s January in Columbus. Your tenant calls to say the furnace just quit, and the repair quote comes back at $5,000. You weren’t expecting that bill, at least not now. Suddenly, the cash flow that looked solid on your spreadsheet has vanished overnight. Fo"
 pubDate: "2025-12-01T17:55:34Z"
 updatedDate: "2025-12-12T16:40:19Z"

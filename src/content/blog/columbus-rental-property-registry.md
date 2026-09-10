@@ -1,5 +1,6 @@
 ---
 title: "Columbus Considers Rental Property Registry: What Landlords Need to Know"
+seoTitle: "Columbus Rental Property Registry: What to Know"
 description: "Why Columbus Landlords Should Pay Attention Now The Columbus City Council is actively exploring the creation of a rental property registry. This potential policy change could affect how the city tracks and regulates rental housing. While no ordinance has passed, the discussion has moved beyond theor"
 pubDate: "2026-02-02T08:22:50Z"
 updatedDate: "2026-01-30T21:28:28Z"

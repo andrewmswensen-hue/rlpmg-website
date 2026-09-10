@@ -1,5 +1,6 @@
 ---
 title: "How to Pick a Property Management Company: The 5-Step Process"
+seoTitle: "How to Pick a Property Management Company: 5 Steps"
 description: "A five-step process for choosing a property manager: work out what you need, map the market, research the top ten, call five, and meet with two."
 pubDate: "2019-06-12T12:00:00Z"
 updatedDate: "2026-09-10T00:00:00Z"

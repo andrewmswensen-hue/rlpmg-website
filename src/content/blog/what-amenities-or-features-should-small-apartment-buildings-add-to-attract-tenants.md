@@ -1,5 +1,6 @@
 ---
 title: "What Amenities or Features Should Small Apartment Buildings Add to Attract Tenants?"
+seoTitle: "What Amenities Attract Tenants to Small Apartments?"
 description: "Just because you’re small doesn’t mean you can’t be mighty. There are many apartment amenities that even small apartment buildings can add or enhance to attract new residents. Here’s a run-down of a few popular features to include if you’re looking to draw in more tenant interest. Enhance technology"
 pubDate: "2023-03-23T14:00:08Z"
 updatedDate: "2023-03-02T18:18:01Z"

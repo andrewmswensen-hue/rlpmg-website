@@ -1,5 +1,6 @@
 ---
 title: "Do Columbus’s Best School Districts Really Pay Off for Rental Property Investors?"
+seoTitle: "Do Columbus School Districts Pay Off for Investors?"
 description: "Is Investing in Great School Districts Still Worth It in 2025? Would you pay $200K more for a home if it meant securing reliable tenants for years? That’s the dilemma many Columbus real estate investors are facing as they evaluate properties in top-performing school districts. The logic seems sound:"
 pubDate: "2025-09-22T09:01:48Z"
 updatedDate: "2025-09-19T14:59:13Z"

@@ -1,5 +1,6 @@
 ---
 title: "What Does a Columbus Property Manager Actually Do? (A Full Breakdown of Services)"
+seoTitle: "What Does a Columbus Property Manager Actually Do?"
 description: "You’ve heard property managers handle “everything.” But what does that actually mean? Here’s a plain-English breakdown of every service a full-service Columbus property manager provides, and what each one protects you from. TL;DR A property manager handles tenant placement, rent collection, mainten"
 pubDate: "2026-06-29T14:31:17Z"
 updatedDate: "2026-06-09T16:22:33Z"

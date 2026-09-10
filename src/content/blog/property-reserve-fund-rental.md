@@ -1,5 +1,6 @@
 ---
 title: "Property Reserves: How Much Should Columbus Landlords Set Aside?"
+seoTitle: "Property Reserves: What Columbus Landlords Set Aside"
 description: "A burst pipe doesn’t wait for a convenient month. Before buying a first rental or refinancing a fifth, Columbus owners need a real number for how much cash should sit on the sidelines, not a guess. TL;DR RLPM recommends six months’ rent in reserve for a Central Ohio rental property, covering mainten"
 pubDate: "2026-07-13T09:14:25Z"
 updatedDate: "2026-06-30T18:17:08Z"

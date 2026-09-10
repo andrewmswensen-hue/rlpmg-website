@@ -1,5 +1,6 @@
 ---
 title: "Resident Retention: Why Happy Residents Are Your Best Investment"
+seoTitle: "Resident Retention: Why Happy Residents Pay Off"
 description: "Managing rental properties isn’t just about collecting rent, it’s about building strong relationships. While cash flow and ROI matter, one of the biggest keys to success is resident happiness. When residents feel valued, they stay longer, take better care of the property, and even refer other renters"
 pubDate: "2025-02-03T11:09:29Z"
 updatedDate: "2025-02-21T21:17:55Z"

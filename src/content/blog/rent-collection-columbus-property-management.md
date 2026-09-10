@@ -1,5 +1,6 @@
 ---
 title: "How Columbus Rent Collection Works with a Property Manager (And What Happens When It Doesn’t)"
+seoTitle: "How Rent Collection Works with a Columbus Manager"
 description: "Rent is the whole point. But collecting it consistently, and knowing exactly what to do when it doesn’t arrive, is where most landlords discover the real complexity of owning rental property. Here’s how a property manager handles it, from the moment rent is due to the moment funds hit your account."
 pubDate: "2026-06-05T13:02:27Z"
 updatedDate: "2026-06-09T18:35:25Z"

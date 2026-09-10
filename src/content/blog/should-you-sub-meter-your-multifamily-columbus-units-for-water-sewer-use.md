@@ -1,5 +1,6 @@
 ---
 title: "Should you sub-meter your Multifamily Columbus Units for Water/Sewer Use?"
+seoTitle: "Should You Sub-Meter Water and Sewer in Multifamily?"
 description: "RL Property Management Group has managed several hundred duplex and multifamily properties in and around Columbus, OH, and have tried every different way to bill for water/sewage. We have included it in rent as a flat fee, split the city bill evenly between units, and sub-metered usage by a third-pa"
 pubDate: "2019-06-13T05:26:28Z"
 updatedDate: "2019-08-05T22:30:37Z"

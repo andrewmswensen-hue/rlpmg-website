@@ -1,5 +1,6 @@
 ---
 title: "Your Property ROI Tracker: 5 Monthly Metrics Every Columbus Owner Should Watch"
+seoTitle: "5 Monthly ROI Metrics Every Columbus Owner Tracks"
 description: "Every dollar tells a story. If you’re serious about maximizing returns on your rental properties, you need more than gut instinct… you need data. Savvy property owners don’t just look at their bank balance at the end of the month. They dig deeper into patterns, anomalies, and leading indicators that"
 pubDate: "2025-08-11T14:53:53Z"
 updatedDate: "2025-08-11T14:57:43Z"

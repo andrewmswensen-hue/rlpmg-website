@@ -1,5 +1,6 @@
 ---
 title: "1 in 4 Tenants Will Contact You for an After-Hours Emergency Per Year"
+seoTitle: "1 in 4 Tenants Will Have an After-Hours Emergency"
 description: "Owing a rental property is a smart way to earn passive income, but “passive” is a relative term. There can be a large variation in how hands-on (or off) the job is, especially when you go it alone and self-manage the rental property. And, as we all know, the hands-on part doesn’t always"
 pubDate: "2021-09-02T14:00:26Z"
 updatedDate: "2021-10-22T18:48:02Z"

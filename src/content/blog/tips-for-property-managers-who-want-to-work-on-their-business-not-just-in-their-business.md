@@ -1,5 +1,6 @@
 ---
 title: "Tips for Property Managers Who Want to Work On Their Business, Not Just In Their Business"
+seoTitle: "How to Work On Your Business, Not Just In It"
 description: "Small business owners live and breathe what they do. It takes effort and passion to go from “just an idea” into something that has legs all its own, but what about once your business is up and running? How do you pull back on some of the reins, so you’re not constantly stuck with your"
 pubDate: "2022-02-17T15:00:20Z"
 updatedDate: "2022-02-02T20:10:20Z"

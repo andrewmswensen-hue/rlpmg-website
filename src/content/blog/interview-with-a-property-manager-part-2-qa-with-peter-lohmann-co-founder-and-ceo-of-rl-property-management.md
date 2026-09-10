@@ -1,5 +1,6 @@
 ---
 title: "Interview with a Property Manager, Part 2: Q&A with Peter Lohmann, Co-founder and CEO of RL Property Management"
+seoTitle: "Interview with Peter Lohmann, RLPM CEO (Part 2)"
 description: "In this two-part series, we’re hearing from Peter Lohmann, Co-founder and CEO of RL Property Management, as he discusses his start in real estate investing and how that first investment has led to exponential growth and the founding of his company. Investing in your first property taught you a lot a"
 pubDate: "2024-01-16T15:00:26Z"
 updatedDate: "2024-01-23T16:00:05Z"

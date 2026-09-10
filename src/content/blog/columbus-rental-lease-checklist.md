@@ -1,5 +1,6 @@
 ---
 title: "What Should a Columbus Rental Lease Actually Include? (2026 Checklist)"
+seoTitle: "What a Columbus Rental Lease Should Include (2026)"
 description: "You found a tenant. You agreed on rent. Now the lease is sitting in front of you, and the clauses you do (or don’t) include over the next thirty minutes will decide what happens when something goes wrong eighteen months from now. TL;DR A Columbus rental lease should cover the property and parties, r"
 pubDate: "2026-05-07T15:00:10Z"
 updatedDate: "2026-06-02T15:55:22Z"

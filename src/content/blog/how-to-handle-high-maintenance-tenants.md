@@ -1,5 +1,6 @@
 ---
 title: "How to Handle High-Maintenance Tenants (Without Losing Sleep)"
+seoTitle: "How to Handle High-Maintenance Tenants Without Stress"
 description: "You didn’t sign up to be a therapist, negotiator, and emergency plumber all in one. But when you’re managing rental properties yourself, especially in a market like Columbus, high-maintenance tenants can turn a passive income stream into a full-time headache. The good news: you don’t have to sacri"
 pubDate: "2025-04-10T16:16:46Z"
 updatedDate: "2026-04-17T18:34:28Z"

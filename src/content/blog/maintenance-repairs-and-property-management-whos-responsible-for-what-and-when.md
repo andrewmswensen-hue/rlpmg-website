@@ -1,5 +1,6 @@
 ---
 title: "Maintenance, Repairs and Property Management: Who’s Responsible for What and When?"
+seoTitle: "Maintenance and Repairs: Who Is Responsible, and When"
 description: "Anyone who owns real estate knows maintenance is just part of the gig. When you own rental property, however, the responsibilities for some of those maintenance tasks can become a little more ambiguous. Is it the tenant who should be tasked with fixing an issue in their rental unit, or will you or y"
 pubDate: "2022-10-13T14:00:13Z"
 updatedDate: "2022-09-20T20:51:10Z"

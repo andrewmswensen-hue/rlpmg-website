@@ -1,5 +1,6 @@
 ---
 title: "Having Trouble Selling Your Home in Columbus? Here’s Why Renting Might Be the Smarter Move in 2025"
+seoTitle: "Trouble Selling in Columbus? Why Renting May Be Smarter"
 description: "If you’re a homeowner in Columbus trying to sell right now, you’re not alone in feeling frustrated. The early months of 2025 have brought a noticeable shift in the real estate market: interest rates are high, buyers are hesitant, and listings are starting to sit longer. Maybe your home has been on t"
 pubDate: "2025-05-02T20:09:58Z"
 updatedDate: "2025-05-02T20:11:07Z"

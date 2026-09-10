@@ -1,5 +1,6 @@
 ---
 title: "Should You Allow Month-to-Month Leases in Columbus Ohio? (Pros, Cons, and When It Makes Sense)"
+seoTitle: "Month-to-Month Leases in Columbus: Pros and Cons"
 description: "A lease ending doesn’t have to mean a clean choice between another year or losing a tenant for good. Month-to-month terms sit in the middle, and knowing when to use one is what separates a deliberate lease strategy from a reactive scramble. TL;DR Month-to-month leases work best when a fixed term end"
 pubDate: "2026-07-06T10:51:54Z"
 updatedDate: "2026-06-30T18:15:49Z"

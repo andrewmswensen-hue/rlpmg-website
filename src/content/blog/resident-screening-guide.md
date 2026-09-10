@@ -1,5 +1,6 @@
 ---
 title: "Resident Screening for Columbus Landlords: A Step-by-Step Guide to Finding Great Renters"
+seoTitle: "Resident Screening for Columbus Landlords: A Guide"
 description: "Table of Contents Why Thorough Resident Screening Matters Step 1, Pre-Screening Your Prospects Step 2, The Rental Application Process Step 3, Conducting Background and Credit Checks Step 4, Calling References and Previous Landlords Step 5, Making a Decision and Offering the Lease Ohio Laws and"
 pubDate: "2025-03-10T09:43:00Z"
 updatedDate: "2025-03-04T21:11:24Z"

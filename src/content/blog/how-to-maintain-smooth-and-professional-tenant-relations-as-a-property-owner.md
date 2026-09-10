@@ -1,5 +1,6 @@
 ---
 title: "How to Maintain Smooth and Professional Tenant Relations as a Property Owner"
+seoTitle: "How to Keep Tenant Relations Smooth and Professional"
 description: "The owner/tenant relationship is a business relationship by nature, and both parties stand to benefit when the relationship is positive. Tenants who feel valued and appreciated are more likely to take good care of the rental unit. They may also be more likely to extend their lease year after year, w"
 pubDate: "2022-10-20T14:00:38Z"
 updatedDate: "2022-10-10T16:14:54Z"

@@ -1,5 +1,6 @@
 ---
 title: "How to Increase Occupancy and Reduce the Number of Vacant Properties in Your Real Estate Portfolio"
+seoTitle: "How to Increase Occupancy Across Your Portfolio"
 description: "Vacancy rate is an important metric property owners must be tracking to accurately understand the performance of their real estate portfolio. By vacancy rate we mean knowing the average number of days or weeks per year that your rental unit sits unoccupied without any paying tenants. A good rule of"
 pubDate: "2022-05-17T14:00:41Z"
 updatedDate: "2022-04-11T19:18:21Z"

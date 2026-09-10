@@ -1,5 +1,6 @@
 ---
 title: "Entity Ownership vs. Individual Ownership as a Real Estate Investment Strategy"
+seoTitle: "Entity vs. Individual Ownership for Rental Property"
 description: "There are several strategies to minimize your tax bill as a property investor. From maximizing tax deductions to accounting for depreciation, utilizing a 1031 exchange and many others, you can generate wealth and grow your portfolio by taking advantage of tax incentives and opportunities. Another su"
 pubDate: "2023-12-19T15:00:51Z"
 updatedDate: "2023-12-19T15:49:33Z"

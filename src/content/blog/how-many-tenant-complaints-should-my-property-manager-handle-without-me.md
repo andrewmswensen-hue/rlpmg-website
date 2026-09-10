@@ -1,5 +1,6 @@
 ---
 title: "How Many Tenant Complaints Should My Property Manager Handle Without Me?"
+seoTitle: "How Many Tenant Complaints Should a PM Handle Alone?"
 description: "Most people hire a property management company because they don’t have the time, expertise or interest in managing the myriad aspects that come with being a rental property owner. One such aspect that most property owners are more than happy to outsource? Dealing with tenant complaints. Before jumpi"
 pubDate: "2022-02-01T15:00:29Z"
 updatedDate: "2022-01-27T18:15:07Z"

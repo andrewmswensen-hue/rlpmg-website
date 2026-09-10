@@ -1,5 +1,6 @@
 ---
 title: "Middle of the Night Maintenance Nightmares, After Hours Emergencies Analysis"
+seoTitle: "After-Hours Maintenance Emergencies: The Real Numbers"
 description: "A top worry of most landlords is a middle of the night call from a resident stating that there is a maintenance emergency. The following post will look back at data from all of RL Property Management’s 2019 after-hours maintenance calls. This data is from our Columbus, Ohio office location. Temperat"
 pubDate: "2020-01-29T22:01:37Z"
 updatedDate: "2021-02-05T22:46:06Z"

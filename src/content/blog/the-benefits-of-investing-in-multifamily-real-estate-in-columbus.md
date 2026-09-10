@@ -1,5 +1,6 @@
 ---
 title: "The Benefits of Investing in Multifamily Real Estate in Columbus"
+seoTitle: "The Benefits of Multifamily Investing in Columbus"
 description: "Multifamily real estate properties fill an important housing role in communities like Columbus. Rental properties in this niche can serve everyone from a group of friends to a multi-generational family all living under one roof, and everyone in between. They are also good properties to add if you wa"
 pubDate: "2022-06-16T14:00:30Z"
 updatedDate: "2022-06-08T15:25:59Z"

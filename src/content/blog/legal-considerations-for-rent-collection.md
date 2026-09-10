@@ -1,5 +1,6 @@
 ---
 title: "Legal Considerations for Rent Collection: Avoiding Common Pitfalls"
+seoTitle: "Rent Collection: Legal Pitfalls Landlords Should Avoid"
 description: "Rent collection can be a complicated process, and it’s essential for landlords to stay compliant with local, state, and federal laws to avoid legal issues. Mistakes like improper handling of late fees, issuing incorrect notices, or violating tenant rights can lead to significant legal trouble, costl"
 pubDate: "2024-10-28T14:49:19Z"
 updatedDate: "2024-10-15T20:04:48Z"

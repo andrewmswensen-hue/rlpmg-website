@@ -1,5 +1,6 @@
 ---
 title: "Summer 2026 HVAC, Storm, and Lawn Code Prep for Columbus Landlords"
+seoTitle: "Summer HVAC, Storm and Lawn Prep for Columbus Rentals"
 description: "Central Ohio’s first heat advisory of the season landed in late June, with heat index values pushing past 100 degrees, and a round of severe storms already swept the region earlier in the month. Here’s what Columbus landlords should have locked down before the next heat wave or downburst hits. TL;DR"
 pubDate: "2026-07-02T08:57:25Z"
 updatedDate: "2026-06-30T19:02:59Z"

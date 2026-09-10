@@ -40,6 +40,21 @@ export const pageTitle = (title: string, brand: string, max = 60) => {
   return full.length <= max ? full : title;
 };
 
+/**
+ * Trim a title that already has the brand baked into it.
+ *
+ * Most static pages were written as "Thing in Columbus | RL Property Management",
+ * which reads well but runs past the roughly 60 characters Google shows, and the
+ * part that gets cut is always the brand. So when the whole thing does not fit,
+ * drop the trailing brand segment rather than let the search result end in an
+ * ellipsis. If it still does not fit, leave it alone: that one needs a human.
+ */
+export const fitTitle = (title: string, max = 60) => {
+  if (title.length <= max) return title;
+  const trimmed = title.replace(/\s*\|\s*(RL Property Management|RLPM)\b[^|]*$/, '').trim();
+  return trimmed.length && trimmed.length <= max ? trimmed : title;
+};
+
 /** Category slug to display name, built from what the posts actually carry. */
 export async function categoryIndex() {
   const posts = await allPosts();

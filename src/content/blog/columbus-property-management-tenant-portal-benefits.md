@@ -1,5 +1,6 @@
 ---
 title: "The Benefits of Using a Tenant Portal: Streamlining Communication and Payments for Columbus Landlords and Investors"
+seoTitle: "The Benefits of a Tenant Portal for Columbus Landlords"
 description: "Still chasing down rent checks or fielding tenant calls at odd hours? If so, you’re not alone. Many landlords and investors in Columbus are realizing that traditional property management methods no longer fit today’s fast-paced rental market. Outdated systems lead to late payments, missed messages,"
 pubDate: "2025-09-15T09:32:38Z"
 updatedDate: "2025-09-12T14:48:44Z"

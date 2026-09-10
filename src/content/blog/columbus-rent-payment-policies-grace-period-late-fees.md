@@ -1,5 +1,6 @@
 ---
 title: "Why Rent Payment Policies Matter (Especially for Columbus, Ohio Landlords)"
+seoTitle: "Why Rent Payment Policies Matter in Columbus, Ohio"
 description: "Would your tenants pay on time if there were no late fees or no grace period? That single question reveals how much rent payment behavior depends on structure, clarity, and consistency. A well-designed rent policy does far more than collect money; it sets the tone for the entire landlord-tenant rela"
 pubDate: "2025-11-24T16:14:10Z"
 updatedDate: "2025-12-12T16:40:13Z"

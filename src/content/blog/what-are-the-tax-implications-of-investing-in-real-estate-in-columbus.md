@@ -1,5 +1,6 @@
 ---
 title: "What are the Tax Implications of Investing in Real Estate in Columbus?"
+seoTitle: "Tax Implications of Real Estate Investing in Columbus"
 description: "There are numerous tax benefits to investing in Ohio real estate, and these benefits are a big reason many investors choose to diversify their portfolio by purchasing single- or multi-family rental properties. Below we’ll discuss several tax implications and benefits of investing in real estate in C"
 pubDate: "2023-03-09T15:00:30Z"
 updatedDate: "2023-03-02T17:51:33Z"

@@ -1,5 +1,6 @@
 ---
 title: "What to do When a Prospective Tenant Asks to Move in Right Away"
+seoTitle: "When a Prospective Tenant Asks to Move In Right Away"
 description: "As a property owner or a landlord in Columbus, you sometimes encounter a prospective resident who is chomping at the bit and ready to move in right away. They may already be expressing enthusiasm before you even start showing the unit and even say things like they have the security deposit and are r"
 pubDate: "2021-08-02T16:18:46Z"
 updatedDate: "2021-10-22T17:13:51Z"

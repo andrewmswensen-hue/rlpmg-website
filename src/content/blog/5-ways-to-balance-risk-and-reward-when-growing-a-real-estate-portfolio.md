@@ -1,5 +1,6 @@
 ---
 title: "5 Ways to Balance Risk and Reward When Growing a Real Estate Portfolio"
+seoTitle: "5 Ways to Balance Risk and Reward in Your Portfolio"
 description: "Establishing a diversified portfolio can help set a strong foundation for financial success for years to come. Taking steps now to grow your real estate portfolio is an effective way to build multi-generational wealth for you and your family, but there’s never a guarantee of success. When attempting"
 pubDate: "2024-05-21T14:00:55Z"
 updatedDate: "2024-04-25T15:01:28Z"

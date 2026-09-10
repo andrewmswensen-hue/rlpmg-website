@@ -1,5 +1,6 @@
 ---
 title: "Best Practices for Keeping Rental Property Operating Costs in Control"
+seoTitle: "How to Keep Rental Property Operating Costs in Check"
 description: "Managing costs is a huge part of being successful with your rental property investment. Expenses can quickly eat into your profit margins, and if you’re not prepared, they can empty out your reserves in a hurry. With rising costs across the board, record inflation, and discerning tenants who expect"
 pubDate: "2022-09-22T14:00:28Z"
 updatedDate: "2022-09-07T15:54:36Z"

@@ -1,5 +1,6 @@
 ---
 title: "What’s the Deal with Being a Dealer in Real Estate? (And Why You Don’t Want to Be One)"
+seoTitle: "Being a Dealer in Real Estate, and Why to Avoid It"
 description: "The IRS has a label to classify everyone and one you don’t want next to your name as a property investor is: ”dealer.” The biggest reason for this is that it can result in you owing double FICA taxes, a total of 15.3% in addition to your federal, state, and local income taxes. If"
 pubDate: "2023-12-26T15:00:34Z"
 updatedDate: "2023-12-19T16:00:02Z"

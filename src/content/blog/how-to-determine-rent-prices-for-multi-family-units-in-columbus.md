@@ -1,5 +1,6 @@
 ---
 title: "How to Determine Rent Prices for Multi-Family Units in Columbus"
+seoTitle: "How to Price Multi-Family Rentals in Columbus"
 description: "For those new to owning rental properties, setting rent prices might feel like one giant guessing game, and one that has you all over the board. You fear that if you price the unit too low, you’ll be losing money. Conversely, if you price it too high, no one will rent from you, "
 pubDate: "2022-07-19T14:00:23Z"
 updatedDate: "2022-07-13T17:31:52Z"

@@ -1,5 +1,6 @@
 ---
 title: "How to Plan for Unexpected Repairs: Building a Reserve Fund for Capital Expenses"
+seoTitle: "Building a Reserve Fund for Capital Expenses"
 description: "Owning rental properties can be rewarding, but it also comes with unexpected challenges. From plumbing emergencies to foundation issues, unforeseen repairs can quickly strain your finances. That’s why having a reserve fund isn’t just a good idea, it’s essential. Without proper financial preparation,"
 pubDate: "2024-11-05T13:00:26Z"
 updatedDate: "2024-11-01T20:16:38Z"

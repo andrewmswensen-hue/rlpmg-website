@@ -71,7 +71,7 @@ const schemaNodes = [articleNode({
   keywords: [...d.categories, ...d.tags],
 })];
 ---
-<Base title={pageTitle(d.title, company.name)} description={desc} {breadcrumbs} {schemaNodes}
+<Base title={pageTitle(d.seoTitle ?? d.title, company.name)} description={desc} {breadcrumbs} {schemaNodes}
       datePublished={d.pubDate.toISOString()} dateModified={(d.updatedDate ?? d.pubDate).toISOString()}
       ogImage={d.heroImage}>
   <article>

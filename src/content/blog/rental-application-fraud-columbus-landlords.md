@@ -1,5 +1,6 @@
 ---
 title: "Rental Application Fraud: What Columbus Landlords Need to Watch For in 2026"
+seoTitle: "Rental Application Fraud: What Columbus Landlords Face"
 description: "Fraudulent rental applications are no longer the exception, they’re an arms race. AI tools now produce convincing fake pay stubs in under 60 seconds, synthetic identities pass standard background checks, and detection rates have dropped from 90% to 75% since the pandemic. Here’s what Columbus landl"
 pubDate: "2026-06-16T13:14:26Z"
 updatedDate: "2026-06-09T13:53:03Z"

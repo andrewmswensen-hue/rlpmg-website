@@ -1,5 +1,6 @@
 ---
 title: "Setting the Standard: How Lease Agreements Impact Rent Collection"
+seoTitle: "How Lease Agreements Shape Rent Collection"
 description: "Lease Agreements: the First Step to Getting Paid On Time Every property owner knows the stress of chasing late rent… or worse, preparing for an eviction. It’s frustrating, time-consuming, and drains your ROI. But here’s a truth many landlords overlook: most rent issues don’t begin with tenant behavi"
 pubDate: "2025-11-17T16:11:15Z"
 updatedDate: "2025-11-17T16:12:27Z"

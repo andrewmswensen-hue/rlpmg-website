@@ -1,5 +1,6 @@
 ---
 title: "Timing Your Capital Expenditures: When to Plan for Big Expenses"
+seoTitle: "Timing Your Capital Expenditures: Big Expense Planning"
 description: "Planning capital expenditures, such as roof replacements, HVAC upgrades, or major renovations, requires more than just budgeting. Timing is critical. Well-timed investments can maximize ROI, attract new tenants, and improve long-term property value. On the other hand, poorly timed upgrades can lead to"
 pubDate: "2024-11-18T12:30:38Z"
 updatedDate: "2024-11-06T16:47:54Z"

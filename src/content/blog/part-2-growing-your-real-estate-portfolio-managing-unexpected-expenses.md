@@ -1,5 +1,6 @@
 ---
 title: "Part 2: Growing Your Real Estate Portfolio, Managing Unexpected Expenses"
+seoTitle: "Growing Your Portfolio, Part 2: Unexpected Expenses"
 description: "Property investment success takes time. When you choose to pursue real estate as a means of generating wealth, you know you have to take the long view. And this mindset becomes especially important as you establish a philosophy toward managing unexpected expenses. As discussed in our previous blog,"
 pubDate: "2023-11-14T15:00:00Z"
 updatedDate: "2023-11-16T16:05:53Z"

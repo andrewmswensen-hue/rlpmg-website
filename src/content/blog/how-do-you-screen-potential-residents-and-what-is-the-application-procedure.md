@@ -1,5 +1,6 @@
 ---
 title: "How Do You Screen Potential Residents, and What is the Application Procedure?"
+seoTitle: "How We Screen Residents and Process Applications"
 description: "Filling units with reliable tenants is important for many reasons. It may cut down on turnover and reduce your overall vacancies, it may limit the amount of issues you have to deal with related to a tenant’s ability (or inability) to pay, and it may mean having residents who are more likely to"
 pubDate: "2021-11-16T15:00:52Z"
 updatedDate: "2021-11-04T19:59:39Z"

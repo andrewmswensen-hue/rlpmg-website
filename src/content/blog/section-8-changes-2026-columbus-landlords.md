@@ -1,5 +1,6 @@
 ---
 title: "What’s Actually Changing With Section 8 in 2026 (And What Isn’t), A Columbus Landlord’s Guide"
+seoTitle: "What Is Changing With Section 8 in 2026, and What Is Not"
 description: "Section 8 has dominated housing headlines for the past year. Some predicted the program would be eliminated. Others warned of voucher cuts and forced tenant terminations. The reality, as of May 2026, is more nuanced (and more important for Columbus landlords to understand correctly). TL;DR Congress"
 pubDate: "2026-05-08T21:02:18Z"
 updatedDate: "2026-06-02T15:55:02Z"

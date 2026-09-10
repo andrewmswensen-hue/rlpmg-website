@@ -1,5 +1,6 @@
 ---
 title: "How to Market Your Rental Property for Maximum Tenant Quality in Columbus, Ohio"
+seoTitle: "How to Market a Rental Property in Columbus, Ohio"
 description: "Summer is leasing season… are you ready to capture the best tenants before they’re gone? In Columbus, the summer months bring a rush of tenant movement. But while the demand is high, so is the competition. If your property isn’t marketed well, the best renters will scroll right past it, or worse, ne"
 pubDate: "2025-06-02T10:43:39Z"
 updatedDate: "2025-05-27T14:16:42Z"

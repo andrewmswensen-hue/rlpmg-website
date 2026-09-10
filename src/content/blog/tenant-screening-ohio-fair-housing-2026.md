@@ -1,5 +1,6 @@
 ---
 title: "How to Screen Tenants in Ohio Without Breaking Fair Housing Law (2026 Update)"
+seoTitle: "How to Screen Tenants in Ohio Within Fair Housing Law"
 description: "Applications are coming in. You need to pick the right tenant, but one screening mistake can cost you thousands in legal fees, lost rent, or both. With HUD pulling its fair housing guidance just days ago, here’s what Ohio landlords actually need to know right now. Disclaimer: This article is informa"
 pubDate: "2026-04-28T10:56:33Z"
 updatedDate: "2026-09-10T00:00:00Z"

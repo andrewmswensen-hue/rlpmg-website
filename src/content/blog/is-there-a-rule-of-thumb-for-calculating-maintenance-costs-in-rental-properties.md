@@ -1,5 +1,6 @@
 ---
 title: "Is There a Rule of Thumb for Calculating Maintenance Costs in Rental Properties?"
+seoTitle: "A Rule of Thumb for Rental Maintenance Costs"
 description: "First-time property investors often ask if there is a rule of thumb for calculating maintenance costs. While it would certainly be easier from a budget planning perspective to apply a blanket rule when deciding how much to set aside in reserves, an approach like this is far less accurate. To be succ"
 pubDate: "2024-08-20T20:41:20Z"
 updatedDate: "2024-09-12T17:16:56Z"

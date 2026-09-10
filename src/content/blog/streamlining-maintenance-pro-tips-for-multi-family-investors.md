@@ -1,5 +1,6 @@
 ---
 title: "Streamlining Maintenance: Pro Tips for Multi-Family Investors"
+seoTitle: "Streamlining Maintenance for Multi-Family Investors"
 description: "One of the biggest responsibilities property owners and property managers face is maintenance. Not only is it a big responsibility because, well, no heat in January can send your tenants into a fury, but effective maintenance management also contributes significantly to the overall profitability of"
 pubDate: "2024-04-23T14:00:32Z"
 updatedDate: "2024-04-08T13:38:14Z"

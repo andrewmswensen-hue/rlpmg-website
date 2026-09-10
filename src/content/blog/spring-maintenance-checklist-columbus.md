@@ -1,5 +1,6 @@
 ---
 title: "Spring Maintenance Checklist for Columbus Rental Properties (2026)"
+seoTitle: "Spring Maintenance Checklist for Columbus Rentals"
 description: "Central Ohio winters leave fingerprints on a rental property. The damage is rarely dramatic, but it’s almost always cheaper to find in May than to repair in August. TL;DR Spring maintenance on a Columbus rental property comes down to two passes: an exterior walk-through to catch what winter damaged"
 pubDate: "2026-05-11T09:07:30Z"
 updatedDate: "2026-06-02T15:50:23Z"

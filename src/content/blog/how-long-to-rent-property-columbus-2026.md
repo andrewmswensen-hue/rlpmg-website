@@ -1,5 +1,6 @@
 ---
 title: "How Long Does It Take to Rent a Property in Columbus, Ohio? (2026 Data)"
+seoTitle: "How Long Does It Take to Rent a Property in Columbus?"
 description: "You list the property, then you wait. Each day it sits empty is rent you will not get back. So how long should you actually expect to wait in the Columbus market right now? TL;DR Most Columbus rentals lease within a few weeks once they are rent-ready and priced to the current market. Nationally, the"
 pubDate: "2026-06-29T21:21:32Z"
 updatedDate: "2026-06-30T14:51:43Z"

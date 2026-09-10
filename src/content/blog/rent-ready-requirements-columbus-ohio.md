@@ -1,5 +1,6 @@
 ---
 title: "What “Rent-Ready” Really Means in Columbus, Ohio: Safety & Compliance Laws Every Property Owner Must Follow"
+seoTitle: "Rent-Ready Safety and Compliance Rules in Columbus"
 description: "Disclaimer: This article is provided for general informational and educational purposes only and does not constitute legal advice. Laws and local codes can change, and their application may vary based on specific circumstances. Property owners should consult a qualified attorney or local code profes"
 pubDate: "2026-02-13T11:42:12Z"
 updatedDate: "2026-02-12T21:25:09Z"

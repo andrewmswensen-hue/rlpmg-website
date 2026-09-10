@@ -1,5 +1,6 @@
 ---
 title: "Why RL Property Management Is Changing How Photography Costs Work"
+seoTitle: "Why We Are Changing How Photography Costs Work"
 description: "Starting October 1, 2026, the cost of professional photos for a new listing shifts from RL Property Management’s books to the property owner’s, a change worth explaining rather than burying in a cost schedule update. TL;DR Starting October 1, 2026, RL Property Management passes the cost of professio"
 pubDate: "2026-08-21T18:53:47Z"
 updatedDate: "2026-09-01T13:48:54Z"

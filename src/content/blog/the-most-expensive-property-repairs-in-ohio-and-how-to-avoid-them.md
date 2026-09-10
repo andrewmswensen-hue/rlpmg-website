@@ -1,5 +1,6 @@
 ---
 title: "The Most Expensive Property Repairs in Ohio and How to Avoid Them"
+seoTitle: "The Most Expensive Property Repairs in Ohio"
 description: "Investing in rental properties can be a good way to earn passive income (though “passive” is certainly a relative term). What gets in the way of any given unit’s earning potential, however, are the inevitable expenses that come with property maintenance and repairs. From the routine upkeep to the mo"
 pubDate: "2022-04-05T14:00:40Z"
 updatedDate: "2022-04-11T19:21:29Z"

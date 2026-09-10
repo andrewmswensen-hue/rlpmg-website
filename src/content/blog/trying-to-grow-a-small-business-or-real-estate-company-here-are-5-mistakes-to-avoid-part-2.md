@@ -1,5 +1,6 @@
 ---
 title: "Trying to Grow a Small Business or Real Estate Company? Here are 5 Mistakes to Avoid (Part 2)"
+seoTitle: "Growing a Real Estate Company: 5 Mistakes (Part 2)"
 description: "In part 1 of our series on mistakes to avoid if you’re new to property management, we discussed the importance of operationalizing the sales process and considering ways to add value to your clients. Here are three more important lessons we learned so that you can avoid making these mistakes: Mistak"
 pubDate: "2021-10-28T14:00:03Z"
 updatedDate: "2021-10-22T19:54:55Z"

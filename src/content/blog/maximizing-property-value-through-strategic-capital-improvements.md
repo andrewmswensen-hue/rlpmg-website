@@ -1,5 +1,6 @@
 ---
 title: "Maximizing Property Value Through Strategic Capital Improvements"
+seoTitle: "Maximizing Property Value with Capital Improvements"
 description: "When it comes to increasing the value of your rental property, not all upgrades offer the same return on investment (ROI). Strategic capital improvements can enhance both market value and rentability, but the key is knowing which improvements offer the most impact. Investing wisely requires an under"
 pubDate: "2024-11-12T13:07:27Z"
 updatedDate: "2024-11-06T16:47:44Z"

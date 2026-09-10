@@ -1,5 +1,6 @@
 ---
 title: "Late Rent Fees in Ohio: What You Can Charge and How to Enforce It"
+seoTitle: "Late Rent Fees in Ohio: What You Can Charge"
 description: "Ohio doesn’t cap late rent fees. That sounds like freedom until a magistrate strikes your $15-per-day charge as a penalty, or a Columbus tenant uses your oversized fee against you in an eviction. The rules live in the lease you wrote and the consistency you bring to enforcing it. TL;DR Ohio has no s"
 pubDate: "2026-08-10T15:11:34Z"
 updatedDate: "2026-08-11T15:39:45Z"

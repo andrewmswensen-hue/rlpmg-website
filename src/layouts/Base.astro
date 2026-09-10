@@ -16,7 +16,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { company } from '../data/facts';
 import { graph, organizationNode, websiteNode, webPageNode, breadcrumbNode, faqNode } from '../lib/schema';
-import { metaDescription } from '../lib/blog';
+import { metaDescription, fitTitle } from '../lib/blog';
 
 export interface Props {
   title: string;
@@ -47,6 +47,9 @@ const {
  */
 const metaDesc = metaDescription(description);
 
+/** Same safety net for the title: drop the brand rather than get truncated. */
+const pageTitleFitted = fitTitle(title);
+
 const path = Astro.url.pathname;
 const canonical = new URL(path, Astro.site ?? company.url).href;
 const ogAbs = new URL(ogImage, Astro.site ?? company.url).href;
@@ -66,7 +69,7 @@ const jsonld = graph(
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
+    <title>{pageTitleFitted}</title>
     <meta name="description" content={metaDesc} />
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
@@ -86,13 +89,13 @@ const jsonld = graph(
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={company.name} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={pageTitleFitted} />
     <meta property="og:description" content={metaDesc} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogAbs} />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={pageTitleFitted} />
     <meta name="twitter:description" content={metaDesc} />
     <meta name="twitter:image" content={ogAbs} />
 

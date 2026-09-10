@@ -1,5 +1,6 @@
 ---
 title: "Ready to Be a Landlord? Understanding Your Roles and Responsibilities"
+seoTitle: "Ready to Be a Landlord? Roles and Responsibilities"
 description: "If you own rental property, you are a landlord. Whether or not you manage the property yourself, you still own the space and any final decisions regarding the property will always be yours. As you pursue a path in real estate investing, it’s imperative to consider your willingness to become a landlo"
 pubDate: "2024-07-16T15:05:17Z"
 updatedDate: "2024-07-25T15:10:20Z"

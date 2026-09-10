@@ -1,5 +1,6 @@
 ---
 title: "Common Mistakes to Avoid if You are New to Property Management"
+seoTitle: "Common Mistakes New Property Managers Make"
 description: "If you’re new to property management, growing your business or investment portfolio can sometimes feel like it goes in fits and starts. With anything new, it takes time to find a rhythm, and we all encounter some mistakes along the way. As small business owners ourselves, we’re here to offer a few t"
 pubDate: "2022-08-16T14:00:06Z"
 updatedDate: "2022-07-21T18:44:56Z"

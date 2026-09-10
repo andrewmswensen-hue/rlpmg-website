@@ -1,5 +1,6 @@
 ---
 title: "Handling Partial Payments: Should You Accept Less Than Full Rent?"
+seoTitle: "Handling Partial Rent Payments: Should You Accept?"
 description: "Rent collection is a crucial part of managing rental properties, but landlords may sometimes face situations where tenants cannot pay the full rent on time. This raises the question: should partial rent payments be accepted? While it can seem like a reasonable compromise, especially during tenant ha"
 pubDate: "2024-10-21T15:45:10Z"
 updatedDate: "2024-10-28T13:46:07Z"

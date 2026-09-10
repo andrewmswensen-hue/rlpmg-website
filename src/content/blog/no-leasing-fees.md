@@ -1,5 +1,6 @@
 ---
 title: "How RL Property Management Saves You Money with NO Leasing Fees"
+seoTitle: "How RL Property Management Charges No Leasing Fees"
 description: "Traditional Property Management Pricing Most property management companies charge at least two types of fees: a leasing fee and a monthly management fee. The leasing fee is usually 50-100% of the first month’s rent, which means property owners pay hundreds, if not thousands, upfront just to get a resi"
 pubDate: "2025-03-20T17:25:57Z"
 updatedDate: "2025-03-20T17:26:13Z"

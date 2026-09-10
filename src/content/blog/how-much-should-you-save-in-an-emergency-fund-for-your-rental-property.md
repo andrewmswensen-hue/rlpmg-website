@@ -1,5 +1,6 @@
 ---
 title: "How Much Should You Save in an Emergency Fund for Your Rental Property?"
+seoTitle: "How Big Should a Rental Property Emergency Fund Be?"
 description: "Personal Finance 101 tells us to always save for a rainy day, but as property investors, it’s more like we need to save for rainy months. An emergency fund, also referred to as a reserves account, helps shield you from financial disaster when other types of unexpected disasters strike. And strike th"
 pubDate: "2024-07-09T15:00:57Z"
 updatedDate: "2024-07-25T15:05:06Z"

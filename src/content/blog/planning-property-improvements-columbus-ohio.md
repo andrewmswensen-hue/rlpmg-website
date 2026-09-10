@@ -1,5 +1,6 @@
 ---
 title: "How to Know When It’s Time to Invest in Property Improvements"
+seoTitle: "When to Invest in Rental Property Improvements"
 description: "Look for Recurring Repair Patterns If the same maintenance issue keeps showing up in your logs, it’s no longer a repair; it’s a replacement waiting to happen. Property investors often delay upgrades because a fix “seems cheaper” in the moment, but recurring costs add up quickly. For example, if your"
 pubDate: "2025-12-15T12:00:45Z"
 updatedDate: "2025-12-12T17:05:04Z"

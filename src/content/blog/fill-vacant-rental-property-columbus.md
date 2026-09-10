@@ -1,5 +1,6 @@
 ---
 title: "How to Fill a Vacant Rental Property in Columbus Fast (Without Cutting Your Rent)"
+seoTitle: "How to Fill a Vacant Rental in Columbus, Fast"
 description: "Your property is empty. Every week it sits vacant costs you $300 or more in lost rent, and lowering the price feels like the only lever you have. It’s not. Here’s how Columbus rental owners fill vacancies faster without leaving money on the table. TL;DR The fastest way to fill a vacant rental in Col"
 pubDate: "2026-04-21T09:36:25Z"
 updatedDate: "2026-06-02T15:56:33Z"

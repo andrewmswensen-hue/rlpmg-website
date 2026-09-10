@@ -1,5 +1,6 @@
 ---
 title: "Pet Policies for Columbus Rental Properties: What Owners Need to Know"
+seoTitle: "Pet Policies for Columbus Rentals: An Owner Guide"
 description: "Nearly 6 in 10 renters have a pet. A “no pets” policy doesn’t just shrink your applicant pool; it filters out long-staying tenants while doing nothing about the animals that show up anyway. The real question isn’t whether to allow pets. It’s whether your policy protects you when you do. TL;DR Pet-fr"
 pubDate: "2026-08-13T10:19:33Z"
 updatedDate: "2026-08-11T15:39:28Z"

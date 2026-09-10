@@ -1,5 +1,6 @@
 ---
 title: "Fair Housing Compliance for Landlords: Mitigating Risks and Protecting Your Business"
+seoTitle: "Fair Housing Compliance for Landlords: Mitigating Risk"
 description: "When it comes to managing rental properties, Fair Housing compliance for landlords is essential, it’s the foundation of a successful business. Yet, many landlords overlook how quickly non-compliance can lead to serious consequences. From hefty fines to lawsuits and long-lasting reputational damage, t"
 pubDate: "2025-01-13T10:28:11Z"
 updatedDate: "2025-05-19T15:12:56Z"

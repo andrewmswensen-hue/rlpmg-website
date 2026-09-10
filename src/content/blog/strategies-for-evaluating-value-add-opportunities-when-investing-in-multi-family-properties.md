@@ -1,5 +1,6 @@
 ---
 title: "Strategies for Evaluating Value-Add Opportunities When Investing in Multi-Family Properties"
+seoTitle: "How to Evaluate Value-Add Multi-Family Opportunities"
 description: "When you choose to invest in real estate, you’re doing so because of the growth opportunities, not because you’re looking for more work or like being awoken in the middle of the night by a tenant emergency. No, you’re looking to turn a profit. While there are many types of properties in Franklin Cou"
 pubDate: "2024-04-16T14:00:21Z"
 updatedDate: "2024-04-05T16:30:35Z"

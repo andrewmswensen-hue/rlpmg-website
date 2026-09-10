@@ -1,5 +1,6 @@
 ---
 title: "Should You Rent or Sell Your House? Considerations for Property Owners and Investors"
+seoTitle: "Should You Rent or Sell Your House? What to Consider"
 description: "When you’ve owned a property for more than seven years (either living in it or not), you’re often sitting on a good chunk of equity. When you find yourself in that position, a common question that flits past one’s mind, should you hold onto the property and rent it out for income or sell"
 pubDate: "2023-04-04T16:00:19Z"
 updatedDate: "2023-03-30T19:08:08Z"

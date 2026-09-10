@@ -1,5 +1,6 @@
 ---
 title: "Considering an Acquisition? What Multiple Should You Pay for a Small Business?"
+seoTitle: "What Multiple Should You Pay for a Small Business?"
 description: "There are several ways to grow a business. One impactful way to quickly grow and sometimes even double your book of business is to acquire another company, but as a small business owner, it can be daunting to think through how you will actually pull off the deal. Sometimes, even when you make the sm"
 pubDate: "2021-11-18T15:00:38Z"
 updatedDate: "2021-11-02T19:47:18Z"

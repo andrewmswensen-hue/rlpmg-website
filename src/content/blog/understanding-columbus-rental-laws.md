@@ -1,5 +1,6 @@
 ---
 title: "Understanding Columbus Rental Laws: What You Need to Know as a Local Landlord"
+seoTitle: "Understanding Columbus Rental Laws as a Landlord"
 description: "Being a landlord in Columbus, Ohio, comes with more than just managing properties and collecting rent, it requires a clear understanding of Columbus rental laws to ensure compliance. These laws are designed to ensure fairness and protect both landlords and tenants, but they can also be complex and ev"
 pubDate: "2025-01-27T10:37:10Z"
 updatedDate: "2025-01-20T15:25:27Z"

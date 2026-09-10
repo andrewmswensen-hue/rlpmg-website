@@ -1,5 +1,6 @@
 ---
 title: "12 Years of RL Property Management: Lessons, Milestones, & What It Took to Get Here"
+seoTitle: "12 Years of RL Property Management: What We Learned"
 description: "From Idea to Industry Leader A little over twelve years ago, RL Property Management was just an idea. No clients, no license, and no formal experience in property management, just two founders in an apartment with a shared belief: we could build something better. Today, RLPM manages hundreds of resi"
 pubDate: "2025-04-18T19:31:02Z"
 updatedDate: "2025-04-18T19:31:29Z"

@@ -1,5 +1,6 @@
 ---
 title: "Best Processes For Scattered-Site Property Management in Columbus"
+seoTitle: "Scattered-Site Property Management in Columbus"
 description: "Single-family rental units fill numerous gaps in the Columbus housing market. Not only do they serve low-income families, they also meet the needs of residents who aren’t ready, can’t find, or can’t afford home ownership at this stage of their lives. Moreover, the appeal of a single-family home vers"
 pubDate: "2022-04-12T14:00:28Z"
 updatedDate: "2022-04-12T12:32:36Z"

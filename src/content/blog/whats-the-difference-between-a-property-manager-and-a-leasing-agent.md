@@ -1,5 +1,6 @@
 ---
 title: "What’s the Difference Between a Property Manager and a Leasing Agent?"
+seoTitle: "Property Manager vs. Leasing Agent: The Difference"
 description: "Investors have a lot on their plates, and a big priority is ensuring that their units are filled quickly and turnover stays low so that a steady stream of income continues to flow in from their investments. In terms of filling vacancies, there are several ways to handle it: do it yourself, outsource"
 pubDate: "2021-10-19T14:00:10Z"
 updatedDate: "2021-10-22T19:06:20Z"

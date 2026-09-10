@@ -1,5 +1,6 @@
 ---
 title: "What’s The Most Expensive Part of Owning Multifamily Rentals?"
+seoTitle: "The Most Expensive Part of Owning Multifamily Rentals"
 description: "We recently conducted an cost analysis examining spending in the year of 2019 across our entire portfolio of managed multifamily (2+ unit) properties. Out of the 300+ units under our management around Columbus Ohio, this study includes just the multifamily properties (37 properties consisting of 137"
 pubDate: "2020-01-10T17:23:47Z"
 updatedDate: "2020-08-05T17:56:09Z"

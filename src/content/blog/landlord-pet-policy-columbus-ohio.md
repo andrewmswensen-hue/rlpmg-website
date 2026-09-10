@@ -1,5 +1,6 @@
 ---
 title: "RL’s Pet Protection Policy for Property Owners: How to Create a Landlord-Friendly Pet Policy (Without Taking on All the Risk)"
+seoTitle: "How to Create a Landlord-Friendly Pet Policy"
 description: "Allowing pets can increase demand and reduce vacancy, but only when risk is controlled. A strong pet policy combines clear rules, consistent screening, and financial protection. RL Property Management’s Pet Protection Program now covers up to $4,000 in pet-related damage beyond the security deposit,"
 pubDate: "2026-03-24T12:24:07Z"
 updatedDate: "2026-03-31T19:27:24Z"

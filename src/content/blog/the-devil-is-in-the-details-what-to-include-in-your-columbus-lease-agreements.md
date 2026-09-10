@@ -1,5 +1,6 @@
 ---
 title: "The Devil is in the Details, What to Include in Your Columbus Lease Agreements"
+seoTitle: "What to Include in Your Columbus Lease Agreement"
 description: "Owning investment properties requires you to put a lot of trust in other people. By extending a lease agreement to a tenant, you are relinquishing some control of what happens in your property and entrusting strangers to take good care of it. It can certainly be a nerve-wracking experience for newbi"
 pubDate: "2022-12-20T15:00:45Z"
 updatedDate: "2022-12-12T17:07:15Z"

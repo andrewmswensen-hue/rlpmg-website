@@ -1,5 +1,6 @@
 ---
 title: "What Maintenance Issues are Tenants Responsible for in Columbus, Ohio?"
+seoTitle: "What Maintenance Are Tenants Responsible For in Ohio?"
 description: "Newer real estate investors love depreciation…until they get their first broken water heater or roof leak. Despite knowing how commonplace maintenance issues can be, they’re still never the first thing any of us wake up excited to tackle. Sometimes that’s because it’s those issues themselves that li"
 pubDate: "2022-05-03T14:00:15Z"
 updatedDate: "2022-05-06T14:11:56Z"

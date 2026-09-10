@@ -1,5 +1,6 @@
 ---
 title: "Resident Screening & Lease Agreements: 4 Mistakes Columbus Landlords Should Avoid"
+seoTitle: "4 Screening and Lease Mistakes Columbus Landlords Make"
 description: "Managing rental properties in Columbus can be incredibly rewarding, but even small missteps can snowball into expensive problems. If you’re a DIY landlord trying to save time or cut corners, here’s some advice: DON’T. Why? Because even small screening and lease agreement mistakes can cost you thousa"
 pubDate: "2025-03-25T20:14:24Z"
 updatedDate: "2025-03-25T20:14:42Z"

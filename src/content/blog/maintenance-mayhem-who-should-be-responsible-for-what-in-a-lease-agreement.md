@@ -1,5 +1,6 @@
 ---
 title: "Maintenance Mayhem: Who Should Be Responsible for What In a Lease Agreement?"
+seoTitle: "Who Is Responsible for What in a Lease Agreement?"
 description: "Maintenance is a reality for any property owner. Whether it’s routine upkeep to ensure property values continue to rise or a middle-of-the-night emergency, someone needs to give ongoing attention to the places we and our tenants reside. For landlords and property managers, this of course extends to"
 pubDate: "2024-08-15T20:37:47Z"
 updatedDate: "2024-09-12T17:16:36Z"

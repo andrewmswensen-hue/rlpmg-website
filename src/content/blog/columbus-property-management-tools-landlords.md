@@ -1,5 +1,6 @@
 ---
 title: "Property Management Tools Every Columbus Landlord Should Know (and use)"
+seoTitle: "Property Management Tools Every Columbus Landlord Needs"
 description: "You Don’t Have to Do It All Alone Managing rental properties isn’t what it used to be, and that’s a good thing. Gone are the days of chasing rent checks, juggling repair calls, or trying to organize tenant records in a spreadsheet. Today, smart landlords in Columbus and beyond are using technology t"
 pubDate: "2025-09-02T14:08:04Z"
 updatedDate: "2025-09-02T14:20:00Z"

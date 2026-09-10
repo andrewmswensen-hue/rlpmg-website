@@ -1,5 +1,6 @@
 ---
 title: "13 Rental Market Predictions for Property Managers in 2026 (and the Investing Strategy Owners Need Now)"
+seoTitle: "13 Columbus Rental Market Predictions for 2026"
 description: "2026 is shaping up to be a year where rental property returns are won or lost through strategy, not luck. In many markets, demand remains steady, but rent growth is normalizing while operating costs continue to climb. That combination puts more pressure on owners to price rentals accurately, keep va"
 pubDate: "2026-01-09T15:58:56Z"
 updatedDate: "2026-01-14T16:20:38Z"

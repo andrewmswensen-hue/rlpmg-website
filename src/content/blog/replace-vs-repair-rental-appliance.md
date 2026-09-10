@@ -1,5 +1,6 @@
 ---
 title: "When Should You Replace vs. Repair an Appliance in a Columbus Rental Property?"
+seoTitle: "Replace or Repair an Appliance in a Rental Property?"
 description: "A refrigerator dies at the worst possible time, mid-lease, on a Friday. Here’s the rule RLPM’s maintenance team uses to decide whether a failing appliance gets fixed or replaced, before it becomes an emergency. TL;DR Replace an appliance once it’s past roughly 75% of its expected lifespan and the re"
 pubDate: "2026-07-17T08:21:54Z"
 updatedDate: "2026-06-30T18:31:57Z"

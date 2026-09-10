@@ -1,5 +1,6 @@
 ---
 title: "Central Ohio Policy Updates Landlords Need to Know This Week, April 13, 2026"
+seoTitle: "Central Ohio Landlord Policy Update: April 13, 2026"
 description: "If you manage rental properties across multiple Central Ohio municipalities, you already know that no single city council sets the rules for your entire portfolio. Franklin has its own fee schedule. Hilliard has its own zoning process. Gahanna, Whitehall, Westerville… each one operates on its own le"
 pubDate: "2026-04-13T16:06:37Z"
 updatedDate: "2026-04-16T17:48:34Z"

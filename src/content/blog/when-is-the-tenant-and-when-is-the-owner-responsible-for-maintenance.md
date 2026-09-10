@@ -1,5 +1,6 @@
 ---
 title: "When is the Tenant and When is the Owner Responsible for Maintenance?"
+seoTitle: "Tenant or Owner: Who Is Responsible for Maintenance?"
 description: "It happened. Your tenant punched a hole in the wall and now they’ve come to you with their head hanging low and wondering who needs to fix it. While this scenario may not be that common, it does raise a question that those of us in property management and real estate investing face quite"
 pubDate: "2021-08-02T17:20:08Z"
 updatedDate: "2021-10-22T17:20:58Z"

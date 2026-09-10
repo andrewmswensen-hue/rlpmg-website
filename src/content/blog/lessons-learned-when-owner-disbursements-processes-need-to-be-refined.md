@@ -1,5 +1,6 @@
 ---
 title: "Lessons Learned: When Owner Disbursements Processes Need to Be Refined"
+seoTitle: "When Owner Disbursement Processes Need Refining"
 description: "We’ll be the first to admit that as a business and as individual employees of the company we’re always learning. Certain mistakes, while we’d rather not make them, give us moments of pause and create opportunities for us to continually refine our processes so we are best able to deliver great serv"
 pubDate: "2022-03-29T14:00:54Z"
 updatedDate: "2022-03-14T11:03:08Z"

@@ -1,5 +1,6 @@
 ---
 title: "Columbus Source-of-Income Protections: What Landlords Need to Know"
+seoTitle: "Columbus Source-of-Income Protections: A Landlord Guide"
 description: "Columbus landlords who reject housing voucher holders aren’t just risking a vacancy. They’re risking a fair housing complaint. Here’s what source-of-income protection actually requires, which Central Ohio cities enforce it, and how to stay compliant without changing your screening standards. TL;DR C"
 pubDate: "2026-06-01T13:52:29Z"
 updatedDate: "2026-06-03T17:43:51Z"

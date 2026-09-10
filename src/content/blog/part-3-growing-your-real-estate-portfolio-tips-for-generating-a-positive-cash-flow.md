@@ -1,5 +1,6 @@
 ---
 title: "Part 3: Growing Your Real Estate Portfolio, Tips for Generating a Positive Cash Flow"
+seoTitle: "Growing Your Portfolio, Part 3: Positive Cash Flow"
 description: "Every property owner will have their own opinion about what makes an investment successful, but collectively, their responses will account for how well the property’s fixed costs and unexpected expenses are managed. These two areas have a big impact on an investor’s ability to deliver a positive cas"
 pubDate: "2023-11-21T15:00:53Z"
 updatedDate: "2023-11-16T16:37:15Z"

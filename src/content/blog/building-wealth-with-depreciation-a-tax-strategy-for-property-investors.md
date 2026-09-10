@@ -1,5 +1,6 @@
 ---
 title: "Building Wealth with Depreciation: A Tax Strategy for Property Investors"
+seoTitle: "Building Wealth with Depreciation: An Investor Guide"
 description: "When it comes to building wealth through real estate, many investors focus on rental income and property appreciation as key components to driving growth, but there’s another powerful tool that allows you to pocket more money: depreciation. Depreciation isn’t just an accounting term. It’s a valuable"
 pubDate: "2023-12-12T15:00:39Z"
 updatedDate: "2023-12-19T15:38:33Z"

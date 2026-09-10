@@ -1,5 +1,6 @@
 ---
 title: "Part 1: Growing Your Real Estate Portfolio, How to Manage Fixed Costs"
+seoTitle: "Growing Your Portfolio, Part 1: Managing Fixed Costs"
 description: "Building a successful real estate portfolio is a process. It takes work and requires you to be strategic with every financial decision you make. As you begin establishing a process to build your portfolio, it’s essential to pay attention to these three key areas: Managing your fixed costs Managing u"
 pubDate: "2023-11-07T15:51:52Z"
 updatedDate: "2023-11-16T15:58:44Z"

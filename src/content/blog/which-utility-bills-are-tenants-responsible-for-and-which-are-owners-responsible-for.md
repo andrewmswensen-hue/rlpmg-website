@@ -1,5 +1,6 @@
 ---
 title: "Which Utility Bills are Tenants Responsible For and Which are Owners Responsible For?"
+seoTitle: "Which Utility Bills Are Tenants Responsible For?"
 description: "One important part of being a landlord or property owner is dealing with utilities. When lease terms are not clearly spelled out, utility payments, and who’s responsible for what, can become a point of contention between tenants and landlords. Ensuring that tenants are paying the utility bills the"
 pubDate: "2021-12-08T15:00:46Z"
 updatedDate: "2021-12-07T20:13:14Z"

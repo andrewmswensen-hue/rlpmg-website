@@ -1,5 +1,6 @@
 ---
 title: "2026 Rental Market Guide: Renting Your Property in the Short North Arts District (Columbus, Ohio)"
+seoTitle: "Short North Rental Market Guide 2026 (Columbus, Ohio)"
 description: "The Short North Arts District remains one of Columbus’s most renter-centric submarkets. Proximity to Downtown, cultural amenities, walkability, nightlife, and employment hubs sustain strong leasing activity and demographic demand. In 2026, average rents in Short North run notably above the broader C"
 pubDate: "2026-01-26T12:02:31Z"
 updatedDate: "2026-04-14T16:03:35Z"

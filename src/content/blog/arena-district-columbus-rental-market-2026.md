@@ -1,5 +1,6 @@
 ---
 title: "2026 Rental Market Guide: Investing in the Arena District (Columbus, OH)"
+seoTitle: "Arena District Rental Market Guide 2026 (Columbus)"
 description: "Executive TL;DR Snapshot The Arena District in Columbus remains a niche urban rental submarket anchored by entertainment, sports, and proximity to downtown employment. In 2026, its rental stock, predominantly mid- to high-tier apartments and condos, caters to young professionals and renters seeking"
 pubDate: "2026-02-26T22:08:35Z"
 updatedDate: "2026-04-14T16:04:25Z"

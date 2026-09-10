@@ -1,5 +1,6 @@
 ---
 title: "Security Deposits vs. Move-In Fees in Columbus Rentals: A Guide for New Property Investors"
+seoTitle: "Security Deposits vs. Move-In Fees in Columbus"
 description: "If you’re a new investor buying your first rental in Columbus, the way you structure move-in costs is one of the earliest decisions that quietly shapes everything that follows. Whether you’re closing on a single-family home in Clintonville or Grove City, a small multifamily in Olde Towne East or Fra"
 pubDate: "2025-12-29T12:11:34Z"
 updatedDate: "2025-12-19T21:39:42Z"

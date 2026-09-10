@@ -1,5 +1,6 @@
 ---
 title: "Rental Property Upgrades That Keep Tenants Longer in Columbus, Ohio"
+seoTitle: "Rental Upgrades That Keep Tenants Longer in Columbus"
 description: "Make Your Property Stand Out This Leasing Season June is peak leasing season in Columbus, and competition for quality tenants is fierce. With more options on the market, renters are being choosy. That means your property needs to do more than just check the boxes… it needs to stand out. Thoughtful r"
 pubDate: "2025-06-16T10:17:25Z"
 updatedDate: "2025-05-27T16:46:38Z"

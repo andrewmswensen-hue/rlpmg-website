@@ -1,5 +1,6 @@
 ---
 title: "What Happens to Your Rent Money? How PM Companies Handle Owner Disbursements"
+seoTitle: "How Property Managers Handle Owner Disbursements"
 description: "Your tenant pays rent on the 1st. Your money doesn’t always show up that day. Here’s exactly what happens in between, and what Ohio law requires your property manager to do with it. TL;DR When a tenant pays rent, the property management company collects it, subtracts the management fee and any appro"
 pubDate: "2026-07-24T09:19:05Z"
 updatedDate: "2026-06-30T19:17:55Z"

@@ -1,5 +1,6 @@
 ---
 title: "Lessons Learned: How to Know When It’s Time to Refine Your Processes"
+seoTitle: "How to Know When It Is Time to Refine Your Processes"
 description: "While mistakes are an inevitable part of life, no business owner likes to admit to making them. But, in the spirit of transparency and sharing what we’ve learned, we’re going to do something a little differently in this post than what we usually do on our blog. We’re going to discuss a recent mistak"
 pubDate: "2022-01-13T15:00:15Z"
 updatedDate: "2022-01-05T18:51:31Z"

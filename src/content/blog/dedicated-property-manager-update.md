@@ -1,5 +1,6 @@
 ---
 title: "A Big Change at RL Property Management: What It Means for You"
+seoTitle: "Your Dedicated Property Manager: What Is Changing"
 description: "RL Property Management has reorganized to give every client a single, dedicated property manager as of February 2026. This shift simplifies communication, improves accountability, and creates a more consistent experience for property owners. What Changed at RL Property Management? Growth in property"
 pubDate: "2026-03-19T19:11:34Z"
 updatedDate: "2026-03-31T19:18:33Z"

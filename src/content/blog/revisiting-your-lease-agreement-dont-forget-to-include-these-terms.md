@@ -1,5 +1,6 @@
 ---
 title: "Revisiting Your Lease Agreement: Don’t Forget to Include These Terms"
+seoTitle: "Lease Agreement Terms You Should Not Forget"
 description: "A well-drafted lease agreement protects your interests as a landlord as well as your tenants’. If it’s been some time since you’ve reviewed your lease agreement or if you’re drafting one for the first time, read on for some important clauses to include. 5 Essential Terms to Include in Your Rental Le"
 pubDate: "2024-08-06T20:18:55Z"
 updatedDate: "2024-11-14T20:25:40Z"

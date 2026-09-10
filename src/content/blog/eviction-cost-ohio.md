@@ -1,5 +1,6 @@
 ---
 title: "How Much Does an Eviction Cost in Ohio? (Process, Timeline, and Fees)"
+seoTitle: "Eviction Cost in Ohio: Process, Timeline, and Fees"
 description: "The filing fee is the easy part. What an eviction actually costs depends on how your property is held, whether you know the process cold, and how long the unit sits empty while the clock runs. TL;DR A self-managing individual landlord in Franklin County can file pro se for around $203 in hard court"
 pubDate: "2026-05-22T15:05:40Z"
 updatedDate: "2026-09-10T00:00:00Z"

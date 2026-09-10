@@ -1,5 +1,6 @@
 ---
 title: "Self-Managing vs. Hiring a Property Manager: The Real Cost Comparison"
+seoTitle: "Self-Managing vs. a Property Manager: Real Costs"
 description: "Management fees are easy to price. The cost of doing it yourself is not, because most of it rarely reaches a spreadsheet. Here is the Columbus math, as of September 2026, with both columns filled in. TL;DR Professional management in Columbus runs $117 to $184 per unit per month on a flat-rate plan,"
 pubDate: "2026-09-09T08:38:20Z"
 updatedDate: "2026-09-10T00:00:00Z"

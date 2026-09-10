@@ -1,5 +1,6 @@
 ---
 title: "Current State of the Columbus Single-Family Market: Q4 2024 Update for Investors"
+seoTitle: "Columbus Single-Family Market: Q4 2024 Investor Update"
 description: "Columbus, Ohio, continues to present a promising yet evolving landscape for investors in the single-family housing market. With a growing population, shifting market dynamics, and significant development projects underway, the city offers opportunities for those willing to adapt to a maturing and in"
 pubDate: "2024-12-02T12:00:31Z"
 updatedDate: "2024-12-04T14:56:07Z"

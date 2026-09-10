@@ -1,5 +1,6 @@
 ---
 title: "What to Know About Using a 1031 to Grow Your Real Estate Portfolio"
+seoTitle: "Using a 1031 Exchange to Grow Your Portfolio"
 description: "Investing in real estate can provide significant financial opportunities for individuals and build generational wealth for families for years to come. And like many pursuits, there is more than one way to achieve success. However, following time-tested, risk-tolerant strategies can significantly alt"
 pubDate: "2023-12-05T15:00:41Z"
 updatedDate: "2023-12-18T19:33:26Z"
