@@ -1,9 +1,9 @@
 ---
 title: "Columbus Rental Registry Update: What Landlords and Property Owners Should Know"
 seoTitle: "Columbus Rental Registry Update for Property Owners"
-description: "The conversation around a potential rental registry in Columbus, Ohio, continues to evolve, and recent public hearings show the issue is becoming one of the most closely watched housing policy debates in Central Ohio. Columbus City Council is exploring legislation that would require rental property"
+description: "Columbus City Council passed the citywide rental registry on April 20, 2026, creating City Code Chapter 4515. Here is what the ordinance requires of rental property owners, what it costs per unit, how the inspections work, and what is still unsettled."
 pubDate: "2026-03-04T18:17:14Z"
-updatedDate: "2026-03-23T17:25:13Z"
+updatedDate: "2026-09-10T00:00:00Z"
 slug: "columbus-rental-registry"
 wpId: 16578
 heroImage: "https://rlpmg.com/wp-content/uploads/2026/03/Gemini_Generated_Image_fe2md1fe2md1fe2m.png"
@@ -14,11 +14,22 @@ categories:
   - "Owner Education"
 ---
 
+> **Update, September 2026.** Columbus City Council passed the rental registry
+> on April 20, 2026, creating City Code Chapter 4515. It is no longer a proposal.
+> Every residential rental unit in the city registers annually with the Department
+> of Building and Zoning Services at $15 per unit, capped at $1,500 per complex,
+> with a safety inspection of common areas and building systems every three years.
+> Operating unregistered carries civil penalties of $2 per unit per day, minimum
+> $10 per day. The city has not yet published the registration portal or the first
+> deadline, and the Columbus Apartment Association has signaled a challenge. The
+> rest of this article describes the debate as it stood before the vote.
+> See [what Columbus rental compliance requires now](/services/compliance/).
+
 The conversation around a potential **rental registry in Columbus, Ohio,**[continues to evolve,](https://www.aol.com/articles/landlords-tenant-advocates-clash-over-110313923.html) and recent public hearings show the issue is![An editorial-style photograph of an empty Columbus City Council chamber. The room features a curved, polished wood dais with several high-backed leather chairs and thin gooseneck microphones at each station. A large, circular "City of Columbus" seal is mounted on the light-colored wall behind the center seat. The foreground shows the tops of wooden gallery benches in a soft, shallow focus, all illuminated by warm, professional lighting.](https://rlpmg.com/wp-content/uploads/2026/03/Gemini_Generated_Image_fe2md1fe2md1fe2m-300x167.png) becoming one of the most closely watched housing policy debates in Central Ohio.
 
 Columbus City Council is [exploring legislation](https://www.wosu.org/politics-government/2025-09-16/columbus-city-council-considers-creating-registry-of-rental-properties) that would require rental property owners to **register their units with the city, provide ownership information, and potentially participate in inspection programs**. Supporters say the registry would help improve housing conditions and accountability, while opponents argue the proposal could create unnecessary costs, regulatory burdens, and legal concerns.
 
-In recent weeks, stakeholders, including landlords, tenant advocates, REALTORS®, and city officials, have all voiced their perspectives. With discussions ongoing and legislation still in development, understanding the proposal and the concerns surrounding it is essential for anyone involved in the Columbus rental housing market.
+In recent weeks, stakeholders, including landlords, tenant advocates, REALTORS®, and city officials, have all voiced their perspectives. With discussions ongoing and the ordinance now passed, understanding the proposal and the concerns surrounding it is essential for anyone involved in the Columbus rental housing market.
 
 This article breaks down the **latest developments, what the proposed registry would do, and why the issue is generating significant debate among housing professionals and policymakers.**
 

@@ -1,9 +1,9 @@
 ---
 title: "Columbus Considers Rental Property Registry: What Landlords Need to Know"
 seoTitle: "Columbus Rental Property Registry: What to Know"
-description: "Why Columbus Landlords Should Pay Attention Now The Columbus City Council is actively exploring the creation of a rental property registry. This potential policy change could affect how the city tracks and regulates rental housing. While no ordinance has passed, the discussion has moved beyond theor"
+description: "Columbus now has a rental property registry. Council passed City Code Chapter 4515 on April 20, 2026. Here is what a registry is, why the city adopted one, what it requires of Columbus landlords, and how to prepare before the first deadline is published."
 pubDate: "2026-02-02T08:22:50Z"
-updatedDate: "2026-01-30T21:28:28Z"
+updatedDate: "2026-09-10T00:00:00Z"
 slug: "columbus-rental-property-registry"
 wpId: 16544
 heroImage: "https://rlpmg.com/wp-content/uploads/2026/01/ChatGPT-Image-Jan-28-2026-07_52_03-AM.png"
@@ -16,9 +16,20 @@ categories:
   - "Uncategorized"
 ---
 
+> **Update, September 2026.** Columbus City Council passed the rental registry
+> on April 20, 2026, creating City Code Chapter 4515. It is no longer a proposal.
+> Every residential rental unit in the city registers annually with the Department
+> of Building and Zoning Services at $15 per unit, capped at $1,500 per complex,
+> with a safety inspection of common areas and building systems every three years.
+> Operating unregistered carries civil penalties of $2 per unit per day, minimum
+> $10 per day. The city has not yet published the registration portal or the first
+> deadline, and the Columbus Apartment Association has signaled a challenge. The
+> rest of this article describes the debate as it stood before the vote.
+> See [what Columbus rental compliance requires now](/services/compliance/).
+
 ## Why Columbus Landlords Should Pay Attention Now![Stylized overhead map of Columbus, Ohio neighborhoods with highlighted blocks, grid lines, and data icons representing rental housing tracking and policy oversight.](https://rlpmg.com/wp-content/uploads/2026/01/ChatGPT-Image-Jan-28-2026-07_52_03-AM-300x200.png)
 
-The Columbus City Council is actively exploring the [creation of a rental property registry.](https://www.wosu.org/politics-government/2025-09-16/columbus-city-council-considers-creating-registry-of-rental-properties) This potential policy change could affect how the city tracks and regulates rental housing. While no ordinance has passed, the discussion has moved beyond theory. Council members are holding public hearings, gathering stakeholder feedback, and weighing how a registry could fit into the city’s housing and code enforcement efforts.
+The Columbus City Council is actively exploring the [creation of a rental property registry.](https://www.wosu.org/politics-government/2025-09-16/columbus-city-council-considers-creating-registry-of-rental-properties) This potential policy change could affect how the city tracks and regulates rental housing. Council passed the ordinance on April 20, 2026, after more than a year of hearings. Council members are holding public hearings, gathering stakeholder feedback, and weighing how a registry could fit into the city’s housing and code enforcement efforts.
 
 For landlords and real estate investors, timing matters. Early policy discussions shape outcomes long before leaders finalize fees, enforcement rules, or compliance steps. Once a city adopts an ordinance, flexibility drops fast.
 
