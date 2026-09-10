@@ -8,6 +8,7 @@ import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
 import { company, pricing, kpis, rentPolicy, areas, usd } from '../../data/facts';
 import { serviceNode } from '../../lib/schema';
+import LegalNote from '../../components/LegalNote.astro';
 
 /**
  * Owner FAQs. Target: the long tail of owner questions.
@@ -270,6 +271,7 @@ const schemaNodes = [
         Resident questions are answered separately on the
         {' '}<a href="/resident-faqs/" class="text-crimson font-semibold no-underline hover:underline">resident FAQs page</a>.
       </p>
+      <LegalNote class="mb-5" />
       <div class="mt-5"><Verified date="2026-09-09" /></div>
     </div>
   </section>

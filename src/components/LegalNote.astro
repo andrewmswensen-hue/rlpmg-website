@@ -1,0 +1,18 @@
+---
+/**
+ * The standard "not legal advice" footnote.
+ *
+ * Andrew, 2026-09-10: keep this wherever the page describes law, ordinance or
+ * a statutory process. It is a liability reduction, not defensive padding, and
+ * it stays even though the rest of the preemptive legal drafting came out.
+ *
+ * Pages that already carry a hand-written disclaimer tuned to their subject
+ * keep theirs. This is for pages that had none.
+ */
+interface Props { class?: string }
+const { class: cls = '' } = Astro.props;
+---
+<p class={`text-[14px] text-faint ${cls}`}>
+  General information about property management practice in Central Ohio, not legal advice.
+  Statutes and local ordinances change, and your own situation may differ.
+</p>

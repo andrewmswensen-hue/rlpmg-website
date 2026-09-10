@@ -9,6 +9,7 @@ import Cta from '../../components/Cta.astro';
 import { company, pricing, kpis, rentPolicy, usd } from '../../data/facts';
 import { rentByMarketAndBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
+import LegalNote from '../../components/LegalNote.astro';
 
 /**
  * THE ANCHOR PAGE. Columbus is by a wide margin our largest market and this is
@@ -539,6 +540,7 @@ const schemaNodes = [
       <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Columbus property management questions" id="cbus-faq" />
       <div class="mt-8">
+        <LegalNote class="mb-5" />
         <Verified date="2026-09-09" />
       </div>
     </div>

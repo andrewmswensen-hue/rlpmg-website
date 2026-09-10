@@ -67,7 +67,7 @@ const areasOfLaw = [
 
 const faq = [
   { q: 'What does Ohio landlord-tenant law require of a landlord?',
-    a: 'Ohio Revised Code Chapter 5321 governs residential landlord and tenant relationships. The core duties: keep the unit fit and habitable, comply with building, housing, health and safety codes, make repairs, keep common areas safe, give at least 24 hours of reasonable notice before entering, return the security deposit with an itemized statement of deductions within 30 days of the tenancy ending and possession being delivered, and follow the notice and filing process in Chapter 1923 to end a tenancy. Local ordinances add to that, and they differ between Columbus and a suburb a mile away.' },
+    a: 'Ohio Revised Code Chapter 5321 governs residential landlord and tenant relationships. The core duties: keep the unit fit and habitable, comply with building, housing, health and safety codes, make repairs, keep common areas safe, give at least 24 hours of reasonable notice before entering, return the security deposit with an itemized statement of deductions within 30 days of the tenancy ending and possession being delivered, and follow the notice and filing process in Chapter 1923 to end a tenancy. Local ordinances add to that, and they differ between Columbus and a suburb a mile away. This page is general information, not legal advice.' },
   { q: 'Do I have to register my rental property in Columbus?',
     a: '[SOURCE NEEDED: whether the City of Columbus requires residential rental registration, what it costs, how often it renews, which properties are covered and the penalty for not registering. Do not publish an answer until this is verified against the current city code.] Requirements also differ by suburb, so a property in one of our service communities may face rules a Columbus property does not.' },
   { q: 'What are the fair housing rules for renting a property?',
@@ -171,6 +171,10 @@ const schemaNodes = [
           </ul>
         </div>
       </div>
+      <p class="text-[15px] text-muted mt-7">
+        We are a licensed real estate brokerage in the State of Ohio, not a law firm. Nothing on this page is
+        legal advice, and an owner should have their own counsel for their own situation.
+      </p>
     </div>
   </section>
 
@@ -179,7 +183,9 @@ const schemaNodes = [
       <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Compliance questions" id="compliance-faq" />
       <p class="mt-7 text-[14px] text-faint">
-        Ordinances and statutes change. Check the date below, and ask us if you are about to act on something here.
+        General information about property management practice in Central Ohio, not legal advice. Ordinances and
+        statutes change. Verify anything on this page against the current code, or ask your attorney, before
+        relying on it.
       </p>
       <div class="mt-5"><Verified date="2026-09-09" /></div>
     </div>

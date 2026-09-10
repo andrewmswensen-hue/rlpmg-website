@@ -8,6 +8,7 @@ import RelatedLinks from '../../../components/RelatedLinks.astro';
 import Cta from '../../../components/Cta.astro';
 import { company, pricing, kpis, usd } from '../../../data/facts';
 import { serviceNode } from '../../../lib/schema';
+import LegalNote from '../../../components/LegalNote.astro';
 
 /**
  * Intent: "rental property inspections columbus", "how often should a rental be
@@ -159,6 +160,7 @@ const schemaNodes = [
     <div class="wrap max-w-[820px]">
       <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Inspection questions" id="inspections-faq" />
+      <LegalNote class="mb-5" />
       <div class="mt-8"><Verified date="2026-09-09" /></div>
     </div>
   </section>

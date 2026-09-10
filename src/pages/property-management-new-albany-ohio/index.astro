@@ -9,6 +9,7 @@ import Cta from '../../components/Cta.astro';
 import { company, pricing, rentPolicy, usd } from '../../data/facts';
 import { rentByBedroom, rentByMarketAndBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
+import LegalNote from '../../components/LegalNote.astro';
 
 /**
  * New Albany, Ohio. Target query: "property management new albany ohio".
@@ -321,6 +322,7 @@ const schemaNodes = [
         funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
         {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
       </p>
+      <LegalNote class="mb-5" />
       <div class="mt-6"><Verified date="2026-09-09" /></div>
     </div>
   </section>

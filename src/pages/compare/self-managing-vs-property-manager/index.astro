@@ -9,6 +9,7 @@ import Cta from '../../../components/Cta.astro';
 import { company, pricing, kpis, commitments, rentPolicy, usd } from '../../../data/facts';
 import { rentByBedroom } from '../../../data/markets';
 import { serviceNode } from '../../../lib/schema';
+import LegalNote from '../../../components/LegalNote.astro';
 
 /**
  * Target: "should I hire a property manager", "is a property manager worth it",
@@ -346,6 +347,7 @@ const schemaNodes = [
     <div class="wrap max-w-[820px]">
       <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Self-managing questions" id="selfmanage-faq" />
+      <LegalNote class="mb-5" />
       <div class="mt-8"><Verified date="2026-09-09" /></div>
     </div>
   </section>
