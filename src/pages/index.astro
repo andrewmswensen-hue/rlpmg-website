@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Photo from '../components/Photo.astro';
 import Stars from '../components/Stars.astro';
+import PricingTable from '../components/PricingTable.astro';
 import Faq from '../components/Faq.astro';
 import { company, pricing, kpis, areas, areaUrl, usd } from '../data/facts';
 import { partitionAreas } from '../lib/areas';
@@ -44,6 +45,17 @@ const howItWorks = [
     p: 'Marketing, showings, screening, the lease, rent collection and maintenance. You get monthly statements and a portal that is always current.' },
 ];
 
+/**
+ * The audience router. Three doors, owners first and visually primary.
+ * "Resident" rather than "tenant" to match the rest of the site; the
+ * residents page itself uses both, because "tenant portal" is what people search.
+ */
+const router = [
+  { h: 'I own a rental property', p: 'Pricing, management, and a free consultation', href: '/property-management-consultation/#consultation-form' },
+  { h: "I'm looking to rent", p: 'Available homes and how to apply', href: '/homes-for-rent/' },
+  { h: "I'm a current resident", p: 'Pay rent, request a repair, find answers', href: '/residents/' },
+];
+
 const tools = [
   { h: 'Rent vs. sell', p: 'Keep it as a rental, or sell now?', href: '/rent-vs-sell-calculator/' },
   { h: 'Self-management', p: 'What your own time is costing you.', href: '/self-management-calculator/' },
@@ -51,12 +63,6 @@ const tools = [
   { h: 'Market report', p: '2026 Columbus single-family rental data.', href: '/2026-columbus-market-report/' },
 ];
 
-const renterLinks = [
-  { h: 'Available homes', p: 'Browse current vacancies.', href: '/homes-for-rent/' },
-  { h: 'Apply online', p: 'Criteria and application.', href: '/residents/how-to-apply/' },
-  { h: 'Pay rent', p: 'Your resident portal.', href: '/residents/pay-rent/' },
-  { h: 'Maintenance', p: 'Submit a repair request.', href: '/residents/maintenance-requests/' },
-];
 
 /** These answers are written to stand alone if an answer engine quotes just one. */
 const faq = [
@@ -82,75 +88,103 @@ const schemaNodes = [serviceNode({
 <Base {title} {description} {faq} {schemaNodes}>
 
   <!-- HERO -->
-  <section class="pt-12 pb-14 lg:pt-14 lg:pb-16">
-    <div class="wrap">
-      <div class="grid gap-12 lg:grid-cols-[1.06fr_.94fr] lg:items-center">
-        <div>
-          <span class="eyebrow">Columbus, Ohio &nbsp;·&nbsp; Licensed brokerage since {company.founded}</span>
-          <h1 class="text-[clamp(38px,5vw,58px)] leading-[1.06] tracking-[-.022em]">
+  <!--
+    HERO. Andrew, 2026-10-06: drop the rental-home photo (it read as a listing)
+    for a full-width image behind two solid cards, and replace the photo slot
+    with a router so each audience self-selects in one click.
+
+    The skyline is an <img>, not a CSS background, so the browser's preload
+    scanner finds it early. It is the largest thing above the fold, which makes
+    it the LCP element, hence eager and fetchpriority high. It is decorative,
+    because the cards carry all the content, so alt is empty.
+  -->
+  <section class="relative isolate overflow-hidden bg-navy">
+    <img
+      src="/images/photos/columbus-skyline-1400.webp"
+      srcset="/images/photos/columbus-skyline-900.webp 900w, /images/photos/columbus-skyline-1400.webp 1400w, /images/photos/columbus-skyline-2000.webp 2000w"
+      sizes="100vw" alt="" aria-hidden="true" width="2000" height="1125"
+      loading="eager" fetchpriority="high" decoding="async"
+      class="absolute inset-0 -z-10 w-full h-full object-cover" />
+    <div class="absolute inset-0 -z-10" aria-hidden="true"
+         style="background:linear-gradient(180deg, rgb(11 34 48 / .55) 0%, rgb(11 34 48 / .72) 100%)"></div>
+
+    <div class="wrap pt-5 pb-10 sm:pt-12 lg:pt-16 lg:pb-12">
+      <div class="grid gap-4 sm:gap-6 lg:grid-cols-[1.25fr_.75fr] lg:items-stretch">
+
+        <!--
+          LEFT CARD: the headline and the direct answer. Never displaced.
+          On a phone it is trimmed to headline and answer only, so the router
+          lands inside the first screen. The buttons, broker line and proof
+          points are hidden below sm: the sticky bar carries the consultation
+          CTA on mobile, and the proof points repeat in the scorecard.
+        -->
+        <div class="card !p-6 sm:!p-8 md:!p-10 !rounded-[22px]">
+          <span class="eyebrow">Columbus, Ohio<span class="hidden sm:inline"> &nbsp;·&nbsp; Licensed brokerage since {company.founded}</span></span>
+          <h1 class="text-[30px] sm:text-[clamp(36px,4.6vw,56px)] leading-[1.06] tracking-[-.022em]">
             Columbus property management, run like a business.
           </h1>
-          <p class="text-[19.5px] text-muted mt-5 mb-2 max-w-[32em]">
+          <p class="text-[17px] sm:text-[19px] text-muted mt-4 sm:mt-5 mb-0 sm:mb-2 max-w-[32em]">
             We manage {company.unitsManaged} single-family and small multifamily rentals across the
-            Columbus metro. Flat pricing from {usd(pricing.plans[0].monthly)} per unit, and no leasing fee.
+            Columbus metro. Flat pricing from {usd(pricing.plans[0].monthly)} per unit, investor pricing from
+            five units, and no leasing fee.
           </p>
-          <p class="text-[15.5px] text-faint mb-6">
+          <p class="hidden sm:block text-[15px] text-faint mb-6">
             {company.brokerOfRecord.name}, {company.brokerOfRecord.title}.
           </p>
-
-          <div class="flex flex-wrap items-center gap-x-5 gap-y-3">
-            <a href="/property-management-consultation/" class="btn btn-primary">Schedule a free consultation</a>
+          <div class="hidden sm:flex flex-wrap gap-3">
+            <a href="/property-management-consultation/#consultation-form" class="btn btn-primary">Schedule a free consultation</a>
             <a href="/pricing/" class="btn btn-ghost">See our pricing</a>
-            <a href="/homes-for-rent/" class="text-[15px] text-crimson font-semibold no-underline hover:underline">
-              Looking to rent? See available homes &rarr;
-            </a>
           </div>
-
-          <ul class="flex flex-wrap gap-x-7 gap-y-2 text-[14.5px] text-muted mt-6 pt-6 border-t border-line">
+          <ul class="hidden sm:flex flex-wrap gap-x-7 gap-y-2 text-[14.5px] text-muted mt-7 pt-6 border-t border-line">
             <li class="flex items-center gap-2"><span class="text-crimson font-extrabold" aria-hidden="true">✓</span> {company.unitsManaged} units managed</li>
             <li class="flex items-center gap-2"><span class="text-crimson font-extrabold" aria-hidden="true">✓</span> {kpi('dom')}-day median time to lease</li>
             <li class="flex items-center gap-2"><span class="text-crimson font-extrabold" aria-hidden="true">✓</span> {usd(pricing.leasingFee)} leasing fee</li>
           </ul>
         </div>
 
-        <div class="relative grid place-items-center">
-          <div class="w-full max-w-[390px] aspect-square rounded-full border-[3px] border-crimson overflow-hidden"
-               style="box-shadow:0 14px 36px rgb(18 49 67 / .12)">
-            <Photo src="hero-home-square" widths={[520, 800, 1100]} ratio={1} eager
-                   sizes="(max-width: 900px) 84vw, 390px"
-                   alt="A two-storey red rental home photographed head on, with a covered front porch and steps up from the pavement"
-                   imgClass="w-full h-full object-cover" />
-          </div>
-          <div class="absolute bottom-2 right-[2%] bg-white border border-line rounded-full px-4 py-2.5 flex items-center gap-2"
-               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+        <!-- RIGHT CARD: the router. Owners first, because they are the business. -->
+        <nav class="card !p-6 sm:!p-7 md:!p-8 !rounded-[22px] flex flex-col" aria-labelledby="router-h">
+          <h2 id="router-h" class="text-[22px] mb-4 sm:mb-1.5">What brings you here?</h2>
+          <p class="hidden sm:block text-[14.5px] text-muted mb-5">Pick one and we will take you straight there.</p>
+          <ul class="grid gap-3 flex-1 content-start">
+            {router.map((r, i) => (
+              <li>
+                <a href={r.href} class={`router-btn ${i === 0 ? 'router-primary' : ''}`}>
+                  <span>
+                    <span class="router-t">{r.h}</span>
+                    <span class="router-s">{r.p}</span>
+                  </span>
+                  <span class="router-arrow" aria-hidden="true">&rarr;</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div class="mt-6 pt-5 border-t border-line flex items-center gap-2 text-[13.5px]">
             <Stars rating={company.reviews.rating} />
-            <span class="text-[13px] font-bold text-navy">
-              {company.reviews.rating} out of 5
-              <span class="font-normal text-muted">&middot; {company.reviews.display} Google reviews</span>
-            </span>
+            <span class="font-semibold text-navy">{company.reviews.rating} out of 5</span>
+            <span class="text-muted">&middot; {company.reviews.display} Google reviews</span>
           </div>
-        </div>
+        </nav>
       </div>
 
       <!--
-        Office, phone and hours run the full width under both columns rather
-        than stacking inside the text column, which was making the hero tall.
-        An owner deciding whether to call wants to see a real address in their
-        own city, and it is the strongest local signal on the page.
+        Office, phone and hours under both cards, on the image. An owner wants
+        to see a real address in their own city before they call, and it is the
+        strongest local signal on the page.
       -->
-      <div class="mt-12 pt-6 border-t border-line grid gap-x-10 gap-y-4 text-[14.5px] sm:grid-cols-3">
+      <div class="mt-7 grid gap-x-10 gap-y-3 text-[14.5px] text-white/90 sm:grid-cols-3">
         <p class="m-0">
-          <span class="font-sans text-[11.5px] font-bold tracking-[.14em] uppercase text-faint block mb-1">Office</span>
-          <span class="text-navy">{company.address.street}, {company.address.city}, {company.address.region} {company.address.postalCode}</span>
+          <span class="font-sans text-[11px] font-bold tracking-[.14em] uppercase text-white/60 block mb-1">Office</span>
+          {company.address.street}, {company.address.city}, {company.address.region} {company.address.postalCode}
         </p>
         <p class="m-0">
-          <span class="font-sans text-[11.5px] font-bold tracking-[.14em] uppercase text-faint block mb-1">Call us</span>
-          <a href={`tel:${company.phoneE164}`} class="text-crimson font-semibold no-underline hover:underline">{company.phone}</a>
-          <span class="text-muted"> &middot; {company.email}</span>
+          <span class="font-sans text-[11px] font-bold tracking-[.14em] uppercase text-white/60 block mb-1">Call us</span>
+          <a href={`tel:${company.phoneE164}`} class="text-white font-semibold no-underline hover:underline">{company.phone}</a>
+          <span class="text-white/70"> &middot; {company.email}</span>
         </p>
         <p class="m-0">
-          <span class="font-sans text-[11.5px] font-bold tracking-[.14em] uppercase text-faint block mb-1">Hours</span>
-          <span class="text-muted">{company.officeHoursNote}</span>
+          <span class="font-sans text-[11px] font-bold tracking-[.14em] uppercase text-white/60 block mb-1">Hours</span>
+          {company.officeHoursNote}
         </p>
       </div>
     </div>
@@ -226,23 +260,8 @@ const schemaNodes = [serviceNode({
           your rent goes up. We do not, so raising your rent is purely your gain.
         </p>
       </div>
-      <div class="grid gap-6 lg:grid-cols-3">
-        {pricing.plans.map((p, i) => (
-          <div class="card flex flex-col">
-            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-3">{p.name}</div>
-            <div class="font-sans text-[48px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
-            <div class="font-sans text-[13.5px] text-faint mt-2 mb-5">per unit, per month</div>
-            <ul class="border-t border-line pt-4.5 mb-6 flex-1 font-sans">
-              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(pricing.leasingFee)}</b> leasing fee</li>
-              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(pricing.leaseRenewalFee)}</b> lease renewal</li>
-              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(p.repairApprovalLimit)}</b> repair approval limit</li>
-              <li class="text-[14.5px] py-1.5 text-muted">Full screening and rent collection</li>
-              <li class="text-[14.5px] py-1.5 text-muted">Monthly statements and owner portal</li>
-            </ul>
-            <a href="/pricing/" class="btn btn-ghost text-center">Compare plans</a>
-          </div>
-        ))}
-      </div>
+      <PricingTable id="home-pricing" />
+
       <div class="max-w-[760px] mx-auto text-center mt-10">
         <p class="text-[17px] text-navy font-medium">
           Most Columbus managers charge half a month of rent every time they place a resident. On a
@@ -250,7 +269,7 @@ const schemaNodes = [serviceNode({
           turnover. We charge {usd(pricing.leasingFee)}, on every plan, every time.
         </p>
         <p class="text-[15px] text-muted mt-3">
-          No startup cost on occupied units, and portfolio owners are quoted at a discount.
+          No startup cost on occupied units.
           <a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline"> See exactly what management costs &rarr;</a>
         </p>
       </div>
@@ -280,9 +299,9 @@ const schemaNodes = [serviceNode({
         <p class="text-[13px] text-faint mt-5 mb-0">As of {kpis.asOfLabel}.</p>
       </div>
       <div class="rounded-[18px] overflow-hidden aspect-[4/3] border border-line">
-        <Photo src="new-townhomes" widths={[640, 1000, 1400]} ratio={3 / 2}
+        <Photo src="aerial-autumn-suburb" widths={[640, 1000, 1400]} ratio={3 / 2}
                sizes="(max-width: 900px) 92vw, 46vw"
-               alt="A row of newly built townhomes with garages on a quiet residential street"
+               alt="An aerial view of a Central Ohio residential neighbourhood in autumn, streets of homes under orange and red trees at sunset"
                imgClass="w-full h-full object-cover" />
       </div>
     </div>
@@ -336,27 +355,6 @@ const schemaNodes = [serviceNode({
           <a href="/areas-we-serve/" class="text-crimson font-semibold no-underline hover:underline"> See the full service area →</a>
         </p>
       )}
-    </div>
-  </section>
-
-  <!-- RENTERS -->
-  <section class="band band-wash">
-    <div class="wrap">
-      <div class="max-w-[660px] mx-auto text-center mb-11">
-        <span class="eyebrow">For renters</span>
-        <h2 class="text-[clamp(28px,3.3vw,40px)]">Looking for a home in Columbus?</h2>
-        <p class="mt-3.5 text-[17.5px] text-muted">
-          Most of our homes offer self-guided tours. Applications are first come, first served.
-        </p>
-      </div>
-      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {renterLinks.map((r) => (
-          <a href={r.href} class="card card-hover no-underline block">
-            <h3 class="text-[18px] mb-2">{r.h}</h3>
-            <p class="text-[15px] text-muted m-0">{r.p}</p>
-          </a>
-        ))}
-      </div>
     </div>
   </section>
 

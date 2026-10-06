@@ -1,22 +1,32 @@
 ---
 import Base from '../../layouts/Base.astro';
-import PageHero from '../../components/PageHero.astro';
-import KeyFacts from '../../components/KeyFacts.astro';
 import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
+import Stars from '../../components/Stars.astro';
 import { company, pricing, kpis, rentPolicy, areas, usd } from '../../data/facts';
 import { serviceNode } from '../../lib/schema';
 
 /**
- * The conversion page, and the destination for portfolio quote requests.
+ * The conversion page. Every owner CTA on the site lands here.
  *
- * Portfolio pricing is deliberately not published (see pricing.portfolioDiscount
- * in facts.ts), so this form is where a multi-unit owner gets a real number.
+ * Andrew, 2026-10-06: hyper-optimise for lead generation, geared toward
+ * intentional investors, and separate accidental landlords from intentional
+ * or future investors before they become a lead.
  *
- * FORM: semantic HTML only. No JavaScript. The action endpoint is pending, see
- * the comment on the <form> element.
+ * So the form sits at the top beside the headline rather than six sections
+ * down, and asks two one-tap questions before anything else:
+ *   1. which describes you: intentional investor, future investor, or
+ *      accidental landlord. That is the ICP split, and it routes the lead.
+ *   2. how many units, using the same bands as the pricing tiers, so a lead
+ *      arriving from "Get this rate" on 10 to 19 units lands with it chosen.
+ * Then four contact fields. Everything else is optional and collapsed.
+ *
+ * FORM: plain HTML post, works with no JavaScript. One small inline script
+ * pre-selects the unit band from ?units= when someone arrives from a pricing
+ * tier. Without it the form still works, the band just is not pre-selected.
+ * The action endpoint is pending, see the comment on the <form> element.
  */
 
 const title = 'Book a Property Management Consultation | RL Property Management, Columbus';
@@ -33,7 +43,7 @@ const breadcrumbs = [
 const keyFacts = [
   'Free, and there is nothing to sign on the call',
   `Published per-unit pricing is ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per month`,
-  'Portfolio pricing is quoted here, and the discount is significant',
+  pricing.portfolioDiscount.short,
   'You leave with a written number, not a callback promise',
   `Managing ${company.unitsManaged} units across the Columbus metro since ${company.founded}`,
   'Works for one unit or for a portfolio moving off another manager',
@@ -65,7 +75,7 @@ const faq = [
   { q: 'What does property management cost?',
     a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee, ${usd(pricing.leaseRenewalFee)} lease renewals and no startup fee on an occupied unit. The full fee schedule is published on the pricing page.` },
   { q: 'How does portfolio pricing work?',
-    a: 'Monthly management is discounted as unit count rises, and the discount is significant. It is quoted per owner rather than published, because it depends on unit count, property type and how geographically concentrated the portfolio is. This consultation is where that number gets put in writing.' },
+    a: `${pricing.portfolioDiscount.line} For 40 units and up, this consultation is where the number gets built and put in writing.` },
   { q: 'I already have a property manager. Should I still book?',
     a: 'Yes, and bring your current management agreement. Timing a transfer badly is what costs owners money, not the switch itself. We will read the termination clause with you and build a plan around your lease dates before anyone gives notice.' },
   { q: 'Do I have to commit to anything on the call?',
@@ -84,6 +94,30 @@ const schemaNodes = [
   }),
 ];
 
+/**
+ * Question one is the ICP split. Intentional investors first, because they are
+ * the priority; accidental landlords last but in plain words, so nobody feels
+ * they picked the wrong door.
+ */
+const ownerTypes = [
+  { v: 'intentional-investor', h: 'I own rentals and want to grow', p: 'Building a portfolio on purpose' },
+  { v: 'future-investor',      h: 'I am buying, or about to buy',  p: 'Planning a first or next rental' },
+  { v: 'accidental-landlord',  h: 'I ended up with a rental',      p: 'Inherited, relocated, or it did not sell' },
+];
+
+/** Question two uses the pricing tier bands, so a tier CTA can pre-select one. */
+const unitBands = [
+  { v: 'none',  label: 'None yet' },
+  { v: '1-4',   label: '1 to 4' },
+  ...pricing.portfolioDiscount.tiers.map((t) => ({ v: t.id, label: t.label.replace(' units', '') })),
+  { v: '40+',   label: `${pricing.portfolioDiscount.customFrom}+` },
+];
+
+const choiceCls =
+  'flex flex-col gap-0.5 rounded-[12px] border-[1.5px] border-line bg-white px-4 py-3 cursor-pointer ' +
+  'transition-colors hover:border-navy has-[:checked]:border-crimson has-[:checked]:bg-[#fbeef1] ' +
+  'has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-crimson has-[:focus-visible]:outline-offset-2';
+
 const inputCls =
   'w-full rounded-[10px] border border-line bg-white px-3.5 py-2.5 text-[15.5px] text-navy ' +
   'focus:border-crimson focus:outline-none';
@@ -92,16 +126,197 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
 ---
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
 
-  <PageHero
-    eyebrow="Free consultation"
-    title="Book a property management consultation"
-    answer={`A free call with ${company.name}. You bring the addresses and your current statements, and you leave with a written management quote, including portfolio pricing if you own several units. Nothing is signed on the call.`}
-    breadcrumbs={breadcrumbs}
-    primaryCta={{ label: 'Request a consultation', href: '#consultation-form' }}
-    secondaryCta={{ label: 'See published pricing', href: '/pricing/' }}
-  />
+  <section class="pt-12 pb-16 lg:pt-14" id="consultation-form">
+    <div class="wrap grid gap-12 lg:grid-cols-[minmax(0,.92fr)_minmax(0,1.08fr)] lg:items-start">
 
-  <KeyFacts items={keyFacts} />
+      <!-- LEFT: what they get, and why to trust it -->
+      <div class="lg:sticky lg:top-[110px]">
+        <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
+          {breadcrumbs.map((b, i) => (
+            <>
+              {i > 0 && <span aria-hidden="true"> / </span>}
+              {i === breadcrumbs.length - 1
+                ? <span aria-current="page">{b.name}</span>
+                : <a href={b.path} class="no-underline hover:text-crimson">{b.name}</a>}
+            </>
+          ))}
+        </nav>
+        <span class="eyebrow">Free consultation</span>
+        <h1 class="text-[clamp(32px,4.2vw,48px)] tracking-[-.022em]">Book a property management consultation</h1>
+        <p class="text-[19px] text-muted mt-5">
+          A free call with {company.name}. Tell us what you own and you leave with a written management
+          quote, including investor pricing if you own five or more units. Nothing is signed on the call.
+        </p>
+
+        <ul class="grid gap-3 mt-7 text-[15.5px] text-navy">
+          {keyFacts.slice(0, 4).map((k) => (
+            <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{k}</span></li>
+          ))}
+        </ul>
+
+        <div class="mt-8 pt-6 border-t border-line flex flex-wrap items-center gap-x-6 gap-y-3 text-[14.5px]">
+          <span class="flex items-center gap-2">
+            <Stars rating={company.reviews.rating} />
+            <span class="font-semibold text-navy">{company.reviews.rating} out of 5</span>
+            <span class="text-muted">{company.reviews.display} Google reviews</span>
+          </span>
+          <span class="text-muted">
+            Rather talk now? Call our investor line,
+            {' '}<a href={`tel:${company.salesPhoneE164}`} class="text-crimson font-semibold no-underline hover:underline">{company.salesPhone}</a>
+          </span>
+        </div>
+      </div>
+
+      <!-- RIGHT: the form -->
+      <!--
+        FORM ENDPOINT PENDING.
+        The CRM is LeadSimple and submissions route by email. Set the `action`
+        attribute to the LeadSimple inbound endpoint when it is issued, and keep
+        `method="post"`. Do not hardcode a destination email address in the markup.
+        Field names are unchanged from the previous version of this form, plus
+        `owner_type`, so the CRM mapping only gains one field.
+      -->
+      <form method="post" action="" class="card !p-6 md:!p-8 grid gap-7" aria-labelledby="form-h">
+        <div>
+          <h2 id="form-h" class="text-[24px]">Tell us what you own</h2>
+          <p class="text-[14.5px] text-muted mt-1.5 mb-0">Two quick questions, then how to reach you. About a minute.</p>
+        </div>
+
+        <fieldset class="border-0 p-0 m-0">
+          <legend class={labelCls}>1. Which sounds most like you?</legend>
+          <div class="grid gap-2.5 mt-1">
+            {ownerTypes.map((o, i) => (
+              <label class={choiceCls}>
+                <span class="flex items-center gap-3">
+                  <input type="radio" name="owner_type" value={o.v} required={i === 0} class="accent-crimson w-4 h-4 shrink-0" />
+                  <span class="font-sans text-[15.5px] font-semibold text-navy">{o.h}</span>
+                </span>
+                <span class="text-[13.5px] text-muted pl-7">{o.p}</span>
+              </label>
+            ))}
+          </div>
+        </fieldset>
+
+        <fieldset class="border-0 p-0 m-0">
+          <legend class={labelCls}>2. How many rental units do you own?</legend>
+          <div class="grid grid-cols-3 gap-2.5 mt-1">
+            {unitBands.map((u, i) => (
+              <label class={`${choiceCls} !items-center !py-2.5 text-center`}>
+                <input type="radio" name="units_owned" value={u.v} required={i === 0} class="sr-only" />
+                <span class="font-sans text-[15px] font-semibold text-navy">{u.label}</span>
+              </label>
+            ))}
+          </div>
+          <span class={hintCls}>Five or more units sets your investor rate.</span>
+        </fieldset>
+
+        <fieldset class="border-0 p-0 m-0 grid gap-4">
+          <legend class={labelCls}>3. How do we reach you?</legend>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label class="sr-only" for="c-first">First name</label>
+              <input class={inputCls} id="c-first" name="first_name" type="text" autocomplete="given-name" placeholder="First name" required />
+            </div>
+            <div>
+              <label class="sr-only" for="c-last">Last name</label>
+              <input class={inputCls} id="c-last" name="last_name" type="text" autocomplete="family-name" placeholder="Last name" required />
+            </div>
+            <div>
+              <label class="sr-only" for="c-email">Email</label>
+              <input class={inputCls} id="c-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="Email" required />
+            </div>
+            <div>
+              <label class="sr-only" for="c-phone">Phone</label>
+              <input class={inputCls} id="c-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="Phone" required />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Everything below is optional, and closed by default so the form reads short. -->
+        <details class="group rounded-[12px] border border-line bg-wash-soft">
+          <summary class="cursor-pointer list-none px-4 py-3 font-sans text-[14.5px] font-semibold text-navy flex justify-between items-center">
+            <span>Add details now (optional)</span>
+            <span class="text-crimson text-[20px] leading-none group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+          </summary>
+          <div class="grid gap-5 px-4 pb-5 pt-1">
+            <div>
+              <label class={labelCls} for="c-company">Company or entity name</label>
+              <input class={inputCls} id="c-company" name="company" type="text" autocomplete="organization" />
+              <span class={hintCls}>If the properties are held in an LLC or a trust.</span>
+            </div>
+            <div>
+              <label class={labelCls} for="c-type">Property type</label>
+              <select class={inputCls} id="c-type" name="property_type">
+                <option value="">Choose one</option>
+                <option value="single-family">Single-family homes</option>
+                <option value="small-multifamily">Small multifamily</option>
+                <option value="mixed">A mix of both</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div>
+              <label class={labelCls} for="c-situation">Where are you today?</label>
+              <select class={inputCls} id="c-situation" name="current_situation">
+                <option value="">Choose one</option>
+                <option value="self-managing">Self-managing and want to stop</option>
+                <option value="other-manager">With another manager and considering a change</option>
+                <option value="multiple-managers">Consolidating from several managers</option>
+                <option value="new-purchase">Buying now, or recently closed</option>
+                <option value="first-rental">First rental, not managed yet</option>
+                <option value="researching">Just researching for now</option>
+              </select>
+            </div>
+            <div>
+              <label class={labelCls} for="c-when">When would you want management to start?</label>
+              <select class={inputCls} id="c-when" name="timeline">
+                <option value="">Choose one</option>
+                <option value="now">As soon as possible</option>
+                <option value="30-days">Within 30 days</option>
+                <option value="90-days">Within 90 days</option>
+                <option value="lease-end">When the current lease ends</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+            <div>
+              <label class={labelCls} for="c-addresses">Property addresses</label>
+              <textarea class={inputCls} id="c-addresses" name="addresses" rows="3"></textarea>
+              <span class={hintCls}>One per line. A partial list is fine, and so is a city and a count.</span>
+            </div>
+            <div>
+              <label class={labelCls} for="c-goal">What are you trying to solve?</label>
+              <textarea class={inputCls} id="c-goal" name="goal" rows="3"></textarea>
+            </div>
+          </div>
+        </details>
+
+        <div class="grid gap-4">
+          <label class="flex gap-3 items-start text-[14px] text-muted cursor-pointer">
+            <input type="checkbox" name="contact_consent" value="yes" required class="accent-crimson w-4 h-4 mt-0.5 shrink-0" />
+            <span>I agree that {company.name} may contact me about this request by email or phone.</span>
+          </label>
+          <button type="submit" class="btn btn-primary w-full !py-3.5 !text-[16px]">Get my free consultation</button>
+          <p class="text-[12.5px] text-faint m-0 text-center">
+            Free, and no obligation. We do not sell or share your information.
+            {' '}<a href="/privacy-policy/" class="text-crimson no-underline hover:underline">Privacy policy</a>.
+          </p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!--
+    Progressive enhancement only. A visitor arriving from a pricing tier
+    (?units=10-19) lands with that band already chosen. Without JavaScript
+    the form works exactly the same, the band just is not pre-selected.
+  -->
+  <script is:inline>
+    (function () {
+      var u = new URLSearchParams(location.search).get('units');
+      if (!u) return;
+      var r = document.querySelector('input[name="units_owned"][value="' + u.replace(/"/g, '') + '"]');
+      if (r) r.checked = true;
+    })();
+  </script>
 
   <!-- AGENDA -->
   <section class="band-tight" aria-labelledby="agenda-h">
@@ -126,20 +341,18 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
     <div class="wrap max-w-[880px]">
       <div class="card !border-2 !border-navy !p-9 md:!p-11">
         <span class="eyebrow">For portfolio owners</span>
-        <h2 id="portfolio-h" class="text-[clamp(24px,2.9vw,34px)] mb-4">This is where portfolio pricing gets quoted</h2>
+        <h2 id="portfolio-h" class="text-[clamp(24px,2.9vw,34px)] mb-4">Investor pricing, and custom pricing at 40 units and up</h2>
         <p class="text-[17.5px] text-muted mb-5">
-          The {usd(pricing.plans[0].monthly)} to {usd(pricing.plans[2].monthly)} per unit rate on the pricing page
-          is per-unit pricing for smaller owners. Monthly management is discounted as unit count rises, and the
-          discount is significant. It is not published, because it depends on how many units you own, what type
-          they are, and how close together they sit.
+          {pricing.portfolioDiscount.line} At 40 units and up, the right number depends on your mix of
+          properties and how close together they sit, so we build it around the portfolio.
         </p>
         <p class="text-[17.5px] text-muted mb-6">
           Tell us what you own on the form below and we will put a number in writing. If you are consolidating
           from several managers, say so, because that changes the transition plan more than it changes the price.
         </p>
         <div class="flex flex-wrap gap-3">
-          <a href="#consultation-form" class="btn btn-navy">Request a portfolio quote</a>
-          <a href="/investors/" class="btn btn-ghost">Portfolio and investor services</a>
+          <a href="#consultation-form" class="btn btn-navy">Get custom pricing</a>
+          <a href="/investors/#discount-h" class="btn btn-ghost">See investor pricing</a>
         </div>
       </div>
     </div>
@@ -184,153 +397,6 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
         <a href="/key-performance-indicators/" class="btn btn-ghost">The published scorecard</a>
         <a href="/owner-faqs/" class="btn btn-ghost">Owner FAQs</a>
       </div>
-    </div>
-  </section>
-
-  <!-- FORM -->
-  <section class="band band-wash" id="consultation-form" aria-labelledby="form-h">
-    <div class="wrap max-w-[760px]">
-      <span class="eyebrow">Request a call</span>
-      <h2 id="form-h" class="text-[clamp(26px,3.2vw,38px)]">Book your consultation</h2>
-      <p class="text-[17.5px] text-muted mt-4 mb-8">
-        Tell us what you own and what you are trying to solve. Someone from our team will reach out to set a time.
-      </p>
-
-      <!--
-        FORM ENDPOINT PENDING.
-        The CRM is LeadSimple and submissions route by email. Set the `action`
-        attribute to the LeadSimple inbound endpoint when it is issued, and keep
-        `method="post"`. Do not hardcode a destination email address in the markup.
-        No JavaScript is used or needed: this is a plain HTML post.
-      -->
-      <form method="post" action="" class="card !p-7 md:!p-9 grid gap-7">
-
-        <fieldset class="border-0 p-0 m-0 grid gap-5">
-          <legend class="font-serif text-[20px] font-semibold text-navy mb-3">About you</legend>
-
-          <div class="grid gap-5 sm:grid-cols-2">
-            <div>
-              <label class={labelCls} for="c-first">First name <span class="text-crimson">(required)</span></label>
-              <input class={inputCls} id="c-first" name="first_name" type="text" autocomplete="given-name" required />
-            </div>
-            <div>
-              <label class={labelCls} for="c-last">Last name <span class="text-crimson">(required)</span></label>
-              <input class={inputCls} id="c-last" name="last_name" type="text" autocomplete="family-name" required />
-            </div>
-          </div>
-
-          <div class="grid gap-5 sm:grid-cols-2">
-            <div>
-              <label class={labelCls} for="c-email">Email <span class="text-crimson">(required)</span></label>
-              <input class={inputCls} id="c-email" name="email" type="email" autocomplete="email" required />
-            </div>
-            <div>
-              <label class={labelCls} for="c-phone">Phone <span class="text-crimson">(required)</span></label>
-              <input class={inputCls} id="c-phone" name="phone" type="tel" autocomplete="tel" required />
-            </div>
-          </div>
-
-          <div>
-            <label class={labelCls} for="c-company">Company or entity name</label>
-            <input class={inputCls} id="c-company" name="company" type="text" autocomplete="organization" />
-            <span class={hintCls}>If the properties are held in an LLC or a trust.</span>
-          </div>
-        </fieldset>
-
-        <fieldset class="border-0 p-0 m-0 grid gap-5 border-t border-line pt-7">
-          <legend class="font-serif text-[20px] font-semibold text-navy mb-3">About the portfolio</legend>
-
-          <div class="grid gap-5 sm:grid-cols-2">
-            <div>
-              <label class={labelCls} for="c-units">How many rental units? <span class="text-crimson">(required)</span></label>
-              <select class={inputCls} id="c-units" name="units_owned" required>
-                <option value="">Choose one</option>
-                <option value="1">1</option>
-                <option value="2-5">2 to 5</option>
-                <option value="6-20">6 to 20</option>
-                <option value="21-50">21 to 50</option>
-                <option value="51-100">51 to 100</option>
-                <option value="100+">More than 100</option>
-              </select>
-              <span class={hintCls}>This is what sets the discounted rate, so it is worth getting right.</span>
-            </div>
-            <div>
-              <label class={labelCls} for="c-type">Property type</label>
-              <select class={inputCls} id="c-type" name="property_type">
-                <option value="">Choose one</option>
-                <option value="single-family">Single-family homes</option>
-                <option value="small-multifamily">Small multifamily</option>
-                <option value="mixed">A mix of both</option>
-                <option value="other">Something else</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label class={labelCls} for="c-addresses">Property addresses</label>
-            <textarea class={inputCls} id="c-addresses" name="addresses" rows="4"></textarea>
-            <span class={hintCls}>One per line. A partial list is fine, and so is a city and a count.</span>
-          </div>
-
-          <fieldset class="border-0 p-0 m-0">
-            <legend class={labelCls}>Where are you today? <span class="text-crimson">(required)</span></legend>
-            <div class="grid gap-2 mt-1">
-              {[
-                ['self-managing', 'Self-managing and want to stop'],
-                ['other-manager', 'With another manager and considering a change'],
-                ['multiple-managers', 'Consolidating from several managers'],
-                ['new-purchase', 'Buying now, or recently closed'],
-                ['first-rental', 'First rental, not managed yet'],
-                ['researching', 'Just researching for now'],
-              ].map(([val, label], i) => (
-                <label class="flex gap-3 items-center text-[15.5px] text-navy cursor-pointer">
-                  <input type="radio" name="current_situation" value={val} required={i === 0} class="accent-crimson w-4 h-4" />
-                  <span>{label}</span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
-
-          <div>
-            <label class={labelCls} for="c-when">When would you want management to start?</label>
-            <select class={inputCls} id="c-when" name="timeline">
-              <option value="">Choose one</option>
-              <option value="now">As soon as possible</option>
-              <option value="30-days">Within 30 days</option>
-              <option value="90-days">Within 90 days</option>
-              <option value="lease-end">When the current lease ends</option>
-              <option value="unsure">Not sure yet</option>
-            </select>
-          </div>
-
-          <div>
-            <label class={labelCls} for="c-goal">What are you trying to solve?</label>
-            <textarea class={inputCls} id="c-goal" name="goal" rows="4"></textarea>
-            <span class={hintCls}>
-              The specific problem is more useful than a general one. Slow turns, a manager who stopped answering,
-              maintenance bills you cannot reconcile, a resident who has not paid since spring.
-            </span>
-          </div>
-        </fieldset>
-
-        <div class="border-t border-line pt-7 grid gap-5">
-          <label class="flex gap-3 items-start text-[15px] text-muted cursor-pointer">
-            <input type="checkbox" name="contact_consent" value="yes" required class="accent-crimson w-4 h-4 mt-1 shrink-0" />
-            <span>
-              I agree that {company.name} may contact me about this request by email or phone.
-              <span class="text-crimson"> (required)</span>
-            </span>
-          </label>
-          <div>
-            <button type="submit" class="btn btn-primary">Request my consultation</button>
-          </div>
-          <p class="text-[13px] text-faint m-0">
-            We do not sell or share your information. See our
-            {' '}<a href="/privacy-policy/" class="text-crimson font-semibold no-underline hover:underline">privacy policy</a>.
-            Prefer to talk now? Call {company.salesPhone}.
-          </p>
-        </div>
-      </form>
     </div>
   </section>
 

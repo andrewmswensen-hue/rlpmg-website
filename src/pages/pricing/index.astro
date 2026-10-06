@@ -1,7 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
+import PricingTable from '../../components/PricingTable.astro';
 import Faq from '../../components/Faq.astro';
-import { company, pricing, kpis, commitments, rentPolicy, usd } from '../../data/facts';
+import { company, pricing, kpis, commitments, rentPolicy, usd, tierPrice } from '../../data/facts';
 import { rentByBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 
@@ -75,7 +76,7 @@ const faq = [
   { q: 'Is flat fee or percentage property management better?',
     a: `A flat fee costs the same whether rent is ${usd(1200)} or ${usd(2100)}, and it does not rise when rent does. A percentage fee compounds with every rent increase. On a ${usd(mid.rent)} rent in a year that includes one resident placement, ${std.name} costs ${usd(mid.rl)} against roughly ${usd(mid.p10)} for a typical 10% manager.` },
   { q: 'Do you discount pricing for larger portfolios?',
-    a: 'Yes, and the discount is significant. Monthly management is reduced as unit count rises. Portfolio pricing is quoted per owner rather than published, so owners with multiple units should request a quote instead of assuming the per-unit rate above.' },
+    a: `Yes. ${pricing.portfolioDiscount.line} Switch the pricing above to Investor to see the rate for your portfolio size.` },
   { q: 'Is there a startup fee?',
     a: 'There is no startup fee on an occupied unit. On a vacant unit the fee varies by total unit count and plan, and it is quoted in writing before you sign anything.' },
   { q: 'What does an eviction cost in Franklin County?',
@@ -88,17 +89,40 @@ const faq = [
     a: `A Rental Dwelling Policy or Commercial Policy carrying at least ${usd(pricing.insuranceRequired.liabilityMin)} in liability coverage, with ${company.name} named as an additional insured.` },
 ];
 
+const investorOffers = pricing.portfolioDiscount.tiers.flatMap((t) =>
+  pricing.plans.map((p) => ({ plan: p.name, label: t.label, min: t.min, max: t.max, price: tierPrice(p.monthly, t.pct) })),
+);
+
 const schemaNodes = [
   serviceNode({ path: '/pricing/', name: 'Residential property management', description }),
   {
     '@type': 'PriceSpecification',
     '@id': `${company.url}/pricing/#pricespec`,
-    name: 'Flat monthly property management fee',
-    minPrice: pricing.plans[0].monthly,
+    name: 'Flat monthly property management',
+    minPrice: Math.min(...investorOffers.map((o) => o.price)),
     maxPrice: pricing.plans[2].monthly,
     priceCurrency: 'USD',
     valueAddedTaxIncluded: false,
-    description: 'Per unit, per month. Not a percentage of collected rent. No leasing fee.',
+    description: `Per unit, per month. Not a percentage of collected rent. No leasing fee. ${pricing.portfolioDiscount.line}`,
+  },
+  /**
+   * Volume pricing, the schema.org way: one Offer per plan per tier, each with
+   * an eligibleQuantity range in rental units. Kept on this page rather than in
+   * the sitewide Organization node so every other page's JSON-LD stays lean.
+   */
+  {
+    '@type': 'OfferCatalog',
+    '@id': `${company.url}/pricing/#investor-pricing`,
+    name: 'Investor pricing by portfolio size',
+    itemListElement: investorOffers.map((o) => ({
+      '@type': 'Offer',
+      name: `${o.plan}, ${o.label}`,
+      price: o.price,
+      priceCurrency: 'USD',
+      eligibleQuantity: { '@type': 'QuantitativeValue', minValue: o.min, maxValue: o.max, unitText: 'rental units' },
+      priceSpecification: { '@type': 'UnitPriceSpecification', price: o.price, priceCurrency: 'USD', unitText: 'per unit per month' },
+      seller: { '@id': `${company.url}/#organization` },
+    })),
   },
 ];
 ---
@@ -116,11 +140,12 @@ const schemaNodes = [
       <p class="text-[20px] text-muted mt-5 max-w-[38em]">
         {company.name} charges a flat {usd(pricing.plans[0].monthly)} to {usd(pricing.plans[2].monthly)} per
         unit per month, with a {usd(pricing.leasingFee)} leasing fee and no startup fee on occupied units.
-        It is a fixed dollar amount, not a percentage of your rent.
+        It is a fixed dollar amount, not a percentage of your rent, and it drops by up to
+        {' '}{Math.max(...pricing.portfolioDiscount.tiers.map((t) => t.pct))}% for investors with five or more units.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
-        <a href="/free-rent-evaluation/" class="btn btn-primary">Get a free rent evaluation</a>
-        <a href="/property-management-consultation/" class="btn btn-ghost">Get a portfolio quote</a>
+        <a href="/property-management-consultation/#consultation-form" class="btn btn-primary">Schedule a free consultation</a>
+        <a href="#plans-h" class="btn btn-ghost">See pricing for your portfolio</a>
       </div>
     </div>
   </section>
@@ -129,26 +154,8 @@ const schemaNodes = [
   <section class="band-tight" aria-labelledby="plans-h">
     <div class="wrap">
       <h2 id="plans-h" class="sr-only">Management plans</h2>
-      <div class="grid gap-6 lg:grid-cols-3">
-        {pricing.plans.map((p, i) => (
-          <div class="card flex flex-col">
-            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-3">{p.name}</div>
-            <div class="font-sans text-[52px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
-            <div class="font-sans text-[13.5px] text-faint mt-2 mb-5">per unit, per month</div>
-            <ul class="border-t border-line pt-4.5 mb-6 flex-1 font-sans">
-              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-crimson font-bold">{usd(pricing.leasingFee)}</b> leasing fee</li>
-              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(pricing.leaseRenewalFee)}</b> lease renewal</li>
-              <li class="text-[14.5px] py-1.5 text-muted"><b class="text-navy font-bold">{usd(p.repairApprovalLimit)}</b> per-item repair approval limit</li>
-              <li class="text-[14.5px] py-1.5 text-muted">
-                {i === 0 && 'The highest approval limit, so we handle routine repairs without calling you first.'}
-                {i === 1 && 'A middle approval limit, so you hear about more of the spending.'}
-                {i === 2 && 'The tightest approval limit, plus HOA and association support.'}
-              </li>
-            </ul>
-            <a href="/free-rent-evaluation/" class="btn btn-ghost text-center">Get started</a>
-          </div>
-        ))}
-      </div>
+      <PricingTable id="pricing-page" />
+
       <p class="text-center mt-6 text-[15px] text-muted">
         The plans differ in one thing: how much repair spending we handle without asking you first.
         Everything else is included in all three.
@@ -168,25 +175,6 @@ const schemaNodes = [
           and again at the next turn. We charge nothing, on every plan. Over two tenancies that is
           {usd(mid.lease * 2)} you keep, and it means we have no reason to prefer a new lease over a renewal.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO PRICING -->
-  <section class="band-tight" aria-labelledby="portfolio-h">
-    <div class="wrap max-w-[880px]">
-      <div class="card !border-2 !border-navy !p-9 md:!p-11">
-        <span class="eyebrow">For portfolio owners</span>
-        <h2 id="portfolio-h" class="text-[clamp(26px,3vw,36px)] mb-4">Substantial discounts for large investor portfolios.</h2>
-        <p class="text-[17.5px] text-muted mb-6">
-          The rates above are per-unit pricing for smaller owners. Portfolio pricing is quoted per owner
-          and depends on unit count, property type and how concentrated the portfolio is, so it is not
-          published. Tell us what you own and we will put a number in writing.
-        </p>
-        <div class="flex flex-wrap gap-3">
-          <a href="/property-management-consultation/" class="btn btn-navy">Get a portfolio quote</a>
-          <a href={`tel:${company.salesPhoneE164}`} class="btn btn-ghost">Call {company.salesPhone}</a>
-        </div>
       </div>
     </div>
   </section>
@@ -360,12 +348,12 @@ const schemaNodes = [
     <div class="wrap">
       <h2 class="!text-white text-[clamp(30px,3.8vw,46px)] max-w-[16em] mx-auto mb-4">See the number for your property</h2>
       <p class="text-[#e2c8cc] text-[18px] max-w-[36em] mx-auto mb-7">
-        A free rent evaluation tells you what your unit should earn. Own several? Ask for a portfolio
-        quote and we will price the whole thing.
+        A free consultation gets you a rent range and a written quote. Own 40 units or more? We will
+        build custom pricing around the whole portfolio.
       </p>
       <div class="flex flex-wrap gap-3 justify-center">
-        <a href="/free-rent-evaluation/" class="btn btn-on-dark">Get a free rent evaluation</a>
-        <a href="/property-management-consultation/" class="btn btn-outline-light">Get a portfolio quote</a>
+        <a href="/property-management-consultation/#consultation-form" class="btn btn-on-dark">Schedule a free consultation</a>
+        <a href={`tel:${company.salesPhoneE164}`} class="btn btn-outline-light">Call {company.salesPhone}</a>
       </div>
     </div>
   </section>

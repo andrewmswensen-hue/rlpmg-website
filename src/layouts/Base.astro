@@ -51,6 +51,19 @@ const metaDesc = metaDescription(description);
 const pageTitleFitted = fitTitle(title);
 
 const path = Astro.url.pathname;
+
+/**
+ * Mobile sticky call to action. On a phone the header CTA scrolls away, and the
+ * single biggest friction point for an owner is having to scroll back up to
+ * act. This keeps "free consultation" and a call button a thumb away.
+ *
+ * It is an owner CTA, so it uses the sales line and stays off pages where the
+ * visitor is a resident, a renter, a vendor or a job applicant. Pure CSS: it
+ * is position:fixed below the lg breakpoint and display:none above it.
+ */
+const ownerSurface = !/^\/(residents|homes-for-rent|resident-faqs|vendor-application|careers|privacy-policy)(\/|$)/.test(
+  path.replace(/^\/rlpmg-website/, '')
+) && !path.includes('/property-management-consultation/');
 const canonical = new URL(path, Astro.site ?? company.url).href;
 const ogAbs = new URL(ogImage, Astro.site ?? company.url).href;
 const mdHref = path === '/' ? '/index.md' : `${path.replace(/\/$/, '')}.md`;
@@ -107,12 +120,24 @@ const jsonld = graph(
 
     <script type="application/ld+json" set:html={JSON.stringify(jsonld)} is:inline />
   </head>
-  <body class={bodyClass}>
+  <body class={`${bodyClass} ${ownerSurface ? 'has-mobile-cta' : ''}`.trim()}>
     <a href="#main" class="skip-link">Skip to content</a>
     <Header />
     <main id="main">
       <slot />
     </main>
     <Footer />
+
+    {ownerSurface && (
+      <div class="mobile-cta lg:hidden" role="region" aria-label="Get in touch">
+        <a href="/property-management-consultation/#consultation-form" class="btn btn-primary mobile-cta-main">Free consultation</a>
+        <a href={`tel:${company.salesPhoneE164}`} class="btn btn-ghost mobile-cta-call" aria-label={`Call ${company.salesPhone}`}>
+          <svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+            <path d="M14.5 11.3v2a1.3 1.3 0 01-1.5 1.3 13 13 0 01-5.6-2 12.8 12.8 0 01-4-4 13 13 0 01-2-5.7A1.3 1.3 0 012.7 1.5h2a1.3 1.3 0 011.3 1.2c.1.6.2 1.3.5 1.9a1.3 1.3 0 01-.3 1.4l-.9.8a10.7 10.7 0 004 4l.8-.9a1.3 1.3 0 011.4-.3c.6.3 1.2.4 1.9.5a1.3 1.3 0 011.2 1.3z" />
+          </svg>
+          Call
+        </a>
+      </div>
+    )}
   </body>
 </html>

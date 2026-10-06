@@ -141,6 +141,40 @@
     transform: translateY(-3px);
   }
 
+  /* Mobile sticky CTA. Hidden at lg and up by the lg:hidden utility on the element. */
+  .mobile-cta {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    display: flex; gap: 10px; padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    background: rgb(255 255 255 / .96); border-top: 1px solid var(--color-line);
+    box-shadow: 0 -6px 20px rgb(18 49 67 / .08);
+    backdrop-filter: blur(8px);
+  }
+  .mobile-cta-main { flex: 1; text-align: center; }
+  .mobile-cta-call { display: inline-flex; align-items: center; gap: 6px; }
+  /* Keep the fixed bar from covering the end of the page. */
+  @media (max-width: 1023px) { body.has-mobile-cta { padding-bottom: 76px; } }
+
+  /* Homepage audience router. Big, plain targets: the job is one tap to the right place. */
+  .router-btn {
+    display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    border: 1.5px solid var(--color-line); border-radius: 14px; background: #fff;
+    padding: 15px 18px; text-decoration: none;
+    transition: border-color .15s, background .15s, transform .15s;
+  }
+  .router-btn:hover { border-color: var(--color-navy); background: var(--color-wash-soft); transform: translateY(-1px); }
+  .router-t { display: block; font-family: var(--font-sans); font-size: 16px; font-weight: 700; color: var(--color-navy); }
+  .router-s { display: block; font-size: 13.5px; color: var(--color-muted); margin-top: 2px; }
+  .router-arrow { font-size: 20px; color: var(--color-crimson); flex: 0 0 auto; }
+  .router-primary { background: var(--color-crimson); border-color: var(--color-crimson); box-shadow: 0 6px 18px rgb(166 5 48 / .22); }
+  .router-primary:hover { background: var(--color-crimson-d); border-color: var(--color-crimson-d); }
+  .router-primary .router-t, .router-primary .router-s, .router-primary .router-arrow { color: #fff; }
+  .router-primary .router-s { color: rgb(255 255 255 / .85); }
+  /* On a phone the label alone is enough, and all three doors fit above the sticky bar. */
+  @media (max-width: 639px) {
+    .router-s { display: none; }
+    .router-btn { padding: 13px 16px; }
+  }
+
   .band { padding-block: 76px; }
   .band-tight { padding-block: 56px; }
   .band-wash { background: var(--color-wash-soft); }

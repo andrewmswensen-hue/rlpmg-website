@@ -13,6 +13,7 @@
  * Every href here must be a page that exists. scripts/check-links.mjs fails the
  * build otherwise.
  */
+import { pricing } from './facts';
 
 export interface NavLink { label: string; href: string; note?: string }
 export interface NavGroup { heading: string; links: NavLink[] }
@@ -228,8 +229,8 @@ export const nav: NavItem[] = [
     promo: {
       eyebrow: 'For investors',
       heading: 'Portfolio pricing is different',
-      body: 'Monthly management is discounted meaningfully as unit count rises. We quote it per owner rather than publishing it.',
-      cta: { label: 'Get a portfolio quote', href: '/property-management-consultation/' },
+      body: `${pricing.portfolioDiscount.short}.`,
+      cta: { label: 'See investor pricing', href: '/investors/#discount-h' },
     },
   },
 ];

@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { company, pricing } from '../../data/facts';
+import { company, pricing, tierPrice } from '../../data/facts';
 
 /** Current pricing on its own endpoint, so it can be quoted without ambiguity. */
 export const GET: APIRoute = () => {
@@ -21,6 +21,18 @@ export const GET: APIRoute = () => {
       leaseRenewalFee: pricing.leaseRenewalFee,
       perItemMaintenanceApprovalLimit: p.repairApprovalLimit,
     })),
+    investorPricing: {
+      summary: pricing.portfolioDiscount.line,
+      appliesTo: 'monthly management only',
+      standardUpTo: pricing.portfolioDiscount.investorFrom - 1,
+      tiers: pricing.portfolioDiscount.tiers.map((t) => ({
+        units: { min: t.min, max: t.max },
+        discountPercent: t.pct,
+        monthlyPerUnit: Object.fromEntries(pricing.plans.map((p) => [p.name, tierPrice(p.monthly, t.pct)])),
+      })),
+      customFrom: pricing.portfolioDiscount.customFrom,
+      customNote: 'Pricing for 40 or more units is quoted per portfolio.',
+    },
     maintenance: pricing.maintenance,
     reserves: pricing.reserves,
   };

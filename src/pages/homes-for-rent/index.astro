@@ -97,42 +97,44 @@ const faq = [
   <KeyFacts items={keyFacts} heading="The short version" />
 
   <!--
-    ============================================================================
-    LIVE LISTINGS FEED: NOT YET INTEGRATED.
+    LIVE LISTINGS. RentEngine is embed-only (Andrew, 2026-09-10): there is no
+    API to render the feed at build time, so the hosted page is framed here.
 
-    The live vacancy feed is RentEngine (rentengine.io/c/rlpmg). It is not known
-    yet whether RentEngine exposes an API we can build against at build time or
-    only an embeddable page.
+    Known cost, accepted: content inside an iframe is indexed as RentEngine's,
+    not ours, so individual listings will not rank on rlpmg.com from this. The
+    page itself still ranks on everything around the embed, which is why the
+    FAQs and the qualification details stay below it.
 
-    Nothing is embedded here on purpose. This site ships zero JavaScript and no
-    third-party iframes, so a vendor widget cannot be dropped in without a
-    decision about what it costs in page speed, layout stability and privacy.
-
-    When the integration is decided, replace the placeholder panel below with
-    either a build-time fetch of the feed rendered as static cards, or a plain
-    outbound link to the hosted listing page. Do not add a client script.
-    ============================================================================
+    Height is fixed so the frame reserves its space and nothing shifts as it
+    loads. Lazy, because it sits below the heading. The plain link underneath
+    is the fallback if a browser or extension blocks third-party frames.
   -->
   <section class="band-tight" aria-labelledby="listings-h">
-    <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Available now</span>
-      <h2 id="listings-h" class="text-[clamp(28px,3.3vw,40px)]">What is available right now</h2>
-      <div class="card !bg-wash-soft mt-6">
-        <p class="text-[16.5px] text-muted m-0">
-          <strong class="text-navy">Listings placeholder.</strong> The live vacancy feed is not connected to
-          this page yet. Until it is, call {company.phone} or email
-          {' '}<a href={`mailto:${company.email}`} class="text-crimson font-semibold no-underline hover:underline">{company.email}</a>
-          {' '}and tell us the bedroom count, the areas you are looking in, and your target move-in date.
-          We will send you what is open.
-        </p>
-        <p class="text-[15px] text-crimson font-semibold mt-4 mb-0">
-          [SOURCE NEEDED: whether the RentEngine listing feed exposes an API for a build-time render, or
-          whether this section should link out to the hosted listing page instead]
+    <div class="wrap">
+      <div class="max-w-[880px]">
+        <span class="eyebrow">Available now</span>
+        <h2 id="listings-h" class="text-[clamp(28px,3.3vw,40px)]">What is available right now</h2>
+        <p class="text-[17px] text-muted mt-3 mb-6">
+          Every home we have open across the Columbus metro. Pick one to see photos, book a showing, and apply.
         </p>
       </div>
-      <p class="text-[15px] text-faint mt-5">
+      <div class="rounded-[18px] overflow-hidden border border-line bg-white"
+           style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
+        <iframe
+          src="https://rentengine.io/c/rlpmg"
+          title={`Homes for rent from ${company.name}, live listings`}
+          width="100%" height="750" loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          style="display:block; border:0; width:100%; height:750px;"></iframe>
+      </div>
+      <p class="text-[14.5px] text-muted mt-4">
+        Listings not showing?
+        {' '}<a href="https://rentengine.io/c/rlpmg" rel="noopener" class="text-crimson font-semibold no-underline hover:underline">Open them in a new tab</a>,
+        or call {company.phone} and tell us the bedroom count, area and move-in date you want.
+      </p>
+      <p class="text-[15px] text-faint mt-5 max-w-[880px]">
         Everything below applies to every home we lease, so you can work out whether you qualify and what
-        the process looks like before a specific home is even open.
+        the process looks like before you apply.
       </p>
     </div>
   </section>

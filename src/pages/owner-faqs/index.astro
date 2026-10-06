@@ -86,7 +86,7 @@ const categories = [
       { q: 'What is the difference between the three plans?',
         a: `One variable: the per-item repair approval limit, which is how much we spend on a single repair before calling you. ${pricing.plans.map((p) => `${p.name} at ${usd(p.monthly)} has a ${usd(p.repairApprovalLimit)} limit`).join(', ')}. Every other service is in all three plans.` },
       { q: 'Do you discount pricing for larger portfolios?',
-        a: 'Yes, and the discount is significant. Monthly management drops as unit count rises. Portfolio pricing is quoted per owner rather than published, because it depends on unit count, property type and how concentrated the portfolio is, so request a quote instead of using the per-unit rate.' },
+        a: `Yes, and it is published. ${pricing.portfolioDiscount.line} The full table is on the pricing page.` },
       { q: 'Is a maintenance reserve required?',
         a: `Yes. ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit, ${pricing.reserves.note}. It is held on your account so routine repairs are not waiting on a funding request. It stays your money and it is returned when management ends.` },
       { q: 'How long is the Property Management Agreement?',

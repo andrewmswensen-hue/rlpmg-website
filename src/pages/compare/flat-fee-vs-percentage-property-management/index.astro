@@ -140,7 +140,7 @@ const faq = [
   { q: 'Does a percentage manager have an incentive problem?',
     a: `A percentage fee is paid on collected rent, so it does align the manager with keeping the unit occupied and the rent paid. The incentive problem is narrower than that: a placement fee paid at every new lease rewards turnover, and a percentage of repair invoices rewards spending. Look at what each fee is paid on, not at the headline rate.` },
   { q: 'Do you discount for larger portfolios?',
-    a: 'Yes, and the discount is significant. Monthly management is reduced as unit count rises, which lowers the rent at which flat pricing becomes the cheaper structure. Portfolio pricing is quoted per owner rather than published, so owners with multiple units should request a quote.' },
+    a: `Yes, and it is published. ${pricing.portfolioDiscount.line} A lower management rate also lowers the rent at which flat pricing becomes the cheaper structure.` },
   { q: 'How do I compare two quotes fairly?',
     a: `Convert both to dollars over a full tenancy, not to a monthly percentage. Add the monthly fee times the months, the placement fee at each turn, the lease renewal fee at each renewal, any markup on maintenance, and any setup or offboarding fee. On a ${usd(mid.rent)} rent over ${CYCLE_YEARS} years, that arithmetic is ${usd(cycleMid.us)} for us on ${plan.name} against about ${usd(cycleMid.p10)} for a ${pctLabel(PCT_HIGH)} manager.` },
 ];

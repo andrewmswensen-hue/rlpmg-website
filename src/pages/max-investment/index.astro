@@ -26,7 +26,7 @@ const description = 'Flat-fee property management for Columbus rental owners. No
           `${company.unitsManaged} units managed across the Columbus metro`,
           `${kpis.metrics.find((m) => m.id === 'dom')?.value} day median time on market`,
           `${kpis.metrics.find((m) => m.id === 'collectedBy5')?.value} of rent collected by the 5th`,
-          'Substantial discounts for larger portfolios, quoted per owner',
+          `${pricing.portfolioDiscount.short}`,
         ].map((x) => (
           <li class="flex gap-3 py-1.5 text-[16.5px]">
             <span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>{x}</span>
@@ -40,6 +40,6 @@ const description = 'Flat-fee property management for Columbus rental owners. No
     </div>
   </section>
   <Cta heading="Own more than one?"
-       body="Portfolio pricing is quoted per owner and the discount is significant. Tell us what you own."
+       body={`Investor pricing is published up to 39 units, and custom from 40. Tell us what you own.`}
        primary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }} />
 </Base>

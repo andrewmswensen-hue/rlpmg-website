@@ -46,7 +46,7 @@ export const GET: APIRoute = async () => {
     `- Startup fee on an occupied unit: ${usd(pricing.startupFeeOccupied)}`,
     `- In-house maintenance labor: ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge`,
     `- Third-party vendor work: cost plus ${pricing.maintenance.vendorProjectFeePct}%, capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project`,
-    `- Discounted monthly management is available for larger portfolios, quoted per owner`,
+    `- ${pricing.portfolioDiscount.line}`,
     `- Full schedule: ${U}/pricing/`,
     '',
     `## Performance, as of ${kpis.asOfLabel}`,

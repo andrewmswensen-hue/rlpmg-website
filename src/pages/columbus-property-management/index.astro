@@ -43,7 +43,7 @@ const keyFacts = [
   `${company.unitsManaged} units under management, managing since ${company.founded}`,
   `Median ${kpis.metrics[0].value} days on market and ${kpis.metrics[1].value} days to turn a unit`,
   `${kpis.metrics[6].value} of rent collected by the 5th, owner funds sent on the ${rentPolicy.ownerDisbursementDay}th`,
-  'Substantial discounts for larger portfolios, quoted per owner',
+  `${pricing.portfolioDiscount.short}`,
 ];
 
 const services = [
@@ -73,7 +73,7 @@ const faq = [
   { q: 'What kind of properties does RL Property Management manage?',
     a: `${company.name} manages ${company.propertyTypes} across the Columbus metro, in properties that do not require on-site staff. Homeowner and condominium associations are not managed, though a rental unit that sits inside one is.` },
   { q: 'Do you work with owners who have more than one property?',
-    a: 'Yes. Portfolio owners are the core of the business, and monthly management is discounted as unit count rises. The discount is significant and it is quoted per owner rather than published, so ask for a portfolio quote instead of using the per-unit rate.' },
+    a: `Yes. Portfolio owners are the core of the business. ${pricing.portfolioDiscount.line}` },
   { q: 'How long does it take to rent a house in Columbus?',
     a: `Median days on market across the ${company.unitsManaged} units under management is ${kpis.metrics[0].value} days, measured as ${kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)} Median time to turn a vacant unit is ${kpis.metrics[1].value} days.` },
   { q: 'Do I still pay a management fee while the unit is vacant?',
@@ -201,9 +201,8 @@ const schemaNodes = [
         <span class="eyebrow">For portfolio owners</span>
         <h2 id="portfolio-h" class="text-[clamp(24px,2.9vw,34px)] mb-4">Do you manage larger portfolios?</h2>
         <p class="text-[17.5px] text-muted mb-5">
-          Yes, and that is the part of the business we are built around. If you own several units, monthly
-          management is discounted, and the discount is significant. It is quoted per owner rather than published,
-          because it depends on unit count, property type and how geographically concentrated the portfolio is.
+          Yes, and that is the part of the business we are built around. {pricing.portfolioDiscount.line}
+          {' '}<a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">See the full table</a>.
         </p>
         <p class="text-[17.5px] text-muted mb-6">
           Out-of-state owners, 1031 buyers and owners consolidating from several managers all get the same thing:

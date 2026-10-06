@@ -5,7 +5,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, areas, rentPolicy } from '../../data/facts';
+import { company, areas, rentPolicy, pricing } from '../../data/facts';
 
 /**
  * Contact. The one job of this page is NAP consistency: name, address, phone
@@ -35,7 +35,7 @@ const routes = [
     what: 'Start with a free rent evaluation. It puts a number on the unit before anyone talks about fees.',
     href: '/free-rent-evaluation/', label: 'Get a free rent evaluation' },
   { who: 'You own several units',
-    what: 'Portfolio pricing is quoted per owner rather than published, so ask for a consultation instead.',
+    what: `${pricing.portfolioDiscount.line} For 40 or more units, ask for a consultation.`,
     href: '/property-management-consultation/', label: 'Request a portfolio quote' },
   { who: 'You rent from us and need a repair',
     what: 'Submit it through the resident maintenance request so it is logged and tracked. Emergencies are covered 24/7.',

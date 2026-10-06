@@ -131,13 +131,32 @@ export const pricing = {
     { name: 'Failure to provide evidence of additional insured', amount: '$20 per unit per month', note: 'Until proof of coverage naming us as additional insured is provided.' },
   ],
   /**
-   * Portfolio pricing. Andrew 2026-09-09: say the discount is significant, do not
-   * publish the numbers, route to a consultation for a quote.
+   * Portfolio pricing.
+   *
+   * Andrew 2026-09-09 originally said do not publish the numbers. Reversed by
+   * Andrew 2026-10-06: publish the investor tiers through 39 units, and make 40
+   * units and up custom. Publishing the deepest tiers would anchor every large
+   * investor's negotiation to the floor, so the top stays a conversation.
+   *
+   * The discount applies to monthly management only. Prices are rounded to
+   * whole dollars, because flat-rate pricing with cents on it reads as a
+   * calculation rather than a price.
    */
   portfolioDiscount: {
     offered: true,
-    publishNumbers: false,
-    line: 'Monthly management is discounted for larger portfolios, and the discount is significant.',
+    publishNumbers: true,
+    /** Unit count at which investor pricing starts. Below this is standard. */
+    investorFrom: 5,
+    /** Unit count at which pricing becomes custom rather than published. */
+    customFrom: 40,
+    tiers: [
+      { id: '5-9',   min: 5,  max: 9,  pct: 10, label: '5 to 9 units' },
+      { id: '10-19', min: 10, max: 19, pct: 15, label: '10 to 19 units' },
+      { id: '20-39', min: 20, max: 39, pct: 25, label: '20 to 39 units' },
+    ],
+    line: 'Investor pricing is published: 10% off monthly management at 5 to 9 units, 15% at 10 to 19, and 25% at 20 to 39. From 40 units, pricing is custom.',
+    /** For bullets and key facts, where the full line is too long. */
+    short: 'Published investor pricing, up to 25% off, and custom from 40 units',
   },
   prePurchaseInspection: { fee: 300, note: 'waived from the onboarding fee if a management agreement is signed' },
   /**
@@ -390,6 +409,9 @@ export const mission =
 /** Formatting helpers so currency renders identically everywhere. */
 export const usd = (n: number) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
+
+/** Monthly management for a plan after an investor tier discount, whole dollars. */
+export const tierPrice = (monthly: number, pct: number) => Math.round(monthly * (1 - pct / 100));
 
 export const priceRange = () => {
   const m = pricing.plans.map((p) => p.monthly);

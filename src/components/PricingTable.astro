@@ -1,0 +1,285 @@
+---
+/**
+ * The one pricing module. Used on the homepage, /pricing/ and /investors/.
+ *
+ * Andrew, 2026-10-06: a prominent toggle between standard pricing (1 to 4
+ * units) and investor pricing (5+), and inside investor pricing a portfolio
+ * size selector. Published tiers run through 39 units; 40 and up is custom.
+ *
+ * No JavaScript. The toggles are radio inputs, and the root uses :has() to
+ * show the state that is checked. That matters for search as much as for
+ * speed: every price for every tier is in the HTML, so Google and AI answer
+ * engines can read and quote "what does management cost for 20 units" without
+ * running a script. The plain table at the bottom says the same thing in the
+ * form answer engines extract most reliably.
+ *
+ * `defaultMode="investor"` opens on investor pricing, used on /investors/.
+ */
+import { company, pricing, usd, tierPrice } from '../data/facts';
+
+interface Props {
+  id?: string;
+  defaultMode?: 'standard' | 'investor';
+}
+const { id = 'pt', defaultMode = 'standard' } = Astro.props;
+
+const d = pricing.portfolioDiscount;
+const tiers = d.tiers;
+const startInvestor = defaultMode === 'investor';
+const formUrl = (units: string) => `/property-management-consultation/?units=${encodeURIComponent(units)}#consultation-form`;
+
+const features = (p: (typeof pricing.plans)[number]) => [
+  [usd(pricing.leasingFee), 'leasing fee'],
+  [usd(pricing.leaseRenewalFee), 'lease renewal'],
+  [usd(p.repairApprovalLimit), 'repair approval limit'],
+  ['', 'Full screening and rent collection'],
+  ['', 'Monthly statements and owner portal'],
+];
+
+/** What the approval limit means in practice. The plans differ in nothing else. */
+const planNote = [
+  'The highest approval limit, so routine repairs get done without a call to you first.',
+  'A middle approval limit, so you hear about more of the spending.',
+  'The tightest approval limit, plus HOA and association support.',
+];
+---
+<div class="pt" id={id}>
+
+  <!-- MODE: standard or investor -->
+  <fieldset class="pt-mode" aria-label="Pricing for">
+    <input type="radio" class="sr-only pt-std" name={`${id}-mode`} id={`${id}-std`} value="standard" checked={!startInvestor} />
+    <label for={`${id}-std`}>
+      <span class="pt-mode-t">Standard</span>
+      <span class="pt-mode-s">1 to 4 units</span>
+    </label>
+    <input type="radio" class="sr-only pt-inv" name={`${id}-mode`} id={`${id}-inv`} value="investor" checked={startInvestor} />
+    <label for={`${id}-inv`}>
+      <span class="pt-mode-t">Investor</span>
+      <span class="pt-mode-s">{d.investorFrom}+ units</span>
+    </label>
+  </fieldset>
+
+  <!-- PORTFOLIO SIZE, investor mode only -->
+  <fieldset class="pt-tiers inv-only">
+    <legend class="pt-legend">How many rental units do you own?</legend>
+    <div class="pt-tier-row">
+      {tiers.map((t, i) => (
+        <>
+          <input type="radio" class={`sr-only pt-t-${t.id}`} name={`${id}-tier`} id={`${id}-t-${t.id}`} value={t.id} checked={i === 0} />
+          <label for={`${id}-t-${t.id}`}>
+            <span class="pt-tier-t">{t.label}</span>
+            <span class="pt-tier-s">{t.pct}% off</span>
+          </label>
+        </>
+      ))}
+      <input type="radio" class="sr-only pt-t-40" name={`${id}-tier`} id={`${id}-t-40`} value="40+" />
+      <label for={`${id}-t-40`}>
+        <span class="pt-tier-t">{d.customFrom}+ units</span>
+        <span class="pt-tier-s">Custom</span>
+      </label>
+    </div>
+  </fieldset>
+
+  <!-- THE THREE PLANS -->
+  <div class="pt-plans">
+    {pricing.plans.map((p, pi) => (
+      <div class="card pt-card">
+        <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-3">{p.name}</div>
+
+        <div class="std-only">
+          <div class="pt-price">{usd(p.monthly)}</div>
+        </div>
+        {tiers.map((t) => (
+          <div class="tp" data-tier={t.id}>
+            <div class="pt-price">
+              {usd(tierPrice(p.monthly, t.pct))}
+              <s class="pt-was">{usd(p.monthly)}</s>
+            </div>
+          </div>
+        ))}
+
+        <div class="font-sans text-[13.5px] text-faint mt-2">per unit, per month</div>
+        {tiers.map((t) => (
+          <div class="tp pt-save" data-tier={t.id}>
+            You keep {usd(p.monthly - tierPrice(p.monthly, t.pct))} more per unit, every month
+          </div>
+        ))}
+
+        <ul class="border-t border-line pt-4 mt-5 mb-6 flex-1 font-sans">
+          {features(p).map(([n, label]) => (
+            <li class="text-[14.5px] py-1.5 text-muted">
+              {n && <b class="text-navy font-bold">{n} </b>}{label}
+            </li>
+          ))}
+          <li class="text-[14px] pt-3 mt-2 border-t border-line text-muted">{planNote[pi]}</li>
+        </ul>
+
+        <a href={formUrl('1-4')} class="std-only btn btn-ghost text-center">Get started</a>
+        {tiers.map((t) => (
+          <a href={formUrl(t.id)} class="tp btn btn-primary text-center" data-tier={t.id}>Get this rate</a>
+        ))}
+      </div>
+    ))}
+  </div>
+
+  <!-- 40+ : custom, never a published floor -->
+  <div class="tp pt-custom" data-tier="40+">
+    <span class="eyebrow !text-[#f4c7d1]">{d.customFrom} units and up</span>
+    <h3 class="pt-custom-h">We take serious investors seriously.</h3>
+    <p class="pt-custom-p">
+      At this size the right number depends on your mix of properties, where they are, and how much of
+      the work you want off your plate. We build it around your portfolio rather than a table.
+    </p>
+    <div class="flex flex-wrap gap-3 justify-center">
+      <a href={formUrl('40+')} class="btn btn-on-dark">Get custom pricing</a>
+      <a href={`tel:${company.salesPhoneE164}`} class="btn btn-outline-light">Call {company.salesPhone}</a>
+    </div>
+  </div>
+
+  <!-- From standard, the way into investor pricing is a label, so it works with no script. -->
+  <p class="std-only pt-switch">
+    Own {d.investorFrom} or more units?
+    <label for={`${id}-inv`} class="pt-switch-l">See investor pricing &rarr;</label>
+  </p>
+
+  <!-- The whole table, for readers who want to compare and for answer engines. -->
+  <div class="inv-only pt-tablewrap">
+    <table class="pt-table">
+      <caption>Monthly management per unit, by portfolio size</caption>
+      <thead>
+        <tr>
+          <th scope="col">Units you own</th>
+          {pricing.plans.map((p) => <th scope="col">{p.name}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1 to {d.investorFrom - 1} (standard)</th>
+          {pricing.plans.map((p) => <td>{usd(p.monthly)}</td>)}
+        </tr>
+        {tiers.map((t) => (
+          <tr>
+            <th scope="row">{t.label} ({t.pct}% off)</th>
+            {pricing.plans.map((p) => <td>{usd(tierPrice(p.monthly, t.pct))}</td>)}
+          </tr>
+        ))}
+        <tr>
+          <th scope="row">{d.customFrom}+ units</th>
+          <td colspan={pricing.plans.length}>Custom pricing</td>
+        </tr>
+      </tbody>
+    </table>
+    <p class="pt-note">
+      Discounts apply to monthly management. There is still no leasing fee on any plan, at any size.
+    </p>
+  </div>
+
+  <div class="inv-only pt-big">
+    <a href={formUrl('40+')} class="btn btn-navy pt-big-btn">
+      Want custom pricing for your portfolio? Talk to us.
+    </a>
+    <p class="text-[14px] text-muted mt-3 mb-0">
+      Or call our investor line, <a href={`tel:${company.salesPhoneE164}`} class="text-crimson font-semibold no-underline hover:underline">{company.salesPhone}</a>.
+    </p>
+  </div>
+</div>
+
+<style>
+  /* ---- mode and tier visibility. Everything is in the HTML; CSS picks the state. ---- */
+  .pt:has(.pt-std:checked) .inv-only { display: none; }
+  .pt:has(.pt-inv:checked) .std-only { display: none; }
+
+  .pt .tp { display: none; }
+  .pt:has(.pt-inv:checked):has(.pt-t-5-9:checked)   .tp[data-tier="5-9"],
+  .pt:has(.pt-inv:checked):has(.pt-t-10-19:checked) .tp[data-tier="10-19"],
+  .pt:has(.pt-inv:checked):has(.pt-t-20-39:checked) .tp[data-tier="20-39"],
+  .pt:has(.pt-inv:checked):has(.pt-t-40:checked)    .tp[data-tier="40+"] { display: block; }
+  .pt:has(.pt-inv:checked):has(.pt-t-40:checked) .pt-plans { display: none; }
+
+  /* ---- mode toggle ---- */
+  .pt-mode {
+    display: inline-grid; grid-template-columns: 1fr 1fr;
+    border: 1.5px solid var(--color-line); border-radius: 999px;
+    padding: 5px; margin: 0 auto 26px; background: #fff;
+    box-shadow: 0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06);
+  }
+  .pt { display: flex; flex-direction: column; align-items: stretch; }
+  .pt > .pt-mode { align-self: center; }
+  .pt-mode label {
+    cursor: pointer; border-radius: 999px; padding: 10px 26px; text-align: center;
+    font-family: var(--font-sans); transition: background .15s, color .15s;
+  }
+  .pt-mode-t { display: block; font-size: 15px; font-weight: 700; color: var(--color-navy); }
+  .pt-mode-s { display: block; font-size: 12px; color: var(--color-muted); margin-top: 1px; }
+  .pt-mode input:checked + label { background: var(--color-navy); }
+  .pt-mode input:checked + label .pt-mode-t,
+  .pt-mode input:checked + label .pt-mode-s { color: #fff; }
+  .pt-mode input:focus-visible + label,
+  .pt-tiers input:focus-visible + label { outline: 2px solid var(--color-crimson); outline-offset: 2px; }
+
+  /* ---- tier selector ---- */
+  .pt-tiers { border: 0; padding: 0; margin: 0 0 26px; text-align: center; }
+  .pt-legend {
+    font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+    color: var(--color-navy); margin: 0 auto 12px; padding: 0;
+  }
+  .pt-tier-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 760px; margin: 0 auto; }
+  .pt-tiers label {
+    cursor: pointer; border: 1.5px solid var(--color-line); border-radius: 14px;
+    background: #fff; padding: 12px 8px; font-family: var(--font-sans);
+    transition: border-color .15s, background .15s;
+  }
+  .pt-tiers label:hover { border-color: var(--color-navy); }
+  .pt-tier-t { display: block; font-size: 14.5px; font-weight: 700; color: var(--color-navy); }
+  .pt-tier-s { display: block; font-size: 12.5px; font-weight: 700; color: var(--color-crimson); margin-top: 2px; }
+  .pt-tiers input:checked + label { border-color: var(--color-crimson); background: #fbeef1; }
+
+  /* ---- plan cards ---- */
+  .pt-plans { display: grid; gap: 24px; }
+  @media (min-width: 1024px) { .pt-plans { grid-template-columns: repeat(3, 1fr); } }
+  .pt-card { display: flex; flex-direction: column; }
+  .pt-price {
+    font-family: var(--font-sans); font-size: 48px; font-weight: 800;
+    letter-spacing: -.045em; color: var(--color-navy); line-height: 1;
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  .pt-was { font-size: 20px; font-weight: 600; color: var(--color-faint); letter-spacing: -.01em; }
+  .pt-save {
+    margin-top: 10px; font-family: var(--font-sans); font-size: 13.5px; font-weight: 600;
+    color: #1d7a4a; background: #eaf6ef; border-radius: 8px; padding: 6px 10px;
+  }
+
+  /* ---- 40+ custom ---- */
+  .pt-custom {
+    background: var(--color-maroon); color: #fff; text-align: center;
+    border-radius: var(--radius-card); padding: clamp(32px, 5vw, 52px) clamp(24px, 5vw, 56px);
+  }
+  .pt-custom-h { color: #fff; font-size: clamp(26px, 3.2vw, 36px); margin: 0 0 12px; }
+  .pt-custom-p { color: #f1d9de; font-size: 17px; max-width: 36em; margin: 0 auto 24px; }
+
+  /* ---- switch, table, big button ---- */
+  .pt-switch { text-align: center; margin: 26px 0 0; font-size: 15.5px; color: var(--color-muted); }
+  .pt-switch-l { color: var(--color-crimson); font-weight: 700; cursor: pointer; margin-left: 4px; }
+  .pt-switch-l:hover { text-decoration: underline; }
+
+  .pt-tablewrap { margin-top: 34px; overflow-x: auto; }
+  .pt-table { width: 100%; min-width: 520px; border-collapse: collapse; font-family: var(--font-sans); font-size: 15px; }
+  .pt-table caption {
+    text-align: left; font-family: var(--font-serif); font-size: 19px; font-weight: 600;
+    color: var(--color-navy); margin-bottom: 12px;
+  }
+  .pt-table th, .pt-table td { padding: 12px 14px; border-bottom: 1px solid var(--color-line); text-align: left; }
+  .pt-table thead th { font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--color-faint); }
+  .pt-table tbody th { font-weight: 600; color: var(--color-navy); }
+  .pt-table td { font-weight: 700; color: var(--color-navy); font-variant-numeric: tabular-nums; }
+  .pt-note { font-size: 13.5px; color: var(--color-muted); margin: 12px 0 0; }
+
+  .pt-big { text-align: center; margin-top: 34px; }
+  .pt-big-btn { font-size: 16.5px; padding: 16px 32px; }
+
+  @media (max-width: 640px) {
+    .pt-tier-row { grid-template-columns: 1fr 1fr; }
+    .pt-mode label { padding: 9px 16px; }
+    .pt-price { font-size: 42px; }
+  }
+</style>
