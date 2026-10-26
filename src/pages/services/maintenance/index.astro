@@ -69,7 +69,7 @@ const faq = [
   { q: 'Do you mark up materials?',
     a: `No. Materials are provided at cost. The markup that does exist is the ${m.vendorProjectFeePct}% project management fee on outside vendor work, and it is capped at ${usd(m.vendorProjectFeeCap)} per project, so a large vendor project cannot generate an unbounded fee.` },
   { q: 'What happens on an insurance claim?',
-    a: `${claimFee?.note} End to end claim handling is ${claimFee?.amount}. The reason to waive the project fee is simple: a claim is already an expensive month for the owner and we do not want two fees stacked on the same work.` },
+    a: `${claimFee?.note} End to end claim handling is ${claimFee?.amount}. We waive the project fee because a claim is already an expensive month for the owner, and we do not want two fees stacked on the same work.` },
   { q: 'How fast do repairs get closed?',
     a: `Median ${kpi('repairDays')} days from request to closed across the portfolio, as of ${kpis.asOfLabel}. Emergencies are handled the same night. The long tail is parts and vendor scheduling, particularly HVAC in July and January.` },
   { q: 'Who is responsible for what, the resident or the owner?',
@@ -130,7 +130,7 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[15px] text-muted mt-6">
-        There is no minimum charge on a work order, so a fifteen minute fix is billed as a fifteen minute fix
+        There is no minimum charge on a work order, so a fifteen-minute fix is billed as a fifteen-minute fix
         plus the {usd(m.tripCharge)} trip. Materials are at cost.
       </p>
     </div>
@@ -142,7 +142,7 @@ const schemaNodes = [
       <h2 id="limit-h" class="text-[clamp(28px,3.3vw,40px)]">Who approves a repair?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
         You do, above your plan limit. Below it we handle the work and you see it on the statement. This is the
-        only thing the three plans differ on, and it is a real tradeoff: a low limit means more control and more
+        only thing the three plans differ on, and it is a tradeoff: a low limit means more control and more
         emails, a high limit means fewer interruptions and less visibility on small spending.
       </p>
       <div class="grid gap-5 sm:grid-cols-3">
@@ -155,8 +155,8 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[15px] text-muted mt-7">
-        One exception in both directions: a genuine emergency gets stabilized first, because a leak that waits
-        for an email costs more than the repair did.
+        One exception applies whatever your limit: we stabilize an emergency first, because a leak that waits
+        for an email costs more than the repair would have.
       </p>
     </div>
   </section>
@@ -168,7 +168,7 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4 mb-6">
         The resident calls us, not you. Emergency response is included in the monthly fee. Labor after hours is
         billed at {pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, and
-        {' '}{pricing.afterHours.sunday}x on Sundays, which is exactly why the line between an emergency and a
+        {' '}{pricing.afterHours.sunday}x on Sundays, which is why the line between an emergency and a
         next-day repair has to be written down.
       </p>
       <div class="grid gap-5 sm:grid-cols-2">

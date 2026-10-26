@@ -69,30 +69,30 @@ const stages = [
   { h: 'Move-out or setout',
     b: `Many residents leave once a judgment is entered, and that is the end of it. If the resident has not vacated, a setout is scheduled: ${usd(e.tagAndSetoutFee)} to Franklin County and ${usd(e.setoutFee)} to us for bailiff and locksmith scheduling. Under Franklin County Municipal Court Local Rule 6.08 the request for setout has to be filed within ten days of the writ being issued, and no setout happens until five days after the bailiff posts the red tag notice on the door.` },
   { h: 'The unit, and the balance',
-    b: `Then the property gets turned and re-leased, and there is a balance owed that may or may not be collectible. A money judgment is not money.` },
+    b: `Then we turn and re-lease the property. Any balance owed may or may not be collectible, because a judgment for the money does not mean the money gets paid.` },
 ];
 
 const faq = [
   { q: 'What does an eviction cost in Franklin County, Ohio?',
     a: `The hard cost is ${usd(e.hardCostTotal)}: ${usd(e.attorneyFee)} to the eviction attorney and ${usd(e.countyFilingFee)} to Franklin County for the filing. ${company.name} charges ${usd(e.rlpmProcessFee)} to manage the process, so a typical case runs ${usd(e.typicalTotal)}. If the resident has not vacated and a setout is required, add ${usd(e.tagAndSetoutFee)} to the county and ${usd(e.setoutFee)} to us. Those are the filing costs only, and they do not include the rent you did not collect or the turn afterward.` },
   { q: 'How long does an eviction take in Ohio?',
-    a: 'Add up the statutory steps and an uncontested Franklin County nonpayment case runs roughly five to seven weeks from the day the notice is posted. Three days of notice, then a hearing set fourteen to twenty-one days after filing, then the writ, then five days after the red tag before a setout can happen. That is the floor, not an estimate of your case. A continuance, a contested hearing or a second cause of action for money all add time, which is why the attorney fee and our management fee each cover up to two court appearances.' },
-  { q: 'How often does it actually come to an eviction?',
-    a: `Roughly ${e.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute. It is uncommon, and it is not zero. Screening lowers the odds, and acting early lowers the cost, but any owner holding rentals long enough will eventually see one.` },
+    a: 'Add up the statutory steps and an uncontested Franklin County nonpayment case runs roughly five to seven weeks from the day the notice is posted. Three days of notice, then a hearing set fourteen to twenty-one days after filing, then the writ, then five days after the red tag before a setout can happen. That is the minimum. A continuance, a contested hearing or a second cause of action for money all add time, which is why the attorney fee and our management fee each cover up to two court appearances.' },
+  { q: 'How often does it come to an eviction?',
+    a: `Roughly ${e.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute. It is uncommon. Screening lowers the odds and acting early lowers the cost, but any owner who holds rentals long enough will eventually see one.` },
   { q: 'My property is in an LLC. Can I file the eviction myself?',
-    a: 'No. Only the deeded property owner can sign and file an eviction complaint without an attorney. Franklin County and Fairfield County state it in identical language on their own filing instructions, because it follows from the Ohio rule that an entity cannot represent itself in court. A corporation, an LLC or a trust has to be represented by an attorney at every stage, including the filing and the court appearance, and a power of attorney does not get around it. If you hold property in an entity, which most investors do, the attorney is not optional and the cost is not avoidable. That is what the eviction attorney fee covers.' },
+    a: 'No. Only the deeded property owner can sign and file an eviction complaint without an attorney. Franklin County and Fairfield County state it in identical language on their own filing instructions, because it follows from the Ohio rule that an entity cannot represent itself in court. A corporation, an LLC or a trust has to be represented by an attorney at every stage, including the filing and the court appearance, and a power of attorney does not get around it. If you hold property in an entity, which most investors do, the attorney is required, and the eviction attorney fee covers that cost.' },
   { q: 'Can I evict a tenant myself in Ohio?',
-    a: 'If you hold the property in your own name you can file without a manager, but this is the wrong place to save money. Evictions are dismissed on procedural defects, and the most common ones are the notice: wrong form, wrong period, wrong service, missing required language. A dismissal does not just cost the filing fee, it costs the weeks you have to start over. Self-help removal, meaning changing locks or shutting off utilities to force a resident out, is illegal and creates far more liability than the unpaid rent.' },
+    a: 'If you hold the property in your own name you can file without a manager, but this is the wrong place to save money. Evictions are dismissed on procedural defects, and the most common ones are the notice: wrong form, wrong period, wrong service, missing required language. A dismissal costs the filing fee plus the weeks it takes to start over. Self-help removal, meaning changing locks or shutting off utilities to force a resident out, is illegal and creates far more liability than the unpaid rent.' },
   { q: 'What can I not do to a resident who owes rent?',
     a: 'Change the locks, remove their belongings, shut off utilities, or remove doors and windows. Those are self-help evictions and they expose you to damages that dwarf the unpaid balance. The only lawful path is notice, filing and a court-ordered removal.' },
   { q: 'Do you charge to post a notice?',
     a: 'No. There is no charge to post a 3-day or 30-day notice to vacate. We would rather post a notice early and have it resolve the situation than wait until filing is the only option left.' },
   { q: 'What if the resident pays after the notice is posted?',
-    a: 'Then the goal was achieved, which is a paying resident rather than an empty unit. Accepting payment at that stage does have procedural consequences for the case, though. We check with the eviction attorney before accepting a payment mid-case, because in some circumstances it restarts the process.' },
+    a: 'Then you have what you wanted: a paying resident instead of an empty unit. Accepting payment at that stage does have procedural consequences for the case, though. We check with the eviction attorney before accepting a payment mid-case, because in some circumstances it restarts the process.' },
   { q: 'Is an eviction covered by my management fee?',
     a: `No. Management is ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month and covers ordinary operation. An eviction is a legal proceeding with real outside costs, so it is billed at the published amounts above rather than absorbed into everyone else's monthly fee.` },
   { q: 'Should I try to settle instead of filing?',
-    a: 'Sometimes, and the arithmetic is the whole argument. A resident with a documented one-month problem and a written catch-up plan usually costs less than a filing plus a vacancy plus a turn. A resident who has stopped responding is not a negotiation, and every month you wait is another month of rent you will not recover.' },
+    a: 'Sometimes, and the decision comes down to arithmetic. A resident with a documented one-month problem and a written catch-up plan usually costs less than a filing plus a vacancy plus a turn. With a resident who has stopped responding there is nothing to negotiate, and every month you wait is another month of rent you will not recover.' },
 ];
 
 const schemaNodes = [
@@ -146,8 +146,8 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[15px] text-muted mt-6">
-        Those are filing costs. They are not the real cost of an eviction, which is the rent that was never
-        collected, the weeks the unit is not producing, and the turn afterward. That is why the cheapest eviction
+        Those are filing costs. The larger cost of an eviction is the rent that was never collected, the weeks
+        the unit is not producing, and the turn afterward. So the cheapest eviction
         is the one prevented at <a href="/services/tenant-screening/" class="text-crimson font-semibold no-underline hover:underline">screening</a>,
         and the second cheapest is the one started early.
       </p>
@@ -159,8 +159,8 @@ const schemaNodes = [
       <span class="eyebrow">The process</span>
       <h2 id="stages-h" class="text-[clamp(28px,3.3vw,40px)]">How does the eviction process work in Ohio?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Six stages. Ohio has specific requirements for the notice and the filing, and where we do not have the
-        exact statutory detail confirmed, this page says so instead of guessing. Nothing here is legal advice.
+        The process has six stages. Ohio has specific requirements for the notice and the filing, and where we
+        have not confirmed the exact statutory detail, we say so instead of guessing. Nothing here is legal advice.
       </p>
       <ol class="grid gap-4">
         {stages.map((s, i) => (
@@ -195,8 +195,7 @@ const schemaNodes = [
         ))}
       </ul>
       <p class="text-[15px] text-muted mt-6">
-        The lawful path is notice, filing, and a court-ordered removal carried out by the bailiff. That is the
-        entire list of options.
+        The only lawful path is notice, filing, and a court-ordered removal carried out by the bailiff.
       </p>
     </div>
   </section>
@@ -206,14 +205,14 @@ const schemaNodes = [
       <span class="eyebrow">Timing</span>
       <h2 id="early-h" class="text-[clamp(28px,3.3vw,40px)]">When should an owner start the process?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Once the pattern is clear rather than once patience runs out. Late fees are assessed after
+        Start once the pattern is clear, not once your patience runs out. Late fees are assessed after
         {' '}{rentPolicy.lateFeesAfter}, and a resident who is not communicating by then is a different case from
         one who called on the 2nd to say the direct deposit was late.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
-        Owners who self-manage almost always wait too long, because filing feels like an escalation and waiting
-        feels like patience. It is not patience, it is unpaid rent accruing at the same rate every month with no
-        improvement in the odds of collection. Posting a notice costs nothing here, and it frequently resolves
+        Owners who self-manage usually wait too long, because filing feels like an escalation and waiting feels
+        like patience. Meanwhile unpaid rent accrues at the same rate every month, and the odds of collection do
+        not improve. Posting a notice costs nothing here, and it frequently resolves
         the situation without a filing at all.
       </p>
     </div>

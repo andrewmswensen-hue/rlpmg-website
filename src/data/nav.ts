@@ -1,7 +1,7 @@
 /**
  * Site navigation.
  *
- * Modelled on croskeypm.com: each top-level item opens a panel of grouped links,
+ * Modeled on croskeypm.com: each top-level item opens a panel of grouped links,
  * every link carries a one-line description, and a promo card closes the panel
  * on the right. The description is the point. A bare list of nouns makes a
  * reader guess; "What the fee covers and what it does not" does not.
@@ -77,8 +77,8 @@ export const nav: NavItem[] = [
         heading: 'Run the numbers',
         links: [
           { label: 'Rent vs. sell', href: '/rent-vs-sell-calculator/', note: 'Keep it as a rental, or sell it now?' },
-          { label: 'Cost of self-managing', href: '/self-management-calculator/', note: 'What your own hours are actually costing.' },
-          { label: 'Vacancy cost', href: '/tools/vacancy-cost-calculator/', note: 'What an empty week really costs you.' },
+          { label: 'Cost of self-managing', href: '/self-management-calculator/', note: 'What your own hours are costing you.' },
+          { label: 'Vacancy cost', href: '/tools/vacancy-cost-calculator/', note: 'What an empty week costs you.' },
           { label: 'Maintenance reserve', href: '/tools/maintenance-reserve-calculator/', note: 'How much to hold per unit, and why.' },
         ],
       },
@@ -209,7 +209,7 @@ export const nav: NavItem[] = [
       {
         heading: 'Trust and transparency',
         links: [
-          { label: 'Our scorecard', href: '/key-performance-indicators/', note: 'Our operating numbers, published quarterly.' },
+          { label: 'Our scorecard', href: '/key-performance-indicators/', note: 'Our operating numbers, published monthly.' },
           { label: 'Client handbook', href: '/client-handbook/', note: 'The manual every client gets, in full.' },
           { label: 'Reviews', href: '/reviews/', note: 'What owners and residents say.' },
           { label: 'Editorial policy', href: '/editorial-policy/', note: 'Who writes this, and who checks it.' },

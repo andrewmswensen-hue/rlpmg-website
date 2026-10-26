@@ -3,7 +3,7 @@ import { company } from '../data/facts';
 
 /**
  * AI crawlers are named and allowed explicitly. Several of them ignore a bare
- * wildcard allow but honour a named User-agent block, so each one gets its own.
+ * wildcard allow but honor a named User-agent block, so each one gets its own.
  * Training crawlers are separated from answer/citation crawlers, because those
  * are the ones that put the brand in front of a buyer.
  */

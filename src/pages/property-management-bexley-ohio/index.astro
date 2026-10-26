@@ -24,14 +24,14 @@ import { serviceNode } from '../../lib/schema';
  * Bexley is a coverage market in src/data/markets.ts and has no entry in
  * rentByMarketAndBedroom, so this page publishes NO Bexley rent median and says
  * nothing about how many doors we do or do not have there. Portfolio-wide
- * medians are used instead, labelled as portfolio-wide across the metro.
+ * medians are used instead, labeled as portfolio-wide across the metro.
  *
  * SOURCES (verified 2026-09-09):
  *  - Franklin County Municipal Court hears forcible entry and detainer for
  *    Franklin County: R.C. 1901.02, codes.ohio.gov/ohio-revised-code/section-1901.02.
  *    Address and Eviction Court courtroom: franklincountymunicourt.org.
  *  - Bexley Mayor's Court is a limited jurisdiction court hearing minor
- *    misdemeanours and traffic offences arising inside the city, presided over by
+ *    misdemeanors and traffic offences arising inside the city, presided over by
  *    a magistrate, no jury trials, no civil jurisdiction. Confirmed across
  *    multiple Franklin County criminal defence court directories, 2026-09-09.
  *  - Owner filing with the county auditor: R.C. 5323.02 at
@@ -50,7 +50,7 @@ import { serviceNode } from '../../lib/schema';
  *
  * NOT VERIFIED, marked in the copy:
  *  - Whether the City of Bexley operates a LONG-TERM residential rental
- *    registration, licence or periodic inspection programme. American Legal's
+ *    registration, license or periodic inspection program. American Legal's
  *    code library blocks automated retrieval, so the full Part Fourteen Building
  *    and Housing Code could not be read. Marked [SOURCE NEEDED].
  *  - Census median year structure built for Bexley. Marked [SOURCE NEEDED].
@@ -101,7 +101,7 @@ const whoDecides = [
     detail: 'Bexley runs its own code enforcement. A violation letter comes from Bexley and is answered in Bexley.',
   },
   {
-    thing: 'Traffic and minor misdemeanour matters arising in the city',
+    thing: 'Traffic and minor misdemeanor matters arising in the city',
     who: 'Bexley Mayor’s Court',
     detail: 'A limited jurisdiction court run by a magistrate. It does not hear evictions or landlord and tenant money claims.',
   },
@@ -121,10 +121,10 @@ const faq = [
   { q: 'Is Bexley part of Columbus?',
     a: 'No. Bexley is a separate incorporated city in Franklin County with Columbus on every side of it. It has its own mayor and council, its own codified ordinances, its own building and zoning department, its own code enforcement, its own police and its own school district. A Columbus ordinance does not govern a Bexley rental.' },
   { q: 'Which court hears an eviction in Bexley, Ohio?',
-    a: 'Franklin County Municipal Court, at 375 S. High St., Columbus, OH 43215, where Eviction Court sits in Courtroom 11B. Eviction jurisdiction follows the county under Ohio Revised Code 1901.02, not the city, so Bexley being its own city changes nothing here. Bexley Mayor’s Court hears traffic and minor misdemeanour matters that arise in the city and has no jurisdiction over an eviction or a landlord and tenant money claim.' },
+    a: 'Franklin County Municipal Court, at 375 S. High St., Columbus, OH 43215, where Eviction Court sits in Courtroom 11B. Eviction jurisdiction follows the county under Ohio Revised Code 1901.02, not the city, so Bexley being its own city changes nothing here. Bexley Mayor’s Court hears traffic and minor misdemeanor matters that arise in the city and has no jurisdiction over an eviction or a landlord and tenant money claim.' },
   { q: 'Do I have to register a rental property in Bexley?',
     a: 'Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number and the property street address and permanent parcel number with the auditor of the county the property sits in, and to update within 60 days of any change. There is no filing fee. The Franklin County Auditor states a penalty of $150 per tax year; the statutory range under R.C. 5323.99 is $50 to $150. A manager can file as the owner designated agent, and we do.' },
-  { q: 'Does the City of Bexley have its own rental registration or inspection programme?',
+  { q: 'Does the City of Bexley have its own rental registration or inspection program?',
     a: 'Short-term rentals, yes. Bexley Codified Ordinances 1266.19 requires an owner offering a short-term residential rental to register with the city and pay a $75 annual registration fee, and Bexley separately regulates accessory dwelling units with its own registration and inspection step. The Franklin County Auditor filing under R.C. 5323 applies either way.' },
   { q: 'Who provides water and sewer in Bexley, Ohio?',
     a: 'The City of Columbus. Bexley appears on the Columbus Department of Public Utilities water and sewer contract community list, so the water and sewer behind a Bexley rental is Columbus infrastructure supplied under contract. Electricity is AEP Ohio and natural gas is Columbia Gas of Ohio. Columbus states that the property owner is ultimately responsible for all charges even where a Tenant Billing Agreement puts the account in the resident name.' },
@@ -172,13 +172,13 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4">
         No. Bexley is a separate incorporated city with Columbus on every side of it, with its own mayor and
         council, codified ordinances, building and zoning department, code enforcement, police department,
-        mayor's court and school district. None of that is ceremonial. If you own a rental in Bexley and answer a
-        question by looking up a Columbus ordinance, you have looked in the wrong book.
+        mayor's court and school district. Each of those has real authority over a rental, so if you answer a
+        Bexley question with a Columbus ordinance, you are reading the wrong rulebook.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The trap runs both ways, and the second half is the part nobody explains. Some things are decided at
-        city hall and some at the county, and independence does not change the county ones. Getting it backwards
-        costs a filing fee, three weeks off a turn, or a letter answered to the wrong department.
+        The trap also runs the other way. Some things are decided at city hall and some at the county, and
+        Bexley's independence does not change the county ones. Getting it backwards costs a filing fee, three
+        extra weeks on a turn, or a letter answered to the wrong department.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -213,12 +213,13 @@ const schemaNodes = [
         Franklin County Municipal Court, at 375 S. High St., Columbus, OH 43215, where Eviction Court sits in
         Courtroom 11B. Eviction jurisdiction follows the county under R.C. 1901.02, so Bexley's independence does
         not create a Bexley eviction court. Owners sometimes assume Bexley Mayor's Court is the venue. It is a
-        limited jurisdiction court run by a magistrate, hearing minor misdemeanour and traffic matters arising
+        limited jurisdiction court run by a magistrate, hearing minor misdemeanor and traffic matters arising
         inside the city, and it hears neither a forcible entry and detainer action nor a claim for unpaid rent.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Before any of that, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, carrying
-        specific statutory language. Wrong wording, dismissed case, three more weeks with no rent. Our costs are
+        specific statutory language. If the wording is wrong, the case is dismissed and you lose three more weeks
+        with no rent. Our costs are
         published on the
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>:
         {' '}{usd(pricing.eviction.countyFilingFee)} to the county, {usd(pricing.eviction.attorneyFee)} to the
@@ -252,7 +253,7 @@ const schemaNodes = [
         occupancy is certified. A Columbus permit substitutes for neither.
       </p>
       <p class="text-[16.5px] text-muted mt-5">
-        Where a city runs its own registration, licence or inspection programme, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Keeping track of which programme applies to your address, and filing on time, is work we absorb rather than work we hand you.
+        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and file on time, so you do not have to.
       </p>
     </div>
   </section>
@@ -297,7 +298,7 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        The line that matters: Columbus states that the property owner is ultimately responsible for all
+        Columbus states that the property owner is ultimately responsible for all
         charges, even under a Tenant Billing Agreement, so an unpaid balance can end up attached to your parcel.
         We check balances at move-out, while there is still a deposit to settle against.
       </p>
@@ -309,19 +310,19 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Bexley?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Older housing, and a lot of it. Bexley is built out, with almost no new subdivision land, so the rental
-        stock is what was built decades ago: detached houses on small lots, two-family and small multifamily
+        Bexley rentals are mostly older housing. The city is built out, with almost no new subdivision land, so
+        the rental stock is what was built decades ago: detached houses on small lots, two-family and small multifamily
         buildings, and apartment buildings along the Main Street and East Broad Street corridors, with garages
         off alleys rather than the street. Capital University sits inside the city, and Bexley City Schools is a
         large part of why families rent here rather than buy elsewhere.
         </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Age changes the job. A house from the 1920s carries original service lines, plaster, older sewer
+        The age of the stock changes what maintenance involves. A house from the 1920s carries original service lines, plaster, older sewer
         laterals, and roofs and windows on a replacement cycle rather than a repair cycle. Price a reserve before
         you buy rather than in February when a resident calls at 11pm about no heat. The
         {' '}<a href="/tools/maintenance-reserve-calculator/" class="text-crimson font-semibold no-underline hover:underline">maintenance reserve calculator</a>
-        {' '}does that free. And because Bexley notices exterior condition, a deferred repair becomes a letter
-        faster here, which is why we
+        {' '}does that for free. And because Bexley code enforcement pays attention to exterior condition, a
+        deferred repair becomes a letter faster here, which is why we
         {' '}<a href="/services/inspections/" class="text-crimson font-semibold no-underline hover:underline">inspect on a schedule</a>.
       </p>
     </div>

@@ -32,7 +32,7 @@ export const company = {
   salesPhone: '(614) 212-6903',
   salesPhoneE164: '+16142126903',
   license: 'Licensed real estate brokerage in the State of Ohio',
-  /** Ohio Division of Real Estate licence number. Public record, verifiable. */
+  /** Ohio Division of Real Estate license number. Public record, verifiable. */
   licenseNumber: '2015001208',
   officeHoursNote: 'Office hours by appointment only',
   address: {
@@ -224,7 +224,7 @@ export const pricing = {
  * trailing-30 sequence ran 4, 7, 14, 22, 11) and the August-into-September
  * average was 25. A number that volatile cannot be published weekly.
  * See docs/kpi-methodology.md for the recommended fix: publish a trailing
- * 12-month median, define the measure on the page, and refresh quarterly.
+ * 12-month median, define the measure on the page, and refresh monthly.
  */
 export const kpis = {
   asOf: '2026-09-01',
@@ -290,7 +290,7 @@ export const areas = [
  *  1. An area that already has a page on the live site keeps that exact URL,
  *     because it already has search equity. Canal Winchester is the odd one out:
  *     it has no `-ohio` suffix and it stays that way.
- *  2. A Columbus neighbourhood nests UNDER the Columbus page rather than sitting
+ *  2. A Columbus neighborhood nests UNDER the Columbus page rather than sitting
  *     as its peer. Clintonville is part of Columbus, so a flat
  *     /property-management-clintonville-ohio/ would compete with the anchor page
  *     instead of reinforcing it.
@@ -332,7 +332,7 @@ export const rentalRegistration = {
     'The City of Columbus added its own citywide registry on April 20, 2026 under City Code Chapter 4515: annual registration with Building and Zoning Services at $15 per unit, capped at $1,500 per complex, and a safety inspection of common areas and building systems every three years. The city has not yet published the portal or the first deadline.',
   /** The reframe. This is the sentence that belongs on every area page. */
   weHandleIt:
-    'Keeping up with which registration applies to which address is our job, not yours. We file the county auditor registration as your designated agent during onboarding, we track the municipal programmes across the communities we work in, and we handle the filings and renewals. This is one of the obligations that quietly becomes your problem the moment you self-manage.',
+    'Keeping up with which registration applies to which address is our job, not yours. We file the county auditor registration as your designated agent during onboarding, we track the municipal programs across the communities we work in, and we handle the filings and renewals. This is one of the obligations that quietly becomes your problem the moment you self-manage.',
 } as const;
 
 /**
@@ -352,21 +352,21 @@ export const pma = {
  * was to leave off anything we do not have, rather than hedge about it.
  */
 export const vendors = {
-  /** Trades that must hold a current licence. Everything here is contracted out. */
+  /** Trades that must hold a current license. Everything here is contracted out. */
   licensedTrades: ['HVAC', 'plumbing', 'electrical'],
   permits: 'The vendor pulls permits where the job needs them, and we pull them ourselves where that is the faster route.',
   paymentTermsDays: 30,
   invoicing: 'Invoices come in through Meld and Buildium and are reviewed by the office maintenance team.',
   /**
    * Note the scope. This covers RLPM's own employed technicians, who do the
-   * work that does not require a trade licence. It is not a claim about a
+   * work that does not require a trade license. It is not a claim about a
    * subcontractor's own staff.
    */
   backgroundChecks: 'Every RL Property Management technician passes a background check before they are hired.',
 } as const;
 
 /**
- * The agent referral programme, confirmed by Andrew on 2026-09-10.
+ * The agent referral program, confirmed by Andrew on 2026-09-10.
  * The fee is paid to the referring agent's brokerage, which is the part that
  * matters legally and the part the old page never said.
  */

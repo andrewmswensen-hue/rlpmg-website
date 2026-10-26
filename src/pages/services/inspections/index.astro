@@ -22,7 +22,7 @@ const preFee = pricing.otherFees.find((f) => f.name === 'New unit pre-signature 
 const title = 'Rental Property Inspections in Columbus, Ohio | RL Property Management';
 const description =
   `Quarterly inspections are included on every managed unit at ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
-  `per unit per month. How often a rental should be inspected, what is checked, and what an inspection actually prevents.`;
+  `per unit per month. How often a rental should be inspected, what is checked, and what an inspection prevents.`;
 const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services/' },
@@ -47,16 +47,16 @@ const facts = [
 
 const whatWeLookFor = [
   { h: 'Water, everywhere it can hide',
-    b: 'Under sinks, around the water heater, at the base of toilets, in the ceiling below an upstairs bath, at the foundation line in the basement. Water is the single most expensive thing a rental does quietly. A supply line drip found on a quarterly inspection is a small repair. The same drip found at move-out is subfloor, cabinets and possibly mold remediation.' },
+    b: 'Under sinks, around the water heater, at the base of toilets, in the ceiling below an upstairs bath, at the foundation line in the basement. Of everything that goes wrong quietly in a rental, water costs the most. A supply line drip found on a quarterly inspection is a small repair. The same drip found at move-out is subfloor, cabinets and possibly mold remediation.' },
   { h: 'HVAC and the filter',
     b: 'Filters get checked because a clogged filter kills a system slowly and expensively, and because it is the cheapest preventable failure in the whole portfolio. Ohio HVAC fails in January and July, which are the two worst months to be scheduling emergency service at an after-hours multiplier.' },
   { h: 'Smoke and carbon monoxide detectors',
-    b: 'Present, mounted and functioning. This is a life safety item and a liability item at the same time. We check them at every inspection rather than relying on a resident to report a dead battery.' },
+    b: 'We confirm each one is present, mounted and working. Detectors are a life safety item and a liability item at the same time. We check them at every inspection rather than relying on a resident to report a dead battery.' },
   { h: 'Occupancy and pets',
-    b: `Who is actually living there, and what is actually living there. An unauthorized pet is a lease matter and a money matter: our ${usd(pricing.petDamageCoverage.cap)} pet damage coverage applies to approved pets, not to an animal nobody disclosed. Service and assistance animals are not pets and are handled under fair housing rules.` },
+    b: `We check who is living in the unit, and which animals are living there too. An unauthorized pet is a lease matter and a money matter: our ${usd(pricing.petDamageCoverage.cap)} pet damage coverage applies to approved pets, not to an animal nobody disclosed. Service and assistance animals are not pets and are handled under fair housing rules.` },
   { h: 'Housekeeping and lease compliance',
-    b: 'Not a judgment about how someone lives. It is a search for the specific conditions that cause damage or violate the lease: blocked egress, a space heater running full time, a grill on a wood deck, standing garbage that will bring pests, a room converted into something it is not.' },
-  { h: 'The exterior nobody looks at',
+    b: 'We look for the specific conditions that cause damage or violate the lease, rather than judging how someone lives: blocked egress, a space heater running full time, a grill on a wood deck, standing garbage that will bring pests, a room converted into something it is not.' },
+  { h: 'The exterior most owners skip',
     b: 'Gutters, downspout discharge, grading against the foundation, roof edges, tree limbs on the roofline, and the condition of walks and steps. Most of the expensive interior water problems start at one of those six.' },
 ];
 
@@ -67,12 +67,12 @@ const faq = [
     a: `Yes. Quarterly inspections are included on all three plans, at ${usd(pricing.plans[0].monthly)}, ${usd(pricing.plans[1].monthly)} and ${usd(pricing.plans[2].monthly)} per unit per month. Repairs that come out of an inspection are billed at the published maintenance rates: ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, materials at cost.` },
   { q: 'Do you have to give the resident notice before entering?',
     a: 'Yes. Ohio law requires reasonable notice before a landlord enters an occupied unit except in an emergency. Ohio Revised Code 5321.04(A)(8) sets that at 24 hours. In practice, notice is scheduled well in advance for a quarterly inspection, and the resident does not need to be home.' },
-  { q: 'What does an inspection actually catch?',
-    a: 'Water where it should not be, a filter nobody changed, a detector that was removed, an occupant or a pet who is not on the lease, and the deferred maintenance an owner cannot see from a rent check. The pattern across a portfolio is consistent: the expensive claims are almost always something that was visible for months.' },
+  { q: 'What does an inspection catch?',
+    a: 'Water where it should not be, a filter nobody changed, a detector that was removed, an occupant or a pet who is not on the lease, and the deferred maintenance an owner cannot see from a rent check. Across a portfolio, the expensive claims are almost always problems that were visible for months.' },
   { q: 'Do you inspect at move-in and move-out?',
-    a: '[SOURCE NEEDED: whether move-in and move-out condition reports are included in the monthly fee or billed at the labor rate, and whether photo documentation is standard.] What is not in question is why it matters: without a dated, photographed move-in condition report, a security deposit deduction is very hard to defend.' },
+    a: '[SOURCE NEEDED: whether move-in and move-out condition reports are included in the monthly fee or billed at the labor rate, and whether photo documentation is standard.] Either way, without a dated, photographed move-in condition report, a security deposit deduction is very hard to defend.' },
   { q: 'Can I inspect my own property?',
-    a: `Yes, it is your property, and an owner property visit is billed at the labor rate if we coordinate it. Key pickup at our office is free. What you should not do is drop in on a resident without notice, because that is both a legal problem and the fastest way to lose a good renewal.` },
+    a: `Yes, it is your property, and an owner property visit is billed at the labor rate if we coordinate it. Key pickup at our office is free. Do not drop in on a resident without notice. It is a legal problem, and it is the fastest way to lose a good renewal.` },
   { q: 'Do you inspect before taking on a property?',
     a: `Yes. A new unit pre-signature inspection is ${preFee?.amount ?? ''}, ${preFee?.note?.toLowerCase() ?? ''} It exists so both sides know the actual condition before an agreement is signed, rather than arguing about it in month two.` },
   { q: 'What happens when an inspection finds a problem?',
@@ -107,14 +107,14 @@ const schemaNodes = [
       <span class="eyebrow">The cadence</span>
       <h2 id="often-h" class="text-[clamp(28px,3.3vw,40px)]">How often should a rental be inspected?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Quarterly. That is what every managed unit gets here, included in the monthly fee. Quarterly is frequent
+        A rental should be inspected quarterly, and every unit we manage gets that as part of the monthly fee. Quarterly is frequent
         enough to catch a slow leak, a missing detector or an undisclosed pet in the season it started, and rare
         enough that a good resident does not feel policed.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         Annual inspections, which are common, mean a problem that starts in February is discovered the following
-        February. Water damage does not wait for your schedule. Neither does a resident quietly moving three
-        additional people into a two bedroom.
+        February. In the meantime, water damage keeps spreading, and a resident can quietly move three
+        additional people into a two-bedroom.
       </p>
     </div>
   </section>
@@ -124,7 +124,7 @@ const schemaNodes = [
       <span class="eyebrow">The checklist</span>
       <h2 id="look-h" class="text-[clamp(28px,3.3vw,40px)]">What gets checked on a rental inspection?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Six categories. If you inspect your own rentals, this list is the useful part of this page.
+        We check six categories. If you inspect your own rentals, this list is the useful part of this page.
       </p>
       <div class="grid gap-5">
         {whatWeLookFor.map((x) => (

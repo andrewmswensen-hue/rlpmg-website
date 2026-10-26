@@ -57,7 +57,7 @@ const cityRows = Object.entries(rentByMarketAndBedroom)
   .sort((a, b) => a.city.localeCompare(b.city));
 
 const drivers = [
-  { h: 'Bedroom and bathroom count', p: 'The single largest driver. A third bedroom moves rent more than almost any finish you could add.' },
+  { h: 'Bedroom and bathroom count', p: 'This is the largest driver. A third bedroom moves rent more than almost any finish you could add.' },
   { h: 'Condition against the current comps', p: 'Rent is set against what is on the market this month, not what the house was worth two years ago. Flooring, paint and kitchen condition move the number.' },
   { h: 'School district and location', p: 'Two identical houses ten minutes apart in the Columbus metro can be hundreds of dollars apart in rent.' },
   { h: 'Who pays which utility', p: 'A unit where the resident pays all utilities supports higher rent than one where the owner covers water or trash. This belongs in the lease as a table.' },
@@ -71,7 +71,7 @@ const faq = [
   { q: 'Is the rent evaluation actually free?',
     a: 'Yes. There is no fee, no account to create and no obligation to sign anything. You get the number and the comparable listings it came from, and you can use them to self-manage if that is what you decide to do.' },
   { q: 'How is a rent evaluation different from an online rent estimate?',
-    a: 'A national estimate tool reads public sale records and averages them. A rent evaluation from a local manager reads what units like yours actually leased for recently, including our own, and adjusts for condition, utilities, parking and season. The gap between the two is often a hundred dollars a month in either direction.' },
+    a: 'A national estimate tool reads public sale records and averages them. A rent evaluation from a local manager reads what units like yours leased for recently, including our own, and adjusts for condition, utilities, parking and season. The gap between the two is often a hundred dollars a month in either direction.' },
   { q: 'What happens after I submit the form?',
     a: 'Someone from our team reviews the address, pulls comparable listings and our own leasing data for that submarket, and sends you a written rent range with the comps attached. If anything about the property is unclear we will call before guessing.' },
   { q: 'Does pricing rent too high cost me money?',
@@ -139,7 +139,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
   <section class="band band-wash" aria-labelledby="medians-h">
     <div class="wrap max-w-[880px]">
       <span class="eyebrow">Our own numbers</span>
-      <h2 id="medians-h" class="text-[clamp(26px,3.2vw,38px)]">What do comparable Columbus rentals actually rent for?</h2>
+      <h2 id="medians-h" class="text-[clamp(26px,3.2vw,38px)]">What do comparable Columbus rentals rent for?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7">
         These are median rents across the units {company.name} manages, by bedroom count, as of
         {' '}{kpis.asOfLabel}. They are our own portfolio, not a market-wide survey, and the sample size for each
@@ -167,8 +167,8 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
         </table>
       </div>
       <p class="text-[15.5px] text-muted mt-6">
-        Average rent across every unit under management is {kpis.metrics[4].value}. Your address will not be the
-        median, which is exactly why the evaluation is worth requesting.
+        Average rent across every unit under management is {kpis.metrics[4].value}. Your address will sit above or
+        below the median, which is why an evaluation for your specific property is worth requesting.
       </p>
 
       <details class="fee-group mt-7">
@@ -199,10 +199,10 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
   <section class="band" aria-labelledby="drivers-h">
     <div class="wrap max-w-[880px]">
       <span class="eyebrow">How the number is built</span>
-      <h2 id="drivers-h" class="text-[clamp(26px,3.2vw,38px)]">What actually sets the rent on a Columbus house?</h2>
+      <h2 id="drivers-h" class="text-[clamp(26px,3.2vw,38px)]">What sets the rent on a Columbus house?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        Six things, in roughly this order of weight. Everything else is noise, including what the property is
-        worth on a sale and what the mortgage payment happens to be.
+        Six factors set it, in roughly this order of weight. What the property is worth on a sale and what
+        the mortgage payment happens to be do not move the rent.
       </p>
       <div class="grid gap-5 sm:grid-cols-2">
         {drivers.map((d) => (
@@ -218,19 +218,18 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
   <!-- THE COST OF OVERPRICING -->
   <section class="band band-wash" aria-labelledby="over-h">
     <div class="wrap max-w-[880px]">
-      <h2 id="over-h" class="text-[clamp(26px,3.2vw,38px)]">What does pricing the rent too high actually cost?</h2>
+      <h2 id="over-h" class="text-[clamp(26px,3.2vw,38px)]">What does pricing the rent too high cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        A vacant month costs a full month of rent. That is the arithmetic almost nobody runs before insisting on a
-        higher listing price. If a unit would lease at market in
+        A vacant month costs a full month of rent, so run that arithmetic before you insist on a higher listing
+        price. If a unit would lease at market in
         {' '}{kpis.metrics[0].value} days and you list it high enough to sit for an extra two months, you have given
-        up two full months of rent to chase an increase that would take a long time to earn it back. Meanwhile the
+        up two full months of rent to chase an increase that would take a long time to earn back. Meanwhile the
         utilities stay on, the lawn still needs cutting, and the listing goes stale on the portals, which makes it
         harder to lease at any price.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
-        The opposite mistake is real too. Pricing under market fills the unit fast and then locks that number in
-        for a year, and every renewal after that starts from the low base. A rent evaluation exists to keep you out
-        of both.
+        Pricing under market is the opposite mistake. It fills the unit fast and then locks that number in for a
+        year, and every renewal after that starts from the low base. A rent evaluation helps you avoid both.
       </p>
     </div>
   </section>
@@ -241,8 +240,8 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">Request yours</span>
       <h2 id="form-h" class="text-[clamp(26px,3.2vw,38px)]">Get your free rent evaluation</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        Tell us about the property. Everything marked required is required because we cannot price without it.
-        Everything else makes the number better.
+        Tell us about the property. We need the fields marked required to price it, and the others make the
+        number more accurate.
       </p>
 
       <!--
@@ -277,7 +276,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
             <div>
               <label class={labelCls} for="phone">Phone</label>
               <input class={inputCls} id="phone" name="phone" type="tel" autocomplete="tel" />
-              <span class={hintCls}>Only used if something about the property needs a question.</span>
+              <span class={hintCls}>We only use it if we have a question about the property.</span>
             </div>
           </div>
         </fieldset>
@@ -409,7 +408,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
   <RelatedLinks links={[
     { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'What management costs after the evaluation.' },
     { href: '/rent-vs-sell-calculator/', label: 'Rent vs. sell calculator', note: 'Should you keep it as a rental at all?' },
-    { href: '/columbus-property-management/', label: 'Columbus property management', note: 'What we actually do for the monthly fee.' },
+    { href: '/columbus-property-management/', label: 'Columbus property management', note: 'What we do for the monthly fee.' },
     { href: '/investors/', label: 'Portfolio and investor services', note: 'If you own more than a couple of units.' },
     { href: '/2026-columbus-market-report/', label: '2026 Columbus rental market report', note: 'The wider market data behind our pricing.' },
   ]} />

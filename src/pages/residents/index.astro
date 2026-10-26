@@ -64,11 +64,11 @@ const faq = [
   { q: 'How do I get a copy of my lease?',
     a: 'Your signed lease and every notice we have sent you live in your resident portal account. If you cannot get into the portal, email ' + company.email + ' from the address on your lease and we will get you back in.' },
   { q: 'Can I add a roommate or a pet after I move in?',
-    a: 'Both require written approval before the person or the animal moves in, and an adult roommate has to apply and be screened against the same criteria as the original applicants..' },
+    a: 'Both require written approval before the person or the animal moves in, and an adult roommate has to apply and be screened against the same criteria as the original applicants.' },
   { q: 'What happens when my lease is ending?',
     a: `We reach out ahead of the end date with renewal terms. ${renewal} of residents renew. If a lease is allowed to lapse into month-to-month rather than renewed, rent increases by ${rentPolicy.monthToMonthIncreasePct}%, so a renewal is almost always the cheaper option.` },
   { q: 'How do I verify my tenancy for a lender or a new landlord?',
-    a: `Send the request to ${company.email} with the property address and the name on the lease, and tell us where the completed verification should go..` },
+    a: `Send the request to ${company.email} with the property address and the name on the lease, and tell us where the completed verification should go.` },
 ];
 ---
 <Base {title} {description} {faq} {breadcrumbs}>
@@ -114,8 +114,8 @@ const faq = [
       <h2 id="portal-h" class="text-[clamp(28px,3.3vw,40px)]">What is the resident portal for?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Four things: paying rent, filing maintenance requests, reading your lease and notices, and seeing
-        your ledger. Using it rather than text or email matters, because everything filed there is
-        timestamped and attached to your tenancy, which is what protects you in a disagreement later.
+        your ledger. Use it rather than text or email. Everything filed there is timestamped and attached to your
+        tenancy, and that record protects you if there is a disagreement later.
       </p>
       <div class="grid gap-4 sm:grid-cols-2 mt-7">
         <div class="card">
@@ -173,7 +173,7 @@ const faq = [
   <section class="band band-wash" aria-labelledby="pet-h">
     <div class="wrap max-w-[880px]">
       <span class="eyebrow">Pets</span>
-      <h2 id="pet-h" class="text-[clamp(28px,3.3vw,40px)]">What does the pet fee actually pay for?</h2>
+      <h2 id="pet-h" class="text-[clamp(28px,3.3vw,40px)]">What does the pet fee pay for?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Coverage of up to {usd(pricing.petDamageCoverage.cap)} in pet damage above the security deposit. If
         an approved pet causes damage beyond normal wear and tear and the repair costs more than the
@@ -208,7 +208,7 @@ const faq = [
 
   <Cta
     heading="Something broken? Tell us in writing."
-    body="A request filed in the portal is timestamped, tracked and assigned. A text message is none of those things. For a true emergency, call us instead."
+    body="A request filed in the portal is timestamped, tracked and assigned to someone, which a text message is not. For a true emergency, call us instead."
     primary={{ label: 'Submit a maintenance request', href: '/residents/maintenance-requests/' }}
     secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
   />

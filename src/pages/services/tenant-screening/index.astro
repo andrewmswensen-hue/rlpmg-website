@@ -49,15 +49,15 @@ const facts = [
 
 const checks = [
   { h: 'Credit',
-    b: 'A credit report shows whether someone pays what they owe, and it shows collections from prior landlords and utilities. The score matters less than the pattern: a thin file is a different question from a file full of charge-offs. Medical debt tells you something different than a repossession.' },
+    b: 'A credit report shows whether someone pays what they owe, and it shows collections from prior landlords and utilities. The score matters less than the pattern: a thin file is a different question from a file full of charge-offs. Medical debt means something different from a repossession.' },
   { h: 'Criminal record',
-    b: 'A criminal background check is run on every adult applicant. How records may be weighed is constrained by fair housing guidance, so the standard has to be written down, applied identically, and defensible.' },
+    b: 'We run a criminal background check on every adult applicant. Fair housing guidance limits how records may be weighed, so the standard has to be written down, applied identically, and defensible.' },
   { h: 'Income',
-    b: 'Verified income, not stated income. Pay stubs, an offer letter, benefit award letters or bank statements for self-employed applicants.' },
+    b: 'We verify income with documents rather than accepting a stated number: pay stubs, an offer letter, benefit award letters, or bank statements for self-employed applicants.' },
   { h: 'Rental history',
-    b: 'Prior landlords are contacted directly. The useful question is not "were they a good tenant", it is "did they pay on time, did they give proper notice, and would you rent to them again". A current landlord who wants a problem resident gone has a reason to be generous.' },
+    b: 'We contact prior landlords directly and skip "were they a good tenant" in favor of specific questions: "did they pay on time, did they give proper notice, and would you rent to them again". A current landlord who wants a problem resident gone has a reason to be generous.' },
   { h: 'Eviction record',
-    b: 'Public court records are checked for prior eviction filings. A filing is not the same as a judgment, and both get looked at in context rather than as an automatic answer.' },
+    b: 'We check public court records for prior eviction filings. A filing is not the same as a judgment, and we look at both in context rather than treating either as an automatic answer.' },
 ];
 
 const faq = [
@@ -72,11 +72,11 @@ const faq = [
   { q: 'Can you deny an applicant for a criminal record?',
     a: 'Not automatically, and not on a blanket basis. Fair housing guidance restricts blanket criminal record bans, so any consideration of a record has to follow a written, consistently applied standard. We look at the nature of the offense, how long ago it was, and what has happened since, and we apply that the same way to every applicant.' },
   { q: 'Do you accept housing vouchers?',
-    a: 'Inside the City of Columbus we have to, and we do. Columbus adopted source of income protection in March 2021, effective that July, which makes it unlawful to refuse an applicant or change the terms because part of the rent will be paid by a Housing Choice Voucher, child support, spousal support or public assistance. Where an income multiple applies, the voucher portion comes off first, so the test runs against the share the resident actually pays. Every other screening standard applies exactly as it would to any applicant.' },
+    a: 'Inside the City of Columbus we have to, and we do. Columbus adopted source of income protection in March 2021, effective that July, which makes it unlawful to refuse an applicant or change the terms because part of the rent will be paid by a Housing Choice Voucher, child support, spousal support or public assistance. Where an income multiple applies, the voucher portion comes off first, so the test runs against the share the resident pays. Every other screening standard applies exactly as it would to any applicant.' },
   { q: 'How long does screening take?',
-    a: 'Usually a day or two once everything is in. The main delay is almost never the report. It is waiting on a prior landlord to call back or on an applicant to send an income document.' },
+    a: 'Usually a day or two once everything is in. Delays almost always come from waiting on a prior landlord to call back or on an applicant to send an income document, rather than from the report.' },
   { q: 'What happens if a resident stops paying anyway?',
-    a: `Screening lowers the odds, it does not eliminate them. Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute. When it happens, we run the process: hard costs are ${usd(pricing.eviction.hardCostTotal)} and our fee to manage the case is ${usd(pricing.eviction.rlpmProcessFee)}.` },
+    a: `Screening lowers the odds but does not eliminate them. Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute. When it happens, we run the process: hard costs are ${usd(pricing.eviction.hardCostTotal)} and our fee to manage the case is ${usd(pricing.eviction.rlpmProcessFee)}.` },
 ];
 
 const schemaNodes = [
@@ -114,8 +114,8 @@ const schemaNodes = [
         litigation or another significant dispute.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
-        That is the whole argument for a boring, written, unbending screening standard. The upside of a great
-        applicant is a renewal. The downside of a bad one is months of your money and your weekends.
+        That cost is why we use a boring, written, unbending screening standard. A great applicant gets you a
+        renewal, and a bad one costs months of your money and your weekends.
       </p>
     </div>
   </section>
@@ -125,7 +125,7 @@ const schemaNodes = [
       <span class="eyebrow">The five checks</span>
       <h2 id="checks-h" class="text-[clamp(28px,3.3vw,40px)]">What is checked on a rental application?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Five things, on every adult who will live in the unit. Not just the person who signs.
+        We check five things on every adult who will live in the unit, not only the person who signs.
       </p>
       <div class="grid gap-5">
         {checks.map((c) => (
@@ -144,13 +144,13 @@ const schemaNodes = [
       <h2 id="fair-h" class="text-[clamp(28px,3.3vw,40px)]">What makes a screening standard legal?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Three things: it exists in writing before the first application arrives, it is applied identically to
-        every applicant, and it can be explained. Fair housing law does not require you to accept everyone. It
-        requires you to apply the same rule to everyone, and to be able to show that you did.
+        every applicant, and it can be explained. Fair housing law lets you decline applicants, as long as you
+        apply the same rule to everyone and can show that you did.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         Protected classes come from federal law, from Ohio law, and from local ordinance, and the local list is
-        longer than the federal one. Federal: race, color, national origin, religion, sex, familial status,
-        disability. Ohio adds ancestry and military status. Columbus adds sexual orientation, gender identity or
+        longer than the federal one. Federal law covers race, color, national origin, religion, sex, familial
+        status and disability. Ohio adds ancestry and military status. Columbus adds sexual orientation, gender identity or
         expression, age, and source of income.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
@@ -168,8 +168,7 @@ const schemaNodes = [
       <span class="eyebrow">If you screen your own</span>
       <h2 id="diy-h" class="text-[clamp(28px,3.3vw,40px)]">How do you screen tenants yourself?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6">
-        This page is worth reading even if you never hire us. If you are doing it yourself, do these six things
-        in this order.
+        If you screen your own applicants, do these six things in this order.
       </p>
       <ol class="grid gap-3.5">
         {[

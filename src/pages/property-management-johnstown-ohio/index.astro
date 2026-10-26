@@ -83,19 +83,19 @@ const keyFacts = [
 
 const faq = [
   { q: 'What county is Johnstown, Ohio in?',
-    a: 'Licking County. Johnstown is a Licking County city, so the eviction complaint, the R.C. 5323 rental owner filing and the deed all run through Licking County rather than Franklin. Owners looking at Johnstown because of the Intel site frequently arrive from New Albany listings and assume Franklin County applies. It does not.' },
+    a: 'Licking County. Johnstown is a Licking County city, so the eviction complaint, the R.C. 5323 rental owner filing and the deed all run through Licking County rather than Franklin. Owners looking at Johnstown because of the Intel site frequently arrive from New Albany listings and assume Franklin County applies, which it does not.' },
   { q: 'Which court hears an eviction in Johnstown, Ohio?',
     a: 'Licking County Municipal Court, in Newark. Ohio Revised Code 1901.02 ties municipal court jurisdiction to territory, and Johnstown is Licking County territory. A forcible entry and detainer action on a Johnstown rental is filed there, not at Franklin County Municipal Court in downtown Columbus. A complaint filed in the wrong court is dismissed, the filing fee is lost, and the calendar resets by roughly three weeks.' },
   { q: 'Where exactly is the Intel site in relation to Johnstown?',
     a: 'The Intel Ohio One campus is physically in Licking County, immediately south of Johnstown, and carries a New Albany address. That address is why national coverage calls it a New Albany project while the property tax, the school district pressure and the water and sewer questions land on Licking County communities, Johnstown foremost among them.' },
   { q: 'What is the current status of Intel Ohio One?',
-    a: 'The most recent company statement we have verified is from 28 February 2025, when Intel notified its Ohio employees of revised completion dates. As reported, construction of the first fab was moved to 2030 with operations beginning by the end of 2031, and the second fab to completion in 2031 and operations in 2032. Separately, the 2025 quarterly SEC filings from Intel stated the company could slow, pause or discontinue construction at the Ohio site if it does not secure a significant external customer for its Intel 14A process. We are not going to characterise it beyond that.' },
+    a: 'The most recent company statement we have verified is from 28 February 2025, when Intel notified its Ohio employees of revised completion dates. As reported, construction of the first fab was moved to 2030 with operations beginning by the end of 2031, and the second fab to completion in 2031 and operations in 2032. Separately, the 2025 quarterly SEC filings from Intel stated the company could slow, pause or discontinue construction at the Ohio site if it does not secure a significant external customer for its Intel 14A process. We do not characterize it beyond that.' },
   { q: 'Should I underwrite a Johnstown rental on Intel?',
     a: 'No. Underwrite it on the rent the house earns today, with the vacancy and repair assumptions you would use anywhere else in Licking County. A completion date that has already moved once, and a public filing that contemplates pausing construction, is not a rent forecast. If the project delivers on the current schedule, that is upside you did not pay for. If you buy on the story and the story moves again, you are holding a negative-cash-flow house in a market of 5,000 people.' },
   { q: 'Do I have to register a Johnstown rental property?',
     a: 'Yes, with the Licking County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number plus the property address and parcel number with the county auditor, and to update it within 60 days of any change. There is no fee, and missing it draws a special assessment of $50 to $150 under R.C. 5323.99.' },
   { q: 'What does a rental in Johnstown rent for?',
-    a: 'We are not publishing a bedroom-level median for Johnstown. Our own sample there is below the five-unit floor we set before publishing a market-level figure, and in a market this small a published number built on two or three units would be misleading rather than helpful. Send an address and we will price it against live comparables.' },
+    a: 'We are not publishing a bedroom-level median for Johnstown. Our own sample there is below the five-unit floor we set before publishing a market-level figure, and in a market this small a published number built on two or three units would mislead. Send an address and we will price it against live comparables.' },
   { q: 'How much does property management cost in Johnstown?',
     a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. We do not charge a distance surcharge for Licking County. Photography is not included in the leasing fee and is billed separately at $250 to $450.` },
 ];
@@ -139,10 +139,10 @@ const schemaNodes = [
         Columbus.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        This trips owners here more than almost anywhere else in our footprint, for a specific reason. Most
+        Owners get this wrong here more often than almost anywhere else in our footprint. Most
         people looking at Johnstown got there by way of New Albany, which is Franklin County, and the Intel
-        campus itself carries a New Albany address while sitting in Licking County. So the mental model arrives
-        pre-loaded with the wrong county. A complaint filed in the wrong court is dismissed, the fee is gone,
+        campus itself carries a New Albany address while sitting in Licking County. Many owners
+        start with the wrong county in mind. A complaint filed in the wrong court is dismissed, the fee is gone,
         and you restart roughly three weeks behind.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
@@ -169,7 +169,7 @@ const schemaNodes = [
   <section class="band band-wash" aria-labelledby="intel-h">
     <div class="wrap max-w-[880px]">
       <span class="eyebrow">The thing everyone asks about</span>
-      <h2 id="intel-h" class="text-[clamp(26px,3.2vw,38px)]">What is actually happening with Intel near Johnstown?</h2>
+      <h2 id="intel-h" class="text-[clamp(26px,3.2vw,38px)]">What is happening with Intel near Johnstown?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Intel is building its Ohio One campus, a stated $28 billion project of two semiconductor fabrication
         plants, in Licking County immediately south of Johnstown. It carries a New Albany address, which is why
@@ -184,20 +184,20 @@ const schemaNodes = [
         does not secure a significant external customer for its Intel 14A process.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        We are not going to characterise it beyond those two facts, and we are not going to publish a job
+        We do not characterize it beyond those two facts, and we do not publish a job
         number, a population projection or a rent forecast attached to it. Local officials have said publicly
-        that the delays have been difficult to plan around, and planning around them is precisely what an owner
-        is being asked to do.
+        that the delays have been difficult to plan around, and an owner is being asked
+        to plan around the same delays.
       </p>
       <div class="card mt-7">
-        <h3 class="text-[19px] mt-0 mb-3">What has actually already happened in Johnstown</h3>
+        <h3 class="text-[19px] mt-0 mb-3">What has already happened in Johnstown</h3>
         <p class="text-[16px] text-muted mt-0">
           The Johnstown-Monroe Local School District completed a six-classroom expansion at its high school,
-          adding capacity for roughly 150 more students, explicitly citing expected growth. And a Municipal
+          adding capacity for roughly 150 more students, citing expected growth. And a Municipal
           Utility Coalition of Licking County, including Alexandria, Granville and Johnstown, has been seeking
           Ohio EPA designation as the water and sewer provider for western Licking County, in competition with
-          another utility. Those are real, funded, local decisions. They are a better read on the direction of
-          this market than any construction schedule.
+          another utility. These are funded local decisions, and they give you a better read on the direction of
+          this market than any construction schedule does.
         </p>
       </div>
       <p class="text-[16px] text-muted mt-6">
@@ -215,12 +215,12 @@ const schemaNodes = [
         upside you did not pay for.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The argument for that is arithmetic, not pessimism. Johnstown had 5,182 residents at the 2020 census and
+        The reason is arithmetic. Johnstown had 5,182 residents at the 2020 census and
         an estimated 5,310 in 2023. In a rental market that small, one motivated buyer paying a growth premium
         moves the comparable sales, and the next buyer prices off that comp rather than off the rent roll. If
         the schedule slips again, and it has slipped once, the person holding the premium is the one who bought
         the story. We have taken over Licking County properties where an owner spreadsheet carried a rent
-        number in it that the market had never actually paid.
+        number in it that the market had never paid.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         The other side of a small market is thin comparables. There are not many rental houses in Johnstown at
@@ -245,7 +245,7 @@ const schemaNodes = [
         owner designate a property manager as the filing agent, and that is part of onboarding here.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Where a city runs its own registration, licence or inspection programme, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Keeping track of which programme applies to your address, and filing on time, is work we absorb rather than work we hand you.
+        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and file on time, so you do not have to.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (
@@ -296,7 +296,7 @@ const schemaNodes = [
 
   <Cta
     heading="Find out what your Johnstown rental should earn today"
-    body="Tell us the address and we will price it against live comparable listings, using the rent the market is actually paying rather than the rent a construction schedule implies. No charge."
+    body="Tell us the address and we will price it against live comparable listings, using the rent the market is paying rather than the rent a construction schedule implies. No charge."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
   />

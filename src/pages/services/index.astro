@@ -19,7 +19,7 @@ const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
 
 const title = 'Property Management Services in Columbus, Ohio | RL Property Management';
 const description =
-  `What a property manager actually does: marketing and leasing, screening, maintenance, rent collection, ` +
+  `What a property manager does: marketing and leasing, screening, maintenance, rent collection, ` +
   `owner reporting, inspections, evictions and compliance. Flat ${usd(pricing.plans[0].monthly)} to ` +
   `${usd(pricing.plans[2].monthly)} per unit per month in Columbus, with a ${usd(pricing.leasingFee)} leasing fee.`;
 const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Services', path: '/services/' }];
@@ -50,7 +50,7 @@ const services = [
     pain: 'Damage found at move-out is damage you are paying for yourself.' },
   { href: '/services/evictions/', label: 'Evictions',
     line: `Filed in Franklin County, managed end to end for ${usd(pricing.eviction.rlpmProcessFee)} plus ${usd(pricing.eviction.hardCostTotal)} in hard costs.`,
-    pain: 'A resident who stops paying in month three is a legal problem, not a conversation.' },
+    pain: 'When a resident stops paying in month three, the fix is a court filing.' },
   { href: '/services/compliance/', label: 'Compliance',
     line: 'Ohio landlord-tenant law, fair housing, local registration and insurance requirements.',
     pain: 'The rules that cost you money are the ones you did not know existed.' },
@@ -124,9 +124,9 @@ const schemaNodes = [
   <section class="band" aria-labelledby="eight-h">
     <div class="wrap max-w-[1000px]">
       <span class="eyebrow">The whole job</span>
-      <h2 id="eight-h" class="text-[clamp(28px,3.3vw,40px)]">What does a property manager actually do?</h2>
+      <h2 id="eight-h" class="text-[clamp(28px,3.3vw,40px)]">What does a property manager do?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-9 max-w-[46em]">
-        Eight jobs, and owners usually hire out because two or three of them have gone wrong. Each one below
+        There are eight jobs, and owners usually hire out after two or three of them have gone wrong. Each one below
         has its own page with the process, the numbers and the parts that go sideways.
       </p>
       <div class="grid gap-5 sm:grid-cols-2">
@@ -147,8 +147,8 @@ const schemaNodes = [
       <h2 id="fee-h" class="text-[clamp(28px,3.3vw,40px)]">What is included in the monthly fee, and what is not?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[46em]">
         The monthly fee covers the labor of running the property: leasing, screening, rent, coordination,
-        reporting, inspections and compliance. It does not cover physical work on the building, and no flat
-        fee ever could. Here is the honest line between the two.
+        reporting, inspections and compliance. It does not cover physical work on the building, which no flat
+        fee could. The table below shows where the line falls.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]">
@@ -172,7 +172,7 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[15px] text-muted mt-6">
-        Photography is the one owners are most often surprised by, so we say it plainly: it is not part of the
+        Photography surprises owners more than any other charge. It is not part of the
         {' '}{usd(pricing.leasingFee)} leasing fee. Everything else that can appear on an owner statement is on the
         {' '}<a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">pricing page</a>.
       </p>
@@ -185,7 +185,7 @@ const schemaNodes = [
       <h2 id="diff-h" class="text-[clamp(28px,3.3vw,40px)]">Which decisions do you still make?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[46em]">
         You set the plan, and the plan sets one number: how much repair spending we handle before we call you.
-        Above that limit, nothing gets spent without your approval, except a genuine emergency where waiting
+        Above that limit, nothing gets spent without your approval, except in an emergency where waiting
         would make the damage worse.
       </p>
       <div class="grid gap-5 sm:grid-cols-3">
@@ -211,8 +211,8 @@ const schemaNodes = [
       <span class="eyebrow">What we commit to</span>
       <h2 id="commit-h" class="text-[clamp(28px,3.3vw,40px)]">What happens when we do not perform?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[46em]">
-        Five commitments that cost us money when we fall short. They are in the Client Handbook, not just on
-        this page.
+        We make five commitments that cost us money when we fall short. They are written into the Client
+        Handbook as well as this page.
       </p>
       <div class="grid gap-5 sm:grid-cols-2">
         {commitments.map((c) => (

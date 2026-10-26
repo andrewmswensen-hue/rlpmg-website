@@ -275,7 +275,7 @@
 
 @layer components {
   /* ==========================================================================
-     Mega-menu navigation, modelled on croskeypm.com.
+     Mega-menu navigation, modeled on croskeypm.com.
 
      No JavaScript. Panels open on :hover for pointers and on :focus-within for
      keyboards, which means tabbing walks straight through every link in order.

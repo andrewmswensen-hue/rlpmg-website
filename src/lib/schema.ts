@@ -49,7 +49,7 @@ export function organizationNode() {
     priceRange: `$${Math.min(...pricing.plans.map((p) => p.monthly))} to $${Math.max(...pricing.plans.map((p) => p.monthly))} per unit per month`,
     currenciesAccepted: 'USD',
     /**
-     * The Ohio brokerage licence, as a verifiable credential rather than a
+     * The Ohio brokerage license, as a verifiable credential rather than a
      * marketing claim. Answer engines look for exactly this when deciding
      * whether a property management company is a real licensed entity.
      */

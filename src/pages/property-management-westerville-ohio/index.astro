@@ -87,7 +87,7 @@ const faq = [
   { q: 'Do I have to register my Westerville rental property with anyone?',
     a: 'Yes, with the county auditor, not with the city. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number and the parcel number with the auditor of the county the property sits in, and to update it within 60 days of any change. There is no filing fee. Failing to file draws a special assessment under R.C. 5323.99, which the Franklin County Auditor states as $150 per tax year. A manager can file as the owner designated agent, and we do.' },
   { q: 'What does a rental in Westerville, Ohio rent for?',
-    a: `Across the units we manage in Westerville, the median rent is ${usd(rent['3'].median)} for a 3 bedroom and ${usd(rent['4'].median)} for a 4 bedroom. Those are our own portfolio medians, not a market survey and not a public rent index. Westerville sits above our portfolio-wide median, which reflects the housing stock rather than anything we do differently there.` },
+    a: `Across the units we manage in Westerville, the median rent is ${usd(rent['3'].median)} for a 3 bedroom and ${usd(rent['4'].median)} for a 4 bedroom. Those are our own portfolio medians, not a market survey or a public rent index. Westerville sits above our portfolio-wide median, which reflects the housing stock rather than anything we do differently there.` },
   { q: 'What kind of rental property is there in Westerville?',
     a: `Mostly detached single-family houses. The median Westerville home was built in ${MEDIAN_YEAR_BUILT} according to US Census ACS 2024 5-year estimates, which is the newest stock of the older inner-ring suburbs and roughly two decades newer than Upper Arlington or Worthington. A 1980s house is past its first furnace, its first air conditioner and usually its first roof, but it is under the 1978 line, so federal lead-based paint disclosure does not apply to most of it.` },
   { q: 'How much does property management cost in Westerville?',
@@ -134,8 +134,8 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4">
         The City of Westerville does. Westerville owns and operates its own Electric Division, which the city
         describes as the only municipally owned and operated electric provider in central Ohio, and it has been
-        in the electric business since 1898. That single fact separates Westerville from every other suburb in
-        this metro, and it is the thing a manager who works the whole region will get wrong on your property.
+        in the electric business since 1898. That sets Westerville apart from every other suburb in this metro,
+        and a manager who works the whole region can get it wrong on your property.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Everywhere else we work, a resident sets up electric with AEP Ohio, gas with Columbia Gas of Ohio and
@@ -179,7 +179,7 @@ const schemaNodes = [
           </tbody>
         </table>
       </div>
-      <h3 class="text-[21px] mt-9 mb-3">What the one-account structure actually does to a turn</h3>
+      <h3 class="text-[21px] mt-9 mb-3">What the one-account structure does to a turn</h3>
       <p class="text-[16.5px] text-muted">
         It cuts both ways, and the direction depends on whether somebody is watching the account. When it works,
         a resident makes one call and four utilities move on the same day. When it does not, one missed transfer
@@ -188,7 +188,7 @@ const schemaNodes = [
         account early leaves a vacant house without power in February, which is how a burst pipe becomes a claim.
       </p>
       <p class="text-[16.5px] text-muted mt-5">
-        So we do three things on a Westerville property. We confirm the transfer date against the lease start
+        We do three things on a Westerville property. We confirm the transfer date against the lease start
         date rather than trusting a resident who says it is handled. We keep the account in the owner name
         through the vacancy, deliberately, so heat and power stay on while the unit is turned and shown. And we
         check it again at move-out before we settle a deposit, because in Ohio unpaid water and sewer can follow
@@ -215,11 +215,11 @@ const schemaNodes = [
         Before any court sees the case, Ohio requires a three-day notice to leave the premises under R.C. 1923.04,
         carrying specific statutory language, served by certified mail, handed to the resident, or left at the
         property. Wrong wording gets the case dismissed and you start again three weeks later with another month
-        of lost rent behind you. This is the part self-managing owners most often get wrong, and it is the part
-        that costs the most.
+        of lost rent behind you. Self-managing owners get this step wrong more often than any other, and it costs
+        them the most.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The money is knowable in advance. The hard cost is {usd(pricing.eviction.hardCostTotal)}, being
+        You can know the cost in advance. The hard cost is {usd(pricing.eviction.hardCostTotal)}, being
         {' '}{usd(pricing.eviction.countyFilingFee)} to the county and {usd(pricing.eviction.attorneyFee)} to the
         eviction attorney for the filing and up to two appearances. We charge
         {' '}{usd(pricing.eviction.rlpmProcessFee)} to run the process, so a typical case totals
@@ -247,7 +247,7 @@ const schemaNodes = [
         as the agent who files, and that is part of onboarding here.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Where a city runs its own registration, licence or inspection programme, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Keeping track of which programme applies to your address, and filing on time, is work we absorb rather than work we hand you.
+        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Tracking which program applies to your address, and filing on time, is our job rather than yours.
       </p>
     </div>
   </section>
@@ -266,21 +266,19 @@ const schemaNodes = [
         through the 1990s.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        A {MEDIAN_YEAR_BUILT} house behaves in a specific way, and it is not the way a new build behaves. It is
-        past its first furnace and its first air conditioner, usually on its second roof, and on original kitchen
+        A {MEDIAN_YEAR_BUILT} house wears differently from a new build. It is past its first furnace and its first air conditioner, usually on its second roof, and on original kitchen
         cabinets and original bathroom tile that still function but no longer photograph well. Water heaters are
-        on their third or fourth cycle. The good news is that a house of that age sits comfortably on the safe
-        side of the 1978 line, so the federal lead-based paint disclosure rules that govern most of Upper
+        on their third or fourth cycle. A house of that age sits on the safe side of the 1978 line, so the federal lead-based paint disclosure rules that govern most of Upper
         Arlington and much of Worthington do not reach the typical Westerville rental.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        What that means for a budget: plan for mechanical replacement rather than cosmetic surprise. A furnace on
+        For a budget, plan for mechanical replacement rather than cosmetic surprise. A furnace on
         its second unit will need a third on your watch, and the difference between an owner who planned for it
         and one who did not is whether the call comes as a scheduled replacement in September or an 11pm no-heat
         call in January. In-house maintenance is {usd(pricing.maintenance.inHouseHourly)} per hour with a
         {' '}{usd(pricing.maintenance.tripCharge)} trip charge and no minimum, and after hours it is
         {' '}{pricing.afterHours.weekdayEveningAndSaturday} times the rate on weekday evenings and Saturdays and
-        {' '}{pricing.afterHours.sunday} times on Sundays. Which is a good argument for the September appointment.
+        {' '}{pricing.afterHours.sunday} times on Sundays. That premium is a good argument for the September appointment.
       </p>
       <h3 class="text-[21px] mt-9 mb-3">Where in Westerville we work</h3>
       <p class="text-[16.5px] text-muted">
@@ -352,7 +350,7 @@ const schemaNodes = [
     { href: '/property-management-worthington-ohio/', label: 'Worthington property management', note: 'West across I-270, older stock and a design review district.' },
     { href: '/property-management-upper-arlington-ohio/', label: 'Upper Arlington property management', note: 'Southwest, the oldest housing stock we manage.' },
     { href: '/property-management-dublin-ohio/', label: 'Dublin property management', note: 'West, larger lots and a three-county eviction problem.' },
-    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with every neighbourhood we work.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with every neighborhood we work.' },
     { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
   ]} heading="Nearby markets and what to read next" />
 

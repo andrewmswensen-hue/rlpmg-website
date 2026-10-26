@@ -402,7 +402,7 @@
 .rl-report .r-value .b h4 { font-size: 20.5px; color: var(--color-navy); margin: 0 0 6px; }
 .rl-report .r-value .b p { margin: 0; font-size: 15px; line-height: 1.55; }
 
-/* ---------- neighbourhood cards ---------------------------------------------- */
+/* ---------- neighborhood cards ---------------------------------------------- */
 
 .rl-report .r-nbhd {
   border: 1px solid var(--color-line);

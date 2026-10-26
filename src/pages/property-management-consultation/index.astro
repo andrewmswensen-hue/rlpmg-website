@@ -11,7 +11,7 @@ import { serviceNode } from '../../lib/schema';
 /**
  * The conversion page. Every owner CTA on the site lands here.
  *
- * Andrew, 2026-10-06: hyper-optimise for lead generation, geared toward
+ * Andrew, 2026-10-06: hyper-optimize for lead generation, geared toward
  * intentional investors, and separate accidental landlords from intentional
  * or future investors before they become a lead.
  *
@@ -51,7 +51,7 @@ const keyFacts = [
 
 const agenda = [
   { h: 'What you own and where', p: 'Addresses, unit counts, bedroom counts and condition. If you own several, we look at the portfolio as one thing rather than a list.' },
-  { h: 'What you want it to do', p: 'Hold for appreciation, maximize monthly cash flow, stabilize and sell in three years, or simply stop being the person who gets the 11pm call. These lead to different decisions.' },
+  { h: 'What you want it to do', p: 'Hold for appreciation, maximize monthly cash flow, stabilize and sell in three years, or stop being the person who gets the 11pm call. These lead to different decisions.' },
   { h: 'What it should rent for', p: 'A rent range for each unit against our own leasing data and current comps, including whether anything on the property is holding the number down.' },
   { h: 'What we would charge', p: 'The plan that fits, the repair approval limit that goes with it, and for portfolio owners, a discounted number in writing.' },
   { h: 'What happens if you say yes', p: 'The sequence, the dates, and who your point of contact is. If you are leaving another manager, we build the transition plan on this call.' },
@@ -63,8 +63,8 @@ const bring = [
   'Current rent and lease end date on each occupied unit',
   'Your last owner statement, if you have a manager now',
   'Your current management agreement, especially the termination clause',
-  'Any known deferred maintenance you already know about',
-  'Your actual goal for the next three years',
+  'Any deferred maintenance you already know about',
+  'Your goal for the next three years',
 ];
 
 const faq = [
@@ -77,7 +77,7 @@ const faq = [
   { q: 'How does portfolio pricing work?',
     a: `${pricing.portfolioDiscount.line} For 40 units and up, this consultation is where the number gets built and put in writing.` },
   { q: 'I already have a property manager. Should I still book?',
-    a: 'Yes, and bring your current management agreement. Timing a transfer badly is what costs owners money, not the switch itself. We will read the termination clause with you and build a plan around your lease dates before anyone gives notice.' },
+    a: 'Yes, and bring your current management agreement. Owners lose money on a switch when the transfer is timed badly. We will read the termination clause with you and build a plan around your lease dates before anyone gives notice.' },
   { q: 'Do I have to commit to anything on the call?',
     a: 'No. The output of the call is a written quote and a plan. What you do with it is your decision, and plenty of owners take the rent range and keep self-managing.' },
   { q: 'How quickly can you take over a property?',
@@ -323,7 +323,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
     <div class="wrap max-w-[880px]">
       <h2 id="agenda-h" class="text-[clamp(26px,3.2vw,38px)]">What happens on the call?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        Six things, in this order. It is a working call, not a presentation, and there is no deck.
+        Six things, in this order. It is a working call with no presentation and no deck.
       </p>
       <div class="grid gap-5 sm:grid-cols-2">
         {agenda.map((a) => (
@@ -364,7 +364,8 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">Come prepared</span>
       <h2 id="bring-h" class="text-[clamp(26px,3.2vw,38px)]">What should you bring?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6">
-        None of it is required. All of it makes the quote you leave with a real number instead of a range.
+        None of it is required, but the more you bring, the more likely you leave with an exact number
+        instead of a range.
       </p>
       <ul class="grid gap-x-8 gap-y-1 sm:grid-cols-2">
         {bring.map((x) => (
@@ -409,7 +410,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
   </section>
 
   <RelatedLinks links={[
-    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Read it before the call. That is what it is for.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Written to be read before the call.' },
     { href: '/investors/', label: 'Portfolio and investor services', note: 'How we operate for multi-unit owners.' },
     { href: '/switching-property-managers/', label: 'Switching property managers', note: 'The transfer, and how to time it.' },
     { href: '/how-to-choose-a-property-manager-columbus/', label: 'How to choose a property manager', note: 'The questions to ask us, and everyone else.' },

@@ -3,7 +3,7 @@
  * ===========================================================================
  * For contractors who want work from RLPM.
  * ===========================================================================
- * Maintenance confirmed the licence, permit, payment and screening terms on
+ * Maintenance confirmed the license, permit, payment and screening terms on
  * 2026-09-10 and they are stated here, read from facts.ts.
  *
  * Three things were asked for and are genuinely not known: the vendor
@@ -64,11 +64,11 @@ const turnTiers = [
 ];
 
 const process = [
-  { n: '1', h: 'You apply', p: 'The form below. Tell us what you do, where you work, and how to reach you. It takes a few minutes and there is no account to create.' },
+  { n: '1', h: 'You apply', p: 'Fill in the form below. Tell us what you do, where you work, and how to reach you. It takes a few minutes and there is no account to create.' },
   { n: '2', h: 'We review it', p: 'A person reads it and checks it against what we currently need. Trades where we already have good coverage move slower than trades where we do not.' },
   { n: '3', h: 'We verify your paperwork', p: 'Insurance, licensing and tax documentation are confirmed before any work is assigned.' },
   { n: '4', h: 'You get in the system', p: 'Approved vendors are set up so work orders, scheduling and repair history run through one place rather than a chain of text messages.' },
-  { n: '5', h: 'You get a first job', p: 'Usually something small and well defined, so both sides can see how the other works before anything larger is on the line.' },
+  { n: '5', h: 'You get a first job', p: 'It is usually something small and well defined, so both sides can see how the other works before anything larger is on the line.' },
 ];
 
 const faq = [
@@ -82,7 +82,7 @@ const faq = [
   },
   {
     q: 'What licenses do I need?',
-    a: `Anything that legally requires a licence: ${vendors.licensedTrades.join(', ')}. Those trades are contracted out precisely because they need a licensed person. ${vendors.permits} Work that does not require a licence we generally keep in house.`,
+    a: `Anything that legally requires a license: ${vendors.licensedTrades.join(', ')}. We contract those trades out because they need a licensed person. ${vendors.permits} Work that does not require a license we generally keep in house.`,
   },
   {
     q: 'How and when do vendors get paid?',
@@ -90,7 +90,7 @@ const faq = [
   },
   {
     q: 'What areas do you send work in?',
-    a: `${areas.length} communities across Central Ohio, anchored in Columbus and Franklin County and reaching into Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. Tell us your actual service radius on the form. A vendor who covers three suburbs well is more useful to us than one who claims the whole metro.`,
+    a: `${areas.length} communities across Central Ohio, anchored in Columbus and Franklin County and reaching into Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. Tell us your service radius on the form. A vendor who covers three suburbs well is more useful to us than one who claims the whole metro.`,
   },
   {
     q: 'How does scheduling and communication work?',
@@ -132,26 +132,25 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
         specialized trade work, licensed work, and capacity when several turns land at once.
       </p>
       <p>
-        Concretely: anything that legally requires a licence goes to a vendor. That means
-        {' '}{vendors.licensedTrades.join(', ')}. Work that does not require a licence we keep in
-        house wherever we can, which is why our vendor list is deliberately shorter than most
-        managers of our size.
+        Anything that legally requires a license goes to a vendor. That means
+        {' '}{vendors.licensedTrades.join(', ')}. Work that does not require a license we keep in
+        house wherever we can, which is why our vendor list is deliberately shorter than those of
+        most managers our size.
       </p>
 
       <h2>What is it like to work with us?</h2>
       <p>
-        Three things are true of the work, and they are the three things most contractors ask
-        about before anything else.
+        Most contractors ask about three things before anything else.
       </p>
       <ul>
         <li>
-          <strong>The volume is steady, not seasonal spikes.</strong> {company.unitsManaged} units
+          <strong>The volume is steady year-round.</strong> {company.unitsManaged} units
           generate repairs every week of the year. Turns cluster in the leasing season, but the
           repair flow does not stop in February.
         </li>
         <li>
-          <strong>One system, not a chain of text messages.</strong> Work orders, scheduling,
-          photos and history live in Property Meld. A job has a record. So does the conversation.
+          <strong>Everything runs through one system.</strong> Work orders, scheduling, photos and
+          history live in Property Meld, so each job has a record, and so does the conversation about it.
         </li>
         <li>
           <strong>The scope is written down.</strong> We scope turns before the work starts, which
@@ -165,7 +164,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
 
   <section class="band band-wash" aria-labelledby="fee-h">
     <div class="wrap max-w-[940px]">
-      <span class="eyebrow">Published, not negotiated in the dark</span>
+      <span class="eyebrow">Published fee schedule</span>
       <h2 id="fee-h" class="text-[clamp(26px,3.2vw,38px)]">How is vendor work priced to the owner?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         We publish our own fee schedule, so a vendor can see exactly how the job is structured
@@ -221,21 +220,20 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
         </li>
       </ul>
       <p>
-        Until those are confirmed by operations, the honest answer is: call {company.phone} and ask,
-        and this page will carry the answer once it is settled. What is on the form below is enough
-        to start the conversation.
+        Until operations confirms those requirements, call {company.phone} and ask. We will add the
+        answer to this page once it is settled. The form below is enough to start the conversation.
       </p>
 
       <h2>How do vendors get paid?</h2>
       <p>
-        Net {vendors.paymentTermsDays} days from an approved invoice. {vendors.invoicing} One
-        record per job, rather than an invoice attached to a text message that nobody can find in
-        March.
+        Net {vendors.paymentTermsDays} days from an approved invoice. {vendors.invoicing} Each
+        job has one record, so an invoice does not end up attached to a text message that nobody can
+        find in March.
       </p>
 
       <h2>Is applying an agreement?</h2>
       <p>
-        No. Submitting the form below starts a conversation. It does not create a relationship and
+        No. Submitting the form below starts a conversation. It does not create a relationship, and
         it does not assign any work.
       </p>
     </div>
@@ -246,7 +244,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">What happens next</span>
       <h2 id="proc-h" class="text-[clamp(26px,3.2vw,38px)]">How does the application process work?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Five steps. A person is involved at every one of them.
+        The process has five steps, and a person handles each one.
       </p>
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {process.map((s) => (
@@ -265,8 +263,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">Apply</span>
       <h2 id="form-h" class="text-[clamp(26px,3.2vw,38px)]">Vendor application</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        Everything marked required is required because we cannot evaluate the application without
-        it. Do not send certificates, license copies or tax forms through this form. We will ask for
+        We need the fields marked required to evaluate the application. Do not send certificates, license copies or tax forms through this form. We will ask for
         documents directly once the application is reviewed.
       </p>
 
@@ -296,7 +293,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
             <div>
               <label class={labelCls} for="role">Your role</label>
               <input class={inputCls} id="role" name="contact_role" type="text" autocomplete="organization-title" />
-              <span class={hintCls}>Owner, dispatcher, estimator, whoever we should actually call.</span>
+              <span class={hintCls}>Owner, dispatcher, estimator, whoever we should call.</span>
             </div>
           </div>
 
@@ -358,7 +355,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
             <label class={labelCls} for="service-area">Service area <span class="text-crimson">(required)</span></label>
             <textarea class={inputCls} id="service-area" name="service_area" rows="2" required></textarea>
             <span class={hintCls}>
-              The cities, suburbs or ZIP codes you actually cover. A tight radius you serve well beats
+              The cities, suburbs or ZIP codes you cover. A tight radius you serve well beats
               a claim on the whole metro.
             </span>
           </div>
@@ -411,7 +408,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
           <div>
             <label class={labelCls} for="references">Property managers or investors you currently work with</label>
             <textarea class={inputCls} id="references" name="references" rows="2"></textarea>
-            <span class={hintCls}>Optional, and it helps. Names only, we will ask before contacting anyone.</span>
+            <span class={hintCls}>Optional, and it helps. Names only. We will ask before contacting anyone.</span>
           </div>
 
           <div>
@@ -463,7 +460,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
   ]} />
 
   <Cta
-    heading="Rather just talk it through?"
+    heading="Would you rather talk it through?"
     body="Call the office, say what you do and where you work, and we will tell you straight whether we have a need in your trade right now."
     primary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
     secondary={{ label: 'Contact us', href: '/contact-us/' }}

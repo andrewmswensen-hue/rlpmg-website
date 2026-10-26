@@ -4,7 +4,7 @@
  *
  * Same story as the Client Handbook: this was custom-coded on the old site and
  * the WordPress import flattened it, losing the hero, the sticky contents, the
- * nine charts, the neighbourhood cards, the regulatory sections and the FAQ.
+ * nine charts, the neighborhood cards, the regulatory sections and the FAQ.
  * Andrew, 2026-09-10: put it back, restyled to the new site.
  *
  * Content is the original. Three figures in the source now read from facts.ts
@@ -28,7 +28,7 @@ import '../../styles/report.css';
 
 const title = 'Columbus Single-Family Rental Market Report 2026';
 const description =
-  'An operator’s view of the Columbus single-family rental market: rent trends, neighbourhood yields, the new rental registry, the triennial reassessment, and the 2026 investor playbook.';
+  'An operator’s view of the Columbus single-family rental market: rent trends, neighborhood yields, the new rental registry, the triennial reassessment, and the 2026 investor playbook.';
 const breadcrumbs = [{ name: 'Home', path: '/' }, { name: '2026 market report', path: '/2026-columbus-market-report/' }];
 
 const toc = [
@@ -63,13 +63,13 @@ const metrics = [
 const nbhds = [
   { n: 1, h: 'High-yield value neighborhoods', cap: '7 to 10%', profile: 'Highest yield', capLabel: 'Cap rate',
     meta: '<b>Neighborhoods:</b> Whitehall &middot; Eastmoor &middot; Blacklick &middot; Reynoldsburg &middot; Newark &nbsp;|&nbsp; <b>Best for:</b> Monthly cash flow, active management',
-    p: 'For investors prioritising monthly cash flow, these east-side and value-tier submarkets offer the strongest rent-to-price ratios in our service area. Whitehall and Eastmoor combine affordable entry points with steady workforce-tenant demand, while Blacklick and Reynoldsburg pair lower purchase prices with reliable east-side rental demand. Newark, on the Intel corridor, is an emerging value market worth watching on a longer horizon.' },
+    p: 'For investors prioritizing monthly cash flow, these east-side and value-tier submarkets offer the strongest rent-to-price ratios in our service area. Whitehall and Eastmoor combine affordable entry points with steady workforce-tenant demand, while Blacklick and Reynoldsburg pair lower purchase prices with reliable east-side rental demand. Newark, on the Intel corridor, is an emerging value market worth watching on a longer horizon.' },
   { n: 2, h: 'Emerging suburban corridors', cap: '6 to 8%', profile: 'Balanced', capLabel: 'Cap rate',
     meta: '<b>Neighborhoods:</b> Morse Road and SR 161 (Northland, Gahanna, Westerville) &middot; Hamilton Road corridor &middot; Lincoln Village &middot; Reynoldsburg &nbsp;|&nbsp; <b>Best for:</b> Entry-level, 1 to 5-unit portfolios',
     p: 'First-ring suburbs offer the cleanest balance of affordability and rental demand. <b>Reynoldsburg deserves particular attention in 2026:</b> the city has seen notable year-over-year sales activity increases, and its affordable entry points combined with solid rental demand make it a sweet spot for investors building a Columbus portfolio.' },
   { n: 3, h: 'Southern growth areas', cap: '5 to 7%', profile: 'Stable', capLabel: 'Cap rate',
     meta: '<b>Neighborhoods:</b> Grove City &middot; Canal Winchester &middot; Lancaster &middot; Groveport &middot; Teays Valley school district &nbsp;|&nbsp; <b>Best for:</b> Tenant stability, long lease terms',
-    p: 'Columbus’s southern suburbs continue to offer strong fundamentals for investors prioritising tenant stability. Larger lots, lower property taxes than north-side suburbs, and school districts that attract family renters who stay for multiple lease terms. Proximity to Honda’s Marysville manufacturing complex, area data-centre operations, and Anduril’s Arsenal-1 plant near Rickenbacker all add to workforce housing demand.' },
+    p: 'Columbus’s southern suburbs continue to offer strong fundamentals for investors prioritizing tenant stability. Larger lots, lower property taxes than north-side suburbs, and school districts that attract family renters who stay for multiple lease terms. Proximity to Honda’s Marysville manufacturing complex, area data-center operations, and Anduril’s Arsenal-1 plant near Rickenbacker all add to workforce housing demand.' },
   { n: 4, h: 'Affluent suburbs, appreciation plays', cap: '4 to 6%', profile: 'Appreciation', capLabel: 'Cap rate',
     meta: '<b>Neighborhoods:</b> Dublin &middot; Powell &middot; New Albany &middot; Upper Arlington &middot; Lewis Center (Olentangy schools) &nbsp;|&nbsp; <b>Best for:</b> Long horizon, appreciation plus premium tenants',
     p: 'For investors focused on long-term appreciation and premium tenants, the traditional Columbus prestige suburbs remain best in class. Dublin’s median home price sits around <b>$615,000.</b> Cash flow is thin, because higher entry prices and higher property taxes compress initial yields, but lease renewal rates are the highest in the metro, vacancy is minimal, and appreciation has been steady for decades.' },
@@ -160,7 +160,7 @@ const schemaNodes = [{
       <span class="r-hero-year">2026</span>
       <p class="r-hero-sub">
         An operator&rsquo;s view of the Columbus, Ohio metro single-family rental market: rent trends,
-        neighbourhood yields, regulatory shifts, and the 2026 investor playbook.
+        neighborhood yields, regulatory shifts, and the 2026 investor playbook.
       </p>
       <div class="r-hero-metrics">
         <div class="r-metric"><div class="v">$1,725</div><div class="l">Avg 3BR rent</div><div class="c">Columbus apartments, mid-2026</div></div>
@@ -285,12 +285,12 @@ const schemaNodes = [{
           year-over-year, while three-bedroom unit rents average $1,725. Single-family detached rentals
           typically command higher rents than comparable apartments, with three-bedroom homes in desirable
           Columbus submarkets leasing in the <b>$1,750 to $2,200</b> range depending on condition and
-          neighbourhood.
+          neighborhood.
         </p>
         <p>
           Arbor&rsquo;s Q2 2026 SFR report shows national occupancy at 93.9% and cap rates rising to 7.4%, a
           tenth straight quarterly increase, as home-price appreciation slowed, while national SFR rents grew
-          2.6% year-over-year. Columbus fundamentals compare favourably on both occupancy and rent growth.
+          2.6% year-over-year. Columbus fundamentals compare favorably on both occupancy and rent growth.
         </p>
 
         <div class="r-chart">
@@ -361,17 +361,17 @@ const schemaNodes = [{
         <h2 class="r-h2">Best Neighborhoods for Investment in 2026</h2>
         <span class="r-rule"></span>
         <p>
-          Not every part of Columbus behaves the same way, and investor strategy should match neighbourhood
+          Not every part of Columbus behaves the same way, and investor strategy should match neighborhood
           fundamentals. Below are the five categories to watch in 2026, with typical return profiles and
           operational considerations.
         </p>
 
         <div class="r-chart">
-          <p class="r-chart-title">Typical cap rate ranges by Columbus neighbourhood category</p>
+          <p class="r-chart-title">Typical cap rate ranges by Columbus neighborhood category</p>
           <p class="r-chart-sub">Low and high range for each type</p>
           <ReportCharts name="caprates" />
           <p class="r-chart-cap">
-            Urban cash-flow neighbourhoods generate the highest yields but require active management. Premium
+            Urban cash-flow neighborhoods generate the highest yields but require active management. Premium
             suburbs generate lower current yields but trade on appreciation.
           </p>
         </div>
@@ -422,7 +422,7 @@ const schemaNodes = [{
           <div class="r-mini"><h5>Healthcare</h5><p>OhioHealth &middot; Nationwide Children&rsquo;s &middot; OSU Wexner Medical Center</p></div>
           <div class="r-mini"><h5>Financial services</h5><p>JPMorgan Chase &middot; Nationwide Insurance &middot; Huntington Bank</p></div>
           <div class="r-mini"><h5>Education and government</h5><p>The Ohio State University, the largest metro employer &middot; Ohio state agencies</p></div>
-          <div class="r-mini"><h5>Technology and manufacturing</h5><p>Google &middot; Meta &middot; AWS data centres &middot; Honda (Marysville) &middot; Anduril Industries</p></div>
+          <div class="r-mini"><h5>Technology and manufacturing</h5><p>Google &middot; Meta &middot; AWS data centers &middot; Honda (Marysville) &middot; Anduril Industries</p></div>
         </div>
 
         <h3 class="r-h3" style="color:var(--color-maroon);">Intel: patience, not panic</h3>
@@ -480,7 +480,7 @@ const schemaNodes = [{
             every three years. Individual-unit inspections are triggered only when a property is placed in
             conditional status. Operating without valid registration carries a civil penalty of about $2 per
             unit per day. Implementation details, meaning the registration portal, the first filing deadline
-            and the enforcement start date, are still being finalised by Building and Zoning Services.
+            and the enforcement start date, are still being finalized by Building and Zoning Services.
           </p>
           <p class="r-note">
             Registration is our job to track, not yours. We file the county auditor registration as your
@@ -586,7 +586,7 @@ const schemaNodes = [{
           opportunities for strategic investors willing to underwrite carefully, negotiate thoughtfully and
           hold for the long term. The key shift is to buy on current cash flow and realistic appreciation
           projections, not on speculation about Intel timelines or employer announcements that may or may not
-          materialise on schedule.
+          materialize on schedule.
         </p>
       </section>
 
@@ -619,7 +619,7 @@ const schemaNodes = [{
 
         <p>
           Our clients include long-term investors, accidental landlords, first-time buyers, and out-of-state
-          owners managing Columbus portfolios remotely. We specialise in single-family homes and small
+          owners managing Columbus portfolios remotely. We specialize in single-family homes and small
           multifamily properties across the Columbus metro.
         </p>
 
@@ -627,7 +627,7 @@ const schemaNodes = [{
         <ul class="prose-rl">
           <li><b>{usd(pricing.leasingFee)} leasing fees</b> on all three plans. Most Columbus managers charge 50% to 100% of the first month&rsquo;s rent every time a resident turns over. We charge nothing.</li>
           <li><b>Flat-rate pricing.</b> Three plans, {pricing.plans.map((p) => `${p.name} ${usd(p.monthly)}`).join(' · ')} per unit per month, with every other fee published.</li>
-          <li><b>A live scorecard.</b> Days on market, renewal rate, occupancy and rent collection, <a href="/key-performance-indicators/">published openly</a> and refreshed quarterly.</li>
+          <li><b>A live scorecard.</b> Days on market, renewal rate, occupancy and rent collection, <a href="/key-performance-indicators/">published openly</a> and refreshed monthly.</li>
           <li><b>In-house maintenance.</b> {usd(pricing.maintenance.inHouseHourly)} per hour plus a {usd(pricing.maintenance.tripCharge)} trip charge, with quarterly inspections in every plan.</li>
           <li><b>Local depth.</b> Based in Columbus, managing {company.unitsManaged} units across the metro.</li>
         </ul>
@@ -656,7 +656,7 @@ const schemaNodes = [{
         <h2 class="r-h2">Methodology and Sources</h2>
         <span class="r-rule"></span>
         <p>
-          This report synthesises publicly available market data, government-source statistics and industry
+          This report synthesizes publicly available market data, government-source statistics and industry
           research current as of July 2026, with the regulatory section refreshed in September 2026. All
           figures reflect the most recent data available at the time of publication. Market conditions change,
           so verify current metrics before making acquisition decisions.
@@ -676,7 +676,7 @@ const schemaNodes = [{
           {company.name} is a Columbus, Ohio residential property management company founded in
           {' '}{company.founded}. We manage <b>{company.unitsManaged} single-family homes and small multifamily
           properties</b> across the Columbus metro, with a team of {company.headcount.total} and a
-          specialisation in serving intentional, long-term investors.
+          specialization in serving intentional, long-term investors.
         </p>
         <p>
           We are at {company.address.street}, {company.address.city}, {company.address.region}

@@ -114,7 +114,7 @@ const schemaNodes = [
   <!-- THE MASTER-PLAN PROBLEM. The differentiating section for this page. -->
   <section class="band-tight" aria-labelledby="charge-h">
     <div class="wrap max-w-[880px]">
-      <h2 id="charge-h" class="text-[clamp(26px,3.2vw,38px)]">What does it cost to carry a New Albany rental that nobody tells you about?</h2>
+      <h2 id="charge-h" class="text-[clamp(26px,3.2vw,38px)]">What carrying cost on a New Albany rental does a listing leave out?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         A community development charge. The New Albany Community Authority levies a charge on the assessed
         valuation of each chargeable parcel inside its Community District, in mills set by the Authority's board
@@ -126,23 +126,23 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-5">
         This is the most common underwriting mistake we see on New Albany purchases. An investor pulls the tax
         figure off a listing portal, plugs it into a spreadsheet, and buys a property whose real carrying cost
-        is higher than modelled from day one. Nothing about it is hidden. It is just not where people look.
+        is higher than modeled from day one. Nothing about it is hidden, but it is not where most buyers look.
         Before you commit, confirm with the county treasurer whether your parcel is chargeable and at what
         current millage, then rebuild the model.
       </p>
-      <h3 class="text-[21px] mt-9 mb-3">And then there is what is recorded against the parcel</h3>
+      <h3 class="text-[21px] mt-9 mb-3">What is recorded against the parcel</h3>
       <p class="text-[17.5px] text-muted mt-4">
         Residential New Albany was built out largely under a single master plan, and the architectural
         consistency people notice is mostly the work of private covenants and association architectural review
-        recorded against parcels, not a municipal ordinance policing the colour of every front door. The
-        distinction matters, because a covenant is enforced by an association rather than a city inspector, and
+        recorded against parcels, not a municipal ordinance policing the color of every front door. A
+        covenant is enforced by an association rather than a city inspector, and
         associations vary a great deal in what they permit.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Four things are worth checking in the recorded declaration before you buy: whether exterior changes need
         architectural approval and how long that takes, whether leasing is restricted, whether there is a
         minimum lease term, and whether the association charges a fee to process a new resident. Any one can add
-        a fortnight between a signed lease and a move-in, and a move-in that slips is a vacancy you paid for.
+        a two weeks between a signed lease and a move-in, and a move-in that slips is a vacancy you paid for.
       </p>
       <p class="text-[16px] text-muted mt-5"> We will not state a restriction
         we have not read.
@@ -169,7 +169,7 @@ const schemaNodes = [
         {' '}{usd(pricing.eviction.countyFilingFee)} to the county for the eviction complaint and
         {' '}{usd(pricing.eviction.attorneyFee)} to the eviction attorney for the filing and up to two appearances.
         We charge {usd(pricing.eviction.rlpmProcessFee)} to run the process, a typical total of
-        {' '}{usd(pricing.eviction.typicalTotal)} before any setout. A Licking County parcel files in Newark instead, where licking County Municipal Court in Newark charges $110 for a forcible entry and detainer, which includes regular mail and bailiff service for up to two defendants, with a further $50 if a writ of restitution is needed. The whole sequence is on the
+        {' '}{usd(pricing.eviction.typicalTotal)} before any setout. A Licking County parcel files at Licking County Municipal Court in Newark instead, which charges $110 for a forcible entry and detainer, which includes regular mail and bailiff service for up to two defendants, with a further $50 if a writ of restitution is needed. The whole sequence is on the
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
@@ -177,10 +177,10 @@ const schemaNodes = [
         of the county the property sits in, within 60 days of purchase and of any change. No fee. The penalty is
         a special assessment of $50 to $150 under R.C. 5323.99, and the Franklin County Auditor states $150 per
         tax year. Owners holding title through an LLC or a trust must name the responsible officer, member or
-        trustee, the line most often left blank. We file as the owner designated agent at onboarding.
+        trustee, the line most often left blank. We file as the owner's designated agent at onboarding.
       </p>
       <p class="text-[16px] text-muted mt-5">
-        Where a city runs its own registration, licence or inspection programme, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Keeping track of which programme applies to your address, and filing on time, is work we absorb rather than work we hand you.
+        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and file on time, so you do not have to.
       </p>
     </div>
   </section>
@@ -225,7 +225,7 @@ const schemaNodes = [
       <p class="text-[16px] text-muted mt-6">
         Columbus states that the property owner is ultimately responsible for all charges, even where a tenant
         billing agreement puts the account in the resident's name. A resident who leaves owing water can leave
-        that balance pointed at your parcel. We put the accounts in the resident name at lease signing and check
+        that balance pointed at your parcel. We put the accounts in the resident's name at lease signing and check
         them again at move-out. On a large house with irrigation, that final read is not a formality.
       </p>
     </div>
@@ -246,14 +246,14 @@ const schemaNodes = [
         Newer does not mean cheaper to run, and this is where New Albany owners get caught. A twenty-year-old
         four bedroom house with a finished basement, an irrigation system, two furnaces and two condensers has
         more equipment to fail than a small ranch, and those systems reach the end of a first service life at
-        roughly the same time. In-house maintenance labour is {usd(pricing.maintenance.inHouseHourly)} per hour
+        roughly the same time. In-house maintenance labor is {usd(pricing.maintenance.inHouseHourly)} per hour
         in {pricing.maintenance.rateYear} with a {usd(pricing.maintenance.tripCharge)} trip charge, no minimum
         and materials at cost. Where an outside vendor runs a project the fee is
         {' '}{pricing.maintenance.vendorProjectFeePct}% and it caps at {usd(pricing.maintenance.vendorProjectFeeCap)}.
       </p>
       <h3 class="text-[21px] mt-9 mb-3">Where in New Albany we work</h3>
       <p class="text-[16.5px] text-muted">
-        The village centre and Market Street, the Dublin Granville Road and Johnstown Road corridors, Kitzmiller
+        The village center and Market Street, the Dublin Granville Road and Johnstown Road corridors, Kitzmiller
         Road, Central College Road, Reynoldsburg New Albany Road, and the eastern edge toward the Licking County
         line. New Albany Plain Local Schools serves most of the city and is a large part of why houses here rent
         where they do, but the district boundary and the city boundary are not the same line, so check the parcel
@@ -269,7 +269,7 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4">
         We are not publishing a New Albany rent median. Our managed sample there is below the five-unit
         threshold we set before we will call a number a market median, and quoting a public rent index as though
-        it came off our rent roll is the thing we criticise other pages for. Across our whole portfolio the
+        it came off our rent roll is the thing we criticize other pages for. Across our whole portfolio the
         median is {usd(rentByBedroom['3'].median)} for a three bedroom and {usd(rentByBedroom['4'].median)} for a
         four bedroom. The closest market where we do publish our own figure is Dublin, at
         {' '}{usd(rentByMarketAndBedroom['Dublin']['3'].median)} for a three bedroom.

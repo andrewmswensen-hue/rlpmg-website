@@ -45,25 +45,25 @@ const facts = [
 ];
 
 const steps = [
-  { h: 'Price it against what actually leased',
-    b: 'Asking rent is set from recent leased comparables, not from active listings. Active listings are asking prices, and an overpriced unit can sit for weeks without ever telling you it is overpriced. A unit priced 5 percent high does not lease 5 percent slower, it stalls.' },
+  { h: 'Price it against units that leased',
+    b: 'We set asking rent from recent leased comparables rather than active listings, which show only what other owners are asking. An overpriced unit can sit for weeks before it is clear that price is the problem. A unit priced 5 percent high stalls, rather than leasing 5 percent slower.' },
   { h: 'Get it rent ready before it goes live',
-    b: `The turn happens first, not during marketing. Photographing a half-finished unit costs you the first and best week of exposure. Median turn time across our portfolio is ${kpi('turn')} days.` },
+    b: `We finish the turn before marketing starts. Photographing a half-finished unit costs you the first and best week of exposure. Median turn time across our portfolio is ${kpi('turn')} days.` },
   { h: 'Photograph it properly',
-    b: `Photos are the listing. Professional photography runs $250 to $450 depending on property size, billed at vendor cost plus our standard markup. It is not covered by the ${usd(pricing.leasingFee)} leasing fee. Existing photos keep being used at no charge while they still represent the property, and the photos are yours to keep.` },
+    b: `Prospects judge a listing by its photos. Professional photography runs $250 to $450 depending on property size, billed at vendor cost plus our standard markup. It is not covered by the ${usd(pricing.leasingFee)} leasing fee. Existing photos keep being used at no charge while they still represent the property, and the photos are yours to keep.` },
   { h: 'Syndicate to every major portal',
-    b: 'The listing goes out to the major rental portals at once rather than to one site at a time, so the whole demand pool sees it in the same week. The first ten days of a listing produce most of the qualified inquiry.' },
+    b: 'The listing goes out to the major rental portals at once rather than to one site at a time, so renters on every site see it in the same week. The first ten days of a listing produce most of the qualified inquiry.' },
   { h: 'Show it without making people wait',
-    b: 'Self-guided and agent-led showings both run. A prospect who has to wait four days for a Saturday open house has already toured three other units. Speed of showing is the single most controllable input to days on market.' },
+    b: 'We offer both self-guided and agent-led showings. A prospect who has to wait four days for a Saturday open house has already toured three other units. Of everything that affects days on market, showing speed is the easiest to control.' },
   { h: 'Screen, then sign',
-    b: 'Every applicant runs through the same written standard: credit, criminal, income, rental history and eviction record. Lease preparation is on a custom lease reviewed by legal counsel, and it is included in the leasing fee.' },
+    b: 'Every applicant runs through the same written standard: credit, criminal, income, rental history and eviction record. We prepare a custom lease reviewed by legal counsel, and lease preparation is included in the leasing fee.' },
 ];
 
 const faq = [
   { q: 'How much does it cost to lease a rental property in Columbus?',
     a: `${company.name} charges ${usd(pricing.leasingFee)} to place a resident, on every plan. Most Columbus managers charge roughly half a month of rent, which on the ${kpi('avgRent')} average rent under our management is a few hundred to over eight hundred dollars each time the unit turns. Photography is the one leasing cost we bill separately, at $250 to $450.` },
   { q: 'How long does it take to rent a house in Columbus?',
-    a: `Median days on market across our portfolio is ${kpi('dom')}. That is measured as ${kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)} Individual units vary widely with price, condition, season and location. A unit that has sat past 60 days is almost always a pricing or condition problem, not a marketing problem.` },
+    a: `Median days on market across our portfolio is ${kpi('dom')}. That is measured as ${kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)} Individual units vary widely with price, condition, season and location. When a unit sits past 60 days, the cause is almost always pricing or condition rather than marketing.` },
   { q: 'Is photography included in the leasing fee?',
     a: `No. Photography is billed separately at $250 to $450, by property size, at vendor cost plus our standard markup. It applies to new vacant units and units that have had major cosmetic work, effective October 1, 2026. If your existing photos still represent the property we keep using them at no charge, and the photos are yours to keep.` },
   { q: 'What happens if my property does not lease?',
@@ -73,9 +73,9 @@ const faq = [
   { q: 'Do you charge a leasing fee again when the resident renews?',
     a: `No. A renewal is ${usd(pricing.leaseRenewalFee)}, charged to the owner on the date the lease renews. Because we charge nothing to place a new resident, we have no financial reason to prefer a turn over a renewal. Our renewal rate is ${kpi('renewal')}.` },
   { q: 'When do you need possession of the unit?',
-    a: 'At least 14 days before an executed lease starts. If a unit is not handed over by then, the fee for failure to provide possession is 3 months of rent, because a resident with a signed lease and nowhere to move is a real liability, not a scheduling inconvenience.' },
+    a: 'At least 14 days before an executed lease starts. If a unit is not handed over by then, the fee for failure to provide possession is 3 months of rent, because a resident with a signed lease and nowhere to move is a serious liability for the owner.' },
   { q: 'Where do you advertise a vacant unit?',
-    a: 'The listing syndicates to more than fifty rental sites, including Zillow, Realtor.com, Trulia, Zumper and HotPads, which is where nearly every prospective resident actually starts looking. It also goes on our own site with photographs and a self-scheduled showing link.' },
+    a: 'The listing syndicates to more than fifty rental sites, including Zillow, Realtor.com, Trulia, Zumper and HotPads, which is where nearly every prospective resident starts looking. It also goes on our own site with photographs and a self-scheduled showing link.' },
 ];
 
 const schemaNodes = [
@@ -103,8 +103,8 @@ const schemaNodes = [
 
   <section class="band" aria-labelledby="cost-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">The real cost of a vacancy</span>
-      <h2 id="cost-h" class="text-[clamp(28px,3.3vw,40px)]">What does vacancy actually cost?</h2>
+      <span class="eyebrow">The cost of a vacancy</span>
+      <h2 id="cost-h" class="text-[clamp(28px,3.3vw,40px)]">What does vacancy cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         A vacant month costs a full month of rent, and you still pay the mortgage, the taxes, the insurance and
         the utilities that month. On the {kpi('avgRent')} average rent under our management, thirty extra days
@@ -124,7 +124,7 @@ const schemaNodes = [
       <span class="eyebrow">The process</span>
       <h2 id="steps-h" class="text-[clamp(28px,3.3vw,40px)]">How do you market a rental property?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Six steps, in this order. Owners who self-manage usually get five of them right and lose two weeks on
+        There are six steps, in this order. Owners who self-manage usually get five of them right and lose two weeks on
         the sixth.
       </p>
       <ol class="grid gap-5">
@@ -160,13 +160,13 @@ const schemaNodes = [
       <span class="eyebrow">Diagnosis</span>
       <h2 id="stall-h" class="text-[clamp(28px,3.3vw,40px)]">Why is my rental not renting?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6">
-        Almost always one of four things, and the inquiry data tells you which.
+        It is almost always one of four things, and the inquiry data shows you which one.
       </p>
       <ul class="grid gap-4">
         <li class="card !p-5"><strong class="text-navy">Few views, few inquiries.</strong> <span class="text-muted">The listing is not reaching people or the photos are not earning a click. Fix the photos and the syndication first.</span></li>
         <li class="card !p-5"><strong class="text-navy">Views but no inquiries.</strong> <span class="text-muted">Price is above what the photos and the description justify. This is a pricing problem, and it will not resolve on its own.</span></li>
         <li class="card !p-5"><strong class="text-navy">Inquiries but no showings.</strong> <span class="text-muted">Response time or showing availability. A prospect who cannot tour within about 48 hours is touring something else.</span></li>
-        <li class="card !p-5"><strong class="text-navy">Showings but no applications.</strong> <span class="text-muted">The unit does not match the listing. Condition, smell, a dated kitchen, a parking or laundry issue that photos hid.</span></li>
+        <li class="card !p-5"><strong class="text-navy">Showings but no applications.</strong> <span class="text-muted">The unit does not match the listing: condition, smell, a dated kitchen, or a parking or laundry issue the photos hid.</span></li>
       </ul>
       <p class="text-[15px] text-muted mt-6">
         Past 60 days on the market, we credit management fees back to your account while we work the problem.

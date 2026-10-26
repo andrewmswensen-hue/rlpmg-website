@@ -30,7 +30,7 @@ import { serviceNode } from '../../lib/schema';
  *  - "The Columbus Division of Water provides water and sewer services for
  *    Hilliard residents": hilliardohio.gov/questions-answers/. That page also
  *    names Columbia Gas of Ohio for gas, AEP Ohio as the distribution utility,
- *    the city electric aggregation programme, and Local Waste Services for trash.
+ *    the city electric aggregation program, and Local Waste Services for trash.
  *  - Columbus owner-responsibility language on a Tenant Billing Agreement,
  *    carried from docs/area-research-verified.md (Columbus Billing & Collections
  *    Regulation): the property owner "is ultimately responsible for all charges".
@@ -73,22 +73,22 @@ const keyFacts = [
 
 const utilities = [
   { service: 'Water and sewer', provider: 'Columbus Division of Water, under contract with Hilliard', pays: 'Resident under a Tenant Billing Agreement, but the owner remains liable to Columbus' },
-  { service: 'Electricity', provider: 'AEP Ohio distributes. Hilliard also runs a community aggregation programme', pays: 'Resident' },
+  { service: 'Electricity', provider: 'AEP Ohio distributes. Hilliard also runs a community aggregation program', pays: 'Resident' },
   { service: 'Natural gas', provider: 'Columbia Gas of Ohio', pays: 'Resident' },
   { service: 'Trash and recycling', provider: 'Local Waste Services, billed quarterly', pays: 'Varies by lease' },
 ];
 
 const faq = [
   { q: 'Who is responsible for an unpaid water bill on a Hilliard rental?',
-    a: 'The property owner. Hilliard buys water and sewer from the City of Columbus under contract, and Columbus states that the property owner is ultimately responsible for all charges even where a Tenant Billing Agreement puts the bill in the resident name. The owner keeps receiving copies of the bill for exactly that reason. A resident who leaves owing several hundred dollars in water leaves it pointed at you, not at them.' },
+    a: 'The property owner. Hilliard buys water and sewer from the City of Columbus under contract, and Columbus states that the property owner is ultimately responsible for all charges even where a Tenant Billing Agreement puts the bill in the resident name. That is why the owner keeps receiving copies of the bill. A resident who leaves owing several hundred dollars in water leaves that balance with you.' },
   { q: 'What county is Hilliard, Ohio in?',
     a: 'Franklin County, all of it. Unlike Dublin, which spans three counties, and unlike Powell, which is in Delaware County, Hilliard does not straddle a county line. Every Hilliard parcel files with the Franklin County Auditor and every Hilliard eviction is heard by the same court.' },
   { q: 'Which court hears an eviction in Hilliard, Ohio?',
-    a: 'Franklin County Municipal Court, civil and eviction division, 375 S. High St., 3rd floor, Columbus, OH 43215, where Eviction Court sits in Courtroom 11B. Jurisdiction follows the county under Ohio Revised Code 1901.02. Before the case is filed, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, carrying specific statutory language. Wrong wording, dismissed case, and three weeks lost.' },
+    a: 'Franklin County Municipal Court, civil and eviction division, 375 S. High St., 3rd floor, Columbus, OH 43215, where Eviction Court sits in Courtroom 11B. Jurisdiction follows the county under Ohio Revised Code 1901.02. Before the case is filed, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, carrying specific statutory language. If the wording is wrong, the case is dismissed and you lose three weeks.' },
   { q: 'Do I have to register my Hilliard rental property with anyone?',
     a: 'Yes, with the Franklin County Auditor, not with the city. Ohio Revised Code 5323.02 requires the owner of residential rental property to file owner name, address and telephone number plus the property address and parcel number, and to update it within 60 days of any change. There is no fee. The Franklin County Auditor states a penalty of $150 per tax year for failing to file. A property manager can file as the owner designated agent, and we do.' },
-  { q: 'Does the City of Hilliard require a rental licence or inspection?',
-    a: 'Where a Central Ohio city runs its own registration or inspection programme, it sits on top of the Ohio R.C. 5323 county auditor filing rather than replacing it. Tracking which one applies to which address is our job, not yours. We file the auditor registration as your designated agent during onboarding and we handle the municipal filings and renewals in the communities we work in. This is one of the obligations that quietly becomes your problem the moment you self-manage. The Franklin County Auditor filing under R.C. 5323 applies either way.' },
+  { q: 'Does the City of Hilliard require a rental license or inspection?',
+    a: 'Where a Central Ohio city runs its own registration or inspection program, it sits on top of the Ohio R.C. 5323 county auditor filing rather than replacing it. We track which one applies to which address. We file the auditor registration as your designated agent during onboarding and we handle the municipal filings and renewals in the communities we work in. If you self-manage, tracking these filings falls to you. The Franklin County Auditor filing under R.C. 5323 applies either way.' },
   { q: 'What does a rental in Hilliard, Ohio rent for?',
     a: `Across the units we manage in Hilliard, the median rent is ${usd(rent['3'].median)} for a three bedroom. That is our own portfolio median, not a market survey. We are not publishing a bedroom-level median at other bedroom counts in Hilliard because the sample is under five units, and a median built on three houses is not something anyone should price against.` },
   { q: 'How old is the housing stock in Hilliard?',
@@ -133,21 +133,20 @@ const schemaNodes = [
         You are, as the owner, even when the resident is the one being billed. Hilliard is a City of Columbus
         water and sewer contract community, and Hilliard addresses are served by the Columbus Division of Water.
         Columbus lets a resident receive the bill under a Tenant Billing Agreement signed by the owner, and it
-        states plainly that the property owner is ultimately responsible for all charges. That is why Columbus
+        states that the property owner is ultimately responsible for all charges. That is why Columbus
         keeps sending the owner copies of a bill the owner is not paying.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Here is how it goes wrong. A resident stops paying the water bill in month nine and keeps paying rent,
+        Say a resident stops paying the water bill in month nine and keeps paying rent,
         so nothing looks broken from your side. They give notice, move out clean, and you release the deposit
         because the unit looks fine. Six weeks later the balance surfaces, attached to your property, and the
         person who ran it up has a new address in another county. The deposit that would have covered it is
         gone, and you are chasing a former resident for a utility bill in your own name.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The fix is procedural and unglamorous. We put the water account in the resident name at lease signing
+        We put the water account in the resident's name at lease signing
         rather than after move-in, we treat the Tenant Billing Agreement as an owner document rather than a
-        formality, and we verify the account status at move-out before the security deposit is settled, not
-        after. Ohio gives a landlord 30 days from the end of the tenancy to return a deposit with an itemised
+        formality, and we verify the account status at move-out before the security deposit is settled. Ohio gives a landlord 30 days from the end of the tenancy to return a deposit with an itemized
         statement of deductions, so the check has to happen inside that window or the deduction is not available
         to you.
       </p>
@@ -173,10 +172,10 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        Hilliard also runs a community electricity aggregation programme, which changes who supplies the
+        Hilliard also runs a community electricity aggregation program, which changes who supplies the
         electrons while AEP Ohio stays the company that owns the wires and answers an outage call. Trash and
         recycling are handled by Local Waste Services and billed quarterly, in January, April, July and October,
-        which is worth knowing before you write a lease that assumes a monthly utility rhythm.
+        so check that before you write a lease that assumes a monthly utility bill.
       </p>
     </div>
   </section>
@@ -190,7 +189,7 @@ const schemaNodes = [
         Franklin County Municipal Court, civil and eviction division, at 375 S. High St., 3rd floor, Columbus,
         OH 43215, where Eviction Court sits in Courtroom 11B. Hilliard is entirely inside Franklin County, which
         makes it simpler than Dublin, where three counties meet inside one city, and simpler than Powell, which
-        is in Delaware County and files twenty-five miles north. One city, one county, one court.
+        is in Delaware County and files twenty-five miles north.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         The registration goes to the county too, not to the city. Ohio Revised Code 5323.02 requires every owner
@@ -199,7 +198,7 @@ const schemaNodes = [
         within 60 days, and any change has to be updated within 60 days. The Franklin County Auditor states a
         penalty of $150 per tax year for failing to file, and the statutory range under R.C. 5323.99 is $50 to
         $150. Owners holding through an LLC or a trust also have to name the responsible officer, member or
-        trustee, which is the part that gets skipped. The statute lets an owner designate a property manager as
+        trustee, a step owners often skip. The statute lets an owner designate a property manager as
         the agent who files, and that is part of onboarding here.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
@@ -213,7 +212,7 @@ const schemaNodes = [
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Where a city runs its own registration, licence or inspection programme, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Keeping track of which programme applies to your address, and filing on time, is work we absorb rather than work we hand you.
+        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and file on time, so you do not have to.
       </p>
     </div>
   </section>

@@ -46,7 +46,7 @@ const utilities = [
   ['Natural gas', 'Columbia Gas of Ohio serves most of the metro. As with electric, the supplier can be chosen separately from the delivery utility.'],
   ['Water and sewer', 'Set by the municipality rather than a single regional provider. In the city of Columbus this is the Department of Public Utilities; in suburbs such as Westerville and Dublin it is the city itself.'],
   ['Trash', 'Municipal in most of the metro and billed with water or on the tax bill, but privately contracted in some townships and communities.'],
-  ['Internet', 'Your choice entirely. Worth arranging before move-in day rather than after, because install appointments are the long lead item.'],
+  ['Internet', 'Your choice. Arrange it before move-in day rather than after, because install appointments take the longest to book.'],
 ];
 
 const firstWeek = [
@@ -60,21 +60,21 @@ const firstWeek = [
 
 const faq = [
   { q: 'What do I need to do before I get keys?',
-    a: 'Three things: sign the lease, pay the funds due at signing so they clear, and put the utilities you are responsible for into your name effective on your lease start date. Keys are released once those are done..' },
+    a: 'Three things: sign the lease, pay the funds due at signing so they clear, and put the utilities you are responsible for into your name effective on your lease start date. Keys are released once those are done.' },
   { q: 'Which utilities am I responsible for?',
-    a: 'It depends on the home, and your lease says which. Across the Columbus metro the usual providers are AEP Ohio for electric, Columbia Gas of Ohio for natural gas, and the municipality for water, sewer and trash..' },
+    a: 'It depends on the home, and your lease says which. Across the Columbus metro the usual providers are AEP Ohio for electric, Columbia Gas of Ohio for natural gas, and the municipality for water, sewer and trash.' },
   { q: 'Do I need renters insurance?',
-    a: 'Your lease is the place that answers whether it is required. Get it either way. The owner insurance policy covers the building, never your belongings, and a renters policy usually costs a few dollars a month.' },
+    a: 'Your lease says whether it is required. Get it either way. The owner\'s insurance policy covers the building, never your belongings, and a renters policy usually costs a few dollars a month.' },
   { q: 'What is the move-in condition report and why does it matter?',
-    a: 'It is a written record, with photos, of the condition of the home on the day you moved in. It matters because it is the baseline your deposit is measured against when you leave. Anything you fail to note becomes hard to argue was there before you..' },
+    a: 'It is a written record, with photos, of the condition of the home on the day you moved in. It matters because it is the baseline your deposit is measured against when you leave. Anything you fail to note becomes hard to argue was there before you.' },
   { q: 'When is my first rent payment due?',
-    a: `Rent is due on ${rentPolicy.dueDate} of each month. If you move in mid-month, the first month is usually prorated for the days you occupy the home. Late fees are assessed after ${rentPolicy.lateFeesAfter}..` },
+    a: `Rent is due on ${rentPolicy.dueDate} of each month. If you move in mid-month, the first month is usually prorated for the days you occupy the home. Late fees are assessed after ${rentPolicy.lateFeesAfter}.` },
   { q: 'Can I paint, mount a TV, or change the fixtures?',
-    a: 'Ask in writing first, through the portal, and get the answer in writing. Unapproved alterations are the second most common source of deposit deductions after cleaning..' },
+    a: 'Ask in writing first, through the portal, and get the answer in writing. Unapproved alterations are the second most common source of deposit deductions after cleaning.' },
   { q: 'How do I get a second set of keys?',
-    a: 'Ask through the portal rather than cutting your own, so the number of keys in circulation for the home stays known. We keep two working copies of every unit..' },
+    a: 'Ask through the portal rather than cutting your own, so the number of keys in circulation for the home stays known. We keep two working copies of every unit.' },
   { q: 'What if something is broken when I move in?',
-    a: `Note it on the condition report and file a maintenance request the same day. Both, not one or the other. The condition report protects your deposit; the maintenance request is what actually gets it fixed. Median time to close a repair is ${kpis.metrics.find((m) => m.id === 'repairDays')?.value} days.` },
+    a: `Note it on the condition report and file a maintenance request the same day. Do both. The condition report protects your deposit, and the maintenance request gets the problem fixed. Median time to close a repair is ${kpis.metrics.find((m) => m.id === 'repairDays')?.value} days.` },
 ];
 ---
 <Base {title} {description} {faq} {breadcrumbs}>
@@ -105,8 +105,7 @@ const faq = [
           <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">1. Sign the lease</span>
           <span class="block text-[15.5px] text-muted">
             Read it before you sign it, particularly the sections on utilities, alterations, pets, notice to
-            vacate and what happens to the deposit. Ask about anything that is unclear while you still have
-            leverage to ask.
+            vacate and what happens to the deposit. Ask about anything that is unclear before you sign.
           </span>
         </li>
         <li class="card !p-6">
@@ -118,8 +117,8 @@ const faq = [
         <li class="card !p-6">
           <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">3. Put the utilities in your name</span>
           <span class="block text-[15.5px] text-muted">
-            Effective on your lease start date, not your move date. A gap between the two is how a home
-            ends up with the power shut off on the day the movers arrive.
+            Effective on your lease start date, not your move date. If there is a gap between the two, you
+            can end up with the power shut off on the day the movers arrive.
           </span>
         </li>
       </ol>
@@ -163,12 +162,12 @@ const faq = [
       <span class="eyebrow">The one that matters</span>
       <h2 id="condition-h" class="text-[clamp(28px,3.3vw,40px)]">Why does the move-in condition report matter so much?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Because it is the document your security deposit is measured against when you leave, sometimes
-        years later. Most deposit disputes come down to one question: was this here before you moved in?
-        The condition report is the only thing that answers it.
+        It is the document your security deposit is measured against when you leave, sometimes years
+        later. Most deposit disputes come down to one question: was this here before you moved in? The
+        condition report is the record that answers it.
       </p>
       <div class="card !border-2 !border-navy mt-7">
-        <h3 class="text-[18.5px] mb-3">How to fill it in so it actually protects you</h3>
+        <h3 class="text-[18.5px] mb-3">How to fill it in so it protects you</h3>
         <ul class="text-[15.5px] text-muted grid gap-2">
           <li>Go room by room and write down everything, including things that seem too small to mention.</li>
           <li>Photograph every room wide, then photograph every defect close up. Include a shot with something showing the date where you can.</li>
@@ -178,10 +177,10 @@ const faq = [
         </ul>
       </div>
       <p class="text-[15px] text-muted mt-5">
-        Anything actually broken should also be filed as a
+        If anything is broken, also file a
         {' '}<a href="/residents/maintenance-requests/" class="text-crimson font-semibold no-underline hover:underline">maintenance request</a>
-        {' '}the same day. The condition report protects your deposit; the maintenance request is what gets
-        the thing fixed.
+        {' '}the same day. The condition report protects your deposit, and the maintenance request gets the
+        problem fixed.
       </p>
     </div>
   </section>
@@ -192,7 +191,7 @@ const faq = [
       <span class="eyebrow">Your first week</span>
       <h2 id="week-h" class="text-[clamp(28px,3.3vw,40px)]">What should I do in my first week?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Six things, and all of them are easier now than they will be the first time something goes wrong.
+        Do these six things now, while they are easier than they will be the first time something goes wrong.
       </p>
       <div class="grid gap-4 sm:grid-cols-2 mt-7">
         {firstWeek.map(([h, p]) => (
@@ -211,9 +210,10 @@ const faq = [
       <span class="eyebrow">Your belongings</span>
       <h2 id="ins-h" class="text-[clamp(28px,3.3vw,40px)]">Do I need renters insurance?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        The owner's policy on the building does not cover anything of yours. Not your furniture, not your
-        electronics, not a hotel room if the home becomes uninhabitable, and not your liability if
-        something you did causes damage to the property or to a neighbor.
+        Get a policy whether or not your lease requires it. The owner's policy on the building does not
+        cover anything of yours: your furniture, your electronics, a hotel room if the home becomes
+        uninhabitable, or your liability if something you did causes damage to the property or to a
+        neighbor.
       </p>
     </div>
   </section>
@@ -238,7 +238,7 @@ const faq = [
 
   <Cta
     heading="Document the home in your first week"
-    body="The condition report takes an hour and decides how your deposit is handled years later. Anything broken should also be filed as a maintenance request the same day."
+    body="The condition report takes an hour, and your deposit is measured against it when you leave, even years later. Anything broken should also be filed as a maintenance request the same day."
     primary={{ label: 'Submit a maintenance request', href: '/residents/maintenance-requests/' }}
     secondary={{ label: 'Go to the resident hub', href: '/residents/' }}
   />

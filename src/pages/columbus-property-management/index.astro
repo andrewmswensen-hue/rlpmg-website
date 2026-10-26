@@ -172,11 +172,11 @@ const schemaNodes = [
   <!-- SCORECARD -->
   <section class="band-tight" aria-labelledby="kpi-h">
     <div class="wrap max-w-[940px]">
-      <span class="eyebrow">Published, not claimed</span>
-      <h2 id="kpi-h" class="text-[clamp(26px,3.2vw,38px)]">How is the portfolio actually performing?</h2>
+      <span class="eyebrow">Published, with definitions</span>
+      <h2 id="kpi-h" class="text-[clamp(26px,3.2vw,38px)]">How is the portfolio performing?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
-        These are the operating numbers across every unit we manage, as of {kpis.asOfLabel}. They are published
-        whether they are flattering or not, because a manager who will not show you their numbers is asking you
+        These are the operating numbers across every unit we manage, as of {kpis.asOfLabel}. We publish them
+        whether they flatter us or not, because a manager who will not show you their numbers is asking you
         to take leasing speed and collection rate on faith.
       </p>
       <div class="grid gap-4 grid-cols-2 lg:grid-cols-4 mt-8">
@@ -269,7 +269,7 @@ const schemaNodes = [
       <h2 id="areas-h" class="text-[clamp(26px,3.2vw,38px)]">What areas around Columbus do you serve?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7">
         {areas.length} communities across Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway
-        counties. Each has its own page with local rent data and what we actually manage there.
+        counties. The linked ones have their own page with local rent data and what we manage there.
       </p>
       <ul class="flex flex-wrap gap-x-5 gap-y-2 text-[15.5px]">
         {linkedAreas.map((a) => (
@@ -305,7 +305,7 @@ const schemaNodes = [
     { href: '/investors/', label: 'Portfolio and investor services', note: 'For owners with several units, in or out of state.' },
     { href: '/switching-property-managers/', label: 'Switching property managers', note: 'How to leave a manager without losing a month of rent.' },
     { href: '/how-to-choose-a-property-manager-columbus/', label: 'How to choose a property manager', note: 'The questions to ask any company, including us.' },
-    { href: '/key-performance-indicators/', label: 'The published scorecard', note: 'How the portfolio is actually performing.' },
+    { href: '/key-performance-indicators/', label: 'The published scorecard', note: 'How the portfolio is performing.' },
   ]} />
 
   <Cta

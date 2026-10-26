@@ -134,9 +134,9 @@ const faq = [
   { q: 'Does a flat fee mean fewer services?',
     a: `No. The flat fee covers listing and syndication, showings, full screening, lease preparation, rent collection, maintenance coordination, 24/7 emergency response, quarterly inspections, monthly statements and eviction coordination. The three plans differ in one thing: the per-item repair approval limit, which runs from ${usd(planHigh.repairApprovalLimit)} to ${usd(planLow.repairApprovalLimit)}.` },
   { q: 'When is a percentage manager cheaper?',
-    a: `At lower rents, and in a year with no turn. On ${plan.name}, a ${pctLabel(PCT_HIGH)} manager costs less than our flat fee below roughly ${usd(breakEvens[1].at10)} in rent over a ${CYCLE_YEARS}-year tenancy. At ${usd(cycleLow.rent)} rent over the same ${CYCLE_YEARS} years, flat pricing runs ${gap(cycleLow.d10)} than a ${pctLabel(PCT_HIGH)} manager and ${gap(cycleLow.d8)} than an ${pctLabel(PCT_LOW)} manager. We publish that because it is true.` },
+    a: `At lower rents, and in a year with no turn. On ${plan.name}, a ${pctLabel(PCT_HIGH)} manager costs less than our flat fee below roughly ${usd(breakEvens[1].at10)} in rent over a ${CYCLE_YEARS}-year tenancy. At ${usd(cycleLow.rent)} rent over the same ${CYCLE_YEARS} years, flat pricing runs ${gap(cycleLow.d10)} than a ${pctLabel(PCT_HIGH)} manager and ${gap(cycleLow.d8)} than an ${pctLabel(PCT_LOW)} manager.` },
   { q: 'What happens to a percentage fee when rent goes up?',
-    a: `It goes up with it. A ${pctLabel(PCT_HIGH)} manager charges ${usd(pctMonthly(rents[0], PCT_HIGH))} a month at ${usd(rents[0])} rent and ${usd(pctMonthly(rents[2], PCT_HIGH))} a month at ${usd(rents[2])}. Our fee is ${usd(plan.monthly)} at both. Every rent increase you earn is shared with a percentage manager and kept in full under a flat fee.` },
+    a: `It goes up with it. A ${pctLabel(PCT_HIGH)} manager charges ${usd(pctMonthly(rents[0], PCT_HIGH))} a month at ${usd(rents[0])} rent and ${usd(pctMonthly(rents[2], PCT_HIGH))} a month at ${usd(rents[2])}. Our fee is ${usd(plan.monthly)} at both. You share every rent increase with a percentage manager and keep all of it under a flat fee.` },
   { q: 'Does a percentage manager have an incentive problem?',
     a: `A percentage fee is paid on collected rent, so it does align the manager with keeping the unit occupied and the rent paid. The incentive problem is narrower than that: a placement fee paid at every new lease rewards turnover, and a percentage of repair invoices rewards spending. Look at what each fee is paid on, not at the headline rate.` },
   { q: 'Do you discount for larger portfolios?',
@@ -174,13 +174,13 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4">
         A flat fee is a fixed dollar amount per unit per month. A percentage fee is a share of the rent
         collected that month, commonly {pctLabel(PCT_LOW)} to {pctLabel(PCT_HIGH)} in Columbus. That is the
-        whole structural difference, and it is not where most of the money is.
+        whole structural difference, but most of the money is in a second fee.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
-        Most of the money is in the second fee. A percentage manager almost always charges a placement or
+        A percentage manager almost always charges a placement or
         leasing fee as well, typically half a month of rent, every time a new resident signs. On a
-        {' '}{usd(mid.rent)} rent that is {usd(mid.lease)} per turn. It is charged once, it is large, and it
-        is the line most often left out of a verbal quote.
+        {' '}{usd(mid.rent)} rent that is {usd(mid.lease)} per turn. It is a single large charge, and it is
+        the line most often left out of a verbal quote.
       </p>
       <div class="grid gap-5 sm:grid-cols-2 mt-8">
         <div class="card">
@@ -216,9 +216,9 @@ const schemaNodes = [
   <section class="band band-wash" aria-labelledby="lease-h">
     <div class="wrap max-w-[880px]">
       <span class="eyebrow">The line nobody quotes</span>
-      <h2 id="lease-h" class="text-[clamp(28px,3.3vw,40px)]">Where does the money actually go?</h2>
+      <h2 id="lease-h" class="text-[clamp(28px,3.3vw,40px)]">Where does the money go?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Into the leasing fee. Half a month of rent is
+        Most of it goes to the leasing fee. Half a month of rent is
         {' '}{usd(low.lease)} at {usd(low.rent)}, {usd(mid.lease)} at {usd(mid.rent)} and
         {' '}{usd(high.lease)} at {usd(high.rent)}. At the middle rent that single charge is larger than
         {' '}{Math.floor(mid.lease / plan.monthly)} months of our entire management fee, and it repeats at
@@ -233,12 +233,11 @@ const schemaNodes = [
         <p class="text-[#e9d0d4] text-[16.5px] m-0">
           We charge nothing to place a resident, on every plan. Over two tenancies on a {usd(mid.rent)} rent,
           that is <strong class="text-white font-semibold">{usd(mid.lease * 2)} you keep</strong>. It also
-          removes the one incentive that quietly costs owners the most: a manager who earns more from a new
-          lease than from a renewal.
+          removes the incentive for a manager to earn more from a new lease than from a renewal.
         </p>
       </div>
       <p class="text-[15.5px] text-muted mt-6">
-        Note the one exclusion, because it is ours to disclose: property photography is not part of the
+        One exclusion: property photography is not part of the
         {' '}{usd(pricing.leasingFee)} leasing fee. It is billed separately at $250 to $450 on new vacant units
         and units that have had major cosmetic work. Existing photos keep being used at no charge while they
         still represent the property.
@@ -284,8 +283,8 @@ const schemaNodes = [
       <p class="text-[15.5px] text-muted mt-6">
         In a placement year the flat fee wins at all three rents, and it wins by more as rent rises:
         {' '}{gap(low.d10)} at {usd(low.rent)}, {gap(mid.d10)} at {usd(mid.rent)} and {gap(high.d10)} at
-        {' '}{usd(high.rent)} against a {pctLabel(PCT_HIGH)} manager. Strip the leasing fee out and most of
-        that advantage disappears. That is the point of the table.
+        {' '}{usd(high.rent)} against a {pctLabel(PCT_HIGH)} manager. Without the leasing fee, most of that
+        advantage disappears.
       </p>
     </div>
   </section>
@@ -298,8 +297,8 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         The resident renews and stays. No placement fee on either side. We charge our
         {' '}{usd(pricing.leaseRenewalFee)} lease renewal fee, and this table charges the percentage manager
-        nothing for the renewal even though many of them do charge one. That choice runs against us on
-        purpose, so the comparison is not flattered.
+        nothing for the renewal even though many of them do charge one. We made that choice on purpose, so
+        the comparison does not flatter us.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
@@ -328,11 +327,10 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[15.5px] text-muted mt-6">
-        This is the year a percentage manager looks good, and at the low end it is genuinely the cheaper
-        structure. At {usd(renewalYear[0].rent)} rent with no turn, our flat fee costs
+        This is the year a percentage manager looks good, and at the low end it is the cheaper structure. At {usd(renewalYear[0].rent)} rent with no turn, our flat fee costs
         {' '}{gap(renewalYear[0].d10)} than a {pctLabel(PCT_HIGH)} manager and
-        {' '}{gap(renewalYear[0].d8)} than an {pctLabel(PCT_LOW)} manager. Any comparison that only shows the
-        placement year is selling you something.
+        {' '}{gap(renewalYear[0].d8)} than an {pctLabel(PCT_LOW)} manager. A comparison that shows only the
+        placement year leaves this result out.
       </p>
     </div>
   </section>
@@ -343,7 +341,7 @@ const schemaNodes = [
       <span class="eyebrow">Worked example three, the one that matters</span>
       <h2 id="cycle-h" class="text-[clamp(28px,3.3vw,40px)]">What does a full {CYCLE_YEARS}-year tenancy cost?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        One placement and {RENEWALS} renewals, which is closer to how a tenancy actually runs than any single
+        One placement and {RENEWALS} renewals, which is closer to how a tenancy runs than any single
         year. We pay {usd(pricing.leaseRenewalFee)} twice; the percentage side pays one placement fee and no
         renewal fees. Our lease renewal rate across the portfolio is
         {' '}{kpis.metrics.find((m) => m.id === 'renewal')?.value}.
@@ -380,7 +378,7 @@ const schemaNodes = [
         At {usd(cycleLow.rent)} rent, flat pricing on {plan.name} costs more over the cycle than either
         percentage rate. At {usd(cycleMid.rent)} it costs {gap(cycleMid.d10)} than {pctLabel(PCT_HIGH)} and
         {' '}{gap(cycleMid.d8)} than {pctLabel(PCT_LOW)}. At {usd(cycle[2].rent)} it costs
-        {' '}{gap(cycle[2].d10)} than {pctLabel(PCT_HIGH)}. Rent is the variable that decides it.
+        {' '}{gap(cycle[2].d10)} than {pctLabel(PCT_HIGH)}. Your rent decides which structure costs less.
       </p>
     </div>
   </section>
@@ -420,11 +418,11 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[15.5px] text-muted mt-6">
-        Read it plainly: on {planLow.name} at {usd(planLow.monthly)}, flat pricing is cheaper than a
+        On {planLow.name} at {usd(planLow.monthly)}, flat pricing is cheaper than a
         {' '}{pctLabel(PCT_HIGH)} manager above about {usd(breakEvens[0].at10)} in rent. The average rent
         across the {company.unitsManaged} units we manage is {avgRent}, and the portfolio medians run
         {' '}{usd(rentByBedroom['2'].median)} for a 2 bed and {usd(rentByBedroom['3'].median)} for a 3 bed,
-        so most Columbus single-family rentals sit above the line rather than below it. Some do not.
+        so most Columbus single-family rentals sit above the line, though some sit below it.
       </p>
       <p class="text-[15.5px] text-muted mt-4">
         Portfolio pricing moves the line further down, because monthly management is discounted as unit count
@@ -442,12 +440,12 @@ const schemaNodes = [
         Because it is indexed to your rent. A {pctLabel(PCT_HIGH)} manager charges
         {' '}{usd(pctMonthly(rents[0], PCT_HIGH))} a month on a {usd(rents[0])} rent and
         {' '}{usd(pctMonthly(rents[2], PCT_HIGH))} a month on a {usd(rents[2])} rent, for identical work on
-        the same house. Our fee is {usd(plan.monthly)} at both. Every rent increase you win is shared with a
-        percentage manager and kept in full under a flat fee.
+        the same house. Our fee is {usd(plan.monthly)} at both. You share every rent increase with a
+        percentage manager and keep all of it under a flat fee.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
-        Run in reverse, that is the same as saying our fee becomes a smaller share of your rent as the
-        property performs better. Here is our flat fee expressed as the percentage it actually works out to.
+        Put the other way, our fee becomes a smaller share of your rent as the property performs better.
+        The table below shows our flat fee as the percentage of rent it works out to.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
@@ -476,7 +474,6 @@ const schemaNodes = [
       <p class="text-[15.5px] text-muted mt-6">
         At {usd(rents[0])} rent our middle plan works out to {effective[0].mid}% of rent, which is above the
         market percentage range. At {usd(rents[2])} it works out to {effective[2].mid}%, which is below it.
-        Same fee, same work, different arithmetic.
       </p>
     </div>
   </section>

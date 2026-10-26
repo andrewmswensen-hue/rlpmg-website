@@ -64,13 +64,13 @@ const questions = [
   },
   {
     q: 'How do you bill maintenance, and what is your markup?',
-    why: 'Maintenance is where most of the money actually moves. A manager with a low management fee and an undisclosed vendor markup can cost far more than one with a higher fee and cost-plus billing.',
+    why: 'Maintenance is where most of the money moves. A manager with a low management fee and an undisclosed vendor markup can cost far more than one with a higher fee and cost-plus billing.',
     look: 'An in-house hourly rate, a trip charge, whether there is a minimum charge, whether materials are at cost, the percentage added to vendor invoices, whether that percentage is capped, and what happens after hours.',
     ours: `${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, no minimum, materials at cost. Vendor work at cost plus ${pricing.maintenance.vendorProjectFeePct}%, capped at ${usd(pricing.maintenance.vendorProjectFeeCap)} per project. After hours is ${pricing.afterHours.weekdayEveningAndSaturday}x, Sundays ${pricing.afterHours.sunday}x.`,
   },
   {
     q: 'How much can you spend on a repair without asking me?',
-    why: 'Too low and every water heater becomes an email thread while a resident has cold showers. Too high and you find out about a significant repair decision only when the statement arrives. There is no correct answer, only the one that matches how involved you want to be.',
+    why: 'Too low and every water heater becomes an email thread while a resident has cold showers. Too high and you find out about a significant repair decision only when the statement arrives. The right limit is the one that matches how involved you want to be.',
     look: 'A specific dollar limit per item, in the agreement, and what the exception is for genuine emergencies.',
     ours: `Set by plan: ${pricing.plans.map((p) => `${usd(p.repairApprovalLimit)} on ${p.name}`).join(', ')}. It is the only thing the three plans differ on.`,
   },
@@ -83,7 +83,7 @@ const questions = [
   {
     q: 'What is your days on market, and how do you measure it?',
     why: 'Every manager has a leasing statistic and almost none define it. Days from listing to lease signed, days from vacancy to move-in, and days from rent-ready to application are three very different numbers from the same portfolio.',
-    look: 'The definition first, then the number, then how recently it was measured and across how many units. A number without a definition is marketing.',
+    look: 'The definition first, then the number, then how recently it was measured and across how many units. Without a definition, you cannot compare the number with figures from other managers.',
     ours: `${kpis.metrics[0].value} days, defined as ${kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)} As of ${kpis.asOfLabel}.`,
   },
   {
@@ -106,13 +106,13 @@ const questions = [
   },
   {
     q: 'How many doors do you manage per person?',
-    why: 'The best predictor of whether your emails get answered next year. A manager at capacity solves their staffing problem with your vacancy.',
+    why: 'This ratio predicts whether your emails get answered next year. When a manager is at capacity, your vacancy waits while they sort out staffing.',
     look: 'Doors per portfolio manager and per maintenance technician, plus what happens to those ratios when they add your units. Also ask who specifically will own your account.',
     ours: `${company.unitsManaged} units under management. Maintenance technicians are on payroll rather than subcontracted per work order.`,
   },
   {
     q: 'What does it cost to leave, and what is the notice period?',
-    why: 'Read the exit before the entrance. An agreement that is expensive or slow to leave is the one you will regret, and the cost of leaving tells you how confident the manager is that you would want to stay.',
+    why: 'Read the exit terms before anything else. An agreement that is expensive or slow to leave is the one you will regret, and the cost of leaving tells you how confident the manager is that you would want to stay.',
     look: 'The termination clause: notice period, form of notice, any early termination fee, whether it changes after the first year, and whether the agreement auto-renews on a date.',
     ours: `Published: ${pricing.otherFees.find((f) => f.name === 'Early termination')?.note}`,
   },
@@ -139,7 +139,7 @@ const redFlags = [
   { h: 'The fee schedule arrives only after a call', p: 'Pricing that has to be explained before it can be shown is pricing that varies by how much you already know.' },
   { h: 'A guaranteed lease date', p: 'A guarantee to fill a unit by a date is a guarantee to cut rent or lower the screening bar as that date approaches. You pay for both later.' },
   { h: 'No written screening criteria', p: 'Inconsistent screening is where fair housing exposure comes from, and it lands on the owner as well as the manager.' },
-  { h: 'Statistics with no definition', p: 'Ask how days on market is measured. If the answer is vague, the number is decoration.' },
+  { h: 'Statistics with no definition', p: 'Ask how days on market is measured. If the answer is vague, you cannot rely on the number.' },
   { h: 'Maintenance markup you have to ask about twice', p: 'Maintenance is where the money moves. A markup that is hard to get in writing is usually the largest line you have not priced.' },
   { h: 'No named point of contact', p: 'If nobody owns your account, nobody answers for it. Ask for a name and what happens when that person is on vacation.' },
   { h: 'Pressure to sign on the first call', p: 'A management agreement is a year of your property. Any manager worth hiring will send the agreement and wait while you read it.' },
@@ -163,7 +163,7 @@ const faq = [
   { q: 'Should I hire a property manager or self-manage?',
     a: 'Self-managing works when you are local, have time on weekday afternoons, and own one or two units. It stops working at scale, at distance, or when a resident stops paying, because that is when the cost of not knowing Ohio landlord-tenant procedure exceeds any fee you saved.' },
   { q: 'How long should a property management agreement be?',
-    a: 'Term length matters less than the exit. Read the termination clause first: the notice period, the form notice has to take, whether an early termination fee applies, whether it changes after the first year, and whether the agreement auto-renews on a date you would need to diary.' },
+    a: 'Term length matters less than the exit. Read the termination clause first: the notice period, the form notice has to take, whether an early termination fee applies, whether it changes after the first year, and whether the agreement auto-renews on a date you would need to track.' },
 ];
 
 const schemaNodes = [
@@ -246,7 +246,7 @@ const schemaNodes = [
       <span class="eyebrow">The document that decides it</span>
       <h2 id="fees-h" class="text-[clamp(26px,3.2vw,38px)]">What should a fee schedule disclose?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6">
-        Everything that can appear on an owner statement. Use this as a checklist against any schedule you are
+        It should disclose everything that can appear on an owner statement. Use this as a checklist against any schedule you are
         sent, and treat a missing line as a question rather than an absence.
       </p>
       <ul class="grid gap-x-8 gap-y-1 sm:grid-cols-2">
@@ -258,7 +258,7 @@ const schemaNodes = [
       </ul>
       <p class="text-[16px] text-muted mt-7">
         Then do the arithmetic across a full year including one resident placement, because that is the year a
-        percentage quote is designed not to describe. On a {kpis.metrics[4].value} rent, a 10% manager collects
+        percentage quote tends to leave out. On a {kpis.metrics[4].value} rent, a 10% manager collects
         about {usd(Math.round(avgRent * 0.10) * 12)} a year and then roughly {usd(Math.round(avgRent / 2))} more the
         first time the unit turns.
       </p>
@@ -285,7 +285,7 @@ const schemaNodes = [
           {[
             'The brokerage entity name, not the individual you spoke to. Ask for the exact legal name.',
             'That the license is active, and how long it has been held.',
-            'The named principal broker, and whether that person actually works at the company day to day.',
+            'The named principal broker, and whether that person works at the company day to day.',
             'Any disciplinary history on the brokerage or the principal broker.',
             'That the entity on the license is the same entity on the management agreement you are being asked to sign.',
           ].map((x) => (
@@ -301,8 +301,8 @@ const schemaNodes = [
       </p>
       <p class="text-[16px] text-muted mt-4">
         {company.name} is a {company.license.toLowerCase()}. The principal broker is
-        {' '}{company.brokerOfRecord.name}, {company.brokerOfRecord.title}, and our brokerage licence number
-        is {company.licenseNumber}. Verify any manager's licence through the Ohio Department of Commerce
+        {' '}{company.brokerOfRecord.name}, {company.brokerOfRecord.title}, and our brokerage license number
+        is {company.licenseNumber}. Verify any manager's license through the Ohio Department of Commerce
         eLicense lookup rather than taking the claim at face value, including ours.
       </p>
     </div>
@@ -314,7 +314,7 @@ const schemaNodes = [
       <span class="eyebrow">Answers that should end the conversation</span>
       <h2 id="flags-h" class="text-[clamp(26px,3.2vw,38px)]">What are the warning signs?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        None of these prove a company is bad. All of them mean the next question should be harder.
+        None of these proves a company is bad, but each one means your next question should be harder.
       </p>
       <div class="grid gap-5 sm:grid-cols-2">
         {redFlags.map((r) => (
@@ -339,8 +339,7 @@ const schemaNodes = [
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         Read reviews for patterns instead of scores. Repeated complaints about unanswered communication are the
-        signal that matters, because that is the failure that never improves and the one owners most often leave
-        over. A single furious review about an eviction tells you almost nothing.
+        useful signal, because that failure rarely improves and it is the one owners most often leave over. A single furious review about an eviction tells you almost nothing.
       </p>
       <p class="text-[16px] text-muted mt-4">
         For reference, {company.name} has {company.reviews.display} {company.reviews.platform} reviews at a
@@ -355,15 +354,14 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="self-h" class="text-[clamp(26px,3.2vw,38px)]">Should you hire anyone at all?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Self-managing genuinely works for some owners: local, one or two units, flexible weekday time, and a
-        tolerance for being the person a resident calls at 11pm. The cost is not the fee you save, it is the
-        showings during work hours, the vendor you cannot reach in February, and the notice you have to serve
+        Self-managing works for some owners: local, one or two units, flexible weekday time, and a tolerance
+        for being the person a resident calls at 11pm. In place of the fee, you pay in showings during work hours, the vendor you cannot reach in February, and the notice you have to serve
         correctly the first time.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         The break point is usually distance, unit count, or the first resident who stops paying. Roughly
         {' '}{pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant
-        dispute, and that is the moment procedure knowledge stops being optional.
+        dispute, and at that point you need to know Ohio eviction procedure.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
         <a href="/compare/self-managing-vs-property-manager/" class="btn btn-ghost">Self-managing vs. hiring a manager</a>

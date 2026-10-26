@@ -46,7 +46,7 @@ const facts = [
 ];
 
 const lineItems = [
-  ['Income', 'Rent collected, late fees, pet fees, any other resident charges that were actually received. Billed is not collected, and a statement that shows only billed rent is telling you what should have happened.'],
+  ['Income', 'Rent collected, late fees, pet fees, any other resident charges that were received. Billed and collected are different numbers, and a statement that shows only billed rent tells you what should have happened.'],
   ['Management fee', `Your flat plan fee, ${usd(pricing.plans[0].monthly)}, ${usd(pricing.plans[1].monthly)} or ${usd(pricing.plans[2].monthly)} per unit. It does not move when rent moves.`],
   ['Maintenance', `Labor at ${usd(pricing.maintenance.inHouseHourly)} per hour plus the ${usd(pricing.maintenance.tripCharge)} trip charge, materials at cost, and any vendor invoice with the ${pricing.maintenance.vendorProjectFeePct}% project fee shown as its own line.`],
   ['Leasing and renewals', `Placing a resident is ${usd(pricing.leasingFee)}. A renewal is ${usd(pricing.leaseRenewalFee)} on the date the lease renews. Photography, when it applies, is $250 to $450 and appears separately.`],
@@ -56,7 +56,7 @@ const lineItems = [
 
 const faq = [
   { q: 'What is on a monthly owner statement?',
-    a: `Income actually collected, the flat management fee, maintenance labor and materials, any vendor invoices with the ${pricing.maintenance.vendorProjectFeePct}% project fee itemized, leasing or renewal fees, the reserve balance, and the amount disbursed to you. The test of a good statement is whether you can tie the deposit in your bank account to the bottom line without a phone call.` },
+    a: `Income collected (not just billed), the flat management fee, maintenance labor and materials, any vendor invoices with the ${pricing.maintenance.vendorProjectFeePct}% project fee itemized, leasing or renewal fees, the reserve balance, and the amount disbursed to you. The test of a good statement is whether you can tie the deposit in your bank account to the bottom line without a phone call.` },
   { q: 'When are owner funds disbursed?',
     a: `Electronically on the ${rentPolicy.ownerDisbursementDay}th of each month, taking ${rentPolicy.disbursementNote}. The days between the 5th and the 10th are when the month closes: payments clear and invoices post, so the statement and the deposit agree.` },
   { q: 'Do I get a 1099 for my rental property?',
@@ -66,7 +66,7 @@ const faq = [
   { q: 'What if I move my property into an LLC?',
     a: `${entityFee?.amount ?? ''}. ${entityFee?.note ?? ''} The year-to-date financials matter more than the paperwork: without them the old entity has an incomplete year and your accountant has a gap.` },
   { q: 'Can I see what is happening between statements?',
-    a: 'Yes. The owner portal is real time, so work orders, payments and invoices appear as they happen rather than at month end. The monthly statement is the close, not the only visibility you get.' },
+    a: 'Yes. The owner portal is real time, so work orders, payments and invoices appear as they happen rather than at month end. The monthly statement is the month-end close on top of that.' },
   { q: 'What records should I keep as a rental owner?',
     a: 'Every statement, every invoice above your own capitalization threshold, closing documents from purchase, and a running record of capital improvements as distinct from repairs. The repair versus improvement distinction is the one that costs owners money at tax time, and it is far easier to track as you go than to reconstruct in March. Ask your CPA where that line sits for your situation.' },
   { q: 'Do you handle my taxes?',
@@ -101,14 +101,14 @@ const schemaNodes = [
       <span class="eyebrow">The problem</span>
       <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Why does rental accounting go wrong?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Because most owners are reconstructing a year of activity in March from a bank feed and a folder of
+        Most owners reconstruct a year of activity in March from a bank feed and a folder of
         emails. By then you cannot remember whether a payment to a contractor in June was a repair you deduct this year
         or an improvement you depreciate, and the difference is real money.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         The second failure is a statement you cannot tie out. If the deposit in your bank account does not match
-        a line on the statement, you are not being reported to, you are being summarized at. Every fee we charge
-        is published on the fee schedule, which is the only way a statement can be genuinely surprise-free.
+        a line on the statement, you are getting a summary instead of a report. Every fee we charge is published
+        on the fee schedule, which is how we keep a statement free of surprises.
       </p>
     </div>
   </section>
@@ -118,7 +118,7 @@ const schemaNodes = [
       <span class="eyebrow">Line by line</span>
       <h2 id="stmt-h" class="text-[clamp(28px,3.3vw,40px)]">What is on an owner statement?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Six groups. If a statement you receive from any manager does not separate these, ask why.
+        A statement should separate six groups. If one you receive from any manager does not, ask why.
       </p>
       <div class="grid gap-5">
         {lineItems.map(([h, b]) => (
@@ -136,7 +136,7 @@ const schemaNodes = [
       <span class="eyebrow">Year end</span>
       <h2 id="tax-h" class="text-[clamp(28px,3.3vw,40px)]">What do you need at tax time?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6">
-        Four things, and a manager should hand you three of them without being asked.
+        You need four things, and a manager should hand you three of them without being asked.
       </p>
       <ul class="grid gap-4">
         <li class="card !p-5"><strong class="text-navy">The annual statement.</strong> <span class="text-muted">Income and expense by category for the full year, per property.</span></li>
@@ -156,7 +156,7 @@ const schemaNodes = [
       <span class="eyebrow">Why flat is easier to read</span>
       <h2 id="flat-h" class="text-[clamp(28px,3.3vw,40px)]">Why does a flat fee make the books simpler?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Because the management line is the same number every month. A percentage fee changes with collections, so
+        With a flat fee, the management line is the same number every month. A percentage fee changes with collections, so
         a month where a resident paid late and then paid double reads as a fee anomaly you have to investigate.
         Ours is {usd(pricing.plans[0].monthly)}, {usd(pricing.plans[1].monthly)} or
         {' '}{usd(pricing.plans[2].monthly)} per unit, every month, whatever the rent did.

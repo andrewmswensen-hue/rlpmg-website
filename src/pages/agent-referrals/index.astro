@@ -52,19 +52,19 @@ const facts = [
 const whyRefer = [
   {
     h: 'Your client keeps a working asset',
-    b: `An owner who cannot get a rental to perform is an owner who eventually sells it at a bad time. Flat management at ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee keeps the numbers workable, which keeps the property in their portfolio and the relationship in yours.`,
+    b: `An owner who cannot get a rental to perform will often sell it at a bad time. Flat management at ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee keeps the numbers workable, which keeps the property in their portfolio and the relationship in yours.`,
   },
   {
     h: 'Pricing you can quote without calling us',
-    b: `Our entire fee schedule is published, so you can tell a client what management will cost before you introduce anyone. Monthly management, the ${usd(pricing.leasingFee)} leasing fee, the ${usd(pricing.leaseRenewalFee)} renewal fee, ${usd(pricing.startupFeeOccupied)} to start on an occupied unit, and every situational charge.`,
+    b: `Our entire fee schedule is published, so you can tell a client what management will cost before you introduce anyone. It covers monthly management, the ${usd(pricing.leasingFee)} leasing fee, the ${usd(pricing.leaseRenewalFee)} renewal fee, ${usd(pricing.startupFeeOccupied)} to start on an occupied unit, and every situational charge.`,
   },
   {
     h: 'You hear what happened',
-    b: 'Every referral gets an outcome back to you in writing: whether the owner engaged, what was quoted, and what they decided. A referral that disappears into a black box is worse than no referral program at all.',
+    b: 'Every referral gets an outcome back to you in writing: whether the owner engaged, what was quoted, and what they decided.',
   },
   {
     h: 'A real brokerage, not a lead reseller',
-    b: `${company.name} is a ${company.license.toLowerCase()}, operating since ${company.founded}, managing ${company.unitsManaged} ${company.propertyTypes}. Your client is handled by our team, not sold to a network.`,
+    b: `${company.name} is a ${company.license.toLowerCase()}, operating since ${company.founded}, managing ${company.unitsManaged} ${company.propertyTypes}. Our team handles your client directly, and we do not sell referrals on to a network.`,
   },
 ];
 
@@ -81,7 +81,7 @@ const faq = [
   { q: 'Do you pay real estate agents a referral fee?',
     a: `Yes. ${usd(referral.fee)} for a referred owner who signs with us, paid to ${referral.paidTo} rather than to the agent directly, which is how a referral fee has to move between licensees. Your brokerage decides how it reaches you. It is a flat ${usd(referral.fee)}, not a percentage, so it does not change with the number of doors or whether the unit is occupied at handoff.` },
   { q: 'When is the referral fee paid?',
-    a: `When the referred owner actually closes with us. We pay it out straight away at that point, and in practice that means within ${referral.paidWithinDays} days. Nothing is held back to a later anniversary or tied to how long the owner stays.` },
+    a: `When the referred owner closes with us. We pay it out straight away at that point, and in practice that means within ${referral.paidWithinDays} days. Nothing is held back to a later anniversary or tied to how long the owner stays.` },
   { q: 'What happens if two agents refer the same owner?',
     a: `${referral.attribution} So if an owner you referred later brings us a second property, that is the same client and the same relationship rather than a second fee. Ask us for the current agreement and we will send it in writing.` },
   { q: 'What areas do you cover?',
@@ -129,7 +129,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">The case for sending it here</span>
       <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Why refer an owner to a property manager at all?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        Because the alternative is usually a client who self-manages badly for two years and then sells under
+        The usual alternative is a client who self-manages badly for two years and then sells under
         pressure. A rental that performs stays in the portfolio, and an owner whose rental performs buys
         another one.
       </p>
@@ -150,8 +150,8 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">The part you care about</span>
       <h2 id="terms-h" class="text-[clamp(28px,3.3vw,40px)]">What does the referral fee pay, and when?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        A flat {usd(referral.fee)} for a referred owner who signs with us. No percentage, no sliding scale,
-        and no waiting to see how long the client stays.
+        We pay a flat {usd(referral.fee)} for a referred owner who signs with us. It is not a percentage or a
+        sliding scale, and we do not wait to see how long the client stays.
       </p>
       <div class="card !bg-white mt-8">
         <h3 class="text-[19px] mb-3.5">The terms</h3>
@@ -176,7 +176,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <h2 id="fit-h" class="text-[clamp(28px,3.3vw,40px)]">Who is a good referral?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7">
         An owner of one or more {company.propertyTypes} in Central Ohio who either does not want the work or
-        is not getting the results. Six common versions.
+        is not getting the results. Six common examples are below.
       </p>
       <ul class="grid gap-2.5">
         {goodFit.map((g) => (
@@ -198,7 +198,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">The process</span>
       <h2 id="next-h" class="text-[clamp(28px,3.3vw,40px)]">What happens after you submit a referral?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7">
-        Four steps. You are told the result at the end of each one, whichever way it goes.
+        The process has four steps, and we tell you the result at the end of each one, whichever way it goes.
       </p>
       <ol class="grid gap-3.5">
         {[
@@ -400,15 +400,13 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <Faq items={faq} heading="Agent referral questions" id="referral-faq" />
       <div class="mt-8"><Verified date="2026-09-09" /></div>
       <p class="text-[13px] text-faint mt-3">
-        Referral fee amounts, payment timing and program terms are not published on this page because they
-        have not been confirmed for publication. Request the current written referral agreement before
-        referring a client.
+        The written referral agreement governs. Request the current copy before referring a client.
       </p>
     </div>
   </section>
 
   <RelatedLinks links={[
-    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'What your client would actually pay.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'What your client would pay.' },
     { href: '/columbus-property-management/', label: 'Columbus property management', note: 'What we do for the monthly fee.' },
     { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'Send a client here for a written rent range.' },
     { href: '/areas-we-serve/', label: 'Areas we serve', note: `All ${areas.length} Central Ohio communities.` },

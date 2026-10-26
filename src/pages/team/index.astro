@@ -139,7 +139,7 @@ const faq = [
   { q: 'Who is the broker of record at RL Property Management?',
     a: `${company.brokerOfRecord.name}. He is ${company.brokerOfRecord.title} of ${company.name}, a ${lic} founded in ${company.founded}, and he is the named reviewer on the pages of this site.` },
   { q: 'How many people work at RL Property Management?',
-    a: `Everyone is named on this page with their role, working out of ${company.address.city}, Ohio: leadership, owner service, leasing and vacant units, resident support, maintenance, and people operations and marketing. There is no shared inbox with nobody behind it.` },
+    a: `Everyone is named on this page with their role, working out of ${company.address.city}, Ohio: leadership, owner service, leasing and vacant units, resident support, maintenance, and people operations and marketing.` },
   { q: 'Who will I actually talk to?',
     a: 'Owners deal with the client service group. Residents deal with resident support and the maintenance coordinators. Leasing questions on a vacant unit go to the leasing group. Each of those is a named person rather than a shared inbox with nobody behind it.' },
   { q: 'Does RL Property Management use in-house maintenance technicians?',
@@ -179,7 +179,7 @@ const related = [
   { href: '/about/', label: 'About the company', note: `What ${company.shortName} does, and for whom.` },
   { href: '/core-values/', label: 'Core values', note: 'The six values this team is hired and measured against.' },
   { href: '/careers/', label: 'Careers', note: 'Open roles and what the benefits are.' },
-  { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'What this team actually produces, in numbers.' },
+  { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'What this team produces, in numbers.' },
   { href: '/contact-us/', label: 'Contact us', note: 'Phone, email and the office address.' },
 ];
 ---
@@ -224,9 +224,9 @@ const related = [
         for that trust without offering anything checkable in return.
       </p>
       <p>
-        There is a practical reason too. When a repair goes sideways or a lease question needs a
-        real answer, the useful thing is knowing which function owns it. The groups below are the
-        actual departments: leasing and vacant units, resident support, maintenance, owner service,
+        It also helps in practice. When a repair goes sideways or a lease question needs a real
+        answer, you want to know which function owns it. The groups below match our departments:
+        leasing and vacant units, resident support, maintenance, owner service,
         and the people who run hiring and publishing.
       </p>
     </div>
@@ -268,16 +268,16 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="org-h">How is the team organized?</h2>
       <p>
-        By function, not by property. Leasing people lease, maintenance people maintain, and the
+        We organize by function rather than by property. Leasing people lease, maintenance people maintain, and the
         client service group owns the owner relationship. The alternative model, one generalist
         handling every task on a slice of the portfolio, means the same person is showing a unit at
         4pm and taking a water-heater call at 4:05.
       </p>
       <p>
-        Maintenance is the largest group here, which is deliberate: repairs are where owner money
-        actually goes and where a slow manager costs the most. Median time to close a repair across
+        Maintenance is the largest group here by design: repairs are where owner money goes and
+        where a slow manager costs the most. Median time to close a repair across
         the portfolio is {kpis.metrics[5].value} days, published on the
-        {' '}<a href="/key-performance-indicators/">scorecard</a> and refreshed quarterly.
+        {' '}<a href="/key-performance-indicators/">scorecard</a> and refreshed monthly.
       </p>
 
       <h2>Where does the team work?</h2>
@@ -301,7 +301,7 @@ const related = [
 
   <Cta
     heading="Talk to a person, not a form"
-    body="A free rent evaluation puts a real number on your unit. If you would rather just ask a question first, call the office."
+    body="A free rent evaluation puts a real number on your unit. If you would rather ask a question first, call the office."
     secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
   />
 </Base>

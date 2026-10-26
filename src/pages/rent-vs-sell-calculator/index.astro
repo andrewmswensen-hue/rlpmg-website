@@ -27,7 +27,7 @@ const breadcrumbs = [
 const mid = pricing.plans[1];
 const ex = { value: 275000, balance: 150000, rent: 1650, expenses: 450, years: 10, apprec: 3, sellCost: 8 };
 
-/** The same maths the script runs, so the page is correct without JavaScript. */
+/** The same math the script runs, so the page is correct without JavaScript. */
 function project(i: typeof ex) {
   const sellNow = i.value * (1 - i.sellCost / 100) - i.balance;
   const annualNet = (i.rent - i.expenses - mid.monthly) * 12;
@@ -50,13 +50,13 @@ const faq = [
   { q: 'How do I know what my property would rent for?',
     a: `${company.name} gives a free rent evaluation using our own portfolio data across ${company.unitsManaged} Columbus-area units plus current market comps, rather than an automated estimate. Median rent across our portfolio is ${usd(rentByBedroom['3'].median)} for a three bedroom.` },
   { q: 'What does it cost to sell a house in Columbus?',
-    a: 'Selling costs generally run around 6 to 9 percent of the sale price once commission, title work, transfer taxes and typical concessions are counted. The calculator uses 8 percent by default and you can change it.' },
+    a: 'Selling costs usually run 6 to 9 percent of the sale price once commission, title work, transfer taxes and typical concessions are counted. The calculator uses 8 percent by default and you can change it.' },
   { q: 'What expenses should I count on a rental?',
     a: 'Taxes, insurance, maintenance, and a vacancy allowance. Management is counted separately here so you can see it on its own line. Do not forget the turn between residents, which is the cost most first-time landlords miss.' },
   { q: 'Does this account for tax?',
     a: 'No. Depreciation, capital gains treatment and the primary-residence exclusion can all move the answer materially, and they depend on your situation. Take this arithmetic to your CPA rather than treating it as advice.' },
   { q: 'What if I am not sure I want to be a landlord?',
-    a: 'That is a fair answer and the numbers do not settle it. Some owners should sell even when renting projects better, because they do not want the exposure. We will say so plainly when selling is the better call for you.' },
+    a: 'That is a fair answer, and the numbers do not settle it. Some owners should sell even when renting projects better, because they do not want the exposure. We will say so plainly when selling is the better call for you.' },
 ];
 
 const schemaNodes = [serviceNode({
@@ -85,7 +85,7 @@ const F = [
       <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em]">Keep it as a rental, or sell it now?</h1>
       <p class="text-[20px] text-muted mt-5 max-w-[40em]">
         Selling frees the equity today. Renting keeps the appreciation and the cash flow, and it keeps
-        the responsibility. This puts both on the same page so you can see the gap.
+        the responsibility. This calculator puts both side by side so you can see the gap.
       </p>
     </div>
   </section>
@@ -147,7 +147,7 @@ const F = [
       </p>
       <p class="text-[14px] text-faint mt-3">
         Management is counted at {usd(mid.monthly)} a month, our {mid.name} rate, with no leasing fee.
-        Taxes are not modelled. Depreciation, capital gains and the primary-residence exclusion can move
+        Taxes are not modeled. Depreciation, capital gains and the primary-residence exclusion can move
         this materially, so take the arithmetic to your CPA.
       </p>
     </div>
@@ -162,11 +162,11 @@ const F = [
           <li><strong>Appreciation</strong> compounds annually on the property value. The default of 3 percent is deliberately conservative.</li>
           <li><strong>Cash flow</strong> is rent, minus your operating expenses, minus the flat management fee, times twelve.</li>
           <li><strong>Rent then sell</strong> is cumulative cash flow plus equity at the end of the hold.</li>
-          <li>Rent increases are not modelled, which makes the renting case conservative.</li>
+          <li>Rent increases are not modeled, which makes the renting case conservative.</li>
           <li>Principal paydown is not counted as a separate gain, which also makes renting conservative.</li>
         </ul>
         <p>
-          Two things this cannot tell you: whether you want to be a landlord, and what your tax situation
+          The calculator cannot tell you whether you want to be a landlord, or what your tax situation
           does to the answer. Both matter as much as the arithmetic.
         </p>
       </div>
@@ -181,7 +181,7 @@ const F = [
   </section>
 
   <RelatedLinks links={[
-    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'What your property would actually rent for' },
+    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'What your property would rent for' },
     { href: '/pricing/', label: 'What management costs', note: 'The complete published fee schedule' },
     { href: '/self-management-calculator/', label: 'Cost of self-managing', note: 'If you are leaning toward keeping it yourself' },
     { href: '/2026-columbus-market-report/', label: '2026 Columbus market report', note: 'What the local numbers are doing' },

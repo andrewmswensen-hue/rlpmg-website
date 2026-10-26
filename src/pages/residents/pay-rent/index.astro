@@ -47,17 +47,17 @@ const faq = [
   { q: 'When is rent due?',
     a: `Rent is due on ${rentPolicy.dueDate} of each month. In practice many residents pay between ${rentPolicy.practicalWindow}, and late fees are assessed after ${rentPolicy.lateFeesAfter}. Across the portfolio, ${collected} of rent is collected by the 5th as of ${kpis.asOfLabel}.` },
   { q: 'How do I pay my rent?',
-    a: 'Rent is paid online through the resident portal, where the payment is applied to your ledger immediately and receipted..' },
+    a: 'Rent is paid online through the resident portal, where the payment is applied to your ledger immediately and receipted.' },
   { q: 'How much is the late fee?',
-    a: `Late fees are assessed after ${rentPolicy.lateFeesAfter}. The amount is in your lease. If a payment is going to be late, tell us before the ${rentPolicy.lateFeesAfter} rather than after.` },
+    a: `Late fees are assessed after ${rentPolicy.lateFeesAfter}. The amount is in your lease. If a payment is going to be late, tell us before ${rentPolicy.lateFeesAfter} rather than after.` },
   { q: 'What if I am going to be short this month?',
-    a: `Tell us before ${rentPolicy.lateFeesAfter}, in writing through the portal, rather than after. A resident who says what is happening and when the money is coming is in a very different position from one who goes quiet..` },
+    a: `Tell us before ${rentPolicy.lateFeesAfter}, in writing through the portal, rather than after. If you tell us what is happening and when the money is coming, you are in a very different position than if you go quiet.` },
   { q: 'Do you accept partial payments?',
-    a: 'Talk to us before you send one. Once a notice to vacate has been posted, a partial payment can affect where the case stands, so we confirm with the eviction attorney before accepting one. If you are going to be short, the useful move is telling us early and in writing.' },
+    a: 'Talk to us before you send one. Once a notice to vacate has been posted, a partial payment can affect where the case stands, so we confirm with the eviction attorney before accepting one. If you are going to be short, tell us early and in writing.' },
   { q: 'What happens if rent is not paid at all?',
-    a: `Late fees are assessed first, then a written notice, then, if the balance stays unpaid, an eviction filing in the Franklin County Municipal Court for a Franklin County property. Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute, so the overwhelming majority of residents never see any of this..` },
+    a: `Late fees are assessed first, then a written notice, then, if the balance stays unpaid, an eviction filing in the Franklin County Municipal Court for a Franklin County property. Roughly ${pricing.eviction.disputeRatePct}% of rentals reach eviction, litigation or another significant dispute, so the overwhelming majority of residents never see any of this.` },
   { q: 'Why is my rent higher now that my lease ended?',
-    a: `A tenancy that lapses into month-to-month rather than renewing carries a ${rentPolicy.monthToMonthIncreasePct}% higher rent. That is not a penalty, it prices the fact that the home could be vacated on short notice. Renewing is almost always the cheaper option, and we reach out ahead of the end date with terms.` },
+    a: `A tenancy that lapses into month-to-month rather than renewing carries a ${rentPolicy.monthToMonthIncreasePct}% higher rent. The increase covers the risk that the home could be vacated on short notice. It is not a penalty. Renewing is almost always the cheaper option, and we reach out ahead of the end date with terms.` },
   { q: 'Where do I see what I owe?',
     a: 'Your resident portal ledger shows every charge and every payment, in order, with dates. If a charge on it does not make sense, send a message through the portal rather than calling, so the question and the answer are both attached to your tenancy in writing.' },
 ];
@@ -88,11 +88,11 @@ const faq = [
       <div class="grid gap-4 sm:grid-cols-3 mt-8">
         <div class="card">
           <div class="font-sans text-[13px] font-bold tracking-[.12em] uppercase text-faint mb-2">The 1st</div>
-          <p class="text-[15px] text-muted m-0">Rent is due. Paying here is the cleanest option and the one the lease describes.</p>
+          <p class="text-[15px] text-muted m-0">Rent is due. Paying on the 1st is the cleanest option and the one the lease describes.</p>
         </div>
         <div class="card">
           <div class="font-sans text-[13px] font-bold tracking-[.12em] uppercase text-faint mb-2">The 1st to the 5th</div>
-          <p class="text-[15px] text-muted m-0">Where most payments actually land. No late fee is assessed in this window.</p>
+          <p class="text-[15px] text-muted m-0">Where most payments land. No late fee is assessed in this window.</p>
         </div>
         <div class="card !border-2 !border-crimson">
           <div class="font-sans text-[13px] font-bold tracking-[.12em] uppercase text-crimson mb-2">After the 5th</div>
@@ -111,8 +111,7 @@ const faq = [
       <h2 id="how-h" class="text-[clamp(28px,3.3vw,40px)]">How do I pay my rent?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Online, through the resident portal. A portal payment is applied to your ledger immediately and
-        receipted, which means there is never an argument later about whether or when it arrived. That
-        record is worth more to you than it is to us.
+        receipted, so you have a dated record if anyone later asks whether or when it arrived.
       </p>
       <div class="card mt-6">
         <h3 class="text-[18.5px] mb-2">If you cannot get into the portal</h3>
@@ -132,9 +131,9 @@ const faq = [
       <span class="eyebrow">The hard month</span>
       <h2 id="short-h" class="text-[clamp(28px,3.3vw,40px)]">What if I am going to be short this month?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Tell us before {rentPolicy.lateFeesAfter}, in writing, and say when the money is coming. A resident
-        who gets ahead of it is in a completely different position from one who goes quiet, because the
-        problem we can plan around is smaller than the one we discover.
+        Tell us before {rentPolicy.lateFeesAfter}, in writing, and say when the money is coming. If you get
+        ahead of it, you are in a much better position than if you go quiet, because a problem we can plan
+        around is smaller than one we discover late.
       </p>
       <p class="text-[16.5px] text-muted mt-4">
         Message through the portal rather than by text, so the conversation is attached to your tenancy and
@@ -157,11 +156,11 @@ const faq = [
       <p class="text-[17.5px] text-muted mt-4">
         Rent on a month-to-month tenancy is {rentPolicy.monthToMonthIncreasePct}% higher than on a signed
         lease. A month-to-month home can be vacated on short notice, which means it can sit empty and be
-        turned at any point in the year, including the months when nobody is looking. The higher rent
-        prices that risk.
+        turned at any point in the year, including the months when few people are looking for a home.
+        The higher rent covers that risk.
       </p>
       <p class="text-[16.5px] text-muted mt-4">
-        The practical consequence for a resident is simple: if you are staying, renew. We reach out ahead
+        If you are staying, renew. We reach out ahead
         of your end date with terms, and
         {' '}{kpis.metrics.find((m) => m.id === 'renewal')?.value} of residents renew. Moving out instead is
         covered on the <a href="/residents/moving-out/" class="text-crimson font-semibold no-underline hover:underline">moving out</a> page.

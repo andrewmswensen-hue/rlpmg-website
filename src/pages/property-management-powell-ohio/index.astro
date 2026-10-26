@@ -85,8 +85,8 @@ const faq = [
     a: 'With the Delaware County Auditor at 145 N. Union St., Delaware, Ohio. Ohio Revised Code 5323.02 requires the owner of residential rental property to file owner name, address and telephone number plus the property address and parcel number with the auditor of the county the property sits in, within 60 days, and to update it within 60 days of any change. The Delaware County Auditor runs its own rental registration, separate from Franklin County. Filing with Franklin does not satisfy the requirement for a Powell parcel.' },
   { q: 'What happens if I do not file the rental registration?',
     a: 'The county auditor can place a special assessment on the property under R.C. 5323.99. The statutory range is $50 to $150. It is a small number that becomes an annoying one, because it attaches to the tax bill and it is easy to leave unnoticed for years. The statute lets an owner designate a property manager as the agent who files, and that is part of onboarding here.' },
-  { q: 'Does the City of Powell require a separate rental licence or inspection?',
-    a: 'Where a Central Ohio city runs its own registration or inspection programme, it sits on top of the Ohio R.C. 5323 county auditor filing rather than replacing it. Tracking which one applies to which address is our job, not yours. We file the auditor registration as your designated agent during onboarding and we handle the municipal filings and renewals in the communities we work in. This is one of the obligations that quietly becomes your problem the moment you self-manage. The Delaware County Auditor filing under R.C. 5323 applies either way.' },
+  { q: 'Does the City of Powell require a separate rental license or inspection?',
+    a: 'Where a Central Ohio city runs its own registration or inspection program, it sits on top of the Ohio R.C. 5323 county auditor filing rather than replacing it. We keep track of which one applies to which address. We file the auditor registration as your designated agent during onboarding and we handle the municipal filings and renewals in the communities we work in. Owners who self-manage carry these filings themselves. The Delaware County Auditor filing under R.C. 5323 applies either way.' },
   { q: 'Who provides water and sewer in Powell?',
     a: 'Water comes from Del-Co Water Company, Inc. and sanitary sewer from the Delaware County Regional Sewer District, both named by the City of Powell on its own utilities page. Electricity is distributed by AEP Ohio and natural gas by Columbia Gas. Powell is not on the City of Columbus water and sewer contract community list, so the Columbus rule that makes the property owner ultimately responsible for a resident water balance does not govern a Powell address.' },
   { q: 'What does a rental in Powell, Ohio rent for?',
@@ -169,11 +169,11 @@ const schemaNodes = [
       <p class="text-[16px] text-muted mt-6">
         Before any court sees the case, Ohio requires a three-day notice to leave the premises under R.C.
         1923.04, carrying specific statutory language, served by certified mail, handed to the resident, or left
-        at the property. Wrong wording, dismissed case, start again. Our process and what it costs is written out
+        at the property. If the wording is wrong, the case is dismissed and you start again. Our process and what it costs are written out
         on the
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
         One note specific to Powell: the {usd(pricing.eviction.countyFilingFee)} county filing fee in our
-        published schedule is the Franklin County Eviction Complaint fee. A Delaware County parcel files at Delaware Municipal Court instead, and we confirm that court's current filing deposit at the time of filing rather than quoting a figure that may have moved.
+        published schedule is the Franklin County eviction complaint fee. A Delaware County parcel files at Delaware Municipal Court instead, and we confirm that court's current filing deposit at the time of filing rather than quoting a figure that may have moved.
       </p>
     </div>
   </section>
@@ -198,12 +198,12 @@ const schemaNodes = [
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Owners who bought through an LLC or a trust have to name the responsible officer, member or trustee.
-        That is the part that gets missed most often, because the LLC name goes on the deed and nobody goes back
-        to add the human. The statute lets an owner designate a property manager as the agent who files, and we
+        Owners miss this step most often, because the LLC name goes on the deed and nobody goes back
+        to add a person. The statute lets an owner designate a property manager as the agent who files, and we
         do that during onboarding rather than sending you a form and hoping.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Where a city runs its own registration, licence or inspection programme, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Keeping track of which programme applies to your address, and filing on time, is work we absorb rather than work we hand you.
+        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and file on time, so you do not have to.
       </p>
     </div>
   </section>
@@ -241,10 +241,10 @@ const schemaNodes = [
       <p class="text-[16px] text-muted mt-6">
         One thing Powell owners get that most of our Franklin County owners do not: Powell is not on the City of
         Columbus water and sewer contract community list. Columbus states that the property owner is ultimately
-        responsible for all charges even where a Tenant Billing Agreement puts the bill in the resident name,
+        responsible for all charges even where a Tenant Billing Agreement puts the bill in the resident's name,
         which is a live exposure in Dublin, Hilliard, Worthington and Upper Arlington. That specific Columbus
         rule does not reach a Powell address. Until that is confirmed in writing, we handle Powell the same way we handle
-        everywhere else: accounts in the resident name at lease signing, verified again at move-out before the
+        everywhere else: accounts in the resident's name at lease signing, verified again at move-out before the
         deposit is settled.
       </p>
     </div>
@@ -266,15 +266,14 @@ const schemaNodes = [
         Newer is not the same as maintenance-free, and this is the part Powell owners misjudge. A house built in
         2001 is now sitting in the window where the original furnace, condenser, water heater and roof all reach
         the end of a first service life at roughly the same time. Owners who bought a Powell rental expecting a
-        decade of quiet get a run of four-figure capital items inside two years instead. The right response is to
-        plan the replacements on your own calendar rather than at 11pm in February when the furnace quits, which
-        is the entire argument for setting a real reserve and for knowing the age of every major system before
-        you need it. We record system ages at onboarding for that reason.
+        decade of quiet get a run of four-figure capital items inside two years instead. Plan the
+        replacements on your own calendar rather than at 11pm in February when the furnace quits. That means
+        setting a real reserve and knowing the age of every major system before you need it. We record system ages at onboarding for that reason.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         The other Powell-specific line item is the subdivision covenant. A lot of the stock here was built inside
-        associations with deed restrictions on parking, fencing, exterior colour and lawn condition, and a
-        violation notice goes to the owner of record rather than to the person actually parking the boat in the
+        associations with deed restrictions on parking, fencing, exterior color and lawn condition, and a
+        violation notice goes to the owner of record rather than to the person parking the boat in the
         driveway. We route those to the resident with a cure date rather than letting them accumulate until the
         association escalates.
       </p>
@@ -298,7 +297,7 @@ const schemaNodes = [
         is our own portfolio median, not a market survey. We are not publishing a bedroom-level median for larger
         Powell homes, because our sample at those bedroom counts is under five units and a median built on three
         houses would be a made-up number with a dollar sign in front of it. Plenty of local pages quote a public
-        rent index as if it were their own book. We would rather tell you where our data stops.
+        rent index as if it were their own book, and we would rather tell you where our data stops.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (

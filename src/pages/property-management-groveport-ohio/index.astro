@@ -14,7 +14,7 @@ import { serviceNode } from '../../lib/schema';
  * Groveport, Ohio. Target query: "property management groveport ohio".
  *
  * The differentiating fact: Groveport's renter population is shaped by the
- * Rickenbacker logistics cluster next door. That is not local colour, it is an
+ * Rickenbacker logistics cluster next door. That is not local color, it is an
  * operating difference. Shift work changes when you can show a unit and when a
  * technician can get in. Hourly-plus-overtime income changes how you read an
  * application. Weekly and biweekly pay cycles change how the 1st-to-5th rent
@@ -24,7 +24,7 @@ import { serviceNode } from '../../lib/schema';
  * SOURCES (verified 2026-09-09):
  *  - Groveport is a city in Franklin County adjacent to the Rickenbacker
  *    International Airport logistics hub, and describes itself as a regional
- *    centre for warehousing, e-commerce fulfilment, advanced manufacturing and
+ *    center for warehousing, e-commerce fulfilment, advanced manufacturing and
  *    supply chain logistics: groveport.org/648/Top-Employers-Sectors.
  *  - Rickenbacker is a cargo-dedicated airport within a multimodal hub including
  *    the North American International Freight Center; three intermodal terminals
@@ -41,7 +41,7 @@ import { serviceNode } from '../../lib/schema';
  *
  * NO qualifying entry in rentByMarketAndBedroom for Groveport. No rent median is
  * published here. No door counts. No per-market days on market. The 96%
- * collected-by-the-5th figure is site-wide, from kpis, and is labelled as such.
+ * collected-by-the-5th figure is site-wide, from kpis, and is labeled as such.
  */
 
 const CITY = 'Groveport';
@@ -80,7 +80,7 @@ const faq = [
   { q: 'How does a logistics employment base change managing a rental?',
     a: 'In four concrete ways. Showings and maintenance appointments have to work around second and third shift, so a 9-to-5 showing schedule loses applicants. Income verification has to separate base hours from overtime, because an application that clears a three-times-rent test on peak-season overtime may not clear it in February. Pay cycles are often weekly or biweekly rather than semi-monthly, which changes how the first-to-fifth rent window behaves. And employment is concentrated, so one operator trimming a shift can affect several households in the same month.' },
   { q: 'Does that make Groveport a worse market to own in?',
-    a: 'No. It makes it a market that punishes absentee management. The stock is affordable relative to the north side, the demand is steady because the freight cluster is not going anywhere, and tenancies can run long when the unit is maintained. What it does not tolerate is a manager who only answers the phone between nine and five and screens on a single gross-income number.' },
+    a: 'No, but absentee management does badly here. The stock is affordable relative to the north side, the demand is steady because the freight cluster is not going anywhere, and tenancies can run long when the unit is maintained. A manager who only answers the phone between nine and five and screens on a single gross-income number will struggle here.' },
   { q: 'Do I have to register a Groveport rental property?',
     a: 'Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number plus the property address and parcel number with the county auditor, and to update it within 60 days of any change. There is no fee. The Franklin County Auditor states a penalty of $150 per tax year for failing to file, within a statutory range of $50 to $150 under R.C. 5323.99.' },
   { q: 'What does a rental in Groveport rent for?',
@@ -117,27 +117,23 @@ const schemaNodes = [
 
   <KeyFacts items={keyFacts} heading="Groveport, at a glance" />
 
-  <!-- THE HOOK: the employment base is an operating fact, not local colour. -->
+  <!-- THE HOOK: the employment base is an operating fact, not local color. -->
   <section class="band-tight" aria-labelledby="shift-h">
     <div class="wrap max-w-[880px]">
       <h2 id="shift-h" class="text-[clamp(26px,3.2vw,38px)]">How does Groveport's logistics economy change managing a rental there?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        It changes when you can show the unit, how you read an application, when rent actually arrives, and how
+        It changes when you can show the unit, how you read an application, when rent arrives, and how
         correlated your vacancy risk is. Groveport sits next to Rickenbacker, a cargo-dedicated airport inside a
         multimodal freight hub whose three intermodal terminals handle roughly 800,000 container lifts a year.
         The city has been attracting warehousing, fulfilment and distribution investment since the mid to late
         1980s. A large share of the people who rent houses in Groveport work inside that cluster.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        Most property management copy would call that "a strong local employment base" and move on. Here is what
-        it actually means for the person who owns the house.
       </p>
 
       <h3 class="text-[21px] mt-9 mb-3">Showings and maintenance have to fit around shifts</h3>
       <p class="text-[16.5px] text-muted">
         A second-shift worker cannot see a house at 2pm and a third-shift worker is asleep at 10am. A leasing
         process built on weekday daytime appointments quietly filters out a large part of the qualified
-        applicant pool in this market, and the owner never sees the applications that did not happen. The same
+        applicant pool in this market, and you never see the applications that did not happen. The same
         problem applies to maintenance access: a technician who can only come Tuesday at 11am does not fix the
         furnace of a resident who works nights, so the ticket ages and the resident stops reporting things.
       </p>
@@ -145,7 +141,7 @@ const schemaNodes = [
       <h3 class="text-[21px] mt-9 mb-3">Overtime is not base income</h3>
       <p class="text-[16.5px] text-muted">
         Warehouse pay in central Ohio is hourly, and peak season from roughly September through December can add
-        real overtime. An application built on eight weeks of peak pay stubs can clear a three-times-rent test
+        significant overtime. An application built on eight weeks of peak pay stubs can clear a three-times-rent test
         and then fail in February when the hours come off. Screening here means looking at base scheduled hours,
         not the biggest recent pay stub, and it means asking about the employment start date rather than
         treating any warehouse job as interchangeable with any other.
@@ -165,8 +161,8 @@ const schemaNodes = [
       <p class="text-[16.5px] text-muted">
         If you own three houses in Groveport and all three residents work in fulfilment, you do not have three
         independent risks. One operator cutting a shift, or a seasonal contract ending, can hit all three in the
-        same month. That is not a reason to avoid the market. It is a reason to hold reserves at the top of our
-        published range rather than the bottom, and to know it before it happens rather than in the middle of it.
+        same month. You do not need to avoid the market, but you should hold reserves at the top of our published
+        range rather than the bottom, and plan for a cut before it happens rather than in the middle of it.
       </p>
     </div>
   </section>
@@ -222,7 +218,7 @@ const schemaNodes = [
         here.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Where a city runs its own registration, licence or inspection programme, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Keeping track of which programme applies to your address, and filing on time, is work we absorb rather than work we hand you.
+        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We track which program applies to your address and handle the filing on time.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
       </p>
@@ -235,7 +231,7 @@ const schemaNodes = [
       <span class="eyebrow">The market</span>
       <h2 id="market-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in Groveport, and what does management cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Detached single-family houses and small multifamily buildings at price points well below the north and
+        Groveport rentals are detached single-family houses and small multifamily buildings at price points well below the north and
         northwest suburbs, with an older village core around Main Street and rings of postwar and later
         subdivision building outward from it. That affordability is why the market works: the rent a warehouse
         household can support and the rent these houses command are close enough that occupancy holds.
@@ -243,7 +239,7 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-5">
         {publishesOwnRent
           ? 'Our portfolio sample in Groveport now supports a published median. Update this page before relying on it.'
-          : 'We are not publishing a bedroom-level rent median for Groveport. Our sample there sits below the five-unit floor we set before we will publish a market-level figure, and quoting a public rent index as though it came from our own book is exactly what we criticise other local pages for doing.'}
+          : 'We are not publishing a bedroom-level rent median for Groveport. Our sample there sits below the five-unit floor we set before we will publish a market-level figure, and quoting a public rent index as though it came from our own book is what we criticize other local pages for doing.'}
         {' '}Send an address and we will price it against live comparable listings.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
@@ -259,7 +255,7 @@ const schemaNodes = [
       <p class="text-[16.5px] text-muted mt-7">
         A flat fee is worth the most in a moderate-rent market. A percentage manager takes a smaller absolute
         number here than in a high-rent suburb, but the cash flow is thinner, so the same percentage is a bigger
-        share of what you actually keep. Placement is {usd(pricing.leasingFee)}. Maintenance is
+        share of what you keep. Placement is {usd(pricing.leasingFee)}. Maintenance is
         {' '}{usd(pricing.maintenance.inHouseHourly)} an hour with a {usd(pricing.maintenance.tripCharge)} trip
         charge and no minimum, materials at cost. Photography is not included in the leasing fee and is billed
         separately at $250 to $450.
@@ -278,7 +274,7 @@ const schemaNodes = [
       <h2 id="faq-section" class="sr-only">Groveport property management questions</h2>
       <Faq items={faq} heading="Groveport property management questions" id="groveport-faq" />
       <p class="mt-7 text-[15.5px] text-muted">
-        Owner funds go out on the {rentPolicy.ownerDisbursementDay}th and take about
+        Owner funds go out on the {rentPolicy.ownerDisbursementDay}th and take
         {' '}{rentPolicy.disbursementNote}. Another forty answers sit on the
         {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
       </p>
@@ -288,7 +284,7 @@ const schemaNodes = [
 
   <RelatedLinks links={[
     { href: '/property-management-canal-winchester/', label: 'Canal Winchester property management', note: 'East, newer stock, and a county line running through the city.' },
-    { href: '/property-management-reynoldsburg-ohio/', label: 'Reynoldsburg property management', note: 'North, similar price points, two counties.' },
+    { href: '/property-management-reynoldsburg-ohio/', label: 'Reynoldsburg property management', note: 'North, similar price points, three counties.' },
     { href: '/property-management-whitehall-ohio/', label: 'Whitehall property management', note: 'North, an independent city fully surrounded by Columbus.' },
     { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with rents, the registry and the court.' },
     { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },

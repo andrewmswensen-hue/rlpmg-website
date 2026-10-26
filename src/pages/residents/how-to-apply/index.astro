@@ -64,7 +64,7 @@ const steps = [
   {
     n: '4',
     h: 'Screening runs',
-    p: 'Identity, income, credit, rental history and background, checked against the published criteria in exactly the same way for every applicant. Nothing about the order or the standard changes based on who is applying.',
+    p: 'We check identity, income, credit, rental history and background against the published criteria, in exactly the same way for every applicant. Nothing about the order or the standard changes based on who is applying.',
   },
   {
     n: '5',
@@ -93,7 +93,7 @@ const faq = [
   { q: 'How much is the application fee?',
     a: 'The application fee is [SOURCE NEEDED: application fee amount and whether it is charged per adult applicant or per household]. It pays for the screening reports, so it is spent when the reports run and is not refunded if the application is declined or if you change your mind.' },
   { q: 'How long does it take to hear back?',
-    a: 'A complete application moves quickly; an incomplete one does not move at all. The most common delay is income documentation an applicant has not uploaded yet, or a prior landlord who has not returned our call. [SOURCE NEEDED: typical business days from a complete application to a decision].' },
+    a: 'A complete application moves quickly. An incomplete one stalls until the missing piece arrives. The most common delay is income documentation an applicant has not uploaded yet, or a prior landlord who has not returned our call. [SOURCE NEEDED: typical business days from a complete application to a decision].' },
   { q: 'Does everyone in the house have to apply?',
     a: 'Every adult who will live in the home applies and is screened separately, including adults who will not be contributing income. Occupants under 18 are listed on the application but are not screened. Adding an adult after move-in requires that person to apply and be approved first.' },
   { q: 'Can I apply for more than one home at a time?',
@@ -101,7 +101,7 @@ const faq = [
   { q: 'Does applying hold the home?',
     a: 'No. A submitted application does not take a home off the market, and neither does an approval on its own. The home comes off the market when the lease is signed and the funds due at signing have cleared. Until then it stays listed and other applications keep coming in.' },
   { q: 'What if I am declined?',
-    a: 'You will be told, and if the decision was based in whole or in part on a consumer report, you receive an adverse action notice naming the reporting agency so you can request your file and dispute anything wrong in it. That is your right under the federal Fair Credit Reporting Act, and it is free from the agency.' },
+    a: 'We tell you, and if the decision was based in whole or in part on a consumer report, you receive an adverse action notice naming the reporting agency so you can request your file and dispute anything wrong in it. That is your right under the federal Fair Credit Reporting Act, and it is free from the agency.' },
   { q: 'Can I apply with a co-signer or a guarantor?',
     a: '[SOURCE NEEDED: whether co-signers or guarantors are accepted, and if so what standard they are screened against and what they are liable for].' },
   { q: 'Do you accept housing vouchers?',
@@ -127,8 +127,8 @@ const faq = [
       <span class="eyebrow">The process</span>
       <h2 id="steps-h" class="text-[clamp(28px,3.3vw,40px)]">What are the steps to apply?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Six, in order. The whole thing is designed so that an applicant who is prepared moves through it in
-        days rather than weeks.
+        There are six, in order. If you come prepared, you can move through them in days rather than
+        weeks.
       </p>
       <ol class="grid gap-4 mt-7">
         {steps.map((s) => (
@@ -154,8 +154,8 @@ const faq = [
       <span class="eyebrow">Come prepared</span>
       <h2 id="docs-h" class="text-[clamp(28px,3.3vw,40px)]">What do I need to have ready?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Six things, and having them in one folder before you start is the single biggest difference between
-        an application that gets a decision this week and one that stalls.
+        You need the six things below. Having them in one folder before you start is the biggest difference
+        between an application that gets a decision this week and one that stalls.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -185,9 +185,9 @@ const faq = [
       <span class="eyebrow">How the queue works</span>
       <h2 id="rank-h" class="text-[clamp(28px,3.3vw,40px)]">If two people apply for the same home, who gets it?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        The first qualified applicant to complete an application, in the order applications are completed.
-        Completed is the operative word. An application started Monday with no income documents attached
-        sits behind one filed Wednesday with everything in it.
+        The first qualified applicant to complete an application gets the home. We review applications in the
+        order they are completed, not started, so an application started Monday with no income documents
+        attached sits behind one filed Wednesday with everything in it.
       </p>
       <p class="text-[16.5px] text-muted mt-4">
         The same criteria are applied to every applicant, in the same order, on every home. We do not hold
@@ -250,7 +250,7 @@ const faq = [
 
   <Cta
     heading="Ready to apply?"
-    body="Check the criteria first, collect your income documents, then apply. A complete application beats an early one every time."
+    body="Check the criteria first, collect your income documents, then apply. We review applications in the order they are completed, so a complete application moves ahead of an early, incomplete one."
     primary={{ label: 'View available homes', href: '/homes-for-rent/' }}
     secondary={{ label: 'Read the application criteria', href: '/residents/application-criteria/' }}
   />

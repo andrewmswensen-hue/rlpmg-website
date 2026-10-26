@@ -53,7 +53,7 @@ const tools = [
   {
     href: '/self-management-calculator/',
     name: 'Self-management calculator',
-    question: 'What is self-managing actually costing me?',
+    question: 'What is self-managing costing me?',
     body: 'Prices out the work you are already doing, against a flat management fee, so the comparison is in dollars rather than in feelings about how much time it takes.',
     stat: 'Your time',
     statNote: 'priced in dollars',
@@ -61,8 +61,8 @@ const tools = [
   {
     href: '/2026-columbus-market-report/',
     name: '2026 Columbus rental market report',
-    question: 'What is the Columbus rental market actually doing?',
-    body: `Rent levels, demand and what is changing across Central Ohio, with the data behind it. The wider market context for every number on the calculators.`,
+    question: 'What is the Columbus rental market doing?',
+    body: `Rent levels, demand and what is changing across Central Ohio, with the data behind it. It gives the wider market context for every number on the calculators.`,
     stat: '2026',
     statNote: 'market data',
   },
@@ -81,7 +81,7 @@ const answer =
   `of self-managing, and the 2026 market report. No sign-up and no email gate. Each one shows its arithmetic.`;
 
 const facts = [
-  'Nothing here is gated. No email, no account, no sales call',
+  'Nothing here is gated: no email, no account and no sales call',
   `Vacancy: a ${usd(rentByBedroom['3'].median)} 3 bed costs ${usd(dailyThreeBed)} for every day it sits empty`,
   `Reserves: ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit, by plan`,
   `A typical turn and lease-up cycle runs ${cycleDays} days: ${turnDays} to turn plus ${domDays} on market`,
@@ -125,7 +125,7 @@ const faq = [
       <span class="eyebrow">Five tools</span>
       <h2 id="tools-h" class="text-[clamp(28px,3.3vw,40px)]">Which tool answers your question?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Each one is built around a single question an owner actually asks. Pick the question, not the tool.
+        Each one is built around a single question owners ask. Start from your question, and the tool follows.
       </p>
       <ul class="grid gap-5">
         {tools.map((t) => (
@@ -160,7 +160,7 @@ const faq = [
         run against your own property. If you disagree with an assumption, you can see exactly which one it is.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
-        There is a practical reason as well. Every page on this site runs with zero JavaScript, so it loads
+        There is a practical reason as well. Almost every page on this site runs with zero JavaScript, so it loads
         instantly, prints cleanly, works on a bad connection, and stays readable to a screen reader. A
         calculator that fails silently when a script does not load is worse than a table.
       </p>
@@ -203,8 +203,8 @@ const faq = [
         </div>
       </div>
       <p class="text-[15.5px] text-muted mt-8">
-        Where a figure would need a source we do not have, the page says so in plain text rather than
-        estimating. That is the rule for every page on this site.
+        Every page on this site follows the same rule: where a figure would need a source we do not have, the
+        page says so in plain text rather than estimating.
       </p>
     </div>
   </section>

@@ -49,13 +49,13 @@ const differences = [
   { h: 'Quarterly inspections, not annual ones',
     p: 'Every managed property is inspected quarterly. Small problems found in month three are cheaper than the same problems found in month eleven.' },
   { h: 'A custom lease reviewed by legal counsel',
-    p: 'The lease is not a form download. It is a custom document, reviewed by counsel, written against Ohio landlord-tenant law and Franklin County practice.' },
+    p: 'The lease is a custom document reviewed by counsel and written against Ohio landlord-tenant law and Franklin County practice, rather than a form download.' },
   { h: 'We publish our operating numbers',
-    p: `The scorecard is public and refreshed quarterly: ${kpis.metrics[0].value} median days on market, ${kpis.metrics[3].value} occupancy, ${kpis.metrics[6].value} of rent collected by the 5th.` },
+    p: `The scorecard is public and refreshed monthly: ${kpis.metrics[0].value} median days on market, ${kpis.metrics[3].value} occupancy, ${kpis.metrics[6].value} of rent collected by the 5th.` },
   { h: 'Local since 2013',
     p: `The team works out of ${company.address.city}, Ohio, and the properties are in Franklin County and the counties that touch it. Nothing is managed remotely from another state.` },
   { h: 'We are selective about the work',
-    p: 'We take on property in a defined service area and a defined property profile. Saying no to the rest is what makes the yes worth something.' },
+    p: 'We take on property in a defined service area and a defined property profile. We say no to property outside it so we can serve the properties we take on well.' },
 ];
 
 const faq = [
@@ -81,7 +81,7 @@ const related = [
   { href: '/team/', label: 'Our team', note: 'Every person here, with their role.' },
   { href: '/core-values/', label: 'Core values', note: 'The six values the company runs on.' },
   { href: '/pricing/', label: 'Pricing', note: 'The complete published fee schedule.' },
-  { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'The operating numbers, refreshed quarterly.' },
+  { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'The operating numbers, refreshed monthly.' },
   { href: '/areas-we-serve/', label: 'Areas we serve', note: `All ${areas.length} Central Ohio communities.` },
 ];
 ---
@@ -124,9 +124,9 @@ const related = [
         {clients.map((c) => <li>{c}</li>)}
       </ul>
       <p>
-        We are selective about who we work with and where we manage, and that is deliberate. A
-        defined service area and a defined property profile is what lets a team of this size
-        actually be at the property when something goes wrong.
+        We are selective about who we work with and where we manage. Keeping to a defined service
+        area and a defined property profile is what lets a team of this size be at the property
+        when something goes wrong.
       </p>
     </div>
   </section>
@@ -179,7 +179,7 @@ const related = [
 
       <h2>What does RL Property Management believe?</h2>
       <p>
-        Six core values, and they are operating instructions rather than wall art:
+        Six core values, written to be used as operating instructions:
         {coreValues.map((v, i) => (
           <span>{i === 0 ? ' ' : ', '}{v.name.toLowerCase()}</span>
         ))}. Each one is explained, with what it looks like in practice, on the

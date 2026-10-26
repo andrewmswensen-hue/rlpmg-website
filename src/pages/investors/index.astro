@@ -60,13 +60,13 @@ const pillars = [
   { h: 'One fee schedule, entirely public',
     p: 'Every charge that can appear on an owner statement is published, including the situational ones. You can model the operating expense line before you speak to anyone here.' },
   { h: 'Operating numbers you can audit',
-    p: `Days on market, turn time, renewal rate, occupancy, collection rate and repair close time are all published with their definitions, and refreshed. Not a testimonial, a number.` },
+    p: `Days on market, turn time, renewal rate, occupancy, collection rate and repair close time are all published with their definitions and refreshed, so you can check the numbers instead of reading testimonials.` },
   { h: 'In-house maintenance',
     p: `Technicians on payroll at ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, with no minimum charge and materials at cost. Vendor work carries a ${pricing.maintenance.vendorProjectFeePct}% project fee capped at ${usd(pricing.maintenance.vendorProjectFeeCap)}.` },
   { h: 'Renewals are the strategy',
-    p: `Because placing a resident earns us nothing, keeping a good one is the only thing that pays. The portfolio renewal rate is ${kpis.metrics[2].value}, and a renewal costs an owner ${usd(pricing.leaseRenewalFee)} against a full turn.` },
+    p: `Placing a resident earns us nothing, so we make our money by keeping good residents in place. The portfolio renewal rate is ${kpis.metrics[2].value}, and a renewal costs an owner ${usd(pricing.leaseRenewalFee)} against a full turn.` },
   { h: 'Consolidation without a gap',
-    p: 'Moving several properties off one or more managers is a scheduling problem, not a paperwork problem. We plan it against your lease dates and termination clauses before anyone gives notice.' },
+    p: 'Moving several properties off one or more managers is mostly a scheduling job. We plan it against your lease dates and termination clauses before anyone gives notice.' },
 ];
 
 const outOfState = [
@@ -84,7 +84,7 @@ const faq = [
   { q: 'Do you discount management for a larger portfolio?',
     a: `Yes, and the rates are published. Monthly management is ${tierLine}. From ${pricing.portfolioDiscount.customFrom} units the pricing is custom, built around your mix of properties. There is no leasing fee at any size.` },
   { q: 'Why is pricing custom above 40 units?',
-    a: 'Because at that size a table stops being accurate. Forty units in one suburb and forty scattered across five counties cost very different amounts to run, so we price the actual portfolio rather than publish a floor that fits nobody.' },
+    a: 'At that size a fixed table is no longer accurate. Forty units in one suburb and forty scattered across five counties cost very different amounts to run, so we price the actual portfolio rather than publish a floor that fits nobody.' },
   { q: 'What is my real cost per door?',
     a: `On the middle plan the management line is ${usd(std.monthly)} per door per month before any portfolio discount, plus ${usd(pricing.leaseRenewalFee)} when a lease renews. Placing a resident is ${usd(pricing.leasingFee)}. A manager charging 10% of an average ${kpis.metrics[4].value} rent runs about ${usd(Math.round(avgRent * 0.10))} per door per month, plus roughly ${usd(Math.round(avgRent / 2))} each time a unit turns.` },
   { q: 'Can you manage for an out-of-state investor?',
@@ -133,7 +133,7 @@ const schemaNodes = [
         {' '}{kpis.metrics[4].value} costs roughly {usd(Math.round(avgRent * 0.08))} to
         {' '}{usd(Math.round(avgRent * 0.10))} per door per month, and then bills about
         {' '}{usd(Math.round(avgRent / 2))} again every time a unit turns. At scale the leasing fee is the line
-        that actually decides the year, because a portfolio always has units turning.
+        that decides the year, because a portfolio always has units turning.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         Below is the annual management line at three portfolio sizes, before any portfolio discount is applied.
@@ -198,8 +198,8 @@ const schemaNodes = [
       <span class="eyebrow">What you are buying</span>
       <h2 id="why-h" class="text-[clamp(26px,3.2vw,38px)]">What should an investor look for in a manager?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[46em]">
-        Six things, and all six are checkable before you sign. If a manager cannot show you these, the pitch is
-        the product.
+        Six things, and all six are checkable before you sign. If a manager cannot show you these, all you have
+        to go on is the sales pitch.
       </p>
       <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3 mt-8">
         {pillars.map((p) => (
@@ -271,7 +271,7 @@ const schemaNodes = [
         rather than subcontracted for every work order.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
-        Scale matters to a portfolio owner for one reason: a manager who is at capacity solves their staffing
+        Scale matters to a portfolio owner because a manager who is at capacity solves their staffing
         problem with your vacancy. Ask any manager you are considering how many doors they run per portfolio
         manager and per technician, and ask what happens to that ratio when they add you.
       </p>

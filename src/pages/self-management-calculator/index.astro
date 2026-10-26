@@ -24,8 +24,8 @@ import { serviceNode } from '../../lib/schema';
 
 const title = `Self-Management Cost Calculator | ${company.name}`;
 const description =
-  'Work out what self-managing your Columbus rental actually costs, counting your time, vacancy, ' +
-  'and the repairs you are paying retail for. Compare it against flat-fee management.';
+  'Work out what self-managing your Columbus rental costs, counting your time, vacancy ' +
+  'and the repairs you pay retail for. Compare it with flat-fee management.';
 const breadcrumbs = [
   { name: 'Home', path: '/' }, { name: 'Tools', path: '/tools/' },
   { name: 'Self-management calculator', path: '/self-management-calculator/' },
@@ -44,12 +44,12 @@ const ex = {
 const faq = [
   { q: 'How much time does managing your own rental take?',
     a: 'It varies with the property and the resident, which is why this page asks you for your own number rather than publishing an industry average. Most averages circulating online have no traceable source. Track your hours for one month and use that.' },
-  { q: 'What does self-managing actually cost?',
+  { q: 'What does self-managing cost?',
     a: `Three things: the hours you spend, the vacancy you carry while finding a resident, and the premium you pay for repairs without a vendor relationship. On a ${usd(example.rent)} rent, ${example.hours} hours a month valued at ${usd(example.rate)} an hour is ${usd(ex.timeCost)} a year before a single day of vacancy.` },
   { q: 'How much does a property manager cost in Columbus?',
     a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with no leasing fee. On the middle plan that is ${usd(mid.monthly * 12)} a year per unit.` },
   { q: 'Is a property manager worth it for one rental?',
-    a: 'It depends on what your time is worth and how close you live to the property. The arithmetic on this page is the honest way to answer it. Some owners should keep self-managing, and we will tell you so.' },
+    a: 'It depends on what your time is worth and how close you live to the property. Run the arithmetic on this page with your own numbers to answer it. Some owners should keep self-managing, and we will tell you so.' },
   { q: 'Does vacancy cost more than management fees?',
     a: `Often, yes. A single month of vacancy on a ${usd(example.rent)} rent costs ${usd(example.rent)}, which is most of a year of flat-fee management. Speed of leasing is usually where management pays for itself.` },
 ];
@@ -71,8 +71,9 @@ const schemaNodes = [serviceNode({
       <span class="eyebrow">Owner tools</span>
       <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em]">What is self-managing actually costing you?</h1>
       <p class="text-[20px] text-muted mt-5 max-w-[40em]">
-        Self-managing is not free, it is just unbilled. The cost shows up in your hours, in the days a
-        unit sits empty, and in what you pay for repairs without a vendor relationship. This adds it up.
+        Self-managing costs money even though nobody sends you a bill. The cost shows up in your hours, in
+        the days a unit sits empty, and in what you pay for repairs without a vendor relationship. This
+        calculator adds it up.
       </p>
     </div>
   </section>
@@ -150,9 +151,9 @@ const schemaNodes = [serviceNode({
         costs {usd(ex.mgmtCost)}.
       </p>
       <p class="text-[14px] text-faint mt-3">
-        This deliberately leaves out what you overpay for repairs without a vendor relationship, and the
-        cost of a mistake under Ohio landlord-tenant law. Both are real and both are hard to estimate
-        honestly, so they are not counted here.
+        The comparison deliberately leaves out what you overpay for repairs without a vendor relationship,
+        and the cost of a mistake under Ohio landlord-tenant law. Both are real costs, but they are hard to
+        estimate honestly, so we do not count them here.
       </p>
     </div>
   </section>
@@ -161,7 +162,7 @@ const schemaNodes = [serviceNode({
     <div class="wrap max-w-[880px]">
       <h2 class="text-[26px] mb-4">How the arithmetic works</h2>
       <div class="prose-rl">
-        <p>Three lines, all of which you can check by hand:</p>
+        <p>The calculation has three lines, and you can check each one by hand:</p>
         <ol>
           <li><strong>Your time.</strong> Hours a month, times what an hour of your time is worth, times twelve.</li>
           <li><strong>Vacancy.</strong> Monthly rent divided by 30 gives a daily rate. Multiply by the days a unit sits empty in a year.</li>
@@ -186,7 +187,7 @@ const schemaNodes = [serviceNode({
     { href: '/pricing/', label: 'What management costs', note: 'The complete published fee schedule' },
     { href: '/compare/self-managing-vs-property-manager/', label: 'Self-managing vs hiring out', note: 'The full comparison, beyond the numbers' },
     { href: '/rent-vs-sell-calculator/', label: 'Rent or sell?', note: 'Whether to keep the property at all' },
-    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'What your property should actually earn' },
+    { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'What your property should earn' },
   ]} />
 
   <Cta heading="Want the real number for your property?"

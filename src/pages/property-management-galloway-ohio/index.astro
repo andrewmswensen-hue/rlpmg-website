@@ -42,7 +42,7 @@ import { serviceNode } from '../../lib/schema';
  *  - Township zoning authority sits in R.C. Chapter 519.
  *
  * Rent figure IS publishable for Galloway: rentByMarketAndBedroom has a 3 bedroom
- * entry with a sample of 7, above the 5-unit floor. It is labelled as our own
+ * entry with a sample of 7, above the 5-unit floor. It is labeled as our own
  * portfolio median. No door counts. No per-market days on market.
  */
 
@@ -75,7 +75,7 @@ const faq = [
   { q: 'Is Galloway, Ohio a city?',
     a: 'No. Galloway is an unincorporated community in southern Prairie Township, in western Franklin County, at the intersection of Galloway Road and Sullivant Avenue. It has no mayor, no council and no municipal code of its own. Prairie Township governs land use under Ohio Revised Code Chapter 519, and the Franklin County Sheriff provides law enforcement in the unincorporated portion.' },
   { q: 'What county is Galloway, Ohio in?',
-    a: 'Franklin County. The whole 43119 area sits in Franklin County, so the eviction court and the county auditor are the same regardless of which side of a corporation line a given parcel falls on. That consistency is exactly why owners stop checking the rest.' },
+    a: 'Franklin County. The whole 43119 area sits in Franklin County, so the eviction court and the county auditor are the same regardless of which side of a corporation line a given parcel falls on. Because those two stay the same, it is easy to miss that the rest does not.' },
   { q: 'Which court hears an eviction in Galloway, Ohio?',
     a: 'Franklin County Municipal Court. The civil and eviction division sits at 375 S. High St., 3rd floor, Columbus, OH 43215, and its jurisdiction runs countywide under Ohio Revised Code 1901.02. That is true for a Galloway parcel in unincorporated Prairie Township and for one inside the Columbus city limits. Before filing, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, with specific statutory language and correct service.' },
   { q: 'Does a Galloway mailing address mean I am in the City of Columbus?',
@@ -131,10 +131,9 @@ const schemaNodes = [
         named after.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Here is why owners let this slide: the thing they check first, the eviction court, is the same either
-        way. Franklin County Municipal Court hears the case whether the house is township or city. So the first
-        question comes back consistent, the owner concludes the jurisdiction question is settled, and the rest
-        goes unchecked.
+        This is easy to let slide, because the first thing you check, the eviction court, is the same either
+        way. Franklin County Municipal Court hears the case whether the house is township or city. If you stop
+        at the court, the jurisdiction question looks settled and the rest goes unchecked.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -182,7 +181,7 @@ const schemaNodes = [
         property file, because it decides who we call when something goes wrong.
       </p>
       <p class="text-[16px] text-muted mt-5">
-        Where a city runs its own registration, licence or inspection programme, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Keeping track of which programme applies to your address, and filing on time, is work we absorb rather than work we hand you.
+        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and file on time.
       </p>
     </div>
   </section>
@@ -250,16 +249,15 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4">
         Across the units we manage in Galloway, the median rent is {usd(rent['3'].median)} for a three bedroom.
         That is our own portfolio median from our own book, not a market survey and not a public rent index
-        relabelled. We are not publishing a figure for any other bedroom count in Galloway, because the sample
+        relabeled. We are not publishing a figure for any other bedroom count in Galloway, because the sample
         does not reach the five-unit floor we set before we will put a number in print.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         The stock behind that number is detached single-family houses on conventional suburban lots, built as
         western Franklin County filled in from the 1970s onward, with newer subdivision pockets and some older
         acreage closer to the original crossroads. Three bedroom houses are the working product here. Most of
-        the demand is working households, often families, and the leasing job is less about marketing reach than
-        about screening carefully and then handling the first missed rent payment properly, in the first week,
-        rather than in the second month.
+        the demand is working households, often families, so the leasing job comes down to careful screening and
+        to handling the first missed rent payment properly, in the first week rather than the second month.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (
@@ -318,7 +316,7 @@ const schemaNodes = [
 
   <Cta
     heading="Find out what your Galloway rental should earn"
-    body="Tell us the address and we will price it against the units we already manage in Galloway and the comparable listings live right now, and confirm which jurisdiction the parcel actually sits in. No charge."
+    body="Tell us the address and we will price it against the units we already manage in Galloway and the comparable listings live right now, and confirm which jurisdiction the parcel sits in. No charge."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
   />

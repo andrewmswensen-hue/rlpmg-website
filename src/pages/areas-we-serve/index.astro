@@ -137,7 +137,7 @@ const byCounty = COUNTY_ORDER.map((county) => ({
 
 const keyFacts = [
   `${markets.length} Central Ohio communities across seven counties`,
-  'One office, at 750 Cross Pointe Rd in Columbus, not a branch in every suburb',
+  'One office, at 750 Cross Pointe Rd in Columbus, serving the whole metro',
   `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month everywhere we work`,
   `${usd(pricing.leasingFee)} leasing fee in every one of these markets`,
   'Franklin County Municipal Court hears evictions for every Franklin County address',
@@ -148,7 +148,7 @@ const faq = [
   { q: 'What areas does RL Property Management serve?',
     a: `${company.name} manages rental property in ${markets.length} Central Ohio communities. The core of the portfolio is Columbus and the inner Franklin County suburbs, and the footprint extends into Delaware, Licking, Fairfield, Pickaway, Madison and Union counties. If you own a rental inside that area, we can take it on.` },
   { q: 'Do you have an office in my suburb?',
-    a: `No. ${company.name} runs one office, at ${company.address.street} in ${company.address.city}, and works the whole metro from it. A manager with a storefront in your suburb is not closer to your property in any way that changes an outcome. What changes outcomes is knowing which court hears the eviction, who bills the water, and whether the city requires rental registration.` },
+    a: `No. ${company.name} runs one office, at ${company.address.street} in ${company.address.city}, and works the whole metro from it. A storefront nearby would not change how your property is run. Local knowledge does: which court hears the eviction, who bills the water, and whether the city requires rental registration.` },
   { q: 'Which court hears an eviction in Central Ohio?',
     a: 'The municipal court for the county the property sits in. Franklin County Municipal Court at 375 S. High St. in Columbus hears every Franklin County eviction. Delaware County goes to Delaware Municipal Court, Licking County to Licking County Municipal Court, Fairfield County to Fairfield County Municipal Court, Pickaway County to Circleville Municipal Court, Madison County to Madison County Municipal Court, and Union County to Marysville Municipal Court. Territorial jurisdiction for all of these is set by Ohio Revised Code 1901.02.' },
   { q: 'Do you manage property in an area where you have no units today?',
@@ -158,9 +158,9 @@ const faq = [
   { q: 'Do I have to register my rental with the county?',
     a: 'In Franklin County, yes. Ohio Revised Code 5323.02 requires an owner of residential rental property in any Ohio county over 200,000 people to file the owner name, address and telephone number with the county auditor. It is a one-time filing with no fee, and the information has to be updated within 60 days of any change. An owner who lives outside Ohio also has to name an Ohio resident as agent for service of process.' },
   { q: 'Are Clintonville, German Village and the Short North separate cities?',
-    a: 'No. All three are Columbus neighborhoods inside Franklin County, so Columbus ordinances, Columbus utilities and Franklin County Municipal Court apply to all of them. They have their own pages because their housing stock and their historic-district rules differ sharply from the rest of the city, not because they are separate jurisdictions.' },
+    a: 'No. All three are Columbus neighborhoods inside Franklin County, so Columbus ordinances, Columbus utilities and Franklin County Municipal Court apply to all of them. They have their own pages because their housing stock and their historic-district rules differ sharply from the rest of the city.' },
   { q: 'What kind of property do you manage?',
-    a: `${company.propertyTypes.charAt(0).toUpperCase() + company.propertyTypes.slice(1)}, which is what most of Central Ohio's rental stock actually is. Scattered single-family houses, doubles, and small apartment buildings, rather than large institutional complexes.` },
+    a: `${company.propertyTypes.charAt(0).toUpperCase() + company.propertyTypes.slice(1)}, which describes most of Central Ohio's rental stock: scattered single-family houses, doubles, and small apartment buildings rather than large institutional complexes.` },
 ];
 
 const schemaNodes = [
@@ -176,7 +176,7 @@ const schemaNodes = [
   <PageHero
     eyebrow="Where we work"
     title="Areas we serve across Central Ohio"
-    answer={`${company.name} manages single-family and small multifamily rentals in ${markets.length} Central Ohio communities across seven counties, from Columbus out to Delaware, Newark, Lancaster and Marysville. Flat pricing, ${usd(pricing.leasingFee)} leasing fee, everywhere.`}
+    answer={`${company.name} manages single-family and small multifamily rentals in ${markets.length} Central Ohio communities across seven counties, from Columbus out to Delaware, Newark, Lancaster and Marysville. Pricing is flat and the leasing fee is ${usd(pricing.leasingFee)} in every one of them.`}
     breadcrumbs={breadcrumbs}
     secondaryCta={{ label: 'See pricing', href: '/pricing/' }}
   />
@@ -235,7 +235,7 @@ const schemaNodes = [
       <span class="eyebrow">The full list</span>
       <h2 id="list-h" class="text-[clamp(28px,3.3vw,40px)]">Which communities do we manage rental property in?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        All {markets.length}, grouped by county rather than alphabetically, because the county is what
+        All {markets.length}, grouped by county rather than alphabetically, because the county
         decides which court hears an eviction and which auditor you register the property with.
       </p>
 
@@ -340,8 +340,8 @@ const schemaNodes = [
         City limits and mailing addresses do not match in Central Ohio. Franklin County still contains
         unincorporated township islands surrounded by Columbus, and plenty of properties carry a
         Columbus mailing address while sitting in another municipality or a township. The parcel record
-        at the Franklin County Auditor is what settles it, and it is what we check before we quote a
-        registration obligation.
+        at the Franklin County Auditor settles it, and we check it before we quote a registration
+        obligation.
       </p>
     </div>
   </section>
@@ -354,8 +354,8 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4 mb-6 max-w-[44em]">
         With in-house technicians who drive the whole footprint, a maintenance dispatch that routes by
         geography rather than by whoever is free, and self-guided showings so a prospect in Pataskala is
-        not waiting on an agent to drive out from Columbus. The alternative, a storefront in every
-        suburb, costs money and improves nothing an owner can measure.
+        not waiting on an agent to drive out from Columbus. A storefront in every suburb would add
+        cost without improving anything an owner can measure.
       </p>
       <ul class="grid gap-x-8 gap-y-1 sm:grid-cols-2">
         {[

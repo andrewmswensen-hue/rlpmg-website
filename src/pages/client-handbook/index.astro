@@ -10,7 +10,7 @@
  *
  * So the content is the original, section for section, in the original order.
  * What changed is the styling (Source Serif display, Inter body, rounded
- * cards, the new colour tokens) and one structural rule of this rebuild:
+ * cards, the new color tokens) and one structural rule of this rebuild:
  * every number is read from facts.ts rather than typed here, so the handbook
  * and the pricing page can never disagree.
  *
@@ -206,7 +206,7 @@ const evictionFees = [
           <li>The status of security deposits</li>
         </ul>
         <p>
-          Many clients find the owner portal is one of their favourite features, because it gives them access
+          Many clients find the owner portal is one of their favorite features, because it gives them access
           to critical information instantly. If you have any questions about navigating it, or you forget your
           username or password, get in touch. The portal is a built-in feature of the property management
           software we use in the office, so it is always up to date.
@@ -260,7 +260,7 @@ const evictionFees = [
           When we take over a vacant property, the only bill we automatically take over paying on your behalf
           right away is the water bill, typically issued by the City of Columbus. We handle updating the city
           by providing a copy of your management agreement, and the bills start coming to our office. There is
-          a <b>{fee('Utility bill pay')?.amount} bill-pay fee per bill.</b> If you keep receiving water bills,
+          a <b>bill-pay fee of {fee('Utility bill pay')?.amount}.</b> If you keep receiving water bills,
           let us know.
         </p>
         <p>
@@ -280,7 +280,7 @@ const evictionFees = [
         <h2 class="r-h2">Rent Payments and Eviction</h2>
         <span class="r-rule"></span>
         <p>
-          Rent is due by the {rentPolicy.dueDate}. In practice many residents pay between the
+          Rent is due by {rentPolicy.dueDate}. In practice many residents pay between
           {' '}{rentPolicy.practicalWindow}. If applicable, late fees are assessed. If a resident has not paid
           after {rentPolicy.lateFeesAfter}, here is the timetable of escalation. At any point in this process
           the resident can pay the balance in full to cancel the pending eviction.
@@ -337,7 +337,7 @@ const evictionFees = [
           <li>A list of items to be repaired and a price estimate is generated, which is the scope.</li>
           <li>The scope is sent to the owner for final review and approval.</li>
           <li>Owner remits funds, which is required to begin work at the property.</li>
-          <li>Once the owner has approved the turnover work and provided funding, our maintenance team makes the unit rent-ready. This proactive process helps minimise vacancy time. Alternatively, the owner may handle the rent-ready work themselves, on supported plans.</li>
+          <li>Once the owner has approved the turnover work and provided funding, our maintenance team makes the unit rent-ready. This proactive process helps minimize vacancy time. Alternatively, the owner may handle the rent-ready work themselves, on supported plans.</li>
         </ul>
 
         <h3 class="r-h3" style="color:var(--color-maroon); font-size:18px;">Listing</h3>
@@ -349,7 +349,7 @@ const evictionFees = [
 
         <h3 class="r-h3" style="color:var(--color-maroon); font-size:18px;">After listing</h3>
         <ul class="prose-rl">
-          <li>Leads, by phone and email, are organised and followed up with.</li>
+          <li>Leads, by phone and email, are organized and followed up with.</li>
           <li>Prospective residents who express interest are pre-screened on the phone, and if qualified we schedule a showing.</li>
           <li>At the showing, prospective residents are told to fill out an application online.</li>
           <li>Once we receive a complete application from all adults who plan to live at the property, including proof of income and rental history, we process it and either approve or deny.</li>
@@ -473,10 +473,10 @@ const evictionFees = [
         </p>
         <p>
           Many requests are handled by our internal maintenance team, who are direct employees of
-          {' '}{company.name}. The maintenance labour rate in {m.rateYear} for our employees is
+          {' '}{company.name}. The maintenance labor rate in {m.rateYear} for our employees is
           {' '}<b>{usd(m.inHouseHourly)} per hour plus a {usd(m.tripCharge)} trip charge per visit</b> during
           normal business hours. Materials are generally provided at cost. There is no minimum charge. In the
-          rare event our maintenance employees work after hours or at weekends, the labour rate is
+          rare event our maintenance employees work after hours or at weekends, the labor rate is
           {' '}{pricing.afterHours.weekdayEveningAndSaturday}x for weekday evenings and Saturdays, and
           {' '}{pricing.afterHours.sunday}x for Sundays.
         </p>
@@ -495,11 +495,11 @@ const evictionFees = [
             <thead><tr><th style="width:42%">Item</th><th style="width:58%">Rate</th></tr></thead>
             <tbody>
               <tr>
-                <td class="label">Internal labour, business hours</td>
+                <td class="label">Internal labor, business hours</td>
                 <td>{usd(m.inHouseHourly)} per hour plus a {usd(m.tripCharge)} trip charge per visit, materials at cost</td>
               </tr>
               <tr>
-                <td class="label">After-hours labour</td>
+                <td class="label">After-hours labor</td>
                 <td>{pricing.afterHours.weekdayEveningAndSaturday}x for weekday evenings and Saturdays, {pricing.afterHours.sunday}x for Sundays</td>
               </tr>
               <tr>
@@ -520,7 +520,7 @@ const evictionFees = [
 
         <p>
           Residents are given a 24-hour maintenance emergency number to call if something serious happens. The
-          call centre is authorised to dispatch certain repair companies if there is a true safety or building
+          call center is authorized to dispatch certain repair companies if there is a true safety or building
           integrity issue.
         </p>
       </section>
@@ -540,7 +540,7 @@ const evictionFees = [
         </p>
         <p>
           Utility bills handled and paid by our company on behalf of your property carry a flat
-          {' '}<b>{fee('Utility bill pay')?.amount} bill-pay fee.</b>
+          {' '}<b>bill-pay fee of {fee('Utility bill pay')?.amount}.</b>
         </p>
         <p>
           For new units under management, utilities must be active for us to inspect and approve the property

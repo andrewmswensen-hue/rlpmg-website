@@ -14,7 +14,7 @@ import { serviceNode } from '../../lib/schema';
  * Whitehall, Ohio. Target query: "property management whitehall ohio".
  *
  * The differentiating fact: Whitehall is a separate incorporated city, not a
- * Columbus neighbourhood, even though it is ringed by Columbus on nearly every
+ * Columbus neighborhood, even though it is ringed by Columbus on nearly every
  * side and shares its postal geography. It has its own codified ordinances, its
  * own police and fire divisions, its own building and code enforcement
  * department, its own income tax and its own Tax Commissioner. The eviction
@@ -75,7 +75,7 @@ const publishesOwnRent = canPublishOwnRent(CITY);
 const keyFacts = [
   `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
   `${usd(pricing.leasingFee)} leasing fee every time a Whitehall unit turns`,
-  'Whitehall is a separate incorporated city, not a Columbus neighbourhood',
+  'Whitehall is a separate incorporated city, not a Columbus neighborhood',
   'Evictions still go to Franklin County Municipal Court, 375 S. High St.',
   'Whitehall has its own codified ordinances, code enforcement and Tax Commissioner',
   'Whitehall ordinance 184.21 places a tenant-reporting duty on rental owners',
@@ -87,13 +87,13 @@ const faq = [
   { q: 'Which court hears an eviction in Whitehall, Ohio?',
     a: 'Franklin County Municipal Court. The civil and eviction division sits at 375 S. High St., 3rd floor, Columbus, OH 43215, and its jurisdiction runs countywide under Ohio Revised Code 1901.02, so a Whitehall property files in the same place a Columbus property does. This is the one answer that is the same, and it is why owners stop checking the rest. Before filing, Ohio requires a three-day notice to leave the premises under R.C. 1923.04.' },
   { q: 'What does Whitehall require of a rental property owner that Columbus does not?',
-    a: 'Whitehall Codified Ordinances 184.21, inside the municipal income tax chapter, is titled "Mandatory registration of residents, tenants, contractors and employees" and places a recurring duty on owners and agents of residential rental units in Whitehall to report tenant information to the city Tax Commissioner. There is no Columbus habit that covers this, so an owner running a Whitehall property on Columbus assumptions is simply not doing it. Confirm the current filing dates and required content directly with the Whitehall income tax office before your first filing.' },
+    a: 'Whitehall Codified Ordinances 184.21, inside the municipal income tax chapter, is titled "Mandatory registration of residents, tenants, contractors and employees" and places a recurring duty on owners and agents of residential rental units in Whitehall to report tenant information to the city Tax Commissioner. There is no Columbus habit that covers this, so an owner running a Whitehall property on Columbus assumptions is not doing it. Confirm the current filing dates and required content directly with the Whitehall income tax office before your first filing.' },
   { q: 'Do I also have to register with the county?',
     a: 'Yes, separately. Ohio Revised Code 5323.02 requires every owner of residential rental property to file the owner name, address and telephone number plus the property address and parcel number with the county auditor, and to update it within 60 days of any change. For Whitehall that is the Franklin County Auditor. There is no fee, and the Franklin County Auditor states a penalty of $150 per tax year for failing to file, within a statutory range of $50 to $150 under R.C. 5323.99. The county filing and the city obligation are two different things and doing one does not satisfy the other.' },
   { q: 'Who inspects a Whitehall rental and who issues permits?',
     a: 'Whitehall does, through its own building and code enforcement staff, not through Columbus. That matters when you are scoping a turn: permit requirements, inspection scheduling and code enforcement notices come from the City of Whitehall, and a contractor who works mostly in Columbus may not be registered or familiar with the process here.' },
   { q: 'Does a Whitehall resident pay a city income tax?',
-    a: 'Yes. Whitehall levies a municipal income tax under Chapter 184 of its codified ordinances, effective 1 January 2016, administered by the city Tax Commissioner. That is a real difference from an unincorporated address and it is one reason the tenant-reporting obligation exists at all.' },
+    a: 'Yes. Whitehall levies a municipal income tax under Chapter 184 of its codified ordinances, effective 1 January 2016, administered by the city Tax Commissioner. That separates it from an unincorporated address, and it is one reason the tenant-reporting obligation exists.' },
   { q: 'What does a rental in Whitehall rent for?',
     a: 'We are not publishing a bedroom-level median for Whitehall. Our own sample there is below the five-unit floor we set before publishing a market-level figure, and we will not relabel a public rent index as our own portfolio data. Send an address and we will price it against live comparables.' },
   { q: 'How much does property management cost in Whitehall?',
@@ -137,13 +137,13 @@ const schemaNodes = [
         mayor, its own council, its own codified ordinances, its own police and fire divisions, its own building
         and code enforcement department, its own municipal income tax and its own Tax Commissioner. It is
         bordered by the City of Columbus on nearly every side and it shares the postal geography, which is
-        precisely why owners treat it as a Columbus neighbourhood and get caught.
+        why owners treat it as a Columbus neighborhood and get caught.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The trap has a specific shape. The first thing an owner checks is the eviction court, and the eviction
-        court is the same: Franklin County Municipal Court, countywide, for Whitehall and Columbus alike. The
-        answer comes back identical, the owner concludes Whitehall is functionally Columbus, and everything
-        after that is run on the wrong assumption.
+        The first thing an owner checks is the eviction court, and the eviction court is the same: Franklin
+        County Municipal Court, countywide, for Whitehall and Columbus alike. The answer comes back identical,
+        so the owner concludes Whitehall works like Columbus and runs everything after that on the wrong
+        assumption.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -203,7 +203,7 @@ const schemaNodes = [
       <span class="eyebrow">Compliance</span>
       <h2 id="ordinance-h" class="text-[clamp(26px,3.2vw,38px)]">What does Whitehall require of a rental owner?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Two separate things, and doing one does not satisfy the other. The first is the state filing every Ohio
+        Whitehall owners owe two separate things, and doing one does not satisfy the other. The first is the state filing every Ohio
         rental owner owes, to the county. The second is a Whitehall city obligation with no Columbus equivalent.
       </p>
 
@@ -228,8 +228,7 @@ const schemaNodes = [
         Tax Commissioner orders or subpoenas it.
       </p>
       <p class="text-[16.5px] text-muted mt-4">
-        This is the compliance item Whitehall owners miss, because nothing in a Columbus-shaped mental model
-        prompts it. It is a city income tax administration requirement, not a housing-code requirement, so it
+        Whitehall owners miss this item because nothing in a Columbus routine prompts it. It is a city income tax administration requirement, not a housing-code requirement, so it
         does not surface when you go looking for "rental registration".
       </p>
       <p class="text-[16px] text-muted mt-5">
@@ -239,7 +238,7 @@ const schemaNodes = [
         verification date. Confirm with the Whitehall income tax office.]
       </p>
       <p class="text-[16px] text-muted mt-5">
-        Where a city runs its own registration, licence or inspection programme, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Keeping track of which programme applies to your address, and filing on time, is work we absorb rather than work we hand you.
+        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and handle the filings on time.
       </p>
     </div>
   </section>
@@ -258,8 +257,8 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-5">
         Before the complaint, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, with
         specific statutory language and correct service, by certified mail, handed to the resident, or left at
-        the property. Wrong wording or wrong service and the case is dismissed, costing the filing fee and
-        roughly three weeks.
+        the property. If the wording or the service is wrong, the court dismisses the case, and you lose the
+        filing fee and roughly three weeks.
       </p>
       <div class="card mt-7">
         <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner</h3>
@@ -285,22 +284,22 @@ const schemaNodes = [
       <span class="eyebrow">The market</span>
       <h2 id="market-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in Whitehall, and what does management cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Postwar single-family houses and small multifamily buildings, at price points among the most accessible
+        Whitehall's rental stock is postwar single-family houses and small multifamily buildings, at price points among the most accessible
         of any incorporated city in Franklin County, on a street grid built out largely in the two decades after
         the Second World War. Whitehall City Schools serve the city. The East Broad Street and East Main Street
         corridors carry most of the commercial frontage, and the housing sits behind them.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Houses of that age arrive with the maintenance profile of houses of that age: original sewer laterals,
-        cast iron stacks, panels upgraded once and badly, and roofs on their second or third cover. That is not
-        a reason to avoid Whitehall. It is a reason to scope the turn honestly on the way in rather than
-        discover it in month four, and it is why we do a pre-signature inspection at
+        Houses of that age come with predictable problems: original sewer laterals,
+        cast iron stacks, panels upgraded once and badly, and roofs on their second or third cover. Scope the turn
+        honestly on the way in rather than discovering it in month four. That is why we do a pre-signature
+        inspection at
         {' '}{usd(pricing.prePurchaseInspection.fee)}, credited toward onboarding if you sign.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         {publishesOwnRent
           ? 'Our portfolio sample in Whitehall now supports a published median. Update this page before relying on it.'
-          : 'We are not publishing a bedroom-level rent median for Whitehall. Our sample there sits below the five-unit floor we set before publishing a market-level figure, and quoting a public rent index as though it were our own book is exactly the thing we criticise other local pages for doing.'}
+          : 'We are not publishing a bedroom-level rent median for Whitehall. Our sample there sits below the five-unit floor we set before publishing a market-level figure, and quoting a public rent index as though it were our own book is the thing we criticize other local pages for doing.'}
         {' '}Send an address and we will price it against live comparable listings.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
@@ -314,7 +313,7 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16.5px] text-muted mt-7">
-        A flat fee does the most work in a market like this one. A percentage manager collects fewer absolute
+        A flat fee matters most in a market like this one. A percentage manager collects fewer absolute
         dollars from a Whitehall house than from a north-side house, but Whitehall cash flow is thinner, so the
         same percentage takes a larger share of what you keep. Placement is {usd(pricing.leasingFee)}, and
         maintenance is {usd(pricing.maintenance.inHouseHourly)} an hour with a
@@ -346,14 +345,14 @@ const schemaNodes = [
   <RelatedLinks links={[
     { href: '/property-management-bexley-ohio/', label: 'Bexley property management', note: 'West, another independent city ringed by Columbus, with older housing.' },
     { href: '/property-management-gahanna-ohio/', label: 'Gahanna property management', note: 'North, incorporated, newer suburban stock.' },
-    { href: '/property-management-reynoldsburg-ohio/', label: 'Reynoldsburg property management', note: 'East, and split across two counties.' },
+    { href: '/property-management-reynoldsburg-ohio/', label: 'Reynoldsburg property management', note: 'East, and split across three counties.' },
     { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, and the right one if your parcel really is in Columbus.' },
     { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
   ]} heading="Nearby markets and what to read next" />
 
   <Cta
     heading="Find out what your Whitehall rental should earn"
-    body="Tell us the address and we will price it against live comparable listings and confirm which city obligations actually attach to the parcel. No charge, and no obligation to hire us."
+    body="Tell us the address and we will price it against live comparable listings and confirm which city obligations attach to the parcel. No charge, and no obligation to hire us."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
   />

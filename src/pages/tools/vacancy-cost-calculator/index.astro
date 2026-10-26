@@ -91,13 +91,13 @@ const faq = [
   { q: 'How long does a rental usually sit empty?',
     a: `Across the ${company.unitsManaged} units ${company.name} manages, median days on market is ${domDays} and median days to turn a unit is ${turnDays}, so a typical full cycle from move-out to signed lease runs about ${cycleDays} days. ${kpis.domDefinition} Portfolio occupancy is ${kpi('occupancy')}.` },
   { q: 'Is it worth holding out for a higher rent?',
-    a: `Only if the wait is short. ${usd(RENT_CUT)} a month is ${usd(RENT_CUT * 12)} over a year. On a ${usd(three.rent)} 3 bed, that is the same as ${three.daysPerCut} extra vacant days, and on a ${usd(two.rent)} 2 bed it is ${two.daysPerCut} days. If holding the higher price costs more days than that, the lower rent earned more money. This is the single most useful calculation on this page.` },
+    a: `Only if the wait is short. ${usd(RENT_CUT)} a month is ${usd(RENT_CUT * 12)} over a year. On a ${usd(three.rent)} 3 bed, that is the same as ${three.daysPerCut} extra vacant days, and on a ${usd(two.rent)} 2 bed it is ${two.daysPerCut} days. If holding the higher price costs more days than that, the lower rent earned more money.` },
   { q: 'What costs are there beyond the lost rent?',
     a: `Three groups. Turn costs, meaning paint, cleaning, flooring and repairs between residents. Carrying costs, meaning mortgage, property tax, insurance, lawn and snow, and the utilities that revert to you. And re-leasing costs, meaning marketing, showings, screening and photography, which run ${usd(pricing.leasingFee)} with us apart from photography at $250 to $450 where new photos are needed.` },
   { q: 'Do I still pay a management fee while the unit is empty?',
     a: `Yes, and this is where a flat fee and a percentage fee differ. A percentage fee is charged on collected rent, so it falls to zero in a month with no rent. Our flat fee is charged whether the unit is occupied or not. The offset is a written commitment: if a property has been listed for rent longer than ${VACANCY_CREDIT_DAYS} days, we proactively credit management fees back to your account.` },
-  { q: 'What actually shortens a vacancy?',
-    a: 'Four things, in this order: pricing the unit against live comparables rather than last year\'s rent, having the unit genuinely ready to show on day one, replying to inquiries within hours, and making showings easy to book. Most lost leases are lost to a slow reply or a unit that shows badly, not to the price.' },
+  { q: 'What shortens a vacancy?',
+    a: 'Four things, in this order: pricing the unit against live comparables rather than last year\'s rent, having the unit ready to show on day one, replying to inquiries within hours, and making showings easy to book. Most lost leases are lost to a slow reply or a unit that shows badly, not to the price.' },
   { q: 'How much vacancy should I budget for in a year?',
     a: `Budget from your own turnover rate, not from a rule of thumb. If a unit turns once a year and the cycle runs ${cycleDays} days, that is about ${three.pctOfYear}% of gross rent on a ${usd(three.rent)} 3 bed. If the resident renews, it is close to zero. Our portfolio lease renewal rate is ${kpi('renewal')}, which is why renewals matter more to annual return than the rent increase you chase with a turn.` },
   { q: 'Does this calculator work for small multifamily?',
@@ -136,14 +136,14 @@ const faq = [
           <li><strong class="text-navy">Re-leasing cost.</strong> Marketing, showings, screening, lease preparation and photography where new photos are needed.</li>
         </ol>
         <p class="text-[15px] text-muted mt-5 mb-0">
-          Lines 1 and 3 run every single day. Lines 2 and 4 happen once. That is why the number of vacant days
-          matters more than the size of the turn bill for most owners.
+          Lines 1 and 3 run every day, while lines 2 and 4 happen once, so for most owners the number of
+          vacant days matters more than the size of the turn bill.
         </p>
       </div>
       <p class="text-[15px] text-faint mt-6">
         Every figure on this page is rounded to the nearest dollar. Dividing by {DAYS_IN_MONTH} rather than by
-        the actual length of the month is the convention property managers use, and it is close enough that
-        the difference never changes a decision.
+        the actual length of the month is the convention property managers use, and the difference is too
+        small to change a decision.
       </p>
     </div>
   </section>
@@ -154,8 +154,8 @@ const faq = [
       <span class="eyebrow">Start here</span>
       <h2 id="daily-h" class="text-[clamp(28px,3.3vw,40px)]">What does one vacant day cost in Columbus?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        At the median rents across the {company.unitsManaged} units we manage. Find the row closest to your
-        rent, or run your own number through the same formula.
+        These figures use the median rents across the {company.unitsManaged} units we manage. Find the row
+        closest to your rent, or run your own number through the same formula.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
@@ -199,7 +199,8 @@ const faq = [
       <span class="eyebrow">Run it against your property</span>
       <h2 id="grid-h" class="text-[clamp(28px,3.3vw,40px)]">What does a vacancy cost by the day?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        Lost rent only, before turn and carrying costs. Read down your rent, across to the number of days.
+        This table shows lost rent only, before turn and carrying costs. Find your rent in the first column
+        and read across to the number of days.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15px]"
@@ -265,7 +266,7 @@ const faq = [
             almost always priced above the market or showing badly, and both are fixable in a week.
           </p>
           <p class="text-[15.5px] text-navy font-semibold mt-3 mb-0">
-            This is the point where our commitment kicks in: past {VACANCY_CREDIT_DAYS} days on the market we
+            Our commitment applies at this point: past {VACANCY_CREDIT_DAYS} days on the market we
             proactively credit management fees back to your account.
           </p>
         </div>
@@ -273,8 +274,8 @@ const faq = [
         <div class="card">
           <h3 class="text-[19.5px] mb-3">A 4 bed at {usd(four.rent)}, held back three weeks for a repair</h3>
           <p class="text-[15.5px] text-muted">
-            Daily cost is {usd(four.daily)}. Twenty-one days waiting on a contractor before the unit can even
-            be listed costs {usd(cost(four.rent, 21))} in rent, and it happens before day one of marketing.
+            Daily cost is {usd(four.daily)}. Twenty-one days waiting on a contractor before the unit can be
+            listed costs {usd(cost(four.rent, 21))} in rent, and it happens before day one of marketing.
             Add the normal {cycleDays}-day cycle after that and the total is
             {' '}{usd(cost(four.rent, 21 + cycleDays))}.
           </p>
@@ -291,11 +292,11 @@ const faq = [
   <!-- THE RENT CUT TRADEOFF -->
   <section class="band" aria-labelledby="cut-h">
     <div class="wrap max-w-[940px]">
-      <span class="eyebrow">The decision this actually informs</span>
+      <span class="eyebrow">The decision this informs</span>
       <h2 id="cut-h" class="text-[clamp(28px,3.3vw,40px)]">Should you hold out for a higher rent?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         Only if the wait is short enough. {usd(RENT_CUT)} a month is {usd(RENT_CUT * 12)} over a twelve-month
-        lease. Here is how many extra vacant days that {usd(RENT_CUT * 12)} buys you, by rent. Wait longer
+        lease. The table shows how many extra vacant days that {usd(RENT_CUT * 12)} buys you, by rent. Wait longer
         than the number in the last column and the lower rent would have earned more.
       </p>
       <div class="scroll-x">
@@ -326,15 +327,14 @@ const faq = [
       </div>
       <p class="text-[15.5px] text-muted mt-6">
         On a {usd(three.rent)} 3 bed, holding out for {usd(RENT_CUT)} more rent pays off only if it costs
-        fewer than {three.daysPerCut} extra vacant days. Our median days on market is {domDays}. That is the
-        whole argument for pricing to the market on day one instead of testing a number for two weeks.
+        fewer than {three.daysPerCut} extra vacant days. Our median days on market is {domDays}, so pricing
+        to the market on day one usually beats testing a number for two weeks.
       </p>
       <p class="text-[15.5px] text-muted mt-4">
         One caveat in the other direction: the higher rent persists into renewals, and the vacancy does not.
         If the resident stays three years, a {usd(RENT_CUT)} difference compounds into
-        {' '}{usd(RENT_CUT * 36)} of forgone rent. Our lease renewal rate is {kpi('renewal')}, so this is a
-        real consideration rather than a theoretical one. The test is whether you can defend the higher rent
-        with comparables, not whether you would like it.
+        {' '}{usd(RENT_CUT * 36)} of forgone rent. Our lease renewal rate is {kpi('renewal')}, so the
+        compounding is a real cost. The test is whether you can defend the higher rent with comparables.
       </p>
     </div>
   </section>
@@ -345,7 +345,7 @@ const faq = [
       <span class="eyebrow">What this page does not tell you</span>
       <h2 id="miss-h" class="text-[clamp(28px,3.3vw,40px)]">What else belongs in the total?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Three lines we cannot fill in for you, because they are specific to your property.
+        We cannot fill in these three lines for you, because they are specific to your property.
       </p>
       <ul class="grid gap-2.5 mt-7">
         {[
@@ -360,7 +360,7 @@ const faq = [
       </ul>
       <p class="text-[15.5px] text-muted mt-7">
         Write those three numbers down once for your property and keep them. Together with the daily cost of
-        rent, they turn every future vacancy decision into arithmetic instead of an argument.
+        rent, they let you settle each future vacancy decision with arithmetic.
       </p>
     </div>
   </section>

@@ -37,7 +37,7 @@ const ourDelinquentSetup = pricing.otherFees.find((f) => f.name === 'Delinquent 
 
 const keyFacts = [
   'Read the termination clause before you say anything to your manager',
-  'The costly mistake is timing, not the switch itself',
+  'Bad timing costs more than the switch itself',
   'Security deposits and prepaid rent transfer, and Ohio law governs the deposit',
   'The resident has to be told where to send rent on the 1st',
   `Our own early termination fee is published: ${ourEarlyTermination?.note}`,
@@ -59,17 +59,17 @@ const steps = [
   { h: 'Check where you are in the term',
     p: 'Many agreements charge more to leave inside the first year than after a renewal. If you are close to a renewal date, waiting a few weeks can be the cheapest decision in the whole process.' },
   { h: 'Look at your lease dates before you pick a date',
-    p: 'The worst time to transfer is in the middle of a turn or days before a lease expires. The cleanest is mid-lease with a stable resident, or immediately after a new lease is signed. Line the transfer up with the lease, not with your patience.' },
+    p: 'The worst time to transfer is in the middle of a turn or days before a lease expires. The cleanest is mid-lease with a stable resident, or immediately after a new lease is signed. Time the transfer to the lease dates, even if that means waiting.' },
   { h: 'Line up the new manager before you give notice',
     p: 'Have the new agreement signed and a start date agreed. A gap between managers is when rent goes uncollected, maintenance requests go unanswered and residents lose track of who to call.' },
   { h: 'Give notice in writing, exactly as the clause requires',
-    p: 'Email plus certified mail if the agreement calls for written notice. Keep it short and factual, state the effective date, and do not argue in it. You want the date documented, not a debate.' },
+    p: 'Email plus certified mail if the agreement calls for written notice. Keep it short and factual, state the effective date, and do not argue in it. The goal is a documented date.' },
   { h: 'Get your documents',
     p: 'Signed leases and all addenda, the resident ledger and payment history, the security deposit accounting, applications and screening files, move-in condition reports and photos, keys and access codes, warranties, open work orders, vendor contacts, and year-to-date financials for your tax return.' },
   { h: 'Transfer the money correctly',
     p: 'Security deposits and any prepaid rent belong to the resident and move to the new manager or back to you, under Ohio landlord-tenant law. Make sure the outgoing manager sends a written deposit accounting, not a lump sum with no ledger.' },
   { h: 'Tell the residents once, clearly',
-    p: 'A resident needs to know three things: who manages the property now, where rent goes on the 1st, and how to report a repair. Send it before the first of the month, not after, and confirm any autopay is cancelled at the old manager and set up at the new one.' },
+    p: 'A resident needs to know three things: who manages the property now, where rent goes on the 1st, and how to report a repair. Send it before the first of the month, not after, and confirm any autopay is canceled at the old manager and set up at the new one.' },
   { h: 'Watch the first rent cycle',
     p: 'The most common failure is a resident paying the old manager out of habit. Check that rent landed where it should on the first cycle, and that the old manager forwarded anything that arrived at their office.' },
 ];
@@ -90,11 +90,11 @@ const faq = [
   { q: 'How do I switch property managers?',
     a: 'Read the termination clause in your current management agreement first, check whether an early termination fee applies where you are in the term, line up the new manager and a start date, give notice in writing exactly as the clause requires, collect your leases, ledgers, deposits and keys, and tell the residents where rent goes before the 1st.' },
   { q: 'How do I fire a property manager?',
-    a: 'In writing, on the terms your management agreement specifies, with a stated effective date. Keep it factual and short. The agreement, not the conversation, controls what happens next, so the useful work is reading it before you send anything.' },
+    a: 'In writing, on the terms your management agreement specifies, with a stated effective date. Keep it factual and short. The agreement controls what happens next, so read it before you send anything.' },
   { q: 'Can I switch property managers in the middle of a lease?',
     a: 'Yes. The lease is between you and the resident, not between the resident and the manager, so it survives the change. The resident stays, the lease terms stay, and the security deposit transfers. What changes is who collects rent and who answers the phone.' },
   { q: 'What does it cost to leave a property manager?',
-    a: `That depends entirely on your agreement, which is why the termination clause is the first thing to read. Some charge a flat early termination fee, some charge remaining months of management, some charge nothing after a notice period. For reference, ${company.name} publishes its own: ${ourEarlyTermination?.note}` },
+    a: `It depends on your agreement, which is why the termination clause is the first thing to read. Some charge a flat early termination fee, some charge remaining months of management, some charge nothing after a notice period. For reference, ${company.name} publishes its own: ${ourEarlyTermination?.note}` },
   { q: 'When is the best time to switch property managers?',
     a: 'Mid-lease with a stable resident, or right after a new lease is signed. The worst timing is during a turn or in the last few weeks of a lease, because the handoff and the leasing decisions collide. Also check whether your agreement auto-renews on a date, since crossing that date can change the exit cost.' },
   { q: 'What documents should I get from my old property manager?',
@@ -137,7 +137,7 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="signs-h" class="text-[clamp(26px,3.2vw,38px)]">When should you fire your property manager?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        When the problem is structural rather than a bad month. One missed email is a bad week. A pattern in any
+        Fire your manager when the problem is structural rather than a bad month. One missed email is a bad week. A pattern in any
         of these six is a reason to move, and none of them get better because you complained.
       </p>
       <div class="grid gap-5 sm:grid-cols-2">
@@ -150,7 +150,7 @@ const schemaNodes = [
       </div>
       <p class="text-[16px] text-muted mt-7">
         One caution: if the complaint is that repairs cost money and vacancies happen, a new manager will not fix
-        that. Those are the business, not the manager.
+        that. Those come with owning rentals, whoever manages them.
       </p>
     </div>
   </section>
@@ -159,10 +159,10 @@ const schemaNodes = [
   <section class="band band-wash" aria-labelledby="steps-h">
     <div class="wrap max-w-[880px]">
       <span class="eyebrow">The process</span>
-      <h2 id="steps-h" class="text-[clamp(26px,3.2vw,38px)]">How do you actually switch property managers?</h2>
+      <h2 id="steps-h" class="text-[clamp(26px,3.2vw,38px)]">How do you switch property managers?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        Nine steps, in this order. The order is the whole point: almost every expensive switch happens because
-        notice was given before the agreement was read or before the new manager was in place.
+        Nine steps, in this order. The order matters: most expensive switches happen because the owner gave
+        notice before reading the agreement or before the new manager was in place.
       </p>
       <ol class="grid gap-4">
         {steps.map((s, i) => (
@@ -184,14 +184,14 @@ const schemaNodes = [
       <h2 id="timing-h" class="text-[clamp(26px,3.2vw,38px)]">When is the best time to switch?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Mid-lease, with a resident who pays, is the cleanest transfer there is. Nothing needs deciding during the
-        handoff: the lease continues, the deposit moves, and the only real task is telling the resident where rent
+        handoff: the lease continues, the deposit moves, and the main task is telling the resident where rent
         goes on {rentPolicy.dueDate}.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         The two expensive windows are a turn in progress and the last few weeks of a lease. In both, leasing
         decisions and the handoff happen at the same time, and a unit can sit empty while two companies each
-        assume the other is listing it. A vacant month costs a full month of rent, which is far more than any
-        termination fee you were trying to dodge by moving early.
+        assume the other is listing it. A vacant month costs a full month of rent, which is usually more than the
+        termination fee you were trying to avoid by moving early.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         One more date to find: many agreements auto-renew. Crossing that date can change what leaving costs, in
@@ -261,14 +261,14 @@ const schemaNodes = [
         We build the schedule before you give notice. That means reading your current agreement with you, mapping
         every lease end date, and picking a start date that does not land in the middle of a turn. Then we collect
         the leases, ledgers and deposits, introduce ourselves to each resident in writing, move rent payment onto
-        our system before the {rentPolicy.dueDate}, and inspect each unit so condition is documented from day one
+        our system before {rentPolicy.dueDate}, and inspect each unit so condition is documented from day one
         rather than argued about at move-out.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         For an owner moving several properties, or consolidating off more than one manager, the same work is a
         sequencing exercise: units move in groups timed to lease dates, so no group is ever between managers on the
         first of a month. Across the portfolio we manage, {kpis.metrics[6].value} of rent is collected by the 5th,
-        and protecting that during a transfer is the entire job.
+        and we build the transfer plan to protect that rate.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
         <a href="/property-management-consultation/" class="btn btn-primary">Talk through your transition</a>

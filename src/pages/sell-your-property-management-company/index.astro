@@ -32,7 +32,7 @@ const keyFacts = [
   `We currently manage ${company.unitsManaged} units across the metro`,
   'We acquire management contracts and whole companies, in the Columbus metro only',
   'Conversations are confidential, and we sign an NDA before you share anything',
-  'Your residents and owners keep working with a local team, not a call centre',
+  'Your residents and owners keep working with a local team, not a call center',
 ];
 
 const faq = [
@@ -43,7 +43,7 @@ const faq = [
   { q: 'What happens to my clients and residents?',
     a: 'They keep working with a local team in Columbus. That continuity is usually the thing a departing owner cares most about, and it is the reason a local buyer is different from a national roll-up.' },
   { q: 'Is the conversation confidential?',
-    a: 'Yes. We sign a non-disclosure agreement before you share financials, client lists or anything else. Nobody wants their staff or clients learning about a possible sale from a rumour.' },
+    a: 'Yes. We sign a non-disclosure agreement before you share financials, client lists or anything else. You do not want your staff or clients learning about a possible sale from a rumor.' },
   { q: 'How do I start?',
     a: `Email ${company.email} or call ${company.phone} and ask for a confidential conversation. Nothing is shared and nothing is committed until you decide to take it further.` },
 ];
@@ -58,7 +58,7 @@ const schemaNodes = [serviceNode({
   <PageHero
     eyebrow="Acquisitions"
     title="Thinking about selling your management company?"
-    answer={`${company.name} acquires property management contracts and small companies in the Columbus, Ohio metro. Confidential conversation, local buyer, and continuity for the clients and residents you built.`}
+    answer={`${company.name} acquires property management contracts and small companies in the Columbus, Ohio metro. You get a confidential conversation, a local buyer, and continuity for the clients and residents you built.`}
     breadcrumbs={breadcrumbs}
     primaryCta={{ label: 'Start a confidential conversation', href: `mailto:${company.email}` }}
     secondaryCta={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
@@ -71,12 +71,12 @@ const schemaNodes = [serviceNode({
       <div class="prose-rl">
         <h2>Why owners sell</h2>
         <p>
-          Usually one of four reasons. The operator wants to retire and has no succession plan. The
-          business grew past the systems holding it together. A partner wants out. Or the owner realised
+          Owners usually sell for one of four reasons. The operator wants to retire and has no succession plan. The
+          business grew past the systems holding it together. A partner wants out. Or the owner realized
           they enjoy owning real estate more than managing other people's.
         </p>
         <p>
-          None of those are failures, and none of them are unusual. Property management is an operations
+          All four are common, and none of them is a failure. Property management is an operations
           business with thin margins and a high touch load, and there is a size where it either needs real
           infrastructure or a different owner.
         </p>
@@ -85,8 +85,8 @@ const schemaNodes = [serviceNode({
         <p>
           A national roll-up buys the contracts and reassigns the relationships to whoever is available.
           We operate in this market, our team is here, and the residents in those units will be calling the
-          same Columbus office we already answer. If you spent years building trust with your clients, that
-          difference is the whole point.
+          same Columbus office we already answer. If you spent years building trust with your clients, a local
+          buyer is how that trust carries over.
         </p>
 
         <h2>What the process looks like</h2>
@@ -116,7 +116,7 @@ const schemaNodes = [serviceNode({
 
   <RelatedLinks links={[
     { href: '/about/', label: 'About RL Property Management', note: `Who would be buying, and since ${company.founded}` },
-    { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'How we actually operate, in numbers' },
+    { href: '/key-performance-indicators/', label: 'Our scorecard', note: 'How we operate, in numbers' },
     { href: '/pricing/', label: 'Our published pricing', note: 'What your clients would move to' },
     { href: '/contact-us/', label: 'Contact us', note: company.phone },
   ]} />

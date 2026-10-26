@@ -12,7 +12,7 @@ import { company, pricing, usd } from '../../../data/facts';
  * The screening standard, published.
  *
  * FAIR HOUSING: this page describes criteria applied consistently to every
- * applicant. It never describes a preferred applicant, never characterises who
+ * applicant. It never describes a preferred applicant, never characterizes who
  * lives in a home or an area, and never implies a protected class is treated
  * differently. Any edit to this page should keep that true.
  *
@@ -63,7 +63,7 @@ const criteria = [
   {
     h: 'Credit',
     a: 'A credit report is pulled for every adult applicant and measured against a published standard.',
-    detail: 'A credit report is a payment-history document, not a character document, and it is read that way. Balances owed to a prior landlord or utility carry more weight than an old medical account, because they describe the same obligation you are applying to take on.',
+    detail: 'We read a credit report as a record of payment history, not of character. Balances owed to a prior landlord or utility carry more weight than an old medical account, because they describe the same obligation you are applying to take on.',
     unknown: 'minimum credit score, and how open collections, medical debt, charge-offs and a prior bankruptcy are each treated',
   },
   {
@@ -94,7 +94,7 @@ const faq = [
   { q: 'Do you rent to applicants with a housing voucher or other public assistance?',
     a: 'Yes. Columbus City Code sections 2331.02 and 4551.03 prohibit refusing to rent to someone because their income includes housing assistance, and many surrounding Central Ohio municipalities have the same protection. Income is measured the same way regardless of source, and no applicant is asked for a larger deposit because of how their income arrives.' },
   { q: 'What happens if my application is declined?',
-    a: 'You are told, and where the decision relied in whole or in part on a consumer report you receive an adverse action notice naming the consumer reporting agency that supplied it. The federal Fair Credit Reporting Act gives you the right to a free copy of that file from the agency and the right to dispute anything inaccurate in it.' },
+    a: 'We tell you, and where the decision relied in whole or in part on a consumer report you receive an adverse action notice naming the consumer reporting agency that supplied it. The federal Fair Credit Reporting Act gives you the right to a free copy of that file from the agency and the right to dispute anything inaccurate in it.' },
   { q: 'Can I have a service animal or an assistance animal?',
     a: `Yes. A service animal or an assistance animal is not a pet under fair housing law. No pet administration fee and no pet deposit applies to them, and the ${usd(pricing.petDamageCoverage.cap)} pet damage coverage that the pet fee funds does not apply to them either. A request for a reasonable accommodation is handled separately from the screening decision and does not affect it.` },
   { q: 'Does every adult have to be screened?',
@@ -120,8 +120,8 @@ const faq = [
       <span class="eyebrow">Why this page exists</span>
       <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Why publish the criteria at all?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        So you can check yourself against it before you spend an application fee, and so nobody has to
-        wonder whether the standard moved for someone else. A written standard applied the same way every
+        We publish them so you can check yourself against the standard before you spend an application fee,
+        and so nobody has to wonder whether the standard moved for someone else. A written standard applied the same way every
         time is also the practical safeguard against a fair housing complaint, which is why it is written
         down rather than held in somebody's head.
       </p>
@@ -134,8 +134,8 @@ const faq = [
       <span class="eyebrow">The five checks</span>
       <h2 id="criteria-h" class="text-[clamp(28px,3.3vw,40px)]">What is checked, and how?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        Five checks, run in the same order on every application. Nothing outside this list factors into the
-        decision.
+        We run five checks, in the same order, on every application. Nothing outside this list factors into
+        the decision.
       </p>
       <div class="grid gap-5">
         {criteria.map((c, i) => (
@@ -165,7 +165,7 @@ const faq = [
       <span class="eyebrow">How it is applied</span>
       <h2 id="consistent-h" class="text-[clamp(28px,3.3vw,40px)]">Is the standard the same for everyone?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Yes. The same criteria, in the same order, on every home and for every applicant. Applications are
+        Yes. We apply the same criteria, in the same order, on every home and for every applicant. Applications are
         reviewed in the order they are completed, and the first qualified completed application gets the
         home.
       </p>
@@ -215,15 +215,14 @@ const faq = [
       <span class="eyebrow">If the answer is no</span>
       <h2 id="declined-h" class="text-[clamp(28px,3.3vw,40px)]">What happens if I am declined?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        You are told, and where the decision relied on a consumer report you receive an adverse action
+        We tell you, and where the decision relied on a consumer report you receive an adverse action
         notice naming the consumer reporting agency that supplied it. The federal Fair Credit Reporting Act
         then gives you two rights worth using: a free copy of that file from the agency, and the right to
         dispute anything in it that is wrong. Reports do contain errors, and a corrected report can change
         an outcome.
       </p>
       <p class="text-[16px] text-muted mt-4">
-        The application fee is not refunded on a decline, because it paid for the reports that were
-        actually run.
+        The application fee is not refunded on a decline, because it paid for the reports we ran.
       </p>
       <p class="text-[15px] text-crimson font-semibold mt-5">
       </p>
@@ -250,7 +249,7 @@ const faq = [
 
   <Cta
     heading="Check yourself against the standard, then apply"
-    body="An applicant who reads this page first either applies with everything in hand or saves an application fee. Both are better than a surprise."
+    body="If you read this page first, you either apply with everything in hand or save yourself an application fee, and either way you avoid a surprise."
     primary={{ label: 'View available homes', href: '/homes-for-rent/' }}
     secondary={{ label: 'Start an application', href: '/residents/how-to-apply/' }}
   />

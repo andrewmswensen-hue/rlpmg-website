@@ -16,14 +16,14 @@ import { company, kpis, pricing, rentPolicy, usd, priceRange } from '../../data/
  * definition next to the number. See docs/kpi-methodology.md: days on market is
  * genuinely volatile week to week, so the published figure is a trailing
  * 12-month median, the definition is stated, and the page is refreshed
- * quarterly. A number without a method is marketing.
+ * monthly. A number without a method is marketing.
  *
  * Per AGENTS.md: site-wide figures only. Never per-market days on market.
  */
 
 const title = 'Our Scorecard: RL Property Management by the Numbers';
 const description =
-  `The published operating numbers for ${company.name}, refreshed quarterly. ` +
+  `The published operating numbers for ${company.name}, refreshed monthly. ` +
   `${kpis.metrics[0].value} median days on market, ${kpis.metrics[3].value} occupancy, ` +
   `${kpis.metrics[6].value} of rent collected by the 5th, as of ${kpis.asOfLabel}.`;
 const breadcrumbs = [
@@ -47,7 +47,7 @@ const explained = [
     id: 'dom',
     heading: 'Median days on market',
     definition: kpis.domDefinition,
-    why: `Every day a unit sits empty is a day of lost rent that never comes back. At the ${m.avgRent.value} average rent under management, an extra month of vacancy is an entire month of rent gone, and no later month makes it back.`,
+    why: `Every day a unit sits empty is a day of rent you do not get back. At the ${m.avgRent.value} average rent under management, an extra month of vacancy costs you a full month of rent.`,
   },
   {
     id: 'turn',
@@ -57,7 +57,7 @@ const explained = [
   {
     id: 'renewal',
     heading: 'Lease renewal rate',
-    why: 'The share of residents who sign another lease instead of moving out. Renewals are the cheapest possible outcome for an owner, because a renewal has no turn cost, no vacancy and no leasing work. It is also the single best proxy for whether residents are treated decently.',
+    why: 'The share of residents who sign another lease instead of moving out. Renewals are the cheapest possible outcome for an owner, because a renewal has no turn cost, no vacancy and no leasing work. It is also one of the clearest signs of whether residents are treated decently.',
   },
   {
     id: 'occupancy',
@@ -72,7 +72,7 @@ const explained = [
   {
     id: 'repairDays',
     heading: 'Median days to close a repair',
-    why: 'From a request being submitted to the work being finished. Slow repairs are how a good resident becomes a former resident, and how a small problem becomes an insurance claim.',
+    why: 'The time from a submitted request to finished work. Slow repairs are how a good resident becomes a former resident, and how a small problem becomes an insurance claim.',
   },
   {
     id: 'collectedBy5',
@@ -82,23 +82,23 @@ const explained = [
   {
     id: 'satisfaction',
     heading: 'Resident satisfaction',
-    why: 'How residents rate their experience, out of 5. Owners sometimes treat this as the soft metric. It is not. Unhappy residents leave, and a turn costs an owner more than almost any repair.',
+    why: 'How residents rate their experience, out of 5. Owners sometimes treat this as the soft metric, but unhappy residents leave, and a turn costs an owner more than almost any repair.',
   },
 ].map((e) => ({ ...e, value: m[e.id].value, label: m[e.id].label }));
 
 const faq = [
   { q: 'What are RL Property Management’s key performance indicators?',
-    a: `As of ${kpis.asOfLabel}: ${kpis.metrics.map((k) => `${k.label.toLowerCase()} ${k.value}`).join(', ')}. All eight are published on this page and refreshed quarterly.` },
+    a: `As of ${kpis.asOfLabel}: ${kpis.metrics.map((k) => `${k.label.toLowerCase()} ${k.value}`).join(', ')}. All eight are published on this page and refreshed monthly.` },
   { q: 'How is days on market measured?',
     a: `${kpis.domDefinition} It is currently ${m.dom.value} days. The figure is a trailing 12-month median rather than a recent average, because Columbus leasing is seasonal and a 30-day number mostly measures what month it is.` },
   { q: 'How often are these numbers updated?',
-    a: `Quarterly. The current set is as of ${kpis.asOfLabel} and every figure on the page carries that date. A weekly refresh is not sustainable by hand, and a number that is quietly stale is worse than no number at all.` },
+    a: `Monthly. The current set is as of ${kpis.asOfLabel} and every figure on the page carries that date. A weekly refresh is not sustainable by hand, and a number that is quietly stale is worse than no number at all.` },
   { q: 'Why does RL Property Management publish its operating numbers?',
-    a: 'Because they are checkable and they are the thing an owner is actually trying to assess. Most property management websites publish adjectives, which cost nothing to write and prove nothing. Publishing a number means it can be held against us at the next quarterly refresh.' },
+    a: 'We publish them because they can be checked, and they are what an owner is trying to assess. Most property management websites publish adjectives, which cost nothing to write and prove nothing. Publishing a number means it can be held against us at the next monthly refresh.' },
   { q: 'Do you publish days on market by neighborhood?',
     a: 'No, and that is deliberate. Outside Columbus itself, no single market in the portfolio has enough units leased in a year for a median to mean anything. A figure built on a handful of units is noise presented as data, so we publish site-wide only.' },
   { q: 'Is a lower days on market always better?',
-    a: 'No. A unit priced below market will lease in three days, and the owner will pay for that discount every month for a year. The pairing that matters is days on market alongside rent achieved. Speed alone is easy to buy.' },
+    a: 'No. A unit priced below market will lease in three days, and the owner will pay for that discount every month for a year. The pairing that matters is days on market alongside rent achieved, because speed alone is easy to buy.' },
   { q: 'What does a 72% lease renewal rate mean for an owner?',
     a: `It means roughly seven in ten residents sign again rather than move. Every renewal avoids a turn and a vacancy, and at ${company.name} it also avoids a leasing fee, because placing a resident costs ${usd(pricing.leasingFee)} on every plan and a renewal is ${usd(pricing.leaseRenewalFee)}.` },
   { q: 'Where do these numbers come from?',
@@ -118,7 +118,7 @@ const related = [
   <PageHero
     eyebrow="Our scorecard"
     title="RL Property Management by the numbers"
-    answer={`${company.name} publishes eight operating numbers, refreshed quarterly. As of ${kpis.asOfLabel}: ${m.dom.value} median days on market, ${m.turn.value} median days to turn a unit, ${m.occupancy.value} occupancy and ${m.collectedBy5.value} of rent collected by the 5th.`}
+    answer={`${company.name} publishes eight operating numbers, refreshed monthly. As of ${kpis.asOfLabel}: ${m.dom.value} median days on market, ${m.turn.value} median days to turn a unit, ${m.occupancy.value} occupancy and ${m.collectedBy5.value} of rent collected by the 5th.`}
     breadcrumbs={breadcrumbs}
     secondaryCta={{ label: 'See the pricing', href: '/pricing/' }}
     wide
@@ -139,7 +139,7 @@ const related = [
         ))}
       </div>
       <p class="text-center mt-6 text-[15px] text-faint">
-        As of {kpis.asOfLabel}. Refreshed quarterly, across the whole portfolio of
+        As of {kpis.asOfLabel}. Refreshed monthly, across the whole portfolio of
         {' '}{company.unitsManaged} units.
       </p>
     </div>
@@ -150,52 +150,51 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="why-h">Why does RL Property Management publish operating numbers?</h2>
       <p>
-        Because they can be checked, and almost nothing else on a property management website can
+        Operating numbers can be checked, and almost nothing else on a property management website can
         be. An owner comparing managers is usually handed adjectives: responsive, experienced,
         trusted. None of those cost anything to write and none of them can be wrong. A published
-        median repair time can be wrong, and that is exactly what makes it worth reading.
+        median repair time can be wrong, and that is what makes it worth reading.
       </p>
       <p>
-        Publishing also changes internal behavior, which is the honest reason. A number that goes on
-        a public page four times a year is a number somebody owns. When the renewal rate moves, it
-        moves in front of clients.
+        Publishing also changes how we behave internally, and that is a large part of why we do it.
+        Someone on the team owns each number that goes on a public page four times a year, and when the
+        renewal rate moves, clients see it.
       </p>
       <p>
-        The trade is that some quarters will look worse than others. That is the cost of the format,
-        and it is a smaller cost than being the company that publishes nothing.
+        The tradeoff is that some quarters will look worse than others. We would rather accept that
+        cost than publish nothing.
       </p>
 
-      <h2>How is days on market actually measured?</h2>
+      <h2>How is days on market measured?</h2>
       <p class="text-[19px] text-navy">
         <strong>{kpis.domDefinition}</strong>
       </p>
       <p>
         That definition matters more than the {m.dom.value} does. Days on market can be measured
         from listing to lease signature, from listing to move-in, or from the previous resident
-        moving out, and those three produce very different numbers for the same unit. A manager who
-        quotes a figure without saying which one they mean has told you nothing.
+        moving out, and those three produce very different numbers for the same unit. If a manager
+        quotes a figure without saying which one they mean, you cannot compare it to anything.
       </p>
       <p>
-        The window is a trailing 12 months rather than a recent average, for a specific reason.
-        Columbus leasing is strongly seasonal: spring and summer move fast, deep winter does not. A
-        trailing 30-day figure is mostly measuring what month it is, not how the business runs. A
-        12-month median absorbs the season and describes the operation, which is what an owner is
-        actually trying to assess.
+        We use a trailing 12-month window rather than a recent average because Columbus leasing is
+        strongly seasonal: spring and summer move fast, and deep winter does not. A trailing 30-day
+        figure mostly measures what month it is. A 12-month median absorbs the season and describes
+        how the operation runs, which is what an owner is trying to assess.
       </p>
       <p>
-        The practical implication for an owner: your unit will not take exactly {m.dom.value} days.
-        A well-priced unit listed in May will beat it. The same unit listed in January will not.
+        For an owner, that means your unit will not take exactly {m.dom.value} days. A well-priced
+        unit listed in May will beat it, and the same unit listed in January will not.
       </p>
 
       <h2>Is faster always better?</h2>
       <p>
         No, and this is the most common mistake in reading a days-on-market figure. Any unit will
         lease in a few days if it is priced far enough below market, and the owner then pays for
-        that discount every month for the next twelve. Speed is cheap to buy and expensive to own.
+        that discount every month for the next twelve.
       </p>
       <p>
         The pair that matters is time to lease alongside rent achieved. Average rent under
-        management here is {m.avgRent.value}, published on this page for exactly that reason.
+        management here is {m.avgRent.value}, published on this page for that reason.
       </p>
     </div>
   </section>
@@ -204,10 +203,10 @@ const related = [
   <section class="band band-wash" aria-labelledby="each-h">
     <div class="wrap max-w-[940px]">
       <span class="eyebrow">Metric by metric</span>
-      <h2 id="each-h" class="text-[clamp(28px,3.3vw,40px)]">What does each number actually measure?</h2>
+      <h2 id="each-h" class="text-[clamp(28px,3.3vw,40px)]">What does each number measure?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Eight numbers, what each one describes, and why it matters to the person paying the
-        mortgage.
+        For each of the eight numbers: what it describes, and why it matters to the person paying
+        the mortgage.
       </p>
 
       {explained.map((e) => (
@@ -243,11 +242,11 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="use-h">How should an owner use these numbers?</h2>
       <p>
-        As questions to ask any manager, including us. If a company will not give you a figure for
-        median days to close a repair, that is itself an answer. If they give you one, ask how it is
+        Use them as questions to ask any manager, including us. If a company will not give you a
+        figure for median days to close a repair, the refusal tells you something. If they give you one, ask how it is
         measured and over what window, the way the definition above is stated.
       </p>
-      <p>Four worth asking anyone:</p>
+      <p>Four questions worth asking anyone:</p>
       <ul>
         <li>What is your median days on market, and is that measured to lease signature or to move-in?</li>
         <li>What share of rent is in hand by the 5th, and what happens to my disbursement when it is not?</li>
@@ -264,7 +263,7 @@ const related = [
 
       <h2>When is this page updated?</h2>
       <p>
-        Quarterly. The current figures are as of {kpis.asOfLabel} and the verification line at the
+        Monthly. The current figures are as of {kpis.asOfLabel} and the verification line at the
         bottom of this page carries the date they were last checked. Every number renders from a
         single source file, so the figures on this page, in the page's structured data and in the
         machine-readable facts feed can never disagree with each other.

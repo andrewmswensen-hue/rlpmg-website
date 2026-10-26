@@ -45,9 +45,9 @@ const keyFacts = [
 ];
 
 const deductionCauses = [
-  ['Cleaning', 'The most common deduction by a wide margin, and the most avoidable. A home returned at the standard it was delivered at does not generate one.'],
+  ['Cleaning', 'The most common deduction by a wide margin, and the most avoidable. If you return the home as clean as it was when you moved in, there is no cleaning deduction.'],
   ['Unapproved alterations', 'Paint colors, mounted hardware, removed fixtures, and anything installed without written approval, plus the cost of returning it.'],
-  ['Damage beyond normal wear and tear', 'Holes, broken fixtures, pet damage, burns, and stains that cleaning does not remove. Faded paint and worn carpet from ordinary use are not this.'],
+  ['Damage beyond normal wear and tear', 'Holes, broken fixtures, pet damage, burns, and stains that cleaning does not remove. Faded paint and worn carpet from ordinary use do not count as damage.'],
   ['Items left behind', 'Furniture, appliances, trash and anything in the garage, basement or yard. Disposal is charged at cost.'],
   ['Unpaid balances', 'Rent, late fees and any chargebacks still owed on the ledger at move-out.'],
 ];
@@ -67,21 +67,21 @@ const checklist = [
 
 const faq = [
   { q: 'How much notice do I have to give before moving out?',
-    a: 'Written notice, by the deadline stated in your lease, delivered through the resident portal so it is timestamped. A conversation with a staff member is not notice..' },
+    a: 'Written notice, by the deadline stated in your lease, delivered through the resident portal so it is timestamped. A conversation with a staff member is not notice.' },
   { q: 'How do I give notice?',
     a: 'In writing, through the resident portal, naming the property address, every resident on the lease, and the date you will be out. Get confirmation that it was received and keep it. Verbal notice, a text message, or telling a technician does not count.' },
   { q: 'When do I get my security deposit back?',
-    a: 'After move-out, once the home has been inspected and any deductions have been itemized in writing, sent to the forwarding address you provided..' },
+    a: 'After move-out, once the home has been inspected and any deductions have been itemized in writing, sent to the forwarding address you provided.' },
   { q: 'What gets deducted from a security deposit?',
-    a: 'Cleaning, unapproved alterations, damage beyond normal wear and tear, items left behind, and any unpaid balance on your ledger. Normal wear and tear is not deductible: worn carpet, faded paint and ordinary use are the owner cost, not yours. Deductions are itemized in writing.' },
+    a: 'Cleaning, unapproved alterations, damage beyond normal wear and tear, items left behind, and any unpaid balance on your ledger. Normal wear and tear is not deductible: worn carpet, faded paint and ordinary use are the owner\'s cost, not yours. Deductions are itemized in writing.' },
   { q: 'What counts as normal wear and tear?',
     a: 'Deterioration that happens from living in a home normally over time: traffic patterns in carpet, small nail holes from hanging pictures where the lease allows it, faded paint, minor scuffs on walls. Holes, pet damage, burns, broken fixtures and stains that will not clean are not wear and tear.' },
   { q: 'Can I break my lease early?',
-    a: 'Talk to us before you do anything, in writing. A lease is a fixed obligation, and leaving early does not end it by itself..' },
+    a: 'Talk to us before you do anything, in writing. A lease is a fixed obligation, and leaving early does not end it by itself.' },
   { q: 'Will people be shown through the home while I still live there?',
-    a: 'The home is usually marketed during the notice period, which means showings while you are still in it. Ohio law requires reasonable notice before entry..' },
+    a: 'The home is usually marketed during the notice period, which means showings while you are still in it. Ohio law requires reasonable notice before entry.' },
   { q: 'Do I still pay rent for my last month?',
-    a: `Yes. Rent is due on ${rentPolicy.dueDate} for every month of the term, including your last, and a security deposit is not a rent payment. Withholding the last month treating the deposit as rent creates a balance owed, late fees, and a deduction from the deposit itself.` },
+    a: `Yes. Rent is due on ${rentPolicy.dueDate} for every month of the term, including your last, and a security deposit is not a rent payment. Withholding the last month's rent and treating the deposit as rent creates a balance owed, late fees, and a deduction from the deposit itself.` },
   { q: 'What if I want to stay instead?',
     a: `Renew. We reach out ahead of your end date with terms, and ${renewal} of residents renew. A tenancy that lapses into month-to-month rather than renewing carries a ${rentPolicy.monthToMonthIncreasePct}% higher rent, so renewing is almost always the cheaper option.` },
 ];
@@ -105,9 +105,8 @@ const faq = [
       <span class="eyebrow">Step one</span>
       <h2 id="notice-h" class="text-[clamp(28px,3.3vw,40px)]">How do I give notice that I am moving out?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        In writing, through the resident portal, by the deadline in your lease. Written matters. A
-        conversation with a staff member, a text message, or telling a technician on a repair visit is not
-        notice, and none of those protect you if the date is later disputed.
+        In writing, through the resident portal, by the deadline in your lease. A conversation with a
+        staff member, a text message, or telling a technician on a repair visit is not notice, and none of those protect you if the date is later disputed.
       </p>
       <div class="card mt-7">
         <h3 class="text-[18.5px] mb-3">What the notice has to say</h3>
@@ -132,8 +131,8 @@ const faq = [
       <span class="eyebrow">The list</span>
       <h2 id="check-h" class="text-[clamp(28px,3.3vw,40px)]">What do I need to do before I hand back the keys?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Ten things. Nine of them are ordinary, and the tenth, photographing every room after it is empty
-        and clean, is the one that settles arguments.
+        There are ten. Most are ordinary, and the one that settles arguments is photographing every room
+        after it is empty and clean.
       </p>
       <ol class="grid gap-2.5 mt-7">
         {checklist.map((item, i) => (
@@ -152,11 +151,11 @@ const faq = [
       <span class="eyebrow">Your money back</span>
       <h2 id="deposit-h" class="text-[clamp(28px,3.3vw,40px)]">How and when does my security deposit come back?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        After you are out, the home is inspected against the move-in condition report you completed when
-        you arrived, any deductions are itemized in writing, and the balance is sent to the forwarding
-        address you gave in your notice. Without a forwarding address in writing, nothing can be sent.
+        After you are out, we inspect the home against the move-in condition report you completed when you
+        arrived, itemize any deductions in writing, and send the balance to the forwarding address you
+        gave in your notice. Without a forwarding address in writing, we cannot send anything.
       </p>
-      <h3 class="text-[21px] mt-9 mb-3">What actually gets deducted</h3>
+      <h3 class="text-[21px] mt-9 mb-3">What gets deducted</h3>
       <div class="scroll-x">
         <table class="w-full border-collapse text-[15.5px]">
           <caption class="sr-only">Common security deposit deductions and how to avoid them</caption>
@@ -178,10 +177,10 @@ const faq = [
       </div>
       <p class="text-[15px] text-muted mt-6">
         Normal wear and tear is not deductible. Worn carpet in a traffic path, faded paint, and minor scuffs
-        from ordinary use are the owner cost. The line between wear and damage is the reason the move-in
-        condition report matters so much, and it is why the
+        from ordinary use are the owner's cost. The line between wear and damage is why the move-in
+        condition report matters, and why we stress photographs on the
         {' '}<a href="/residents/moving-in/" class="text-crimson font-semibold no-underline hover:underline">moving in</a>
-        {' '}page pushes so hard on photographs.
+        {' '}page.
       </p>
     </div>
   </section>
@@ -212,7 +211,7 @@ const faq = [
       <p class="text-[16.5px] text-muted mt-4">
         Letting a lease lapse into month-to-month rather than renewing carries a
         {' '}{rentPolicy.monthToMonthIncreasePct}% higher rent, because a home that can be vacated on short
-        notice can be turned in any month of the year. If you are staying, renew rather than drifting.
+        notice can be turned in any month of the year. If you are staying, renew rather than going month-to-month.
       </p>
       <p class="text-[16.5px] text-muted mt-4">
         If you are moving but staying in the metro, look at what else we have open. Your rental history
@@ -241,7 +240,7 @@ const faq = [
 
   <Cta
     heading="Give notice in writing, and take photos"
-    body="Written notice through the portal, a forwarding address, and dated photos of an empty clean home. Those three things decide how the deposit conversation goes."
+    body="Give written notice through the portal and a forwarding address, and take dated photos of the empty, clean home. Those three things carry the most weight when your deposit is settled."
     primary={{ label: 'Go to the resident hub', href: '/residents/' }}
     secondary={{ label: 'View available homes', href: '/homes-for-rent/' }}
   />

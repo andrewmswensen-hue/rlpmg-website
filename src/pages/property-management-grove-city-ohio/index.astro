@@ -53,7 +53,7 @@ import { serviceNode } from '../../lib/schema';
  *
  * NOT VERIFIED, marked in the copy:
  *  - Whether the City of Grove City operates a residential rental registration,
- *    licence or periodic inspection programme, and any fee.
+ *    license or periodic inspection program, and any fee.
  *  - Census median year structure built for Grove City.
  */
 
@@ -95,11 +95,11 @@ const faq = [
   { q: 'Do I have to register my Grove City rental property?',
     a: 'Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file their name, address and telephone number, plus the property street address and permanent parcel number, with the auditor of the county where the property sits, and to update within 60 days of any change. There is no filing fee, and failing to file draws a special assessment under R.C. 5323.99 of $50 to $150, with the Franklin County Auditor stating $150 per tax year.' },
   { q: 'What kind of rental property is there in Grove City?',
-    a: 'A genuinely mixed stock, which is what makes the city hard to generalise about. Around the Town Center and the older grid off Broadway and Park Street the houses are smaller and mid-century. Out toward Stringtown Road, Hoover Road, Buckeye Parkway and the Route 665 corridor the stock is newer, larger and subdivision-shaped, three and four bedrooms on full-size lots, some of it recent construction.' },
+    a: 'Grove City has a mixed stock, which makes the city hard to generalize about. Around the Town Center and the older grid off Broadway and Park Street the houses are smaller and mid-century. Out toward Stringtown Road, Hoover Road, Buckeye Parkway and the Route 665 corridor the stock is newer, larger and subdivision-shaped, three and four bedrooms on full-size lots, some of it recent construction.' },
   { q: 'How much does property management cost in Grove City?',
     a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. On a ${usd(rent['3'].median)} three bedroom, a manager charging 10% of collected rent takes about ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year plus roughly ${usd(Math.round(rent['3'].median / 2))} again each time the unit turns. Photography is not included in the leasing fee and is billed separately at $250 to $450. Every other charge is published on the pricing page.` },
   { q: 'Is Grove City a good place to own a rental?',
-    a: `It is one of the steadier parts of the metro to own in, for unglamorous reasons: three and four bedroom houses attract households that move for schools and jobs, which usually means longer tenancies and fewer turns than a market of small units. The trade is a higher repair bill per event, because a larger house has more of everything. The reserve decides whether it works, not the rent. Our maintenance reserve calculator runs that at no charge.` },
+    a: `It is one of the steadier parts of the metro to own in, for unglamorous reasons: three and four bedroom houses attract households that move for schools and jobs, which usually means longer tenancies and fewer turns than a market of small units. The trade is a higher repair bill per event, because a larger house has more of everything. Whether it works depends on the reserve more than the rent. Our maintenance reserve calculator runs that at no charge.` },
 ];
 
 const schemaNodes = [
@@ -135,7 +135,7 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Grove City?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Two quite different kinds, sharing one city name. Around the Town Center, along Broadway and Park Street
+        Grove City has two quite different kinds of rental under one city name. Around the Town Center, along Broadway and Park Street
         and the older grid behind them, the houses are smaller and mid-century, on modest lots, often with a
         one-car garage or none. Out toward Stringtown Road, Hoover Road, Buckeye Parkway and the Route 665
         corridor the stock is newer, larger and subdivision-shaped: three and four bedrooms, attached two-car
@@ -182,7 +182,7 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        That last row is the one owners miss. A subdivision built in one go ages in one go, and the vendors get
+        That last row is the easiest one to miss. A subdivision built in one go ages in one go, and the vendors get
         busy exactly when you need them. Plan for it with the
         {' '}<a href="/tools/maintenance-reserve-calculator/" class="text-crimson font-semibold no-underline hover:underline">maintenance reserve calculator</a>,
         {' '}free whether or not you hire us.
@@ -196,14 +196,14 @@ const schemaNodes = [
       <span class="eyebrow">Compliance</span>
       <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">What county is Grove City in, and which court hears an eviction?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Franklin County, and Franklin County Municipal Court. The court sits at 375 S. High St., Columbus, OH
+        Grove City is in Franklin County, and evictions go to Franklin County Municipal Court. The court sits at 375 S. High St., Columbus, OH
         43215, and Eviction Court is in Courtroom 11B. Eviction jurisdiction in Ohio follows the county under
         R.C. 1901.02, not the municipality, so Grove City having its own mayor, council and codified ordinances
         does not move the filing. A case filed in the wrong court costs the filing fee and the calendar.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         Ohio requires a three-day notice to leave the premises under R.C. 1923.04 before the complaint can be
-        filed, with specific statutory language. Wrong wording, dismissed case. Our published costs are
+        filed, with specific statutory language. If the wording is wrong, the case is dismissed. Our published costs are
         {' '}{usd(pricing.eviction.countyFilingFee)} to Franklin County, {usd(pricing.eviction.attorneyFee)} to
         the eviction attorney and {usd(pricing.eviction.rlpmProcessFee)} to us, which is
         {' '}{usd(pricing.eviction.typicalTotal)} before any setout, set out on the
@@ -219,7 +219,7 @@ const schemaNodes = [
         an LLC or a trust must name the responsible member, officer or trustee. A manager may file as the owner
         designated agent, and we do.
       </p>
-      <p class="text-[16.5px] text-muted mt-5"> The county auditor filing applies either way.
+      <p class="text-[16.5px] text-muted mt-5">The county auditor filing applies to every Grove City rental.
       </p>
     </div>
   </section>
@@ -358,7 +358,7 @@ const schemaNodes = [
 
   <Cta
     heading="Find out what your Grove City rental should earn"
-    body="Tell us the address and we will price it against the units we already manage in Grove City, and tell you which end of the market you are actually in. No charge, and no obligation to hire us."
+    body="Tell us the address and we will price it against the units we already manage in Grove City, and tell you which end of the market you are in. No charge, and no obligation to hire us."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Talk to us about a portfolio', href: '/property-management-consultation/' }}
   />

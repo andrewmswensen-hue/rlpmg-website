@@ -23,7 +23,7 @@ import { serviceNode } from '../../lib/schema';
  * NO PORTFOLIO RENT MEDIAN IS PUBLISHED HERE. Upper Arlington has no qualifying
  * entry in rentByMarketAndBedroom (no bedroom count reaches the 5-unit minimum),
  * so markets.ts is deliberately not imported. The page uses the ACS 2024 5-year
- * median gross rent of $1,588, labelled as Census, and says plainly why we have
+ * median gross rent of $1,588, labeled as Census, and says plainly why we have
  * no number of our own to show.
  *
  * SOURCES (verified 2026-09-09):
@@ -88,7 +88,7 @@ const faq = [
   { q: 'Does my Upper Arlington rental need a lead-based paint disclosure?',
     a: `Almost certainly yes. The median Upper Arlington home was built in ${MEDIAN_YEAR_BUILT} according to US Census ACS 2024 5-year estimates, so the typical rental here is pre-1978 target housing. Federal law requires the owner to give every prospective resident the EPA-approved pamphlet, disclose any known lead-based paint and any known lead-based paint hazards, hand over any available records or reports, and attach a signed Lead Warning Statement to the lease. That is Section 1018 of Title X, at 24 CFR Part 35 subpart A and 40 CFR Part 745 subpart F.` },
   { q: 'Does that mean I have to test for lead paint or remove it?',
-    a: 'No. The federal disclosure rule requires you to disclose what you know and hand over what you have. It does not require you to test, and it does not require you to abate anything. The exposure is in the paperwork, not the paint: a knowing failure to disclose can expose an owner to damages beyond the actual harm, and the defence is a signed disclosure sitting in a file. We keep one on every pre-1978 unit we manage.' },
+    a: 'No. The federal disclosure rule requires you to disclose what you know and hand over what you have. It does not require you to test, and it does not require you to abate anything. The risk sits in the paperwork: a knowing failure to disclose can expose an owner to damages beyond the actual harm, and the defence is a signed disclosure sitting in a file. We keep one on every pre-1978 unit we manage.' },
   { q: 'How does pre-1978 housing change what a turn costs in Upper Arlington?',
     a: 'It narrows who is allowed to do the work. Under the EPA Renovation, Repair and Painting rule at 40 CFR Part 745 subpart E, work in pre-1978 housing that disturbs more than 6 square feet of painted surface inside a room, more than 20 square feet outside, or that replaces a window or demolishes part of a structure, has to be done by an EPA-certified firm using certified renovators and lead-safe work practices. Containment, HEPA vacuuming and cleaning verification take time and cost money, and a window replacement on a 1950s house is squarely inside the rule.' },
   { q: 'Which court hears an eviction in Upper Arlington, Ohio?',
@@ -137,21 +137,20 @@ const schemaNodes = [
         Two federal rules attach to the property, and Upper Arlington is where they bite hardest. The median home
         here was built in {MEDIAN_YEAR_BUILT}, according to US Census ACS 2024 5-year estimates, older than
         Worthington and more than twenty years older than Westerville, so the typical Upper Arlington rental is
-        pre-1978 target housing. That is not a warning about the city. It is two obligations most owners here
-        have never had explained to them.
+        pre-1978 target housing. Most owners here have never had the two obligations that follow explained to
+        them.
       </p>
-      <h3 class="text-[21px] mt-8 mb-3">Rule one: disclosure, at every single lease</h3>
+      <h3 class="text-[21px] mt-8 mb-3">Rule one: disclosure, at every lease</h3>
       <p class="text-[16.5px] text-muted">
         Section 1018 of Title X, implemented at 24 CFR Part 35 subpart A and 40 CFR Part 745 subpart F, requires
         the owner of pre-1978 target housing to do four things before a resident signs. Give them the
         EPA-approved lead hazard information pamphlet. Disclose any known lead-based paint and any known
         lead-based paint hazards in the unit. Hand over any records or reports about lead-based paint that you
-        actually have. And attach a Lead Warning Statement to the lease, signed by the resident.
+        have. And attach a Lead Warning Statement to the lease, signed by the resident.
       </p>
       <p class="text-[16.5px] text-muted mt-5">
-        Notice what is not on that list. You do not have to test, and you do not have to remove anything. The rule
-        is about what you disclose, not what you own, which makes the failure mode particularly frustrating: an
-        owner with nothing to hide loses because there is no signed form in the file. A knowing failure to
+        The rule does not require you to test, and it does not require you to remove anything. It governs what you
+        disclose, so an owner with nothing to hide can still lose because there is no signed form in the file. A knowing failure to
         disclose can expose an owner to damages well beyond the actual harm. We attach the disclosure to every
         pre-1978 lease we write and keep the signed copy.
       </p>
@@ -161,7 +160,7 @@ const schemaNodes = [
         pre-1978 housing, any renovation, repair or painting that disturbs more than 6 square feet of painted
         surface inside a room, more than 20 square feet outside, or that replaces a window or demolishes part of
         the structure, has to be performed by an EPA-certified firm, using certified renovators and lead-safe work
-        practices. Ohio's programme is administered by the US EPA rather than by the state, while the Ohio
+        practices. Ohio's program is administered by the US EPA rather than by the state, while the Ohio
         Department of Health approves the renovator training courses and licenses lead abatement professionals
         under Ohio Revised Code Chapter 3742.
       </p>
@@ -199,8 +198,8 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        What that does to a budget: a certified firm has to contain the work area, use HEPA equipment and pass a
-        cleaning verification before it leaves. That is labour and time, and it lands on the same turn where you
+        On a budget, that means a certified firm has to contain the work area, use HEPA equipment and pass a
+        cleaning verification before it leaves. That is labor and time, and it lands on the same turn where you
         also wanted the walls painted. The identical job on a 1995 house costs less and finishes sooner. Plan the
         Upper Arlington turn around it rather than discovering it on day four.
       </p>
@@ -215,17 +214,17 @@ const schemaNodes = [
       <span class="eyebrow">The building</span>
       <h2 id="systems-h" class="text-[clamp(26px,3.2vw,38px)]">What breaks on a {MEDIAN_YEAR_BUILT} house, and what should a reserve look like?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        The systems, not the structure. Houses of this age in Upper Arlington were generally built well, and the
+        The systems wear out before the structure does. Houses of this age in Upper Arlington were generally built well, and the
         shell is usually the least of your problems. What ages out is everything running through it: galvanized
         supply lines that close up from the inside, cast iron drain stacks, clay sewer laterals with tree roots
         in them, electrical panels sized for a household that did not own a dishwasher, plaster that cracks
         rather than dents, and single-pane windows that are both a heating complaint and, as above, a lead-rule
         trigger the moment you replace one. Mid-century houses also commonly contain asbestos-bearing floor
-        tile, mastic and pipe insulation, which is a reason to identify a material before a contractor disturbs
-        it rather than a reason to panic.
+        tile, mastic and pipe insulation, so identify a material before a contractor disturbs
+        it.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The practical answer is a reserve that reflects the age of the asset. Ours run {usd(pricing.reserves.min)}
+        Hold a reserve that reflects the age of the asset. Ours run {usd(pricing.reserves.min)}
         {' '}to {usd(pricing.reserves.max)} per unit depending on plan, and on an Upper Arlington house we would
         rather sit at the top of it. In-house maintenance is {usd(pricing.maintenance.inHouseHourly)} per hour
         with a {usd(pricing.maintenance.tripCharge)} trip charge and no minimum, materials at cost. Vendor
@@ -268,7 +267,7 @@ const schemaNodes = [
         officer, member or trustee.
       </p>
       <p class="text-[16px] text-muted mt-5">
-        Where a city runs its own registration, licence or inspection programme, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Keeping track of which programme applies to your address, and filing on time, is work we absorb rather than work we hand you.
+        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and file on time, so that work does not land on you.
       </p>
     </div>
   </section>
@@ -306,7 +305,7 @@ const schemaNodes = [
             </tr>
             <tr>
               <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
-              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio, with a city opt-out aggregation programme since January 2024</td>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio, with a city opt-out aggregation program since January 2024</td>
               <td class="p-3.5 border border-line text-muted">Resident</td>
             </tr>
             <tr>
@@ -318,7 +317,7 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        Two things catch owners here. The city has run an opt-out Electric Aggregation Programme since January
+        Two things catch owners here. The city has run an opt-out Electric Aggregation Program since January
         2024, so a resident who assumes they picked their own supplier may find the aggregation supplier on the
         bill, and the call about it comes to you. And unpaid water and sewer in Ohio can attach to the parcel
         rather than to the person who ran up the balance, so we check the water account at move-out before a
@@ -338,8 +337,8 @@ const schemaNodes = [
         house typically rents well above it.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        We are not publishing a rent median of our own for Upper Arlington, and the reason is worth stating
-        plainly: we do not manage enough units here for one to be honest. A portfolio median gets published only
+        We are not publishing a rent median of our own for Upper Arlington, because we do not manage enough
+        units here for one to be honest. A portfolio median gets published only
         where at least five of our own units sit behind it at that bedroom count, and no bedroom count in Upper
         Arlington reaches five. Plenty of local pages solve that by quoting a public index and letting the reader
         assume it is their own book. We would rather show the gap.
@@ -355,7 +354,7 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16.5px] text-muted mt-7">
-        The flat fee does more work in Upper Arlington than in most places, because the houses rent high. On the
+        The flat fee saves you more in Upper Arlington than in most places, because the houses rent high. On the
         Census median gross rent of {usd(CENSUS_MEDIAN_GROSS_RENT)}, a manager charging 10% of collected rent
         takes about {usd(Math.round(CENSUS_MEDIAN_GROSS_RENT * 0.1) * 12)} a year plus roughly
         {' '}{usd(Math.round(CENSUS_MEDIAN_GROSS_RENT / 2))} again every time the unit turns. Our middle plan is
@@ -381,16 +380,16 @@ const schemaNodes = [
       <span class="eyebrow">The market</span>
       <h2 id="where-h" class="text-[clamp(26px,3.2vw,38px)]">Where in Upper Arlington do we work?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Across the city, from the pre-war streets in the south near Tremont and Northwest Boulevard to the
-        post-war and mid-century sections north toward Henderson Road and Reed Road. The Lane Avenue and Kenny
-        Road corridors, Arlington Ridge, Golfview, Barrington, the streets around Northam Park, and the older
+        We work across the city, from the pre-war streets in the south near Tremont and Northwest Boulevard to the
+        post-war and mid-century sections north toward Henderson Road and Reed Road, including the Lane Avenue and
+        Kenny Road corridors, Arlington Ridge, Golfview, Barrington, the streets around Northam Park, and the older
         blocks close to the Scioto. Houses across the city feed the Upper Arlington City School District.
         Proximity to Ohio State and the medical campuses puts faculty, resident physicians and relocating
         professionals in the applicant pool, so you get fewer applications than a mid-market suburb, stronger
         ones, and a longer tenancy when you get it right. It also means a vacancy here is expensive. Our
         portfolio-wide lease renewal rate is
-        {' '}{kpis.metrics.find((m) => m.id === 'renewal')?.value}, and renewal is where the money in an Upper
-        Arlington rental actually is.
+        {' '}{kpis.metrics.find((m) => m.id === 'renewal')?.value}, and in an Upper Arlington rental, renewal
+        is where the money is.
       </p>
     </div>
   </section>
@@ -418,7 +417,7 @@ const schemaNodes = [
     { href: '/property-management-worthington-ohio/', label: 'Worthington property management', note: 'North, older stock and a design review district.' },
     { href: '/property-management-dublin-ohio/', label: 'Dublin property management', note: 'Northwest, larger lots and a three-county eviction problem.' },
     { href: '/property-management-westerville-ohio/', label: 'Westerville property management', note: 'Northeast, newer stock and a municipal electric utility.' },
-    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with every neighbourhood we work.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with every neighborhood we work.' },
     { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
   ]} heading="Nearby markets and what to read next" />
 

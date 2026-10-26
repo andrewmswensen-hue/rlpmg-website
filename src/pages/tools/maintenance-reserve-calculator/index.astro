@@ -101,7 +101,7 @@ const facts = [
 
 const faq = [
   { q: 'How much should I hold in reserve per rental unit?',
-    a: `Enough to cover a routine repair without anyone waiting on a funding request. ${company.name} requires ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit depending on the plan, held on your account. At our published rates a ${REPAIR_HOURS}-hour in-house repair is ${usd(repairNormal)} on a weekday, so a ${usd(RESERVE_MIN)} reserve covers roughly ${reserveLevels[0].normalRepairs} of them and a ${usd(RESERVE_MAX)} reserve covers roughly ${reserveLevels[1].normalRepairs}. That reserve is a working float, not your capital plan. Both are explained on this page.` },
+    a: `Enough to cover a routine repair without anyone waiting on a funding request. ${company.name} requires ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit depending on the plan, held on your account. At our published rates a ${REPAIR_HOURS}-hour in-house repair is ${usd(repairNormal)} on a weekday, so a ${usd(RESERVE_MIN)} reserve covers roughly ${reserveLevels[0].normalRepairs} of them and a ${usd(RESERVE_MAX)} reserve covers roughly ${reserveLevels[1].normalRepairs}. That reserve is a working float, separate from your capital plan, and this page covers both.` },
   { q: 'Why does a property manager hold a maintenance reserve?',
     a: `So a repair can be authorized and completed the same day instead of waiting on a transfer. Without a float, every small job turns into a funding request, and the delay costs more than the repair. The money stays yours: it sits on your account, it is spent only on your property, and it is returned when management ends. Median time to close a repair across our portfolio is ${kpi('repairDays')} days.` },
   { q: 'What does a repair actually cost?',
@@ -111,7 +111,7 @@ const faq = [
   { q: 'What is the difference between a reserve and a capital budget?',
     a: 'The reserve is a float for the repairs that happen this month. A capital budget is a monthly set-aside for the items that fail once a decade: roof, furnace, water heater, service panel, sewer line. The reserve keeps the property running. The capital budget keeps a single failure from becoming a forced sale or a HELOC draw. Size them separately and never spend one on the other.' },
   { q: 'How do I set a capital budget without guessing?',
-    a: 'Take each major component, get a real replacement quote from a contractor you would actually hire, estimate the years left on it, and divide the quote by the months remaining. Sum across components and that is your monthly set-aside. It is your own quotes and your own inspection that make the number defensible.' },
+    a: 'Take each major component, get a real replacement quote from a contractor you would hire, estimate the years left on it, and divide the quote by the months remaining. Sum across components and that is your monthly set-aside. Your own quotes and your own inspection make the number defensible.' },
   { q: 'What does it cost to rebuild the reserve after a big repair?',
     a: `Spread over twelve months, ${usd(RESERVE_MIN)} is ${usd(reserveLevels[0].monthlyRebuild)} a month and ${usd(RESERVE_MAX)} is ${usd(reserveLevels[1].monthlyRebuild)} a month. Most owners top the reserve back up out of the monthly disbursement rather than sending money in, which is the simpler mechanic and the one we default to.` },
   { q: 'What about turn costs?',
@@ -140,7 +140,7 @@ const faq = [
       <h2 id="two-h" class="text-[clamp(28px,3.3vw,40px)]">What is a maintenance reserve, and what is it not?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         A maintenance reserve is a working float held per unit so a repair can be authorized and completed
-        without waiting on a funding request. It is not a capital budget. Owners who confuse the two end up
+        without waiting on a funding request. It is not a capital budget. If you confuse the two, you end up
         with a healthy float and no plan for the furnace.
       </p>
       <div class="grid gap-5 sm:grid-cols-2 mt-8">
@@ -197,8 +197,8 @@ const faq = [
           </li>
         </ol>
         <p class="text-[15px] text-muted mt-5 mb-0">
-          Lines 1 and 2 are operating money. Line 3 is capital. Keeping them in separate columns is what stops
-          a busy repair year from quietly eating the roof fund.
+          Lines 1 and 2 are operating money. Line 3 is capital. Keep them in separate columns so a busy repair
+          year does not eat into the roof fund.
         </p>
       </div>
       <p class="text-[15px] text-faint mt-6">
@@ -297,7 +297,7 @@ const faq = [
   <section class="band" aria-labelledby="size-h">
     <div class="wrap max-w-[940px]">
       <span class="eyebrow">Worked example three</span>
-      <h2 id="size-h" class="text-[clamp(28px,3.3vw,40px)]">What does each reserve level actually buy?</h2>
+      <h2 id="size-h" class="text-[clamp(28px,3.3vw,40px)]">What does each reserve level buy?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         The two ends of our published range, translated into repairs at our own rates and into the monthly
         amount it takes to rebuild the reserve over a year.
@@ -377,7 +377,7 @@ const faq = [
       <span class="eyebrow">Run it against your own property</span>
       <h2 id="own-h" class="text-[clamp(28px,3.3vw,40px)]">How do you set your own number?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7">
-        Six lines. Fill them in once per property and revisit them annually.
+        Work through six lines. Fill them in once per property and revisit them annually.
       </p>
       <ol class="grid gap-3.5">
         {[
@@ -386,7 +386,7 @@ const faq = [
           'Divide the floor by twelve. That is the monthly amount to hold back out of your disbursement to keep it full.',
           'List your major components: roof, furnace, air conditioner, water heater, service panel, sewer line, windows, flooring.',
           'For each one, write down a real replacement quote and the months you expect it to last, then divide. Sum the results.',
-          'Add lines 3 and 5. That is your true monthly maintenance number, and it is almost always larger than the one owners carry in their heads.',
+          'Add lines 3 and 5. That is your full monthly maintenance number, and it is usually larger than the one you carry in your head.',
         ].map((s, i) => (
           <li class="card !p-5 text-[15.5px]">
             <span class="font-sans font-bold text-crimson mr-2">{i + 1}.</span>{s}
@@ -394,8 +394,8 @@ const faq = [
         ))}
       </ol>
       <p class="text-[15.5px] text-muted mt-7">
-        Line 5 is the one people skip, and it is the one that decides whether a failed furnace in February is
-        an expense or an emergency. Our quarterly inspections exist mostly to give you the inputs for it: what
+        Line 5 is the one owners most often skip, and it decides whether a failed furnace in February is an
+        expense or an emergency. Much of the point of our quarterly inspections is to give you the inputs for it: what
         is aging, what is failing, and what should be quoted now rather than replaced under pressure.
       </p>
     </div>

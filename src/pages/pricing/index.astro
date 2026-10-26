@@ -47,7 +47,7 @@ const included = [
 ];
 
 const coreFees = [
-  ['Monthly management', `${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit`, 'Flat, by plan. Not a percentage of rent. Discounted for larger portfolios.'],
+  ['Monthly management', `${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit`, 'Flat by plan, not a percentage of rent. Discounted for larger portfolios.'],
   ['Leasing fee', usd(pricing.leasingFee), 'No charge on any plan. Covers syndication, showings, full screening and lease preparation.'],
   ['Lease renewal', usd(pricing.leaseRenewalFee), 'Charged to the owner on the date the lease renews.'],
   ['Startup fee, occupied unit', usd(pricing.startupFeeOccupied), 'No charge to bring an occupied unit under management.'],
@@ -186,8 +186,8 @@ const schemaNodes = [
       <h2 id="compare-h" class="text-[clamp(28px,3.3vw,40px)]">A flat fee against a percentage, at three Columbus rents</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         One year on our middle plan against a percentage manager, in a year that includes placing one
-        resident. The gap is not really the percentage. It is the leasing fee, and almost nobody puts
-        that number in a quote.
+        resident. Much of the gap comes from the leasing fee, a number almost nobody puts in a
+        quote.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
@@ -218,7 +218,7 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[15.5px] text-muted mt-6">
-        Two things this shows. A flat fee widens its advantage as rent rises, because our number does not
+        The table shows two things. A flat fee widens its advantage as rent rises, because our number does not
         move when your rent does. And at the low end, where the annual gap is narrowest, the leasing fee
         alone is still larger than the entire difference: on a {usd(compare[0].rent)} rent, the
         {' '}{usd(compare[0].lease)} placement fee exceeds the {usd(compare[0].save10)} yearly gap against a

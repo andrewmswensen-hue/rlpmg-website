@@ -46,11 +46,11 @@ const benefits = [
 /** Why work here, from the live careers page, rewritten to the house voice. */
 const reasons = [
   { h: 'A defined book of work',
-    p: 'We manage a defined set of property types in a defined service area. That focus is what makes the work legible: you are not learning a new asset class every week.' },
+    p: 'We manage a defined set of property types in a defined service area. That focus keeps the work predictable, so you are not learning a new asset class every week.' },
   { h: 'Owners who stay',
     p: 'The client base is long-term investors rather than one-off landlords. Long relationships mean fewer fire drills and more work that compounds.' },
   { h: 'Systems built for the person doing the job',
-    p: 'Processes here exist to remove repeated decisions, not to add approval steps. If a system is making your job harder, that is treated as a bug.' },
+    p: 'We build processes to remove repeated decisions rather than to add approval steps. If a system makes your job harder, we treat that as a bug.' },
   { h: 'Plain and straightforward',
     p: 'We publish our prices, our operating numbers and our whole team roster. The internal culture matches: say the real thing, in plain language, the first time.' },
 ];
@@ -75,7 +75,7 @@ const keyFacts = [
 
 const faq = [
   { q: 'Is RL Property Management hiring?',
-    a: `Open roles are listed on this page when there are any. ${company.name} hires in Columbus, Ohio across maintenance, leasing and vacant units, resident support, owner service, and operations. If nothing listed fits, a resume can still be sent to ${company.email}.` },
+    a: `Open roles are listed on this page when there are any. ${company.name} hires in Columbus, Ohio across maintenance, leasing and vacant units, resident support, owner service, and operations. If nothing listed fits, you can still send a resume to ${company.email}.` },
   { q: 'What benefits does RL Property Management offer?',
     a: 'Medical, dental and vision coverage for full-time employees and their dependents, a 3% company match on 401k contributions, two weeks of paid time off, six paid holidays, up to three weeks of paid parental leave, an Employee Assistance Program, a referral bonus, and continued education assistance for certifications and professional development.' },
   { q: 'Where are the jobs based?',
@@ -85,7 +85,7 @@ const faq = [
   { q: 'What is it like to work in property management?',
     a: 'It is operational work with a clock on it. Vacant units cost money every day they sit, repairs get worse the longer they wait, and residents remember how they were spoken to. The people who do well here like closing loops and dislike leaving things ambiguous.' },
   { q: 'What does RL Property Management look for in a hire?',
-    a: `The same six core values the company runs on: clear communication, doing things in realtime, figuring it out and getting it done, keeping everything where it belongs, lending a hand, and respect for clients, residents and each other. Those are the standard people are reviewed against, not just hired against.` },
+    a: `The same six core values the company runs on: clear communication, doing things in realtime, figuring it out and getting it done, keeping everything where it belongs, lending a hand, and respect for clients, residents and each other. We hire against those values and review people against them after they join.` },
   { q: 'How do I apply?',
     a: `[SOURCE NEEDED: the current application link or process. Until it is confirmed, applicants can email ${company.email} or call ${company.phone}.]` },
 ];
@@ -114,17 +114,17 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="why-h">Why work at RL Property Management?</h2>
       <p>
-        Because the work is concrete and the company is honest about what it is. We manage
+        The work is concrete, and the company is honest about what it is. We manage
         {' '}{company.unitsManaged} {company.propertyTypes} in Central Ohio, we publish our prices
         and our operating numbers, and the whole team roster is
         {' '}<a href="/team/">on the website with names and titles</a>. Very little here is hidden,
         internally or externally.
       </p>
       <p>
-        Property management is not glamorous. It is a job where a furnace fails at 11pm, where a
-        resident is upset for a reason that is genuinely their landlord's fault, and where a vacant
-        unit costs an owner money every day it sits. The satisfaction comes from closing those loops
-        quickly, which is exactly what the company is organized to do.
+        Property management is unglamorous work. A furnace fails at 11pm, a resident is upset for a
+        reason that is their landlord's fault, and a vacant unit costs an owner money every day it
+        sits. The satisfaction comes from closing those loops quickly, and the company is organized
+        to do that.
       </p>
     </div>
   </section>
@@ -132,7 +132,7 @@ const related = [
   <section class="band band-wash" aria-labelledby="reasons-h">
     <div class="wrap max-w-[940px]">
       <span class="eyebrow">The culture, stated plainly</span>
-      <h2 id="reasons-h" class="text-[clamp(28px,3.3vw,40px)]">What is the company actually like?</h2>
+      <h2 id="reasons-h" class="text-[clamp(28px,3.3vw,40px)]">What is the company like?</h2>
       <div class="grid gap-5 sm:grid-cols-2 mt-8">
         {reasons.map((r) => (
           <div class="card">
@@ -180,8 +180,8 @@ const related = [
       <span class="eyebrow">Where people work</span>
       <h2 id="functions-h" class="text-[clamp(28px,3.3vw,40px)]">What kinds of roles does RL Property Management hire for?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        Five functions. The company is organized by what people do rather than by which properties
-        they cover, so a role here is a real specialty rather than a bit of everything.
+        We hire into five functions. The company is organized by what people do rather than by which
+        properties they cover, so each role is a specialty rather than a bit of everything.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse text-[15.5px]">

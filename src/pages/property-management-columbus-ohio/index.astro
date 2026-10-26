@@ -130,9 +130,9 @@ const faq = [
   { q: 'If my Columbus tenant does not pay the water bill, am I liable?',
     a: 'Yes. Columbus City Code 1105.045 is titled "Unpaid charges a lien. Owner liable." Section 1147.16 does the same for sewer. The owner of the premises is liable for water and sewer charges at that address, and unpaid charges attach to the property, which means they surface at sale or refinance. A Tenant Billing Agreement moves the paper bill to the resident. It does not move the ultimate liability off the owner. We check the city delinquent charge lookup at every turn so a balance does not sit and compound.' },
   { q: 'Does the city pick up trash at my rental?',
-    a: `Only for buildings of ${REFUSE_UNIT_LIMIT} attached units or fewer. The Columbus Division of Refuse Collection services single-family homes and small buildings at no separate charge. A building of five units or more has to contract a private hauler, and that cost belongs in the pro forma before you buy. It is the single most commonly missed line item on a small Columbus multifamily deal.` },
+    a: `Only for buildings of ${REFUSE_UNIT_LIMIT} attached units or fewer. The Columbus Division of Refuse Collection services single-family homes and small buildings at no separate charge. A building of five units or more has to contract a private hauler, and that cost belongs in the pro forma before you buy. Buyers of small Columbus multifamily buildings often miss it.` },
   { q: 'Can I refuse a Housing Choice Voucher in Columbus?',
-    a: 'No. Columbus adopted source of income protection in March 2021, effective that July, making it unlawful to refuse an applicant or change the terms because part of the rent will be paid by a Housing Choice Voucher, child support, spousal support or public assistance. A violation is a first-degree misdemeanor. If you apply an income multiple such as three times the rent, the voucher portion is subtracted first, so the test runs against the share the resident actually pays. Screening criteria still apply, and they have to apply the same way to every applicant.' },
+    a: 'No. Columbus adopted source of income protection in March 2021, effective that July, making it unlawful to refuse an applicant or change the terms because part of the rent will be paid by a Housing Choice Voucher, child support, spousal support or public assistance. A violation is a first-degree misdemeanor. If you apply an income multiple such as three times the rent, the voucher portion is subtracted first, so the test runs against the share the resident pays. Screening criteria still apply, and they have to apply the same way to every applicant.' },
   { q: 'Do you manage in every Columbus neighborhood?',
     a: `${company.name} manages ${company.propertyTypes} across most of the city, from Clintonville and Beechwold in the north to Merion Village and the South Side, out to Brice and Eastland on the east and the Sawmill corridor on the northwest. There are a small number of Columbus submarkets we do not take on new business in. Tell us the address and we will tell you plainly whether it is one of them.` },
 ];
@@ -154,14 +154,14 @@ const schemaNodes = [
 
 /**
  * This is the AREA page for the city of Columbus, and the parent of the three
- * neighbourhood pages. It is deliberately NOT the page targeting "property
+ * neighborhood pages. It is deliberately NOT the page targeting "property
  * management columbus ohio"; that is /columbus-property-management/, the owner
  * hub, which has the existing search equity.
  *
  * Two pages with the same title and the same opening paragraph compete with each
  * other and split the signal, so this one is scoped to the local operating
  * detail an owner inside city limits actually needs: court, utilities, the
- * county auditor filing, and rent by neighbourhood. It links up to the hub for
+ * county auditor filing, and rent by neighborhood. It links up to the hub for
  * services and pricing rather than repeating them.
  */
 ---
@@ -183,13 +183,13 @@ const schemaNodes = [
   <section class="band-tight" aria-labelledby="rent-h">
     <div class="wrap max-w-[900px]">
       <span class="eyebrow">Our own numbers</span>
-      <h2 id="rent-h" class="text-[clamp(28px,3.3vw,40px)]">What do Columbus rentals actually rent for?</h2>
+      <h2 id="rent-h" class="text-[clamp(28px,3.3vw,40px)]">What do Columbus rentals rent for?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         A two-bedroom runs a median of {usd(cbusRent['2'].median)} and a three-bedroom
-        {' '}{usd(cbusRent['3'].median)} across the units we manage in Columbus. These are our own
-        leases, not a national estimate and not a listing-price average, which is why they read lower
-        than the asking rents you see on the portals. Asking rent is what a landlord wants. This is
-        what Columbus residents actually signed.
+        {' '}{usd(cbusRent['3'].median)} across the units we manage in Columbus. These figures come from
+        our own leases rather than a national estimate or a listing-price average, so they read lower
+        than the asking rents you see on the portals. Asking rent is what a landlord hopes for, and
+        these medians are what Columbus residents signed.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse text-[15.5px]">
@@ -237,7 +237,7 @@ const schemaNodes = [
         you raise the rent.
       </p>
       <p class="text-[17.5px] text-muted mb-6 max-w-[44em]">
-        The gap that matters is not really the percentage. It is the leasing fee. A manager charging
+        The bigger difference is the leasing fee. A manager charging
         half a month to place a resident bills about {usd(Math.round(cbusRent['3'].median / 2))} on a
         median Columbus three-bedroom, every time that unit turns. We charge nothing for it on any
         plan, which also means we have no financial reason to prefer a new lease over a renewal.
@@ -287,8 +287,8 @@ const schemaNodes = [
       <p class="text-[15px] text-muted mt-6">
         Franklin County Municipal Court also runs an Environmental Division, which the court describes
         as the only dedicated environmental division in Ohio. That is where housing and building code
-        cases land. It is worth knowing about before a code complaint on your property turns into a
-        court date rather than a letter.
+        cases land, and a code complaint that reaches it means a court date for the owner rather
+        than a letter.
       </p>
     </div>
   </section>
@@ -316,7 +316,7 @@ const schemaNodes = [
             <li class="py-1">Properties placed in conditional status pay an additional {usd(CONDITIONAL_INSPECTION_FEE)} annual inspection fee and may face third-party technical inspection at the owner's expense</li>
           </ul>
           <p class="text-[14px] text-faint mt-3 mb-0">
-        Where a city runs its own registration, licence or inspection programme, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. Keeping track of which programme applies to your address, and filing on time, is work we absorb rather than work we hand you.
+        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We track which program applies to your address and file on time, so that work stays with us.
       </p>
         </div>
         <div class="card">
@@ -337,7 +337,7 @@ const schemaNodes = [
         Neither filing applies to a property that only carries a Columbus mailing address. Central Ohio
         is full of parcels that mail as Columbus but sit in another municipality or in an unincorporated
         township. The Franklin County Auditor parcel record settles which taxing and zoning jurisdiction
-        a property is actually in, and that is what decides whether Chapter 4515 applies.
+        a property is in, and that decides whether Chapter 4515 applies.
       </p>
     </div>
   </section>
@@ -345,10 +345,10 @@ const schemaNodes = [
   <!-- UTILITIES -->
   <section class="band" aria-labelledby="util-h">
     <div class="wrap max-w-[900px]">
-      <span class="eyebrow">The numbers nobody checks</span>
+      <span class="eyebrow">The line items owners miss</span>
       <h2 id="util-h" class="text-[clamp(28px,3.3vw,40px)]">Who provides utilities in Columbus, and who pays?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        Four different providers, and the split of who pays is not the same for all of them. This is
+        A Columbus rental deals with four providers, and who pays differs from one to the next. This is
         the part of a Columbus pro forma that out-of-state buyers get wrong most often.
       </p>
       <div class="scroll-x">
@@ -397,8 +397,8 @@ const schemaNodes = [
           reappear at sale or refinance whether or not the resident who ran them up is findable.
         </p>
         <p class="text-[16.5px] text-muted mb-0">
-          A Tenant Billing Agreement, which is the city form that puts the bill in the resident name,
-          moves the paper. It does not move the liability. So we treat a water balance as an owner
+          A Tenant Billing Agreement, the city form that puts the bill in the resident name, moves the
+          paper while the liability stays with the owner. We treat a water balance as an owner
           exposure rather than a resident problem: the city publishes a delinquent charge lookup by
           address, we check it at every turn, and we do not hand a unit back to the market with a
           balance quietly compounding on it.
@@ -410,7 +410,7 @@ const schemaNodes = [
   <!-- HOUSING STOCK -->
   <section class="band band-wash" aria-labelledby="stock-h">
     <div class="wrap max-w-[900px]">
-      <span class="eyebrow">What is actually here</span>
+      <span class="eyebrow">Housing stock</span>
       <h2 id="stock-h" class="text-[clamp(28px,3.3vw,40px)]">What kind of rental housing does Columbus have?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
         Mostly detached houses and small buildings, built in four distinct waves, and the wave a
@@ -433,8 +433,8 @@ const schemaNodes = [
         Three Columbus neighborhoods sit inside historic architectural review districts, where the
         German Village, Italian Village and Victorian Village commissions issue Certificates of
         Appropriateness for exterior alterations under Columbus City Code chapters 3116 and 3119. If you
-        own in one of those, a roof, a window replacement or a porch repair is a permitting question
-        before it is a contractor question, and the timelines are measured in months.
+        own in one of those, a roof, a window replacement or a porch repair needs commission approval
+        before a contractor starts, and that approval can take months.
       </p>
     </div>
   </section>
@@ -442,7 +442,7 @@ const schemaNodes = [
   <!-- NEIGHBORHOODS -->
   <section class="band" aria-labelledby="hood-h">
     <div class="wrap max-w-[940px]">
-      <span class="eyebrow">Named, not generic</span>
+      <span class="eyebrow">Neighborhoods</span>
       <h2 id="hood-h" class="text-[clamp(28px,3.3vw,40px)]">Which Columbus neighborhoods do we work in?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         Most of the city. Three of them have their own page, because their housing stock and their
@@ -488,9 +488,9 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-5 max-w-[44em]">
         The practical trap is the income multiple. If your criteria require income of three times the
         rent, the voucher portion is subtracted before the test runs. On a {usd(1500)} rent where a
-        voucher covers {usd(900)}, the multiple applies to the {usd(600)} the resident actually pays,
-        not to the full {usd(1500)}. Applying it to the full rent screens out voucher holders by
-        arithmetic, which is exactly what the ordinance prohibits. Everything else in a screening
+        voucher covers {usd(900)}, the multiple applies to the {usd(600)} the resident pays, not to
+        the full {usd(1500)}. Applying it to the full rent screens out voucher holders by arithmetic,
+        which the ordinance prohibits. Everything else in a screening
         standard still applies, and it has to apply identically to every applicant.
       </p>
       <p class="text-[14px] text-faint mt-5">
@@ -502,7 +502,7 @@ const schemaNodes = [
   <section class="band" aria-labelledby="svc-h">
     <div class="wrap max-w-[940px]">
       <span class="eyebrow">What we do here</span>
-      <h2 id="svc-h" class="text-[clamp(28px,3.3vw,40px)]">What does management actually cover in Columbus?</h2>
+      <h2 id="svc-h" class="text-[clamp(28px,3.3vw,40px)]">What does management cover in Columbus?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         Everything between listing the unit and sending you the money, on every plan. The plans differ
         in one thing only: how much repair spending we handle without calling you first.
@@ -527,7 +527,7 @@ const schemaNodes = [
       <p class="text-[15px] text-muted mt-4">
         For the full owner-side walkthrough of services, onboarding and reporting, see
         {' '}<a href="/columbus-property-management/" class="text-crimson font-semibold no-underline hover:underline">what we do for Columbus owners</a>.
-        This page is the local reference. That one is the process.
+        This page covers the local rules, and that one covers how we work.
       </p>
     </div>
   </section>
