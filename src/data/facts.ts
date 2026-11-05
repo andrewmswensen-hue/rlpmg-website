@@ -56,9 +56,10 @@ export const company = {
    */
   headcount: { total: 30, asOf: '2026-09-10', techniciansConfirmed: false },
   propertyTypes: 'single-family homes and small multifamily properties',
-  /** Google reviews. Confirmed by Andrew 2026-09-09: 556 live. Publish "550+" so
-   *  the claim does not go stale between updates. */
-  reviews: { count: 556, display: '550+', rating: 4.3, asOf: '2026-09-09', platform: 'Google' },
+  /** Google reviews. 591 at 4.4 stars on the Google Business Profile, 2026-11-05;
+   *  Andrew asked for "4.4 out of 5, 590+". Publish the rounded-down figure so the
+   *  claim does not go stale between updates. */
+  reviews: { count: 591, display: '590+', rating: 4.4, asOf: '2026-11-05', platform: 'Google' },
   social: {
     youtube: 'https://www.youtube.com/channel/UCLzWGP73xNc-1Wj55M2bUfw',
     instagram: 'https://www.instagram.com/rlpropertymanagement/',
@@ -244,7 +245,7 @@ export const kpis = {
 } as const;
 
 /**
- * The 25 communities we serve. `slug` is the URL segment.
+ * The 35 communities we serve (docs/area-page-strategy.md, final page list). `slug` is the URL segment.
  * `existingUrl` marks the seven that already rank on the live site; those keep
  * their exact URLs so their search equity carries over untouched.
  */
@@ -275,12 +276,22 @@ export const areas = [
   { name: 'Short North',       slug: 'short-north',       county: 'Franklin', neighborhoodOf: 'Columbus' },
   { name: 'Grandview Heights', slug: 'grandview-heights', county: 'Franklin' },
   { name: 'Blacklick',         slug: 'blacklick',         county: 'Franklin' },
+  { name: 'Lewis Center',      slug: 'lewis-center',      county: 'Delaware' },
+  { name: 'Galloway',          slug: 'galloway',          county: 'Franklin' },
+  { name: 'Groveport',         slug: 'groveport',         county: 'Franklin' },
+  { name: 'Whitehall',         slug: 'whitehall',         county: 'Franklin' },
+  { name: 'Johnstown',         slug: 'johnstown',         county: 'Licking' },
+  { name: 'Pataskala',         slug: 'pataskala',         county: 'Licking' },
   { name: 'Delaware',          slug: 'delaware',          county: 'Delaware' },
   { name: 'Marysville',        slug: 'marysville',        county: 'Union' },
   { name: 'Lancaster',         slug: 'lancaster',         county: 'Fairfield' },
   { name: 'Newark',            slug: 'newark',            county: 'Licking' },
   { name: 'London',            slug: 'london',            county: 'Madison' },
   { name: 'Ashville',          slug: 'ashville',          county: 'Pickaway' },
+  { name: 'Plain City',        slug: 'plain-city',        county: 'Madison and Union' },
+  { name: 'Granville',         slug: 'granville',         county: 'Licking' },
+  { name: 'Commercial Point',  slug: 'commercial-point',  county: 'Pickaway' },
+  { name: 'South Bloomfield',  slug: 'south-bloomfield',  county: 'Pickaway' },
 ] as const;
 
 /**

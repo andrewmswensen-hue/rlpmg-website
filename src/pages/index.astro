@@ -20,13 +20,26 @@ const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)!.value;
 const heroStats = kpis.metrics.filter((m) => ['dom', 'collectedBy5', 'renewal', 'repairDays'].includes(m.id));
 
 const services = [
-  { h: 'Marketing and leasing', p: 'Syndication to every major rental portal, self-guided showings, and pricing set against our own Columbus portfolio data.', href: '/services/marketing-and-leasing/', cta: 'How leasing works' },
-  { h: 'Resident screening', p: 'Credit, criminal, income, rental history and eviction checks, applied consistently and within fair housing law.', href: '/services/tenant-screening/', cta: 'Our screening criteria' },
-  { h: 'Maintenance', p: `In-house technicians at ${usd(pricing.maintenance.inHouseHourly)} an hour, vetted vendors, quarterly inspections, and 24/7 emergency coverage.`, href: '/services/maintenance/', cta: 'Maintenance details' },
-  { h: 'Rent collection', p: 'Online payment, automated late notices, and owner direct deposit. 96% of rent lands by the 5th.', href: '/services/rent-collection/', cta: 'How we collect' },
-  { h: 'Owner reporting', p: 'Monthly statements, year-end reporting, and a real-time owner portal you can check at any time.', href: '/services/owner-reporting/', cta: 'See a sample' },
-  { h: 'Compliance and evictions', p: 'A custom lease reviewed by counsel, Ohio landlord-tenant compliance, and eviction handling when it is needed.', href: '/services/evictions/', cta: 'The process' },
+  { h: 'Marketing and leasing', p: 'Syndication to every major rental portal, self-guided showings, and pricing set against our own Columbus portfolio data.', href: '/services/marketing-and-leasing/', cta: 'How leasing works', icon: 'key' },
+  { h: 'Resident screening', p: 'Credit, criminal, income, rental history and eviction checks, applied consistently and within fair housing law.', href: '/services/tenant-screening/', cta: 'Our screening criteria', icon: 'userCheck' },
+  { h: 'Maintenance', p: `In-house technicians at ${usd(pricing.maintenance.inHouseHourly)} an hour, vetted vendors, quarterly inspections, and 24/7 emergency coverage.`, href: '/services/maintenance/', cta: 'Maintenance details', icon: 'wrench' },
+  { h: 'Rent collection', p: 'Online payment, automated late notices, and owner direct deposit. 96% of rent lands by the 5th.', href: '/services/rent-collection/', cta: 'How we collect', icon: 'banknote' },
+  { h: 'Owner reporting', p: 'Monthly statements, year-end reporting, and a real-time owner portal you can check at any time.', href: '/services/owner-reporting/', cta: 'See a sample', icon: 'chart' },
+  { h: 'Compliance and evictions', p: 'A custom lease reviewed by counsel, Ohio landlord-tenant compliance, and eviction handling when it is needed.', href: '/services/evictions/', cta: 'The process', icon: 'scale' },
 ];
+
+/**
+ * Decorative outline icons for the service cards (Lucide, ISC licence), drawn
+ * large and faint in the lower-right corner. Inline SVG, so no request and no JS.
+ */
+const serviceIcons: Record<string, string> = {
+  key: '<path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/>',
+  userCheck: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/>',
+  wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+  banknote: '<rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/>',
+  chart: '<path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>',
+  scale: '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>',
+};
 
 /**
  * The plan. Andrew asked for this after seeing a competitor's version, and it
@@ -51,7 +64,7 @@ const howItWorks = [
  * residents page itself uses both, because "tenant portal" is what people search.
  */
 const router = [
-  { h: 'I own a rental property', p: 'Pricing, management, and a free consultation', href: '/property-management-consultation/#consultation-form' },
+  { h: 'I own rental property', p: 'Pricing, management, and a free consultation', href: '/property-management-consultation/#consultation-form' },
   { h: "I'm looking to rent", p: 'Available homes and how to apply', href: '/homes-for-rent/' },
   { h: "I'm a current resident", p: 'Pay rent, request a repair, find answers', href: '/residents/' },
 ];
@@ -121,7 +134,7 @@ const schemaNodes = [serviceNode({
         <div class="card !p-6 sm:!p-8 md:!p-10 !rounded-[22px]">
           <span class="eyebrow">Columbus, Ohio<span class="hidden sm:inline"> &nbsp;·&nbsp; Licensed brokerage since {company.founded}</span></span>
           <h1 class="text-[30px] sm:text-[clamp(36px,4.6vw,56px)] leading-[1.06] tracking-[-.022em]">
-            Full-service Columbus property management company
+            Full-Service Columbus Property Management Company
           </h1>
           <p class="text-[17px] sm:text-[19px] text-muted mt-4 sm:mt-5 mb-0 sm:mb-2 max-w-[32em]">
             We manage {company.unitsManaged} single-family and small multifamily rentals across the
@@ -144,12 +157,12 @@ const schemaNodes = [serviceNode({
 
         <!-- RIGHT CARD: the router. Owners first, because they are the business. -->
         <nav class="card !p-6 sm:!p-7 md:!p-8 !rounded-[22px] flex flex-col" aria-labelledby="router-h">
-          <h2 id="router-h" class="text-[22px] mb-4 sm:mb-1.5">What brings you here?</h2>
-          <p class="hidden sm:block text-[14.5px] text-muted mb-5">Pick one and we will take you straight there.</p>
-          <ul class="grid gap-3 flex-1 content-start">
+          <h2 id="router-h" class="text-[22px] mb-4 sm:mb-1.5">How can we help?</h2>
+          <p class="hidden sm:block text-[14.5px] text-muted mb-5">Tell us what brings you here and we will take you straight there.</p>
+          <ul class="grid gap-3 flex-1 content-start sm:grid-rows-3 sm:content-stretch">
             {router.map((r, i) => (
-              <li>
-                <a href={r.href} class={`router-btn ${i === 0 ? 'router-primary' : ''}`}>
+              <li class="sm:h-full">
+                <a href={r.href} class={`router-btn sm:h-full ${i === 0 ? 'router-primary' : ''}`}>
                   <span>
                     <span class="router-t">{r.h}</span>
                     <span class="router-s">{r.p}</span>
@@ -194,18 +207,22 @@ const schemaNodes = [serviceNode({
   <section class="band band-wash">
     <div class="wrap">
       <div class="max-w-[660px] mx-auto text-center mb-11">
-        <span class="eyebrow">What we do</span>
-        <h2 class="text-[clamp(28px,3.3vw,40px)]">Full-service management, priced in the open</h2>
+        <span class="eyebrow">Why choose RL Property Management</span>
+        <h2 class="text-[clamp(28px,3.3vw,40px)]">Full-service property management with flat-rate, transparent pricing.</h2>
         <p class="mt-3.5 text-[17.5px] text-muted">
           Everything a Columbus rental needs, handled by a team that publishes its own numbers.
         </p>
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
-          <article class="card card-hover flex flex-col">
-            <h3 class="text-[20px] mb-2">{s.h}</h3>
-            <p class="text-[15px] text-muted mb-3.5 flex-1">{s.p}</p>
-            <a href={s.href} class="font-sans text-[14px] font-semibold text-crimson no-underline hover:underline">{s.cta} →</a>
+          <article class="card card-hover flex flex-col relative overflow-hidden">
+            <svg class="absolute -right-7 -bottom-9 w-[44%] max-w-[170px] text-crimson opacity-[.11] pointer-events-none"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"
+                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"
+                 set:html={serviceIcons[s.icon]} />
+            <h3 class="relative text-[20px] mb-2">{s.h}</h3>
+            <p class="relative text-[15px] text-muted mb-3.5 flex-1 pr-6">{s.p}</p>
+            <a href={s.href} class="relative font-sans text-[14px] font-semibold text-crimson no-underline hover:underline">{s.cta} →</a>
           </article>
         ))}
       </div>
@@ -362,8 +379,8 @@ const schemaNodes = [serviceNode({
   <section class="band">
     <div class="wrap">
       <div class="max-w-[660px] mx-auto text-center mb-9">
-        <span class="eyebrow">Real answers</span>
-        <h2 class="text-[clamp(28px,3.3vw,40px)]">Questions Columbus owners ask</h2>
+        <span class="eyebrow">Quick answers</span>
+        <h2 class="text-[clamp(28px,3.3vw,40px)]">Common questions Columbus owners ask us</h2>
       </div>
       <div class="max-w-[800px] mx-auto"><Faq items={faq} id="home-faq" /></div>
     </div>
