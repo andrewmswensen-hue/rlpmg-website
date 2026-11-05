@@ -71,6 +71,62 @@ export const rentByBedroom = {
 } as const;
 
 /**
+ * Portfolio-wide median rent by bedroom AND bathroom count. Used by the vacancy
+ * cost calculator's "Edit property details" estimate.
+ *
+ * Source: Airtable "Property Data" base, Units table, Market Rent field (asking
+ * rent), active properties only, pulled 2026-11-05 and supplied by Andrew.
+ * Only combinations with a sample of 5 or more units are included (site rule).
+ * Medians are kept as pulled; round to whole dollars when displaying.
+ * Outer key: bedrooms. Inner key: bathrooms.
+ */
+export const rentByBedBath: Record<string, Record<string, { median: number; sample: number }>> = {
+  '1': { '1': { median: 1099, sample: 45 } },
+  '2': {
+    '1':   { median: 1125,   sample: 95 },
+    '1.5': { median: 1325,   sample: 71 },
+    '2':   { median: 1738.5, sample: 34 },
+    '2.5': { median: 1922,   sample: 25 },
+  },
+  '3': {
+    '1':   { median: 1398,   sample: 79 },
+    '1.5': { median: 1675,   sample: 51 },
+    '2':   { median: 1804.5, sample: 70 },
+    '2.5': { median: 2149,   sample: 57 },
+    '3':   { median: 2357,   sample: 13 },
+    '3.5': { median: 3075,   sample: 9 },
+  },
+  '4': {
+    '1':   { median: 1408,   sample: 5 },
+    '1.5': { median: 1995,   sample: 5 },
+    '2':   { median: 1886,   sample: 20 },
+    '2.5': { median: 2599,   sample: 42 },
+    '3':   { median: 2455.5, sample: 6 },
+    '3.5': { median: 2986.5, sample: 6 },
+  },
+};
+
+/**
+ * Median Market Rent divided by Square Feet, by bedroom count, across units with
+ * more than 200 square feet on record. Same source and pull as rentByBedBath
+ * (Airtable "Property Data", Units, active properties, 2026-11-05).
+ */
+export const rentPerSqftByBedroom: Record<string, number> = {
+  '1': 1.585,
+  '2': 1.258,
+  '3': 1.288,
+  '4': 1.167,
+};
+
+/** Median square feet by bedroom count. Same source and pull as above. */
+export const medianSqftByBedroom: Record<string, number> = {
+  '1': 706,
+  '2': 1008,
+  '3': 1347,
+  '4': 2016,
+};
+
+/**
  * Median rent by market and bedroom, only where 5 or more units support it.
  * Render these as "across the units we manage in <city>". Anything not in here
  * must use cited public market data instead, never presented as ours.

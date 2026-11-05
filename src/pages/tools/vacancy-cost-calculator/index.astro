@@ -9,6 +9,7 @@ import Cta from '../../../components/Cta.astro';
 import { company, pricing, kpis, usd } from '../../../data/facts';
 import { rentByBedroom } from '../../../data/markets';
 import { DAYS_IN_MONTH, lostRent, vacancyCost, compareManagers } from '../../../lib/calculators/vacancyCost';
+import { estimateRent, describeEstimate, sqftHint, BEDROOM_OPTIONS, BATHROOM_OPTIONS, bathLabel } from '../../../lib/calculators/rentEstimate';
 
 /**
  * Target: "vacancy cost calculator", "how much does vacancy cost", "cost of a
@@ -67,6 +68,15 @@ const four = beds.find((b) => b.bed === '4')!;
 const VACANCY_CREDIT_DAYS = 60;
 
 /**
+ * Property details panel defaults (Andrew, 2026-11-05): 3 bed, 2 bath, square feet
+ * blank. The default rent is that home's portfolio median from markets.ts.
+ */
+const DEFAULT_BEDS = '3';
+const DEFAULT_BATHS = '2';
+const defaultEstimate = estimateRent({ beds: DEFAULT_BEDS, baths: DEFAULT_BATHS });
+const defaultRent = defaultEstimate.kind === 'none' ? three.rent : defaultEstimate.rent;
+
+/**
  * Calculator defaults. Rent, days and RLPM's leasing fee come from the data files.
  * The rest are ASSUMPTIONS, not facts, and the page labels each one as editable:
  *   vacantMonthly 150  utilities, lawn and snow on an empty house, a round planning figure.
@@ -80,7 +90,7 @@ const VACANCY_CREDIT_DAYS = 60;
  *                      the 50 is a placeholder, not a survey figure.
  */
 const D = {
-  rent: three.rent,
+  rent: defaultRent,
   days: cycleDays,
   vacantMonthly: 150,
   turn: 1500,
@@ -109,7 +119,7 @@ const diffText = (d: number) =>
 type Field = { id: string; label: string; value: number | ''; pre?: string; post?: string; mode: 'numeric' | 'decimal'; hint: string; placeholder?: string };
 const unitFields: Field[] = [
   { id: 'vc-rent', label: 'Monthly rent', value: D.rent, pre: '$', mode: 'decimal',
-    hint: `Default: our ${three.bed} bed median rent. Use yours.` },
+    hint: `Default: typical rent for a ${DEFAULT_BEDS} bed, ${DEFAULT_BATHS} bath home we manage. Type yours, or edit property details.` },
   { id: 'vc-days', label: 'Days vacant', value: D.days, post: 'days', mode: 'numeric',
     hint: `Default: our median ${turnDays} days to turn plus ${domDays} days on market. Count from move-out to the first day of new rent.` },
   { id: 'vc-vacant', label: 'Utilities, lawn and snow while empty', value: D.vacantMonthly, pre: '$', post: '/ month', mode: 'decimal',
@@ -192,7 +202,7 @@ const faq = [
       <span class="eyebrow">Your numbers</span>
       <h2 id="calc-h" class="text-[clamp(28px,3.3vw,40px)]">What will your vacancy cost?</h2>
       <p class="text-[17px] text-muted mt-3 mb-7 max-w-[44em]">
-        Change any number and the result updates. Rent and days start at our published medians. Every
+        Change any number and the result updates. Rent and days start at our portfolio medians. Every
         other default is an assumption, so replace it with yours.
       </p>
 
@@ -213,6 +223,42 @@ const faq = [
                     {f.post && <span class="vc-affix" aria-hidden="true">{f.post}</span>}
                   </div>
                   <p id={`${f.id}-hint`} class="vc-hint">{f.hint}</p>
+                  {f.id === 'vc-rent' && (
+                    /* Property details. Hidden until the script runs, since it only works with JavaScript. */
+                    <details id="vc-details" class="vc-details" hidden>
+                      <summary class="vc-toggle">Edit property details</summary>
+                      <div class="pt-3">
+                        <div class="grid grid-cols-2 gap-3">
+                          <div>
+                            <label for="vc-beds" class="vc-label">Bedrooms</label>
+                            <select id="vc-beds" class="vc-select">
+                              {BEDROOM_OPTIONS.map((o) => <option value={o} selected={o === DEFAULT_BEDS}>{o}</option>)}
+                            </select>
+                          </div>
+                          <div>
+                            <label for="vc-baths" class="vc-label">Bathrooms</label>
+                            <select id="vc-baths" class="vc-select">
+                              {BATHROOM_OPTIONS.map((o) => <option value={o} selected={o === DEFAULT_BATHS}>{bathLabel(o)}</option>)}
+                            </select>
+                          </div>
+                        </div>
+                        <div class="mt-3">
+                          <label for="vc-sqft" class="vc-label">Square feet</label>
+                          <div class="vc-box">
+                            <input id="vc-sqft" type="text" inputmode="numeric" value="" aria-describedby="vc-sqft-hint"
+                                   spellcheck="false" class="vc-input" />
+                            <span class="vc-affix" aria-hidden="true">sq ft</span>
+                          </div>
+                          <p id="vc-sqft-hint" class="vc-hint">{sqftHint(DEFAULT_BEDS)}</p>
+                        </div>
+                        <p id="vc-estimate" class="vc-estimate" aria-live="polite">{describeEstimate(defaultEstimate)}</p>
+                        <p class="vc-hint">
+                          Our portfolio's median asking rent: an estimate, not an appraisal. Changing these
+                          details fills in Monthly rent, and you can always type over it.
+                        </p>
+                      </div>
+                    </details>
+                  )}
                 </div>
               ))}
             </div>
@@ -562,6 +608,24 @@ const faq = [
   }
   .vc-input:focus-visible { outline: none; }
   .vc-affix { color: var(--color-muted); font-size: 14.5px; white-space: nowrap; }
+  .vc-toggle {
+    display: inline-flex; align-items: center; gap: 8px; margin-top: 10px;
+    font-size: 14px; font-weight: 600; color: var(--color-crimson); cursor: pointer; list-style: none;
+  }
+  .vc-toggle::-webkit-details-marker { display: none; }
+  .vc-toggle::after { content: '+'; font-size: 18px; font-weight: 400; line-height: 1; }
+  .vc-details[open] > .vc-toggle::after { content: '\2212'; }
+  .vc-toggle:hover { color: var(--color-crimson-d); text-decoration: underline; text-underline-offset: 3px; }
+  .vc-select {
+    width: 100%; font: 600 17px/1.2 var(--font-sans); color: var(--color-navy);
+    background: #fff; border: 1.5px solid var(--color-line); border-radius: 12px; padding: 11px 12px;
+  }
+  .vc-select:hover { border-color: var(--color-faint); }
+  .vc-select:focus-visible { outline: none; border-color: var(--color-crimson); box-shadow: 0 0 0 3px rgb(166 5 48 / .15); }
+  .vc-estimate {
+    margin: 12px 0 0; padding: 10px 12px; border-radius: 10px;
+    background: var(--color-wash-soft); font-size: 14px; line-height: 1.45; color: var(--color-navy); font-weight: 600;
+  }
   .vc-hint { font-size: 13px; line-height: 1.45; color: var(--color-muted); margin: 6px 0 0; }
   .vc-total {
     font-family: var(--font-serif); font-weight: 600; color: var(--color-crimson);
@@ -580,6 +644,7 @@ const faq = [
 <script>
   // Live recalculation. The math is in the shared lib; this file only reads inputs and writes text.
   import { vacancyCost, compareManagers, parseAmount } from '../../../lib/calculators/vacancyCost';
+  import { estimateRent, describeEstimate, sqftHint } from '../../../lib/calculators/rentEstimate';
   import { usd } from '../../../data/facts';
 
   const form = document.getElementById('vc') as HTMLFormElement | null;
@@ -631,10 +696,34 @@ const faq = [
       }, 700);
     };
 
-    form.addEventListener('input', update);
+    // Property details: estimate a rent from our portfolio medians and fill it into Monthly rent.
+    // Only a change to the details overwrites the rent, so a rent the owner typed wins until then.
+    const details = document.getElementById('vc-details');
+    const beds = document.getElementById('vc-beds') as HTMLSelectElement | null;
+    const baths = document.getElementById('vc-baths') as HTMLSelectElement | null;
+    const sqft = document.getElementById('vc-sqft') as HTMLInputElement | null;
+    const rentInput = document.getElementById('vc-rent') as HTMLInputElement | null;
+    const applyEstimate = (fill: boolean) => {
+      if (!beds || !baths || !sqft || !rentInput) return;
+      const e = estimateRent({ beds: beds.value, baths: baths.value, sqft: parseAmount(sqft.value) });
+      set('vc-estimate', describeEstimate(e));
+      set('vc-sqft-hint', sqftHint(beds.value));
+      if (fill && e.kind !== 'none') rentInput.value = String(e.rent);
+    };
+    if (details) details.hidden = false;
+    const isDetail = (t: EventTarget | null) => t === beds || t === baths || t === sqft;
+
+    form.addEventListener('input', (ev) => {
+      if (isDetail(ev.target)) applyEstimate(true);
+      update();
+    });
+    // Some older browsers fire only "change" on a select.
+    form.addEventListener('change', (ev) => {
+      if (ev.target === beds || ev.target === baths) { applyEstimate(true); update(); }
+    });
     form.addEventListener('submit', (e) => e.preventDefault());
     // Reset restores the value attributes after the event, so recalculate on the next tick.
-    form.addEventListener('reset', () => setTimeout(update, 0));
+    form.addEventListener('reset', () => setTimeout(() => { applyEstimate(false); update(); }, 0));
     update();
   }
 </script>

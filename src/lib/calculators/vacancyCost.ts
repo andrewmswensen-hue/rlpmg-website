@@ -152,5 +152,6 @@ export function compareManagers(c: CompareInputs): CompareResult {
   };
   const other = side(c.otherDaysOnMarket, rent * (clean(c.otherLeasingPct) / 100));
   const rl = side(c.rlDaysOnMarket, clean(c.rlLeasingFee));
-  return { other, rl, difference: other.total - rl.total };
+  // Difference of the rounded totals, so the sentence matches the two figures shown above it.
+  return { other, rl, difference: Math.round(other.total) - Math.round(rl.total) };
 }

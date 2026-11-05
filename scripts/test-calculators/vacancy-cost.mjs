@@ -1,5 +1,5 @@
 /**
- * Tests for src/lib/calculators/vacancyCost.ts.
+ * Tests for src/lib/calculators/vacancyCost.ts and rentEstimate.ts.
  *
  *   node scripts/test-calculators/vacancy-cost.mjs      (run from site/)
  *
@@ -10,10 +10,14 @@ import { build } from 'esbuild';
 import assert from 'node:assert/strict';
 import { fileURLToPath } from 'node:url';
 
-const entry = fileURLToPath(new URL('../../src/lib/calculators/vacancyCost.ts', import.meta.url));
-const out = await build({ entryPoints: [entry], bundle: true, format: 'esm', write: false, platform: 'neutral' });
-const mod = await import('data:text/javascript;base64,' + Buffer.from(out.outputFiles[0].text).toString('base64'));
-const { vacancyCost, compareManagers, parseAmount, clampDays, lostRent, DAYS_IN_MONTH, MAX_DAYS } = mod;
+const load = async (rel) => {
+  const entry = fileURLToPath(new URL(rel, import.meta.url));
+  const out = await build({ entryPoints: [entry], bundle: true, format: 'esm', write: false, platform: 'neutral' });
+  return import('data:text/javascript;base64,' + Buffer.from(out.outputFiles[0].text).toString('base64'));
+};
+const { vacancyCost, compareManagers, parseAmount, clampDays, lostRent, DAYS_IN_MONTH, MAX_DAYS } =
+  await load('../../src/lib/calculators/vacancyCost.ts');
+const { estimateRent, describeEstimate, sqftHint, MIN_SQFT } = await load('../../src/lib/calculators/rentEstimate.ts');
 
 let passed = 0;
 const t = (name, fn) => { fn(); passed++; console.log(`ok    ${name}`); };
@@ -103,6 +107,55 @@ t('compare: difference can be negative and is reported honestly', () => {
   });
   assert.ok(c.difference < 0);
   near(c.difference, -15 * 50);
+});
+
+t('estimate: bed/bath hit (the page default, 3 bed 2 bath)', () => {
+  const e = estimateRent({ beds: '3', baths: '2' });
+  assert.equal(e.kind, 'bedBath');
+  assert.equal(e.rent, 1805); // 1804.5 rounded
+  assert.equal(e.sample, 70);
+  assert.equal(describeEstimate(e), 'Typical rent for a 3 bed, 2 bath home we manage: $1,805 (70 homes).');
+});
+
+t('estimate: missing bed/bath mix falls back to the bedroom median', () => {
+  const e = estimateRent({ beds: '1', baths: '2' });
+  assert.equal(e.kind, 'bedroom');
+  assert.equal(e.rent, 1100);
+  assert.equal(e.sample, 46);
+  assert.match(describeEstimate(e), /too few 1 bed, 2 bath homes/);
+  assert.match(describeEstimate(estimateRent({ beds: '2', baths: '3.5' })), /2 bed, 3\.5\+ bath/);
+});
+
+t('estimate: square feet wins when entered', () => {
+  const e = estimateRent({ beds: '3', baths: '2', sqft: 1600 });
+  assert.equal(e.kind, 'sqft');
+  assert.equal(e.rent, Math.round(1600 * 1.288)); // 2061
+  assert.equal(e.rent, 2061);
+  assert.equal(describeEstimate(e), 'About $2,061 for 1,600 sq ft, at our median $1.29 per sq ft for 3 bedroom homes.');
+});
+
+t('estimate: tiny or blank square feet is ignored', () => {
+  assert.equal(estimateRent({ beds: '3', baths: '2', sqft: MIN_SQFT - 1 }).kind, 'bedBath');
+  assert.equal(estimateRent({ beds: '3', baths: '2', sqft: 0 }).kind, 'bedBath');
+  assert.equal(estimateRent({ beds: '3', baths: '2', sqft: NaN }).kind, 'bedBath');
+});
+
+t('estimate: 5+ bedrooms gives no number, even with square feet', () => {
+  const e = estimateRent({ beds: '5+', baths: '3', sqft: 3000 });
+  assert.equal(e.kind, 'none');
+  assert.equal(e.rent, undefined);
+  assert.match(describeEstimate(e), /too few homes with 5 or more bedrooms/);
+});
+
+t('square feet hint names the bedroom median, or nothing for 5+', () => {
+  assert.equal(sqftHint('3'), 'Optional. Our 3 bed median is 1,347 sq ft.');
+  assert.equal(sqftHint('5+'), 'Optional.');
+});
+
+t('default vacancy result at the 3 bed, 2 bath estimate', () => {
+  const r = vacancyCost({ monthlyRent: 1805, daysVacant: 32, monthlyVacantCosts: 150, turnCost: 1500, leasingCost: 0 });
+  assert.equal(Math.round(r.total), 3585);
+  assert.equal(Math.round(r.perDay), 65);
 });
 
 console.log(`\nvacancy-cost: ${passed} tests passed`);

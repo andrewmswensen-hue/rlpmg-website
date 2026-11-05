@@ -12,9 +12,11 @@ import { rentByBedroom } from '../../data/markets';
 /**
  * The /tools/ hub. Linked from the main navigation.
  *
- * These are decision tools for owners, not lead magnets. Nothing is gated, there
- * is no email wall, and every one of them works with JavaScript disabled. That is
- * deliberate: gating kills the links and citations these pages would otherwise earn.
+ * These are decision tools for owners, not lead magnets. Nothing is gated and there
+ * is no email wall. That is deliberate: gating kills the links and citations these
+ * pages would otherwise earn. Since 2026-11-05 all four calculators are interactive
+ * (Andrew: fully usable at launch), each with a worked example underneath that
+ * still reads with JavaScript disabled.
  */
 
 const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
@@ -93,8 +95,8 @@ const facts = [
 const faq = [
   { q: 'Are these calculators free?',
     a: `Yes, and none are gated: no email wall, no account, no sales call. Every figure comes from our published fee schedule or from the ${company.unitsManaged} units ${company.name} manages, and the source is named on each page.` },
-  { q: 'Why are these worked examples instead of interactive widgets?',
-    a: 'Because you can check a worked example against your own property and see exactly which assumption you disagree with. A widget gives an answer you cannot audit, and it breaks when a script fails to load.' },
+  { q: 'Can I enter my own numbers?',
+    a: 'Yes. All four calculators take your own numbers and update as you type, and your numbers are not sent anywhere. Under each one is a worked example with the formula and real Columbus cases, so you can check the arithmetic, and it still reads with JavaScript off.' },
   { q: 'Which tool should I start with?',
     a: `The vacancy cost calculator, in almost every case. Vacancy is the largest controllable cost in a rental. At the ${usd(rentByBedroom['3'].median)} portfolio median for a 3 bed, every vacant day costs ${usd(dailyThreeBed)}, and a typical turn and lease-up cycle of ${cycleDays} days costs more than most owners spend on repairs in a year.` },
   { q: 'Do the numbers apply outside Columbus?',
@@ -148,17 +150,18 @@ const faq = [
     </div>
   </section>
 
-  <!-- WHY NOT WIDGETS -->
+  <!-- HOW THEY WORK -->
   <section class="band band-wash" aria-labelledby="why-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Why they look like this</span>
-      <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Why are these worked examples instead of interactive widgets?</h2>
+      <span class="eyebrow">How they work</span>
+      <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Can I enter my own numbers?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Because you can check a worked example. Each page states the formula in plain language, works two or
-        three cases at real Columbus rents, and gives you a table to run against your own property.
+        Yes. Each calculator takes your own numbers and updates as you type. No sign-up, and your numbers
+        are not sent anywhere.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
-        They load fast, print cleanly and work without JavaScript. If one helps you decide to keep
+        Under each one is a worked example: the formula in plain language, real Columbus cases and a table
+        to check against. It prints cleanly and reads without JavaScript. If one helps you decide to keep
         self-managing, that is a fine outcome.
       </p>
     </div>
