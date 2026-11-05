@@ -67,7 +67,7 @@ const howItWorks = [
  * residents page itself uses both, because "tenant portal" is what people search.
  */
 const router = [
-  { h: 'I own rentals', p: 'Services, pricing, & free consultation for management services', href: '/property-management-consultation/#consultation-form' },
+  { h: 'I own rentals', p: 'See services, pricing, & get a free consultation for management services.', href: '/property-management-consultation/#consultation-form' },
   { h: "I'm looking to rent", p: 'Available homes and how to apply', href: '/homes-for-rent/' },
   { h: "I'm a current resident", p: 'Pay rent, request a repair, find answers', href: '/residents/' },
 ];
@@ -160,7 +160,7 @@ const schemaNodes = [serviceNode({
 
         <!-- RIGHT CARD: the router. Owners first, because they are the business. -->
         <nav class="card !p-6 sm:!p-7 md:!p-8 !rounded-[22px] flex flex-col" aria-labelledby="router-h">
-          <h2 id="router-h" class="text-[22px] mb-4">How can we help?</h2>
+          <h2 id="router-h" class="text-[27px] sm:text-[30px] font-bold leading-tight mb-4">How can we help?</h2>
           <ul class="grid gap-3 flex-1 content-start sm:grid-rows-3 sm:content-stretch">
             {router.map((r, i) => (
               <li class="sm:h-full">

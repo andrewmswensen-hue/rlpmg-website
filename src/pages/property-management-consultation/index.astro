@@ -100,8 +100,8 @@ const schemaNodes = [
  * they picked the wrong door.
  */
 const ownerTypes = [
-  { v: 'intentional-investor', h: 'I own rentals and want to grow', p: 'Building a portfolio on purpose' },
-  { v: 'future-investor',      h: 'I am buying, or about to buy',  p: 'Planning a first or next rental' },
+  { v: 'intentional-investor', h: 'I own several rental properties', p: 'For serious investors' },
+  { v: 'future-investor',      h: 'I am buying, or about to buy rental(s)',  p: 'Planning to buy a first or next investment property' },
   { v: 'accidental-landlord',  h: 'I ended up with a rental',      p: 'Inherited, relocated, or it did not sell' },
 ];
 
@@ -178,8 +178,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       -->
       <form method="post" action="" class="card !p-6 md:!p-8 grid gap-7" aria-labelledby="form-h">
         <div>
-          <h2 id="form-h" class="text-[24px]">Tell us what you own</h2>
-          <p class="text-[14.5px] text-muted mt-1.5 mb-0">Two quick questions, then how to reach you. About a minute.</p>
+          <h2 id="form-h" class="text-[24px] mb-0">Tell us about your rentals</h2>
         </div>
 
         <fieldset class="border-0 p-0 m-0">
@@ -245,14 +244,23 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
               <span class={hintCls}>If the properties are held in an LLC or a trust.</span>
             </div>
             <div>
-              <label class={labelCls} for="c-type">Property type</label>
-              <select class={inputCls} id="c-type" name="property_type">
-                <option value="">Choose one</option>
-                <option value="single-family">Single-family homes</option>
-                <option value="small-multifamily">Small multifamily</option>
-                <option value="mixed">A mix of both</option>
-                <option value="other">Something else</option>
-              </select>
+              <fieldset class="border-0 p-0 m-0">
+                <legend class={labelCls}>Property type(s)</legend>
+                <span class={hintCls}>Choose all that apply.</span>
+                <div class="grid gap-2 mt-2">
+                  {[
+                    ['single-family', 'Single-family homes'],
+                    ['small-multifamily', 'Small multifamily (duplex to small building)'],
+                    ['condo-townhome', 'Condos or townhomes'],
+                    ['other', 'Something else'],
+                  ].map(([v, l]) => (
+                    <label class="flex gap-2.5 items-center text-[15px] text-navy cursor-pointer">
+                      <input type="checkbox" name="property_type" value={v} class="accent-crimson w-4 h-4 shrink-0" />
+                      <span>{l}</span>
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
             </div>
             <div>
               <label class={labelCls} for="c-situation">Where are you today?</label>
@@ -278,7 +286,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
               </select>
             </div>
             <div>
-              <label class={labelCls} for="c-addresses">Property addresses</label>
+              <label class={labelCls} for="c-addresses">Property address(es)</label>
               <textarea class={inputCls} id="c-addresses" name="addresses" rows="3"></textarea>
               <span class={hintCls}>One per line. A partial list is fine, and so is a city and a count.</span>
             </div>
@@ -295,6 +303,9 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
             <span>I agree that {company.name} may contact me about this request by email or phone.</span>
           </label>
           <button type="submit" class="btn btn-primary w-full !py-3.5 !text-[16px]">Get my free consultation</button>
+          <p class="text-[14.5px] text-muted m-0 text-center">
+            or <a href="/free-rent-evaluation/" class="text-crimson font-semibold no-underline hover:underline">start with a free rent evaluation</a>
+          </p>
           <p class="text-[12.5px] text-faint m-0 text-center">
             Free, and no obligation. We do not sell or share your information.
             {' '}<a href="/privacy-policy/" class="text-crimson no-underline hover:underline">Privacy policy</a>.
