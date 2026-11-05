@@ -7,12 +7,31 @@ import Cta from '../../components/Cta.astro';
 import { company, pricing, usd } from '../../data/facts';
 import { rentByBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
+import {
+  DEFAULTS, MANAGEMENT_OPTIONS, EXCLUSION_JOINT, EXCLUSION_SINGLE,
+  model, toInputs, verdict, scenarioLine, stats, hints, chartSvg, chartCaption,
+  breakdownHtml, tableRowsHtml, money, num, type RvsState,
+} from '../../lib/calculators/rentVsSell';
 
 /**
- * The second of two pages that carry inline JavaScript, by deliberate exception.
- * See the note in src/pages/self-management-calculator/index.astro. The static
- * worked example below is complete and correct with JavaScript disabled; the
- * script only makes it live.
+ * DELIBERATE EXCEPTION to the site's zero-JavaScript rule, scoped to this page
+ * and /self-management-calculator/.
+ *
+ * The math is a faithful port of Andrew's standalone calculator
+ * (Projects/RLPM-Rent-vs-Sell-Calculator, August 2026): mortgage amortized from
+ * today's balance, depreciation and recapture, the Section 121 exclusion running
+ * out 3 years after move-out, suspended passive losses, and both sides measured
+ * as cash in hand after tax and selling costs. It lives in
+ * src/lib/calculators/rentVsSell.ts and is tested by
+ * scripts/test-calculators/rent-vs-sell.mjs (the original 40 checks plus the
+ * site additions). The one change: management defaults to our flat published
+ * price from src/data/facts.ts instead of a percent of rent.
+ *
+ * Progressive enhancement: the same module runs at build time and prints the
+ * full worked example (headline, stats, chart, breakdown, year-by-year table)
+ * into the HTML. The processed <script> at the bottom only makes it live. No
+ * dependencies, no network calls, no tracking. The URL hash holds the scenario
+ * so a filled-in calculation can be shared; it never leaves the browser.
  */
 
 const title = `Rent vs. Sell Calculator for Columbus Owners | ${company.name}`;
@@ -24,37 +43,27 @@ const breadcrumbs = [
   { name: 'Rent vs. sell calculator', path: '/rent-vs-sell-calculator/' },
 ];
 
-const mid = pricing.plans[1];
-const ex = { value: 275000, balance: 150000, rent: 1650, expenses: 450, years: 10, apprec: 3, sellCost: 8 };
-
-/** The same math the script runs, so the page is correct without JavaScript. */
-function project(i: typeof ex) {
-  const sellNow = i.value * (1 - i.sellCost / 100) - i.balance;
-  const annualNet = (i.rent - i.expenses - mid.monthly) * 12;
-  const futureValue = i.value * Math.pow(1 + i.apprec / 100, i.years);
-  const sellLater = futureValue * (1 - i.sellCost / 100) - i.balance;
-  const cashFlow = annualNet * i.years;
-  return {
-    sellNow: Math.round(sellNow),
-    annualNet: Math.round(annualNet),
-    cashFlow: Math.round(cashFlow),
-    equityLater: Math.round(sellLater),
-    rentTotal: Math.round(sellLater + cashFlow),
-  };
-}
-const r = project(ex);
+/* ---------- The worked example, computed at build time ---------- */
+const S: RvsState = { ...DEFAULTS };
+const R = model(toInputs(S));
+const V = verdict(R, S);
+const H = hints(S, R);
+const sm = R.summary;
+const plan = pricing.plans.find((p) => p.id === S.management) ?? pricing.plans[1];
+const cf1 = sm.monthlyCashFlowY1;
+const carry = cf1 < 0 ? `costs about ${money(-cf1)} a month to carry in year one` : `clears about ${money(cf1)} a month in year one`;
 
 const faq = [
   { q: 'Should I rent or sell my house in Columbus?',
-    a: `It depends on three numbers: what the property clears as a rental each month, how much equity you would free up by selling now, and how long you would hold. On the example here, a ${usd(ex.value)} property renting for ${usd(ex.rent)} nets ${usd(r.annualNet)} a year after expenses and management.` },
+    a: `It depends on what the home clears as a rental each month, how much cash you would free up by selling now, and how long you would hold. On the example here, a ${money(S.homeValue)} home renting for ${money(S.monthlyRent)} ${carry}, and ${sm.favors === 'rent' ? 'renting' : 'selling'} comes out ${money(Math.abs(sm.difference))} ahead after ${sm.years} years.` },
   { q: 'How do I know what my property would rent for?',
     a: `${company.name} gives a free rent evaluation using our own portfolio data across ${company.unitsManaged} Columbus-area units plus current market comps, rather than an automated estimate. Median rent across our portfolio is ${usd(rentByBedroom['3'].median)} for a three bedroom.` },
   { q: 'What does it cost to sell a house in Columbus?',
-    a: 'Selling costs usually run 6 to 9 percent of the sale price once commission, title work, transfer taxes and typical concessions are counted. The calculator uses 8 percent by default and you can change it.' },
+    a: `Selling costs usually run 6 to 9 percent of the sale price once commission, title work, transfer taxes and typical concessions are counted. The calculator assumes ${S.realtorCommission} percent commission plus ${S.closingCosts} percent closing costs and concessions, and you can change both.` },
   { q: 'What expenses should I count on a rental?',
-    a: 'Taxes, insurance, maintenance, and a vacancy allowance. Management is counted separately here so you can see it on its own line. Do not forget the turn between residents, which is the cost most first-time landlords miss.' },
+    a: 'Taxes, insurance, maintenance, a capital reserve for big replacements, and a vacancy allowance. Do not forget the turn between residents, which is the cost most first-time landlords miss. Management is counted on its own line.' },
   { q: 'Does this account for tax?',
-    a: 'No. Depreciation, capital gains treatment and the primary-residence exclusion can all move the answer materially, and they depend on your situation. Take this arithmetic to your CPA rather than treating it as advice.' },
+    a: 'Yes, as an estimate. It taxes rental profit after depreciation, taxes depreciation recapture and capital gains when you sell, and ends the primary-residence exclusion 3 years after you move out. It does not model a 1031 exchange or your full return, so take the numbers to your CPA. This is not tax advice.' },
   { q: 'What if I am not sure I want to be a landlord?',
     a: 'That is a fair answer, and the numbers do not settle it. Some owners should sell even when renting projects better, because they do not want the exposure. We will say so plainly when selling is the better call for you.' },
 ];
@@ -63,15 +72,67 @@ const schemaNodes = [serviceNode({
   path: '/rent-vs-sell-calculator/', name: 'Rent vs. sell calculator', description,
 })];
 
-const F = [
-  { id: 'value', label: 'Current property value', v: ex.value, step: 5000, hint: 'What it would sell for today' },
-  { id: 'balance', label: 'Mortgage balance', v: ex.balance, step: 5000, hint: 'Enter 0 if it is paid off' },
-  { id: 'rent', label: 'Monthly rent', v: ex.rent, step: 25, hint: 'What it would rent for' },
-  { id: 'expenses', label: 'Monthly expenses', v: ex.expenses, step: 25, hint: 'Taxes, insurance, maintenance, vacancy allowance' },
-  { id: 'years', label: 'Years you would hold it', v: ex.years, step: 1, hint: '' },
-  { id: 'apprec', label: 'Annual appreciation, percent', v: ex.apprec, step: 0.5, hint: 'Be conservative' },
-  { id: 'sellCost', label: 'Cost to sell, percent', v: ex.sellCost, step: 0.5, hint: 'Commission, title, transfer tax, concessions' },
+/* ---------- Inputs ---------- */
+type Unit = '$' | '%' | 'yrs';
+type Field = { k: keyof RvsState; label: string; unit: Unit; hint?: string; live?: string; link?: { href: string; label: string } };
+
+const UNIT_SR: Record<Unit, string> = { '$': 'in dollars', '%': 'percent', yrs: 'years' };
+const isMoney = (f: Field) => f.unit === '$';
+const shown = (k: keyof RvsState, v: string) => String(S[k]) === v;
+const fieldValue = (f: Field) => (isMoney(f) ? num(Number(S[f.k])) : String(S[f.k]));
+
+const loanFields: Field[] = [
+  { k: 'homeValue', label: 'Home value today', unit: '$', hint: 'What it would sell for today.' },
+  { k: 'pricePaid', label: 'Price you paid', unit: '$', hint: 'Sets your cost basis for capital gains tax and depreciation.' },
+  { k: 'mortgageBalance', label: 'Mortgage balance today', unit: '$', hint: 'From your latest statement. Enter 0 if it is paid off.' },
+  { k: 'interestRate', label: 'Interest rate', unit: '%' },
+  { k: 'remainingTermYears', label: 'Years left on the loan', unit: 'yrs', live: 'payment',
+    hint: 'Leave escrow out; taxes and insurance are counted below.' },
 ];
+const rentFields: Field[] = [
+  { k: 'monthlyRent', label: 'Monthly rent you would get', unit: '$', hint: 'Market rent for the home as it is.',
+    link: { href: '/free-rent-evaluation/', label: 'Get a free rent evaluation' } },
+  { k: 'insuranceMonthly', label: 'Homeowners insurance, per month', unit: '$', live: 'insurance' },
+];
+
+const assumptionGroups: { legend: string; fields: Field[] }[] = [
+  { legend: 'Market', fields: [
+    { k: 'appreciationRate', label: 'Home value growth, per year', unit: '%' },
+    { k: 'rentGrowth', label: 'Rent growth, per year', unit: '%' },
+    { k: 'expenseInflation', label: 'Cost inflation, per year', unit: '%',
+      hint: 'Applied to insurance, HOA dues, flat-dollar property tax and flat management pricing.' },
+    { k: 'reinvestmentRate', label: 'Return on invested cash', unit: '%',
+      hint: 'After-tax return on cash. Applied to both sides, so the comparison is fair.' },
+  ] },
+  { legend: 'Running the rental', fields: [
+    { k: 'vacancyRate', label: 'Vacancy', unit: '%', hint: 'Share of the year the home sits empty between residents.' },
+    { k: 'leasingRate', label: 'Leasing and turnover allowance', unit: '%',
+      hint: `Share of yearly rent set aside for turns and placing residents. Our leasing fee is ${usd(pricing.leasingFee)}; a lease renewal is ${usd(pricing.leaseRenewalFee)}.` },
+    { k: 'maintenanceRate', label: 'Maintenance, per year', unit: '%', live: 'maintenance',
+      hint: 'Routine repairs, as a share of home value.' },
+    { k: 'capexRate', label: 'Capital reserve, per year', unit: '%', live: 'capex',
+      hint: 'Roof, furnace, water heater and other big replacements. Added to your cost basis, not deducted.' },
+    { k: 'landlordInsBump', label: 'Landlord insurance markup', unit: '%', hint: 'How much more a landlord policy costs than your homeowners policy.' },
+    { k: 'hoaMonthly', label: 'HOA dues, per month', unit: '$' },
+    { k: 'makeReadyCosts', label: 'Cost to get it rent-ready', unit: '$', hint: 'Paint, cleaning and repairs before the first resident. Paid up front.' },
+    { k: 'capitalImprovements', label: 'Capital improvements you will make', unit: '$', hint: 'Work that adds to your basis, like a new roof or kitchen.' },
+  ] },
+  { legend: 'Selling', fields: [
+    { k: 'realtorCommission', label: 'Agent commission', unit: '%' },
+    { k: 'closingCosts', label: 'Closing costs and concessions', unit: '%' },
+    { k: 'refurbToSell', label: 'Cost to prep it for sale', unit: '$' },
+  ] },
+  { legend: 'Taxes', fields: [
+    { k: 'incomeTaxRate', label: 'Your income tax rate', unit: '%', hint: 'Combined federal, Ohio and local rate on rental profit.' },
+    { k: 'capGainsRate', label: 'Capital gains rate', unit: '%' },
+    { k: 'recaptureRate', label: 'Depreciation recapture rate', unit: '%', hint: 'Depreciation is taxed back when you sell, at up to 25% federally.' },
+    { k: 'landPct', label: 'Land share of the price', unit: '%', live: 'depreciation',
+      hint: 'Land cannot be depreciated. Your county auditor lists the land and building split.' },
+    { k: 'yearsLivedIn', label: 'Years you have lived here', unit: 'yrs' },
+  ] },
+];
+
+const statList = stats(R);
 ---
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
   <section class="pt-14 pb-8">
@@ -84,72 +145,248 @@ const F = [
       <span class="eyebrow">Owner tools</span>
       <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em]">Keep it as a rental, or sell it now?</h1>
       <p class="text-[20px] text-muted mt-5 max-w-[40em]">
-        Selling frees the equity today. Renting keeps the appreciation and the cash flow, and it keeps
-        the responsibility. This calculator puts both side by side so you can see the gap.
+        See which leaves you with more: selling today, or renting it out and selling later. Taxes and
+        the cost of selling are counted on both sides. Change any number and the answer updates.
       </p>
     </div>
   </section>
 
-  <section class="pb-10">
-    <div class="wrap max-w-[880px]">
-      <form class="card" id="rvs" novalidate>
-        <h2 class="text-[22px] mb-1">Your property</h2>
-        <p class="text-[15px] text-muted mb-6">Nothing is sent anywhere. This runs entirely in your browser.</p>
-        <div class="grid gap-5 sm:grid-cols-2">
-          {F.map((f) => (
-            <div class={f.id === 'sellCost' ? 'sm:col-span-2' : ''}>
-              <label for={f.id} class="block font-sans text-[13px] font-semibold text-muted mb-1.5">{f.label}</label>
-              <input id={f.id} name={f.id} type="number" inputmode="decimal" min="0" step={f.step} value={f.v}
-                     class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
-              {f.hint && <p class="text-[13px] text-faint mt-1.5">{f.hint}</p>}
+  <section class="pb-14">
+    <div class="wrap">
+      <div class="rvs-grid" id="rvs">
+
+        <!-- ================= INPUTS ================= -->
+        <form class="card rvs-form" id="rvs-form" novalidate autocomplete="off" aria-labelledby="rvs-form-h">
+          <h2 id="rvs-form-h" class="text-[22px] mb-1">Your property</h2>
+          <p class="text-[14.5px] text-muted mb-0">Nothing is sent anywhere. This runs entirely in your browser.</p>
+          <noscript><p class="rvs-nojs">JavaScript is off, so the results show the example in these boxes. Turn it on to try your own numbers.</p></noscript>
+
+          <fieldset class="rvs-group">
+            <legend class="rvs-legend">The home and the loan</legend>
+            <div class="rvs-fields">
+              {loanFields.map((f) => (
+                <div class="rvs-field">
+                  <label for={`rvs-${f.k}`} class="rvs-label">{f.label}<span class="sr-only">, {UNIT_SR[f.unit]}</span></label>
+                  <div class="rvs-box">
+                    {f.unit === '$' && <span class="rvs-pre" aria-hidden="true">$</span>}
+                    <input id={`rvs-${f.k}`} name={f.k} data-k={f.k} data-money={isMoney(f) ? '' : undefined}
+                           type="text" inputmode={isMoney(f) ? 'numeric' : 'decimal'} value={fieldValue(f)}
+                           class:list={['rvs-input', { 'has-pre': f.unit === '$', 'has-post': f.unit !== '$' }]}
+                           aria-describedby={f.hint || f.live ? `rvs-${f.k}-h` : undefined} />
+                    {f.unit !== '$' && <span class="rvs-post" aria-hidden="true">{f.unit}</span>}
+                  </div>
+                  {(f.hint || f.live) && (
+                    <p class="rvs-hint" id={`rvs-${f.k}-h`}>
+                      {f.live && <strong data-live={f.live}>{H[f.live]}</strong>} {f.hint}
+                    </p>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </form>
-    </div>
-  </section>
+          </fieldset>
 
-  <section class="pb-12">
-    <div class="wrap max-w-[880px]">
-      <h2 class="text-[26px] mb-5">Side by side</h2>
-      <div class="grid gap-5 md:grid-cols-2">
-        <div class="card">
-          <h3 class="text-[20px] mb-3">Sell now</h3>
-          <p class="font-sans text-[38px] font-extrabold tracking-[-.04em] text-navy leading-none" id="o-sellnow">{usd(r.sellNow)}</p>
-          <p class="text-[14.5px] text-muted mt-2 mb-0">Equity in hand after selling costs and paying off the balance.</p>
-        </div>
-        <div class="card !border-2 !border-crimson">
-          <h3 class="text-[20px] mb-3">Rent for <span id="o-years">{ex.years}</span> years, then sell</h3>
-          <p class="font-sans text-[38px] font-extrabold tracking-[-.04em] text-crimson leading-none" id="o-renttotal">{usd(r.rentTotal)}</p>
-          <p class="text-[14.5px] text-muted mt-2 mb-0">Cumulative cash flow plus equity at the end.</p>
-        </div>
-      </div>
+          <fieldset class="rvs-group">
+            <legend class="rvs-legend">Renting it out</legend>
+            <div class="rvs-fields">
+              {rentFields.map((f) => (
+                <div class="rvs-field">
+                  <label for={`rvs-${f.k}`} class="rvs-label">{f.label}<span class="sr-only">, {UNIT_SR[f.unit]}</span></label>
+                  <div class="rvs-box">
+                    <span class="rvs-pre" aria-hidden="true">$</span>
+                    <input id={`rvs-${f.k}`} name={f.k} data-k={f.k} data-money type="text" inputmode="numeric"
+                           value={fieldValue(f)} class="rvs-input has-pre" aria-describedby={`rvs-${f.k}-h`} />
+                  </div>
+                  <p class="rvs-hint" id={`rvs-${f.k}-h`}>
+                    {f.live && <strong data-live={f.live}>{H[f.live]}</strong>} {f.hint}
+                    {f.link && <a href={f.link.href} class="text-crimson underline underline-offset-2">{f.link.label}</a>}
+                  </p>
+                </div>
+              ))}
 
-      <div class="scroll-x mt-7">
-        <table class="w-full border-collapse text-[16px]">
-          <caption class="sr-only">Rent versus sell, line by line</caption>
-          <tbody>
-            <tr><th scope="row" class="text-left p-4 border border-line font-medium">Net monthly cash flow after management</th>
-                <td class="text-right p-4 border border-line tabular-nums font-semibold" id="o-monthly">{usd(Math.round(r.annualNet / 12))}</td></tr>
-            <tr><th scope="row" class="text-left p-4 border border-line font-medium">Net annual cash flow</th>
-                <td class="text-right p-4 border border-line tabular-nums font-semibold" id="o-annual">{usd(r.annualNet)}</td></tr>
-            <tr><th scope="row" class="text-left p-4 border border-line font-medium">Cumulative cash flow over the hold</th>
-                <td class="text-right p-4 border border-line tabular-nums font-semibold" id="o-cash">{usd(r.cashFlow)}</td></tr>
-            <tr><th scope="row" class="text-left p-4 border border-line font-medium">Equity when you sell later</th>
-                <td class="text-right p-4 border border-line tabular-nums font-semibold" id="o-equity">{usd(r.equityLater)}</td></tr>
-            <tr class="bg-wash-soft"><th scope="row" class="text-left p-4 border border-line font-bold">Difference</th>
-                <td class="text-right p-4 border border-line tabular-nums font-bold text-[19px]" id="o-diff">{usd(r.rentTotal - r.sellNow)}</td></tr>
-          </tbody>
-        </table>
+              <!-- Property tax: a percent of value, or flat dollars a month -->
+              <div class="rvs-field">
+                <div data-when-k="propertyTaxMode" data-when-v="percent" hidden={!shown('propertyTaxMode', 'percent')}>
+                  <label for="rvs-propertyTaxRate" class="rvs-label">Property tax, share of value per year<span class="sr-only">, percent</span></label>
+                  <div class="rvs-box">
+                    <input id="rvs-propertyTaxRate" name="propertyTaxRate" data-k="propertyTaxRate" type="text" inputmode="decimal"
+                           value={String(S.propertyTaxRate)} class="rvs-input has-post" aria-describedby="rvs-tax-h" />
+                    <span class="rvs-post" aria-hidden="true">%</span>
+                  </div>
+                </div>
+                <div data-when-k="propertyTaxMode" data-when-v="dollar" hidden={!shown('propertyTaxMode', 'dollar')}>
+                  <label for="rvs-propertyTaxMonthly" class="rvs-label">Property tax, per month<span class="sr-only">, in dollars</span></label>
+                  <div class="rvs-box">
+                    <span class="rvs-pre" aria-hidden="true">$</span>
+                    <input id="rvs-propertyTaxMonthly" name="propertyTaxMonthly" data-k="propertyTaxMonthly" data-money type="text" inputmode="numeric"
+                           value={num(S.propertyTaxMonthly)} class="rvs-input has-pre" aria-describedby="rvs-tax-h" />
+                  </div>
+                </div>
+                <label for="rvs-propertyTaxMode" class="rvs-sublabel">Enter property tax as</label>
+                <select id="rvs-propertyTaxMode" name="propertyTaxMode" data-k="propertyTaxMode" class="rvs-input rvs-select">
+                  <option value="percent" selected={shown('propertyTaxMode', 'percent')}>A share of home value</option>
+                  <option value="dollar" selected={shown('propertyTaxMode', 'dollar')}>Dollars per month</option>
+                </select>
+                <p class="rvs-hint" id="rvs-tax-h"><strong data-live="propertyTax">{H.propertyTax}</strong> Your county tax bill has the exact figure.</p>
+              </div>
+
+              <!-- Management -->
+              <div class="rvs-field">
+                <label for="rvs-management" class="rvs-label">Who would manage it</label>
+                <select id="rvs-management" name="management" data-k="management" class="rvs-input rvs-select" aria-describedby="rvs-management-h">
+                  {MANAGEMENT_OPTIONS.map((o) => <option value={o.value} selected={o.value === S.management}>{o.label}</option>)}
+                </select>
+                <p class="rvs-hint" id="rvs-management-h"><strong data-live="management">{H.management}</strong> Our plans differ only in the repair approval limit.
+                  <a href="/pricing/" class="text-crimson underline underline-offset-2">See pricing</a></p>
+                <div class="mt-3" data-when-k="management" data-when-v="percent" hidden={!shown('management', 'percent')}>
+                  <label for="rvs-pmRate" class="rvs-label">Management, share of rent collected<span class="sr-only">, percent</span></label>
+                  <div class="rvs-box">
+                    <input id="rvs-pmRate" name="pmRate" data-k="pmRate" type="text" inputmode="decimal" value={String(S.pmRate)} class="rvs-input has-post" />
+                    <span class="rvs-post" aria-hidden="true">%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="rvs-group">
+            <legend class="rvs-legend">Your plans</legend>
+            <div class="rvs-fields">
+              <div class="rvs-field rvs-wide">
+                <div class="flex items-baseline justify-between gap-3">
+                  <label for="rvs-yearsToHold" class="rvs-label">Years to hold before selling</label>
+                  <output id="rvs-yearsOut" for="rvs-yearsToHold" class="rvs-out">{S.yearsToHold} years</output>
+                </div>
+                <input id="rvs-yearsToHold" name="yearsToHold" data-k="yearsToHold" type="range" min="1" max="30" step="1"
+                       value={String(S.yearsToHold)} aria-valuetext={`${S.yearsToHold} years`} class="rvs-range" />
+              </div>
+              <div class="rvs-field rvs-wide">
+                <label class="rvs-check">
+                  <input type="checkbox" id="rvs-isPrimaryResidence" name="isPrimaryResidence" data-k="isPrimaryResidence"
+                         checked={S.isPrimaryResidence} aria-describedby="rvs-primary-h" />
+                  <span>
+                    <span class="rvs-label !mb-0">This has been my home</span>
+                    <span class="rvs-hint block" id="rvs-primary-h">You lived here 2 of the last 5 years. The capital gains exclusion then applies, but only if you sell within 3 years of moving out.</span>
+                  </span>
+                </label>
+              </div>
+              <div class="rvs-field rvs-wide">
+                <label for="rvs-marriedFilingJointly" class="rvs-label">Tax filing status</label>
+                <select id="rvs-marriedFilingJointly" name="marriedFilingJointly" data-k="marriedFilingJointly" class="rvs-input rvs-select">
+                  <option value="1" selected={S.marriedFilingJointly}>Married filing jointly ({usd(EXCLUSION_JOINT)} exclusion)</option>
+                  <option value="0" selected={!S.marriedFilingJointly}>Single ({usd(EXCLUSION_SINGLE)} exclusion)</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <details class="rvs-more" id="rvs-assumptions">
+            <summary>Assumptions you can change</summary>
+            <p class="rvs-hint !mt-0">Every number here is a starting assumption, not a forecast. Change any of them to yours.</p>
+            {assumptionGroups.map((g) => (
+              <fieldset class="rvs-group">
+                <legend class="rvs-legend">{g.legend}</legend>
+                <div class="rvs-fields">
+                  {g.fields.map((f) => (
+                    <div class="rvs-field">
+                      <label for={`rvs-${f.k}`} class="rvs-label">{f.label}<span class="sr-only">, {UNIT_SR[f.unit]}</span></label>
+                      <div class="rvs-box">
+                        {f.unit === '$' && <span class="rvs-pre" aria-hidden="true">$</span>}
+                        <input id={`rvs-${f.k}`} name={f.k} data-k={f.k} data-money={isMoney(f) ? '' : undefined}
+                               type="text" inputmode={isMoney(f) ? 'numeric' : 'decimal'} value={fieldValue(f)}
+                               class:list={['rvs-input', { 'has-pre': f.unit === '$', 'has-post': f.unit !== '$' }]}
+                               aria-describedby={f.hint || f.live ? `rvs-${f.k}-h` : undefined} />
+                        {f.unit !== '$' && <span class="rvs-post" aria-hidden="true">{f.unit}</span>}
+                      </div>
+                      {(f.hint || f.live) && (
+                        <p class="rvs-hint" id={`rvs-${f.k}-h`}>
+                          {f.live && <strong data-live={f.live}>{H[f.live]}</strong>} {f.hint}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </fieldset>
+            ))}
+          </details>
+        </form>
+
+        <!-- ================= RESULTS ================= -->
+        <section class="rvs-results" aria-labelledby="rvs-results-h">
+          <h2 id="rvs-results-h" class="sr-only">Results</h2>
+
+          <section class="card rvs-verdict">
+            <span class="eyebrow">The bottom line</span>
+            <p class="rvs-headline" id="rvs-verdict">
+              <span id="rvs-v-lead">{V.lead}</span>
+              <span class="rvs-amount" id="rvs-v-amount">{V.amount}</span>
+              <span id="rvs-v-tail">{V.tail}</span>
+            </p>
+            <p class="rvs-note" id="rvs-v-note">{V.note}</p>
+            <p class="rvs-scenario" id="rvs-scenario">{scenarioLine(S)}</p>
+            <p class="sr-only" id="rvs-live" aria-live="polite" aria-atomic="true"></p>
+          </section>
+
+          <div class="rvs-stats" id="rvs-stats">
+            {statList.map((s) => (
+              <div class="rvs-stat">
+                <div class="rvs-stat-label">{s.label}</div>
+                <div class:list={['rvs-stat-val', s.tone]}>{s.value}</div>
+                <div class="rvs-stat-sub">{s.sub}</div>
+              </div>
+            ))}
+          </div>
+
+          <section class="card rvs-card" aria-labelledby="rvs-chart-h">
+            <h3 id="rvs-chart-h" class="rvs-card-h">What you would walk away with, year by year</h3>
+            <div class="rvs-chart" id="rvs-chart" set:html={chartSvg(R.rows)} />
+            <ul class="rvs-legend-row">
+              <li><i class="rvs-swatch rvs-swatch-rent" aria-hidden="true"></i> Rent it out, then sell</li>
+              <li><i class="rvs-swatch rvs-swatch-sell" aria-hidden="true"></i> Sell now, invest the cash</li>
+            </ul>
+            <p class="rvs-hint" id="rvs-chart-note">{chartCaption(R.rows)}</p>
+          </section>
+
+          <section class="card rvs-card" aria-labelledby="rvs-bd-h">
+            <h3 id="rvs-bd-h" class="rvs-card-h">How the numbers add up</h3>
+            <div id="rvs-breakdown" set:html={breakdownHtml(R, S)} />
+          </section>
+
+          <details class="fee-group rvs-years">
+            <summary><span class="fee-group-title">Year by year</span></summary>
+            <div class="fee-group-body">
+              <div class="scroll-x">
+                <table class="rvs-table">
+                  <caption class="sr-only">Rent versus sell, year by year</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Year</th><th scope="col">Rent collected</th><th scope="col">Mortgage</th>
+                      <th scope="col">Operating costs</th><th scope="col">Cash flow after tax</th><th scope="col">Home value</th>
+                      <th scope="col" class="hl">If you rent</th><th scope="col" class="hl">If you sell now</th><th scope="col" class="hl">Difference</th>
+                    </tr>
+                  </thead>
+                  <tbody id="rvs-tbody" set:html={tableRowsHtml(R.rows)} />
+                </table>
+              </div>
+              <p class="rvs-hint">"If you rent" is what you would walk away with if you rented through that year and then sold, plus the cash flow you banked. "If you sell now" is today's cash invested at your assumed return.</p>
+            </div>
+          </details>
+
+          <div class="rvs-toolbar" id="rvs-toolbar" hidden>
+            <button type="button" class="btn btn-ghost !py-2.5 !px-5 !text-[14px]" id="rvs-share">Copy a link to these numbers</button>
+            <button type="button" class="btn btn-ghost !py-2.5 !px-5 !text-[14px]" id="rvs-reset">Reset to the example</button>
+            <span class="rvs-hint !m-0" id="rvs-share-status" role="status"></span>
+          </div>
+
+          <div class="rvs-cta">
+            <p class="font-serif text-[21px] font-semibold text-navy m-0">Not sure what it would rent for?</p>
+            <p class="text-[15px] text-muted mt-1.5 mb-4">Send us the address and we will estimate it for free, with no obligation to hire us.</p>
+            <div class="flex flex-wrap gap-3">
+              <a href="/free-rent-evaluation/" class="btn btn-primary">Get a free rent evaluation</a>
+              <a href="/pricing/" class="btn btn-ghost">See what management costs</a>
+            </div>
+          </div>
+        </section>
       </div>
-      <p class="mt-5 text-[17px] text-muted" id="o-summary">
-        On these numbers, renting for {ex.years} years comes out {usd(r.rentTotal - r.sellNow)} ahead of selling today.
-      </p>
-      <p class="text-[14px] text-faint mt-3">
-        Management is counted at {usd(mid.monthly)} a month, our {mid.name} rate, with no leasing fee.
-        Taxes are not modeled. Depreciation, capital gains and the primary-residence exclusion can move
-        this materially, so take the arithmetic to your CPA.
-      </p>
     </div>
   </section>
 
@@ -158,16 +395,19 @@ const F = [
       <h2 class="text-[26px] mb-4">What the calculator assumes</h2>
       <div class="prose-rl">
         <ul>
-          <li><strong>Sell now</strong> is value, minus the cost to sell, minus your mortgage balance.</li>
-          <li><strong>Appreciation</strong> compounds annually on the property value. The default of 3 percent is deliberately conservative.</li>
-          <li><strong>Cash flow</strong> is rent, minus your operating expenses, minus the flat management fee, times twelve.</li>
-          <li><strong>Rent then sell</strong> is cumulative cash flow plus equity at the end of the hold.</li>
-          <li>Rent increases are not modeled, which makes the renting case conservative.</li>
-          <li>Principal paydown is not counted as a separate gain, which also makes renting conservative.</li>
+          <li><strong>Both sides are cash in hand</strong>, after tax and after the cost of selling, so any year compares fairly.</li>
+          <li><strong>Your mortgage</strong> amortizes from today's balance and stops the month it is paid off.</li>
+          <li><strong>Depreciation</strong> runs straight line over 27.5 years on the building, not the land, and is taxed back as recapture when you sell.</li>
+          <li><strong>The primary-residence exclusion</strong> needs 2 of the 5 years before the sale as your home, so it runs out 3 years after you move out. That is the step down in the chart.</li>
+          <li><strong>Rental losses</strong> carry forward and are used when you sell.</li>
+          <li><strong>Management</strong> defaults to our {plan.name} price, {usd(plan.monthly)} a month with a {usd(pricing.leasingFee)} leasing fee. You can switch plans, enter a percent or manage it yourself.</li>
+          <li><strong>Cash earns the same return</strong> on both sides: the sale proceeds and the rental cash flow.</li>
+          <li><strong>Not modeled:</strong> a 1031 exchange, cost segregation, the net investment income tax, AMT, the QBI deduction and income limits on passive losses.</li>
         </ul>
         <p>
-          The calculator cannot tell you whether you want to be a landlord, or what your tax situation
-          does to the answer. Both matter as much as the arithmetic.
+          Home value growth, rent growth and returns are assumptions, not forecasts. The calculator cannot
+          tell you whether you want to be a landlord. This is an estimate for planning, not tax, legal or
+          investment advice, so run it by your CPA before you decide.
         </p>
       </div>
     </div>
@@ -189,48 +429,317 @@ const F = [
 
   <Cta heading="Not sure what it would rent for?"
        body="That one number changes the whole answer. A free rent evaluation uses our own portfolio data and current comps." />
-
-  <script is:inline define:vars={{ mgmtMonthly: mid.monthly }}>
-    (function () {
-      var f = document.getElementById('rvs');
-      if (!f) return;
-      var money = function (n) {
-        var v = Math.round(n);
-        return (v < 0 ? '-$' : '$') + Math.abs(v).toLocaleString('en-US');
-      };
-      var num = function (id, fb) {
-        var el = document.getElementById(id);
-        var v = el ? parseFloat(el.value) : NaN;
-        return isFinite(v) ? v : fb;
-      };
-      function set(id, txt) { var e = document.getElementById(id); if (e) e.textContent = txt; }
-      function update() {
-        var value = num('value', 0), balance = num('balance', 0), rent = num('rent', 0);
-        var exp = num('expenses', 0), years = Math.max(0, num('years', 0));
-        var apprec = num('apprec', 0), sellCost = num('sellCost', 0);
-
-        var sellNow = value * (1 - sellCost / 100) - balance;
-        var annualNet = (rent - exp - mgmtMonthly) * 12;
-        var future = value * Math.pow(1 + apprec / 100, years);
-        var equityLater = future * (1 - sellCost / 100) - balance;
-        var cash = annualNet * years;
-        var rentTotal = equityLater + cash;
-        var diff = rentTotal - sellNow;
-
-        set('o-sellnow', money(sellNow));
-        set('o-renttotal', money(rentTotal));
-        set('o-years', String(years));
-        set('o-monthly', money(annualNet / 12));
-        set('o-annual', money(annualNet));
-        set('o-cash', money(cash));
-        set('o-equity', money(equityLater));
-        set('o-diff', money(diff));
-        set('o-summary', diff >= 0
-          ? 'On these numbers, renting for ' + years + ' years comes out ' + money(diff) + ' ahead of selling today.'
-          : 'On these numbers, selling today comes out ' + money(-diff) + ' ahead of renting for ' + years + ' years.');
-      }
-      f.addEventListener('input', update);
-      update();
-    })();
-  </script>
 </Base>
+
+<script>
+  import {
+    DEFAULTS, model, toInputs, verdict, scenarioLine, stats, hints, chartSvg, chartCaption,
+    breakdownHtml, tableRowsHtml, num, parseNum, type RvsState,
+  } from '../../lib/calculators/rentVsSell';
+
+  const form = document.getElementById('rvs-form') as HTMLFormElement | null;
+  if (form) {
+    const $ = (id: string) => document.getElementById(id);
+    const controls = Array.from(form.querySelectorAll<HTMLInputElement | HTMLSelectElement>('[data-k]'));
+    const STRING_KEYS = new Set(['propertyTaxMode', 'management']);
+    let state: RvsState = { ...DEFAULTS };
+
+    /* ---------- form <-> state ---------- */
+    function readForm() {
+      const s: Record<string, unknown> = state;
+      for (const el of controls) {
+        const k = el.dataset.k as string;
+        if (el instanceof HTMLInputElement && el.type === 'checkbox') s[k] = el.checked;
+        else if (k === 'marriedFilingJointly') s[k] = el.value === '1';
+        else if (STRING_KEYS.has(k)) s[k] = el.value;
+        else if (k === 'yearsToHold') s[k] = parseInt(el.value, 10) || 1;
+        else s[k] = parseNum(el.value);
+      }
+    }
+
+    function writeForm(force = false) {
+      const s = state as unknown as Record<string, unknown>;
+      for (const el of controls) {
+        const k = el.dataset.k as string;
+        if (!force && document.activeElement === el && el.type === 'text') continue;   /* do not fight the cursor */
+        if (el instanceof HTMLInputElement && el.type === 'checkbox') el.checked = !!s[k];
+        else if (k === 'marriedFilingJointly') el.value = s[k] ? '1' : '0';
+        else if ('money' in el.dataset) el.value = num(Number(s[k]));
+        else el.value = String(s[k]);
+      }
+      syncConditional();
+    }
+
+    /* Show the property tax input that matches its unit, and the percent box for "another manager". */
+    function syncConditional() {
+      const s = state as unknown as Record<string, unknown>;
+      form!.querySelectorAll<HTMLElement>('[data-when-k]').forEach((el) => {
+        el.hidden = String(s[el.dataset.whenK as string]) !== el.dataset.whenV;
+      });
+    }
+
+    /* ---------- sharing via the URL hash (never sent anywhere) ---------- */
+    function toHash() {
+      const p = new URLSearchParams();
+      const s = state as unknown as Record<string, unknown>, d = DEFAULTS as unknown as Record<string, unknown>;
+      for (const k of Object.keys(DEFAULTS)) if (s[k] !== d[k]) p.set(k, typeof s[k] === 'boolean' ? (s[k] ? '1' : '0') : String(s[k]));
+      return p.toString();
+    }
+    function fromHash() {
+      const p = new URLSearchParams(location.hash.replace(/^#/, ''));
+      const s = state as unknown as Record<string, unknown>, d = DEFAULTS as unknown as Record<string, unknown>;
+      for (const [k, v] of p) {
+        if (!(k in d)) continue;
+        if (typeof d[k] === 'boolean') s[k] = v === '1';
+        else if (typeof d[k] === 'number') s[k] = parseNum(v);
+        else if (k === 'propertyTaxMode') s[k] = v === 'dollar' ? 'dollar' : 'percent';
+        else if (k === 'management' && form!.querySelector(`#rvs-management option[value="${CSS.escape(v)}"]`)) s[k] = v;
+      }
+    }
+
+    /* ---------- painting ---------- */
+    const chartBox = $('rvs-chart')!;
+    let lastRows = model(toInputs(state)).rows;
+    let liveTimer = 0;
+    const set = (id: string, text: string) => { const e = $(id); if (e) e.textContent = text; };
+
+    function drawChart() {
+      chartBox.innerHTML = chartSvg(lastRows, chartBox.clientWidth || 640);
+    }
+
+    function render() {
+      const out = $('rvs-yearsOut'), range = $('rvs-yearsToHold');
+      const y = `${state.yearsToHold} ${state.yearsToHold === 1 ? 'year' : 'years'}`;
+      if (out) out.textContent = y;
+      range?.setAttribute('aria-valuetext', y);
+
+      if (!(state.homeValue > 0)) {
+        set('rvs-v-lead', 'Enter what your home is worth today');
+        set('rvs-v-amount', ''); set('rvs-v-tail', '');
+        set('rvs-v-note', 'Everything else is calculated from that number, so it comes first.');
+        set('rvs-scenario', '');
+        return;
+      }
+
+      const R = model(toInputs(state));
+      const V = verdict(R, state);
+      set('rvs-v-lead', V.lead); set('rvs-v-amount', V.amount); set('rvs-v-tail', V.tail);
+      set('rvs-v-note', V.note);
+      set('rvs-scenario', scenarioLine(state));
+
+      $('rvs-stats')!.innerHTML = stats(R).map((s) =>
+        `<div class="rvs-stat"><div class="rvs-stat-label">${s.label}</div>` +
+        `<div class="rvs-stat-val ${s.tone}">${s.value}</div><div class="rvs-stat-sub">${s.sub}</div></div>`).join('');
+
+      const H = hints(state, R);
+      form!.querySelectorAll<HTMLElement>('[data-live]').forEach((el) => { el.textContent = H[el.dataset.live as string] ?? ''; });
+
+      lastRows = R.rows;
+      drawChart();
+      set('rvs-chart-note', chartCaption(R.rows));
+      $('rvs-breakdown')!.innerHTML = breakdownHtml(R, state);
+      $('rvs-tbody')!.innerHTML = tableRowsHtml(R.rows);
+
+      /* Announce the answer once typing pauses, not on every keystroke. */
+      clearTimeout(liveTimer);
+      liveTimer = window.setTimeout(() => {
+        set('rvs-live', `${V.plain} Year one cash flow: ${stats(R)[0].value}.`);
+      }, 900);
+
+      const h = toHash();
+      history.replaceState(null, '', location.pathname + location.search + (h ? '#' + h : ''));
+    }
+
+    function update() { readForm(); syncConditional(); render(); }
+
+    /* ---------- events ---------- */
+    form.addEventListener('submit', (e) => e.preventDefault());
+    form.addEventListener('input', (e) => {
+      /* The tax unit select is handled on change, where the old unit is still known. */
+      if ((e.target as HTMLElement).id !== 'rvs-propertyTaxMode') update();
+    });
+    form.addEventListener('change', (e) => {
+      const t = e.target as HTMLElement;
+      if (t.id === 'rvs-propertyTaxMode') {
+        /* Carry the number across when the unit changes, as the original did. */
+        const before = state.propertyTaxMode;
+        readForm();
+        if (before === 'percent' && state.propertyTaxMode === 'dollar') {
+          state.propertyTaxMonthly = Math.round(state.homeValue * (state.propertyTaxRate / 100) / 12);
+        } else if (before === 'dollar' && state.propertyTaxMode === 'percent' && state.homeValue > 0) {
+          state.propertyTaxRate = Math.round((state.propertyTaxMonthly * 12 / state.homeValue) * 1000) / 10;
+        }
+        writeForm(true);
+        render();
+        return;
+      }
+      update();
+    });
+    /* Tidy the formatting (thousands separators) when a box loses focus. */
+    form.addEventListener('focusout', () => setTimeout(() => writeForm(), 0));
+
+    $('rvs-reset')?.addEventListener('click', () => {
+      state = { ...DEFAULTS };
+      writeForm(true);
+      render();
+      set('rvs-share-status', 'Reset to the example.');
+    });
+
+    $('rvs-share')?.addEventListener('click', async () => {
+      const url = location.href;
+      try {
+        await navigator.clipboard.writeText(url);
+        set('rvs-share-status', 'Link copied.');
+      } catch {
+        set('rvs-share-status', 'Copy the link from your address bar.');
+      }
+      setTimeout(() => set('rvs-share-status', ''), 3000);
+    });
+
+    let lastW = chartBox.clientWidth;
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(() => {
+        const w = chartBox.clientWidth;
+        if (Math.abs(w - lastW) > 4) { lastW = w; drawChart(); }
+      }).observe(chartBox);
+    }
+
+    /* A shared link opened in a tab already on this page changes only the hash. */
+    window.addEventListener('hashchange', () => {
+      state = { ...DEFAULTS };
+      try { fromHash(); } catch { /* keep the example */ }
+      writeForm(true);
+      render();
+    });
+
+    /* ---------- boot ---------- */
+    $('rvs-toolbar')!.hidden = false;
+    if (location.hash.length > 1) { try { fromHash(); } catch { /* fall back to the example */ } }
+    writeForm(true);
+    render();
+  }
+</script>
+
+<style is:global>
+  /* Rent vs. sell calculator. Global (not scoped) because the results are
+     re-rendered from strings in the browser; every selector is .rvs- prefixed. */
+  .rvs-grid { display: grid; gap: 28px; align-items: start; }
+  @media (min-width: 1024px) { .rvs-grid { grid-template-columns: 400px minmax(0, 1fr); } }
+  .rvs-results { display: grid; gap: 20px; min-width: 0; }
+
+  .rvs-form { padding: 26px 24px 28px; }
+  .rvs-nojs { font-size: 13.5px; color: var(--color-muted); background: var(--color-wash-soft); border-radius: 10px; padding: 10px 12px; margin: 14px 0 0; }
+  .rvs-group { border: 0; padding: 0; margin: 24px 0 0; min-width: 0; }
+  .rvs-legend {
+    font-family: var(--font-sans); font-size: 11.5px; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--color-crimson); padding: 0; margin-bottom: 12px;
+  }
+  .rvs-fields { display: grid; gap: 16px 18px; }
+  @media (min-width: 640px) and (max-width: 1023px) {
+    .rvs-fields { grid-template-columns: 1fr 1fr; }
+    .rvs-wide { grid-column: 1 / -1; }
+  }
+  .rvs-field { min-width: 0; }
+  .rvs-label {
+    display: block; font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+    color: var(--color-navy); margin-bottom: 6px; line-height: 1.35;
+  }
+  .rvs-sublabel { display: block; font-size: 13px; font-weight: 600; color: var(--color-muted); margin: 10px 0 4px; }
+  .rvs-box { position: relative; }
+  .rvs-input {
+    width: 100%; padding: 11px 14px; border: 1.5px solid var(--color-line); border-radius: 10px;
+    background: #fff; font-family: var(--font-sans); font-size: 16px; color: var(--color-navy);
+    font-variant-numeric: tabular-nums;
+  }
+  .rvs-input:hover { border-color: #c3d0d9; }
+  .rvs-input:focus { border-color: var(--color-crimson); outline: none; box-shadow: 0 0 0 3px rgb(166 5 48 / .14); }
+  .rvs-input.has-pre { padding-left: 28px; }
+  .rvs-input.has-post { padding-right: 46px; }
+  .rvs-select { appearance: auto; font-size: 15px; }
+  .rvs-pre, .rvs-post {
+    position: absolute; top: 50%; transform: translateY(-50%); pointer-events: none;
+    font-family: var(--font-sans); font-size: 15px; color: var(--color-faint);
+  }
+  .rvs-pre { left: 14px; }
+  .rvs-post { right: 14px; }
+  .rvs-hint { font-size: 13px; color: var(--color-muted); margin: 6px 0 0; line-height: 1.45; }
+  .rvs-hint strong { color: var(--color-navy); font-weight: 600; }
+  .rvs-out { font-family: var(--font-sans); font-size: 15px; font-weight: 700; color: var(--color-crimson); white-space: nowrap; }
+  .rvs-range { width: 100%; accent-color: var(--color-crimson); height: 28px; }
+  .rvs-check { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+  .rvs-check input { width: 20px; height: 20px; margin-top: 1px; accent-color: var(--color-crimson); flex: 0 0 auto; }
+  [data-when-k][hidden] { display: none; }
+
+  .rvs-more {
+    margin-top: 26px; border: 1px solid var(--color-line); border-radius: var(--radius-sm);
+    padding: 0 16px; background: var(--color-wash-soft);
+  }
+  .rvs-more[open] { padding-bottom: 20px; }
+  .rvs-more summary {
+    cursor: pointer; list-style: none; padding: 15px 0; font-family: var(--font-sans);
+    font-size: 15px; font-weight: 600; color: var(--color-navy); display: flex; align-items: center;
+  }
+  .rvs-more summary::-webkit-details-marker { display: none; }
+  .rvs-more summary::after { content: '+'; margin-left: auto; color: var(--color-crimson); font-size: 22px; font-weight: 400; line-height: 1; }
+  .rvs-more[open] summary::after { content: '\2212'; }
+  .rvs-more .rvs-group:first-of-type { margin-top: 16px; }
+
+  .rvs-verdict { border: 2px solid var(--color-crimson); }
+  .rvs-headline {
+    font-family: var(--font-serif); font-size: clamp(22px, 2.4vw, 27px); font-weight: 600;
+    color: var(--color-navy); line-height: 1.25; margin: 0;
+  }
+  .rvs-amount {
+    display: block; font-family: var(--font-sans); font-size: clamp(40px, 5vw, 54px); font-weight: 800;
+    letter-spacing: -.04em; color: var(--color-crimson); line-height: 1.08; margin: 4px 0 2px;
+    font-variant-numeric: tabular-nums;
+  }
+  .rvs-note { font-size: 15.5px; color: var(--color-muted); margin: 12px 0 0; }
+  .rvs-scenario { font-size: 13.5px; color: var(--color-faint); margin: 10px 0 0; }
+
+  .rvs-stats { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+  .rvs-stat { background: var(--color-wash-soft); border: 1px solid var(--color-line); border-radius: var(--radius-sm); padding: 14px 16px; min-width: 0; }
+  .rvs-stat-label { font-family: var(--font-sans); font-size: 12.5px; font-weight: 600; color: var(--color-muted); line-height: 1.3; }
+  .rvs-stat-val {
+    font-family: var(--font-sans); font-size: clamp(21px, 2.4vw, 27px); font-weight: 800; letter-spacing: -.03em;
+    color: var(--color-navy); line-height: 1.15; margin-top: 4px; font-variant-numeric: tabular-nums;
+  }
+  .rvs-stat-val.pos { color: #1f6b45; }
+  .rvs-stat-val.neg { color: var(--color-crimson); }
+  .rvs-stat-sub { font-size: 12.5px; color: var(--color-muted); margin-top: 4px; line-height: 1.35; }
+
+  .rvs-card { padding: 24px 22px; }
+  .rvs-card-h { font-size: 20px; margin: 0 0 14px; }
+  .rvs-chart { width: 100%; }
+  .rvs-chart-svg { width: 100%; height: auto; overflow: visible; }
+  .rvs-legend-row { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; padding: 0; margin: 10px 0 0; font-size: 14px; color: var(--color-navy); }
+  .rvs-legend-row li { display: flex; align-items: center; gap: 8px; }
+  .rvs-swatch { display: inline-block; width: 18px; height: 4px; border-radius: 2px; }
+  .rvs-swatch-rent { background: var(--color-crimson); }
+  .rvs-swatch-sell { background: var(--color-navy); }
+
+  .rvs-bd-grid { display: grid; gap: 22px; }
+  @media (min-width: 700px) { .rvs-bd-grid { grid-template-columns: 1fr 1fr; } }
+  .rvs-bd-grid + .rvs-bd { margin-top: 22px; }
+  .rvs-bd-h { font-family: var(--font-sans); font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--color-muted); margin: 0 0 6px; }
+  .rvs-bd dl { margin: 0; }
+  .rvs-bd dl > div { display: flex; justify-content: space-between; gap: 14px; padding: 7px 0; border-bottom: 1px solid var(--color-line); font-size: 15px; }
+  .rvs-bd dt { color: var(--color-navy); }
+  .rvs-bd dd { margin: 0; font-variant-numeric: tabular-nums; color: var(--color-navy); white-space: nowrap; }
+  .rvs-bd .rvs-bd-total { border-bottom: 0; font-weight: 700; }
+  .rvs-bd .rvs-bd-total + .rvs-bd-total { padding-top: 0; font-weight: 600; color: var(--color-muted); }
+
+  .rvs-years { margin-bottom: 0; }
+  .rvs-table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; min-width: 760px; }
+  .rvs-table th, .rvs-table td { padding: 9px 10px; text-align: right; border-bottom: 1px solid var(--color-line); white-space: nowrap; }
+  .rvs-table thead th { font-family: var(--font-sans); font-size: 12px; font-weight: 700; color: var(--color-muted); text-transform: uppercase; letter-spacing: .04em; white-space: normal; vertical-align: bottom; }
+  .rvs-table th:first-child, .rvs-table td:first-child { text-align: left; }
+  .rvs-table tbody th { font-weight: 600; }
+  .rvs-table .hl { background: var(--color-wash-soft); }
+  .rvs-table .pos { color: #1f6b45; }
+  .rvs-table .neg { color: var(--color-crimson); }
+
+  .rvs-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .rvs-toolbar[hidden] { display: none; }
+  .rvs-cta { background: var(--color-cream); border: 1px solid var(--color-line); border-radius: var(--radius-card); padding: 22px 22px 24px; }
+</style>

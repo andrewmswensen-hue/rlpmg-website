@@ -8,18 +8,37 @@ import RelatedLinks from '../../../components/RelatedLinks.astro';
 import Cta from '../../../components/Cta.astro';
 import { company, pricing, kpis, usd } from '../../../data/facts';
 import { rentByBedroom } from '../../../data/markets';
+import {
+  calculateReserve, defaultInputs, resultText, DEFAULT_MONTHS_OF_RENT,
+  type ReserveRates,
+} from '../../../lib/calculators/maintenanceReserve';
 
 /**
  * Target: "maintenance reserve calculator", "how much to save per unit for
  * repairs", "rental property repair reserve".
  *
- * A worked-example page, not an interactive widget. The site runs zero
- * JavaScript. Every repair figure below is computed from the published labor and
- * vendor rates in src/data/facts.ts, so the page teaches the arithmetic using
- * prices a reader can verify against our fee schedule.
+ * An interactive calculator, and a sanctioned exception to the site's zero
+ * JavaScript rule (Andrew, 2026-11-05: every calculator fully interactive at
+ * launch). The arithmetic lives in src/lib/calculators/maintenanceReserve.ts and
+ * is tested by scripts/test-calculators/maintenance-reserve.mjs. The same
+ * function runs here in the frontmatter, so the example result is in the HTML
+ * and the page still reads as a complete answer with JavaScript off. The inputs
+ * stay locked (disabled fieldset) until the script runs.
  *
- * NOTHING here states a typical component lifespan or a typical annual repair
- * spend. Those numbers are not in the fact bank. See the [SOURCE NEEDED] markers.
+ * RLPM rates come from src/data/facts.ts and reach the script through the
+ * form's data-rates attribute. Every other default (six months of rent, the
+ * example replacement costs and expected lives) is an editable assumption drawn
+ * from RLPM's own blog posts and labeled that way on the page; the sources are
+ * noted in the module.
+ *
+ * Every repair figure in the worked examples is computed from the published
+ * labor and vendor rates in src/data/facts.ts, so the page teaches the
+ * arithmetic using prices a reader can verify against our fee schedule.
+ *
+ * NOTHING here states a typical annual repair spend. That number is not in the
+ * fact bank. The example expected lives are the worked example from
+ * /blog/planning-property-improvements-columbus-ohio/, presented as editable
+ * example inputs, not as published lifespans.
  */
 
 const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
@@ -71,6 +90,25 @@ const reserveLevels = [RESERVE_MIN, RESERVE_MAX].map((r) => ({
 /** Portfolio-level sizing: what a reserve costs across a small portfolio. */
 const portfolioSizes = [1, 5, 10, 25];
 
+/* ---------- The calculator ---------- */
+
+/** RLPM facts the calculator needs, all from facts.ts. */
+const rates: ReserveRates = {
+  hourly: m.inHouseHourly,
+  tripCharge: m.tripCharge,
+  accountReserveMin: RESERVE_MIN,
+  accountReserveMax: RESERVE_MAX,
+};
+/** Example rent: the portfolio median for a 3 bed, from markets.ts. */
+const exampleRent = rentByBedroom['3'].median;
+const ex = defaultInputs(exampleRent);
+const exResult = calculateReserve(ex, rates);
+const t = resultText(ex, exResult);
+
+const labelCls = 'block font-sans text-[13px] font-semibold text-muted mb-1.5';
+const inputCls = 'w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px] tabular-nums disabled:bg-wash-soft disabled:text-muted';
+const hintCls = 'text-[13px] text-faint mt-1.5 mb-0';
+
 const title = 'Maintenance Reserve Calculator for Rental Units | RL Property Management';
 const description =
   `How much to hold per unit for repairs, worked out at published Columbus rates. ${company.name} requires ` +
@@ -84,38 +122,42 @@ const breadcrumbs = [
 ];
 
 const answer =
-  `Hold enough per unit to cover a routine repair without a funding request. ${company.name} requires ` +
-  `${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit depending on plan. A ${REPAIR_HOURS}-hour in-house ` +
-  `repair is ${usd(repairNormal)} on a weekday and ${usd(repairSunday)} on a Sunday.`;
+  `${company.name} holds ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit on your account, by plan. ` +
+  `Behind that, keep at least ${DEFAULT_MONTHS_OF_RENT} months of rent per unit in your own reserve, plus a ` +
+  `monthly set-aside for the roof, HVAC and other big items.`;
 
 const facts = [
   `${company.shortName} holds a reserve of ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit, by plan`,
   'The reserve stays your money and is returned when management ends',
+  `Our starting point for your own cash reserve is ${DEFAULT_MONTHS_OF_RENT} months of rent per unit`,
   `In-house labor is ${usd(m.inHouseHourly)} per hour plus a ${usd(m.tripCharge)} trip charge, ${m.rateYear} rate`,
   `No minimum charge on maintenance work, and materials are provided at cost`,
   `A ${REPAIR_HOURS}-hour repair runs ${usd(repairNormal)} on a weekday and ${usd(repairSunday)} on a Sunday`,
   `Vendor project management is ${m.vendorProjectFeePct}% of vendor cost up to ${usd(m.vendorProjectFeeAppliesUpTo)}, capped at ${usd(m.vendorProjectFeeCap)}`,
-  `Rebuilding a ${usd(RESERVE_MAX)} reserve over twelve months is ${usd(reserveLevels[1].monthlyRebuild)} a month`,
   `Median ${kpi('repairDays')} days to close a repair across the portfolio`,
 ];
 
 const faq = [
   { q: 'How much should I hold in reserve per rental unit?',
-    a: `Enough to cover a routine repair without anyone waiting on a funding request. ${company.name} requires ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit depending on the plan, held on your account. At our published rates a ${REPAIR_HOURS}-hour in-house repair is ${usd(repairNormal)} on a weekday, so a ${usd(RESERVE_MIN)} reserve covers roughly ${reserveLevels[0].normalRepairs} of them and a ${usd(RESERVE_MAX)} reserve covers roughly ${reserveLevels[1].normalRepairs}. That reserve is a working float, separate from your capital plan, and this page covers both.` },
+    a: `Our starting point is at least ${DEFAULT_MONTHS_OF_RENT} months of rent per unit in your own reserve, plus a monthly set-aside for the big items. Separately, ${company.name} holds ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit on your account, depending on the plan, so routine repairs do not wait on funding. At our rates, a ${usd(RESERVE_MAX)} account reserve covers about ${reserveLevels[1].normalRepairs} weekday ${REPAIR_HOURS}-hour repairs.` },
+  { q: 'How does this calculator work?',
+    a: `It adds ${DEFAULT_MONTHS_OF_RENT} months of rent (or the months you choose) to the cost of anything already past its expected life. That is the reserve. The monthly set-aside is each big item's replacement cost divided by the months it has left, plus a twelfth of a two-repair float at our ${usd(m.inHouseHourly)} hourly rate. Everything runs in your browser and nothing is sent anywhere.` },
+  { q: 'Is six months of rent per unit too much?',
+    a: 'It is a starting point, not a ceiling or a rule. Owners with several units can often hold less per unit, because it is unlikely every unit needs a major repair at the same time. A high turnover rate or older systems argue for holding more.' },
   { q: 'Why does a property manager hold a maintenance reserve?',
-    a: `So a repair can be authorized and completed the same day instead of waiting on a transfer. Without a float, every small job turns into a funding request, and the delay costs more than the repair. The money stays yours: it sits on your account, it is spent only on your property, and it is returned when management ends. Median time to close a repair across our portfolio is ${kpi('repairDays')} days.` },
+    a: `So a repair can be authorized and completed the same day instead of waiting on a transfer. The money stays yours: it sits on your account, it is spent only on your property, and it is returned when management ends. Median time to close a repair across our portfolio is ${kpi('repairDays')} days.` },
   { q: 'What does a repair actually cost?',
-    a: `In-house labor is ${usd(m.inHouseHourly)} per hour at the ${m.rateYear} rate, plus a ${usd(m.tripCharge)} trip charge per visit, with materials at cost and no minimum charge. After hours multiplies the labor: ${pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, ${pricing.afterHours.sunday}x on Sundays. So the same ${REPAIR_HOURS}-hour job is ${usd(repairNormal)} on a Tuesday morning and ${usd(repairSunday)} on a Sunday.` },
+    a: `In-house labor is ${usd(m.inHouseHourly)} per hour at the ${m.rateYear} rate, plus a ${usd(m.tripCharge)} trip charge per visit, with materials at cost and no minimum charge. After hours, labor is ${pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays and ${pricing.afterHours.sunday}x on Sundays, so a ${REPAIR_HOURS}-hour job is ${usd(repairNormal)} on a Tuesday morning and ${usd(repairSunday)} on a Sunday.` },
   { q: 'How is vendor work billed?',
-    a: `At vendor cost plus a project management fee of ${m.vendorProjectFeePct}% of vendor cost, applied to costs up to ${usd(m.vendorProjectFeeAppliesUpTo)} and capped at ${usd(m.vendorProjectFeeCap)} per project. A ${usd(vendorJobs[0].cost)} job carries a ${usd(vendorJobs[0].fee)} fee; a ${usd(vendorJobs[3].cost)} job carries ${usd(vendorJobs[3].fee)}, because the cap has been reached. The fee is waived entirely on insurance claim work.` },
+    a: `At vendor cost plus a project management fee of ${m.vendorProjectFeePct}% of vendor cost, applied to costs up to ${usd(m.vendorProjectFeeAppliesUpTo)} and capped at ${usd(m.vendorProjectFeeCap)} per project. A ${usd(vendorJobs[0].cost)} job carries ${usd(vendorJobs[0].fee)}; a ${usd(vendorJobs[3].cost)} job carries ${usd(vendorJobs[3].fee)}, because the cap has been reached. It is waived on insurance claim work.` },
   { q: 'What is the difference between a reserve and a capital budget?',
-    a: 'The reserve is a float for the repairs that happen this month. A capital budget is a monthly set-aside for the items that fail once a decade: roof, furnace, water heater, service panel, sewer line. The reserve keeps the property running. The capital budget keeps a single failure from becoming a forced sale or a HELOC draw. Size them separately and never spend one on the other.' },
+    a: 'The reserve is cash for the repairs that happen this month. A capital budget is a monthly set-aside for the items that fail once a decade: roof, furnace, water heater, service panel, sewer line. Size them separately and never spend one on the other.' },
   { q: 'How do I set a capital budget without guessing?',
-    a: 'Take each major component, get a real replacement quote from a contractor you would hire, estimate the years left on it, and divide the quote by the months remaining. Sum across components and that is your monthly set-aside. Your own quotes and your own inspection make the number defensible.' },
+    a: 'For each major item, get a real replacement quote, estimate the years it has left, and divide the quote by the months remaining. Sum across items and that is your monthly set-aside. Your own quotes and inspection make the number defensible.' },
   { q: 'What does it cost to rebuild the reserve after a big repair?',
-    a: `Spread over twelve months, ${usd(RESERVE_MIN)} is ${usd(reserveLevels[0].monthlyRebuild)} a month and ${usd(RESERVE_MAX)} is ${usd(reserveLevels[1].monthlyRebuild)} a month. Most owners top the reserve back up out of the monthly disbursement rather than sending money in, which is the simpler mechanic and the one we default to.` },
+    a: `Spread over twelve months, ${usd(RESERVE_MIN)} is ${usd(reserveLevels[0].monthlyRebuild)} a month and ${usd(RESERVE_MAX)} is ${usd(reserveLevels[1].monthlyRebuild)} a month. Most owners top the reserve back up out of the monthly disbursement, which is the mechanic we default to.` },
   { q: 'What about turn costs?',
-    a: `Turns are billed on their own tiered schedule rather than the standard project fee: ${m.turnTiers[0].pct}% on turns up to ${usd(m.turnTiers[0].upTo as number)}, ${m.turnTiers[1].pct}% from there to ${usd(m.turnTiers[1].upTo as number)}, and ${m.turnTiers[2].pct}% above that. A turn is a planned event, so it is budgeted against the vacancy rather than drawn from the working reserve.` },
+    a: `Turns are billed on their own tiered schedule: ${m.turnTiers[0].pct}% on turns up to ${usd(m.turnTiers[0].upTo as number)}, ${m.turnTiers[1].pct}% from there to ${usd(m.turnTiers[1].upTo as number)}, and ${m.turnTiers[2].pct}% above that. A turn is a planned event, so budget it against the vacancy rather than the working reserve.` },
   { q: 'Does the reserve cover pet damage?',
     a: `It does not need to, up to a point. If an approved pet causes damage beyond normal wear and tear and the cost exceeds the security deposit, we cover the difference up to ${usd(pricing.petDamageCoverage.cap)}. That coverage is funded by a monthly pet administration fee and does not apply to service or assistance animals, because those are not pets.` },
 ];
@@ -123,47 +165,231 @@ const faq = [
 <Base {title} {description} {faq} {breadcrumbs}>
 
   <PageHero
-    eyebrow="Worked example, no sign-up"
+    eyebrow="Free calculator, no sign-up"
     title="How much should you hold in reserve per rental unit?"
     answer={answer}
     breadcrumbs={breadcrumbs}
-    primaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
-    secondaryCta={{ label: 'See all tools', href: '/tools/' }}
+    primaryCta={{ label: 'Run your numbers', href: '#calculator' }}
+    secondaryCta={{ label: 'See pricing', href: '/pricing/' }}
   />
+
+  <!-- THE CALCULATOR -->
+  <section id="calculator" class="pb-14 scroll-mt-24" aria-labelledby="calc-h">
+    <div class="wrap max-w-[1080px]">
+      <form id="mr-calc" class="card !p-0 overflow-hidden" novalidate data-rates={JSON.stringify(rates)}>
+        <div class="grid lg:grid-cols-[minmax(0,1fr)_400px]">
+
+          <!-- INPUTS -->
+          <div class="p-6 sm:p-8">
+            <h2 id="calc-h" class="text-[24px] mb-1">Run your own numbers</h2>
+            <p class="text-[15px] text-muted mb-1">Change any number and the result updates. Nothing is sent anywhere.</p>
+            <noscript>
+              <p class="text-[14.5px] text-crimson mt-3 mb-0">
+                JavaScript is off, so the inputs are locked and the result shows the example. The method is written
+                out below the calculator.
+              </p>
+            </noscript>
+
+            <fieldset class="mt-6" disabled data-mr-fields>
+              <legend class="sr-only">Calculator inputs</legend>
+
+              <fieldset>
+                <legend class="font-sans text-[16px] font-bold text-navy mb-3">Your property</legend>
+                <div class="grid gap-5 sm:grid-cols-3">
+                  <div>
+                    <label for="mr-units" class={labelCls}>Number of units</label>
+                    <input id="mr-units" name="units" type="number" inputmode="numeric" min="1" step="1" value={ex.units} class={inputCls} />
+                  </div>
+                  <div>
+                    <label for="mr-rent" class={labelCls}>Monthly rent per unit ($)</label>
+                    <input id="mr-rent" name="rent" type="number" inputmode="decimal" min="0" step="25" value={ex.rent}
+                           aria-describedby="mr-rent-hint" class={inputCls} />
+                    <p id="mr-rent-hint" class={hintCls}>
+                      Example: {usd(exampleRent)}, the median 3 bed rent across the homes we manage.
+                    </p>
+                  </div>
+                  <div>
+                    <label for="mr-months" class={labelCls}>Months of rent to hold</label>
+                    <input id="mr-months" name="months" type="number" inputmode="decimal" min="0" step="0.5" value={ex.monthsOfRent}
+                           aria-describedby="mr-months-hint" class={inputCls} />
+                    <p id="mr-months-hint" class={hintCls}>
+                      {DEFAULT_MONTHS_OF_RENT} is our{' '}
+                      <a href="/blog/how-much-money-should-you-hold-in-reserve-for-each-rental-unit/" class="text-crimson underline underline-offset-2">published starting point</a>.
+                      Owners of several units can often hold less.
+                    </p>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="mt-8">
+                <legend class="font-sans text-[16px] font-bold text-navy mb-1">Big items, for one unit</legend>
+                <p id="mr-items-hint" class="text-[13px] text-faint mt-0 mb-4">
+                  Example assumptions from our{' '}
+                  <a href="/blog/planning-property-improvements-columbus-ohio/" class="text-crimson underline underline-offset-2">post on planning improvements</a>,
+                  with every age set to new. Replace them with your own quotes and inspection report. A cost of 0 leaves
+                  an item out. For a shared roof, enter one unit's share.
+                </p>
+                <div class="grid gap-4">
+                  {ex.items.map((it) => (
+                    <fieldset class="rounded-[12px] border border-line bg-wash-soft p-3.5 sm:p-4">
+                      <legend class="sr-only">{it.label}</legend>
+                      <p class="font-sans text-[14.5px] font-semibold text-navy m-0 mb-2" aria-hidden="true">{it.label}</p>
+                      <div class="grid gap-3 grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)]">
+                        <div>
+                          <label for={`mr-${it.id}-cost`} class={labelCls}>Cost ($)</label>
+                          <input id={`mr-${it.id}-cost`} name={`${it.id}-cost`} type="number" inputmode="decimal" min="0" step="100"
+                                 value={it.cost} aria-describedby="mr-items-hint" class={inputCls} />
+                        </div>
+                        <div>
+                          <label for={`mr-${it.id}-age`} class={labelCls}>Age (yrs)</label>
+                          <input id={`mr-${it.id}-age`} name={`${it.id}-age`} type="number" inputmode="decimal" min="0" step="1"
+                                 value={it.age} class={inputCls} />
+                        </div>
+                        <div>
+                          <label for={`mr-${it.id}-life`} class={labelCls}>Life (yrs)</label>
+                          <input id={`mr-${it.id}-life`} name={`${it.id}-life`} type="number" inputmode="decimal" min="0" step="1"
+                                 value={it.life} class={inputCls} />
+                        </div>
+                      </div>
+                    </fieldset>
+                  ))}
+                </div>
+              </fieldset>
+
+              <fieldset class="mt-8">
+                <legend class="font-sans text-[16px] font-bold text-navy mb-3">Routine repairs</legend>
+                <div class="grid gap-5 grid-cols-2">
+                  <div>
+                    <label for="mr-hours" class={labelCls}>Hours per repair</label>
+                    <input id="mr-hours" name="hours" type="number" inputmode="decimal" min="0" step="0.5" value={ex.repairHours}
+                           aria-describedby="mr-repair-hint" class={inputCls} />
+                  </div>
+                  <div>
+                    <label for="mr-repairs" class={labelCls}>Repairs to cover</label>
+                    <input id="mr-repairs" name="repairs" type="number" inputmode="numeric" min="0" step="1" value={ex.repairsCovered}
+                           aria-describedby="mr-repair-hint" class={inputCls} />
+                  </div>
+                </div>
+                <p id="mr-repair-hint" class={hintCls}>
+                  Priced at our {m.rateYear} rate: {usd(m.inHouseHourly)} an hour plus a {usd(m.tripCharge)} trip charge, before materials.
+                </p>
+              </fieldset>
+
+              <button type="reset" class="btn btn-ghost mt-7 !text-[14px] !py-2.5">Reset to the example</button>
+            </fieldset>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="bg-navy text-white p-6 sm:p-8">
+            <div class="lg:sticky lg:top-24">
+              <span class="eyebrow !text-[#f0b9c4]">Your result</span>
+              <p id="mr-summary" class="sr-only" aria-live="polite" aria-atomic="true">{t['summary']}</p>
+
+              <p class="font-sans text-[14px] font-semibold text-[#c9d6df] m-0">Hold in reserve</p>
+              <p id="mr-reserve" class="font-sans text-[44px] font-extrabold tracking-[-.04em] leading-none mt-1 mb-1 tabular-nums">{t['reserve']}</p>
+              <p id="mr-reserve-sub" class="text-[14px] text-[#c9d6df] m-0">{t['reserve-sub']}</p>
+
+              <p class="font-sans text-[14px] font-semibold text-[#c9d6df] mt-6 mb-0">Set aside each month</p>
+              <p id="mr-monthly" class="font-sans text-[44px] font-extrabold tracking-[-.04em] leading-none mt-1 mb-1 tabular-nums">{t['monthly']}</p>
+              <p id="mr-monthly-sub" class="text-[14px] text-[#c9d6df] m-0">{t['monthly-sub']}</p>
+
+              <h3 class="!text-white text-[18px] mt-8 mb-3">How it adds up</h3>
+              <dl class="grid gap-3 text-[14.5px] m-0">
+                <div class="flex justify-between gap-4 border-t border-white/15 pt-3">
+                  <dt>Cash reserve<span id="mr-cash-note" class="block text-[13px] text-[#c9d6df]">{t['cash-note']}</span></dt>
+                  <dd id="mr-cash" class="m-0 font-semibold tabular-nums text-right whitespace-nowrap">{t['cash']}</dd>
+                </div>
+                <div class="flex justify-between gap-4 border-t border-white/15 pt-3">
+                  <dt>Plus items due now<span id="mr-due-note" class="block text-[13px] text-[#c9d6df]">{t['due-note']}</span></dt>
+                  <dd id="mr-due" class="m-0 font-semibold tabular-nums text-right whitespace-nowrap">{t['due']}</dd>
+                </div>
+                <div class="flex justify-between gap-4 border-t border-white/15 pt-3">
+                  <dt>Big-item set-aside<span class="block text-[13px] text-[#c9d6df]">Each cost over the months it has left</span></dt>
+                  <dd id="mr-capital" class="m-0 font-semibold tabular-nums text-right whitespace-nowrap">{t['capital']}</dd>
+                </div>
+                <div class="flex justify-between gap-4 border-t border-white/15 pt-3">
+                  <dt>Repair float refill<span id="mr-refill-note" class="block text-[13px] text-[#c9d6df]">{t['refill-note']}</span></dt>
+                  <dd id="mr-refill" class="m-0 font-semibold tabular-nums text-right whitespace-nowrap">{t['refill']}</dd>
+                </div>
+              </dl>
+
+              <div class="scroll-x mt-5">
+                <table class="w-full border-collapse text-[13.5px]">
+                  <caption class="sr-only">Monthly set-aside by item, for all units</caption>
+                  <thead>
+                    <tr class="text-[#c9d6df]">
+                      <th scope="col" class="text-left font-semibold pb-1.5">Item</th>
+                      <th scope="col" class="text-left font-semibold pb-1.5">Life left</th>
+                      <th scope="col" class="text-right font-semibold pb-1.5">Set aside</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {ex.items.map((it) => (
+                      <tr class="border-t border-white/10">
+                        <th scope="row" class="text-left font-medium py-1.5">{it.label}</th>
+                        <td id={`mr-item-${it.id}-left`} class="py-1.5 tabular-nums">{t[`item-${it.id}-left`]}</td>
+                        <td id={`mr-item-${it.id}-monthly`} class="py-1.5 tabular-nums text-right">{t[`item-${it.id}-monthly`]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+
+              <p id="mr-check" class="text-[14px] mt-5 mb-0 rounded-[10px] bg-white/10 p-3">{t['check']}</p>
+              <p class="text-[13.5px] text-[#c9d6df] mt-4 mb-0">
+                With {company.shortName}, <span id="mr-account" class="text-white font-semibold">{t['account']}</span> of
+                this sits on your account as the maintenance reserve, set by plan. It is still your money.
+              </p>
+
+              <div class="flex flex-wrap gap-3 mt-6">
+                <a href="/property-management-consultation/" class="btn btn-on-dark">Book a free consultation</a>
+                <a href="/pricing/" class="btn btn-outline-light">See pricing</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <p class="text-[13px] text-faint mt-4">
+        A planning estimate, not a quote. It assumes you start saving for each item today, so subtract anything you
+        have already set aside for it.
+      </p>
+    </div>
+  </section>
 
   <KeyFacts items={facts} />
 
-  <!-- TWO DIFFERENT NUMBERS -->
+  <!-- THREE DIFFERENT NUMBERS -->
   <section class="band" aria-labelledby="two-h">
-    <div class="wrap max-w-[880px]">
+    <div class="wrap max-w-[940px]">
       <span class="eyebrow">Get this right first</span>
       <h2 id="two-h" class="text-[clamp(28px,3.3vw,40px)]">What is a maintenance reserve, and what is it not?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        A maintenance reserve is a working float held per unit so a repair can be authorized and completed
-        without waiting on a funding request. It is not a capital budget. If you confuse the two, you end up
-        with a healthy float and no plan for the furnace.
+        A maintenance reserve is cash held so a repair can be approved without a funding request. It is not a
+        capital budget. Confuse the two and you have a healthy float and no plan for the furnace.
       </p>
-      <div class="grid gap-5 sm:grid-cols-2 mt-8">
+      <div class="grid gap-5 md:grid-cols-3 mt-8">
         <div class="card">
-          <h3 class="text-[19.5px] mb-2">The working reserve</h3>
+          <h3 class="text-[19.5px] mb-2">The account reserve</h3>
           <p class="text-[15.5px] text-muted m-0">
-            Held on your account, per unit. {company.name} requires {usd(RESERVE_MIN)} to {usd(RESERVE_MAX)}
-            per unit depending on the plan. It covers the repairs that arrive this month. It stays your money
-            and it is returned when management ends.
+            {usd(RESERVE_MIN)} to {usd(RESERVE_MAX)} per unit on your {company.shortName} account, by plan. It
+            covers this month's repairs and is returned when management ends.
+          </p>
+        </div>
+        <div class="card">
+          <h3 class="text-[19.5px] mb-2">Your cash reserve</h3>
+          <p class="text-[15.5px] text-muted m-0">
+            Money you hold for the failure that cannot wait. Our starting point is {DEFAULT_MONTHS_OF_RENT} months
+            of rent per unit.
           </p>
         </div>
         <div class="card">
           <h3 class="text-[19.5px] mb-2">The capital budget</h3>
           <p class="text-[15.5px] text-muted m-0">
-            A monthly set-aside you hold yourself, for the components that fail once a decade: roof, furnace,
-            water heater, service panel, sewer line. It is sized from real replacement quotes on your specific
-            property, not from a rule of thumb.
+            A monthly set-aside for items that fail once a decade: roof, furnace, water heater, service panel,
+            sewer line. Size it from real quotes on your property.
           </p>
         </div>
       </div>
-      <p class="text-[15px] text-faint mt-6">
-        The reserve amount is set by plan.
-      </p>
     </div>
   </section>
 
@@ -173,32 +399,33 @@ const faq = [
       <span class="eyebrow">The formula</span>
       <h2 id="formula-h" class="text-[clamp(28px,3.3vw,40px)]">How do you calculate a maintenance reserve?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Start with the largest repair you want handled without a phone call, and hold at least that much. On
-        our plans the per-item repair approval limit and the reserve are the two halves of the same decision:
-        the limit says what we can authorize, and the reserve is what funds it.
+        Four lines, the same ones the calculator runs. On our plans the repair approval limit
+        ({pricing.plans.map((p, i) => <span>{i > 0 ? ', ' : ''}{p.name} {usd(p.repairApprovalLimit)}</span>)})
+        says what we can authorize without calling you, and the account reserve funds it.
       </p>
       <div class="card !bg-white mt-8">
-        <h3 class="text-[19px] mb-3.5">Three lines, in order</h3>
         <ol class="grid gap-2.5 text-[16px]">
           <li>
-            <strong class="text-navy">The float.</strong> The cost of one to two routine repairs at your
-            manager's published labor rate. Ours is {usd(m.inHouseHourly)} an hour plus a {usd(m.tripCharge)}
-            trip charge, so a {REPAIR_HOURS}-hour job is {usd(repairNormal)} before materials.
+            <strong class="text-navy">The cash reserve.</strong> Months of rent times rent, per unit. Our starting
+            point is {DEFAULT_MONTHS_OF_RENT} months.
           </li>
           <li>
-            <strong class="text-navy">The refill.</strong> The float divided by twelve, set aside monthly out
-            of your disbursement. {usd(RESERVE_MAX)} divided by twelve is
-            {' '}{usd(reserveLevels[1].monthlyRebuild)} a month.
+            <strong class="text-navy">Items due now.</strong> Anything at or past its expected life goes into the
+            reserve at full replacement cost, because there is no time left to save for it.
           </li>
           <li>
-            <strong class="text-navy">The capital line.</strong> For each major component, a real replacement
-            quote divided by the months you expect it to last, summed. This one is yours to build, because it
-            depends on the age of your specific roof and furnace.
+            <strong class="text-navy">The capital line.</strong> For every other big item, a real replacement quote
+            divided by the months it has left, summed.
+          </li>
+          <li>
+            <strong class="text-navy">The float refill.</strong> One to two routine repairs at your manager's rate,
+            divided by twelve. Ours is {usd(m.inHouseHourly)} an hour plus a {usd(m.tripCharge)} trip charge, so a
+            {' '}{REPAIR_HOURS}-hour job is {usd(repairNormal)} before materials.
           </li>
         </ol>
         <p class="text-[15px] text-muted mt-5 mb-0">
-          Lines 1 and 2 are operating money. Line 3 is capital. Keep them in separate columns so a busy repair
-          year does not eat into the roof fund.
+          Reserve is lines 1 and 2. Monthly set-aside is lines 3 and 4. Keep capital in its own column so a busy
+          repair year does not eat into the roof fund.
         </p>
       </div>
       <p class="text-[15px] text-faint mt-6">
@@ -214,8 +441,8 @@ const faq = [
       <span class="eyebrow">Worked example one</span>
       <h2 id="repair-h" class="text-[clamp(28px,3.3vw,40px)]">What does a routine repair cost?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        The same {REPAIR_HOURS}-hour in-house job, at each of the three time bands, at our published
-        {' '}{m.rateYear} rates. Materials are billed at cost on top, and there is no minimum charge.
+        The same {REPAIR_HOURS}-hour in-house job at each time band, at our {m.rateYear} rates. Materials are at
+        cost on top, with no minimum charge.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
@@ -242,9 +469,8 @@ const faq = [
         </table>
       </div>
       <p class="text-[15.5px] text-muted mt-6">
-        The Sunday row is the argument for a reserve rather than a phone call. A {usd(repairSunday)} emergency
-        that has to wait until Monday for funding is a resident without heat for a night, and the complaint
-        that follows costs more than the difference between {usd(repairNormal)} and {usd(repairSunday)}.
+        The Sunday row is the case for a reserve. A {usd(repairSunday)} emergency that waits until Monday for
+        funding is a resident without heat for a night.
       </p>
     </div>
   </section>
@@ -255,9 +481,9 @@ const faq = [
       <span class="eyebrow">Worked example two</span>
       <h2 id="vendor-h" class="text-[clamp(28px,3.3vw,40px)]">What does vendor work cost on top of the vendor?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        A project management fee of {m.vendorProjectFeePct}% of vendor cost, applied to costs up to
-        {' '}{usd(m.vendorProjectFeeAppliesUpTo)} and capped at {usd(m.vendorProjectFeeCap)} per project.
-        Because it is capped, the fee stops growing on larger jobs.
+        A project management fee of {m.vendorProjectFeePct}% of vendor cost, applied up to
+        {' '}{usd(m.vendorProjectFeeAppliesUpTo)} and capped at {usd(m.vendorProjectFeeCap)} per project, so it
+        stops growing on larger jobs.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
@@ -268,7 +494,7 @@ const faq = [
               <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Vendor invoice</th>
               <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Project management fee</th>
               <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Total to you</th>
-              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Fee as a share of the job</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Share of the job</th>
             </tr>
           </thead>
           <tbody>
@@ -284,8 +510,7 @@ const faq = [
         </table>
       </div>
       <p class="text-[15.5px] text-muted mt-6">
-        The fee is waived entirely on property and casualty insurance claim work. Turns run on a separate
-        tiered schedule:
+        It is waived on property and casualty insurance claim work. Turns run on a separate tiered schedule:
         {turnJobs.map((t, i) => (
           <span>{' '}{usd(t.cost)} at {t.pct}% is {usd(t.fee)}{i < turnJobs.length - 1 ? ',' : '.'}</span>
         ))}
@@ -299,8 +524,7 @@ const faq = [
       <span class="eyebrow">Worked example three</span>
       <h2 id="size-h" class="text-[clamp(28px,3.3vw,40px)]">What does each reserve level buy?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        The two ends of our published range, translated into repairs at our own rates and into the monthly
-        amount it takes to rebuild the reserve over a year.
+        Both ends of our account reserve range, in repairs at our rates and in what it takes to rebuild over a year.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
@@ -331,16 +555,14 @@ const faq = [
         </table>
       </div>
       <p class="text-[15.5px] text-muted mt-6">
-        The last column uses the {usd(rentByBedroom['3'].median)} portfolio median rent for a 3 bed. A
-        {' '}{usd(RESERVE_MIN)} reserve is {reserveLevels[0].vsRent}% of one month of that rent, and a
-        {' '}{usd(RESERVE_MAX)} reserve is {reserveLevels[1].vsRent}%. It is a one-time float, not a recurring
-        charge, which is why the rebuild column matters more than the headline number.
+        The last column uses the {usd(rentByBedroom['3'].median)} portfolio median rent for a 3 bed:
+        {' '}{usd(RESERVE_MIN)} is {reserveLevels[0].vsRent}% of a month and {usd(RESERVE_MAX)} is
+        {' '}{reserveLevels[1].vsRent}%. It is a one-time float, not a recurring charge.
       </p>
       <div class="card !bg-wash-soft mt-8">
         <h3 class="text-[19px] mb-3.5">Across a portfolio</h3>
         <p class="text-[15.5px] text-muted mb-4">
-          The reserve is per unit, so it scales linearly. This is the working capital a portfolio ties up at
-          each end of the range.
+          The account reserve is per unit, so it scales with unit count.
         </p>
         <div class="scroll-x">
           <table class="w-full border-collapse text-[15.5px] bg-white">
@@ -364,8 +586,7 @@ const faq = [
           </table>
         </div>
         <p class="text-[15px] text-muted mt-4 mb-0">
-          It remains your money the entire time. It sits on your account, it is spent only on your properties,
-          and it is returned when management ends.
+          It stays your money, is spent only on your properties, and is returned when management ends.
         </p>
       </div>
     </div>
@@ -374,19 +595,20 @@ const faq = [
   <!-- RUN IT YOURSELF -->
   <section class="band band-wash" aria-labelledby="own-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Run it against your own property</span>
+      <span class="eyebrow">On paper, once a year</span>
       <h2 id="own-h" class="text-[clamp(28px,3.3vw,40px)]">How do you set your own number?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7">
-        Work through six lines. Fill them in once per property and revisit them annually.
+        The <a href="#calculator" class="text-crimson underline underline-offset-2">calculator</a> does this for
+        you. By hand, it is six lines per property.
       </p>
       <ol class="grid gap-3.5">
         {[
           'Your manager\'s hourly labor rate, times two hours, plus any trip charge. That is one routine repair.',
-          'Multiply by two. That is your working reserve floor: enough for two repairs without a funding request.',
-          'Divide the floor by twelve. That is the monthly amount to hold back out of your disbursement to keep it full.',
-          'List your major components: roof, furnace, air conditioner, water heater, service panel, sewer line, windows, flooring.',
-          'For each one, write down a real replacement quote and the months you expect it to last, then divide. Sum the results.',
-          'Add lines 3 and 5. That is your full monthly maintenance number, and it is usually larger than the one you carry in your head.',
+          'Multiply by two. That is your working float: two repairs without a funding request.',
+          'Divide the float by twelve. That is the monthly amount to hold back to keep it full.',
+          'List your big items: roof, furnace, air conditioner, water heater, service panel, sewer line, windows, flooring.',
+          'For each one, divide a real replacement quote by the months it has left. Sum the results.',
+          'Add lines 3 and 5. That is your monthly set-aside, and it is usually larger than the one you carry in your head.',
         ].map((s, i) => (
           <li class="card !p-5 text-[15.5px]">
             <span class="font-sans font-bold text-crimson mr-2">{i + 1}.</span>{s}
@@ -394,9 +616,8 @@ const faq = [
         ))}
       </ol>
       <p class="text-[15.5px] text-muted mt-7">
-        Line 5 is the one owners most often skip, and it decides whether a failed furnace in February is an
-        expense or an emergency. Much of the point of our quarterly inspections is to give you the inputs for it: what
-        is aging, what is failing, and what should be quoted now rather than replaced under pressure.
+        Line 5 is the one owners skip, and it decides whether a failed furnace in February is an expense or an
+        emergency. Our quarterly inspections give you its inputs: what is aging and what should be quoted now.
       </p>
     </div>
   </section>
@@ -409,7 +630,8 @@ const faq = [
       <p class="text-[13px] text-faint mt-3">
         Labor and vendor rates are the published {m.rateYear} rates from the {company.name} Client Handbook.
         Repair totals on this page are illustrations of the rate structure applied to a {REPAIR_HOURS}-hour
-        job before materials, not quotes for any specific work.
+        job before materials, not quotes for any specific work. Calculator defaults other than our rates are
+        example assumptions from our blog; replace them with your own quotes.
       </p>
     </div>
   </section>
@@ -418,14 +640,72 @@ const faq = [
     { href: '/tools/vacancy-cost-calculator/', label: 'Vacancy cost calculator', note: 'What an empty unit costs per day.' },
     { href: '/services/maintenance/', label: 'How maintenance works', note: 'Triage, approval limits and after-hours response.' },
     { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every maintenance charge, published.' },
+    { href: '/blog/how-much-money-should-you-hold-in-reserve-for-each-rental-unit/', label: 'How much to hold in reserve per unit', note: 'Where the six months of rent starting point comes from.' },
     { href: '/tools/', label: 'All owner tools', note: 'Calculators and the market report.' },
-    { href: '/compare/self-managing-vs-property-manager/', label: 'Self-managing vs a manager', note: 'Who coordinates the repair, and what that is worth.' },
   ]} />
 
   <Cta
-    heading="See every maintenance charge before you sign anything"
-    body="The complete fee schedule is published, including labor, after-hours multipliers, vendor fees and the turn tiers. If a charge is not on that list, we do not make it."
-    primary={{ label: 'See the full fee schedule', href: '/pricing/' }}
-    secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
+    heading="Want a second look at your reserve?"
+    body="A free consultation covers your property, which plan fits it, and how the reserve works on it. Every maintenance charge is on the published fee schedule."
+    primary={{ label: 'Book a free consultation', href: '/property-management-consultation/' }}
+    secondary={{ label: 'See pricing', href: '/pricing/' }}
   />
 </Base>
+
+<script>
+  import { calculateReserve, resultText, type ReserveInputs, type ReserveRates } from '../../../lib/calculators/maintenanceReserve';
+
+  const form = document.getElementById('mr-calc') as HTMLFormElement | null;
+  const fields = form?.querySelector<HTMLFieldSetElement>('[data-mr-fields]');
+
+  if (form && fields && form.dataset.rates) {
+    const rates = JSON.parse(form.dataset.rates) as ReserveRates;
+    /** Items come from the rendered rows, so the page markup stays the single list. */
+    const itemIds = Array.from(form.querySelectorAll<HTMLInputElement>('input[name$="-cost"]'))
+      .map((el) => el.name.replace(/-cost$/, ''));
+    const labels = new Map(itemIds.map((id) => [id, form.querySelector(`#mr-${id}-cost`)
+      ?.closest('fieldset')?.querySelector('legend')?.textContent?.trim() ?? id]));
+
+    /** A blank field reads as NaN, which the calculator treats as 0 (units as 1). */
+    const val = (name: string) => {
+      const el = form.elements.namedItem(name) as HTMLInputElement | null;
+      return el && el.value.trim() !== '' ? Number(el.value) : NaN;
+    };
+
+    const read = (): ReserveInputs => ({
+      units: val('units'),
+      rent: val('rent'),
+      monthsOfRent: val('months'),
+      repairHours: val('hours'),
+      repairsCovered: val('repairs'),
+      items: itemIds.map((id) => ({
+        id, label: labels.get(id) ?? id,
+        cost: val(`${id}-cost`), age: val(`${id}-age`), life: val(`${id}-life`),
+      })),
+    });
+
+    let last = '';
+    const update = () => {
+      const input = read();
+      const text = resultText(input, calculateReserve(input, rates));
+      for (const [key, value] of Object.entries(text)) {
+        if (key === 'summary') continue;
+        const el = document.getElementById(`mr-${key}`);
+        if (el && el.textContent !== value) el.textContent = value;
+      }
+      // Announce only when the headline changes, so screen readers are not flooded.
+      if (text.summary !== last) {
+        last = text.summary;
+        const live = document.getElementById('mr-summary');
+        if (live) live.textContent = text.summary;
+      }
+    };
+
+    fields.disabled = false;
+    form.addEventListener('input', update);
+    form.addEventListener('submit', (e) => e.preventDefault());
+    // Reset restores the HTML default values after the event, so recompute on the next tick.
+    form.addEventListener('reset', () => setTimeout(update, 0));
+    update();
+  }
+</script>
