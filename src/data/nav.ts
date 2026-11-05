@@ -194,13 +194,12 @@ export const nav: NavItem[] = [
 
   {
     label: 'Resources',
-    href: '/guides/',
+    href: '/blog/',
     columns: 2,
     groups: [
       {
         heading: 'Read',
         links: [
-          { label: 'In-depth guides', href: '/guides/', note: 'The long answers, properly researched.' },
           { label: 'All articles', href: '/blog/', note: 'Everything we have written.' },
           { label: 'Policy updates', href: '/policy-updates/', note: 'What is changing for Central Ohio landlords.' },
         ],
