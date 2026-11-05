@@ -14,6 +14,7 @@
  * service to the reader.
  */
 import { areas, areaUrl } from '../data/facts';
+import { areaPageExists } from './areas';
 
 export interface Destination { href: string; label: string; note: string }
 
@@ -62,6 +63,8 @@ const FALLBACK: Destination[] = [
 /** A post that names a city we serve should feed that city's page. */
 function areaFor(text: string): Destination | null {
   for (const a of areas) {
+    // Served areas without a page yet (Lancaster, Marysville...) get no link.
+    if (!areaPageExists(areaUrl(a))) continue;
     const rx = new RegExp(`\\b${a.name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, 'i');
     if (rx.test(text)) {
       return { href: areaUrl(a), label: `Property management in ${a.name}`, note: `What we do in ${a.name}, and the local rules that apply.` };
