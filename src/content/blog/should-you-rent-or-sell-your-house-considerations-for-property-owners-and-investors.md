@@ -42,4 +42,6 @@ On the flip side, say you throw that scenario out the window and decide to sell 
 
 With financial decisions, there are hundreds of complicating factors, but the crux of the argument remains the same, put your money where the profits are.
 
+If you keep the home and rent it out, our [property management services](/services/) cover the day-to-day.
+
 To hear more from us as we discuss this very question,[watch our webinar replay: Should You Rent or Sell Your House](https://www.youtube.com/watch?v=H6s27ofZuH0). And if you have questions about owning a rental property in Central Ohio, give our team at RL Property Management a [call anytime at 614-725-3059](/contact-us/).

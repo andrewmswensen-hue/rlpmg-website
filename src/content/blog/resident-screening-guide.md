@@ -213,7 +213,7 @@ A fair, consistent approach to screening helps landlords secure **responsible, l
 
 ## Ohio-Specific Laws and Fair Screening Practices
 
-Ohio landlords must comply with **federal, state, and local Fair Housing laws** when screening residents. Key legal considerations include:
+Ohio landlords must comply with **federal, state, and local [Fair Housing laws](/services/compliance/)** when screening residents. Key legal considerations include:
 
 - **Protected Classes**, In addition to federal protections (race, color, religion, sex, disability, familial status, and national origin), **Ohio law includes military status and ancestry** as protected classes.
 - **Consistent Screening**, Every applicant must be evaluated using the same criteria. Selective enforcement can lead to **discrimination claims**.
@@ -230,4 +230,4 @@ A strong resident screening process is the foundation of a **successful, stress-
 - **Following Ohio and federal Fair Housing laws ensures compliance and minimizes legal risk.**
 - **A structured process leads to reliable, long-term residents who contribute to a positive rental experience.**
 
-If you’d like to avoid the headache of finding and screening your own residents, [schedule a call](/rental-analysis-form/) with our team, we do this every day and are happy to help!
+If you’d like to avoid the headache of [finding and screening your own residents](/services/tenant-screening/), [schedule a call](/rental-analysis-form/) with our team, we do this every day and are happy to help!

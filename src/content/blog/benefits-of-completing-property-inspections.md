@@ -12,7 +12,7 @@ categories:
   - "Tenant Education"
 ---
 
-![person conducting a property inspection](https://rlpmg.com/wp-content/uploads/2019/11/AdobeStock_613906804-300x200.jpeg)Regular property inspections are one of the most essential practices in professional property management. They help safeguard your investment, maintain tenant satisfaction, and prevent small issues from turning into costly problems. At RL Property Management, we perform thorough inspections four times a year for all properties under our care. Here’s the benefits of completing property inspections, for property owners, tenants, and the properties themselves:
+![person conducting a property inspection](https://rlpmg.com/wp-content/uploads/2019/11/AdobeStock_613906804-300x200.jpeg)Regular property inspections are one of the most essential practices in professional property management. They help safeguard your investment, maintain tenant satisfaction, and prevent small issues from turning into costly problems. At RL Property Management, we perform [thorough inspections](/services/inspections/) four times a year for all properties under our care. Here’s the benefits of completing property inspections, for property owners, tenants, and the properties themselves:
 
 ## Preventative Maintenance Saves Money
 

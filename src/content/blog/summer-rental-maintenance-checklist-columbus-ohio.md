@@ -208,9 +208,9 @@ Keeping your Columbus rental in top shape through the summer isn’t just good p
 
 But if you’re juggling multiple units, managing from out of state, or simply want your evenings back, handling it all on your own can feel overwhelming. That’s where RL Property Management comes in.
 
-**We help real estate investors take a hands-off approach with full-service support that protects your property, keeps tenants happy, and ensures nothing falls through the cracks.** Our experienced Columbus team handles everything from proactive maintenance to long-term capital planning (so you don’t have to).
+**We help real estate investors take a hands-off approach with full-service support that protects your property, keeps tenants happy, and ensures nothing falls through the cracks.** Our experienced Columbus team handles everything from [proactive maintenance](/services/maintenance/) to long-term capital planning (so you don’t have to).
 
-✅ Quarterly inspections
+✅ [Quarterly inspections](/services/inspections/)
 
  ✅ Reliable local vendors
 

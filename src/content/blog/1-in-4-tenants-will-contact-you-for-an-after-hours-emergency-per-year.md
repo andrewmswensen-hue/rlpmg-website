@@ -39,6 +39,6 @@ What’s more, professional management has the tendency to grow a property’s N
 
 A lot of people who come to us to inquire about property management are ambitious career professionals. They are active in their workplace or are entrepreneurs with their own businesses to run.
 
-For career-driven property owners, a question to ask yourself is whether it’s a better use of your time to be answering phone calls from tenants and showing properties, or if it makes more sense to pay a property manager a flat monthly fee so you can remain focused on your own career ambitions and those activities that provide the highest value for you.
+For career-driven property owners, a question to ask yourself is whether it’s a better use of your time to be answering phone calls from tenants and showing properties, or if it makes more sense to [pay a property manager a flat monthly fee](/pricing/) so you can remain focused on your own career ambitions and those activities that provide the highest value for you.
 
 As you consider your own situation and comfort level handling the myriad of responsibilities that come with property ownership, feel free to [reach out to us](/contact-us/) at RL Property Management Group with questions.

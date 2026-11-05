@@ -36,7 +36,7 @@ By clearly spelling out in your lease agreement what is and is not acceptable in
 
 Despite putting preventive measures in place, you still will receive complaints from tenants. That’s just par for the course of being a rental property owner.
 
-When you hire a property management company to help with your rental units however, *they* should be the one who primarily deals with these day-to-day complaints, not you.
+When you [hire a property management company](/services/) to help with your rental units however, *they* should be the one who primarily deals with these day-to-day complaints, not you.
 
 If there is an issue that needs to be escalated, certainly you will be contacted, but, on the whole, you should expect your property management company to be the main point of contact for your tenants. They will be the ones responsible for tracking and responding to any complaints, issues and concerns your tenants may have.
 

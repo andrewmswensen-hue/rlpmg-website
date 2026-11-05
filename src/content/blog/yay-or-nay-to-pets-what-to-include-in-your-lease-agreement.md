@@ -32,7 +32,7 @@ Your lease needs to be very clear in terms of whether pets are allowed (and if s
 
 If pets are not permitted, we encourage you to write that in big, bold letters. You might also consider having your residents initial next to the pet policy.
 
-If pets are not permitted at the property, it also needs to be clear that they are not allowed at any time, not even for a short visit (with the exception of service animals, which are not considered pets).
+If pets are not permitted at the property, it also needs to be clear that they are not allowed at any time, not even for a short visit (with the exception of [service animals](/services/compliance/), which are not considered pets).
 
 For more about pet policies and what you can specify as allowable in a Franklin County Lease Agreement, be sure to[read this post.](/blog/pets-what-you-can-specify-as-allowable-in-a-franklin-county-lease-agreement/)
 

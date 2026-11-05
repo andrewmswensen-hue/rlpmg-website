@@ -154,7 +154,7 @@ Let’s say your time is worth **$75/hour**, a conservative estimate for most pr
 - 5 hours/month of self-management = $375/month
 - That’s **$4,500/year** in lost opportunity cost.
 
-For many owners, RLPM’s monthly fee **pays for itself in time savings alone**, and that doesn’t even account for the financial and legal benefits we’ve already covered.
+For many owners, [RLPM’s monthly fee](/pricing/) **pays for itself in time savings alone**, and that doesn’t even account for the financial and legal benefits we’ve already covered.
 
 When time is money, smart investors choose leverage. Let us handle the day-to-day, so you can focus on growth.
 
@@ -242,6 +242,6 @@ A professional property manager like RLPM doesn’t just save you time; they **p
 
 If you’re still self-managing, or working with a manager who isn’t delivering results, this is your sign to explore a smarter way forward.
 
-**Contact RL Property Management in Columbus today** for a free consultation. Let’s look at your numbers, identify the hidden costs, and show you how much more your property could be earning.
+**Contact RL Property Management in Columbus today** for a [free consultation](/property-management-consultation/). Let’s look at your numbers, identify the hidden costs, and show you how much more your property could be earning.
 
 Because the right property manager doesn’t cost you money, they save it.

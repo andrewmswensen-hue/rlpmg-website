@@ -30,4 +30,4 @@ Small, residential multifamily properties consist of 2-4 units per property. Bui
 - **Reduced vacancy impact**, Owning multifamily properties alleviates some of the impact resulting from vacancies because, ideally, you still have some units occupied even while you are turning over others.
 - **Improved scalability**, An investment in just one multifamily unit quickly scales your entire portfolio and income stream.
 
-As you consider investing in multifamily in Columbus, ask us your questions! Our team at RL Property Management has been managing properties throughout Franklin County for more than a decade, and we’d love to help you. [Get in touch](/contact-us/)with us to learn more.
+As you consider [investing in multifamily in Columbus](/investors/), ask us your questions! Our team at RL Property Management has been managing properties throughout Franklin County for more than a decade, and we’d love to help you. [Get in touch](/contact-us/)with us to learn more.

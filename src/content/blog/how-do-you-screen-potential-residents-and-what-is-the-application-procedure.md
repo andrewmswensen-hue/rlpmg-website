@@ -44,4 +44,4 @@ Once we have an applicant who passes all of the “Big 5” criteria, we will ap
 
 Securing good tenants takes some time and effort, but it is so important to follow a thorough applicant screening process in order to ensure that you have a good resident in your rental unit. If a prospective tenant is rushing you and wants to move in immediately,[it could be a red flag.](/blog/what-to-do-when-a-prospective-tenant-asks-to-move-in-right-away/)
 
-For help managing your rental properties in the greater Columbus area or to ask questions about our tenant screening process, [contact us](/contact-us/) with us at RL Property Management.
+For help managing your rental properties in the greater Columbus area or to ask questions about our [tenant screening process](/services/tenant-screening/), [contact us](/contact-us/) with us at RL Property Management.

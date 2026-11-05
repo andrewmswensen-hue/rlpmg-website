@@ -50,4 +50,6 @@ When owners complete maintenance tasks on their property, we sometimes call this
 
 Rental property ownership comes with a long list of idiosyncratic repairs. This makes it difficult to apply a general rule of thumb for estimating costs. Instead, we recommend considering your unique property as you make educated assessments about its current condition and future costs.
 
+To see how we handle repairs and upkeep for owners, see our [maintenance services](/services/maintenance/).
+
 To learn more about owning and investing in a rental property in Franklin County, [contact our team](/contact-us/) at RL Property Management.

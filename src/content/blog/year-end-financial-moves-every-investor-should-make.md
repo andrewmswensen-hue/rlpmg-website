@@ -59,7 +59,7 @@ Tax strategy is a critical part of year-end planning, as landlords can often red
 - **Depreciation Benefits:** Rental properties are depreciable, meaning you can write off a portion of the property’s value over time. Ensure you’re taking full advantage of this benefit.
 - **Accelerated Repairs or Capital Improvements:** Making improvements before year-end not only benefits your property but can also reduce your tax burden for the current year.
 
-From an asset management perspective, the goal is not only to reduce taxes but also to ensure that each dollar invested brings the maximum return. Working with a property management company can make year-end tax planning more manageable, as they can help identify deductible expenses and provide documentation.
+From an asset management perspective, the goal is not only to reduce taxes but also to ensure that each dollar invested brings the maximum return. Working with a property management company can make year-end tax planning more manageable, as they can [help identify deductible expenses and provide documentation](/services/owner-reporting/).
 
 ## Setting Your Financial Vision for the New Year
 

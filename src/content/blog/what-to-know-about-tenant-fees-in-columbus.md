@@ -22,7 +22,7 @@ Here in Ohio, there is a fair amount of freedom in how you construct your leases
 
 ## The Carrot and The Stick
 
-Fees are generally used to 1) punish a tenant for doing something they are not supposed to do (like repeatedly playing loud music, not picking up after their pets, or failing to pay their rent on time) and 2) reward positive behavior. No nuisance? No problems? No fees!
+Fees are generally used to 1) punish a tenant for doing something they are not supposed to do (like repeatedly playing loud music, not picking up after their pets, or [failing to pay their rent on time](/services/rent-collection/)) and 2) reward positive behavior. No nuisance? No problems? No fees!
 
 Dissuading certain types of behavior is a common reason landlords include fees in their lease agreements. Having to deal with disturbances or other problematic behavior is time-consuming and can also be damaging to the property. The fees are one way to discourage and punish the negative behavior as well as help recover some of the repair and management costs associated with addressing the situation.
 

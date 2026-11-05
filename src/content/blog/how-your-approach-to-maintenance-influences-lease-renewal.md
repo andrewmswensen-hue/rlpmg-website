@@ -19,7 +19,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2023/01/markus-spiske-cjOAigK9xo0-unsplash-min-200x300.jpg)Whenever tenants renew their lease, that’s one less vacancy you have to worry about. Keeping your vacancy rate low means more money in your pocket and less hassle trying to find new residents while turning over the unit. You want to do everything you can to extend a resident’s lease term, and you really [don’t want it to end during the slow season.](/blog/4-ways-a-property-management-company-can-reduce-your-vacancy-rate/)
 
-We recently discussed the [importance of making a good first impression.](/blog/want-a-tenant-to-renew-their-lease-make-a-good-first-impression/) There’s a second way you can positively influence a resident’s likelihood of renewing their lease for a second term. That’s to have a service-first mindset when it comes to maintenance.
+We recently discussed the [importance of making a good first impression.](/blog/want-a-tenant-to-renew-their-lease-make-a-good-first-impression/) There’s a second way you can positively influence a resident’s likelihood of renewing their lease for a second term. That’s to have a [service-first mindset when it comes to maintenance](/services/maintenance/).
 
 ## Beating the Maintenance Woes
 

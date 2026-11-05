@@ -35,7 +35,7 @@ Starting from the last day we manage the property, our company takes 30 days to 
 
 It was during this 30-day accounting process when things went wrong for us.
 
-Because we were no longer managing the property, the tenant was no longer paying rent to us. An oversight during this close-out period led us to make an unfortunate error in which we inadvertently posted a 3-day eviction notice on this tenant’s door.
+Because we were no longer managing the property, the tenant was no longer paying rent to us. An oversight during this close-out period led us to make an unfortunate error in which we inadvertently posted a [3-day eviction notice](/services/evictions/) on this tenant’s door.
 
 It didn’t take long for the horrified (and very angry) tenant to call us about it. This was followed in quick succession by angry calls and emails from the property owner, buyer and realtor, all understandably asking for an explanation as to why we posted an eviction notice on a property we don’t even manage anymore.
 

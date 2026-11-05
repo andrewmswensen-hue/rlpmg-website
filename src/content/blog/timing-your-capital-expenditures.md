@@ -51,7 +51,7 @@ Major capital expenditures, like replacing roofs, upgrading HVAC systems, or ins
 
 Start by assessing the age and condition of major systems and components in your property portfolio. For example, if a roof is approaching the 20-year mark, it’s wise to plan for its replacement in the next few years. This foresight allows landlords to save incrementally and avoid sudden, large expenses. Regular inspections and maintenance can also extend the life of these components, providing more flexibility in scheduling future upgrades. For more detailed insights on estimating and managing capital expenses, [check out this investor’s guide to capital expenditures](https://www.biggerpockets.com/blog/estimating-capex-real-estate) from BiggerPockets.
 
-Creating a long-term capital plan involves balancing investment goals with financial resources and market timing. Property management professionals excel at developing customized capital improvement plans that align with an owner’s specific investment objectives. They can forecast upcoming expenses, recommend cost-effective upgrades, and prioritize the right projects to maximize ROI.
+Creating a long-term capital plan involves balancing investment goals with financial resources and market timing. Property management professionals excel at developing [customized capital improvement plans](/services/maintenance/) that align with an owner’s specific investment objectives. They can forecast upcoming expenses, recommend cost-effective upgrades, and prioritize the right projects to maximize ROI.
 
 ## Evaluating the Impact of Capital Expenditures on Property Value
 

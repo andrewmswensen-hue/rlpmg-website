@@ -34,4 +34,4 @@ Conversely, if the garbage disposal has reached the end of its life and is no lo
 
 Determining who should handle which maintenance items and then putting those terms in your lease can make the day-to-day management of your property a lot easier and keep tenant relations running smoothly. In general, our lease agreements try to make many maintenance issues the tenant’s responsibility so long as we can legally do so while still being a good landlord. This allows us to protect the property owner and prevent them from incurring unnecessary expenses.
 
-If you have questions about property maintenance or responsibilities, give our team a call at 614-725-3059.
+If you have questions about [property maintenance](/services/maintenance/) or responsibilities, give our team a call at 614-725-3059.

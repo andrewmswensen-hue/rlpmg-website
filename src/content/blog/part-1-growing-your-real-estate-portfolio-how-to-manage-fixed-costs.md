@@ -45,4 +45,4 @@ Loan payments are typically the lion’s share of fixed costs, and with current 
 
 Once your fixed costs are reduced as far as they can be, your property’s cash flow should increase. Next, your goal is for that cash flow not to get eaten up by unexpected expenses. More to come on that in our next post.
 
-As you look for ways to grow your investment portfolio, feel free to ask us your questions. At RL Property Management, our priority is to help investors maximize their earnings and minimize their spending by taking a strategic approach to property management. To learn more about how we can help you be successful with your investment in Columbus, Ohio, [contact us today.](/contact-us/)
+As you look for ways to [grow your investment portfolio](/investors/), feel free to ask us your questions. At RL Property Management, our priority is to help investors maximize their earnings and minimize their spending by taking a strategic approach to property management. To learn more about how we can help you be successful with your investment in Columbus, Ohio, [contact us today.](/contact-us/)

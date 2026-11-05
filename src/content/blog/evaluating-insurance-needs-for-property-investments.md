@@ -38,4 +38,4 @@ In addition to a traditional homeowner’s insurance policy that protects the bu
 
 Taking the time to annually review insurance coverage is a good practice to ensure coverage limits are adequate to cover the property’s value and potential liabilities. You might also choose to shop around for coverage regularly to compare costs and coverage levels.
 
-Protecting your Franklin County rental property with adequate insurance is important to the ongoing success of your investment. If you have questions about insurance for rental properties or any aspect of owning and managing a single- or multi-family investment in Franklin County, please [call us anytime at 614-725-3059.](/contact-us/)
+Protecting your Franklin County rental property with adequate insurance is important to the ongoing success of your investment. If you have questions about insurance for rental properties or any aspect of [owning and managing a single- or multi-family investment in Franklin County](/investors/), please [call us anytime at 614-725-3059.](/contact-us/)

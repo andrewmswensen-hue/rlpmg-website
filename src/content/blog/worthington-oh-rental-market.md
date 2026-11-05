@@ -159,7 +159,7 @@ Compliance should be treated as baseline operational discipline, not optional ov
 
 ### Local Columbus Area Requirements
 
-While Worthington is its own municipality, properties still operate within the broader Columbus metro regulatory environment. Rental registration, inspections, and maintenance expectations should be monitored closely, particularly for older homes.
+While Worthington is its own municipality, properties still operate within the broader Columbus metro regulatory environment. [Rental registration](/services/compliance/), inspections, and maintenance expectations should be monitored closely, particularly for older homes.
 
 ### Fair Housing Compliance
 
@@ -188,3 +188,5 @@ Key themes for 2026:
 Investors who treat Worthington as a long-term, cash-flow-stable submarket, rather than a rapid appreciation play, tend to see the most consistent outcomes.
 
 If you want a clearer understanding of how your property fits within these ranges, or where it may be underperforming, a detailed rent analysis or operational review can help identify risks before they impact returns.
+
+If you own a rental in Worthington, here is [how we manage property there](/property-management-worthington-ohio/).

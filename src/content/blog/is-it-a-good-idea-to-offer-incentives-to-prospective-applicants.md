@@ -18,7 +18,7 @@ tags:
   - "vacancy rate"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2023/01/jp-valery-lVFoIi3SJq8-unsplash-300x200.jpg)You might feel tempted to pull out all the stops when trying to fill a vacant rental property.
+![](https://rlpmg.com/wp-content/uploads/2023/01/jp-valery-lVFoIi3SJq8-unsplash-300x200.jpg)You might feel tempted to pull out all the stops when trying to [fill a vacant rental property](/services/marketing-and-leasing/).
 
 Don’t.
 

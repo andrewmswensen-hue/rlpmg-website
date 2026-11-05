@@ -47,4 +47,4 @@ You should only work with a property management company that holds a real estate
 
 Property managers who have their own skin in the game know what it’s like to be a property owner. This puts them in a good position to offer advice and services that they also would expect as an owner.
 
-At RL Property Management, we offer full-service property management services for single-family and multifamily investors in the greater Columbus, Ohio area. With us, your tenants can expect exceptional service and owners can expect a high level of return. If you have questions or need help managing your rental property, please give us a call at 614-725-3059.
+At RL Property Management, we offer [full-service property management services](/services/) for single-family and multifamily investors in the greater Columbus, Ohio area. With us, your tenants can expect exceptional service and owners can expect a high level of return. If you have questions or need help managing your rental property, please give us a call at 614-725-3059.

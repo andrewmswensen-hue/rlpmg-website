@@ -35,7 +35,7 @@ Second, many property owners fail to differentiate between the services of **ass
 
 Nearly every property manager can attest to the fact that the level of expectation that the customer has rarely matches what the property manager is expecting to provide. When you mix real property, money and people, there are a lot of opportunities for problems and issues to arise.
 
-In order to fix this, we at RL Property Management believe there needs to be some kind of a standard scope of service for property management, a baseline definition of what property management is.
+In order to fix this, we at RL Property Management believe there needs to be some kind of a [standard scope of service for property management](/services/), a baseline definition of what property management is.
 
 As it currently stands, there is vast inconsistency among property managers. For example, what one property manager calls a leasing fee, another one might call a letting fee, and yet another may call it a vacancy fee or a marketing fee.
 

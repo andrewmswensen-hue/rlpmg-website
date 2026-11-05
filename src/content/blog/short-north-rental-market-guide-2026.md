@@ -111,4 +111,6 @@ Short North continues to represent **premium urban rental demand** within the Co
 
 For owners seeking to understand how their specific asset stacks up against current market dynamics or wanting tailored pricing strategy input, a concise rent and lease-up analysis can highlight opportunities and risks before they become a problem.
 
-If you’d like to benchmark your Short North property’s rent and vacancy expectations against 2026 market data, schedule a free consultation with our team.
+If you own a rental in the Short North, here is [how we manage property in Columbus](/property-management-columbus-ohio/).
+
+If you’d like to benchmark your Short North property’s rent and vacancy expectations against 2026 market data, [schedule a free consultation](/property-management-consultation/) with our team.

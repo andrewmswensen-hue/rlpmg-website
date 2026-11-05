@@ -40,7 +40,7 @@ An overview of our thoughts on pets is as follows:
 - Do not restrict breed or weight (this is somewhat ambiguous, and is a hard screening item to implement and it makes enforcement difficult).
 - Cats and dogs should be the only pets you allow.
 - Two pet maximum.
-- Regular unit inspections are key to monitor the pet situation.
+- [Regular unit inspections](/services/inspections/) are key to monitor the pet situation.
 - Double check with your insurance company to ensure you are covered for whatever you decide.
 - The privilege to house pets should come with a respective cost for the tenant and income for the landlord.
 - Be extremely clear in your lease about all things pets. Extremely….

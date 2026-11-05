@@ -40,4 +40,4 @@ However, if the main sewer line going out to the street has issues with a clog i
 
 To avoid any confusion at all when it comes to maintenance responsibility, we strongly recommend detailing maintenance responsibilities in your lease. This is the best way to protect yourself and minimize unnecessary expenses.
 
-If you have questions about property maintenance or who should be responsible for what with your rental unit, [get in touch](/contact-us/)with our team today.
+If you have questions about [property maintenance](/services/maintenance/) or who should be responsible for what with your rental unit, [get in touch](/contact-us/)with our team today.

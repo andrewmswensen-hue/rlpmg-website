@@ -27,7 +27,7 @@ tags:
 
 Rental lease agreements are legal contracts that outline the rights and responsibilities of tenants and landlords. The more specific and detailed they are, the fewer issues you’re likely to encounter. A strong lease agreement also clarifies who is responsible for what in terms of the rental unit and indicates all fees and penalties.
 
-Below are some areas to focus on if you want to strengthen your lease agreements. Not all of these areas are included in many default lease agreements, but, as property managers in Columbus, we’ve found to be particularly important.
+Below are some areas to focus on if you want to strengthen your lease agreements. Not all of these areas are included in many default lease agreements, but, as [property managers in Columbus](/columbus-property-management/), we’ve found to be particularly important.
 
 - **Maintenance responsibility**, Your lease agreement should clearly [indicate who is responsible for what](/blog/maintenance-mayhem-who-should-be-responsible-for-what-in-a-lease-agreement/), especially when it comes to something that sits more on the margins as it’s these gray areas that can often lead to conflict. Putting them in your lease agreement is an easy way to thwart them.
 

@@ -12,7 +12,7 @@ categories:
   - "Uncategorized"
 ---
 
-A top worry of most landlords is a middle of the night call from a resident stating that there is a maintenance emergency. The following post will look back at data from all of RL Property Management’s 2019 after-hours maintenance calls. This data is from our Columbus, Ohio office location. Temperatures in the Columbus winter are usually in the 20-30 degree F range. We may have several days down to (minus) -5 degrees F or as high as 55 degrees F.
+A top worry of most landlords is a middle of the night call from a resident stating that there is a maintenance emergency. The following post will look back at data from all of RL Property Management’s 2019 [after-hours maintenance calls](/services/maintenance/). This data is from our Columbus, Ohio office location. Temperatures in the Columbus winter are usually in the 20-30 degree F range. We may have several days down to (minus) -5 degrees F or as high as 55 degrees F.
 
 In 2019, RL Property Management:
 

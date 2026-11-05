@@ -233,7 +233,7 @@ At RLPM, our leasing system ensures:
 
 - Every listing is created and published within days of a property becoming rent-ready
 - Every inquiry is logged and followed up on
-- Every application goes through a consistent screening process
+- Every application goes through a [consistent screening process](/services/tenant-screening/)
 
 This level of organization makes your property look more credible and trustworthy, which matters when your goal is to **attract high-quality, long-term tenants**.
 
@@ -262,7 +262,7 @@ It takes:
 - A professional, responsive presence
 - Repeatable systems that make leasing consistent and stress-free
 
-At RL Property Management, **we do this every day**. Our proven marketing systems, local Columbus expertise, and hands-on leasing process are built to deliver results, not just views or inquiries, but qualified applications and long-term tenants.
+At RL Property Management, **we do this every day**. Our proven marketing systems, local Columbus expertise, and [hands-on leasing process](/services/marketing-and-leasing/) are built to deliver results, not just views or inquiries, but qualified applications and long-term tenants.
 
 **Ready to get better tenants and fewer headaches?**
 

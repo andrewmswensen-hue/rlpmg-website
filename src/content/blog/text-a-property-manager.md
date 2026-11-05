@@ -23,7 +23,7 @@ With over 13 years of experience in property management and a portfolio of more 
 
 Our “Text a Property Manager” service is designed to address a wide range of property management topics. Here are some of the most common areas our clients are curious about:
 
-1. **Tenant Management and Screening**: Wondering how to find reliable tenants or what to look for during tenant screening? Ask us about best practices for tenant screening, red flags, and how our rigorous process helps ensure long-term, hassle-free tenancy.
+1. **Tenant Management and Screening**: Wondering how to find reliable tenants or what to look for during tenant screening? Ask us about best practices for [tenant screening](/services/tenant-screening/), red flags, and how our rigorous process helps ensure long-term, hassle-free tenancy.
 2. **Compliance and Regulations:** From fair housing rules to lease agreements and eviction protocols, property management requires navigating numerous regulations. Text us to get clarity on landlord-tenant guidelines, lease terms, and handling challenging tenant situations while staying within regulatory boundaries.
 3. **Maintenance and Repairs**: Proactive maintenance is essential to keep your property in top condition and retain tenants. If you’re not sure which maintenance tasks you should prioritize or are struggling with repair decisions, we can offer expert advice on in-house and outsourced repairs, emergency responses, and ways to manage costs effectively.
 4. **Financial Reporting and Rent Collection**: Tracking income, expenses, and rental payments can be time-consuming. Text us for tips on rent collection, understanding financial statements, and using property owner portals to streamline your financial management.
@@ -31,7 +31,7 @@ Our “Text a Property Manager” service is designed to address a wide range of
 
 ## Why Choose RL Property Management for Advice?
 
-RL Property Management is a licensed, full-service property management company with a deep understanding of Columbus, Ohio’s rental market. Our experienced team handles everything from tenant screening and maintenance to code compliance, making us a one-stop solution for all your property management needs. Here’s why property owners trust us:
+RL Property Management is a licensed, [full-service property management company](/services/) with a deep understanding of Columbus, Ohio’s rental market. Our experienced team handles everything from tenant screening and maintenance to code compliance, making us a one-stop solution for all your property management needs. Here’s why property owners trust us:
 
 - **Proven Expertise**: Founded in 2013, we’ve grown to manage hundreds of units with a focus on providing a “hands-off” experience for property owners. Whether you have a single-family home or a multi-unit building, our full-service management is designed to maximize your investment while minimizing hassle.
 - **Transparent and Reliable**: We pride ourselves on being upfront with our fees, processes, and commitments. Our clients appreciate our transparent communication and the reliability of our services, which consistently meet or exceed expectations.

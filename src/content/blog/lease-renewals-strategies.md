@@ -131,7 +131,7 @@ Flexibility can make all the difference in getting a tenant to renew. Instead of
 
 ## Leverage Property Management Expertise
 
-Property management companies streamline the renewal process by handling lease tracking, sending automated reminders, and negotiating terms professionally. A structured approach ensures tenants receive timely renewal offers, reducing the likelihood of vacancies. RL Property Management, for example, uses automated systems and proactive communication to simplify lease renewals, keeping tenants happy while saving owners time and effort.
+Property management companies streamline the renewal process by handling lease tracking, sending automated reminders, and negotiating terms professionally. A structured approach ensures tenants receive timely renewal offers, reducing the likelihood of vacancies. RL Property Management, for example, uses automated systems and proactive communication to [simplify lease renewals](/services/marketing-and-leasing/), keeping tenants happy while saving owners time and effort.
 
 By implementing these strategies, landlords can make lease renewals a seamless, tenant-friendly process that encourages stability and long-term occupancy.
 
@@ -153,7 +153,7 @@ A strong, professional relationship with tenants can make the renewal process mu
 
 ## Legal Compliance
 
-Lease renewals aren’t just about updating dates and rental amounts, they must also align with local landlord-tenant laws. Professional property managers ensure all lease agreements comply with current legal requirements, avoiding potential disputes or errors that could lead to financial or legal issues for the landlord.
+Lease renewals aren’t just about updating dates and rental amounts, they must also align with [local landlord-tenant laws](/services/compliance/). Professional property managers ensure all lease agreements comply with current legal requirements, avoiding potential disputes or errors that could lead to financial or legal issues for the landlord.
 
 By leveraging professional property management, landlords can remove the guesswork from lease renewals, reduce tenant turnover, and maintain a steady, profitable rental operation. Instead of handling every detail alone, property owners can rely on expert guidance and efficient systems to keep tenants in place and properties performing at their best.
 

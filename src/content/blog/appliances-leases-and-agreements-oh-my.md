@@ -33,4 +33,4 @@ On the flip side, if you decide to offer rental units without appliances, it’s
 
 For other important lease terms to include in your agreements, be sure to also[read this blog post.](/blog/5-important-lease-terms-you-cant-afford-to-overlook/)
 
-At the end of the day, you can never really be too specific when it comes to your lease. If you have questions about property management in Columbus or what to include in your lease agreements, [give us a call](/contact-us/) at RL Property Management anytime.
+At the end of the day, you can never really be too specific when it comes to your lease. If you have questions about [property management in Columbus](/columbus-property-management/) or what to include in your lease agreements, [give us a call](/contact-us/) at RL Property Management anytime.

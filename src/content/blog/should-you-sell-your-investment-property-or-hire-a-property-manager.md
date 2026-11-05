@@ -72,7 +72,7 @@ If the PM is also able to reduce your expenses on the property by $100 a month (
 
 Being successful with your real estate investment does not always mean having to go it alone. Nor does it mean having to sell off your properties if things are going as well as you’d like them to.
 
-An alternate solution is to hire a professional property management company to help you increase the value of your property significantly without incurring any other additional expenses.
+An alternate solution is to hire a [professional property management company](/services/) to help you increase the value of your property significantly without incurring any other additional expenses.
 
 At the same time, doing so enables you to have a property that generates something much more in line with the passive income real estate investors look for.
 

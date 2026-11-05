@@ -42,11 +42,11 @@ Local Columbus property managers don’t rely solely on averages. They price bas
 
 ## Local Compliance Knowledge Is Not Optional in Central Ohio
 
-Ohio landlord-tenant law applies statewide, but enforcement and practical realities are local. Columbus and Franklin County have their own inspection practices, court procedures, and expectations that directly affect landlords.
+[Ohio landlord-tenant law](/services/compliance/) applies statewide, but enforcement and practical realities are local. Columbus and Franklin County have their own inspection practices, court procedures, and expectations that directly affect landlords.
 
 Small compliance mistakes can have outsized consequences. Improper notice delivery, timing errors, or mishandled security deposits can delay evictions or give tenants leverage in disputes. During winter months, habitability issues tied to heating or utilities can escalate quickly if not handled correctly. These are not theoretical risks. These are issues local property managers deal with regularly.
 
-A local Columbus property management company operates inside this system every day. They understand how Franklin County courts function, how inspectors approach code enforcement, and how to stay ahead of problems before they become expensive. National firms often rely on standardized processes designed for scale, which can miss these local nuances entirely.
+A [local Columbus property management company](/columbus-property-management/) operates inside this system every day. They understand how Franklin County courts function, how inspectors approach code enforcement, and how to stay ahead of problems before they become expensive. National firms often rely on standardized processes designed for scale, which can miss these local nuances entirely.
 
 ## Why Pricing Accuracy Matters More Than Most Investors Think
 

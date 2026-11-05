@@ -79,11 +79,11 @@ The key takeaway? Compliance isn’t optional. Staying informed and intentional 
 
 Navigating Fair Housing laws can feel overwhelming, especially when juggling all the other responsibilities of being a landlord. This is where a property management company can make all the difference.
 
-Property management companies stay on top of ever-changing Fair Housing laws and local regulations, so you don’t have to. Their expertise ensures your rental practices, from advertising to tenant interactions, are always compliant, reducing the risk of costly mistakes. Whether it’s handling reasonable accommodation requests or avoiding unintentional bias during tenant screening, professionals bring the knowledge and systems to keep you on the right track.
+Property management companies stay on top of ever-changing Fair Housing laws and local regulations, so you don’t have to. Their expertise ensures your rental practices, from advertising to tenant interactions, are always compliant, reducing the risk of costly mistakes. Whether it’s handling reasonable accommodation requests or avoiding unintentional bias during [tenant screening](/services/tenant-screening/), professionals bring the knowledge and systems to keep you on the right track.
 
 A good property management company also streamlines your processes. They use consistent policies and documented procedures for everything, minimizing the risk of human error. By partnering with experts, you gain peace of mind knowing your business is not only compliant but running smoothly.
 
-At RL Property Management, we specialize in helping Columbus landlords stay compliant while maximizing their property’s potential. Our deep understanding of local ordinances and Fair Housing laws ensures your rental is in good hands. When you work with us, you’re not just protecting yourself from legal trouble, you’re building a solid foundation for long-term success.
+At RL Property Management, we specialize in helping Columbus landlords [stay compliant](/services/compliance/) while maximizing their property’s potential. Our deep understanding of local ordinances and Fair Housing laws ensures your rental is in good hands. When you work with us, you’re not just protecting yourself from legal trouble, you’re building a solid foundation for long-term success.
 
 ## Practical Tips for Staying Compliant
 

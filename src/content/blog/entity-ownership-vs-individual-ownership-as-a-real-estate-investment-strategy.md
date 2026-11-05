@@ -33,4 +33,4 @@ As you assess your options, here are some things to consider.
 
 On the other hand, individual ownership is generally more straightforward and still provides favorable tax benefits. At the end of the day, the most advantageous structure for you is the one that best aligns with your goals, so do your research and consider all your options before settling on a structure.
 
-For more about investing in Ohio real estate and the associated tax implications, [get in touch](/contact-us/) with our team at RL Property Management.
+For more about [investing in Ohio real estate](/investors/) and the associated tax implications, [get in touch](/contact-us/) with our team at RL Property Management.

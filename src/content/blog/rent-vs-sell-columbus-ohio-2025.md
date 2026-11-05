@@ -108,11 +108,11 @@ Holding onto the home now can preserve your options and protect your equity. And
 
 Totally fair question. Not everyone wants to handle late-night maintenance calls, tenant screenings, or rent collection. And the good news is: you don’t have to.
 
-Professional property management makes it possible to own rental property *without* doing the work yourself. At RL Property Management, we help homeowners across Columbus turn their homes into truly passive investments.
+[Professional property management](/services/) makes it possible to own rental property *without* doing the work yourself. At RL Property Management, we help homeowners across Columbus turn their homes into truly passive investments.
 
 Here’s how we help:
 
-- We advertise your property and find qualified tenants
+- We advertise your property and [find qualified tenants](/services/tenant-screening/)
 - We handle lease agreements, deposits, and renewals
 - We respond to maintenance requests 24/7
 - We collect rent and provide detailed financial reporting

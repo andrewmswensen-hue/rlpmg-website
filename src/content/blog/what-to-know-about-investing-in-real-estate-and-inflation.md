@@ -41,6 +41,6 @@ This being said, there are multiple ways to increase net operating income (NOI) 
 
 As an asset class, real estate consistently performs well, even during economic recessions. Nothing is guaranteed though, and more than one real estate empire has been brought down by heavy amounts of debt and declining market rates for rent.
 
-At the end of the day, looking for long term results is a balance of good cash flow today and price appreciation tomorrow. Hiring a good property management company is key to both, a good property management company will help you keep your costs down while making sure you are able to rent your properties at market rates.
+At the end of the day, looking for long term results is a balance of good cash flow today and price appreciation tomorrow. [Hiring a good property management company](/services/) is key to both, a good property management company will help you keep your costs down while making sure you are able to rent your properties at market rates.
 
 As you invest real estate, consider the pros and cons of how it will diversify your portfolio, and if you have questions about the real estate market in Central Ohio, we’re here to help.[Contact us](/contact-us/)at RL Property Management to learn more.

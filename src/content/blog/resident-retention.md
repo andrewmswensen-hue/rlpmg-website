@@ -86,7 +86,7 @@ Resident satisfaction is key to retention, but executing all the necessary tasks
 
 ## Efficient Handling of Maintenance
 
-Property management companies don’t just wait for problems, they prevent them. Through routine inspections and scheduled maintenance, they identify and resolve potential issues before residents even notice. When repairs are needed, property managers often have established vendor relationships to ensure quick and cost-effective solutions.
+Property management companies don’t just wait for problems, they prevent them. Through [routine inspections](/services/inspections/) and scheduled maintenance, they identify and resolve potential issues before residents even notice. When repairs are needed, property managers often have established vendor relationships to ensure quick and cost-effective solutions.
 
 *Example:* A resident reports an HVAC issue during the hottest week of the year. Instead of scrambling, a property management company’s vendor network allows for same-day service, ensuring resident comfort and avoiding complaints.
 
@@ -98,7 +98,7 @@ Property managers use professional systems like resident portals, dedicated supp
 
 ## Consistent Lease Management
 
-From clear lease terms to professional handling of renewals, property managers ensure that residents feel secure and informed. They also enforce policies consistently, avoiding the inconsistencies that can create conflict when managed informally.
+From clear lease terms to professional [handling of renewals](/services/marketing-and-leasing/), property managers ensure that residents feel secure and informed. They also enforce policies consistently, avoiding the inconsistencies that can create conflict when managed informally.
 
 *Example:* A property management company provides residents with reminders about lease renewals and clearly outlines any changes to the terms, giving them plenty of time to prepare or ask questions. This proactive approach reduces turnover and builds trust.
 

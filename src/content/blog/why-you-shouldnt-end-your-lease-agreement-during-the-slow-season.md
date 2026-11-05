@@ -23,7 +23,7 @@ tags:
 
 Navigating the rental market requires strategic timing, especially when it comes to lease agreements. While 12 months is an easy round number for a lease length, if those 12 months end during the slow season, you may want to modify yours.
 
-Here in Franklin County, the slow season starts in late October and runs through the New Year. The fewer vacancies you can have during this time of year, the better because filling those vacancies typically takes longer in the winter. No one wants to pack up in the cold, and people are distracted by the busy holiday season.
+Here in Franklin County, the slow season starts in late October and runs through the New Year. The fewer vacancies you can have during this time of year, the better because [filling those vacancies](/services/marketing-and-leasing/) typically takes longer in the winter. No one wants to pack up in the cold, and people are distracted by the busy holiday season.
 
 To prevent a slow-season slowdown, do what you can during that initial lease agreement to avoid ending the lease during the slow-season months.
 

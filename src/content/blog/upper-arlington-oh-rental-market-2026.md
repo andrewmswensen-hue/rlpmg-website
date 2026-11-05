@@ -181,7 +181,7 @@ Yes, but primarily for single-family homes. Allowing pets can expand the applica
 
 ### Is self-management practical?
 
-Some owners successfully self-manage single properties. However, compliance requirements, maintenance coordination, and tenant screening complexity increase as portfolios grow.
+Some owners successfully self-manage single properties. However, compliance requirements, maintenance coordination, and [tenant screening](/services/tenant-screening/) complexity increase as portfolios grow.
 
 ## Final Investor Takeaways
 
@@ -196,5 +196,7 @@ However, success here depends less on chasing top-of-market rents and more on op
 - Structuring leases around seasonal demand patterns
 
 Investors who treat Upper Arlington as a **long-term stability play rather than a rapid appreciation strategy** tend to see the most consistent results.
+
+If you own a rental in Upper Arlington, here is [how we manage property there](/property-management-upper-arlington-ohio/).
 
 For owners who want additional clarity on how their property compares within the neighborhood, [a free, detailed rent evaluation](/free-rent-evaluation/) or operational review can help identify pricing risks, vacancy exposure, and potential improvements before they impact returns.

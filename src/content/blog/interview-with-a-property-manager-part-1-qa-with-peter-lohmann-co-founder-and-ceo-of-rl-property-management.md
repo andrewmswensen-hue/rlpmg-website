@@ -17,7 +17,7 @@ tags:
   - "property management"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2024/01/Interview-with-a-Property-Manager-Part-1-QA-with-Peter-Lohmann-Co-founder-and-CEO-of-RL-Property-Management-300x199.jpg)RL Property Management has been serving owners and residents throughout the greater Columbus area for a decade. Read on to learn more about Peter Lohmann’s start as a property investor and gain insight into how to grow your real estate investment portfolio.
+![](https://rlpmg.com/wp-content/uploads/2024/01/Interview-with-a-Property-Manager-Part-1-QA-with-Peter-Lohmann-Co-founder-and-CEO-of-RL-Property-Management-300x199.jpg)RL Property Management has been [serving owners and residents throughout the greater Columbus area](/columbus-property-management/) for a decade. Read on to learn more about Peter Lohmann’s start as a property investor and gain insight into how to grow your real estate investment portfolio.
 
 **How did you get started investing in real estate? Tell us about your first property.**
 

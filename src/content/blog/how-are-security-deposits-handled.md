@@ -14,7 +14,7 @@ categories:
 We receive many questions about security deposits. In the video below we answer a few:
 
 - Who holds the deposit while the resident occupies the unit?
-  - RL Property Management holds these funds in our Property Management Trust account as required by Ohio law.
+  - RL Property Management holds these funds in our Property Management Trust account as [required by Ohio law](/services/compliance/).
 - How much is the security deposit?
   - RL Property Management typically charges one month’s rent as a security deposit. If a rental application is on the fence of being approved for one reason or another, we may elect to charge two month’s rent as a security deposit.
 - Who keeps the security deposit at the end of occupancy?

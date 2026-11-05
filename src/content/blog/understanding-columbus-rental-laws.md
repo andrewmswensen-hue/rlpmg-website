@@ -88,7 +88,7 @@ Consistency is crucial for compliance, and property management companies excel i
 
 One of the biggest advantages of working with a property management company is their ability to mitigate legal risks. They handle sensitive tasks like responding to reasonable accommodation requests, ensuring advertisements are non-discriminatory, and maintaining thorough documentation of all tenant interactions. By addressing potential issues proactively, they significantly reduce your exposure to costly lawsuits, fines, or complaints filed with organizations like the Ohio Civil Rights Commission.
 
-At RL Property Management, we specialize in helping Columbus landlords navigate the complexities of compliance. Our deep understanding of local laws, combined with our commitment to ethical practices, ensures your rental business operates smoothly and legally. Partnering with a property management company is more than just a time-saver, it’s a smart way to protect your investment and build a solid, long-term business.
+At RL Property Management, we specialize in [helping Columbus landlords navigate the complexities of compliance](/services/compliance/). Our deep understanding of local laws, combined with our commitment to ethical practices, ensures your rental business operates smoothly and legally. Partnering with a property management company is more than just a time-saver, it’s a smart way to protect your investment and build a solid, long-term business.
 
 ## Practical Tips for Landlords
 
@@ -112,4 +112,4 @@ By incorporating these tips into your routine, you’ll build a strong foundatio
 
 Fair Housing and rental laws aren’t just red tape, they’re essential for building a successful and ethical rental business. Ignoring these regulations can lead to fines, lawsuits, and reputational harm, all of which can derail your business. On the other hand, staying compliant fosters trust with tenants and protects your investment.
 
-At RL Property Management, we understand the complexities of rental laws in Columbus and beyond. From handling tenant screening to maintaining consistent policies, our expertise helps landlords stay compliant with ease. Don’t let legal uncertainty hold you back, contact us today to learn how we can help safeguard your business and simplify compliance.
+At RL Property Management, we understand the complexities of rental laws in Columbus and beyond. From handling [tenant screening](/services/tenant-screening/) to maintaining consistent policies, our expertise helps landlords stay compliant with ease. Don’t let legal uncertainty hold you back, contact us today to learn how we can help safeguard your business and simplify compliance.

@@ -31,7 +31,7 @@ Property owners need to be able to set aside personal connections, which can be 
 
 The second thing you need to be honest with yourself about is your willingness to be a landlord. Whether you self-manage the property or hire a property management company, you will become a landlord in both scenarios.
 
-For some people, this title has political implications. Others just don’t have the heart to evict someone if it comes to that, or they have difficulty with the necessity of being impartial during the tenant screening process.
+For some people, this title has political implications. Others just don’t have the heart to evict someone if it comes to that, or they have difficulty with the necessity of being impartial during the [tenant screening process](/services/tenant-screening/).
 
 While the property manager serves as a buffer and takes a lot of the day-to-day out of being a landlord, if there’s a big issue, the final decision will always be yours.
 

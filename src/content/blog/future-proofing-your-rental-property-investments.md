@@ -66,7 +66,7 @@ Planning these investments carefully ensures they provide long-term value withou
 
 Future-proofing your rental property is an investment in its **long-term value and appeal**. Sustainable upgrades reduce operating costs, smart technology improves tenant satisfaction, and structural improvements protect the property for years to come. By staying ahead of trends and making thoughtful improvements, landlords can enhance profitability while attracting quality tenants who value modern amenities.
 
-Beyond the physical upgrades, planning for the future ensures that your property remains competitive in a changing market. **Consulting with a property management company** offers the advantage of market insights, access to trusted contractors, and expert guidance on which improvements will provide the best returns. With their help, landlords can make informed, forward-thinking investments that lead to long-term success.
+Beyond the physical upgrades, planning for the future ensures that your property remains competitive in a changing market. **Consulting with a property management company** offers the advantage of market insights, access to [trusted contractors](/services/maintenance/), and expert guidance on which improvements will provide the best returns. With their help, landlords can make informed, forward-thinking investments that lead to long-term success.
 
 ## A Cohesive Investment Strategy
 

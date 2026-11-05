@@ -27,4 +27,4 @@ While many owners enjoy managing their properties themselves, if you don’t hav
 
 Before committing to any one property management company, be sure to [ask them these important questions](/blog/questions-to-ask-before-hiring-a-property-management-company-in-ohio/) and thoroughly [review the property management agreement](/blog/what-to-look-for-in-a-property-management-agreement/). Finding the right property management company can be all the difference when it comes to achieving your investment goals.
 
-For help with your Columbus rental property, turn to us at RL Property Management. To ask your questions, please give us a call at 614-725-3059
+For help with your Columbus rental property, turn to us at [RL Property Management](/columbus-property-management/). To ask your questions, please give us a call at 614-725-3059

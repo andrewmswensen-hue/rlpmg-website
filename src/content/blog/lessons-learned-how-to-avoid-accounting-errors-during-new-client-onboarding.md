@@ -42,4 +42,4 @@ Mistakes like this one, though not detrimental, are still frustrating to make, b
 
 On the flip side, if everything is done on an ad-hoc basis or from memory, it’s harder to implement a change and feel confident it’s going to be followed by everyone at the company.
 
-If you’re looking for an experienced property management firm in the Columbus area and one that prioritizes service and transparency, then [come talk to us](/contact-us/) at RL Property Management Group.
+If you’re looking for an [experienced property management firm in the Columbus area](/columbus-property-management/) and one that prioritizes service and transparency, then [come talk to us](/contact-us/) at RL Property Management Group.

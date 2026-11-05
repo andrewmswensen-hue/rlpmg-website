@@ -27,7 +27,7 @@ While surprising to some, studies suggest that most residents already make up th
 
 Even if they end up staying a year, or two, or [whatever the lease term is,](/blog/4-ways-a-property-management-company-can-reduce-your-vacancy-rate/) they’ve pretty much made up their minds within the first few weeks of getting the keys as to whether they’re going to stay long-term.
 
-This puts a lot of pressure on you as a property manager or landlord to do everything you can early (and often) to maximize your chances of getting them to renew.
+This puts a lot of pressure on you as a property manager or landlord to do everything you can early (and often) to maximize your chances of [getting them to renew](/services/marketing-and-leasing/).
 
 ## First Impressions Matter
 

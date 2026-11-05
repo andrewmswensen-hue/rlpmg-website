@@ -32,7 +32,7 @@ So far, so good. The unit was replaced and things were back to smooth operation.
 
 But, not so fast…
 
-What followed is that the very next day was the 10th of the month. This is when we send out owner disbursements via direct deposit. During this process we distribute all of the money in the property account (minus our management fees and any [funds to keep in the maintenance reserve.](/blog/going-beyond-6-months-of-rent-in-reserves-how-much-do-you-need-to-save-per-unit/) Whatever is leftover in the account gets sent directly to the property owner.
+What followed is that the very next day was the 10th of the month. This is when we send out [owner disbursements](/services/owner-reporting/) via direct deposit. During this process we distribute all of the money in the property account (minus our management fees and any [funds to keep in the maintenance reserve.](/blog/going-beyond-6-months-of-rent-in-reserves-how-much-do-you-need-to-save-per-unit/) Whatever is leftover in the account gets sent directly to the property owner.
 
 Typically, this process is straight-forward, and we move through it almost by default. However, because we had just received an owner contribution for the A/C unit and that bill had not yet been paid, the money dedicated for the A/C replacement was still sitting in the owner’s account. Unfortunately, we ended up accidentally disbursing that same amount right back into the owner’s account.
 

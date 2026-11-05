@@ -49,4 +49,4 @@ On the other hand, the people who are willing to*pay more* can become bad tenant
 
 Setting your rent rates fairly and in line with market conditions improves your likelihood of securing quality tenants who are more likely to stick around because they trust that they’re paying a fair price.
 
-To learn more about owning rental property in Central Ohio, [get in touch](/contact-us/)with us at RL Property Management. We’ve been professionally managing rental properties in the greater Franklin County area for more than a decade and have the expertise and professionalism to help you get the most out of your strategic investment.
+To learn more about owning rental property in Central Ohio, [get in touch](/contact-us/)with us at RL Property Management. We’ve been [professionally managing rental properties in the greater Franklin County area](/columbus-property-management/) for more than a decade and have the expertise and professionalism to help you get the most out of your strategic investment.

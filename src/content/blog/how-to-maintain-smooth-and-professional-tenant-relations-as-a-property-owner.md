@@ -33,4 +33,4 @@ In many ways, they are the “customer” and expect a certain level of service.
 
 Developing positive relationships with your tenants is an important part of owning or managing rental property. Common sense and good business sense should get you most of the way there. Your individual style and personality can take you the rest of the way.
 
-If you need help managing any aspect of your rental properties in Columbus, Ohio, including tenant relations, [get in touch](/contact-us/) with our team at RL Property Management today.
+If you need help [managing any aspect of your rental properties in Columbus, Ohio](/columbus-property-management/), including tenant relations, [get in touch](/contact-us/) with our team at RL Property Management today.

@@ -38,6 +38,6 @@ Here are some essentials you need to include on your list:
 
 - **Make aesthetic improvements**, Other simple and inexpensive upgrades can also improve the overall unit’s appeal. Things like improving lighting and focusing on finishes can be a cost-effective way to improve the unit. And don’t forget about the unit’s exterior. Single-family homes should have nice landscaping, trimmed shrubs and be free of debris.
 
-The last step in the turnover process is to list your unit for rent. By doing a thorough job when you prepare your rental unit, you should be able to secure a high-quality tenant who will stay in your unit for years to come.
+The last step in the turnover process is to [list your unit for rent](/services/marketing-and-leasing/). By doing a thorough job when you prepare your rental unit, you should be able to secure a high-quality tenant who will stay in your unit for years to come.
 
 For help with any of your property management needs or to ask your questions about owning rental property in Columbus, please [get in touch](/contact-us/)with us at RL Property Management.

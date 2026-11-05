@@ -83,7 +83,7 @@ Grandview Heights largely follows **typical Columbus rental seasonality**:
 - **Shoulder Season (Fall)**: Continued interest, but price sensitivity increases; maintain realistic expectations on offers.
 - **Slow Season (Winter)**: Reduced traffic; strategic concessions or flexible move-in dates can preserve occupancy.
 
-**Strategy Tip:** Time marketing ahead of peak cycle; listings that hit the market in late winter/early spring often experience shortened vacancy durations. Align tenant turnaround and lease renewals to peak search periods when possible.
+**Strategy Tip:** [Time marketing ahead of peak cycle](/services/marketing-and-leasing/); listings that hit the market in late winter/early spring often experience shortened vacancy durations. Align tenant turnaround and lease renewals to peak search periods when possible.
 
 ## Legal & Compliance Considerations (High-Level)
 
@@ -110,3 +110,5 @@ Grandview Heights largely follows **typical Columbus rental seasonality**:
 Grandview Heights remains a compelling submarket for rental investment in 2026, characterized by strong lifestyle demand drivers, premium rental pricing relative to broader Columbus, and supply constraints that support disciplined operating strategies. Long-term return stability here favors investors who price realistically, align leasing cycles with seasonal demand, and invest in targeted upgrades that resonate with local renter preferences rather than speculative enhancements.
 
 If you’re evaluating your Grandview Heights asset’s positioning or considering acquisition opportunities in similar downtown-proximate submarkets, a focused [rent analysis](/free-rent-evaluation/) and lease timing plan can reveal value levers that directly improve occupancy and cash flow. A professional rental performance review tailored to your property can clarify where strategic adjustments will yield the greatest benefit.
+
+If you own a rental in Grandview Heights, here is [how we manage property there](/property-management-grandview-heights-ohio/).

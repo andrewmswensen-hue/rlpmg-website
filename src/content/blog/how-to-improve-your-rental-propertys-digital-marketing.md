@@ -17,7 +17,7 @@ tags:
   - "property management"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2022/06/daniele-franchi-GbAEJUJKJ88-unsplash-300x150.jpg)The number one rule of marketing is to go where your people are, and if you’re trying to market a vacant multifamily unit to prospective tenants, the place you have to be is…you guessed it…online.
+![](https://rlpmg.com/wp-content/uploads/2022/06/daniele-franchi-GbAEJUJKJ88-unsplash-300x150.jpg)The number one rule of marketing is to go where your people are, and if you’re trying to [market a vacant multifamily unit to prospective tenants](/services/marketing-and-leasing/), the place you have to be is…you guessed it…online.
 
 But marketing costs money, and your goal as an investor is to be earning money, not spending it. Below we’ll discuss some strategies for most effectively using your advertising budget in order to [fill vacancies with good tenants.](/blog/why-its-worth-your-time-and-money-to-find-the-very-best-tenants/)
 

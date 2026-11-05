@@ -34,4 +34,4 @@ In terms of opportunities for women investors to thrive, Ohio continues to trend
 - [Per the most recent U.S. Census Data,](https://www.census.gov/library/stories/state-by-state/ohio-population-change-between-census-decade.html]) the population in the state continues to grow. Ohio experienced a 2.3% growth change in population between 2010-2020, and Franklin County had a percent change of 13.8%.
 - The number of housing units available in Ohio has also experienced a growth percent change of 2.2%, and the housing unit vacancy rate is at 8.3%.
 
-Regardless of gender, investors in Ohio should feel confident about the state of the market in Franklin County as they continue to grow their portfolios. To best understand the local market conditions here in the greater Columbus area, [come talk to us](/contact-us/) at RL Property Management.
+Regardless of gender, investors in Ohio should feel confident about the state of the market in Franklin County as they continue to [grow their portfolios](/investors/). To best understand the local market conditions here in the greater Columbus area, [come talk to us](/contact-us/) at RL Property Management.

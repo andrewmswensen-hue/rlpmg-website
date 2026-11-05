@@ -81,9 +81,9 @@ Before you plan and enforce payment terms or create a lease agreement, ensure yo
 
 By implementing proactive measures like clear payment policies, strong tenant communication, and automated payment systems, you can greatly reduce the likelihood of late or missed payments. However, even the best strategies can still run into challenges, such as tenant disputes, late fees, or legal complications.
 
-This is where a property management company becomes invaluable. They take over every aspect of rent collection, from setting up clear lease agreements to managing tenant communication and ensuring payments are made on time. With automated systems in place, property managers make it easy for tenants to pay on time while keeping landlords informed with real-time tracking of payments.
+This is where a property management company becomes invaluable. They take over [every aspect of rent collection](/services/rent-collection/), from setting up clear lease agreements to managing tenant communication and ensuring payments are made on time. With automated systems in place, property managers make it easy for tenants to pay on time while keeping landlords informed with real-time tracking of payments.
 
-More importantly, property managers handle late payments, partial payments, and even eviction processes, following legal guidelines to protect landlords’ interests while maintaining professional tenant relationships. With a property management company, you can focus on growing your investment rather than dealing with the daily headaches of rent collection.
+More importantly, property managers handle late payments, partial payments, and even [eviction processes](/services/evictions/), following legal guidelines to protect landlords’ interests while maintaining professional tenant relationships. With a property management company, you can focus on growing your investment rather than dealing with the daily headaches of rent collection.
 
 ### Ready to streamline rent collection and prevent issues before they arise?
 

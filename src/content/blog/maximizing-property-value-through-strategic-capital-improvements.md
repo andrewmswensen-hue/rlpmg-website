@@ -61,7 +61,7 @@ Capital improvements are not a one-time event but an ongoing process. To ensure 
 
 By spreading out major expenditures over time, you can avoid financial strain and reduce the likelihood of large, unexpected expenses. A long-term, asset-focused approach also allows landlords to budget incrementally, saving for future improvements without disrupting cash flow.
 
-A property management company can assist in creating a detailed capital improvement plan, forecasting future needs, and helping landlords stay ahead of required upgrades. With their experience and industry knowledge, property managers ensure that investments are made at the right time, aligning with market conditions and tenant expectations to maximize long-term returns and maintain asset value.
+A property management company can assist in creating a [detailed capital improvement plan](/services/maintenance/), forecasting future needs, and helping landlords stay ahead of required upgrades. With their experience and industry knowledge, property managers ensure that investments are made at the right time, aligning with market conditions and tenant expectations to maximize long-term returns and maintain asset value.
 
 ## Invest Wisely to Boost Your Property’s Value
 

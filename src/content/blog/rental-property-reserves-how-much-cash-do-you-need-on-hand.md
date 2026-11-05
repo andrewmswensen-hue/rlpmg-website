@@ -19,7 +19,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2022/07/kostiantyn-li-1sCXwVoqKAw-unsplash-300x253.jpg)Investing in rental properties is a good way to generate income, but it also comes with expenses, the biggest of which are generally maintenance expenses. While staying on top of routine maintenance is one of the best ways to prolong the life of your property and appliances, you will still encounter unexpected expenses.
 
-When the water heater goes out or you need to replace a furnace that dies in the middle of winter, these expenses are referred to as capital reserves or capital expenditures. Lenders often require you to have a certain amount of money set aside in a reserve fund to help cover these expenses when they come up.
+When the water heater goes out or you need to replace a furnace that dies in the middle of winter, these expenses are referred to as capital reserves or [capital expenditures](/services/maintenance/). Lenders often require you to have a certain amount of money set aside in a reserve fund to help cover these expenses when they come up.
 
 ## How Much Money Should You Have in Reserves?
 

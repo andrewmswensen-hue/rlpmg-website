@@ -43,6 +43,6 @@ Below we’ll walk through the basics of how we evaluate prospective tenants, th
 4. **Rental history**, We contact the current and previous landlord to find out if they caused any problems. Did they pay their rent on-time? Were they able to get back their security deposit? Did they violate any lease terms, or were they otherwise good tenants? Screening a potential tenant’s rental history is an important part of our application process.
 5. **Income**, We require three times the rent as a minimum income threshold for an applicant to be able to afford to live in a specific rental unit. We verify income by looking at pay stubs or contacting employers.
 
-Every property manager or landlord will have their own twist on where to set their minimum standards for an applicant, but we’ve found that using data to create a consistent tenant screening process has benefited us and the property owners we serve.
+Every property manager or landlord will have their own twist on where to set their minimum standards for an applicant, but we’ve found that using data to create a consistent [tenant screening process](/services/tenant-screening/) has benefited us and the property owners we serve.
 
 If you have any other detailed questions about tenant screening or questions about the Columbus market in general, [contact us](/contact-us/)anytime at RL Property Management.

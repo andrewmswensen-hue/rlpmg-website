@@ -59,7 +59,7 @@ Preventative maintenance plays a key role in minimizing the need for emergency r
 
 Creating a **preventative maintenance schedule** helps you stay on top of potential issues and reduces the risk of expensive surprises. Seasonal maintenance, like cleaning gutters in the fall or servicing air conditioning units in the spring, is especially important for maintaining the longevity of your property’s systems.
 
-Many **property management companies** offer preventative maintenance programs, conducting regular inspections to identify and address issues before they escalate. This proactive approach not only protects your property but also ensures your reserve fund stays intact, reserved only for true emergencies.
+Many **property management companies** offer preventative maintenance programs, conducting [regular inspections](/services/inspections/) to identify and address issues before they escalate. This proactive approach not only protects your property but also ensures your reserve fund stays intact, reserved only for true emergencies.
 
 ## Long-Term Planning for Capital Expenses and Unexpected Repairs
 
@@ -84,6 +84,6 @@ Integrating these practices turns property management from a reactive process to
 
 Owning rental properties comes with unexpected expenses, but with a well-funded reserve and a proactive approach, you can handle repairs without disrupting your finances. A solid reserve fund helps you act quickly when emergencies arise, while **preventative maintenance** and **long-term planning** reduce the likelihood of future surprises.
 
-Working with a **property management company** provides the expertise you need to manage your reserve effectively, from setting the right fund target to prioritizing repairs and coordinating capital improvements. Their insights help you maintain financial stability while protecting your property’s value and keeping tenants satisfied.
+Working with a **property management company** provides the expertise you need to manage your reserve effectively, from setting the right fund target to [prioritizing repairs and coordinating capital improvements](/services/maintenance/). Their insights help you maintain financial stability while protecting your property’s value and keeping tenants satisfied.
 
 Ready to take control of your property’s financial future? [**Contact us today**](/contact-us/) to learn how we can help you plan for unexpected repairs, build your reserve fund, and safeguard your investment.

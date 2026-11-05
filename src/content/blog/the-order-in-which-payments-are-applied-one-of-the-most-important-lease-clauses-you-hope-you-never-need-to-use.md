@@ -32,11 +32,11 @@ The reality is that sometimes tenants do not pay their full balance on time. Whe
 
 ## Should you accept a partial payment?
 
-Part of the conversation around monthly rent payments revolves around whether or not you should accept a partial payment.
+Part of the conversation around monthly rent payments revolves around whether or not you should [accept a partial payment](/services/rent-collection/).
 
 In a lot of states, including Ohio, accepting a partial payment signals to the tenant, whether explicitly or not, that they’re good for the month. By accepting that incomplete rent payment, you’ve essentially demonstrated that you’re ok with the partial amount. In Ohio, t his is how judges have traditionally interpreted it.
 
-Given that, if a tenant makes a partial rent payment, we recommend that you don’t even accept it. Hand it right back to them and say, “Unfortunately I can’t accept a partial payment. Please get back to me when you have the full amount.” A reason for this is that you wouldn’t be able to start the eviction process if you accept even a partial payment.
+Given that, if a tenant makes a partial rent payment, we recommend that you don’t even accept it. Hand it right back to them and say, “Unfortunately I can’t accept a partial payment. Please get back to me when you have the full amount.” A reason for this is that you wouldn’t be able to [start the eviction process](/services/evictions/) if you accept even a partial payment.
 
 ## Spell out everything in your lease
 

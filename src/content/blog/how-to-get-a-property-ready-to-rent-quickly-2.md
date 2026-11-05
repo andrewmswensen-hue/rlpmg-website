@@ -41,7 +41,7 @@ Vet quality vendors in the Columbus area now and get to know their pricing struc
 
 ## Think Ahead to Leasing
 
-As you finish up unit repairs and updates, the next step is to get the unit leased. Our leasing department at RL Property Management engages a photographer to take new photos of the unit and then lists it for rent. During this phase, the team schedules showings with residents, leads tours of the unit and manages the tenant screening and application process.
+As you finish up unit repairs and updates, the next step is to get the unit leased. Our [leasing department](/services/marketing-and-leasing/) at RL Property Management engages a photographer to take new photos of the unit and then lists it for rent. During this phase, the team schedules showings with residents, leads tours of the unit and manages the [tenant screening and application process](/services/tenant-screening/).
 
 By doing a thorough job when you prepare your rental unit, you should be able to command higher rent rates and secure a high-quality tenant who will stay in your unit for years to come.
 

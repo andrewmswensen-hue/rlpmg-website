@@ -38,6 +38,6 @@ NOI is an essential metric for real estate property owners not only because itâ€
 - **Do as the data says**, To control your spending while still offering a quality product to tenants, you must track your expenses diligently and evaluate that data regularly. Knowing where your greatest expenses are occurring can help you make better decisions going forward.
 - **Manage maintenance costs**, Repairs and upgrades are necessary expenses that eat into your operational budget. Devise a strategy to [streamline maintenance costs](/blog/should-you-hire-a-property-management-company-to-increase-noi/) and optimize the way you spend and save on repairs.
 
-Lastly, you should consider hiring a professional property management company. Despite sounding counter-intuitive, hiring experienced professionals who know the market and industry best practices can help you save money. Many, like ours at RL Property Management in Columbus, will also manage and run reports for you which you can then draw on as you make ownership decisions going forward.
+Lastly, you should consider [hiring a professional property management company](/services/). Despite sounding counter-intuitive, hiring experienced professionals who know the market and industry best practices can help you save money. Many, like ours at RL Property Management in Columbus, will also manage and run reports for you which you can then draw on as you make ownership decisions going forward.
 
 To learn more about owning rental property in Central Ohio, [get in touch](/contact-us/) with us at RL Property Management.

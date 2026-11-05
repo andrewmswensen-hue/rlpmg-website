@@ -18,7 +18,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2022/02/alexander-shatov-mr4JG4SYOF8-unsplash-300x225.jpg)If there’s one basic rule for marketing and advertising, it’s “go where your people are.” Your people (a.k.a prospective tenants or real estate investors)? Yep, they’re on social media.
 
-Whether your goal is to invest in more rental properties or to fill your existing units with high-quality tenants, the better your network is and the more targeted your marketing reach is, the more likely you are to achieve whatever your goals might be.
+Whether your goal is to invest in more rental properties or to [fill your existing units with high-quality tenants](/services/marketing-and-leasing/), the better your network is and the more targeted your marketing reach is, the more likely you are to achieve whatever your goals might be.
 
 ## Where Should You Be Social?
 

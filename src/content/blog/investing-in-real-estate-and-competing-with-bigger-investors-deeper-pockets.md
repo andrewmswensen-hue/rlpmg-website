@@ -44,7 +44,7 @@ A lot of the people looking at Zillow and using their platform to advertise rent
 
 ## Where to next?
 
-It’s not to say that there isn’t room in the marketplace for more traditional property management companies to coexist with the likes of Zillow’s platform, it doesn’t seem likely Zillow will ever be able to scale to the point of handling emergency calls in the middle of the night for its clients.
+It’s not to say that there isn’t room in the marketplace for more traditional property management companies to coexist with the likes of Zillow’s platform, it doesn’t seem likely Zillow will ever be able to scale to the point of [handling emergency calls in the middle of the night](/services/maintenance/) for its clients.
 
 But, as a small business, it’s important to understand how the market is shifting.
 

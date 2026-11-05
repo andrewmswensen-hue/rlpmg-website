@@ -18,7 +18,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2021/08/sahand-hoseini-VrJnsLH2nOY-unsplash1-min-scaled-e1627912281815-227x300.jpg)For every unit you manage, you’re going to have unexpected expenses from time-to-time. It may be a water heater that goes out, a furnace that dies in the middle of winter, a roof or window that needs to be replaced, and a whole host of other expenses that you may not always anticipate.
 
-These expenses are referred to as capital reserves, or capital expenditures, and lenders often require you to have a certain amount of money set aside in a reserve fund to help cover these expenses when they come up.
+These expenses are referred to as capital reserves, or [capital expenditures](/services/maintenance/), and lenders often require you to have a certain amount of money set aside in a reserve fund to help cover these expenses when they come up.
 
 ## How Much to Hold in Reserves For Your Rental Property
 

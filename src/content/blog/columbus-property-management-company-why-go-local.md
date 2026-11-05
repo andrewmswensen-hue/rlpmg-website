@@ -58,7 +58,7 @@ Every city, including Columbus, has its own set of ordinances governing rental p
 
 ### Hands-On Oversight
 
-A proactive approach is key to preventing compliance issues before they arise. Local property managers, like those at RL Property Management, often conduct regular property inspections to identify and address potential risks early. For instance, spotting a small plumbing leak or a broken safety fixture during an inspection can prevent these issues from escalating into costly repairs or legal liabilities. With quarterly inspections built into our service, we give landlords peace of mind that their properties are well-maintained and compliant.
+A proactive approach is key to preventing compliance issues before they arise. Local property managers, like those at RL Property Management, often conduct regular property inspections to identify and address potential risks early. For instance, spotting a small plumbing leak or a broken safety fixture during an inspection can prevent these issues from escalating into costly repairs or legal liabilities. With [quarterly inspections](/services/inspections/) built into our service, we give landlords peace of mind that their properties are well-maintained and compliant.
 
 ### Risk Mitigation
 
@@ -109,6 +109,6 @@ These questions will help you identify whether a company has the local knowledge
 
 ## Why Local Wins
 
-When it comes to property management, local companies provide a distinct advantage with their combination of specialized expertise, personalized service, and deep community ties, qualities that national firms often cannot replicate. For landlords in the greater Columbus, Ohio area, this local focus translates into tailored strategies, quicker responses, and a better understanding of the unique dynamics of the market. Partnering with a local property management company like RL Property Management not only helps you navigate the complexities of managing a rental property but also ensures that your investment is optimized for long-term success. With the right local partner, you’re not just managing a property, you’re unlocking its full potential.
+When it comes to property management, local companies provide a distinct advantage with their combination of specialized expertise, personalized service, and deep community ties, qualities that national firms often cannot replicate. For landlords in the greater Columbus, Ohio area, this local focus translates into tailored strategies, quicker responses, and a better understanding of the unique dynamics of the market. Partnering with a [local property management company like RL Property Management](/columbus-property-management/) not only helps you navigate the complexities of managing a rental property but also ensures that your investment is optimized for long-term success. With the right local partner, you’re not just managing a property, you’re unlocking its full potential.
 
 Ready to experience the benefits of local property management? [Contact RL Property Management today](/contact-us/) and let us help you achieve your property goals.

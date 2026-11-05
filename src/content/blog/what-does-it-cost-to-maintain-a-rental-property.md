@@ -43,4 +43,6 @@ Additionally, some expenses property owners forget to account for in their calcu
 
 Single-family homes can be full of idiosyncratic repair risk, and there’s not a standard rule of thumb for estimating costs. The best approach is to consider your unique property as you make educated assessments about its current condition.
 
+For how we handle repairs and upkeep for owners, see our [maintenance services](/services/maintenance/).
+
 To hear more from us as we discuss what to consider when deciding to rent or sell your house, [watch our webinar replay here.](https://www.youtube.com/watch?v=H6s27ofZuH0) And to learn more about owning a rental property in Central Ohio, [contact our team](/contact-us/) at RL Property Management.

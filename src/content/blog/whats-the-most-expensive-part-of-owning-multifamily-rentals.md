@@ -26,9 +26,9 @@ Let’s exclude repairs and take a closer look at the remaining items:
 
 Utilities are dominant, although this can be misleading because utility cost is typically dominated by water/sewer, which is normally billed back to the tenants.
 
-Landscaping is something that investors moving up from single family to multifamily often forget to include in their pro-forma. It is a significant factor as you can see, overall the 3rd highest category of spending. Snow removal (typically done at larger MF properties) is another one that investors who live in warm climates may forget to account for when purchasing property in the northern part of the US.
+Landscaping is something that [investors moving up from single family to multifamily](/investors/) often forget to include in their pro-forma. It is a significant factor as you can see, overall the 3rd highest category of spending. Snow removal (typically done at larger MF properties) is another one that investors who live in warm climates may forget to account for when purchasing property in the northern part of the US.
 
-Cleaning and clean-outs are tied to turnover (which itself is the most expensive part of owning rental property, by far).
+Cleaning and clean-outs are [tied to turnover](/services/maintenance/) (which itself is the most expensive part of owning rental property, by far).
 
 We caution against tying expenses to a percentage of rent, as this can be very misleading and does not tend to scale up or down at all (ie, expenses are not correlated with rent). A better way to estimate expenses is to calculate them on a per-square-foot basis.
 

@@ -21,7 +21,7 @@ tags:
 
 {{youtube:N-BHdVhUol8}}
 
-![](https://rlpmg.com/wp-content/uploads/2021/08/scott-graham-5fNmWej4tAA-unsplash-min1-300x200.jpg)If you’re looking to buy an investment property in the greater Columbus area, one of the biggest questions you likely have is how much money will the property make? On a monthly basis, what can you expect your cash flow to be?
+![](https://rlpmg.com/wp-content/uploads/2021/08/scott-graham-5fNmWej4tAA-unsplash-min1-300x200.jpg)If you’re looking to [buy an investment property in the greater Columbus area](/investors/), one of the biggest questions you likely have is how much money will the property make? On a monthly basis, what can you expect your cash flow to be?
 
 When looking at [cash flow](/blog/what-to-consider-when-calculating-cash-flow-for-a-rental-property/), there are two major components to consider. First there is the income side, and then there are expenses.
 
@@ -43,7 +43,7 @@ To account for vacancies, we recommend discounting the rent by around 6-8 percen
 
 Here are some major categories you need to think about as you predict the cash flow for your investment property:
 
-- **Repairs and maintenance**, This will be one of your biggest items. While it can be challenging to estimate, we encourage our clients to think critically about how they estimate their repairs and maintenance expenses. We often like to use a dollar-per-square-foot estimate rather than a percentage of rent. In our calculations we may estimate around $1-$2 per square foot, per year as a line item for repairs and maintenance.
+- **Repairs and maintenance**, This will be one of your biggest items. While it can be challenging to estimate, we encourage our clients to think critically about how they estimate their [repairs and maintenance expenses](/services/maintenance/). We often like to use a dollar-per-square-foot estimate rather than a percentage of rent. In our calculations we may estimate around $1-$2 per square foot, per year as a line item for repairs and maintenance.
 - **Capital expenses or reserves**, You need to make sure you’re saving appropriately and setting aside funds each month to replace those capital items as they reach end of life. To learn more about how much to save per unit in reserves,[read this post](/blog/going-beyond-6-months-of-rent-in-reserves-how-much-do-you-need-to-save-per-unit/).
 - **Property taxes**, This is a big item investors can sometimes inaccurately calculate. If you’re getting ready to buy a property, you need to make sure that you’re adjusting the property tax expense using the purchase price and not what is on the auditor’s website. It is likely that whatever they have the property appraised for is probably many years old if the property hasn’t been sold in a while. When you buy the property, the appraised value is going to go up, and then you’re going to be taxed on that new rate, and that could be double the current rate.
 - **Insurance**, Shop around and get some quotes for insurance on the property.

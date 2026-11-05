@@ -46,4 +46,4 @@ But to take the first principles approach further, you should first ask yourself
 
 Now do that for every component in your property.
 
-Want to have a property manager that thinks like this for your property? Give us a call and let’s set up a consultation to see if we would be a good fit.
+Want to have a property manager that thinks like this for your property? Give us a call and let’s [set up a consultation](/property-management-consultation/) to see if we would be a good fit.

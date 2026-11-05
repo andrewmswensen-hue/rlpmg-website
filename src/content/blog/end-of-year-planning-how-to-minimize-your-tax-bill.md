@@ -25,3 +25,5 @@ Owning investment property in Central Ohio offers clear advantages, especially w
 - **Avoid double FICA taxes**, Depending on how you are classified by the IRS, you could owe double FICA taxes at a rate of 15.3%. To avoid the double tax, you must demonstrate investment intent rather than being classified as a dealer.
 
 These are just a few of the many tax opportunities investors like you can take advantage of as you grow your portfolio. Work with a professional accountant to ensure you are maximizing your tax benefits, and if you have questions specific to the Columbus-area rental market, [get in touch](/contact-us/) with us at RL Property Management.
+
+For how we handle owner records at tax time, see our [owner reporting](/services/owner-reporting/).

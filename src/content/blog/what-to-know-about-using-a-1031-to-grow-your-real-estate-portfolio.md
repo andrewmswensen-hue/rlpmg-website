@@ -39,4 +39,4 @@ As mentioned, one of the primary benefits of a 1031 exchange is being able to de
 
 Section 1031 exchanges offer many benefits to investors looking to grow their real estate portfolio. And as always, before pursuing one it’s best to consult a qualified professional to ensure that you are adhering to all state and federal requirements and guidelines.
 
-At RL Property Management, our priority is to help investors maximize their earnings and minimize their spending by taking a strategic approach to property management. To learn more about how we can help you be successful with your investment in Columbus, Ohio,[contact us today.](/contact-us/)
+At RL Property Management, our priority is to [help investors maximize their earnings and minimize their spending](/investors/) by taking a strategic approach to property management. To learn more about how we can help you be successful with your investment in Columbus, Ohio,[contact us today.](/contact-us/)

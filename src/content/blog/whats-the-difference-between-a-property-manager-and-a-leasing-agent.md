@@ -22,7 +22,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2021/10/constantin-wenning-idDvA4jPBO8-unsplash-min-300x200.jpg)Investors have a lot on their plates, and a big priority is ensuring that their units are filled quickly and turnover stays low so that a steady stream of income continues to flow in from their investments.
 
-In terms of filling vacancies, there are several ways to handle it: do it yourself, outsource it to a property management company, or use a leasing agent. Let’s discuss some of the differences among these approaches.
+In terms of [filling vacancies](/services/marketing-and-leasing/), there are several ways to handle it: do it yourself, outsource it to a property management company, or use a leasing agent. Let’s discuss some of the differences among these approaches.
 
 ## The role of a leasing agent
 
@@ -40,6 +40,6 @@ If the leasing agent is operating from a one-and-done mindset, they probably are
 
 Depending on your situation, it may not be an issue, but we think it’s very important that the person showing the unit has a full understanding of the property and is able to answer any questions they encounter. For that reason, the people showing our units are direct employees of our company who deal with residents on an ongoing basis.
 
-While both leasing agents and property managers work to fill vacancies in rental units, property management companies handle the full suite of rental management services including leasing, rent collection, maintenance, and everything in between.
+While both leasing agents and property managers work to fill vacancies in rental units, property management companies handle the [full suite of rental management services](/services/) including leasing, rent collection, maintenance, and everything in between.
 
 As you consider your own situation and comfort level handling the various responsibilities that come with property ownership, feel free to [reach out to us](/contact-us/) at RL Property Management with questions.

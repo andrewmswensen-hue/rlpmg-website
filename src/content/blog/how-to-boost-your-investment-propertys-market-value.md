@@ -38,7 +38,7 @@ A few years ago a client came to us for help managing his 44-unit, scattered sit
 To improve this portfolio’s overall performance, we got to work right away by addressing a handful of issues that, when taken collectively, amounted to a significant improvement in value and return for the property owner. Here are a few actions we took:
 
 - Standardized collection of water and sewer charges (and detailed those responsibilities in tenants’ lease agreements)
-- Stabilized occupancy levels and only filled units with quality tenants (which also resulted in reduced turnover and thus reduced expenses)
+- Stabilized occupancy levels and only [filled units with quality tenants](/services/tenant-screening/) (which also resulted in reduced turnover and thus reduced expenses)
 - Renewed leases to raise average rent amounts, over time we brought rent rates in line with the market, which amounted to an almost 10% increase for this particular client.
 
 None of these actions in and of themselves were particularly drastic, but when they all came together, the trend lines across the board steadily improved. And not only did cash flow to our client increase, but the NOI did as well, thereby increasing the value of the overall portfolio.

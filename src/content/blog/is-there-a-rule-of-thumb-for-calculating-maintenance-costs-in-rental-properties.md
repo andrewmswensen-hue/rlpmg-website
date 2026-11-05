@@ -39,7 +39,7 @@ Rather than the size of the home or how much you’re charging for rent, we have
 - The number of bathrooms (as they have more electrical and plumbing relative to a bedroom)
 - The current age of the long-lived items at the property, including its roof, windows, siding, etc.
 
-These variables may make expenses difficult to predict, but they are the types of things property owners should be thinking about when evaluating maintenance expenses on a potential investment property in Franklin County.
+These variables may make expenses difficult to predict, but they are the types of things property owners should be thinking about when [evaluating maintenance expenses](/services/maintenance/) on a potential investment property in Franklin County.
 
 Additionally, it’s essential to also consider the efforts you as the property owner put into maintenance. Expenses like mowing the grass, clearing snow, and other maintenance-like tasks and repairs on a property cost money. Even if you are doing the work yourself, it’s not “free.” We sometimes call this “sweat equity withdrawal” because owners are essentially paying themselves to mow the grass. Whether you do the work yourself or pay someone else to take care of it for you, this is an expense that needs to be included in expense calculations for maintenance.
 

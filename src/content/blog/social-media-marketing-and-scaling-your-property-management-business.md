@@ -31,7 +31,7 @@ Here are a few specific ways social media can help you personally and profession
 - It allows you to add value and teach others.
 - It can be a breeding ground for new partnerships and business opportunities.
 
-Additionally, social media can also be a way for you to promote your business or market your rental units to a broader pool of potential tenants.
+Additionally, social media can also be a way for you to promote your business or [market your rental units](/services/marketing-and-leasing/) to a broader pool of potential tenants.
 
 The choice to join a social media platform like LinkedIn, Instagram or Twitter does not have to be all or nothing, but the more consistently you share content and engage with others’ posts, the more quickly you will begin to reap its benefits.
 

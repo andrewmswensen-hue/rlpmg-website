@@ -25,7 +25,7 @@ categories:
 - Tenant turnover (turns) are expensive and destructive, and should be avoided as much as possible. The goal is LOW tenant turnover; under 30% annually.
 - The market (and no one else) determines the rent amount that a property will lease for.
 - Setting rents at market or slightly below will attract high-quality tenants who are well qualified.
-- Strict and fair tenant screening is integral to keeping turnover rates low.
+- Strict and fair [tenant screening](/services/tenant-screening/) is integral to keeping turnover rates low.
 - It is better to let a property sit vacant than to lease it to bad tenant.
 - It is better to lower the asking rent than to let a property sit vacant for an extended period of time.
 - Even the best tenant screening is not perfect; bad tenants are an inherent risk of owning rental property.

@@ -41,6 +41,6 @@ In short, we’ve determined that yes, there are some key things to look for whe
 1. **Rental history**, Talk to the applicant’s current and previous landlord to see what kind of tenant they were. You’re looking to see that they paid their rent on time, didn’t leave with a big balance, and didn’t damage the property in any significant way.
 2. **Income**, Verify income by looking at pay stubs and bank statements. To qualify for a specific rental property we manage, the applicant needs to show a combined monthly household income of at least three times the cost of rent.
 
-Every property manager or landlord will have minimum standards for screening applicants, but we’ve found that using data to create a consistent tenant screening process has benefited us and the property owners we serve.
+Every property manager or landlord will have minimum standards for screening applicants, but we’ve found that using data to create a consistent [tenant screening process](/services/tenant-screening/) has benefited us and the property owners we serve.
 
 If you have questions about tenant screening or questions about the Columbus market in general, [contact us](/contact-us/) anytime at RL Property Management.

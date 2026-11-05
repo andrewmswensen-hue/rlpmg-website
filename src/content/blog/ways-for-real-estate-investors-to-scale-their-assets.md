@@ -26,7 +26,7 @@ Even if the property value stays the same, your equity grows from $400,0000 to $
 
 ## Cash Out Refinances and Buying More Properties
 
-If you hired a good property management company to take care of the building, they should be able to increase the rents and decrease your expenses over that time period, say they can combine the two to increase your net operating income by $20,000 per year so your property is earning $140,000 a year instead of just $120,000. At that same 6 cap, the property is now worth $2,400,000.
+If you hired a [good property management company](/investors/) to take care of the building, they should be able to increase the rents and decrease your expenses over that time period, say they can combine the two to increase your net operating income by $20,000 per year so your property is earning $140,000 a year instead of just $120,000. At that same 6 cap, the property is now worth $2,400,000.
 
 Combined with the paying down of principal, you would have a good return on your initial investment. Now, with that much equity in the property, you could go back to the bank and get a cash-out refinance.
 

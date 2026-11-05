@@ -16,7 +16,7 @@ tags:
   - "section8"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2021/12/joel-durkee-1Hx3VqgApkI-unsplash-min-300x200.jpg)In our previous blog post, we discussed some of the dissonance landlords face when it comes to selecting good, qualified tenants while also remaining in compliance with Fair Housing legislation.
+![](https://rlpmg.com/wp-content/uploads/2021/12/joel-durkee-1Hx3VqgApkI-unsplash-min-300x200.jpg)In our previous blog post, we discussed some of the dissonance landlords face when it comes to selecting good, qualified tenants while also remaining in compliance with [Fair Housing legislation](/services/compliance/).
 
 In this post, we further discuss legislation surrounding source of income as a protected class and steps landlords can take to stay compliant while screening new applicants.
 
@@ -46,7 +46,7 @@ Now in Columbus, as in many other cities and states, laws have been passed sayin
 
 Because many tenant screening processes can disproportionately impact minorities, it becomes very important to create an objective set of measures to strip away any ill-intent or bias during the application process.
 
-Some of the guidelines we follow to tighten up our screening rubric includes stripping out names and any personally identifying information from our decision-making process.
+Some of the guidelines we follow to tighten up [our screening rubric](/services/tenant-screening/) includes stripping out names and any personally identifying information from our decision-making process.
 
 Our leasing agent first inputs data such as the person’s credit score, income, criminal history and 20 or so data points into a spreadsheet. The spreadsheet is then separately evaluated by the director of property management who grades the spreadsheet against our rubric of minimum criteria. The final decision is based on the data alone, as the spreadsheet contains no photos or other personally identifying information.
 

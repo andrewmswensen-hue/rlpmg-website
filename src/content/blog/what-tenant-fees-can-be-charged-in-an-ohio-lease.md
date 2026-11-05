@@ -40,7 +40,7 @@ It will require you to screen the applicant, prepare an addendum to the lease, s
 
 ## What other fees can you charge?
 
-In addition to the above examples, other fees you might charge include late fees if rent is not paid on time. When doing so, be sure to also spell out [the order in which those rent payments and fees are applied](/blog/the-order-in-which-payments-are-applied-one-of-the-most-important-lease-clauses-you-hope-you-never-need-to-use/).
+In addition to the above examples, other fees you might charge include [late fees](/services/rent-collection/) if rent is not paid on time. When doing so, be sure to also spell out [the order in which those rent payments and fees are applied](/blog/the-order-in-which-payments-are-applied-one-of-the-most-important-lease-clauses-you-hope-you-never-need-to-use/).
 
 Another common fee for multi-family units is charging a lease signing administrative fee. Also very commonly added to a lease is an application fee, which helps reimburse you for the cost of tenant screening and your time to do that. You may include other fees as well, such as a monthly service fee to cover the maintenance of common areas.
 

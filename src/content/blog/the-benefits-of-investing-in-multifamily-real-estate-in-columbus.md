@@ -34,3 +34,5 @@ Investors like you can fill this gap and reap the benefits of investing in multi
 - **Improving scalability**, a quick way to grow your rental property income is to expand your income stream. Investing in multifamily is a clear path to doing so. By investing in one property, you are able to generate income from multiple tenants.
 
 For more about the economics of owning and managing small multifamily units in Franklin County, be sure to read [Part 1](/blog/economics-of-owning-managing-small-multifamily-units-part-1/) and [Part 2](/blog/economics-of-owning-managing-small-multifamily-units-part-2/) of this topic on our blog.
+
+If you own or plan to buy multifamily in Columbus, see our [property management for investors](/investors/).

@@ -18,7 +18,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2022/07/james-kovin-YQGPSblLPz0-unsplash-188x300.jpg)Any homeowner knows just how much work it can be to stay on top of home maintenance and repairs. Even something that seems like a simple fix can result in multiple trips to the hardware store and cost a lot more than you might expect.
 
-Now scale that up for an investor who owns one, two or 20 multi-family rental properties. It quickly becomes clear how challenging it can be to stay on top of maintenance requests and manage the associated costs that can quickly escalate.
+Now scale that up for an investor who owns one, two or 20 multi-family rental properties. It quickly becomes clear how challenging it can be to [stay on top of maintenance requests](/services/maintenance/) and manage the associated costs that can quickly escalate.
 
 #### Tips for Keeping Maintenance Expenses in Check
 

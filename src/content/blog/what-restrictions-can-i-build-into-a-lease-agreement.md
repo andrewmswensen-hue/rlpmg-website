@@ -33,7 +33,7 @@ In addition, most leases are also going to include language related to complying
 
 ## Second, while you can put quite a lot of restrictions in your lease agreement, the question you need to ask yourself is what are you going to do when the tenant engages in these behaviors?
 
-Ultimately, unless you are willing to evict the resident over these behaviors, you may have to tolerate some of them to a certain extent.
+Ultimately, unless you are willing to [evict the resident](/services/evictions/) over these behaviors, you may have to tolerate some of them to a certain extent.
 
 One strategy for enforcing rules without evicting tenants is to apply fees. This can be a very [effective way to dissuade certain types of behavior.](/blog/what-tenant-fees-can-be-charged-in-an-ohio-lease/) For example, if you assign fees such as a $500 fee if the tenant has a large gathering, and you specifically call that fee out in your lease, you can enforce your restrictions without jumping all the way to eviction.
 

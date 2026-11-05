@@ -23,7 +23,7 @@ tags:
 
 ## Tips for Keeping Maintenance Costs Manageable
 
-First and foremost, keep up with routine maintenance. Simply taking care of your property and appliances with inspections and tune-ups can extend their lifespan by several years.
+First and foremost, keep up with [routine maintenance](/services/maintenance/). Simply taking care of your property and appliances with inspections and tune-ups can extend their lifespan by several years.
 
 Here are some other strategies to mitigate maintenance costs for commonly expensive items in a rental property:
 

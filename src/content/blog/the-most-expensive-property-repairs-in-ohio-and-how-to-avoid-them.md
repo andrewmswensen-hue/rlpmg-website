@@ -41,4 +41,4 @@ Mold can be dangerous for tenants, especially those who suffer from respiratory 
 
 These and other expenses in the maintenance and repairs category can limit your earning potential, but by being aware of them, you can plan ahead for the financial expenses you will incur and be in a better position to reduce your overall spending in these categories and increase the profitability of your investment.
 
-If you have questions about property management, the costs associated with maintaining units here in Franklin County, Ohio or what we can do for you, [get in touch](/contact-us/) with our team at RL Property Management today.
+If you have questions about property management, [the costs associated with maintaining units](/services/maintenance/) here in Franklin County, Ohio or what we can do for you, [get in touch](/contact-us/) with our team at RL Property Management today.

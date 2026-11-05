@@ -25,7 +25,7 @@ For example, it’s not unusual for investors to hire a property management comp
 
 In general, property management companies are responsible for all things having to do with individual units at a property and taking care of the tenants who live there.
 
-This includes things like collecting rent, taking care of maintenance issues, and advertising and leasing the unit. Property managers are tactical and handle the ongoing management of a given rental property.
+This includes things like [collecting rent](/services/rent-collection/), taking care of maintenance issues, and [advertising and leasing the unit](/services/marketing-and-leasing/). Property managers are tactical and handle the ongoing management of a given rental property.
 
 ## Asset Management 101
 

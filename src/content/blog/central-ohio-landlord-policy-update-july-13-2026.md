@@ -74,7 +74,7 @@ The two site-specific changes are worth noting even if you don’t own adjacent 
 
 Westerville’s July 7 council agenda included discussion of a supplement to Ordinance No. 2026-13. The city hasn’t published the specific text changes publicly yet, and no vote is scheduled.
 
-Westerville is one of the denser rental markets in Central Ohio, and supplements to standing ordinances like this one tend to land on the details that matter most to landlords day-to-day: occupancy limits, licensing renewal terms, or nuisance abatement procedures. A “supplement” is often a narrower fix than a full rewrite, but narrower doesn’t mean smaller in impact if it touches a permit or inspection requirement you rely on.
+[Westerville](/property-management-westerville-ohio/) is one of the denser rental markets in Central Ohio, and supplements to standing ordinances like this one tend to land on the details that matter most to landlords day-to-day: occupancy limits, licensing renewal terms, or nuisance abatement procedures. A “supplement” is often a narrower fix than a full rewrite, but narrower doesn’t mean smaller in impact if it touches a permit or inspection requirement you rely on.
 
 Westerville owners should request the specific language once it’s available rather than assume this is routine housekeeping. We’ll track this one and report back once the supplement’s contents are public.
 
@@ -112,4 +112,4 @@ Rewrites like this one tend to reorganize use categories rather than eliminate u
 
 ## Stay Ahead of the Curve
 
-Twelve items this week, and the pattern holds: the ones worth acting on now are the ones that already passed (Grove City, Fairfield, Sunbury), and the ones worth watching closely are still in the discussion stage (Franklin, Westerville, Powell). Check back next week for the next round, or reach out to RLPM if you want a second set of eyes on how any of these affect a specific property.
+Twelve items this week, and the pattern holds: the ones worth acting on now are the ones that already passed (Grove City, Fairfield, Sunbury), and the ones worth watching closely are still in the discussion stage (Franklin, Westerville, Powell). Check back next week for the next round, or [reach out to RLPM](/property-management-consultation/) if you want a second set of eyes on how any of these affect a specific property.

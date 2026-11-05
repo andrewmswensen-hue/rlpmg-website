@@ -20,7 +20,7 @@ tags:
 
 But for those who have some guts, gumption and yes, cash on hand, it can bring lucrative rewards.
 
-If you’re ready to give real estate investing a try or want to expand your existing portfolio, here are four key areas to focus on, and what you need to master with each if you want to go far.
+If you’re ready to give real estate investing a try or want to [expand your existing portfolio](/investors/), here are four key areas to focus on, and what you need to master with each if you want to go far.
 
 **Investing**
 

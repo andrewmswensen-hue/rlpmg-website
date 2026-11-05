@@ -23,7 +23,7 @@ Moreover, when it comes to a commercial real estate property’s market value, w
 - Increase your revenue, and/or
 - Decrease your expenses
 
-A good property management company can boost your investment property’s market value by improving a property’s NOI. Here are some ways [we’ve helped our clients improve their NOI](/blog/how-to-boost-your-investment-propertys-market-value/). In terms of controlling your operating costs, here are some other areas to focus on.
+[A good property management company](/services/) can boost your investment property’s market value by improving a property’s NOI. Here are some ways [we’ve helped our clients improve their NOI](/blog/how-to-boost-your-investment-propertys-market-value/). In terms of controlling your operating costs, here are some other areas to focus on.
 
 ## Where to Cut Costs (and Where Not to)
 

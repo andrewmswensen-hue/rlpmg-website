@@ -40,4 +40,4 @@ For property owners, despite the negative reputation, there is hope for finding 
 - **Ensure your [investment philosophy aligns with the PM company](/blog/our-property-management-philosophy/)**.
 - **Be sure to understand their full range of services**, Misunderstandings lead to tension.[Ask your PM these questions](/blog/what-to-ask-a-property-management-company-before-hiring-them/) and any others you have so you are clear about the services you will receive.
 
-At RL Property Management, we offer full-service property management services for single-family and multifamily investors. With us, your tenants can expect exceptional service and you, as owners, can expect a high level of return. To ask your questions, give us a call at 614-725-3059.
+At RL Property Management, we offer [full-service property management services](/services/) for single-family and multifamily investors. With us, your tenants can expect exceptional service and you, as owners, can expect a high level of return. To ask your questions, give us a call at 614-725-3059.

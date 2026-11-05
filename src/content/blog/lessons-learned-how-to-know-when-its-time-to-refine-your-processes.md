@@ -43,7 +43,7 @@ In this particular scenario, the property owner mailed us a check as requested. 
 
 Because many of our new clients have us managing just a single property for them but this owner had multiple, our standard process for onboarding needed to be slightly adjusted, and it wasn’t. This caused an error because our employee who received and applied the funds didn’t catch that this property owner had multiple properties with us and mistakenly applied all of those funds to just one of the properties.
 
-The result is that one property had too much money in its account, and the other properties didn’t have any money in their accounts. When the owner received their first monthly statement from our company, they raised a red flag.
+The result is that one property had too much money in its account, and the other properties didn’t have any money in their accounts. When the owner received their first [monthly statement](/services/owner-reporting/) from our company, they raised a red flag.
 
 ## Implementing a Fix
 

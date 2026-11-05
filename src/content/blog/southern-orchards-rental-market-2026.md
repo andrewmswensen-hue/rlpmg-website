@@ -182,7 +182,7 @@ Given the age of many Southern Orchards properties, **code compliance risk is hi
 
 ### Fair Housing Compliance
 
-Tenant screening must be:
+[Tenant screening](/services/tenant-screening/) must be:
 
 - Consistent
 - Documented
@@ -231,5 +231,7 @@ The strongest operators here:
 The biggest mistakes tend to be over-improving, overpricing, or underestimating vacancy risk during slower seasons.
 
 For investors looking to hold long-term, Southern Orchards can deliver stable performance, but only with disciplined operations and a clear understanding of renter expectations at this price point.
+
+If you own a rental in Southern Orchards, here is [how we manage property in Columbus](/property-management-columbus-ohio/).
 
 If you want to benchmark your property against current comps or evaluate lease timing and pricing strategy, a [free localized rent evaluation](/free-rent-evaluation/) can help you know what your property would rent for and identify gaps before they impact occupancy or returns.

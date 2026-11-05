@@ -39,7 +39,7 @@ A common example is a garbage disposal. If the garbage disposal stops working, w
 
 ## Will Property Management Companies Handle Maintenance and Repairs?
 
-Handling maintenance and repairs can be one of the most time-consuming parts of property ownership. Not only is there the actual work of fixing the unit itself, there is also the logistics of contracting the maintenance person and coordinating schedules with the resident and other affected individuals.
+[Handling maintenance and repairs](/services/maintenance/) can be one of the most time-consuming parts of property ownership. Not only is there the actual work of fixing the unit itself, there is also the logistics of contracting the maintenance person and coordinating schedules with the resident and other affected individuals.
 
 [Hiring a property management company](/blog/does-a-property-management-company-handle-maintenance-and-repairs/) is one way to relieve much of the burden related to repairs and maintenance. When interviewing potential PM companies, you’ll want to ask if they have an in-house maintenance team. This means the company has direct employees who are able to go out and deal with maintenance requests as they happen. The advantage to this approach is efficiency and typically better value as the employees are familiar with the property and can batch tasks at nearby properties.
 

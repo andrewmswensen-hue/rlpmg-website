@@ -35,7 +35,7 @@ The more quickly you can buzz through these two steps, the better your occupancy
 
 ## Timeline for a rental unit turn-around
 
-Within a day or two of a tenant vacating a property, we at RL Property Management go to the unit to conduct a move-out inspection. We take detailed photos of the property inside and out for the purpose of assessing the security deposit, as well as documenting what needs to be done to the property to get it ready to re-rent.
+Within a day or two of a tenant vacating a property, we at RL Property Management go to the unit to [conduct a move-out inspection](/services/inspections/). We take detailed photos of the property inside and out for the purpose of assessing the security deposit, as well as documenting what needs to be done to the property to get it ready to re-rent.
 
 Once we receive owner approval to begin the turnover process, we get our team onsite cleaning up the property, painting, replacing the carpet, making any maintenance repairs, etc.
 
@@ -43,7 +43,7 @@ We find that most turns are able to be completed by our team, assuming no major 
 
 ## The unit is rent-ready. Now what?
 
-The next step is to immediately list the property for rent (for strategies on where to list, be sure to read this post ). In terms of leasing time, this can vary quite a bit depending on what type of property it is, where it’s located, what time of year it is, and how much you’re asking for in rent. The more desirable the property and the more competitive the price, the faster it will lease.
+The next step is to [immediately list the property for rent](/services/marketing-and-leasing/) (for strategies on where to list, be sure to read this post ). In terms of leasing time, this can vary quite a bit depending on what type of property it is, where it’s located, what time of year it is, and how much you’re asking for in rent. The more desirable the property and the more competitive the price, the faster it will lease.
 
 In terms of overall averages, our average leasing time is a little bit under three weeks. We are seeing single-family homes in nicer suburban areas leasing within one-to-two weeks. Larger apartment communities aren’t in as high of demand as they used to be, so they might take a bit longer, maybe three-to-four weeks depending on the time of year and how aggressive you want to be with the rent price.
 

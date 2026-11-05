@@ -34,4 +34,4 @@ Conversely, if you chose to offer rental units without appliances for one reason
 
 In Columbus, ownership of property can be easy to overlook in a lease agreement and most standard lease templates don’t have a space for this by default; however, it is really important to protect yourself as a property owner by clearly spelling out who owns what in your lease. For other important lease terms to include in your agreements, be sure to also [read this blog post.](/blog/5-important-lease-terms-you-cant-afford-to-overlook/)
 
-If you have questions about lease agreements or general questions about property management in Ohio, don’t hesitate to [get in touch](/contact-us/) with us at RL Property Management Group. Our team has decades of experience and is ready to help you improve your rental experience.
+If you have questions about [lease agreements](/services/compliance/) or general questions about property management in Ohio, don’t hesitate to [get in touch](/contact-us/) with us at RL Property Management Group. Our team has decades of experience and is ready to help you improve your rental experience.

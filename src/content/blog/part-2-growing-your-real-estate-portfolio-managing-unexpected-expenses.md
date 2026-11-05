@@ -36,6 +36,6 @@ For example, let’s say the component in question is your HVAC unit. You get a 
 
 Then, look into what preventative maintenance you can do to extend the item’s lifespan. Perhaps biannual tune-ups could add 5 years to the unit’s lifespan. The replacement value would then be $12,464, or $830 a year. As long as those tune-ups cost less than $245 a year, you would be coming out ahead.
 
-Once you do this for every component in your property, it is realistic to expect you to save 10-15% on your annual unexpected expenses (and if you don’t want to handle this, consider hiring a property management company to do it for you).
+Once you do this for every component in your property, it is realistic to expect you to save 10-15% on your annual unexpected expenses (and if you don’t want to handle this, consider [hiring a property management company](/services/) to do it for you).
 
 That’s where we come in. To learn more about all the ways we can help you be successful with your Franklin County property investment, [reach out to us today](/contact-us/) at 614-725-3059.

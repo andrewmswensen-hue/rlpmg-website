@@ -21,7 +21,7 @@ tags:
 
 ![Empty wallet with a calculator to demonstrate a tenant missing a payment](https://rlpmg.com/wp-content/uploads/2024/10/AdobeStock_284962781-300x200.jpeg)
 
-When tenants miss payments, it can disrupt your cash flow and create stress for landlords. Whether due to financial difficulties, forgetfulness, or misunderstandings, missed payments can escalate into ongoing issues, legal trouble, or even eviction if not addressed promptly. Having a clear plan to handle missed payments calmly and efficiently is essential. This guide will outline the steps landlords should take to protect their rental income and maintain good tenant relationships. For added support, property management companies offer systems to manage rent collection, send payment reminders, and resolve issues, helping landlords avoid these headaches and keep operations running smoothly.
+When tenants miss payments, it can disrupt your cash flow and create stress for landlords. Whether due to financial difficulties, forgetfulness, or misunderstandings, missed payments can escalate into ongoing issues, legal trouble, or even eviction if not addressed promptly. Having a clear plan to handle missed payments calmly and efficiently is essential. This guide will outline the steps landlords should take to protect their rental income and maintain good tenant relationships. For added support, property management companies offer systems to manage [rent collection](/services/rent-collection/), send payment reminders, and resolve issues, helping landlords avoid these headaches and keep operations running smoothly.
 
 ## First Steps When Rent is Late: How to Respond the Day After Rent is Due
 
@@ -47,7 +47,7 @@ If the tenant isn’t able to pay and shows no signs of improvement, you may nee
 
 According to [**this expert advice article on LinkedIn**](https://www.linkedin.com/advice/3/what-do-you-tenants-consistently-fail-pay-rent-rdtfe), handling consistently late payments requires a strategic, step-by-step approach. The article suggests setting clear expectations upfront and maintaining an open dialogue with tenants to understand their situation. Implementing a reminder system can keep rent deadlines top of mind. However, if these softer approaches fail, enforcing policies through formal notices and taking legal action may become necessary.
 
-Property management companies can handle all these steps, including creating payment plans, issuing formal notices, and starting the eviction process if needed. They make sure everything is done legally and in a way that protects you as the landlord.
+Property management companies can handle all these steps, including creating payment plans, issuing formal notices, and [starting the eviction process if needed](/services/evictions/). They make sure everything is done legally and in a way that protects you as the landlord.
 
 ## When Proactivity Isn’t Enough: Enforcing Payment Terms and Handling Issues
 

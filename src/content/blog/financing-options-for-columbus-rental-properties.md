@@ -279,7 +279,7 @@ Financing doesn’t exist in a vacuum. Lenders look closely at how a property is
 
 RLPM’s operational systems help create the consistency lenders want to see.
 
-- **Routine inspections**, including **pre-move-out inspections** and **biweekly vacant-unit inspections**, document property condition clearly.
+- **[Routine inspections](/services/inspections/)**, including **pre-move-out inspections** and **biweekly vacant-unit inspections**, document property condition clearly.
 - **Professional turn scopes** outline repairs and improvements with cost clarity, reinforcing a strong maintenance history.
 - The **owner portal** provides instant access to financial statements, invoices, rent rolls, and lease documents, critical items lenders request during underwriting.
 - When investors pursue a refinance or acquisition, RLPM can quickly provide occupancy history, maintenance logs, and property-level financials, helping speed up approval.
@@ -290,7 +290,7 @@ Strong property management doesn’t just protect your investment day to day; it
 
 If you’re preparing to purchase your next rental or thinking about refinancing an existing one, a clear financing plan can make all the difference. A quick consultation can help you understand your options, compare loan types, and choose the structure that supports your long-term goals in the Columbus market.
 
-Investors also see stronger financing outcomes when their properties are well-maintained, rent-ready, and backed by clear documentation. Partnering with a management team that minimizes vacancy, protects condition, and provides organized financial reporting keeps your properties lender-ready year-round.
+Investors also see stronger financing outcomes when their properties are well-maintained, rent-ready, and backed by clear documentation. Partnering with a management team that minimizes vacancy, protects condition, and provides [organized financial reporting](/services/owner-reporting/) keeps your properties lender-ready year-round.
 
 If you’re evaluating a potential acquisition, you can also request a [**free rent analysis**](/free-rent-evaluation/) to understand pricing, demand, and expected performance before you commit.
 

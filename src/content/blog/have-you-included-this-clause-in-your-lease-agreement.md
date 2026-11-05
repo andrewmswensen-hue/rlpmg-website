@@ -35,7 +35,7 @@ First, you shouldn’t even accept a partial payment. But second, your lease sho
 
 For example, say your tenant owes $1000 in rent and $200 in utilities. They submit a $1000 payment, which they may interpret as a “full” rent payment. In the tenant’s mind, they may be thinking they’ve paid the full rent amount, and they’ll just catch up with the extra utility bill next month.
 
-Again, in this situation, we recommend that you don’t accept the partial payment. Why? Because you wouldn’t be able to start the eviction process if you accept even a partial payment. By accepting that incomplete rent payment, you’ve essentially demonstrated that you’re ok with the partial amount. In Ohio, this is how judges have traditionally interpreted it.
+Again, in this situation, we recommend that you don’t accept the partial payment. Why? Because you wouldn’t be able to start the [eviction process](/services/evictions/) if you accept even a partial payment. By accepting that incomplete rent payment, you’ve essentially demonstrated that you’re ok with the partial amount. In Ohio, this is how judges have traditionally interpreted it.
 
 ## Be Clear in Your Lease
 

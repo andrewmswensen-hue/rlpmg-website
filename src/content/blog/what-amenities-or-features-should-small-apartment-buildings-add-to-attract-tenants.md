@@ -17,7 +17,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2023/03/pexels-quenani-leal-721480-300x199.jpg)Just because you’re small doesn’t mean you can’t be mighty. There are many apartment amenities that even small apartment buildings can add or enhance to attract new residents. Here’s a run-down of a few popular features to include if you’re looking to draw in more tenant interest.
 
-- **Enhance technology features**, Ensuring you have robust WiFi connections is important, as is boosting other tech features where feasible. And of course, accepting online rent payments is a must.
+- **Enhance technology features**, Ensuring you have robust WiFi connections is important, as is boosting other tech features where feasible. And of course, [accepting online rent payments](/services/rent-collection/) is a must.
 - **Add package lockers**, Streamline package delivery to your tenants with a smart locker system for your apartment building.
 - **Make it pet-friendly**, If there’s one easy thing you can do to attract a broader range of tenants, it’s accept pets. Just make sure you have your [pet policy clearly spelled out in your lease agreement.](/blog/yay-or-nay-to-pets-what-to-include-in-your-lease-agreement/)
 - **Upgrade security features**, Offer tenants peace of mind with enhanced security measures in and around your building, including your parking area.

@@ -218,8 +218,8 @@ Property type isn’t just a checkbox; it’s a **core investment decision** tha
 
 That’s where having the **right local partner** makes all the difference.
 
-At RL Property Management, we help Columbus-area investors **identify the rental property types** that best align with their financial goals and then **take over the day-to-day management** to keep everything running smoothly.
+At RL Property Management, we help [Columbus-area investors](/investors/) **identify the rental property types** that best align with their financial goals and then **take over the day-to-day management** to keep everything running smoothly.
 
 From tenant placement and maintenance to compliance and inspections, we’re here to make owning rental property **profitable, predictable, and hands-off**.
 
-**Schedule a consultation with RLPM today** and start investing with clarity, confidence, and Columbus market expertise.
+**[Schedule a consultation with RLPM today](/property-management-consultation/)** and start investing with clarity, confidence, and Columbus market expertise.

@@ -46,4 +46,4 @@ If you hire a property management company to help with your rental units, they s
 
 One final thing to note is that tenant complaints, though at times frustrating, can provide useful insight into the management and operation of both the property itself and the management company’s performance. If you notice any trends in tenant complaints, it could be your cue to implement a broader change.
 
-If you have questions about property management here in Franklin County, Ohio, call our team at 614-725-3059.
+If you have questions about [property management here in Franklin County, Ohio](/columbus-property-management/), call our team at 614-725-3059.

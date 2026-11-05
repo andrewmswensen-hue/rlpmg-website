@@ -27,7 +27,7 @@ An investment philosophy is a set of guiding principles that informs your approa
 
 ## Elements of an Investment Philosophy
 
-Your investment philosophy may evolve as you become a more experienced investor, but regardless of its evolution, knowing fundamentally what you wish to achieve with your properties and how you plan to do it can help you realize success more quickly. Moreover, a well-defined philosophy will ensure that you invest in properties that match your priorities as well as develop partnerships with others whose philosophies align with yours. For example, if you hire a property management company, you’ll want to hire one whose services and philosophy are compatible with your own.
+Your investment philosophy may evolve as you become a more experienced investor, but regardless of its evolution, knowing fundamentally what you wish to achieve with your properties and how you plan to do it can help you realize success more quickly. Moreover, a well-defined philosophy will ensure that you invest in properties that match your priorities as well as develop partnerships with others whose philosophies align with yours. For example, if you [hire a property management company](/services/), you’ll want to hire one whose services and philosophy are compatible with your own.
 
 Here are some key elements to consider when defining your investment philosophy.
 
@@ -38,4 +38,4 @@ Here are some key elements to consider when defining your investment philosophy.
 
 These are just a few areas to consider as you shape your investment philosophy. When doing so, it also helps to talk with other experienced investors who can share their wisdom and lessons learned. We’ve all made mistakes. Learning from others can help you make fewer of them.
 
-As you evaluate your options for growing your real estate portfolio in Franklin County, Ohio, come talk to us at RL Property Management. In addition to managing properties for our clients, we also own property ourselves and are always willing to share our experiences to help others succeed. [Contact us](/contact-us) to learn more.
+As you evaluate your options for [growing your real estate portfolio in Franklin County, Ohio](/investors/), come talk to us at RL Property Management. In addition to managing properties for our clients, we also own property ourselves and are always willing to share our experiences to help others succeed. [Contact us](/contact-us) to learn more.

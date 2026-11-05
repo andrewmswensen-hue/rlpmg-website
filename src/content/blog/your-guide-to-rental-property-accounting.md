@@ -21,7 +21,7 @@ tags:
 
 Not only does it enable you to take advantage of tax benefits offered by the IRS, but it also ensures you are making strategic, data-informed decisions about your investment properties.
 
-As a property management company, we maintain detailed accounting records for all our clients and provide monthly statements and annual reports for their review and tax use. We monitor accounting data regularly and find it particularly insightful for:
+As a property management company, we maintain detailed accounting records for all our clients and provide [monthly statements and annual reports](/services/owner-reporting/) for their review and tax use. We monitor accounting data regularly and find it particularly insightful for:
 
 - Comparing profitability and performance among properties
 - Evaluating revenue streams and expenses

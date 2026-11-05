@@ -54,4 +54,4 @@ At RL Property Management Group, we prioritize taking proactive steps in order t
 
 In general, our lease agreements try to make many maintenance issues the tenant’s responsibility so long as we can legally do so while still being a good landlord. This allows us to protect the property owner and prevent them from incurring unnecessary expenses.
 
-If you have questions about property maintenance or who should be responsible for what with your rental unit, give us a call at 614-725-3059.
+If you have questions about [property maintenance](/services/maintenance/) or who should be responsible for what with your rental unit, give us a call at 614-725-3059.

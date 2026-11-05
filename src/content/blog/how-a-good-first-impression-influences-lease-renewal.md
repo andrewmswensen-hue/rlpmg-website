@@ -20,7 +20,7 @@ tags:
   - "tenant fees"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2024/09/How-a-Good-First-Impression-Influences-Lease-Renewal-300x169-1.jpg)You already know that first impressions matter, but did you know that they matter enough to influence lease renewal? While surprising to some, studies suggest that most residents have already made up their minds about renewal within the first few weeks of moving into a property. So, what does that mean for property managers and landlords looking to keep vacancy rates low? Simple. Do everything you can early (and often) to create a positive first impression that will set the tone for the entire tenancy.
+![](https://rlpmg.com/wp-content/uploads/2024/09/How-a-Good-First-Impression-Influences-Lease-Renewal-300x169-1.jpg)You already know that first impressions matter, but did you know that they matter enough to influence [lease renewal](/services/marketing-and-leasing/)? While surprising to some, studies suggest that most residents have already made up their minds about renewal within the first few weeks of moving into a property. So, what does that mean for property managers and landlords looking to keep vacancy rates low? Simple. Do everything you can early (and often) to create a positive first impression that will set the tone for the entire tenancy.
 
 ## Putting Your Best Foot Forward
 

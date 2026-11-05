@@ -31,7 +31,7 @@ We advise clients to consider six months as just a starting point when calculati
 
 - **A property’s annual capital improvement needs**: You can’t anticipate every expense you will encounter with a rental property, but you can make informed estimates about many components in your rental units. You do this by completing a capital spending study. Start by determining the age of all components in the property, estimate their remaining useful lifespan, and estimate their cost of replacement. Lastly, break down these costs per year. This helps you understand roughly how much you should set aside each year for capital expenditures.
 - **The number of units you own**: If you own multiple units, you may not need to save 6 months of rent per unit, as it’s unlikely that all your units will encounter major expenses at the same time.
-- **Your turnover rate**: If you have a high turnover rate, consider increasing your reserves. Our experience is that turnovers generally cost anywhere from 1 to 4 months of rent just for repairs and improvements. This is on top of mortgages and other recurring expenses that still need to be paid.
+- **Your turnover rate**: If you have a high turnover rate, consider increasing your reserves. Our experience is that [turnovers](/services/maintenance/) generally cost anywhere from 1 to 4 months of rent just for repairs and improvements. This is on top of mortgages and other recurring expenses that still need to be paid.
 
 As you consider how much money you need to set aside in a reserve fund for your properties, keep in mind that more is always better. At least 6 months of rent per unit is a starting point, but you should consider your specific units and needs when making your calculations.
 

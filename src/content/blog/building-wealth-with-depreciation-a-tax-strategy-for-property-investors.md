@@ -45,4 +45,4 @@ The ways in which depreciation helps build wealth lies in the tax benefits. Here
 
 The combination of reduced tax liability, increased cash flow, and potential tax deferral can help you accumulate wealth faster. And with more money to invest and compound over time, you may be able to realize significant gains. Before pursuing any tax strategy, it’s advisable to consult an accountant who can ensure you’re staying up-to-date with current tax laws.
 
-To learn more about [investing in Columbus](/blog/is-it-time-to-grow-your-real-estate-portfolio-in-columbus/), get in touch with our team at RL Property Management. We’ve been managing properties throughout Franklin County for years, and we’d love to help you achieve success with your investment. [Contact us](/contact-us/) to learn more.
+To learn more about [investing in Columbus](/blog/is-it-time-to-grow-your-real-estate-portfolio-in-columbus/), get in touch with our team at RL Property Management. We’ve been [managing properties throughout Franklin County](/columbus-property-management/) for years, and we’d love to help you achieve success with your investment. [Contact us](/contact-us/) to learn more.

@@ -33,4 +33,6 @@ When you’re not actively calculating costs for a specific property, shore up y
 
 As you identify investment goals and look for your next opportunities, keep these skills in mind and take time to learn what you can to improve them.
 
+Investors with growing portfolios can see [how we manage rentals for investors](/investors/).
+
 If you are interested in real estate investment or have questions about the market in Columbus, Ohio, [get in touch](/contact-us/) with us at RL Property Management.

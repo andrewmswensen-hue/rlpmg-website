@@ -31,7 +31,7 @@ If you notice that an applicant is waiting until the last minute to move in to a
 
 ## Follow Your Checklist (& Trust Your Gut)
 
-When you have an eager tenant, it’s important that you follow all of your normal processes and procedures. Just because they are ready to go does not mean you should make exceptions to your tenant screening and application processes. After all, [securing the best tenants for your rental property](/blog/find-best-tenant-rental-property/) is essential to your success as a property owner and does more to boost your property’s value than rushing into a bad situation.
+When you have an eager tenant, it’s important that you follow all of your normal processes and procedures. Just because they are ready to go does not mean you should make exceptions to your [tenant screening and application processes](/services/tenant-screening/). After all, [securing the best tenants for your rental property](/blog/find-best-tenant-rental-property/) is essential to your success as a property owner and does more to boost your property’s value than rushing into a bad situation.
 
 ## Set Clear Expectations With Prospective Tenants
 

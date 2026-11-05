@@ -39,9 +39,9 @@ Though not a substitute for a comprehensive financial analysis, the 1% rule can 
 
 - **Repair costs**, Repairs, upgrades and turnover costs should all be accounted for when running your 1% rule calculation. This is especially true when investing in multi-family properties with value-add opportunities.
 
-- **Investment costs**, Also keep in mind that the 1% rule does not consider expenses like property taxes, insurance, maintenance or property management fees.
+- **Investment costs**, Also keep in mind that the 1% rule does not consider expenses like property taxes, insurance, maintenance or [property management fees](/pricing/).
 - **Local market conditions**, Market conditions are a prime determinant of rental rates. In high-demand markets, it might be challenging to find properties that meet the 1% rule.
 
-When considering multi-family properties in Franklin County, Ohio, the 1% rule offers a helpful rule of thumb for determining what you’ll need to earn in monthly rental income, but it is not the only factor to consider when pursuing an investment strategy. There are numerous ways to [assess the value](/blog/assessing-the-value-of-multi-family-properties-in-columbus/) and growth potential of multi-family properties in Columbus.
+When considering [multi-family properties in Franklin County, Ohio](/investors/), the 1% rule offers a helpful rule of thumb for determining what you’ll need to earn in monthly rental income, but it is not the only factor to consider when pursuing an investment strategy. There are numerous ways to [assess the value](/blog/assessing-the-value-of-multi-family-properties-in-columbus/) and growth potential of multi-family properties in Columbus.
 
 To gain the clearest picture of what to expect when investing in real estate, [come talk to us](/contact-us/) at RL Property Management. Our team manages more than 700 units in the greater Franklin County area. We have the expertise, professionalism, and [personal investing experience in the local market](/blog/interview-with-a-property-manager-part-1-qa-with-peter-lohmann-co-founder-and-ceo-of-rl-property-management/) to help you get the most out of your strategic investment.

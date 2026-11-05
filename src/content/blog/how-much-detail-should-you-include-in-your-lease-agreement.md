@@ -16,7 +16,7 @@ tags:
   - "property management"
 ---
 
-![](https://rlpmg.com/wp-content/uploads/2022/07/romain-dancre-doplSDELX7E-unsplash-300x225.jpg)Arguably one of the most important protections you can put in place for both yourself as a landlord and for your tenants is a lease agreement. A well-written lease agreement holds both parties accountable for what’s been agreed upon in the lease terms, helps prevent disputes, and ensures compliance with the law.
+![](https://rlpmg.com/wp-content/uploads/2022/07/romain-dancre-doplSDELX7E-unsplash-300x225.jpg)Arguably one of the most important protections you can put in place for both yourself as a landlord and for your tenants is a lease agreement. A well-written lease agreement holds both parties accountable for what’s been agreed upon in the lease terms, helps prevent disputes, and [ensures compliance with the law](/services/compliance/).
 
 The more details you include in your lease agreement, the fewer questions your tenants will have and the quicker you’ll be able to resolve issues if, and when, they do arise. Because, like all contracts, lease agreements don’t really become useful and important until there is a problem.
 

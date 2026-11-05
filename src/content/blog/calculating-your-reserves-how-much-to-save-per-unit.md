@@ -33,4 +33,4 @@ A typical rule of thumb when creating a basis for your reserves is to hold at le
 
 Making major investments in your rental units can sting, but it’s important to remember that these are long-term investments that will serve you and your tenants well for years to come. As you consider how much money you need to set aside in a reserve fund for your properties, keep in mind that more is always better. At least 6 months of rent per unit is a starting point, but you should consider your specific units and needs when making your calculations.
 
-To learn more about property investing in Franklin County and how a property management company like ours can help you be successful with your investment, [contact us](/contact-us/) at RL Property Management.
+To learn more about property investing in Franklin County and how a [property management company like ours](/services/) can help you be successful with your investment, [contact us](/contact-us/) at RL Property Management.

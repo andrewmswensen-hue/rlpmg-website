@@ -42,4 +42,4 @@ Things are going really well. I can honestly say those real estate investments I
 
 Real estate investing is about taking the long view. When you focus on long-term appreciation, maintaining the property’s condition, and keeping it rented, things will work in your favor. While the week-to-week, month-to-month, and year-to-year expenses are going to fluctuate, your principal pay-down and appreciation really start to snowball, and the longer you hold the property, the greater your returns.
 
-If you’re looking to grow your real estate portfolio in Columbus, turn to the team at RL Property Management for help. [Contact us today](/contact-us/) to learn more about our services.
+If you’re looking to [grow your real estate portfolio in Columbus](/investors/), turn to the team at RL Property Management for help. [Contact us today](/contact-us/) to learn more about our services.

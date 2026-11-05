@@ -42,4 +42,4 @@ In addition to the lease, it’s also important to be clear about utility respon
 
 ## Turn To Us for Help
 
-We get that there is a lot to think about with utilities, and it can be an afterthought for many property owners. As a property management company in Franklin County, one of our jobs is to take care of all these little details for you. If you have questions about your lease agreements or any other aspect of managing rental properties, [get in touch](/contact-us/) with our team at RL Property Management.
+We get that there is a lot to think about with utilities, and it can be an afterthought for many property owners. As a [property management company in Franklin County](/columbus-property-management/), one of our jobs is to take care of all these little details for you. If you have questions about your lease agreements or any other aspect of managing rental properties, [get in touch](/contact-us/) with our team at RL Property Management.

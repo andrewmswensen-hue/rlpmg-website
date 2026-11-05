@@ -22,7 +22,7 @@ tags:
 
 ## Hit the Hot Spots
 
-For many single-family and multi-family properties, extra digital marketing efforts are not going to have much of an impact on vacancy. For the most part, when you’re marketing a vacancy for smaller properties, the only thing you need to do from a marketing perspective is make sure the rental listing is showing up on the right real estate listing websites like Zillow, Trulia and HotPads.
+For many single-family and multi-family properties, extra digital marketing efforts are not going to have much of an impact on vacancy. For the most part, when you’re [marketing a vacancy](/services/marketing-and-leasing/) for smaller properties, the only thing you need to do from a marketing perspective is make sure the rental listing is showing up on the right real estate listing websites like Zillow, Trulia and HotPads.
 
 Property management companies like ours rely on property management software to automatically push our listings out to these and about 20 or so other rental listing websites. You can also sign up for a paid account so your properties achieve prominence on the site.
 

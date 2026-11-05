@@ -56,6 +56,6 @@ On the flip side, investing in smaller rental units comes with risk. One is that
 - You may encounter utility submetering headaches.
 - You will face expenses that come with maintaining the common areas; keeping up with landscaping and snow removal; and ensuring elevators, sprinklers, secured access and commercial HVAC systems are functioning safely. Maintenance is far and away the most [expensive category of spending for property owners](/blog/the-most-expensive-part-of-owning-multi-family-real-estate-in-columbus/).
 
-Investing in small multifamily properties can be a good way to grow your real estate portfolio, and we believe the advantages outweigh the disadvantages in many instances.[In Part 2 of this blog series](/blog/economics-of-owning-managing-small-multifamily-units-part-2/), we’ll discuss the advantages and disadvantages of managing small multifamily units.
+Investing in small multifamily properties can be a good way to [grow your real estate portfolio](/investors/), and we believe the advantages outweigh the disadvantages in many instances.[In Part 2 of this blog series](/blog/economics-of-owning-managing-small-multifamily-units-part-2/), we’ll discuss the advantages and disadvantages of managing small multifamily units.
 
 To learn more about the multifamily real estate market in Columbus or to ask your questions about property management, [contact us](/contact-us/)at RL Property Management today.

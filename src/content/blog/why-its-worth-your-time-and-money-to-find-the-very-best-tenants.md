@@ -35,4 +35,4 @@ Yet finding good tenants takes time and effort. It’s rare for a good tenant to
 
 As we at RL Property Management evaluate potential applicants, we do so by following a [double-blind process](/blog/what-double-blind-tenant-applications-should-look-like/) to ensure compliance, fairness and consistency with each and every application we receive.
 
-If you have questions about tenant screening or any other questions about property management in Central Ohio, we’re here to help. [Contact us today](/contact-us/)to learn more.
+If you have questions about [tenant screening](/services/tenant-screening/) or any other questions about property management in Central Ohio, we’re here to help. [Contact us today](/contact-us/)to learn more.

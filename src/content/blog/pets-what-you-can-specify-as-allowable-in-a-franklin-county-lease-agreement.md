@@ -42,6 +42,6 @@ Before settling on your pet policy, you’ll also want to check with your insura
 
 Once you’re clear on that and you’re comfortable with the pets your residents are bringing, make sure it is in the lease. Simply putting “dogs allowed” is too vague. Be explicit in each tenant’s specific lease agreement and say something like, “one medium-sized dog (you can even include the dog’s name) is permitted to live at the property.” That way if the tenant were to get another dog, it’s not automatically permitted per the signed lease agreement.
 
-Whatever you decide for your pet policy, make sure it’s explicitly spelled out in the lease terms. These and other decisions, such as charging pet rent versus a pet deposit, are important things that you as a property owner in Ohio will have to consider. We can help you wade through everything you need to know about owning real estate in Franklin County.
+Whatever you decide for your pet policy, make sure it’s explicitly spelled out in the [lease terms](/services/compliance/). These and other decisions, such as charging pet rent versus a pet deposit, are important things that you as a property owner in Ohio will have to consider. We can help you wade through everything you need to know about owning real estate in Franklin County.
 
 [Contact us today](/contact-us/) at RL Property Management to learn more about investing in Ohio real estate.

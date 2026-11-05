@@ -21,7 +21,7 @@ tags:
 
 Screening and securing quality tenants, however, takes time and effort. It also must be done[in compliance](/blog/the-tricky-business-of-screening-tenants/)with state and federal fair housing regulations.
 
-At RL Property Management, we’ve developed a set of rental screening criteria that we believe objectively and fairly evaluates potential tenants.
+At RL Property Management, we’ve developed a set of [rental screening criteria](/services/tenant-screening/) that we believe objectively and fairly evaluates potential tenants.
 
 ## How to Objectively Screen Rental Applications
 

@@ -26,7 +26,7 @@ At this point, most real estate investors turn to a property management company 
 
 Each property management company is going to have its own slight variation on the services it provides, but in general, property managers are responsible for all things having to do with individual units at a property and taking care of the tenants who live there. Property managers are tactical.
 
-This includes things like collecting rent, taking care of maintenance issues, and advertising and leasing the unit. For more about what services a property management company provides, [read this post.](/blog/what-services-does-a-property-manager-provide/)
+This includes things like [collecting rent](/services/rent-collection/), taking care of maintenance issues, and [advertising and leasing the unit](/services/marketing-and-leasing/). For more about what services a property management company provides, [read this post.](/blog/what-services-does-a-property-manager-provide/)
 
 Asset management, on the other hand, is a strategic function. It also involves developing the financing strategy of a real estate investment and branding the given property.
 

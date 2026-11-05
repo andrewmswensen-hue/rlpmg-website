@@ -32,11 +32,11 @@ Asset management companies [serve in a strategic capacity](/blog/blurring-the-li
 
 [A leasing agent](/blog/what-services-does-a-property-manager-provide/) is someone whose job is purely to show properties that are available for rent and to receive applications. They might also process the applications and make approval decisions on them, but once the leasing agent has filled the unit, their job is essentially done.
 
-Lastly, property management companies offer tactical services. This includes things like collecting rent, taking care of maintenance issues, and advertising and leasing the unit. This is more than what a leasing agent does but also [different from the role of an asset manager.](/blog/the-difference-between-asset-management-and-property-management/)
+Lastly, property management companies offer tactical services. This includes things like collecting rent, taking care of maintenance issues, and [advertising and leasing the unit](/services/marketing-and-leasing/). This is more than what a leasing agent does but also [different from the role of an asset manager.](/blog/the-difference-between-asset-management-and-property-management/)
 
 While leasing, rent collection and maintenance are the three major categories a property manager handles for you, there are a lot of other things you may not realize a property manager is responsible for.
 
-To see a full list of those items, it’s important to review the property management agreement (or PMA for short). Examples include things like accounting. The property manager will track all the money as it flows between the resident, owner and property manager, as well as for third-party work orders and to other vendors. It’s important that the rent, security deposit and all financial transactions are carefully tracked and accounted for, and your property management company will take care of this for you. You’ll also receive a monthly statement and annual report for your review and tax use.
+To see a full list of those items, it’s important to review the property management agreement (or PMA for short). Examples include things like accounting. The property manager will track all the money as it flows between the resident, owner and property manager, as well as for third-party work orders and to other vendors. It’s important that the rent, security deposit and all financial transactions are carefully tracked and accounted for, and your property management company will take care of this for you. You’ll also receive a [monthly statement and annual report](/services/owner-reporting/) for your review and tax use.
 
 ## Evaluating Your Needs
 

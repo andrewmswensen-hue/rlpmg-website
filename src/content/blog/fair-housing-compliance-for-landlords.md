@@ -77,7 +77,7 @@ Legal expertise allows landlords to address potential compliance issues before t
 
 ## Streamlined Operations
 
-Consistency is key to compliance, and that’s where legal expertise shines. From crafting legally sound advertisements to standardizing your tenant screening process, professionals ensure your operations are aligned with the law. This reduces the chances of human error, which is often where compliance issues arise.
+Consistency is key to compliance, and that’s where legal expertise shines. From crafting legally sound advertisements to standardizing your [tenant screening process](/services/tenant-screening/), professionals ensure your operations are aligned with the law. This reduces the chances of human error, which is often where compliance issues arise.
 
 ## Customized Guidance for Unique Situations
 
@@ -107,7 +107,7 @@ Compliance issues often arise from inconsistencies in policies or a lack of awar
 
 ## RL Property Management’s Edge
 
-At RL Property Management, we take compliance seriously because we know how critical it is to your success. With a deep understanding of Columbus-specific regulations, we ensure your properties are managed to the highest legal and ethical standards. From carefully crafted lease agreements to proactive risk management, we help landlords navigate complex regulations while focusing on their investments’ long-term potential.
+At RL Property Management, we take compliance seriously because we know how critical it is to your success. With [a deep understanding of Columbus-specific regulations](/services/compliance/), we ensure your properties are managed to the highest legal and ethical standards. From carefully crafted lease agreements to proactive risk management, we help landlords navigate complex regulations while focusing on their investments’ long-term potential.
 
 While compliance can feel overwhelming, especially for landlords managing properties on their own, professional property management provides a layer of protection and peace of mind. By partnering with a team that prioritizes expertise and ethical practices, you’re not just avoiding risks, you’re building a stronger, more sustainable rental business.
 

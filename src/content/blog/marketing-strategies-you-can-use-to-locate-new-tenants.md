@@ -42,4 +42,4 @@ To fill tenant vacancies you have to go where your customers are, and increasing
 
 If you use a landlord or property management software, most of them will automatically push out your listings to sites like Zillow, Trulia, apartments.com, and about 20 or so other rental listing websites.
 
-For questions about filling rental vacancies and screening tenants, give us a call at 614-725-3059.
+For questions about [filling rental vacancies](/services/marketing-and-leasing/) and [screening tenants](/services/tenant-screening/), give us a call at 614-725-3059.

@@ -19,7 +19,7 @@ tags:
 
 ![](https://rlpmg.com/wp-content/uploads/2022/04/mike-beaumont-XrQOiKEMCbM-unsplash-300x200.jpg)Single-family rental units fill numerous gaps in the Columbus housing market. Not only do they serve low-income families, they also meet the needs of residents who aren’t ready, can’t find, or can’t afford home ownership at this stage of their lives. Moreover, the appeal of a single-family home versus living in a large multi-unit apartment or other form of public housing can’t even be quantified for many residents.
 
-Property investors looking to expand their portfolio to include scattered-site single-family rental properties should be aware of numerous important factors. Here are a few key things to keep in mind as you plan your investment strategy:
+[Property investors looking to expand their portfolio](/investors/) to include scattered-site single-family rental properties should be aware of numerous important factors. Here are a few key things to keep in mind as you plan your investment strategy:
 
 - **Define Your Development Budget**
 

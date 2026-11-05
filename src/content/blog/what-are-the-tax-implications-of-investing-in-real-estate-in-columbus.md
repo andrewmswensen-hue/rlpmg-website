@@ -29,3 +29,5 @@ Below we’ll discuss several tax implications and benefits of investing in real
 - **Self-Employment FICA tax**, The money self-employed rental property owners receive isn’t classified as earned income per the Federal Insurance Contributions Act (FICA), which means they are not responsible for the 15.3 percent they would otherwise pay toward Social Security and Medicare.
 
 These and other tax implications, including 1031 exchanges and capital gains taxes, should be heavily considered as part of your overall investment strategy. Work with a professional accountant to ensure you are maximizing your tax benefits, and if you have questions specific to the Columbus-area rental market, please come [talk to us](/contact-us/)at RL Property Management.
+
+For the rentals we manage, owners receive [monthly statements and year-end reporting](/services/owner-reporting/) they can use at tax time.

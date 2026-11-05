@@ -194,4 +194,4 @@ The same data sorted by the average rent per square foot ($/sf) in each zip code
 
 43215 1.75
 
-If you are looking for a team that does nothing but property management including the topics described above, do not hesitate to reach out to RL Property Management Group. Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.
+If you are looking for a team that does nothing but property management including the topics described above, do not hesitate to [reach out to RL Property Management Group](/property-management-consultation/). Our clients enjoy a premium property management experience without paying a premium price. RL Property Management is designed to provide our clients reliability and performance.

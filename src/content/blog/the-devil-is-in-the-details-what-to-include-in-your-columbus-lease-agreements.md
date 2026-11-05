@@ -26,7 +26,7 @@ Standard lease templates are going to include most of the basic rental agreement
 
 Two big ones that often get missed are [the order in which payments are applied](/blog/the-order-in-which-payments-are-applied-one-of-the-most-important-lease-clauses-you-hope-you-never-need-to-use/) and property ownership, [specifically, ownership of appliances.](/blog/who-owns-what-in-your-lease-agreement/) These are generally not included by default and can cause real problems if not addressed in writing.
 
-As long as you comply with compliance rules and regulations, there are really no limitations to what you include (or restrict) in your lease agreement. The thing you really need to consider is what you are going to do if and when a tenant actually engages in these behaviors. Unless you are willing to evict the resident over these behaviors, you may have to tolerate some of them to a certain extent.
+As long as you comply with [compliance rules and regulations](/services/compliance/), there are really no limitations to what you include (or restrict) in your lease agreement. The thing you really need to consider is what you are going to do if and when a tenant actually engages in these behaviors. Unless you are willing to evict the resident over these behaviors, you may have to tolerate some of them to a certain extent.
 
 One strategy to counter negative behaviors without going so far as to evict a tenant is to apply fees. For example, if you assign fees such as a $500 fee if the tenant has a large gathering, and you specifically call that fee out in your lease, you can enforce your restrictions without jumping all the way to eviction.
 
