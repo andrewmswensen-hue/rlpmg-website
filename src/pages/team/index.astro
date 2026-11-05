@@ -141,7 +141,7 @@ const faq = [
   { q: 'How many people work at RL Property Management?',
     a: `Everyone is named on this page with their role, working out of ${company.address.city}, Ohio: leadership, owner service, leasing and vacant units, resident support, maintenance, and people operations and marketing.` },
   { q: 'Who will I actually talk to?',
-    a: 'Owners deal with the client service group. Residents deal with resident support and the maintenance coordinators. Leasing questions on a vacant unit go to the leasing group. Each of those is a named person rather than a shared inbox with nobody behind it.' },
+    a: 'Owners deal with the client service group. Residents deal with resident support and the maintenance coordinators. Leasing questions on a vacant unit go to the leasing group. Each is a named person, not a shared inbox.' },
   { q: 'Does RL Property Management use in-house maintenance technicians?',
     a: `Yes. Maintenance is a department here, with a Maintenance Director, coordinators who schedule the work and technicians who do it. In-house labor is billed at an hourly rate published on the pricing page, and vendors are used where the work calls for a licensed trade.` },
   { q: 'Who writes the content on this website?',
@@ -206,9 +206,8 @@ const related = [
         </p>
         <p class="text-[17px] text-muted m-0">{peterBio}</p>
         <p class="text-[17px] text-muted mt-4 mb-0">
-          Every page on this site carries a verification date and his name as reviewer, so a reader
-          can see when a figure was last checked and who checked it. He is also the author entity on
-          the articles published in <a href="/blog/" class="text-crimson font-semibold no-underline hover:underline">Insights</a>.
+          Every page carries his name as reviewer and the date it was last checked. He also writes the
+          articles in <a href="/blog/" class="text-crimson font-semibold no-underline hover:underline">Insights</a>.
         </p>
       </div>
     </div>
@@ -219,15 +218,8 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="why-h">Why does a property manager publish its team?</h2>
       <p>
-        Because you are handing an asset worth several hundred thousand dollars to strangers, and
-        you should be able to see who they are. A management company that lists no names is asking
-        for that trust without offering anything checkable in return.
-      </p>
-      <p>
-        It also helps in practice. When a repair goes sideways or a lease question needs a real
-        answer, you want to know which function owns it. The groups below match our departments:
-        leasing and vacant units, resident support, maintenance, owner service,
-        and the people who run hiring and publishing.
+        You are handing an asset worth several hundred thousand dollars to people you should be able to
+        see. The groups below match our departments, so you know who owns what.
       </p>
     </div>
   </section>
@@ -238,7 +230,7 @@ const related = [
       <span class="eyebrow">Everyone, by function</span>
       <h2 id="roster-h" class="text-[clamp(28px,3.3vw,40px)]">Who works at RL Property Management?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-9 max-w-[44em]">
-        The team, grouped by what they do. Titles are current as of {kpis.asOfLabel}.
+        Titles current as of {kpis.asOfLabel}.
       </p>
 
       {groups.map((g) => (
@@ -268,23 +260,21 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="org-h">How is the team organized?</h2>
       <p>
-        We organize by function rather than by property. Leasing people lease, maintenance people maintain, and the
-        client service group owns the owner relationship. The alternative model, one generalist
-        handling every task on a slice of the portfolio, means the same person is showing a unit at
-        4pm and taking a water-heater call at 4:05.
+        By function, not by property. Leasing people lease, maintenance people maintain, and client
+        service owns the owner relationship. Nobody is showing a unit at 4pm and taking a water-heater
+        call at 4:05.
       </p>
       <p>
-        Maintenance is the largest group here by design: repairs are where owner money goes and
-        where a slow manager costs the most. Median time to close a repair across
-        the portfolio is {kpis.metrics[5].value} days, published on the
-        {' '}<a href="/key-performance-indicators/">scorecard</a> and refreshed monthly.
+        Maintenance is the largest group by design. Median time to close a repair is
+        {' '}{kpis.metrics[5].value} days, published on the
+        {' '}<a href="/key-performance-indicators/">scorecard</a>.
       </p>
 
       <h2>Where does the team work?</h2>
       <p>
         Out of {company.address.city}, Ohio, covering {areas.length} Central Ohio communities.
         {' '}{company.officeHoursNote}, so call {company.phone} or email
-        {' '}<a href={`mailto:${company.email}`}>{company.email}</a> rather than stopping in.
+        {' '}<a href={`mailto:${company.email}`}>{company.email}</a> first.
       </p>
     </div>
   </section>

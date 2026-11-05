@@ -1,0 +1,354 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import LegalNote from '../../components/LegalNote.astro';
+import { company, pricing, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Granville, Ohio. Target query: "property management granville ohio".
+ *
+ * The differentiating facts: Granville is a VILLAGE with its own charter,
+ * zoning code and utilities, and it is home to Denison University. The
+ * assumption to correct is that it is a student-rental town: Denison states
+ * that enrolled students are generally required to live on campus, and about a
+ * third of village residents live in group quarters. For an owner the village
+ * rules that bite are zoning ones: a zoning permit for nearly any exterior
+ * change (only exact replacements are exempt), architectural review in the
+ * overlay district, and a short-term rental chapter that paused new
+ * applications in 2024.
+ *
+ * Granville is tier 'coverage' in src/data/markets.ts. The page uses the plain
+ * coverage language from docs/area-page-strategy.md and implies no volume. No
+ * entry in rentByMarketAndBedroom, so no RLPM rent median; the Census median
+ * gross rent is used, labeled as Census, with its margin of error.
+ *
+ * NOTE: docs/area-page-strategy.md lists Granville among markets "where we
+ * already have doors", but markets.ts (generated from Airtable) says coverage.
+ * This page follows markets.ts.
+ *
+ * SOURCES (verified 2026-11-05):
+ *  - Granville is a village in Licking County. Population 5,946 at the 2020
+ *    census. About 35 miles east of Columbus and 7 miles west of Newark.
+ *    Settled 1805 by settlers from Massachusetts. Denison University founded
+ *    1831, about 2,300 students. Granville Exempted Village School District.
+ *    Raccoon Creek runs south of the village center. Buxton Inn (1812) and
+ *    Bryn Du Mansion are local landmarks: en.wikipedia.org/wiki/Granville,_Ohio.
+ *  - Granville Historic District on the National Register:
+ *    en.wikipedia.org/wiki/National_Register_of_Historic_Places_listings_in_Licking_County,_Ohio.
+ *  - Denison: "enrolled students are generally required to live in on-campus
+ *    housing": denison.edu/academics/accessibility-disability-services/housing-accommodations.
+ *  - Village of Granville 2025 Annual Report, granville.oh.us/s/2025-Annual-Report.pdf:
+ *    charter adopted 1964, council/manager government; Planning Department
+ *    issues zoning and occupancy permits; many areas fall in the Architectural
+ *    Review Overlay District (AROD), requiring Planning Commission review for
+ *    exterior and structural modifications before a zoning permit; projects
+ *    needing a permit include roofs, siding, windows, decks, fences; growth
+ *    through annexations and new subdivisions to about 27 road miles; Water
+ *    Treatment Plant in service since 1969, treats ground water including lime
+ *    softening, serves about 5,600 customers through 1,690 connections and
+ *    supplies Denison, Owens Corning Technical Center, Otterbein at Granville,
+ *    Middleton and the Village of Alexandria; Wastewater Treatment facility
+ *    completed 1986, discharges to Raccoon Creek, 1,659 connections; 2025 road
+ *    work on Thresher St., W. College St., Wildwood Dr., and curb work on
+ *    N. Galway Dr., Longford Dr. and Kerry Ct.; Newark-Granville Road path.
+ *  - granville.oh.us/planning: zoning permit for "any new construction,
+ *    addition, or modification to any building, structure or land within the
+ *    Village limits"; "The only types of construction that are exempt from a
+ *    zoning permit are exact replacements"; AROD standards in Section 1161 of
+ *    the Zoning Code, Planning Commission reviews once a month; dated
+ *    04/01/2024, the village is revising its short-term rental rules and "is
+ *    currently not processing any new applications while this review is in
+ *    process."
+ *  - Short-term rental definition, under 30 consecutive days, Chapter 1182,
+ *    Ordinance No. 24-2020: council packet 12.16.20 at
+ *    static1.squarespace.com/static/5e74de6f4749db7726b1e9fe/t/5fd8e87d8ed97e739fd26882/1608050814227/Council+Packet+12.16.20.pdf.
+ *  - Long-term rental registration: none found. The planning page lists no
+ *    rental requirement beyond short-term rentals, and a granville.oh.us site
+ *    search for "rental" returned only short-term rental items, 2026-11-05.
+ *  - Utility billing: granville.oh.us/utilities (Utilities Department, Water
+ *    and Wastewater Treatment Plants, rate chart 2025-2029, Mercy Rule
+ *    guidelines); Utility Billing FAQ (renters give the landlord's name at
+ *    sign-up; bills mailed the 1st, due the 15th):
+ *    static1.squarespace.com/static/5e74de6f4749db7726b1e9fe/t/5ebdaa2b4255ad61ab301094/1589488171728/utility_billing_faq.pdf.
+ *    Gas and electric aggregation, Resolutions 2023-03, 2023-30 and 2023-43:
+ *    granville.oh.us/codified-ordinances-1 and granville.oh.us/2023-codified-ordinances.
+ *  - Electric and gas: AEP Ohio and Columbia Gas of Ohio generally serve
+ *    central Ohio (docs/area-research-verified.md). The Energy Cooperative,
+ *    headquartered in Newark, serves electric and natural gas customers across
+ *    Licking County and seven others: electricrates.org/blog/the-energy-cooperative-ohio/.
+ *    Stated as confirm-per-address.
+ *  - Housing, US Census, ACS 2024 5-year estimates, via censusreporter.org
+ *    (geo 16000US3931402): median year structure built 1987 (B25035); 1,554 of
+ *    2,005 housing units one-unit detached (B25024); 342 of 1,859 occupied
+ *    units renter occupied, margin of error 106 (B25003); 1,938 of 5,999
+ *    residents in group quarters (B26001, B01003); median gross rent $1,129,
+ *    margin of error $162 (B25064).
+ *  - Court: R.C. 1901.02, "The Licking county municipal court has
+ *    jurisdiction within Licking county." Court at 40 West Main Street, 3rd
+ *    Floor, Newark: newarkohio.gov/licking-county-municipal-court/. Filing cost
+ *    from pricing.eviction.otherCountyFilingFees in src/data/facts.ts.
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties of more
+ *    than 200,000 people at the last decennial census, so the 5323.02 auditor
+ *    filing does not apply in Licking County (178,519 in 2020). Verified on
+ *    codes.ohio.gov 2026-11-05: https://codes.ohio.gov/ohio-revised-code/section-5323.01
+ *  - R.C. 1923.04 three-day notice to leave the premises.
+ */
+
+const CITY = 'Granville';
+const PATH = '/property-management-granville-ohio/';
+
+const title = 'Granville Property Management | RL Property Management';
+const description =
+  `Flat-fee property management for Granville, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `a month, ${usd(pricing.leasingFee)} leasing fee. Village zoning, utilities and Denison, explained.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Granville', path: PATH },
+];
+
+const publishesOwnRent = canPublishOwnRent(CITY);
+
+const lickingCourt = pricing.eviction.otherCountyFilingFees.find((f) => f.court === 'Licking County Municipal Court')!;
+const lickingFiling = usd(lickingCourt.fee as number);
+const photography = pricing.otherFees.find((f) => f.name === 'Property photography')!.amount;
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Granville unit turns`,
+  'Granville is a chartered village in Licking County, 7 miles west of Newark',
+  'Denison generally requires its students to live on campus',
+  'Nearly any exterior change needs a village zoning permit',
+  'Water and sewer come from the village’s own treatment plants',
+];
+
+const faq = [
+  { q: 'Do Denison students rent houses in Granville?',
+    a: 'Mostly not. Denison University states that its enrolled students are generally required to live in on-campus housing, and the US Census counts about 1,900 of Granville’s roughly 6,000 residents in group quarters, the category that includes residence halls. Underwrite a Granville rental for long-term households, not as a student house.' },
+  { q: 'Do I need village approval to replace a roof or windows on a Granville rental?',
+    a: 'Usually, yes. The village requires a zoning permit for any modification to a building inside village limits, and only exact replacements are exempt. If the house sits in the Architectural Review Overlay District, significant exterior changes also go to the Granville Planning Commission, which reviews applications once a month. Build that time into any repair schedule.' },
+  { q: 'Can I run a Granville house as a short-term rental?',
+    a: 'Not easily. Granville regulates stays under 30 consecutive days under Chapter 1182 of its codified ordinances. In April 2024 the village said it was revising those rules and not processing new applications during the review. Check the current status with the Planning Department before you buy on a short-term plan. A standard lease is not affected.' },
+  { q: 'Who provides water and sewer in Granville?',
+    a: 'The Village of Granville. It runs its own water treatment plant, in service since 1969, and its own wastewater plant, completed in 1986. Bills are monthly, a renter signing up gives the landlord’s name, and the village publishes a 2025 to 2029 rate chart.' },
+  { q: 'Which court hears an eviction in Granville?',
+    a: `Licking County Municipal Court, at 40 West Main Street in Newark, which Ohio Revised Code 1901.02 gives jurisdiction across Licking County. Filing costs ${lickingFiling}.` },
+  { q: 'Does RL Property Management manage rentals in Granville?',
+    a: `Yes. We manage rental property throughout Granville and the surrounding Licking County area. If you own a rental here, we can take it on, for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Photography for a new listing is billed separately at ${photography}.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Granville, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Granville, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Licking County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Granville, Ohio"
+    answer={`${company.name} manages Granville rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Granville is a village with its own zoning code and utilities, and evictions go to Licking County Municipal Court in Newark.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Granville, at a glance" />
+
+  <!-- COVERAGE: plain language, no implied volume. -->
+  <section class="band-tight" aria-labelledby="cover-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="cover-h" class="text-[clamp(26px,3.2vw,38px)]">Do you manage rental property in Granville?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Yes. We manage rental property throughout Granville and the surrounding Licking County area. If you own a
+        rental here, we can take it on.
+      </p>
+    </div>
+  </section>
+
+  <!-- THE HOOK: the college-town assumption, corrected. -->
+  <section class="band band-wash" aria-labelledby="denison-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="denison-h" class="text-[clamp(26px,3.2vw,38px)]">Is Granville a student rental market?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Not really. Denison University, founded in 1831, has about 2,300 students, and it states that enrolled
+        students are generally required to live in on-campus housing. The Census counts about 1,900 of the
+        village&rsquo;s roughly 6,000 residents in group quarters, the category that includes residence halls.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The rest of the village is mostly owner-occupied. About 342 of 1,859 households rent, an estimate with a
+        wide margin. Plan a Granville rental around long-term households rather than a lease signed by four
+        undergraduates. Public schools are the Granville Exempted Village School District.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">What the housing looks like</h3>
+      <p class="text-[16.5px] text-muted">
+        Settlers from Massachusetts founded the village in 1805. The Granville Historic District is on the National
+        Register, and the Buxton Inn (1812) and Bryn Du Mansion are local landmarks. Yet the Census median year
+        built is 1987, and the village says it has grown through annexations and new subdivisions. About three in
+        four homes are detached single-family. Beyond the downtown blocks of Broadway and Main Street, the
+        Newark-Granville Road corridor and its multi-use path link the village to Newark.
+      </p>
+    </div>
+  </section>
+
+  <!-- VILLAGE RULES: the practical differentiator. -->
+  <section class="band-tight" aria-labelledby="rules-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="rules-h" class="text-[clamp(26px,3.2vw,38px)]">What village rules apply to a Granville rental?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Granville adopted a municipal charter in 1964 and writes its own zoning code. Three parts of it affect a
+        landlord.
+      </p>
+      <ul class="grid gap-3 text-[16.5px] text-muted mt-4 pl-5 list-disc">
+        <li><strong class="text-navy">Zoning permits for nearly everything.</strong> Any modification to a building or land inside village limits needs one. Only exact replacements are exempt. The village lists roofs, siding, windows, decks and fences among projects that need a permit.</li>
+        <li><strong class="text-navy">Architectural review.</strong> Many addresses fall in the Architectural Review Overlay District, Section 1161 of the Zoning Code. Significant exterior work goes to the Planning Commission, which reviews applications once a month.</li>
+        <li><strong class="text-navy">Short-term rentals.</strong> Stays under 30 consecutive days fall under Chapter 1182. In April 2024 the village said it was not processing new applications during a review of those rules.</li>
+      </ul>
+      <p class="text-[16.5px] text-muted mt-5">
+        For a turn, that means a new roof or a window package is a permit question first and a contractor
+        question second. Confirm the permit before the crew is booked.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        We found no village registration, license or inspection program for standard long-term rentals on the
+        Village of Granville&rsquo;s website as of November 2026.
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band band-wash" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Utilities</span>
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in Granville?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The village makes its own water. Its treatment plant has run since 1969, softening ground water with lime,
+        and it also supplies Denison and the Village of Alexandria. The wastewater plant, completed in 1986,
+        discharges to Raccoon Creek. Bills come monthly, mailed on the 1st and due on the 15th, and a renter
+        opening an account gives the landlord&rsquo;s name.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Granville, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Owner note</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water and sewer</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Village of Granville</td>
+              <td class="p-3.5 border border-line text-muted">The village publishes a 2025 to 2029 rate chart. A Mercy Rule application covers bills driven up by a leak.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio or The Energy Cooperative</td>
+              <td class="p-3.5 border border-line text-muted">Confirm per address. The village also runs an electric aggregation program.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio or The Energy Cooperative</td>
+              <td class="p-3.5 border border-line text-muted">Confirm per address. The village has a gas aggregation program too.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURT AND REGISTRATION -->
+  <section class="band-tight" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction, and where do you register?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Evictions go to Licking County Municipal Court, at 40 West Main Street in Newark, about 7 miles east.
+        Ohio Revised Code 1901.02 gives it jurisdiction across Licking County. Filing costs {lickingFiling}, plus
+        $50 if a writ of restitution is needed, after a three-day notice under R.C. 1923.04.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        There is no county registration to file. The state's county auditor rental registration (Ohio Revised
+        Code 5323.02) applies only in counties of more than 200,000 people, so it does not apply to a Licking
+        County rental. We track which rules apply to each address and handle the filings that do.
+      </p>
+      <LegalNote class="mt-6" />
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="band band-wash" aria-labelledby="cost-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Cost</span>
+      <h2 id="cost-h" class="text-[clamp(26px,3.2vw,38px)]">What does property management cost in Granville?</h2>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        {publishesOwnRent
+          ? 'Our portfolio sample in Granville now supports a published median. Update this page before relying on it.'
+          : 'We do not publish our own Granville rent median. The Census puts the village median gross rent at $1,129 a month (ACS 2024 5-year estimates), with a margin of error of $162 because the rental pool is small.'}
+        {' '}Send an address and we will price it against live listings.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Granville rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band-tight" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Granville property management questions</h2>
+      <Faq items={faq} heading="Granville property management questions" id="granville-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        More owner answers are on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-11-05" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-newark-ohio/', label: 'Newark property management', note: 'Seven miles east, the county seat, with city water rules of its own.' },
+    { href: '/property-management-johnstown-ohio/', label: 'Johnstown property management', note: 'Northwest in Licking County, near the Intel site.' },
+    { href: '/property-management-pataskala-ohio/', label: 'Pataskala property management', note: 'Southwest, same court, a much larger city by area.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with rents, the registry and the court.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Granville rental should earn"
+    body="Send the address and we will price it against live comparable listings and note the village rules that apply to it. No charge."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

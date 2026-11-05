@@ -50,47 +50,45 @@ const keyFacts = [
   `Published investor pricing: ${tierLine}, custom from ${pricing.portfolioDiscount.customFrom} units`,
   `${usd(pricing.leasingFee)} leasing fee, so cost per door does not spike on a turn`,
   `${company.unitsManaged} units under management, in-house maintenance since ${company.founded}`,
-  `Published scorecard: ${kpis.metrics[0].value} days on market, ${kpis.metrics[6].value} collected by the 5th, ${kpis.metrics[2].value} renewal rate`,
-  `Owner funds disbursed on the ${rentPolicy.ownerDisbursementDay}th, with every invoice in the portal`,
 ];
 
 const pillars = [
   { h: 'Cost per door that does not move',
-    p: `A flat fee is the same number in a year when rent rises and in a year when it does not. A percentage fee compounds with every increase, and a leasing fee spikes it every time a unit turns. Ours is ${usd(pricing.leasingFee)}.` },
+    p: `A flat fee stays the same when rent rises. A percentage fee grows with every increase, and a leasing fee spikes it on every turn. Ours is ${usd(pricing.leasingFee)}.` },
   { h: 'One fee schedule, entirely public',
-    p: 'Every charge that can appear on an owner statement is published, including the situational ones. You can model the operating expense line before you speak to anyone here.' },
+    p: 'Every charge that can appear on an owner statement is published, including the situational ones.' },
   { h: 'Operating numbers you can audit',
-    p: `Days on market, turn time, renewal rate, occupancy, collection rate and repair close time are all published with their definitions and refreshed, so you can check the numbers instead of reading testimonials.` },
+    p: `Days on market, turn time, renewal rate, occupancy, collection rate and repair close time, published with definitions.` },
   { h: 'In-house maintenance',
     p: `Technicians on payroll at ${usd(pricing.maintenance.inHouseHourly)} per hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, with no minimum charge and materials at cost. Vendor work carries a ${pricing.maintenance.vendorProjectFeePct}% project fee capped at ${usd(pricing.maintenance.vendorProjectFeeCap)}.` },
   { h: 'Renewals are the strategy',
-    p: `Placing a resident earns us nothing, so we make our money by keeping good residents in place. The portfolio renewal rate is ${kpis.metrics[2].value}, and a renewal costs an owner ${usd(pricing.leaseRenewalFee)} against a full turn.` },
+    p: `Placing a resident earns us nothing, so we keep good residents in place. The renewal rate is ${kpis.metrics[2].value}, and a renewal costs ${usd(pricing.leaseRenewalFee)} against a full turn.` },
   { h: 'Consolidation without a gap',
-    p: 'Moving several properties off one or more managers is mostly a scheduling job. We plan it against your lease dates and termination clauses before anyone gives notice.' },
+    p: 'Moving several properties off other managers is a scheduling job. We plan it against your lease dates and termination clauses first.' },
 ];
 
 const outOfState = [
   'A real-time owner portal with every statement and the invoice behind each charge',
   `Direct deposit on the ${rentPolicy.ownerDisbursementDay}th, ${rentPolicy.disbursementNote}`,
-  'Quarterly inspections with photographs, so you see condition without flying in',
-  'Repair approval limits you set by plan, so routine work does not wait on your time zone',
+  'Quarterly inspections with photographs',
+  'Repair approval limits set by plan, so routine work does not wait on you',
   'A custom lease reviewed by legal counsel and kept current with Ohio landlord-tenant law',
-  'Eviction handled locally through the Franklin County Municipal Court when it is needed',
+  'Eviction handled locally through the Franklin County Municipal Court when needed',
 ];
 
 const faq = [
   { q: 'Do you manage rental portfolios in Columbus?',
-    a: `Yes. ${company.name} manages ${company.unitsManaged} ${company.propertyTypes} across the Columbus metro, and portfolio owners are the core of the client base. Any property that does not require on-site staff is in scope.` },
+    a: `Yes. ${company.name} manages ${company.unitsManaged} ${company.propertyTypes} across the Columbus metro, and portfolio owners are the core of the client base. Any property that does not need on-site staff is in scope.` },
   { q: 'Do you discount management for a larger portfolio?',
-    a: `Yes, and the rates are published. Monthly management is ${tierLine}. From ${pricing.portfolioDiscount.customFrom} units the pricing is custom, built around your mix of properties. There is no leasing fee at any size.` },
+    a: `Yes, and the rates are published: monthly management is ${tierLine}. From ${pricing.portfolioDiscount.customFrom} units pricing is custom, built around your mix of properties. There is no leasing fee at any size.` },
   { q: 'Why is pricing custom above 40 units?',
-    a: 'At that size a fixed table is no longer accurate. Forty units in one suburb and forty scattered across five counties cost very different amounts to run, so we price the actual portfolio rather than publish a floor that fits nobody.' },
+    a: 'At that size a fixed table stops being accurate. Forty units in one suburb and forty across five counties cost very different amounts to run, so we price the actual portfolio.' },
   { q: 'What is my real cost per door?',
     a: `On the middle plan the management line is ${usd(std.monthly)} per door per month before any portfolio discount, plus ${usd(pricing.leaseRenewalFee)} when a lease renews. Placing a resident is ${usd(pricing.leasingFee)}. A manager charging 10% of an average ${kpis.metrics[4].value} rent runs about ${usd(Math.round(avgRent * 0.10))} per door per month, plus roughly ${usd(Math.round(avgRent / 2))} each time a unit turns.` },
   { q: 'Can you manage for an out-of-state investor?',
-    a: 'Yes. Out-of-state owners get the same portal, the same monthly statements with invoices attached, quarterly inspections with photographs, and direct deposit. The repair approval limit on your plan is what decides how often a decision needs your time zone.' },
+    a: 'Yes. Out-of-state owners get the same portal, monthly statements with invoices attached, quarterly inspections with photographs, and direct deposit. Your plan\'s repair approval limit decides how often a decision needs you.' },
   { q: 'Can you take on a portfolio that is currently with another manager?',
-    a: 'Yes, and that is a common move. The work is in the timing: termination clauses, lease dates, deposit transfers and where the resident sends rent on the first of the month. We build that plan before notice is given, not after.' },
+    a: 'Yes, it is a common move. The work is in the timing: termination clauses, lease dates, deposit transfers and where residents send rent on the first. We build that plan before notice is given.' },
   { q: 'Will you advise on a property I am about to buy?',
     a: `We do not perform buyer inspections. We can advise during due diligence on medium and large multifamily, and we offer a pre-signature inspection on property you already own at ${usd(pricing.prePurchaseInspection.fee)}, ${pricing.prePurchaseInspection.note}.` },
   { q: 'What reporting do portfolio owners get?',
@@ -112,7 +110,7 @@ const schemaNodes = [
   <PageHero
     eyebrow="For portfolio owners"
     title="Property management for rental portfolios in Columbus"
-    answer={`${company.name} manages ${company.unitsManaged} single-family and small multifamily units for Columbus investors. Pricing is flat per door, the leasing fee is ${usd(pricing.leasingFee)}, and larger portfolios get a substantial discount quoted in writing.`}
+    answer={`${company.name} manages ${company.unitsManaged} single-family and small multifamily units for Columbus investors. Flat pricing per door, a ${usd(pricing.leasingFee)} leasing fee, and a published discount for larger portfolios.`}
     breadcrumbs={breadcrumbs}
     primaryCta={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
     secondaryCta={{ label: 'See the published fee schedule', href: '/pricing/' }}
@@ -128,16 +126,15 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="cost-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Columbus portfolio actually cost to manage?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        On published per-unit pricing, the middle plan is {usd(std.monthly)} per door per month, or
+        Our middle plan is {usd(std.monthly)} per door per month, or
         {' '}{usd(std.monthly * 12)} per door per year. A percentage manager on the portfolio average rent of
         {' '}{kpis.metrics[4].value} costs roughly {usd(Math.round(avgRent * 0.08))} to
-        {' '}{usd(Math.round(avgRent * 0.10))} per door per month, and then bills about
-        {' '}{usd(Math.round(avgRent / 2))} again every time a unit turns. At scale the leasing fee is the line
-        that decides the year, because a portfolio always has units turning.
+        {' '}{usd(Math.round(avgRent * 0.10))} per door per month, plus about
+        {' '}{usd(Math.round(avgRent / 2))} every time a unit turns. At scale, the leasing fee decides the year.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
-        Below is the annual management line at three portfolio sizes, before any portfolio discount is applied.
-        Turns are estimated from our own {kpis.metrics[2].value} renewal rate, so roughly
+        Annual cost at three portfolio sizes, before any portfolio discount. Turns are estimated from our
+        {' '}{kpis.metrics[2].value} renewal rate, so roughly
         {' '}{100 - parseInt(kpis.metrics[2].value)} percent of units turn in a year.
       </p>
       <div class="scroll-x mt-7">
@@ -166,10 +163,9 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[14px] text-faint mt-5">
-        Our column is exact at published per-unit pricing and goes down with a portfolio discount. The comparison
-        columns are illustrative, calculated at the portfolio average rent of {kpis.metrics[4].value} with a
-        half-month placement fee on each estimated turn. They describe common Columbus market rates and are not a
-        quote from any named company.
+        Our column is exact at published pricing and goes down with a portfolio discount. The comparison columns
+        are illustrative, at the portfolio average rent of {kpis.metrics[4].value} with a half-month placement fee
+        on each estimated turn. They describe common Columbus market rates, not a quote from any named company.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
         <a href="/property-management-consultation/" class="btn btn-primary">Get your portfolio number</a>
@@ -198,8 +194,7 @@ const schemaNodes = [
       <span class="eyebrow">What you are buying</span>
       <h2 id="why-h" class="text-[clamp(26px,3.2vw,38px)]">What should an investor look for in a manager?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[46em]">
-        Six things, and all six are checkable before you sign. If a manager cannot show you these, all you have
-        to go on is the sales pitch.
+        Six things, all checkable before you sign.
       </p>
       <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3 mt-8">
         {pillars.map((p) => (
@@ -218,8 +213,7 @@ const schemaNodes = [
       <span class="eyebrow">Published, with definitions</span>
       <h2 id="kpi-h" class="text-[clamp(26px,3.2vw,38px)]">How is the portfolio performing?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
-        Every unit under management, as of {kpis.asOfLabel}. Publishing the definition matters as much as
-        publishing the number, because days on market can be measured four ways and three of them flatter.
+        Every unit under management, as of {kpis.asOfLabel}, with each definition published.
       </p>
       <div class="grid gap-4 grid-cols-2 lg:grid-cols-4 mt-8">
         {kpis.metrics.map((m) => (
@@ -242,9 +236,8 @@ const schemaNodes = [
       <span class="eyebrow">Remote owners</span>
       <h2 id="oos-h" class="text-[clamp(26px,3.2vw,38px)]">Can you manage for an out-of-state investor?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6">
-        Yes, and most of what makes remote ownership work is unglamorous: reporting you can read without calling,
-        approval limits that let routine work proceed without you, and inspections with photographs so condition is
-        something you can see rather than something you are told.
+        Yes. Remote ownership works on reporting you can read without calling, approval limits that let routine
+        work proceed without you, and inspections with photographs.
       </p>
       <ul class="grid gap-x-8 gap-y-1 sm:grid-cols-2">
         {outOfState.map((x) => (
@@ -256,7 +249,7 @@ const schemaNodes = [
       <p class="text-[16px] text-muted mt-7">
         The repair approval limit is the setting that matters most to a remote owner:
         {' '}{pricing.plans.map((p) => `${p.name} at ${usd(p.monthly)} carries a ${usd(p.repairApprovalLimit)} per-item limit`).join(', ')}.
-        A higher limit means fewer approvals reach you, which is usually what a remote owner wants.
+        A higher limit means fewer approvals reach you.
       </p>
     </div>
   </section>
@@ -271,9 +264,8 @@ const schemaNodes = [
         rather than subcontracted for every work order.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
-        Scale matters to a portfolio owner because a manager who is at capacity solves their staffing
-        problem with your vacancy. Ask any manager you are considering how many doors they run per portfolio
-        manager and per technician, and ask what happens to that ratio when they add you.
+        A manager at capacity solves their staffing problem with your vacancy. Ask any manager how many doors
+        they run per portfolio manager and per technician, and what happens to that ratio when they add you.
       </p>
     </div>
   </section>
@@ -296,7 +288,7 @@ const schemaNodes = [
 
   <Cta
     heading="Tell us what you own, get a number in writing"
-    body={`Investor pricing is published through ${pricing.portfolioDiscount.customFrom - 1} units. Above that, bring your addresses and current statements and we will price the whole portfolio.`}
+    body={`Investor pricing is published through ${pricing.portfolioDiscount.customFrom - 1} units. Above that, bring your addresses and statements and we will price the whole portfolio.`}
     primary={{ label: 'Get custom pricing', href: '/property-management-consultation/?units=40%2B#consultation-form' }}
     secondary={{ label: 'See published pricing', href: '/pricing/' }}
   />

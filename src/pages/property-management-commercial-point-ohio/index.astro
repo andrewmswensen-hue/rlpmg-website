@@ -1,0 +1,298 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import LegalNote from '../../components/LegalNote.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Commercial Point, Ohio. Target query: "property management commercial point ohio".
+ *
+ * The differentiating fact: Commercial Point has a 614 area code and a short
+ * drive to Grove City, so owners treat it as a Columbus suburb. It is a
+ * Pickaway County village. Evictions go to Circleville Municipal Court,
+ * property taxes go to Pickaway County, and the village itself runs
+ * the water, sewer and trash. It is also a village of new subdivisions, with
+ * very few rentals among owner-occupied homes.
+ *
+ * SOURCES (all opened and verified 2026-11-05):
+ *  - Village in Pickaway County, Scioto Township. Population 1,582 at the 2010
+ *    census, 3,078 at the 2020 census. Homeownership 93.8%. ZIP 43116, area code
+ *    614. Teays Valley Local School District. Laid out as Genoa (1841) and Rome,
+ *    incorporated 1851, renamed Commercial Point in 1872:
+ *    https://en.wikipedia.org/wiki/Commercial_Point,_Ohio
+ *  - Village history (Genoa 1841, incorporated 1851, renamed 1872):
+ *    https://www.commercialpointohio.gov/1196/History
+ *  - "The Village of Commercial Point operates its own water and sewer
+ *    utilities." Bills sent at the end of each month, due by the 15th of the
+ *    following month. Trash and curbside recycling on the village bill, pickup
+ *    Wednesday: https://www.commercialpointohio.gov/1233/New-Resident
+ *  - "Property owners are responsible for making repairs to the owner's service
+ *    water line": https://www.commercialpointohio.gov/1206/Utility-FAQs
+ *  - The village's own utility links list American Electric Power, South Central
+ *    Power and Columbia Gas: https://www.commercialpointohio.gov/1234/Popular-Links
+ *  - Zoning permits from the village Zoning Administrator for new construction,
+ *    demolition, some remodeling, garages, sheds, decks, fences, pools and signs;
+ *    building permits from the Circleville Building Department:
+ *    https://www.commercialpointohio.gov/1208/Zoning
+ *  - Mayor's Court at 10 West Scioto St.: https://www.commercialpointohio.gov/1197/Mayors-Court
+ *    Mayor's court jurisdiction is limited to prosecutions for ordinance
+ *    violations and certain traffic cases: R.C. 1905.01,
+ *    https://codes.ohio.gov/ohio-revised-code/section-1905.01
+ *  - "The Circleville municipal court has jurisdiction within Pickaway county":
+ *    R.C. 1901.02, https://codes.ohio.gov/ohio-revised-code/section-1901.02
+ *  - Circleville Municipal Court, 151 East Franklin Street, Circleville, OH 43113.
+ *    "Eviction hearings are on Friday." "The first hearing date will be set the
+ *    day the case is filed with the court." 3-day notice required first:
+ *    https://www.circlevillecourt.com/CivilDivision.asp
+ *  - Circleville Municipal Court Civil Division Cost Schedule, effective
+ *    January 1, 2023: new eviction (forcible entry and detainer) $130 for one
+ *    defendant, $25 each additional defendant; original plus three copies per
+ *    defendant: https://www.circlevillecourt.com/PDFDirectory/filingfees.pdf
+ *    (Not yet in facts.ts otherCountyFilingFees. Should be added there.)
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties of more
+ *    than 200,000 people at the last decennial census, so the 5323.02 auditor
+ *    filing does not apply in Pickaway County (58,539 in 2020). Verified on
+ *    codes.ohio.gov 2026-11-05: https://codes.ohio.gov/ohio-revised-code/section-5323.01
+ *  - Homes at Foxfire (M/I Homes), single-family, one and two story, next to The
+ *    Players Club at Foxfire, an 18-hole public golf course; Teays Valley schools:
+ *    https://www.mihomes.com/new-homes/ohio/central-ohio/commercial-point/homes-at-foxfire
+ *  - Walker Pointe (Maronda Homes) in Commercial Point, Pickaway County:
+ *    https://www.marondahomes.com/oh/commercial-point/new-homes-for-sale.html
+ *  - 909 housing units; median value of owner-occupied housing $344,600: US
+ *    Census, ACS 2024 5-year estimates, via
+ *    https://censusreporter.org/profiles/16000US3918070-commercial-point-oh/
+ *
+ * NOT VERIFIED, so not stated: whether the village has a rental registration or
+ * inspection ordinance. The village website lists none, but the codified
+ * ordinances (codelibrary.amlegal.com) refuse automated requests. The page says
+ * only what the website shows and that we confirm with the village office.
+ * Which electric utility serves a given street was not verified; the page says
+ * it depends on the address.
+ *
+ * NO qualifying entry in rentByMarketAndBedroom for Commercial Point. No rent
+ * median is published here. No door counts. No per-market days on market.
+ */
+
+const CITY = 'Commercial Point';
+const PATH = '/property-management-commercial-point-ohio/';
+
+/** Circleville Municipal Court cost schedule, effective 2023-01-01. See SOURCES. */
+const circlevilleEvictionCourt = pricing.eviction.otherCountyFilingFees.find((c) => c.court === 'Circleville Municipal Court')!;
+const circlevilleEviction = { oneDefendant: circlevilleEvictionCourt.fee!, eachAdditional: circlevilleEvictionCourt.eachAdditionalDefendant! };
+const evictionTotal = pricing.eviction.attorneyFee + circlevilleEviction.oneDefendant + pricing.eviction.rlpmProcessFee;
+
+const title = 'Commercial Point Property Management | RL Property Management';
+const description =
+  `Commercial Point, Ohio property management at a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month, ${usd(pricing.leasingFee)} leasing fee. Pickaway County, so evictions go to Circleville.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Commercial Point', path: PATH },
+];
+
+const publishesOwnRent = canPublishOwnRent(CITY);
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Commercial Point unit turns`,
+  'A 614 area code, but Pickaway County, not Franklin',
+  'Evictions are heard at Circleville Municipal Court',
+  'The village runs its own water and sewer and bills them monthly',
+  'Population roughly doubled, from 1,582 in 2010 to 3,078 in 2020',
+];
+
+const faq = [
+  { q: 'What county is Commercial Point, Ohio in?',
+    a: 'Pickaway County. Commercial Point is a village in Scioto Township with a 614 area code and the 43116 ZIP code, which leads many owners to assume Franklin County. The eviction and the property tax bill both run through Pickaway County instead.' },
+  { q: 'Which court hears an eviction in Commercial Point?',
+    a: 'Circleville Municipal Court, at 151 East Franklin Street in Circleville. Ohio Revised Code 1901.02 gives that court jurisdiction within Pickaway County. A complaint filed at Franklin County Municipal Court in downtown Columbus is in the wrong court.' },
+  { q: 'Can the Commercial Point mayor’s court hear an eviction?',
+    a: 'No. The village has a mayor’s court, but under Ohio Revised Code 1905.01 a mayor’s court hears prosecutions for village ordinance violations and certain traffic cases. An eviction is a civil case, and for a Commercial Point address it goes to Circleville Municipal Court.' },
+  { q: 'Who provides water, sewer and trash in Commercial Point?',
+    a: 'The village runs its own water and sewer, with trash and curbside recycling on the same monthly bill, due by the 15th. For electric the village lists both AEP Ohio and South Central Power, and gas is Columbia Gas.' },
+  { q: 'Does Commercial Point require rental registration or inspection?',
+    a: 'The state’s county auditor rental registration (R.C. 5323.02) applies only in counties of more than 200,000 people, so it does not apply to a Pickaway County rental. The village website does not list a separate rental registration or inspection program. We track which rules apply to each address and handle the filings that do.' },
+  { q: 'How much does property management cost in Commercial Point?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} for a lease renewal. Photography is not included in the leasing fee and is billed separately at $250 to $450.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Commercial Point, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Commercial Point, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Pickaway County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Commercial Point, Ohio"
+    answer={`${company.name} manages Commercial Point rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. The village is in Pickaway County, so evictions go to Circleville, not Columbus.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Commercial Point, at a glance" />
+
+  <!-- COURT: the 614 area code makes owners assume Franklin County. -->
+  <section class="band-tight" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Commercial Point?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Circleville Municipal Court. Commercial Point has a Columbus area code, but it is a Pickaway County
+        village, and Ohio Revised Code 1901.02 gives the Circleville court jurisdiction over all of Pickaway
+        County. A complaint filed in Columbus out of habit is in the wrong court, and the filing cost is lost.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The village mayor&rsquo;s court on West Scioto Street does not change this. A mayor&rsquo;s court hears
+        ordinance and traffic cases under R.C. 1905.01, not civil cases like an eviction.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        In Circleville, the first hearing date is set the day the case is filed, and eviction hearings are held
+        on Fridays. A three-day notice to leave the premises has to be served first.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner here</h3>
+        <ul class="grid gap-2 text-[15.5px] text-muted mb-0 list-none pl-0">
+          <li><strong class="text-navy">{usd(pricing.eviction.attorneyFee)}</strong> to the eviction attorney, filing plus up to two appearances</li>
+          <li><strong class="text-navy">{usd(circlevilleEviction.oneDefendant)}</strong> Circleville filing cost for one defendant, plus {usd(circlevilleEviction.eachAdditional)} for each additional defendant</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.rlpmProcessFee)}</strong> to us to run the process end to end</li>
+          <li><strong class="text-navy">{usd(evictionTotal)}</strong> typical total for one defendant, before any setout</li>
+        </ul>
+        <p class="text-[14px] text-faint mt-4 mb-0">
+          Court cost from the Circleville Municipal Court civil cost schedule effective January 1, 2023.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in Commercial Point?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Much of it is newer single-family homes. The village was laid out in 1841 as Genoa and renamed
+        Commercial Point in 1872, then roughly doubled in a decade: the population went from 1,582 in 2010 to
+        3,078 in 2020. The Census counts 909 housing units and a median owner-occupied home value of $344,600 (US Census,
+        ACS 2024 5-year estimates).
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Newer neighborhoods include Foxfire, where M/I Homes builds one and two story houses next to The Players
+        Club at Foxfire, an 18-hole public golf course, and Walker Pointe, built by Maronda Homes. Both are in
+        the Teays Valley Local School District.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Homeownership runs at 93.8%, so rentals are scarce. Expect a rental here to be compared with new
+        construction nearby, which puts the weight on condition, photos and a realistic price.
+        {' '}{publishesOwnRent
+          ? 'Our portfolio sample in Commercial Point now supports a published median. Update this page before relying on it.'
+          : 'We do not publish a rent median for Commercial Point, because our sample here is below the five-unit floor we set for any market-level figure.'}
+        {' '}Send an address and we will price it against live comparables.
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES, PERMITS AND THE COUNTY FILING -->
+  <section class="band-tight" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Utilities, permits and paperwork in Commercial Point</h2>
+      <h3 class="text-[21px] mt-7 mb-3">The village is the water company</h3>
+      <p class="text-[16.5px] text-muted">
+        Commercial Point runs its own water and sewer, and trash and recycling ride on the same monthly bill, due
+        by the 15th. Repairs to the service line on your side are the owner&rsquo;s responsibility, not the
+        village&rsquo;s. For electric, the village points residents to both AEP Ohio and South Central Power,
+        so check the provider for your street. Gas is Columbia Gas.
+      </p>
+      <h3 class="text-[21px] mt-7 mb-3">Two offices for a fence or a deck</h3>
+      <p class="text-[16.5px] text-muted">
+        A fence, deck, shed or pool starts with a zoning permit from the village Zoning Administrator.
+        Building permits come from the Circleville Building Department, not the village. When a job needs a
+        permit, the vendor pulls it, or we pull it ourselves when that is faster.
+      </p>
+      <h3 class="text-[21px] mt-7 mb-3">No county auditor rental filing</h3>
+      <p class="text-[16.5px] text-muted">
+        The state's county auditor rental registration (Ohio Revised Code 5323.02) applies only in counties of
+        more than 200,000 people, so it does not apply to a Pickaway County rental. The village website lists
+        no separate rental registration or inspection either. We track which rules apply to each address and
+        handle the filings that do. That is our job, not yours.
+      </p>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="band band-wash" aria-labelledby="price-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Cost</span>
+      <h2 id="price-h" class="text-[clamp(26px,3.2vw,38px)]">What does management cost in Commercial Point?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The same flat price as anywhere else we work. The three plans differ only in how large a repair we can
+        approve without calling you first.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Commercial Point rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band-tight" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Commercial Point property management questions</h2>
+      <Faq items={faq} heading="Commercial Point property management questions" id="commercial-point-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate}, and owner funds go out on the {rentPolicy.ownerDisbursementDay}th.
+        More answers are on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <LegalNote class="mb-5" />
+      <div class="mt-6"><Verified date="2026-11-05" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-grove-city-ohio/', label: 'Grove City property management', note: 'North, across the county line in Franklin County.' },
+    { href: '/property-management-south-bloomfield-ohio/', label: 'South Bloomfield property management', note: 'South, on US 23. Same county and court, with its own landlord rules.' },
+    { href: '/property-management-ashville-ohio/', label: 'Ashville property management', note: 'Another Pickaway County village, with the same eviction court.' },
+    { href: '/areas-we-serve/', label: 'Every area we serve', note: 'With the eviction court for each county.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Commercial Point rental should earn"
+    body="Send us the address and we will price it against the homes renting near it today, including the new builds it competes with. No charge."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

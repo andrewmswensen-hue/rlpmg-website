@@ -1,0 +1,321 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import LegalNote from '../../components/LegalNote.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * London, Ohio. Target query: "property management london ohio".
+ *
+ * TIER: 'coverage' in markets.ts. We have no units in London today, so this
+ * page uses the plain coverage language from docs/area-page-strategy.md and
+ * never implies volume. No portfolio rent figure, no "our sample" language.
+ *
+ * The differentiating facts: London is the Madison County seat, so the eviction
+ * court is in town (Madison County Municipal Court, not Franklin County). Water
+ * and sewer are run by the Mid-Ohio Water and Sewer District rather than the
+ * city, with a hard 20th-of-the-month due date and a $50 reconnection charge.
+ * Trash moved to Rumpke on August 1, 2026, billed quarterly. The city code has
+ * a 1961 Housing Code but no rental registration chapter.
+ *
+ * SOURCES (verified 2026-11-05):
+ *  - London is a city and the county seat of Madison County, about 25 miles
+ *    southwest of Columbus, population 10,279 at the 2020 census, founded 1811
+ *    by Patrick McLene as the county seat; Main Street is State Route 56;
+ *    London City School District; Madison County Airport about three nautical
+ *    miles north of downtown: https://en.wikipedia.org/wiki/London,_Ohio
+ *  - Eviction court: R.C. 1901.02, "The Madison county municipal court has
+ *    jurisdiction within Madison county":
+ *    https://codes.ohio.gov/ohio-revised-code/section-1901.02
+ *    (also the authoritative court list in src/pages/areas-we-serve/index.astro).
+ *  - Madison County Municipal Court, 55 N Oak Street, London, OH 43140; hears
+ *    evictions and civil claims up to $15,000:
+ *    https://www.ohiolegalhelp.org/resource/madison-county-municipal-court
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties of more
+ *    than 200,000 people at the last decennial census, so the 5323.02 auditor
+ *    filing does not apply in Madison County (43,824 in 2020). Verified on
+ *    codes.ohio.gov 2026-11-05: https://codes.ohio.gov/ohio-revised-code/section-5323.01
+ *  - Madison County population about 44,400, ACS 2024 5-year (Census Reporter,
+ *    https://censusreporter.org/profiles/05000US39097-madison-county-oh/).
+ *  - City code: Codified Ordinances of London, 2026 S-18 (current). Part Eight
+ *    (Business Regulation and Taxation) and Part Fourteen (Building and Housing)
+ *    contain no rental registration, rental license or rental inspection
+ *    chapter. Housing Code Title Eight, Chapters 1480 to 1490, plus the
+ *    International Property Maintenance Code at Chapter 1496. Section 1482.01
+ *    (Ord. 1372, passed 4-20-61) authorizes the Health Commissioner to inspect
+ *    dwellings, by court order if needed:
+ *    https://codelibrary.amlegal.com/codes/london/latest/london_oh/0-0-0-73664
+ *    https://codelibrary.amlegal.com/codes/london/latest/london_oh/0-0-0-66596
+ *    https://codelibrary.amlegal.com/codes/london/latest/london_oh/0-0-0-75355
+ *    Historic District is Chapter 1464 (same Part Fourteen index).
+ *  - Utilities, City of London utilities page: water and wastewater provided by
+ *    Mid-Ohio Water and Sewer District, 501 S. Main St.; every new resident
+ *    completes an Application for Water and Sewer services; meters read monthly,
+ *    wastewater billed on water use; bills mailed the 1st, due the 20th, 10%
+ *    late charge on the 21st, disconnection possible after the 21st, $50
+ *    reconnection; property owners maintain the sewer line from the house to
+ *    the district line; Rumpke is the sanitation provider as of August 1, 2026,
+ *    $20.75 per month residential, billed directly every 3 months; city
+ *    transfer drop-off site closed August 1, 2026. City Hall, 20 S. Walnut St.:
+ *    https://www.londonohio.gov/page/utilities
+ *  - Housing stock, US Census ACS 2024 5-year estimates (tables B25035, B25003,
+ *    B25024, B25064, B25077 via Census Reporter): median year built 1974;
+ *    1,687 of 4,646 occupied units renter-occupied (36%); 3,400 of 4,970
+ *    housing units detached single-family (68%); 537 in 2 to 4 unit buildings
+ *    (11%); median owner-occupied value $201,000; median gross rent $916
+ *    (margin of error plus or minus $117):
+ *    https://censusreporter.org/profiles/16000US3944674-london-oh/
+ *  - R.C. 1923.04 three-day notice to leave the premises.
+ *
+ * NOT VERIFIED, so NOT STATED: the electric and natural gas providers for
+ * London (only aggregator sites, which disagreed), and the Madison County
+ * Municipal Court eviction filing deposit (no official fee schedule found).
+ *
+ * No entry in rentByMarketAndBedroom for London. No door counts. No per-market
+ * days on market.
+ */
+
+const CITY = 'London';
+const PATH = '/property-management-london-ohio/';
+
+const title = 'London Property Management | RL Property Management';
+const description =
+  `Flat-fee property management for London, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month, ${usd(pricing.leasingFee)} leasing fee. Evictions go to court in London.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'London', path: PATH },
+];
+
+const publishesOwnRent = canPublishOwnRent(CITY);
+const photography = pricing.otherFees.find((f) => f.name === 'Property photography')!;
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a London unit turns`,
+  'London is the Madison County seat, about 25 miles southwest of Columbus',
+  'Evictions are filed at Madison County Municipal Court, 55 N. Oak St.',
+  'Water and sewer bills come from the Mid-Ohio Water and Sewer District',
+  'No city rental registration in the London code, and no state county auditor rental filing',
+];
+
+const faq = [
+  { q: 'Do you manage rental property in London, Ohio?',
+    a: `Yes. We manage rental property throughout London and the surrounding Madison County area. If you own a rental here, we can take it on. Pricing and process are the same as in Columbus: a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month and a ${usd(pricing.leasingFee)} leasing fee.` },
+  { q: 'Which court hears an eviction in London, Ohio?',
+    a: 'Madison County Municipal Court, at 55 N. Oak St. in London. Ohio Revised Code 1901.02 gives that court jurisdiction within Madison County, so a London eviction is never filed in Franklin County. The court hears evictions and civil claims up to $15,000.' },
+  { q: 'Does London require rental registration or inspections?',
+    a: 'Not as a city program. The London code has no rental registration, license or scheduled inspection chapter, though the Housing Code lets the Health Commissioner inspect a dwelling. The state’s county auditor rental registration (R.C. 5323.02) applies only in counties of more than 200,000 people, so it does not apply to a Madison County rental either.' },
+  { q: 'Who provides water, sewer and trash service in London?',
+    a: 'Water and wastewater come from the Mid-Ohio Water and Sewer District, at 501 S. Main St. Bills go out on the 1st and are due the 20th, with a 10% late charge on the 21st. Trash and recycling moved to Rumpke on August 1, 2026, billed directly every three months.' },
+  { q: 'What does a rental in London rent for?',
+    a: 'The US Census median gross rent for London is $916 a month (ACS 2024 5-year, plus or minus $117). It mixes every rental of every age and adds tenant utilities, so it trails what a renovated house lists for. Send the address and we will price it against live comparables.' },
+  { q: 'How much does property management cost in London?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Pricing is the same as everywhere else we work. Photography is billed separately at ${photography.amount}.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in London, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'London, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Madison County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in London, Ohio"
+    answer={`${company.name} manages London rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. London is the Madison County seat, so evictions are heard in town at Madison County Municipal Court.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="London, at a glance" />
+
+  <!-- COVERAGE: plain statement, no volume implied. -->
+  <section class="band-tight" aria-labelledby="cover-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="cover-h" class="text-[clamp(26px,3.2vw,38px)]">Do you manage rentals in London, Ohio?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Yes. We manage rental property throughout London and the surrounding Madison County area. If you own a
+        rental here, we can take it on.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        London is a city of 10,279 people (2020 census), about 25 miles southwest of Columbus. It was laid
+        out in 1811 to be the county seat, and it still is. That sets most of the local rules below,
+        starting with the court: a London eviction is heard in London, not in downtown Columbus.
+      </p>
+    </div>
+  </section>
+
+  <!-- COURT -->
+  <section class="band band-wash" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Evictions</span>
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in London?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Madison County Municipal Court, 55 N. Oak St., London. Ohio Revised Code 1901.02 gives it jurisdiction
+        across Madison County, and it hears evictions along with civil claims up to $15,000.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The case starts with a three-day notice to leave the premises under R.C. 1923.04. The wording and the
+        service have to be right, or the court dismisses the case and you start again.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner</h3>
+        <ul class="grid gap-2 text-[15.5px] text-muted mb-0 list-none pl-0">
+          <li><strong class="text-navy">{usd(pricing.eviction.attorneyFee)}</strong> to the eviction attorney, filing plus up to two appearances</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.rlpmProcessFee)}</strong> to us to run the process end to end</li>
+          <li><strong class="text-navy">Court deposit</strong> set by Madison County Municipal Court, confirmed with the clerk at filing</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band-tight" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Does London require rental registration?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Not at the city level. The current London codified ordinances have no rental registration, rental
+        license or scheduled inspection chapter. What they do have is a Housing Code, with
+        minimum standards and owner duties. A 1961 section lets the Health Commissioner inspect a dwelling, with a court
+        order if entry is refused. The city has also adopted the International Property Maintenance Code.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Nor at the county level. The state's county auditor rental registration (Ohio Revised Code 5323.02)
+        applies only in counties of more than 200,000 people, so it does not apply to a Madison County rental.
+        We track which rules apply to each address and handle the filings that do.
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band band-wash" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Utilities</span>
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides water, sewer and trash in London?</h2>
+      <div class="scroll-x mt-6">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for London, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">What an owner should know</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water and wastewater</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Mid-Ohio Water and Sewer District</td>
+              <td class="p-3.5 border border-line text-muted">Due the 20th, 10% late charge on the 21st, $50 to reconnect after a shutoff</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Trash and recycling</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Rumpke, since August 1, 2026</td>
+              <td class="p-3.5 border border-line text-muted">$20.75 a month residential, billed every three months</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electric and gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Confirm per address</td>
+              <td class="p-3.5 border border-line text-muted">We check the providers at onboarding</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        Two details matter at turnover. Every new resident has to file an application for water and sewer
+        service with the district, so we build that into move-in. And the property owner, not the district,
+        maintains the sewer line from the house to the district main, so a backed-up lateral is a repair on
+        your statement.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK AND PRICING -->
+  <section class="band-tight" aria-labelledby="market-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="market-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in London?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Older, mostly detached houses. Per US Census ACS 2024 5-year estimates, the median home in London was
+        built in 1974, 68% of housing units are detached single-family, and 11% sit in two to four unit
+        buildings. Renters occupy 36% of homes, and the median owner-occupied value is $201,000.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        With a median build year of 1974, we look hard at the electrical service and the sewer lateral before
+        you buy. The city code also has a
+        historic district chapter (Chapter 1464), so check whether an address falls inside it before planning
+        exterior work.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        {publishesOwnRent
+          ? 'Our portfolio now supports a published London median. Update this page before relying on it.'
+          : 'We do not have a portfolio median for London. The Census median gross rent is $916, which mixes every age and type of rental, so we price each house against live comparables instead.'}
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my London rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band-wash" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">London property management questions</h2>
+      <Faq items={faq} heading="London property management questions" id="london-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and owner funds go out on the {rentPolicy.ownerDisbursementDay}th.
+        More answers are on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <LegalNote class="mt-5" />
+      <div class="mt-6"><Verified date="2026-11-05" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-galloway-ohio/', label: 'Galloway property management', note: 'East, in Prairie Township, Franklin County.' },
+    { href: '/property-management-hilliard-ohio/', label: 'Hilliard property management', note: 'Northeast, newer stock and a Franklin County court.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with rents, the registry and the court.' },
+    { href: '/areas-we-serve/', label: 'Every area we serve', note: 'Seven counties, and the eviction court for each one.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your London rental should earn"
+    body="Send us the address and we will price it against live comparable listings in Madison County. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

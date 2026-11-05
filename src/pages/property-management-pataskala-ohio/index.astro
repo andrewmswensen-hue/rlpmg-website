@@ -35,7 +35,10 @@ import { serviceNode } from '../../lib/schema';
  *    ohiowea.org/docs/City_of_Pataskala_WRF_Plant_Profile.pdf.
  *  - Eviction jurisdiction follows the county under R.C. 1901.02. Licking County
  *    goes to Licking County Municipal Court (docs/area-research-verified.md).
- *  - R.C. 5323.02 owner filing with the county auditor, penalty R.C. 5323.99.
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties of more
+ *    than 200,000 people at the last decennial census, so the 5323.02 auditor
+ *    filing does not apply in Licking County (178,519 in 2020). Verified on
+ *    codes.ohio.gov 2026-11-05: https://codes.ohio.gov/ohio-revised-code/section-5323.01
  *  - R.C. 1923.04 three-day notice to leave the premises.
  *
  * NO qualifying entry in rentByMarketAndBedroom for Pataskala. No rent median is
@@ -63,27 +66,27 @@ const keyFacts = [
   `${usd(pricing.leasingFee)} leasing fee every time a Pataskala unit turns`,
   'Pataskala is in Licking County, not Franklin County',
   'Evictions are filed at Licking County Municipal Court in Newark',
-  'The R.C. 5323 owner filing goes to the Licking County Auditor',
+  'No state county auditor rental filing: Licking County is under the 200,000-person line',
   'About 28 square miles of city, with subdivisions, wells and septic systems inside the same limits',
 ];
 
 const faq = [
   { q: 'What county is Pataskala, Ohio in?',
-    a: 'Licking County. Pataskala sits roughly 19 miles east of Columbus and is a Licking County city, which means every county-level filing, from the eviction complaint to the R.C. 5323 rental owner registration, goes to Licking County rather than Franklin. Its western edge runs close enough to the Franklin County line that owners regularly assume otherwise.' },
+    a: 'Licking County. Pataskala is roughly 19 miles east of Columbus, and county business, from the eviction complaint to the property tax bill, goes to Licking County, even though its western edge sits near the Franklin County line.' },
   { q: 'Which court hears an eviction in Pataskala, Ohio?',
-    a: 'Licking County Municipal Court, which sits in Newark. Ohio Revised Code 1901.02 ties municipal court jurisdiction to territory, and Pataskala is Licking County territory, so a forcible entry and detainer action on a Pataskala rental is filed there and not at Franklin County Municipal Court in downtown Columbus. A misfiled complaint costs the filing fee and roughly three weeks, and you begin again.' },
+    a: 'Licking County Municipal Court in Newark, because R.C. 1901.02 ties jurisdiction to territory. A Pataskala case misfiled at Franklin County Municipal Court in Columbus costs the fee and about three weeks.' },
   { q: 'Why is Pataskala so large for its population?',
-    a: 'Because of the 1996 merger. What was then the village of Pataskala merged with Lima Township, which took the municipality to roughly 28 square miles in one step and was pursued in part to manage sprawl pushing east from Columbus. The result is a city that contains conventional subdivisions, a small historic center, and rural acreage all under one set of city limits.' },
+    a: 'The 1996 merger of the village of Pataskala with Lima Township, pursued partly to manage sprawl from Columbus, took it to roughly 28 square miles in one step. So one set of city limits holds subdivisions, a small historic center and rural acreage.' },
   { q: 'Is a Pataskala rental on city water or a private well?',
-    a: 'It depends on the parcel, and it is the most important thing to check before buying one. Two public providers operate inside the city, the City of Pataskala utility and the Licking Regional Water District, formerly the Southwest Licking Community Water and Sewer District. Outside their service areas, properties draw from a private well and discharge to a private septic system. Get the answer in writing before closing.' },
+    a: 'It depends on the parcel. The City of Pataskala and the Licking Regional Water District (formerly the Southwest Licking Community Water and Sewer District) both serve parts of the city, and outside their areas a house runs on a private well and septic. Get the answer in writing before closing.' },
   { q: 'What does a septic system mean for a rental owner in Pataskala?',
-    a: 'A recurring maintenance obligation you cannot pass to the resident and cannot ignore. A household sewage treatment system needs periodic pumping and inspection, it fails expensively and without much warning, and a failure on a tenanted property becomes a habitability problem within days. Budget for it as a capital item, not a repair.' },
+    a: 'An owner obligation you cannot pass to the resident. A household sewage treatment system needs periodic pumping and inspection, and a failure on a tenanted Pataskala property becomes a habitability problem within days, so budget it as a capital item.' },
   { q: 'Do I have to register a rental property in Pataskala?',
-    a: 'Yes, with the Licking County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number plus the property address and parcel number with the auditor of the county the property sits in, and to update it within 60 days of any change. There is no fee, and missing it draws a special assessment of $50 to $150 under R.C. 5323.99.' },
+    a: 'Not with the county. The state’s county auditor rental registration (R.C. 5323.02) applies only in counties of more than 200,000 people, so it does not apply to a Licking County rental. We track which rules apply to each address and handle the filings that do.' },
   { q: 'What does a rental in Pataskala rent for?',
-    a: 'We are not publishing a bedroom-level median for Pataskala. Our own sample there is below the five-unit floor we set before publishing a market-level figure, and we will not present a public rent index as our own portfolio data. Send an address and we will price it against live comparables.' },
+    a: 'We do not publish a Pataskala rent median, because our sample is below our five-unit floor. Send an address and we will price it against live comparables.' },
   { q: 'How much does property management cost in Pataskala?',
-    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. The fee does not change with the rent, and it does not change because your property is 25 minutes further out than the rest of our portfolio. Photography is not included in the leasing fee and is billed separately at $250 to $450.` },
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} per renewal, with no extra charge for being 25 minutes further out. Photography is billed separately at $250 to $450.` },
 ];
 
 const schemaNodes = [
@@ -119,18 +122,14 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Pataskala, Ohio?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Licking County Municipal Court, in Newark. Pataskala is a Licking County city, and Ohio Revised Code
-        1901.02 ties municipal court jurisdiction to territory rather than to the nearest big courthouse. So a
-        forcible entry and detainer action on a Pataskala rental is filed in Newark, not at Franklin County
-        Municipal Court at 375 S. High St. in downtown Columbus.
+        Licking County Municipal Court, in Newark, not Franklin County Municipal Court at 375 S. High St. in
+        Columbus. Ohio Revised Code 1901.02 ties jurisdiction to territory, not to the nearest big courthouse.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Getting the county wrong costs money. Pataskala sits close enough to the Franklin County line, and close
-        enough to the Reynoldsburg and Blacklick side of the metro, that an owner or an out-of-area manager
-        reaches for the Columbus process by reflex. A complaint filed in the wrong court is dismissed, the filing
-        fee is gone, and you restart roughly three weeks later with another month of unpaid rent behind you. The
-        same is true of the notice: Ohio requires a three-day notice to leave the premises under R.C. 1923.04,
-        with specific statutory language and correct service, and the wrong wording ends the case.
+        Pataskala is close enough to the Franklin County line and the Reynoldsburg and Blacklick side of the
+        metro that out-of-area managers reach for the Columbus process by reflex. The wrong court dismisses the
+        case, keeps the fee and costs about three weeks. So does a three-day notice under R.C. 1923.04 with the
+        wrong statutory wording or service.
       </p>
       <div class="card mt-7">
         <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner</h3>
@@ -146,10 +145,8 @@ const schemaNodes = [
         </p>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        The full procedure is on the
-        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>,
-        including the work we do in the 30 days before it becomes necessary. Most of what keeps an eviction from
-        happening is screening and the first late-rent conversation, not the filing.
+        Most evictions are prevented by screening and the first late-rent conversation. Full procedure on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
       </p>
     </div>
   </section>
@@ -160,26 +157,23 @@ const schemaNodes = [
       <span class="eyebrow">The market</span>
       <h2 id="geography-h" class="text-[clamp(26px,3.2vw,38px)]">Why does Pataskala cover so much ground, and why does that matter?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Because of the 1996 merger with Lima Township, which took what had been a village to roughly 28 square
-        miles in a single step. The merger was pursued in part to manage sprawl pushing east out of Columbus, and
-        the effect is a city that is mostly not urban. Inside one set of city limits you have conventional
-        subdivisions built in the last two decades, a small nineteenth-century core, and working agricultural
-        acreage with houses on it.
+        The 1996 merger with Lima Township took a village to roughly 28 square miles in one step, partly to
+        manage sprawl from Columbus. One set of city limits now holds three different rental businesses:
       </p>
+      <ul class="text-[17px] text-muted mt-3 list-disc pl-6 grid gap-1.5">
+        <li><strong>Newer subdivisions</strong> from the last two decades, such as a 2015 four bedroom on public water and sewer, which rents like any outer-ring suburb.</li>
+        <li><strong>A small nineteenth-century core.</strong></li>
+        <li><strong>Working agricultural acreage</strong>, such as a 1960s ranch on two acres with a well and septic field: different capital exposure, different applicants.</li>
+      </ul>
       <p class="text-[17.5px] text-muted mt-5">
-        For an owner, that means the words "a rental in Pataskala" describe at least three different assets with
-        three different risk profiles. A 2015 four bedroom on public water and public sewer in a platted
-        subdivision behaves like any other outer-ring suburban rental. A 1960s ranch on two acres with a private
-        well and a septic field is a different business, with different capital exposure and a different pool of
-        applicants. An average across the two would describe neither house.
+        An average across them describes none of them.
       </p>
       <h3 class="text-[21px] mt-9 mb-3">Where in Pataskala we work</h3>
       <p class="text-[16.5px] text-muted">
-        The Broad Street corridor and the historic center, the newer subdivisions off Summit Road and Township
-        Road, the Etna and Kirkersville edges, and the western side of the city where it runs toward the Franklin
-        County line and the Licking Heights area. The Southwest Licking Local School District, with Watkins
-        Memorial High School in Pataskala, is the district most Pataskala addresses feed, though the western part
-        of the city area is served by Licking Heights.
+        The Broad Street corridor and historic center, the newer subdivisions off Summit Road and Township Road,
+        the Etna and Kirkersville edges, and the west side toward the Franklin County line and Licking Heights.
+        Most addresses feed the Southwest Licking Local School District (Watkins Memorial High School); the west
+        side is served by Licking Heights.
       </p>
     </div>
   </section>
@@ -189,11 +183,9 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="water-h" class="text-[clamp(26px,3.2vw,38px)]">Is a Pataskala rental on city water and sewer, or on a well and septic?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        It depends on the parcel, and you have to check the parcel. Two public utilities operate inside the
-        Pataskala city limits: the City of Pataskala, which runs its own water system and its own water
-        reclamation facility, and the Licking Regional Water District, the utility formerly known as the
-        Southwest Licking Community Water and Sewer District. Outside both service areas, a property is on a
-        private well for drinking water and a private septic system for wastewater.
+        It depends on the parcel. Two public utilities serve parts of the city: the City of Pataskala, with its
+        own water system and water reclamation facility, and the Licking Regional Water District (formerly the
+        Southwest Licking Community Water and Sewer District). Outside both, it is a private well and septic.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -230,12 +222,8 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-      </p>
-      <p class="text-[16px] text-muted mt-5">
-        A septic failure on a tenanted property is a
-        habitability problem with a clock on it and a four-figure or five-figure invoice attached. We put the
-        answer in the property file at onboarding and plan the pumping interval, rather than waiting for the
-        resident to call.
+        A septic failure on a tenanted property is a habitability problem with a clock on it and a four or five
+        figure invoice. We record the system at onboarding and schedule the pumping.
       </p>
     </div>
   </section>
@@ -246,19 +234,12 @@ const schemaNodes = [
       <span class="eyebrow">Compliance</span>
       <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Pataskala rental property?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Yes, with the Licking County Auditor. Ohio Revised Code 5323.02 requires every owner of residential
-        rental property to file their name, address and telephone number, plus the property street address and
-        permanent parcel number, with the auditor of the county the property sits in, and to update it within 60
-        days of any change. There is no fee for the filing. Miss it and the auditor can place a special
-        assessment of $50 to $150 on the property under R.C. 5323.99.
+        Not with the county. The state's county auditor rental registration (R.C. 5323.02) applies only in
+        counties of more than 200,000 people, so it does not apply to a Licking County rental.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        If you hold the property in an LLC or a trust, the statute requires the responsible officer, member or
-        trustee named, which is the detail most owners skip. The statute also lets an owner designate a property
-        manager as the agent who files, and that is part of onboarding here.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and file on time, so you do not have to.
+        City programs are separate (Columbus added a registry in April 2026 under City Code Chapter 4515). We
+        track which rules apply to each address and handle the filings that do.
       </p>
     </div>
   </section>
@@ -270,7 +251,7 @@ const schemaNodes = [
       <p class="text-[17.5px] text-muted mt-4">
         A flat {usd(pricing.plans[0].monthly)} to {usd(pricing.plans[2].monthly)} per unit per month depending on
         plan, with a {usd(pricing.leasingFee)} leasing fee and {usd(pricing.leaseRenewalFee)} on a lease renewal.
-        The three plans differ in one variable, the dollar amount of repair we can approve without calling you.
+        Plans differ only in how large a repair we can approve without calling you.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (
@@ -285,13 +266,9 @@ const schemaNodes = [
       <p class="text-[16.5px] text-muted mt-7">
         {publishesOwnRent
           ? 'Our portfolio sample in Pataskala now supports a published median. Update this page before relying on it.'
-          : 'We are not publishing a bedroom-level rent median for Pataskala. Our sample there is below the five-unit floor we set before publishing a market-level figure, and quoting a public rent index as if it were our own book is the thing we criticize other pages for doing.'}
-        {' '}Send us an address and we will price it against live comparable listings.
-      </p>
-      <p class="text-[16.5px] text-muted mt-5">
-        We do not charge more to manage a property further from our office, and we do not decline a Pataskala
-        house because the drive is longer. Photography is not included in the {usd(pricing.leasingFee)} leasing
-        fee and is billed separately at $250 to $450.
+          : 'Our Pataskala sample is below our five-unit floor, so we publish no rent median here.'}
+        {' '}Send an address for a price against live listings. Distance from our office costs you nothing
+        extra. Photography is billed separately at $250 to $450.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
         <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
@@ -307,8 +284,8 @@ const schemaNodes = [
       <h2 id="faq-section" class="sr-only">Pataskala property management questions</h2>
       <Faq items={faq} heading="Pataskala property management questions" id="pataskala-faq" />
       <p class="mt-7 text-[15.5px] text-muted">
-        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
-        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        Rent is due on {rentPolicy.dueDate} with late fees after {rentPolicy.lateFeesAfter}, and owner funds go
+        out on the {rentPolicy.ownerDisbursementDay}th. For more, see the
         {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
       </p>
       <div class="mt-6"><Verified date="2026-09-09" /></div>
@@ -325,7 +302,7 @@ const schemaNodes = [
 
   <Cta
     heading="Find out what your Pataskala rental should earn"
-    body="Tell us the address and we will price it against live comparable listings and tell you whether the parcel is on public water and sewer. No charge, and no obligation to hire us."
+    body="Send the address. We will price it against live listings and tell you whether the parcel is on public water and sewer. Free."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
   />

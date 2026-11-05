@@ -1,0 +1,338 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import LegalNote from '../../components/LegalNote.astro';
+import { company, kpis, pricing, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Newark, Ohio. Target query: "property management newark ohio".
+ *
+ * The differentiating fact: Newark is the Licking County seat, so the eviction
+ * court is in town rather than downtown Columbus, and the city runs its own
+ * water and wastewater utility with landlord rules an owner needs to know
+ * before the first tenant moves in: tenant billing only on an owner-signed
+ * Direct Billing Agreement, disconnection notices copied to the owner, a
+ * minimum charge while a unit sits vacant, and the service line from the curb
+ * box to the meter on the owner. The housing stock is old (median year built
+ * 1963), and the city itself points tenants to the rent escrow remedy.
+ *
+ * Newark is tier 'present' in src/data/markets.ts. It has no entry in
+ * rentByMarketAndBedroom, so no RLPM rent median is published. The Census
+ * median gross rent is used instead and labeled as Census.
+ *
+ * SOURCES (verified 2026-11-05):
+ *  - Newark is a city in Licking County and its county seat, about 40 miles
+ *    east of Columbus at the forks of the Licking River. Population 49,934 at
+ *    the 2020 census. Ohio State Newark (founded 1957) shares its campus with
+ *    COTC. The neighboring city of Heath holds the Great Circle portion of the
+ *    Newark Earthworks: en.wikipedia.org/wiki/Newark,_Ohio.
+ *  - Hudson Avenue Historic District and Newark Downtown Historic District:
+ *    en.wikipedia.org/wiki/National_Register_of_Historic_Places_listings_in_Licking_County,_Ohio.
+ *  - Licking County Municipal Court, 40 West Main Street, 3rd Floor, Newark,
+ *    OH 43055; civil lawsuits up to $15,000; publishes a Forcible Entry and
+ *    Detainer Complaint form and a 2026 eviction schedule:
+ *    newarkohio.gov/licking-county-municipal-court/.
+ *  - R.C. 1901.02: "The Licking county municipal court has jurisdiction within
+ *    Licking county." codes.ohio.gov/ohio-revised-code/section-1901.02.
+ *  - Licking County Municipal Court filing cost ($110, writ of restitution
+ *    $50): pricing.eviction.otherCountyFilingFees in src/data/facts.ts.
+ *  - R.C. 1923.04 three-day notice to leave the premises.
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties of more
+ *    than 200,000 people at the last decennial census, so the 5323.02 auditor
+ *    filing does not apply in Licking County (178,519 in 2020). Verified on
+ *    codes.ohio.gov 2026-11-05: https://codes.ohio.gov/ohio-revised-code/section-5323.01
+ *  - City rental registration: the City of Newark "Fair Housing & Landlord
+ *    Services" page lists fair housing and repair resources and no rental
+ *    registration, license or inspection program, and a site search for
+ *    "rental" returned no such program, 2026-11-05:
+ *    newarkohio.gov/fair-housing-landlord-services/. The page also lists the
+ *    city's protected classes, including sexual orientation and veteran status,
+ *    and names Southeastern Ohio Legal Services as the program consultant.
+ *  - City of Newark Fair Housing Office guide "Repairs to Rentals": tenants
+ *    may file code violations with the City of Newark Property Maintenance
+ *    Department and may escrow rent:
+ *    newarkohio.gov/wp-content/uploads/2022/08/Repairs-to-Rentals-How-to-Request.pdf.
+ *    Rent escrow, current-in-rent condition and the three-or-fewer-units
+ *    exemption with written notice: codes.ohio.gov/ohio-revised-code/section-5321.07.
+ *  - Water and wastewater: City of Newark Division of Water and Wastewater,
+ *    Newark Water Office at 34 S. 5th St. Tenant billing needs a Direct Billing
+ *    Agreement filled out by the owner or managing agent; activation fee and a
+ *    deposit may be required; the owner still gets disconnection notices; a
+ *    minimum charge applies when service is on at the curb; the owner is
+ *    responsible for the service line from the curb box valve to the meter;
+ *    every bill carries a stormwater charge; owners can ask the office about a
+ *    prospective tenant's payment history:
+ *    newarkohio.gov/wp-content/uploads/2022/08/Water-Wastewater-Frequently-Asked-Questions.pdf
+ *    and newarkohio.gov/wp-content/uploads/2022/09/Direct-Billing-Agreement-rev-July-2016.pdf
+ *    (tenants receive bills "as agents for me", monthly bills).
+ *  - Electric and gas: AEP Ohio and Columbia Gas of Ohio generally serve
+ *    central Ohio (docs/area-research-verified.md). The Energy Cooperative is
+ *    headquartered in Newark and serves electric and natural gas customers
+ *    across Licking and seven other counties:
+ *    electricrates.org/blog/the-energy-cooperative-ohio/. Provider stated as
+ *    confirm-per-address.
+ *  - Housing stock, US Census, ACS 2024 5-year estimates, via
+ *    censusreporter.org (geo 16000US3954040): median year structure built 1963
+ *    (B25035); 14,558 of 21,755 housing units are one-unit detached (B25024);
+ *    8,964 of 20,276 occupied units are renter occupied, about 44% (B25003);
+ *    median gross rent $973, margin of error $30 (B25064).
+ */
+
+const CITY = 'Newark';
+const PATH = '/property-management-newark-ohio/';
+
+const title = 'Newark Property Management | RL Property Management';
+const description =
+  `Flat-fee property management for Newark, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `a month with a ${usd(pricing.leasingFee)} leasing fee. Evictions are heard in Newark.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Newark', path: PATH },
+];
+
+const publishesOwnRent = canPublishOwnRent(CITY);
+
+const lickingCourt = pricing.eviction.otherCountyFilingFees.find((f) => f.court === 'Licking County Municipal Court')!;
+const lickingFiling = usd(lickingCourt.fee as number);
+const photography = pricing.otherFees.find((f) => f.name === 'Property photography')!.amount;
+const repairDays = kpis.metrics.find((m) => m.id === 'repairDays')!.value;
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Newark unit turns`,
+  'Newark is the Licking County seat, and the eviction court is in town',
+  'Water, sewer and stormwater are billed by the City of Newark',
+  'Median home in Newark was built in 1963 (US Census)',
+  'No state county auditor rental filing: Licking County is under the 200,000-person line',
+];
+
+const faq = [
+  { q: 'Which court hears an eviction in Newark, Ohio?',
+    a: `Licking County Municipal Court, at 40 West Main Street in Newark. Ohio Revised Code 1901.02 gives that court jurisdiction across Licking County. The filing cost there is ${lickingFiling}, with a further $50 if a writ of restitution is needed.` },
+  { q: 'Can a Newark tenant put the water bill in their own name?',
+    a: 'Yes, but only after the owner or managing agent fills out the City of Newark Direct Billing Agreement with the tenant named on it. The tenant then receives the monthly bills as the owner’s agent, and the city still sends the owner any disconnection notices. We handle that changeover between residents.' },
+  { q: 'Do I pay for water on a vacant Newark rental?',
+    a: 'Usually, yes. The City of Newark charges a minimum bill whenever service is on at the curb, even with no water used, and every bill carries a stormwater charge. Budget for it during a turn.' },
+  { q: 'Does Newark have a city rental registration or inspection program?',
+    a: 'We found none on the city’s website as of November 2026. The city’s landlord page lists fair housing and repair resources only. Tenants can file code violations with the city’s Property Maintenance Department. The state’s county auditor rental registration (R.C. 5323.02) applies only in counties of more than 200,000 people, so it does not apply to a Licking County rental either.' },
+  { q: 'What does a rental in Newark rent for?',
+    a: 'The US Census puts the median gross rent in Newark at $973 a month (ACS 2024 5-year estimates). That is a Census figure across all Newark rentals, including utilities where the tenant pays them, not a median from the homes we manage.' },
+  { q: 'How much does property management cost in Newark?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, a ${usd(pricing.leasingFee)} leasing fee, and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Photography for a new listing is billed separately at ${photography}.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Newark, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Newark, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Licking County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Newark, Ohio"
+    answer={`${company.name} manages Newark rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Newark is the Licking County seat, so evictions are heard in town at Licking County Municipal Court.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Newark, at a glance" />
+
+  <!-- THE HOOK: the city water rules that land on the owner. -->
+  <section class="band-tight" aria-labelledby="water-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="water-h" class="text-[clamp(26px,3.2vw,38px)]">Who pays the water bill on a Newark rental?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The owner, by default. The City of Newark Division of Water and Wastewater bills
+        water, sewer and stormwater together. A tenant can only take the account after the owner signs a Direct
+        Billing Agreement naming them.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">Four rules from the city that matter to an owner:</p>
+      <ul class="grid gap-3 text-[16.5px] text-muted mt-4 pl-5 list-disc">
+        <li><strong class="text-navy">The tenant pays as your agent.</strong> The city still mails you any disconnection notice on the account.</li>
+        <li><strong class="text-navy">Vacant still bills.</strong> A minimum charge applies whenever service is on at the curb, even with no water used.</li>
+        <li><strong class="text-navy">The service line is yours.</strong> A leak between the curb box valve and the meter is the owner&rsquo;s repair. The city maintains the meter.</li>
+        <li><strong class="text-navy">Payment history is available.</strong> The Newark Water Office will tell an owner how a prospective tenant has paid the city before.</li>
+      </ul>
+      <p class="text-[16.5px] text-muted mt-5">
+        Between residents we put service back in your name, then confirm the incoming resident has taken it over,
+        which in Newark means a signed Direct Billing Agreement.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Newark, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water, sewer, stormwater</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Newark, Newark Water Office at 34 S. 5th St.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio or The Energy Cooperative, confirm per address</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio or The Energy Cooperative, confirm per address</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK AND NEIGHBORHOODS -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in Newark?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Mostly older single-family houses. Newark is a city of about 50,000 people (49,934 at the 2020 census),
+        40 miles east of Columbus where the forks of the Licking River meet. The US Census puts the median year
+        built at 1963. About two in three homes are detached single-family, and about 44% of households rent.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Budget a turn on a 1960s house accordingly, not like a new build.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">Where in Newark</h3>
+      <p class="text-[16.5px] text-muted">
+        Newark has two historic districts on the National Register, Newark Downtown and Hudson Avenue. Ohio State Newark and COTC share a campus in the city. Heath is a separate city next door, so check which city a parcel sits in before you assume Newark rules apply.
+      </p>
+    </div>
+  </section>
+
+  <!-- COURT -->
+  <section class="band-tight" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Newark?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Licking County Municipal Court, at 40 West Main Street, 3rd floor. Ohio Revised Code 1901.02 gives it
+        jurisdiction across all of Licking County, so a Newark case never goes to Franklin County.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner here</h3>
+        <ul class="grid gap-2 text-[15.5px] text-muted mb-0 list-none pl-0">
+          <li><strong class="text-navy">{lickingFiling}</strong> to file at Licking County Municipal Court, plus $50 if a writ of restitution is needed</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.attorneyFee)}</strong> to the eviction attorney, filing plus up to two appearances</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.rlpmProcessFee)}</strong> to us to run the process end to end</li>
+        </ul>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        The three-day notice under R.C. 1923.04 comes first, with exact statutory wording. The full process is on
+        the <a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION AND TENANT REMEDIES -->
+  <section class="band band-wash" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Compliance</span>
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Newark rental?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Not with the county. The state's county auditor rental registration (Ohio Revised Code 5323.02) applies
+        only in counties of more than 200,000 people, so it does not apply to a Licking County rental. We track
+        which rules apply to each address and handle the filings that do.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        We found no separate city rental registration or inspection program on the City of Newark&rsquo;s website
+        as of November 2026. Tenants can file code violations with the city&rsquo;s Property Maintenance
+        Department. If the city adds a program, tracking it is our job.
+      </p>
+      <h3 class="text-[21px] mt-9 mb-3">The city tells tenants about rent escrow</h3>
+      <p class="text-[16.5px] text-muted">
+        The City of Newark Fair Housing Office publishes a guide showing tenants how to request repairs in
+        writing and deposit rent with the court clerk if repairs are not made. Under R.C. 5321.07, a tenant who is
+        current on rent can do that after 30 days, or sooner for a serious condition. Our portfolio-wide median repair closes in
+        {repairDays} days. The city&rsquo;s fair housing program also lists sexual orientation and veteran status
+        among its protected classes, which is worth knowing before you write a listing.
+      </p>
+      <LegalNote class="mt-6" />
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="band-tight" aria-labelledby="cost-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="cost-h" class="text-[clamp(26px,3.2vw,38px)]">What does property management cost in Newark?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The same as anywhere we work. The three plans differ in one thing: how much repair we can approve without
+        calling you.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        {publishesOwnRent
+          ? 'Our portfolio sample in Newark now supports a published median. Update this page before relying on it.'
+          : 'We do not publish our own Newark rent median, because our sample there is below the five-unit floor we set. The Census median gross rent for Newark is $973 a month (ACS 2024 5-year estimates), across all rentals in the city.'}
+        {' '}Send an address and we will price the house against live listings.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Newark rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band-wash" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Newark property management questions</h2>
+      <Faq items={faq} heading="Newark property management questions" id="newark-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        More owner answers are on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-11-05" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-granville-ohio/', label: 'Granville property management', note: 'Seven miles west, a village with its own water plant and zoning review.' },
+    { href: '/property-management-pataskala-ohio/', label: 'Pataskala property management', note: 'West on the county line, same court, wells and septic in places.' },
+    { href: '/property-management-johnstown-ohio/', label: 'Johnstown property management', note: 'Northwest, the Licking County city closest to the Intel site.' },
+    { href: '/property-management-columbus-ohio/', label: 'Columbus property management', note: 'The anchor page, with rents, the registry and the court.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Newark rental should earn"
+    body="Send the address and we will price it against live comparable listings and tell you what the city water account will need at move-in. No charge."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

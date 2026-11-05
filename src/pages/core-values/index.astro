@@ -31,13 +31,13 @@ const slug = (n: string) => n.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(
  */
 const checks: Record<string, string> = {
   'Clear communication':
-    `The complete fee schedule is published, including the charges that only appear in a bad month. So are the operating numbers, refreshed monthly.`,
+    `Every fee is published, including the ones that only appear in a bad month. So are the operating numbers, refreshed monthly.`,
   'Do it in realtime':
     `Median time to close a repair across the portfolio is ${kpis.metrics[5].value} days. Median time to turn a vacant unit is ${kpis.metrics[1].value} days.`,
   'Figure it out and get it done':
     `Owner funds are disbursed on the ${rentPolicy.ownerDisbursementDay}th of each month whether or not the month was easy, and ${kpis.metrics[6].value} of rent is collected by the 5th.`,
   'A place for everything':
-    `Every managed property is inspected quarterly and every charge that can appear on an owner statement is written down in advance.`,
+    `Every managed property is inspected quarterly, and every possible owner charge is written down in advance.`,
   'We lend a hand, always':
     `If an approved pet causes damage beyond the security deposit, we cover the difference up to ${usd(pricing.petDamageCoverage.cap)}. If a unit sits listed longer than 60 days, we credit management fees back.`,
   'Respect clients, residents and each other':
@@ -48,17 +48,17 @@ const values = coreValues.map((v) => ({ ...v, slug: slug(v.name), check: checks[
 
 const faq = [
   { q: 'What are RL Property Management’s core values?',
-    a: `Six: clear communication, do it in realtime, figure it out and get it done, a place for everything, we lend a hand always, and respect clients, residents and each other. Each one is explained on this page alongside a published number or commitment that shows whether it is being followed.` },
+    a: `Six: clear communication, do it in realtime, figure it out and get it done, a place for everything, we lend a hand always, and respect clients, residents and each other. Each is paired on this page with a published number or commitment that shows whether we follow it.` },
   { q: 'Why does a property management company publish core values?',
-    a: 'Because property management is thousands of small judgment calls that no owner will ever see. A written value set is what a team falls back on when a situation is not covered by a process, and publishing it lets an owner hold us to it.' },
+    a: 'Because property management is thousands of small judgment calls no owner sees. Written values guide the team when no process covers the situation, and publishing them lets owners hold us to them.' },
   { q: 'What is RL Property Management’s mission?',
-    a: `${mission} That is the whole purpose statement. Everything else, including the values on this page, exists to serve it.` },
+    a: `${mission} Everything else, including these values, serves it.` },
   { q: 'How do you know whether a company actually lives by its values?',
-    a: 'Check whether the claims are attached to anything falsifiable. A company that publishes its prices, its operating numbers and its commitments in writing can be caught out. A company that publishes only adjectives gives you nothing to check.' },
+    a: 'Check whether the claims are attached to anything checkable. A company that publishes its prices, numbers and commitments can be caught out. Adjectives give you nothing to check.' },
   { q: 'What happens when RL Property Management gets something wrong?',
     a: `We tell the owner and we fix it. Several of our published commitments exist specifically for when things go badly: management fees are credited back after 60 days of vacancy, and pet damage above the deposit is covered up to ${usd(pricing.petDamageCoverage.cap)}.` },
   { q: 'Do the core values apply to residents as well as owners?',
-    a: 'Yes. Two of the six name residents directly, and resident satisfaction is one of the eight numbers published on the scorecard. A resident who is treated badly leaves, and a turn costs an owner far more than a repair does.' },
+    a: 'Yes. Two of the six name residents directly, and resident satisfaction is one of the eight numbers published on the scorecard.' },
 ];
 
 const related = [
@@ -84,9 +84,7 @@ const related = [
       <div class="card !bg-wash-soft">
         <h2 id="purpose-h" class="text-[19px] mb-3">What is the purpose behind the values?</h2>
         <p class="text-[17px] text-muted m-0">
-          One sentence: {mission.charAt(0).toLowerCase() + mission.slice(1)} The values are how we
-          get that done on an ordinary Tuesday, when nobody is watching and the situation is not covered
-          by a process.
+          {mission} The values are how we do that when no process covers the situation.
         </p>
       </div>
     </div>
@@ -96,16 +94,13 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="why-h">Why do core values matter in property management?</h2>
       <p>
-        Because most of this job happens out of sight. An owner sees a monthly statement and a
-        quarterly inspection report. What an owner does not see is the fifty small decisions made
-        that month: whether to replace the part or the whole unit, whether to push a late resident
-        or work out a plan, whether to call the owner about a repair that lands just over the approval limit or handle it.
+        Because most of this job happens out of sight. An owner sees a statement and an inspection report,
+        not the dozens of small calls behind them: replace the part or the unit, push a late resident or
+        work out a plan, call the owner about a repair just over the approval limit or handle it.
       </p>
       <p>
-        No process document covers all of that, so a written value set fills the gap: it tells the
-        person making the call what to optimize for when the answer is not obvious. That is why
-        these six are stated plainly and why each one below is paired with something published that
-        would expose us if we were not following it.
+        The values tell the person making the call what to optimize for. Each one below is paired with
+        something published that would expose us if we were not following it.
       </p>
     </div>
   </section>
@@ -115,7 +110,7 @@ const related = [
       <span class="eyebrow">The six</span>
       <h2 id="values-h" class="text-[clamp(28px,3.3vw,40px)]">What are the six core values?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-9 max-w-[44em]">
-        Each value, what it means in practice, and the published fact that makes it checkable.
+        Each value, and the published fact that makes it checkable.
       </p>
       <ol class="grid gap-6 lg:grid-cols-2">
         {values.map((v, i) => (
@@ -141,8 +136,7 @@ const related = [
       <span class="eyebrow">In writing</span>
       <h2 id="practice-h" class="text-[clamp(28px,3.3vw,40px)]">What do the values look like in practice?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        They turn into commitments, and the commitments are in the Client Handbook rather than in a
-        sales conversation. These are the five that cost us money when we get something wrong.
+        Written commitments in the Client Handbook. These five cost us money when we get something wrong.
       </p>
       <div class="grid gap-5 sm:grid-cols-2">
         {commitments.map((c) => (
@@ -159,24 +153,16 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="hiring-h">How do the values affect hiring?</h2>
       <p>
-        They are the standard people are hired and reviewed against, which is how a value
-        set survives contact with a growing team. The company is organized by function, so a
-        maintenance coordinator and a leasing assistant are measured against the same six values
-        even though their work looks nothing alike.
-      </p>
-      <p>
-        Open roles and the benefits attached to them are on the
-        {' '}<a href="/careers/">careers page</a>. The full roster, with every name and title, is on
+        Everyone is hired and reviewed against them, from maintenance coordinator to leasing
+        assistant. Open roles are on the <a href="/careers/">careers page</a>; the full roster is on
         the <a href="/team/">team page</a>.
       </p>
 
       <h2>Where can I see whether the values are working?</h2>
       <p>
-        On the <a href="/key-performance-indicators/">scorecard</a>. Eight operating numbers,
-        refreshed monthly, including the ones that would look bad if the work slipped: median days
-        to close a repair, portfolio occupancy, lease renewal rate and resident satisfaction. As of
-        {' '}{kpis.asOfLabel} the renewal rate is {kpis.metrics[2].value}, which is the number most
-        directly tied to whether residents are treated well.
+        On the <a href="/key-performance-indicators/">scorecard</a>: eight operating numbers, refreshed
+        monthly, including repair time, occupancy, renewal rate and resident satisfaction. As of
+        {' '}{kpis.asOfLabel} the renewal rate is {kpis.metrics[2].value}.
       </p>
     </div>
   </section>

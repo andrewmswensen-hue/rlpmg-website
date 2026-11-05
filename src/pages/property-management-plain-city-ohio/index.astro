@@ -1,0 +1,323 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import LegalNote from '../../components/LegalNote.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Plain City, Ohio. Target query: "property management plain city ohio".
+ *
+ * TIER: 'present' in markets.ts. We have doors here, but no entry in
+ * rentByMarketAndBedroom, so no portfolio median is published.
+ *
+ * The differentiating facts: Plain City is a village split between Madison and
+ * Union counties, so the eviction court depends on which
+ * side of the line the parcel sits (handled the way the Dublin page handles
+ * three counties). The village has no rental registration chapter, but its
+ * income tax code requires a semiannual tenant return from owners renting two
+ * or more units (Section 187.22), which almost nobody outside the village knows.
+ * Water and sewer moved from the village to the Mid-Ohio Water and Sewer
+ * District in January 2024, partly because Big Darby Creek rules stopped the
+ * village from expanding its own plants.
+ *
+ * SOURCES (verified 2026-11-05):
+ *  - Plain City is a village in Madison and Union counties; population 4,065 at
+ *    the 2020 census; Big Darby Creek forms parts of its limits; junction of
+ *    US 42 and SR 161; 8.9 miles from Dublin and 11.3 miles from Marysville;
+ *    Jonathan Alder Local School District; town clock dedicated November 15,
+ *    1902 and Farmers National Bank building (1902, National Register 1995) at
+ *    SR 161 and Chillicothe Street; Pastime Park hosts the Miami Valley Steam
+ *    Threshers show each July; McKitrick Park on Big Darby Creek:
+ *    https://en.wikipedia.org/wiki/Plain_City,_Ohio
+ *  - County split by area: about 65.9% of the village in Madison County and
+ *    34.1% in Union County, Census geography via Census Reporter:
+ *    https://api.censusreporter.org/1.0/geo/latest/16000US3963030/parents
+ *  - Eviction courts, R.C. 1901.02: "The Madison county municipal court has
+ *    jurisdiction within Madison county." "The Marysville municipal court has
+ *    jurisdiction within Union county."
+ *    https://codes.ohio.gov/ohio-revised-code/section-1901.02
+ *    (also the authoritative court list in src/pages/areas-we-serve/index.astro).
+ *  - Madison County Municipal Court, 55 N Oak Street, London, OH 43140:
+ *    https://www.ohiolegalhelp.org/resource/madison-county-municipal-court
+ *  - Marysville Municipal Court, 1250 W. 5th St., Marysville, OH 43040, hears
+ *    forcible entry and detainer cases: https://www.marysvilleohio.org/724/Civil
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties of more
+ *    than 200,000 people at the last decennial census, so the 5323.02 auditor
+ *    filing does not apply in Madison (43,824) or Union (62,784) County (2020).
+ *    Verified on codes.ohio.gov 2026-11-05: https://codes.ohio.gov/ohio-revised-code/section-5323.01
+ *  - Village code, Codified Ordinances of Plain City, 2026-02 (current).
+ *    Section 187.22 (Ord. 15-19, passed 11-25-19): since January 1, 2020, any
+ *    owner renting two or more dwelling units in the village files a semiannual
+ *    return with the Tax Administrator listing each tenant by name and address,
+ *    due March 31 and September 30; tenants who pay their own water utility are
+ *    excluded, and no return is due if all of them do; penalty under 187.99:
+ *    https://codelibrary.amlegal.com/codes/plaincity/latest/plaincity_oh/0-0-0-23775
+ *    Part Thirteen (Building Code: Chapters 1309, 1315, 1321, 1325 Exterior
+ *    Property Maintenance) and Part Seven (Business Regulation) contain no
+ *    rental registration or rental inspection chapter:
+ *    https://codelibrary.amlegal.com/codes/plaincity/latest/plaincity_oh/0-0-0-15905
+ *    https://codelibrary.amlegal.com/codes/plaincity/latest/plaincity_oh/0-0-0-8182
+ *    "Uptown Plain City Historic District" is the (removed) Chapter 1327 title.
+ *  - Water and sewer: Plain City joined the Mid-Ohio Water and Sewer District;
+ *    the village "is no longer able to expand its water and sewer facilities due
+ *    to the Big Darby Creek, which is subject to stringent EPA regulations";
+ *    Madison County had operated the plants for several years; starting January
+ *    2024 the district took over service and billing, with new account numbers;
+ *    emergencies 740-845-1284:
+ *    https://www.plaincityohio.gov/residents/mowsd.php
+ *  - Trash: the village hauler is Local Waste Services, Thursday collection;
+ *    new service starts with village forms:
+ *    https://www.plaincityohio.gov/government/departments/trash___recycling.php
+ *  - Housing stock, US Census ACS 2024 5-year estimates (tables B25035, B25003,
+ *    B25024, B25064 via Census Reporter): median year built 1995; 279 of 1,547
+ *    occupied units renter-occupied (18%); 1,248 of 1,612 housing units
+ *    detached single-family (77%); median gross rent $985 with a margin of
+ *    error of plus or minus $327, too wide to publish:
+ *    https://censusreporter.org/profiles/16000US3963030-plain-city-oh/
+ *  - R.C. 1923.04 three-day notice to leave the premises.
+ *
+ * NOT VERIFIED, so NOT STATED: electric and natural gas providers, and the
+ * eviction filing deposits at Madison County and Marysville municipal courts.
+ *
+ * No door counts. No per-market days on market.
+ */
+
+const CITY = 'Plain City';
+const PATH = '/property-management-plain-city-ohio/';
+
+const title = 'Plain City Property Management | RL Property Management';
+const description =
+  `Flat-fee property management for Plain City, Ohio rentals from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} ` +
+  `per unit per month. Two counties, so the court depends on your parcel.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Plain City', path: PATH },
+];
+
+const publishesOwnRent = canPublishOwnRent(CITY);
+const photography = pricing.otherFees.find((f) => f.name === 'Property photography')!;
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a Plain City unit turns`,
+  'Plain City is a village split between Madison and Union counties',
+  'Madison County parcels go to court in London, Union County parcels in Marysville',
+  'Owners renting two or more units may owe the village a tenant list twice a year',
+  'Water and sewer moved to the Mid-Ohio Water and Sewer District in January 2024',
+];
+
+const courts = [
+  {
+    county: 'Madison County',
+    court: 'Madison County Municipal Court',
+    where: '55 N. Oak St., London',
+  },
+  {
+    county: 'Union County',
+    court: 'Marysville Municipal Court',
+    where: '1250 W. 5th St., Marysville',
+  },
+];
+
+const faq = [
+  { q: 'What county is Plain City, Ohio in?',
+    a: 'Both Madison and Union. By Census geography, about two-thirds of the village is in Madison County and one-third in Union County. The county line decides the eviction court, so check the parcel, not the mailing address.' },
+  { q: 'Which court hears an eviction in Plain City?',
+    a: 'It depends on the parcel. On the Madison County side: Madison County Municipal Court, 55 N. Oak St., London. On the Union County side: Marysville Municipal Court, 1250 W. 5th St., Marysville. Ohio Revised Code 1901.02 sets both, and a case filed in the wrong court is dismissed.' },
+  { q: 'Do I have to register a Plain City rental?',
+    a: 'No. The state’s county auditor rental registration (R.C. 5323.02) applies only in counties of more than 200,000 people, so it does not apply to a Madison or Union County rental, and the village has no separate rental registration or inspection program. Owners renting two or more units may still owe the village a tenant return under Section 187.22.' },
+  { q: 'What is the Plain City landlord tenant return?',
+    a: 'Under Section 187.22 of the village income tax code, an owner renting two or more units in Plain City files a list of tenants, by name and address, with the Tax Administrator by March 31 and September 30. Tenants who pay their own water bill are left off, and if all of them do, no return is due.' },
+  { q: 'Who provides water and sewer in Plain City?',
+    a: 'The Mid-Ohio Water and Sewer District, which took over the village system and its billing in January 2024. Every account got a new number. Trash is still a village service, collected by Local Waste Services.' },
+  { q: 'What does a rental in Plain City rent for?',
+    a: 'We are not publishing a figure. Our own sample is below the five-unit floor we set, and the Census median carries a margin of error of plus or minus $327. Send the address and we will price it against live comparables.' },
+  { q: 'How much does property management cost in Plain City?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. The price is the same on either side of the county line. Photography is billed separately at ${photography.amount}.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Plain City, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Plain City, Ohio',
+      containedInPlace: [
+        { '@type': 'AdministrativeArea', name: 'Madison County, Ohio' },
+        { '@type': 'AdministrativeArea', name: 'Union County, Ohio' },
+      ],
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Plain City, Ohio"
+    answer={`${company.name} manages Plain City rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Plain City sits in two counties, so the eviction court depends on which side of the line your parcel is on.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Plain City, at a glance" />
+
+  <!-- THE TWO-COUNTY PROBLEM -->
+  <section class="band-tight" aria-labelledby="county-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="county-h" class="text-[clamp(26px,3.2vw,38px)]">Which county is Plain City in, and which court hears an eviction?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Both Madison and Union. Plain City is a village of 4,065 people (2020 census), and the county line runs
+        through it. By Census geography, about two-thirds of the village is in Madison County and one-third in
+        Union County. Your parcel decides the court.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Eviction court by county for Plain City, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">If the parcel is in</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Eviction court</th>
+            </tr>
+          </thead>
+          <tbody>
+            {courts.map((c) => (
+              <tr>
+                <th scope="row" class="text-left p-3.5 border border-line font-medium align-top whitespace-nowrap">{c.county}</th>
+                <td class="p-3.5 border border-line align-top"><span class="font-semibold text-navy">{c.court}</span><br /><span class="text-muted">{c.where}</span></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[17.5px] text-muted mt-6">
+        A complaint filed in the wrong court is dismissed. Either way, the case starts with a three-day notice
+        to leave the premises under R.C. 1923.04, and we confirm the court deposit with the clerk when we file.
+      </p>
+    </div>
+  </section>
+
+  <!-- VILLAGE RULES -->
+  <section class="band band-wash" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Compliance</span>
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">What does Plain City require from a landlord?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        No rental registration and no rental inspection program: the current village code has neither. It does
+        have an exterior property maintenance chapter that applies to rentals like any other house.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The rule owners miss is in the income tax chapter. Under Section 187.22, an owner renting two or more
+        dwelling units in the village files a return with the village Tax Administrator twice a year, by March 31
+        and September 30, listing each tenant by name and address. Tenants who pay their own water bill are left
+        off, and if every tenant does, no return is due. Skipping a required return falls under the chapter's
+        penalty section.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        There is no county filing on top. The state's county auditor rental registration (Ohio Revised Code
+        5323.02) applies only in counties of more than 200,000 people, so it does not apply to a Madison or
+        Union County rental. We track which rules apply to each address, including the village return, and
+        handle the filings that do.
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band-tight" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides water, sewer and trash in Plain City?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Water and sewer come from the Mid-Ohio Water and Sewer District, which took over the village system,
+        including billing, in January 2024. Madison County had already been running the plants for several years.
+        The village gave a plain reason for the change: Big Darby Creek is under strict EPA rules, and the village
+        could no longer expand its own water and sewer facilities.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Trash is still a village service. Local Waste Services collects on Thursdays, and new service starts with
+        the village forms. We confirm the electric and gas providers for each address at onboarding.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSING AND PLACES -->
+  <section class="band band-wash" aria-labelledby="market-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="market-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in Plain City?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Mostly owner-occupied, fairly new detached houses. Per US Census ACS 2024 5-year estimates, the median
+        home was built in 1995, 77% of housing units are detached single-family, and renters occupy only 18% of
+        homes, about 280 households in all.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The older core is Uptown, at State Route 161 and Chillicothe Street, where the town clock and the
+        Farmers National Bank building both date to 1902. Pastime Park hosts the Miami Valley Steam Threshers
+        show each July, and McKitrick Park sits on Big Darby Creek. Schools are Jonathan Alder Local, and Dublin
+        is 8.9 miles away.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        {publishesOwnRent
+          ? 'Our portfolio sample in Plain City now supports a published median. Update this page before relying on it.'
+          : 'We are not publishing a rent median for Plain City: our sample is below our five-unit floor, and the Census figure is too uncertain to quote.'}
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Plain City rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band-tight" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Plain City property management questions</h2>
+      <Faq items={faq} heading="Plain City property management questions" id="plain-city-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Rent is due on {rentPolicy.dueDate} and owner funds go out on the {rentPolicy.ownerDisbursementDay}th.
+        More answers are on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <LegalNote class="mt-5" />
+      <div class="mt-6"><Verified date="2026-11-05" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-dublin-ohio/', label: 'Dublin property management', note: 'East, and split across three counties.' },
+    { href: '/property-management-hilliard-ohio/', label: 'Hilliard property management', note: 'Southeast, inside Franklin County.' },
+    { href: '/property-management-powell-ohio/', label: 'Powell property management', note: 'East, Delaware County and Delaware Municipal Court.' },
+    { href: '/areas-we-serve/', label: 'Every area we serve', note: 'Seven counties, and the eviction court for each one.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Plain City rental should earn"
+    body="Send us the address and we will tell you which county it is in, which court applies, and what it should rent for against live comparables. No charge."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

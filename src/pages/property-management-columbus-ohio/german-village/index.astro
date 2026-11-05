@@ -75,21 +75,21 @@ const keyFacts = [
 
 const faq = [
   { q: 'Do I need approval to replace the windows on a German Village rental?',
-    a: 'Yes. Every exterior alteration in the German Village Historic District requires a Certificate of Appropriateness from the German Village Commission, issued under Columbus City Code chapters 3116 and 3119. That covers windows, doors, roofing, siding, porches, fences, and anything else visible from the public right of way. Applications are submitted through the Columbus Citizens Access Portal and are due roughly a month before the meeting at which you want to be heard, so budget a review cycle into the schedule before you promise a resident a repair date.' },
+    a: 'Yes. Every exterior alteration in the German Village Historic District requires a Certificate of Appropriateness from the German Village Commission, issued under Columbus City Code chapters 3116 and 3119. That covers windows, doors, roofing, siding, porches, fences and anything visible from the public right of way. Applications go through the Columbus Citizens Access Portal roughly a month before the meeting, so budget a review cycle before promising a repair date.' },
   { q: 'What is a Dutch Double, and why does it matter to an owner?',
-    a: 'A Dutch Double is a German Village cottage expanded into two units, and it is the most common small rental configuration in the neighborhood. For an owner it changes three things at once: the building is two income streams rather than one, the stairs and the shared entry are the parts that wear, and the lot almost never has off-street parking for two households. The parking limits the applicant pool more than anything about the interior.' },
+    a: 'A Dutch Double is a German Village cottage expanded into two units, the most common small rental in the neighborhood. It means two income streams, shared stairs and entry that take the wear, and almost never off-street parking for two households, which limits the applicant pool more than the interior does.' },
   { q: 'Is German Village its own city?',
-    a: 'No. German Village is a Columbus neighborhood in Franklin County, zip code 43206, immediately south of downtown. Columbus ordinances apply in full: the rental registry, source of income protections, Columbus water and sewer, and Columbus Division of Refuse Collection. Evictions go to Franklin County Municipal Court like every other Franklin County address.' },
+    a: 'No. German Village is a Columbus neighborhood in Franklin County, zip code 43206, immediately south of downtown. Columbus ordinances apply in full: the rental registry, source of income protections, Columbus water and sewer, and city refuse collection. Evictions go to Franklin County Municipal Court.' },
   { q: 'Did Columbus weaken the German Village Commission in 2025?',
-    a: 'Not for private property. In December 2025 Columbus City Council amended the code so the City itself, its officials, agents and contractors do not need a Certificate of Appropriateness when doing construction, reconstruction, demolition or alteration in a right of way. That carve-out covers city work on public streets and sidewalks. Review of exterior alterations on privately owned buildings, which is what affects an owner, was not changed.' },
+    a: 'Not for private property. In December 2025 Columbus City Council amended the code so the City itself, its officials, agents and contractors do not need a Certificate of Appropriateness when doing construction, reconstruction, demolition or alteration in a right of way. Review of exterior alterations on privately owned buildings was not changed.' },
   { q: 'What kind of rental housing is in German Village?',
-    a: 'Mid-nineteenth-century brick cottages and Dutch Doubles on small lots on a rectangular street grid, plus a smaller number of larger brick houses and a few converted commercial buildings. The district was listed on the National Register in 1974, expanded in 1980, and holds more than 1,860 structures across 233 acres. Expect brick, slate or replaced slate, tall narrow window openings, plaster over lath, and basements that were not built for modern mechanicals.' },
+    a: 'Mid-nineteenth-century brick cottages and Dutch Doubles on small lots, plus some larger brick houses and a few converted commercial buildings. The district was listed on the National Register in 1974, expanded in 1980, and holds more than 1,860 structures across 233 acres. Expect brick, slate, plaster over lath and basements not built for modern mechanicals.' },
   { q: 'Which court hears an eviction in German Village?',
     a: 'Franklin County Municipal Court, at 375 S. High St. Ohio Revised Code 1901.02 gives that court jurisdiction throughout Franklin County. An Ohio eviction is a forcible entry and detainer action under Revised Code Chapter 1923, filed in two causes: one for possession of the property and one for the money judgment.' },
   { q: 'Who bills the water on a German Village rental, and who is liable?',
-    a: 'The City of Columbus Department of Public Utilities bills water, sewer and stormwater. The resident can be put on the bill through the city Tenant Billing Agreement, but Columbus City Code 1105.045 is titled "Unpaid charges a lien. Owner liable." and section 1147.16 does the same for sewer. The owner stays liable and unpaid charges attach to the property. Electric is AEP Ohio, gas is Columbia Gas of Ohio, and both go in the resident name.' },
+    a: 'The City of Columbus Department of Public Utilities bills water, sewer and stormwater. Even with the resident on a Tenant Billing Agreement, Columbus City Code 1105.045 and 1147.16 keep the owner liable, and unpaid charges attach to the property. Electric (AEP Ohio) and gas (Columbia Gas of Ohio) go in the resident name.' },
   { q: 'How much does property management cost in German Village?',
-    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee and no startup fee on an occupied unit. Pricing does not vary by Columbus neighborhood, and there is no historic-district surcharge. Historic status affects the timeline on exterior work, not the management fee.` },
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee and no startup fee on an occupied unit. There is no historic-district surcharge: historic status affects the timeline on exterior work, not the price.` },
 ];
 
 const schemaNodes = [
@@ -120,24 +120,20 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="dist-h" class="text-[clamp(26px,3vw,36px)]">What makes German Village different to own in?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        The difference is design review. German Village is a 233-acre National Historic Landmark holding more than 1,860
-        structures, and every exterior alteration on a privately owned building requires a Certificate
-        of Appropriateness from the German Village Commission under Columbus City Code chapters 3116
-        and 3119. Nothing else affects day-to-day ownership here as much.
+        Design review. German Village is a 233-acre National Historic Landmark with more than 1,860
+        structures, and every exterior alteration on a private building needs a Certificate of
+        Appropriateness from the German Village Commission under Columbus City Code chapters 3116 and 3119.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        A window replacement, a roof, a porch rebuild, a fence or a rear addition needs a certificate
-        before a contractor can start. Applications go through
-        the Columbus Citizens Access Portal and are due roughly a month before the meeting you want to
-        be heard at, so a repair that would take two weeks elsewhere in the city can take two months
-        here. We plan exterior work around the commission calendar rather than the other way around, and
-        we tell residents a realistic date rather than an optimistic one.
+        A window, roof, porch, fence or rear addition needs a certificate before work starts.
+        Applications go through the Columbus Citizens Access Portal roughly a month before the meeting,
+        so a two-week repair elsewhere can take two months here. We plan exterior work around the
+        commission calendar and give residents a realistic date.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        In December 2025 Columbus City Council exempted the City itself from obtaining a Certificate of
-        Appropriateness for work in historic district rights of way. That covers city work on public
-        streets and sidewalks. Review of private exterior alterations was not changed, so an owner's
-        obligations are the same as before.
+        In December 2025 Columbus City Council exempted the City itself from needing a certificate for
+        work in historic district rights of way (public streets and sidewalks). Review of private exterior
+        alterations did not change.
       </p>
     </div>
   </section>
@@ -148,16 +144,15 @@ const schemaNodes = [
       <span class="eyebrow">The cottages</span>
       <h2 id="stock-h" class="text-[clamp(28px,3.3vw,40px)]">What kind of rental housing does German Village have?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
-        Mid-nineteenth-century brick cottages, built small and built close, on a rectangular grid of
-        brick streets. The neighborhood was raised by German immigrants before 1900, lost about a third
-        of its buildings to 1950s urban renewal, and was pulled back by the German Village Society,
-        founded in 1960. The buildings that survived are unusually consistent, which makes them
-        predictable to underwrite.
+        Mid-nineteenth-century brick cottages, small and close together on a grid of brick streets.
+        Built by German immigrants before 1900, the neighborhood lost about a third of its buildings to
+        1950s urban renewal before the German Village Society, founded in 1960, pulled it back. The
+        survivors are consistent and predictable to underwrite.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-7">
         {[
-          { h: 'The brick cottage', p: 'One or one and a half stories, soft-burned red brick, a steep roof, tall narrow openings and a stoop straight onto the sidewalk. Small square footage, high rent per foot, and no room to absorb a bad floor plan.' },
-          { h: 'The Dutch Double', p: 'A cottage expanded into two units, the workhorse small rental of the neighborhood. Two income streams, shared stairs and entry that take the wear, and almost never off-street parking for two households.' },
+          { h: 'The brick cottage', p: 'One or one and a half stories, soft-burned red brick, a steep roof and a stoop onto the sidewalk. Small square footage and high rent per foot.' },
+          { h: 'The Dutch Double', p: 'A cottage expanded into two units, the workhorse rental here. Two income streams, shared stairs that take the wear, rarely parking for two households.' },
           { h: 'The larger brick house', p: 'Two full stories, often on City Park Avenue, Third Street or Mohawk. Bigger systems, slate or replaced slate roofs, and the highest rents in the district.' },
         ].map((x) => (
           <div class="card">
@@ -167,11 +162,10 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[15px] text-muted mt-7">
-        The anchors residents ask about are Schiller Park, 23.45 acres in the middle of the
-        neighborhood, and the Third Street and South High commercial edges. The Brewery District sits
-        immediately west, downtown is a short walk north, and the whole district sits inside zip code
-        43206. Streets worth knowing by name because they set the tone: City Park Avenue, Third Street,
-        Mohawk, Jaeger, Sycamore, Kossuth and Deshler.
+        Residents ask about Schiller Park (23.45 acres in the middle of the neighborhood) and the Third
+        Street and South High commercial edges. The Brewery District is just west, downtown a short walk
+        north, all in zip 43206. Key streets: City Park Avenue, Third Street, Mohawk, Jaeger, Sycamore,
+        Kossuth and Deshler.
       </p>
       <p class="text-[14px] text-faint mt-4">
       </p>
@@ -184,9 +178,8 @@ const schemaNodes = [
       <span class="eyebrow">Our own numbers, labeled</span>
       <h2 id="rent-h" class="text-[clamp(28px,3.3vw,40px)]">What do German Village rentals rent for?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
-        We do not publish a German Village median because our sample inside the district is too small
-        to stand on its own. The two figures below come directly from our leases, and each is labeled
-        for what it covers.
+        Our German Village sample is too small for its own median, so here are two labeled figures from
+        our own leases.
       </p>
       <div class="grid gap-5 sm:grid-cols-2 mt-7">
         <div class="card">
@@ -213,14 +206,12 @@ const schemaNodes = [
         </div>
       </div>
       <p class="text-[15px] text-muted mt-6">
-        German Village units are small, so rent per square foot runs well above the city figures above
-        while total rent on a one-bedroom cottage can look ordinary. Underwriting on rent per foot
-        rather than on bedroom count is the more useful habit here. A rent evaluation on the specific
-        address is free, and it is the only way to price a building this idiosyncratic.
+        Units here are small, so rent per square foot runs well above these figures while total rent on
+        a one-bedroom cottage can look ordinary. Underwrite on rent per foot, not bedrooms. A free rent
+        evaluation prices your specific building.
       </p>
       <p class="text-[14px] text-faint mt-4">
-        The left column is our own Columbus leases. The right column is our whole portfolio across the
-        metro. Neither is a German Village figure and neither is presented as one.
+        Left: our Columbus leases. Right: our whole metro portfolio. Neither is a German Village figure.
       </p>
     </div>
   </section>
@@ -231,9 +222,8 @@ const schemaNodes = [
       <span class="eyebrow">Compliance</span>
       <h2 id="rules-h" class="text-[clamp(28px,3.3vw,40px)]">What does a German Village owner have to file, and with whom?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
-        An owner here deals with three bodies: the German Village Commission, the City of Columbus and
-        the Franklin County Auditor. Owners used to the suburbs most often miss the design review,
-        because it has no equivalent there.
+        Three bodies: the German Village Commission, the City of Columbus and the Franklin County
+        Auditor. We handle the registry for you. Suburban owners most often miss the design review.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-7">
         <div class="card">
@@ -263,8 +253,8 @@ const schemaNodes = [
       </div>
       <p class="text-[15px] text-muted mt-6">
         Rent is due {rentPolicy.dueDate}, late fees are assessed after {rentPolicy.lateFeesAfter}, and
-        owner funds go out on the {rentPolicy.ownerDisbursementDay}th. Everything else about Columbus
-        compliance, including source of income protections and the water lien rule, is on the
+        owner funds go out on the {rentPolicy.ownerDisbursementDay}th. Source of income protections and
+        the water lien rule are on the
         {' '}<a href={PARENT} class="text-crimson font-semibold no-underline hover:underline">Columbus page</a>.
       </p>
     </div>

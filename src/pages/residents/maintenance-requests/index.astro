@@ -61,19 +61,19 @@ const selfChecks = [
 
 const faq = [
   { q: 'How do I submit a maintenance request?',
-    a: `File it in the resident portal, in writing, with photos of the problem. A written request is timestamped, assigned and tracked, which a text message is not. Median time to close a repair across the portfolio is ${repairDays} days as of ${kpis.asOfLabel}.` },
+    a: `File it in the resident portal, in writing, with photos of the problem. A written request is timestamped and tracked; a text message is not. Median time to close a repair across the portfolio is ${repairDays} days as of ${kpis.asOfLabel}.` },
   { q: 'What counts as an emergency?',
     a: `Anything that puts a person at risk or is actively damaging the home. Call ${company.phone} for those rather than filing a portal request, at any hour. For fire, a gas smell, or an immediate danger to someone, call 911 first.` },
   { q: 'What do I do if I smell gas?',
     a: 'Leave the home, do not use light switches, appliances or a phone inside, and call 911 and the gas utility from outside. In most of our service area the gas utility is Columbia Gas of Ohio. Call us after you are safe and outside, not before.' },
   { q: 'How long will my repair take?',
-    a: `Median time to close a repair across the portfolio is ${repairDays} days as of ${kpis.asOfLabel}. Emergencies are handled immediately. Anything requiring a part on order or a specialty vendor takes longer, and you should be told that rather than left guessing.` },
+    a: `Median time to close a repair across the portfolio is ${repairDays} days as of ${kpis.asOfLabel}. Emergencies are handled immediately. Repairs needing a part on order or a specialty vendor take longer, and we tell you when that happens.` },
   { q: 'Will I be charged for a repair?',
     a: 'Ordinary wear and tear and component failure are handled at the owner\'s cost, not yours. Damage caused by a resident, a guest or a pet, and callouts where nothing was broken, can be charged back.' },
   { q: 'Do I have to be home for the repair?',
     a: 'No. Ohio Revised Code 5321.04(A)(8) requires 24 hours of notice before entry except in an emergency, and our technicians use keys we already hold. If you would rather be there, say so when you submit the request and we will schedule around you.' },
   { q: 'Can I do the repair myself, or hire someone?',
-    a: 'No, and this protects you. Unauthorized work is not reimbursed, and if it makes the problem worse, the cost of putting it right can be charged back. File the request instead, even if you could handle it, unless it is one of the two-minute checks listed on this page.' },
+    a: 'No. Unauthorized work is not reimbursed, and if it makes the problem worse, the fix can be charged back to you. File a request instead, except for the two-minute checks on this page.' },
   { q: 'My request has not been scheduled. What now?',
     a: `Reply on the existing request in the portal rather than filing a second one, because a duplicate splits the history across two tickets. If it is still not moving, call ${company.phone} and reference the request number.` },
   { q: 'What if the repair is my neighbor, not my home?',
@@ -99,9 +99,7 @@ const faq = [
       <span class="eyebrow">Start here</span>
       <h2 id="triage-h" class="text-[clamp(28px,3.3vw,40px)]">Is this an emergency or a request?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        If someone is at risk or the home is actively being damaged, call. Everything else goes in the
-        portal in writing. A call at 11pm about a dripping tap gets you the same answer that filing it
-        would have, a day later.
+        Someone at risk or the home actively being damaged: call. Everything else: file it in the portal.
       </p>
       <div class="grid gap-5 md:grid-cols-3 mt-8">
         <div class="card !border-2 !border-crimson">
@@ -122,8 +120,7 @@ const faq = [
         <div class="card">
           <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">File in the portal</div>
           <p class="text-[15px] text-muted m-0">
-            Everything else, in writing, with photos, so it is timestamped, assigned and tracked against
-            your tenancy.
+            Everything else, in writing, with photos, so it is timestamped and tracked.
           </p>
         </div>
       </div>
@@ -136,14 +133,13 @@ const faq = [
       <span class="eyebrow">Make it fast</span>
       <h2 id="include-h" class="text-[clamp(28px,3.3vw,40px)]">What should I include in the request?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Include the five things below. A technician who arrives knowing what they are looking at brings the
-        right part, which can turn three visits into one.
+        These five things help the technician bring the right part, so one visit does the job.
       </p>
       <ul class="grid gap-3 mt-6 text-[15.5px]">
         <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">1</span><span><strong class="text-navy">Where it is.</strong> The room, and which fixture or appliance.</span></li>
-        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">2</span><span><strong class="text-navy">What it is doing.</strong> Leaking, not turning on, making a noise, running and not heating. Describe the behavior, not the diagnosis.</span></li>
-        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">3</span><span><strong class="text-navy">When it started</strong> and whether it is constant or intermittent. Intermittent problems are the hard ones, so say so.</span></li>
-        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">4</span><span><strong class="text-navy">Photos or a short video.</strong> A photo of a model or serial plate on an appliance is worth more than a paragraph.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">2</span><span><strong class="text-navy">What it is doing.</strong> Leaking, not turning on, noisy, running but not heating. Describe it; skip the diagnosis.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">3</span><span><strong class="text-navy">When it started</strong> and whether it is constant or comes and goes.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">4</span><span><strong class="text-navy">Photos or a short video.</strong> Include the model or serial plate on an appliance.</span></li>
         <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">5</span><span><strong class="text-navy">Access details.</strong> Pets in the home, a gate code, parking, and the times you are available.</span></li>
       </ul>
     </div>
@@ -155,8 +151,7 @@ const faq = [
       <span class="eyebrow">After you file</span>
       <h2 id="next-h" class="text-[clamp(28px,3.3vw,40px)]">What happens after I submit a request?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        We triage it, assign it to an in-house technician or a vendor, schedule it with you, and close it out
-        in the portal with a note on what was done. Median time to close a repair across the portfolio is
+        An in-house technician or vendor is assigned and schedules with you. Median time to close:
         {' '}{repairDays} days as of {kpis.asOfLabel}.
       </p>
       <div class="grid gap-4 sm:grid-cols-2 mt-7">
@@ -188,9 +183,7 @@ const faq = [
       <span class="eyebrow">Two minutes first</span>
       <h2 id="self-h" class="text-[clamp(28px,3.3vw,40px)]">Is there anything I should check before I file?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Yes, six things, and each takes under two minutes. We list them because they are the problems you are
-        most likely to solve before a technician can get to you, and each one could otherwise mean a night
-        without heat, light or a working drain.
+        Yes. Each of these takes under two minutes and may fix the problem tonight.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -212,8 +205,7 @@ const faq = [
         </table>
       </div>
       <p class="text-[15px] text-muted mt-6">
-        If the check does not solve it, file the request and say what you already tried. That information helps
-        the technician and shortens the visit.
+        Still broken? File the request and say what you already tried.
       </p>
     </div>
   </section>
@@ -224,14 +216,11 @@ const faq = [
       <span class="eyebrow">Who pays</span>
       <h2 id="charge-h" class="text-[clamp(28px,3.3vw,40px)]">Will I be charged for a repair?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Not for ordinary wear and tear or for something that failed on its own. Those are the owner's cost.
-        Damage caused by a resident, a guest or a pet is a different category and can be charged back to
-        you.
+        Not for ordinary wear and tear or something that failed on its own; those are the owner's cost.
+        Damage caused by a resident, a guest or a pet can be charged back to you.
       </p>
       <p class="text-[16.5px] text-muted mt-4">
-        The clearest way to stay out of that conversation is to report problems early. A slow leak reported
-        in week one might need a new washer, while the same leak reported in month three can mean a new
-        subfloor.
+        Report early. A slow leak in week one might need a washer; in month three, a new subfloor.
       </p>
     </div>
   </section>

@@ -4,22 +4,35 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, usd } from '../../data/facts';
+import { company, pricing, kpis, usd } from '../../data/facts';
 import { rentByBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
+import {
+  buildConfig, calculate, breakdown, headline, money,
+  type SelfManagementInputs,
+} from '../../lib/calculators/selfManagement';
 
 /**
  * DELIBERATE EXCEPTION to the site's zero-JavaScript rule, scoped to this page
  * and /rent-vs-sell-calculator/.
  *
  * These two are lead-generation tools; a calculator that cannot calculate is a
- * downgrade. The script below is about 1KB of inline vanilla JavaScript with no
- * dependencies and no network calls.
+ * downgrade. The script at the bottom is a processed (bundled) Astro script with
+ * no dependencies, no network calls and no tracking. The arithmetic lives in
+ * src/lib/calculators/selfManagement.ts and is tested by
+ * scripts/test-calculators/self-management.mjs.
  *
- * It is progressive enhancement, not a dependency: the page ships a complete
- * worked example in plain HTML, the formula is written out in words, and every
- * number is readable with JavaScript disabled. The script only makes the numbers
- * live. Search engines and answer engines get the full static content either way.
+ * It is progressive enhancement, not a dependency: the same module runs at build
+ * time and renders a complete worked example into the HTML, the formula is
+ * written out in words, and every number is readable with JavaScript disabled.
+ * The script only makes the numbers live. Search engines and answer engines get
+ * the full static content either way.
+ *
+ * Rebuilt 2026-11-05 from the calculator on the live rlpmg.com, which used a
+ * flat $150 per door "all-in" estimate. This version uses the real plan prices
+ * and investor tiers from src/data/facts.ts, and shows the costs management adds
+ * (renewals, project management, the annual technology fee) as well as the ones
+ * it removes.
  */
 
 const title = `Self-Management Cost Calculator | ${company.name}`;
@@ -31,27 +44,101 @@ const breadcrumbs = [
   { name: 'Self-management calculator', path: '/self-management-calculator/' },
 ];
 
+const cfg = buildConfig(pricing);
 const mid = pricing.plans[1];
-const example = {
-  rent: 1650, units: 1, hours: 6, rate: 60, vacancyDays: 30,
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+const kpiNum = (id: string) => Number(kpi(id).replace(/[^0-9.]/g, ''));
+
+/**
+ * Starting numbers. Rent and renewal rate are our own published KPIs. Hours,
+ * hourly value, vacancy, repair spend and the two "share" assumptions are the
+ * starting values from the calculator on the old rlpmg.com (its $12,000 repair
+ * default across 10 doors is $1,200 a unit). The other costs start at $0 so the
+ * total only counts what the reader actually enters.
+ */
+const defaults: SelfManagementInputs = {
+  units: 1,
+  rent: kpiNum('avgRent'),
+  hoursPerUnit: 5,
+  hourlyValue: 50,
+  vacantDays: 30,
+  vacancySavedPct: 50,
+  repairsPerUnit: 1200,
+  repairMarkupPct: 20,
+  software: 0, bookkeeping: 0, legal: 0, marketing: 0, otherCosts: 0,
+  planId: mid.id,
+  renewalPct: kpiNum('renewal'),
+  entities: 1,
 };
-const ex = {
-  timeCost: example.hours * example.rate * 12,
-  vacancyCost: Math.round((example.rent / 30) * example.vacancyDays),
-  mgmtCost: mid.monthly * 12 * example.units,
+const ex = calculate(defaults, cfg);
+const rows = breakdown(ex, cfg);
+const selfRows = rows.filter((r) => r.side === 'self');
+const managedRows = rows.filter((r) => r.side === 'managed');
+const barMax = Math.max(ex.self.total, ex.managed.total, 1);
+const pctW = (n: number) => `${Math.max(2, Math.round((n / barMax) * 100))}%`;
+
+type Field = {
+  id: keyof SelfManagementInputs;
+  label: string;
+  pre?: string;
+  post?: string;
+  step: number;
+  min?: number;
+  hint?: string;
+  assumption?: boolean;
+  wide?: boolean;
 };
+
+const groups: { legend: string; fields: Field[] }[] = [
+  { legend: 'Your rentals', fields: [
+    { id: 'units', label: 'Rental units you own', step: 1, min: 1 },
+    { id: 'rent', label: 'Average monthly rent per unit', pre: '$', step: 25,
+      hint: `Our average rent under management is ${kpi('avgRent')}.` },
+  ] },
+  { legend: 'Your time', fields: [
+    { id: 'hoursPerUnit', label: 'Hours a month, per unit', post: 'hrs', step: 0.5,
+      hint: 'Calls, showings, rent, repairs, paperwork. Track one month for a real number.' },
+    { id: 'hourlyValue', label: 'What an hour of your time is worth', pre: '$', step: 5 },
+  ] },
+  { legend: 'Vacancy', fields: [
+    { id: 'vacantDays', label: 'Days your units sat empty last year, all units combined', post: 'days', step: 1,
+      hint: `Our published medians: ${kpi('dom')} days on market and ${kpi('turn')} days to turn a unit.` },
+    { id: 'vacancySavedPct', label: 'Share of those days a manager would save you', post: '%', step: 5, assumption: true,
+      hint: 'Our starting assumption, not a measured figure. Change it to yours.' },
+  ] },
+  { legend: 'Repairs', fields: [
+    { id: 'repairsPerUnit', label: 'Repairs and upkeep, per unit per year', pre: '$', step: 100 },
+    { id: 'repairMarkupPct', label: 'Share of that you overpay at retail prices', post: '%', step: 5, assumption: true,
+      hint: 'Our starting assumption, not a measured figure. Change it to yours.' },
+  ] },
+];
+
+const otherFields: Field[] = [
+  { id: 'software', label: 'Software and tenant screening', pre: '$', step: 50 },
+  { id: 'bookkeeping', label: 'Bookkeeping and extra tax prep', pre: '$', step: 50 },
+  { id: 'legal', label: 'Legal help and lease reviews', pre: '$', step: 50 },
+  { id: 'marketing', label: 'Listing photos and advertising', pre: '$', step: 25 },
+  { id: 'otherCosts', label: 'Paid help and anything else', pre: '$', step: 50 },
+];
+
+const compareFields: Field[] = [
+  { id: 'renewalPct', label: 'Leases that renew each year', post: '%', step: 1, assumption: true,
+    hint: `Starts at our published renewal rate, ${kpi('renewal')}. Each renewal costs ${usd(pricing.leaseRenewalFee)}; a new lease costs ${usd(pricing.leasingFee)}.` },
+  { id: 'entities', label: 'Business entities that own the units', step: 1, min: 1,
+    hint: `The annual technology and accounting fee is ${usd(cfg.techFeePerEntity)} per entity.` },
+];
 
 const faq = [
   { q: 'How much time does managing your own rental take?',
-    a: 'It varies with the property and the resident, which is why this page asks you for your own number rather than publishing an industry average. Most averages circulating online have no traceable source. Track your hours for one month and use that.' },
+    a: 'It varies with the property and the resident, which is why this calculator asks for your own number rather than publishing an industry average. Most averages circulating online have no traceable source. Track your hours for one month and use that.' },
   { q: 'What does self-managing cost?',
-    a: `Three things: the hours you spend, the vacancy you carry while finding a resident, and the premium you pay for repairs without a vendor relationship. On a ${usd(example.rent)} rent, ${example.hours} hours a month valued at ${usd(example.rate)} an hour is ${usd(ex.timeCost)} a year before a single day of vacancy.` },
+    a: `Mainly three things: your hours, the vacancy you carry while finding a resident, and the markup you pay for repairs without a vendor relationship. On one unit, ${defaults.hoursPerUnit} hours a month valued at ${usd(defaults.hourlyValue)} an hour is ${usd(ex.self.time)} a year before a single day of vacancy.` },
   { q: 'How much does a property manager cost in Columbus?',
-    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with no leasing fee. On the middle plan that is ${usd(mid.monthly * 12)} a year per unit.` },
+    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee and a ${usd(pricing.leaseRenewalFee)} lease renewal fee. On ${mid.name} that is ${usd(mid.monthly * 12)} a year per unit in monthly management.` },
   { q: 'Is a property manager worth it for one rental?',
-    a: 'It depends on what your time is worth and how close you live to the property. Run the arithmetic on this page with your own numbers to answer it. Some owners should keep self-managing, and we will tell you so.' },
-  { q: 'Does vacancy cost more than management fees?',
-    a: `Often, yes. A single month of vacancy on a ${usd(example.rent)} rent costs ${usd(example.rent)}, which is most of a year of flat-fee management. Speed of leasing is usually where management pays for itself.` },
+    a: 'It depends on what your time is worth and how close you live to the property. Run this calculator with your own numbers to answer it. Some owners should keep self-managing, and we will tell you so.' },
+  { q: 'Does vacancy cost more than management?',
+    a: `Often, yes. A single month of vacancy on a ${usd(defaults.rent)} rent costs ${usd(defaults.rent)}, close to a year of ${mid.name} management at ${usd(mid.monthly * 12)}. Speed of leasing is usually where management pays for itself.` },
 ];
 
 const schemaNodes = [serviceNode({
@@ -59,101 +146,184 @@ const schemaNodes = [serviceNode({
   name: 'Self-management cost calculator',
   description,
 })];
+
+const inputCls = 'sm-input';
 ---
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
   <section class="pt-14 pb-8">
-    <div class="wrap max-w-[880px]">
+    <div class="wrap max-w-[1120px]">
       <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">
         <a href="/" class="no-underline hover:text-crimson">Home</a> <span aria-hidden="true">/</span>
         <a href="/tools/" class="no-underline hover:text-crimson">Tools</a> <span aria-hidden="true">/</span>
         <span aria-current="page">Self-management calculator</span>
       </nav>
       <span class="eyebrow">Owner tools</span>
-      <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em]">What is self-managing actually costing you?</h1>
-      <p class="text-[20px] text-muted mt-5 max-w-[40em]">
-        Self-managing costs money even though nobody sends you a bill. The cost shows up in your hours, in
-        the days a unit sits empty, and in what you pay for repairs without a vendor relationship. This
-        calculator adds it up.
+      <h1 class="text-[clamp(32px,4.2vw,50px)] tracking-[-.022em] max-w-[18em]">What is self-managing actually costing you?</h1>
+      <p class="text-[19px] text-muted mt-5 max-w-[40em]">
+        Nobody sends you a bill for self-managing, but it costs your hours, empty days and retail repair
+        prices. Enter your numbers to see that cost next to our flat monthly pricing.
       </p>
-    </div>
-  </section>
-
-  <section class="pb-10">
-    <div class="wrap max-w-[880px]">
-      <form class="card" id="calc" novalidate>
-        <h2 class="text-[22px] mb-1">Your numbers</h2>
-        <p class="text-[15px] text-muted mb-6">
-          Nothing is sent anywhere. This runs entirely in your browser.
-        </p>
-        <div class="grid gap-5 sm:grid-cols-2">
-          <div>
-            <label for="rent" class="block font-sans text-[13px] font-semibold text-muted mb-1.5">Monthly rent, per unit</label>
-            <input id="rent" name="rent" type="number" inputmode="numeric" min="0" step="25" value={example.rent}
-                   class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
-          </div>
-          <div>
-            <label for="units" class="block font-sans text-[13px] font-semibold text-muted mb-1.5">Units you manage</label>
-            <input id="units" name="units" type="number" inputmode="numeric" min="1" step="1" value={example.units}
-                   class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
-          </div>
-          <div>
-            <label for="hours" class="block font-sans text-[13px] font-semibold text-muted mb-1.5">Hours a month you spend on it</label>
-            <input id="hours" name="hours" type="number" inputmode="decimal" min="0" step="0.5" value={example.hours}
-                   class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
-          </div>
-          <div>
-            <label for="rate" class="block font-sans text-[13px] font-semibold text-muted mb-1.5">What an hour of your time is worth</label>
-            <input id="rate" name="rate" type="number" inputmode="numeric" min="0" step="5" value={example.rate}
-                   class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
-          </div>
-          <div class="sm:col-span-2">
-            <label for="vac" class="block font-sans text-[13px] font-semibold text-muted mb-1.5">Days vacant in a typical year</label>
-            <input id="vac" name="vac" type="number" inputmode="numeric" min="0" step="1" value={example.vacancyDays}
-                   class="w-full px-3.5 py-3 border border-line rounded-lg bg-white text-[16px]" />
-            <p class="text-[13px] text-faint mt-1.5">Our portfolio median is 20 days on market, before turn time.</p>
-          </div>
-        </div>
-      </form>
     </div>
   </section>
 
   <section class="pb-12">
-    <div class="wrap max-w-[880px]">
-      <h2 class="text-[26px] mb-5">The comparison</h2>
-      <div class="scroll-x">
-        <table class="w-full border-collapse text-[16px]">
-          <caption class="sr-only">Annual cost of self-managing against flat-fee management</caption>
-          <tbody>
-            <tr>
-              <th scope="row" class="text-left p-4 border border-line font-medium">Your time, per year</th>
-              <td class="text-right p-4 border border-line tabular-nums font-semibold text-navy" id="out-time">{usd(ex.timeCost)}</td>
-            </tr>
-            <tr>
-              <th scope="row" class="text-left p-4 border border-line font-medium">Vacancy, per year</th>
-              <td class="text-right p-4 border border-line tabular-nums font-semibold text-navy" id="out-vac">{usd(ex.vacancyCost)}</td>
-            </tr>
-            <tr class="bg-wash-soft">
-              <th scope="row" class="text-left p-4 border border-line font-bold">Total cost of self-managing</th>
-              <td class="text-right p-4 border border-line tabular-nums font-bold text-navy text-[19px]" id="out-total">{usd(ex.timeCost + ex.vacancyCost)}</td>
-            </tr>
-            <tr>
-              <th scope="row" class="text-left p-4 border border-line font-medium">
-                {mid.name} management, per year
-                <span class="block text-[13.5px] text-faint font-normal">{usd(mid.monthly)} per unit per month, no leasing fee</span>
-              </th>
-              <td class="text-right p-4 border border-line tabular-nums font-semibold text-crimson" id="out-mgmt">{usd(ex.mgmtCost)}</td>
-            </tr>
-          </tbody>
-        </table>
+    <div class="wrap max-w-[1120px]">
+      <div class="sm-grid">
+        <form class="card sm-form" id="sm-calc" novalidate data-config={JSON.stringify(cfg)}
+              aria-describedby="sm-privacy">
+          <h2 class="text-[22px] mb-1">Your numbers</h2>
+          <p class="text-[14.5px] text-muted mb-2" id="sm-privacy">
+            Results update as you type. Nothing is sent anywhere.
+          </p>
+
+          {groups.map((g) => (
+            <fieldset class="sm-group">
+              <legend class="sm-legend">{g.legend}</legend>
+              <div class="sm-fields">
+                {g.fields.map((f) => (
+                  <div class={f.wide ? 'sm-wide' : ''}>
+                    <label for={`sm-${f.id}`} class="sm-label">
+                      {f.label}{f.assumption && <span class="sm-tag">Assumption</span>}
+                    </label>
+                    <div class="sm-box">
+                      {f.pre && <span class="sm-pre" aria-hidden="true">{f.pre}</span>}
+                      <input id={`sm-${f.id}`} name={f.id} type="number" inputmode="decimal"
+                             min={f.min ?? 0} step={f.step} value={defaults[f.id] as number}
+                             class:list={[inputCls, f.pre && 'has-pre', f.post && 'has-post']}
+                             aria-describedby={f.hint ? `sm-${f.id}-hint` : undefined} />
+                      {f.post && <span class="sm-post" aria-hidden="true">{f.post}</span>}
+                    </div>
+                    {f.hint && <p class="sm-hint" id={`sm-${f.id}-hint`}>{f.hint}</p>}
+                  </div>
+                ))}
+              </div>
+            </fieldset>
+          ))}
+
+          <details class="sm-more">
+            <summary>Other costs you pay now, per year <span class="sm-optional">optional</span></summary>
+            <p class="sm-hint mt-0 mb-4">
+              Count only what goes away with a manager. Leave anything you do not pay at $0.
+            </p>
+            <div class="sm-fields">
+              {otherFields.map((f) => (
+                <div>
+                  <label for={`sm-${f.id}`} class="sm-label">{f.label}</label>
+                  <div class="sm-box">
+                    <span class="sm-pre" aria-hidden="true">$</span>
+                    <input id={`sm-${f.id}`} name={f.id} type="number" inputmode="decimal" min="0" step={f.step}
+                           value={defaults[f.id] as number} class={`${inputCls} has-pre`} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </details>
+
+          <fieldset class="sm-group">
+            <legend class="sm-legend">Compare with</legend>
+            <div class="sm-fields">
+              <div class="sm-wide">
+                <label for="sm-planId" class="sm-label">{company.name} plan</label>
+                <select id="sm-planId" name="planId" class={inputCls} aria-describedby="sm-planId-hint">
+                  {pricing.plans.map((p) => (
+                    <option value={p.id} selected={p.id === defaults.planId}>
+                      {p.name}: {usd(p.monthly)} per unit per month, {usd(p.repairApprovalLimit)} repair approval limit
+                    </option>
+                  ))}
+                </select>
+                <p class="sm-hint" id="sm-planId-hint">
+                  Plans differ only in the repair approval limit. Investor pricing applies automatically
+                  from {pricing.portfolioDiscount.investorFrom} units.
+                </p>
+              </div>
+              {compareFields.map((f) => (
+                <div>
+                  <label for={`sm-${f.id}`} class="sm-label">
+                    {f.label}{f.assumption && <span class="sm-tag">Assumption</span>}
+                  </label>
+                  <div class="sm-box">
+                    <input id={`sm-${f.id}`} name={f.id} type="number" inputmode="decimal"
+                           min={f.min ?? 0} step={f.step} value={defaults[f.id] as number}
+                           class:list={[inputCls, f.post && 'has-post']}
+                           aria-describedby={`sm-${f.id}-hint`} />
+                    {f.post && <span class="sm-post" aria-hidden="true">{f.post}</span>}
+                  </div>
+                  <p class="sm-hint" id={`sm-${f.id}-hint`}>{f.hint}</p>
+                </div>
+              ))}
+            </div>
+          </fieldset>
+
+          <button type="reset" class="btn btn-ghost mt-6" id="sm-reset" hidden>Reset to starting numbers</button>
+        </form>
+
+        <aside class="sm-side" aria-labelledby="sm-result-h">
+          <div class="card sm-result">
+            <span class="eyebrow" id="sm-result-h">Your result, per year</span>
+            <p class="sm-nojs" id="sm-nojs">
+              Worked example with the starting numbers. Turn on JavaScript to use your own, or work it by
+              hand with the steps below.
+            </p>
+
+            <div class="sm-stat">
+              <div class="sm-stat-label">Self-managing</div>
+              <div class="sm-stat-num" id="sm-out-self">{money(ex.self.total)}</div>
+              <div class="sm-bar" aria-hidden="true"><span class="sm-bar-self" id="sm-bar-self" style={`width:${pctW(ex.self.total)}`}></span></div>
+              <div class="sm-stat-sub" id="sm-out-self-unit">{money(ex.perUnitMonthly.self)} per unit per month</div>
+            </div>
+            <div class="sm-stat">
+              <div class="sm-stat-label"><span id="sm-out-plan">{ex.price.plan.name}</span> management</div>
+              <div class="sm-stat-num sm-stat-rl" id="sm-out-managed">{money(ex.managed.total)}</div>
+              <div class="sm-bar" aria-hidden="true"><span class="sm-bar-rl" id="sm-bar-rl" style={`width:${pctW(ex.managed.total)}`}></span></div>
+              <div class="sm-stat-sub" id="sm-out-managed-unit">{money(ex.perUnitMonthly.managed)} per unit per month</div>
+            </div>
+
+            <p class="sm-verdict" id="sm-verdict" aria-live="polite" aria-atomic="true">{headline(ex)}</p>
+
+            <div class="flex flex-col gap-2.5 mt-5">
+              <a href="/property-management-consultation/" class="btn btn-primary text-center">Book a free consultation</a>
+              <a href="/pricing/" class="btn btn-ghost text-center">See full pricing</a>
+            </div>
+          </div>
+        </aside>
       </div>
-      <p class="mt-5 text-[17px] text-muted" id="out-summary">
-        On these numbers, self-managing costs {usd(ex.timeCost + ex.vacancyCost)} a year and management
-        costs {usd(ex.mgmtCost)}.
+    </div>
+  </section>
+
+  <section class="pb-12">
+    <div class="wrap max-w-[1120px]">
+      <h2 class="text-[26px] mb-2">The breakdown</h2>
+      <p class="text-[16px] text-muted mb-6 max-w-[44em]">
+        Each line shows its working. Self-managing counts only what you carry because you self-manage;
+        management counts the recurring charges we would bill.
       </p>
-      <p class="text-[14px] text-faint mt-3">
-        The comparison deliberately leaves out what you overpay for repairs without a vendor relationship,
-        and the cost of a mistake under Ohio landlord-tenant law. Both are real costs, but they are hard to
-        estimate honestly, so we do not count them here.
+      <div class="sm-tables">
+        {[{ h: 'Self-managing', r: selfRows, cls: '' }, { h: `With ${company.name}`, r: managedRows, cls: 'sm-rl' }].map((t) => (
+          <div class="scroll-x">
+            <table class={`sm-table ${t.cls}`}>
+              <caption>{t.h}, per year</caption>
+              <tbody>
+                {t.r.map((row) => (
+                  <tr class={row.total ? 'sm-total' : ''} data-row={row.id}>
+                    <th scope="row">
+                      <span class="sm-row-label" data-label>{row.label}</span>
+                      <span class="sm-row-note" data-note>{row.note}</span>
+                    </th>
+                    <td data-amount>{money(row.amount)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        ))}
+      </div>
+      <p class="text-[14px] text-faint mt-5 max-w-[48em]">
+        Project management is counted at the full {cfg.vendorProjectFeePct}% as a ceiling. The real charge
+        applies to vendor work only, is capped at {usd(pricing.maintenance.vendorProjectFeeCap)} a project, and
+        does not apply to our in-house repairs at {usd(pricing.maintenance.inHouseHourly)} an hour plus
+        a {usd(pricing.maintenance.tripCharge)} trip charge. Repairs themselves are billed at cost either way,
+        so only the difference is counted. Left out on both sides: evictions, the cost of a mistake under Ohio
+        landlord-tenant law, and the time you still spend as an owner with a manager.
       </p>
     </div>
   </section>
@@ -162,15 +332,18 @@ const schemaNodes = [serviceNode({
     <div class="wrap max-w-[880px]">
       <h2 class="text-[26px] mb-4">How the arithmetic works</h2>
       <div class="prose-rl">
-        <p>The calculation has three lines, and you can check each one by hand:</p>
+        <p>Every line can be checked by hand. With the starting numbers above:</p>
         <ol>
-          <li><strong>Your time.</strong> Hours a month, times what an hour of your time is worth, times twelve.</li>
-          <li><strong>Vacancy.</strong> Monthly rent divided by 30 gives a daily rate. Multiply by the days a unit sits empty in a year.</li>
-          <li><strong>Management.</strong> The flat monthly fee times twelve, times your unit count. There is no leasing fee to add, which is the line most comparisons miss.</li>
+          <li><strong>Your time.</strong> Hours a month per unit, times units, times what an hour is worth, times 12: {selfRows[0].note} = {money(ex.self.time)}.</li>
+          <li><strong>Vacancy.</strong> Rent divided by 30 is a daily rate. Multiply by the days your units sat empty and by the share a manager would save you: {selfRows[1].note} = {money(ex.self.vacancy)}.</li>
+          <li><strong>Repairs.</strong> The share of your repair spend that is retail markup: {selfRows[2].note} = {money(ex.self.repairs)}.</li>
+          <li><strong>Management.</strong> The plan price times units times 12, plus {usd(pricing.leaseRenewalFee)} for each lease that renews, plus project management on repairs, plus the annual technology and accounting fee: {money(ex.managed.monthly)} + {money(ex.managed.renewals)} + {money(ex.managed.projectMgmt)} + {money(ex.managed.techFee)} = {money(ex.managed.total)}. New leases add {usd(pricing.leasingFee)}, because there is no leasing fee on any plan.</li>
         </ol>
         <p>
-          Median rent across the units we manage is {usd(rentByBedroom['2'].median)} for a two bedroom and
-          {' '}{usd(rentByBedroom['3'].median)} for a three bedroom, if you want a sanity check on your own number.
+          On those numbers self-managing costs {money(ex.self.total)} a year and management costs
+          {' '}{money(ex.managed.total)}. Median rent across the units we manage is
+          {' '}{usd(rentByBedroom['2'].median)} for a two bedroom and {usd(rentByBedroom['3'].median)} for a
+          three bedroom, if you want a sanity check on your own rent.
         </p>
       </div>
     </div>
@@ -190,47 +363,167 @@ const schemaNodes = [serviceNode({
     { href: '/free-rent-evaluation/', label: 'Free rent evaluation', note: 'What your property should earn' },
   ]} />
 
-  <Cta heading="Want the real number for your property?"
-       body="A free rent evaluation uses our own portfolio data and current comps, not a Zillow estimate." />
+  <Cta heading="Want to go through your numbers with us?"
+       body="A free consultation walks through your property, your costs and which plan fits, with no obligation."
+       primary={{ label: 'Book a free consultation', href: '/property-management-consultation/' }}
+       secondary={{ label: 'See pricing', href: '/pricing/' }} />
+</Base>
 
-  <script is:inline define:vars={{ planName: mid.name, planMonthly: mid.monthly }}>
-    // Progressive enhancement only. Everything above is already correct without this.
-    (function () {
-      var f = document.getElementById('calc');
-      if (!f) return;
-      var mid = { name: planName, monthly: planMonthly };
-      var money = function (n) {
-        return '$' + Math.round(n).toLocaleString('en-US');
-      };
-      var num = function (id, fallback) {
-        var el = document.getElementById(id);
-        var v = el ? parseFloat(el.value) : NaN;
-        return isFinite(v) && v >= 0 ? v : fallback;
-      };
-      function update() {
-        var rent = num('rent', 0), units = num('units', 1);
-        var hours = num('hours', 0), rate = num('rate', 0), vac = num('vac', 0);
-        var time = hours * rate * 12;
-        var vacancy = (rent / 30) * vac;
-        var total = time + vacancy;
-        var mgmt = mid.monthly * 12 * units;
-        document.getElementById('out-time').textContent = money(time);
-        document.getElementById('out-vac').textContent = money(vacancy);
-        document.getElementById('out-total').textContent = money(total);
-        document.getElementById('out-mgmt').textContent = money(mgmt);
-        var s = document.getElementById('out-summary');
-        if (total > mgmt) {
-          s.textContent = 'On these numbers, self-managing costs ' + money(total) +
-            ' a year and management costs ' + money(mgmt) + '. Management is ' +
-            money(total - mgmt) + ' cheaper.';
-        } else {
-          s.textContent = 'On these numbers, self-managing costs ' + money(total) +
-            ' a year and management costs ' + money(mgmt) +
-            '. Self-managing is the cheaper option for you right now.';
+<script>
+  // Progressive enhancement only. The HTML above is already a complete worked example.
+  import {
+    calculate, breakdown, headline, money,
+    type SelfManagementConfig, type SelfManagementInputs,
+  } from '../../lib/calculators/selfManagement';
+
+  const form = document.getElementById('sm-calc') as HTMLFormElement | null;
+  if (form && form.dataset.config) {
+    const cfg = JSON.parse(form.dataset.config) as SelfManagementConfig;
+    const $ = (id: string) => document.getElementById(id);
+    const setText = (id: string, text: string) => { const el = $(id); if (el) el.textContent = text; };
+
+    $('sm-nojs')?.setAttribute('hidden', '');
+    $('sm-reset')?.removeAttribute('hidden');
+
+    let lastVerdict = '';
+    const update = () => {
+      const raw: Partial<Record<keyof SelfManagementInputs, string>> = {};
+      for (const el of Array.from(form.elements)) {
+        if (el instanceof HTMLInputElement || el instanceof HTMLSelectElement) {
+          if (el.name) raw[el.name as keyof SelfManagementInputs] = el.value;
         }
       }
-      f.addEventListener('input', update);
-      update();
-    })();
-  </script>
-</Base>
+      const res = calculate(raw, cfg);
+
+      setText('sm-out-self', money(res.self.total));
+      setText('sm-out-managed', money(res.managed.total));
+      setText('sm-out-self-unit', `${money(res.perUnitMonthly.self)} per unit per month`);
+      setText('sm-out-managed-unit', `${money(res.perUnitMonthly.managed)} per unit per month`);
+      setText('sm-out-plan', res.price.plan.name);
+
+      const max = Math.max(res.self.total, res.managed.total, 1);
+      const w = (n: number) => `${Math.max(2, Math.round((n / max) * 100))}%`;
+      const bs = $('sm-bar-self'), br = $('sm-bar-rl');
+      if (bs) bs.style.width = w(res.self.total);
+      if (br) br.style.width = w(res.managed.total);
+
+      // Only touch the live region when the sentence changes, so screen readers
+      // are not re-read the same verdict on every keystroke.
+      const verdict = headline(res);
+      if (verdict !== lastVerdict) { setText('sm-verdict', verdict); lastVerdict = verdict; }
+
+      for (const row of breakdown(res, cfg)) {
+        const tr = document.querySelector(`[data-row="${row.id}"]`);
+        if (!tr) continue;
+        const label = tr.querySelector('[data-label]');
+        const note = tr.querySelector('[data-note]');
+        const amount = tr.querySelector('[data-amount]');
+        if (label) label.textContent = row.label;
+        if (note) note.textContent = row.note;
+        if (amount) amount.textContent = money(row.amount);
+      }
+    };
+
+    form.addEventListener('input', update);
+    form.addEventListener('change', update);
+    form.addEventListener('submit', (e) => { e.preventDefault(); update(); });
+    // Reset restores the default values after the event, so recalculate on the next tick.
+    form.addEventListener('reset', () => setTimeout(update, 0));
+    update();
+  }
+</script>
+
+<style>
+  .sm-grid { display: grid; gap: 28px; align-items: start; }
+  @media (min-width: 1024px) {
+    .sm-grid { grid-template-columns: minmax(0, 1fr) 360px; }
+    .sm-side { position: sticky; top: 96px; }
+  }
+
+  .sm-form { padding: 28px 26px 30px; }
+  .sm-group { border: 0; padding: 0; margin: 26px 0 0; min-width: 0; }
+  .sm-legend {
+    font-family: var(--font-sans); font-size: 11.5px; font-weight: 700; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--color-crimson); padding: 0; margin-bottom: 12px;
+  }
+  .sm-fields { display: grid; gap: 18px 20px; }
+  @media (min-width: 640px) {
+    .sm-fields { grid-template-columns: 1fr 1fr; }
+    .sm-wide { grid-column: 1 / -1; }
+  }
+  .sm-label {
+    display: block; font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+    color: var(--color-navy); margin-bottom: 6px; line-height: 1.35;
+  }
+  .sm-tag {
+    display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px;
+    background: #fbeef1; color: var(--color-crimson); font-size: 11px; font-weight: 700;
+    letter-spacing: .04em; vertical-align: 1px;
+  }
+  .sm-box { position: relative; }
+  .sm-input {
+    width: 100%; padding: 12px 14px; border: 1.5px solid var(--color-line); border-radius: 10px;
+    background: #fff; font-family: var(--font-sans); font-size: 16px; color: var(--color-navy);
+    font-variant-numeric: tabular-nums;
+  }
+  .sm-input:hover { border-color: #c3d0d9; }
+  .sm-input:focus { border-color: var(--color-crimson); outline: none; box-shadow: 0 0 0 3px rgb(166 5 48 / .14); }
+  .sm-input.has-pre { padding-left: 28px; }
+  .sm-input.has-post { padding-right: 52px; }
+  select.sm-input { appearance: auto; }
+  .sm-pre, .sm-post {
+    position: absolute; top: 50%; transform: translateY(-50%); pointer-events: none;
+    font-family: var(--font-sans); font-size: 15px; color: var(--color-faint);
+  }
+  .sm-pre { left: 14px; }
+  .sm-post { right: 14px; }
+  .sm-hint { font-size: 13px; color: var(--color-muted); margin: 6px 0 0; line-height: 1.45; }
+
+  .sm-more {
+    margin-top: 26px; border: 1px solid var(--color-line); border-radius: var(--radius-sm);
+    padding: 0 18px; background: var(--color-wash-soft);
+  }
+  .sm-more[open] { padding-bottom: 20px; }
+  .sm-more summary {
+    cursor: pointer; list-style: none; padding: 15px 0; font-family: var(--font-sans);
+    font-size: 15px; font-weight: 600; color: var(--color-navy);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sm-more summary::-webkit-details-marker { display: none; }
+  .sm-more summary::after { content: '+'; margin-left: auto; color: var(--color-crimson); font-size: 22px; font-weight: 400; line-height: 1; }
+  .sm-more[open] summary::after { content: '\2212'; }
+  .sm-optional { font-size: 12px; font-weight: 500; color: var(--color-faint); }
+
+  .sm-result { padding: 26px 24px; }
+  .sm-nojs { font-size: 13.5px; color: var(--color-muted); background: var(--color-wash-soft); border-radius: 10px; padding: 10px 12px; margin: 0 0 16px; }
+  .sm-nojs[hidden] { display: none; }
+  .sm-stat { padding: 14px 0; border-bottom: 1px solid var(--color-line); }
+  .sm-stat:first-of-type { padding-top: 4px; }
+  .sm-stat-label { font-family: var(--font-sans); font-size: 14px; font-weight: 600; color: var(--color-muted); }
+  .sm-stat-num {
+    font-family: var(--font-sans); font-size: 40px; font-weight: 800; letter-spacing: -.04em;
+    color: var(--color-navy); line-height: 1.1; font-variant-numeric: tabular-nums; margin-top: 2px;
+  }
+  .sm-stat-rl { color: var(--color-crimson); }
+  .sm-stat-sub { font-size: 13px; color: var(--color-faint); margin-top: 6px; }
+  .sm-bar { height: 8px; border-radius: 999px; background: var(--color-wash); margin-top: 10px; overflow: hidden; }
+  .sm-bar span { display: block; height: 100%; border-radius: 999px; transition: width .25s; }
+  .sm-bar-self { background: var(--color-navy); }
+  .sm-bar-rl { background: var(--color-crimson); }
+  .sm-verdict { font-size: 16px; line-height: 1.5; color: var(--color-navy); margin: 16px 0 0; font-weight: 500; }
+
+  .sm-tables { display: grid; gap: 24px; }
+  @media (min-width: 900px) { .sm-tables { grid-template-columns: 1fr 1fr; } }
+  .sm-table { width: 100%; border-collapse: collapse; font-family: var(--font-sans); font-size: 15px; }
+  .sm-table caption {
+    text-align: left; font-family: var(--font-serif); font-size: 19px; font-weight: 600;
+    color: var(--color-navy); margin-bottom: 8px;
+  }
+  .sm-table th, .sm-table td { padding: 12px 0; border-bottom: 1px solid var(--color-line); vertical-align: top; }
+  .sm-table th { text-align: left; font-weight: 600; color: var(--color-navy); padding-right: 16px; }
+  .sm-table td { text-align: right; font-weight: 700; color: var(--color-navy); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .sm-rl td { color: var(--color-crimson); }
+  .sm-row-label { display: block; }
+  .sm-row-note { display: block; font-size: 13px; font-weight: 400; color: var(--color-muted); margin-top: 2px; }
+  .sm-total th, .sm-total td { border-bottom: 0; border-top: 2px solid var(--color-navy); font-size: 16.5px; font-weight: 800; }
+</style>

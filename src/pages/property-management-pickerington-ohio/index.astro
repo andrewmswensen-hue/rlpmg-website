@@ -17,8 +17,8 @@ import { serviceNode } from '../../lib/schema';
  * County, not Franklin, and part of the city extends into Franklin County. So:
  *   - an eviction on a Fairfield parcel goes to Fairfield County Municipal Court
  *     in Lancaster, not to Franklin County Municipal Court in Columbus;
- *   - the R.C. 5323.02 rental owner filing goes to the Fairfield County Auditor,
- *     not the Franklin County Auditor;
+ *   - the R.C. 5323.02 county auditor rental filing does not apply, because
+ *     Fairfield County is under the 200,000-person line in R.C. 5323.01(E);
  *   - and for a parcel on the Franklin side, both of those flip.
  * Almost every "Columbus area property management" page treats Pickerington as
  * Franklin County by default. That is the error this page exists to correct.
@@ -39,12 +39,14 @@ import { serviceNode } from '../../lib/schema';
  *    attached. fcmcourt.org civil eviction packet and ohiolegalhelp.org.
  *  - Franklin County Municipal Court, 375 S. High St., Columbus, OH 43215,
  *    Eviction Court in Courtroom 11B. franklincountymunicourt.org.
- *  - R.C. 5323.02 applies statewide. Confirmed 2026-09-09 at
- *    codes.ohio.gov/ohio-revised-code/section-5323.02: the 200,000 population
- *    figure in the statute attaches to the county auditor's duty to NOTIFY
- *    owners, not to the owner's duty to file. Penalty R.C. 5323.99, $50 to $150.
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties of more
+ *    than 200,000 people at the last decennial census, so the 5323.02 auditor
+ *    filing applies on the Franklin County side only, not in Fairfield County.
+ *    Verified on codes.ohio.gov 2026-11-05 (replaces the 2026-09-09 note that
+ *    misread the threshold as only the auditor's notice duty):
+ *    https://codes.ohio.gov/ohio-revised-code/section-5323.01
  *  - Fairfield County 2020 decennial census population 158,921, below that
- *    200,000 notice threshold. US Census via en.wikipedia.org/wiki/Fairfield_County,_Ohio.
+ *    200,000 line. US Census via en.wikipedia.org/wiki/Fairfield_County,_Ohio.
  *  - Pickerington is NOT on the City of Columbus water and sewer contract
  *    community list. columbus.gov Water & Sewer Contract Communities, fetched
  *    2026-09-09.
@@ -85,7 +87,7 @@ const keyFacts = [
   `${usd(pricing.leasingFee)} leasing fee every time a Pickerington unit turns`,
   'Mostly Fairfield County, with part of the city extending into Franklin County',
   'A Fairfield County eviction is filed at 136 W. Main St., Lancaster, not in Columbus',
-  'Rental owner registration goes to the Fairfield County Auditor for a Fairfield parcel',
+  'The state county auditor rental filing applies only to the Franklin County part of the city',
   'The City of Pickerington runs its own water and sewer utility, not Columbus',
 ];
 
@@ -95,34 +97,34 @@ const courts = [
     court: 'Fairfield County Municipal Court',
     where: '136 W. Main St., Lancaster, OH 43130. 740-687-6621. Civil jurisdiction to $15,000, and it hears forcible entry and detainer actions, with the notice to leave the premises attached to the complaint.',
     note: 'Covers most Pickerington addresses, and all of unincorporated Violet Township around the city.',
-    auditor: 'Fairfield County Auditor',
+    auditor: 'Does not apply (Fairfield County is under 200,000 people)',
   },
   {
     county: 'Franklin County',
     court: 'Franklin County Municipal Court',
     where: '375 S. High St., Columbus, OH 43215. Eviction Court sits in Courtroom 11B.',
     note: 'Covers the portion of the city that extends over the Franklin County line.',
-    auditor: 'Franklin County Auditor',
+    auditor: 'Applies: filed with the Franklin County Auditor',
   },
 ];
 
 const faq = [
   { q: 'What county is Pickerington, Ohio in?',
-    a: 'Mostly Fairfield County. Pickerington lies partly in Fairfield County and partly in Franklin County, with the larger share in Fairfield. That is the most consequential fact about owning a rental here, because both the eviction court and the county auditor you file your rental owner information with follow the county line rather than the city name. The answer depends on the specific address.' },
+    a: 'Mostly Fairfield County, with part of the city in Franklin County. The eviction court and whether the county auditor rental filing applies both follow the county line, not the city name, so the answer depends on the address.' },
   { q: 'Which court hears an eviction in Pickerington, Ohio?',
-    a: 'For a Fairfield County parcel, Fairfield County Municipal Court at 136 W. Main St., Lancaster, OH 43130, telephone 740-687-6621, whose civil jurisdiction runs to $15,000 and which hears forcible entry and detainer actions, with the notice to leave the premises attached to the complaint. For a Franklin County parcel, Franklin County Municipal Court at 375 S. High St., Columbus, Eviction Court in Courtroom 11B. Jurisdiction follows the county under Ohio Revised Code 1901.02, so a manager who assumes Pickerington is Columbus files in the wrong court.' },
+    a: 'For a Fairfield County parcel, Fairfield County Municipal Court, 136 W. Main St., Lancaster, OH 43130 (740-687-6621), with the notice to leave attached to the complaint. For a Franklin County parcel, Franklin County Municipal Court, 375 S. High St., Columbus, Courtroom 11B. Jurisdiction follows the county under R.C. 1901.02.' },
   { q: 'Where do I register a Pickerington rental property?',
-    a: 'With the auditor of the county your parcel is in: the Fairfield County Auditor for most of Pickerington, the Franklin County Auditor for the Franklin County portion. Ohio Revised Code 5323.02 requires the owner to file their name, address and telephone number plus the property street address and permanent parcel number, and to update within 60 days of any change. There is no filing fee, and failing to file draws a special assessment under R.C. 5323.99 of $50 to $150. A manager may file as the owner designated agent, and we do.' },
-  { q: 'Does the Fairfield County Auditor remind me to register?',
-    a: 'Do not count on it. R.C. 5323.02 requires the filing statewide, but the statutory duty on a county auditor to notify owners of the requirement attaches to counties with populations over 200,000. Fairfield County recorded 158,921 residents in the 2020 decennial census, below that line. The duty to file is yours regardless of whether anyone writes to you about it, and the penalty under R.C. 5323.99 applies regardless too.' },
+    a: 'It depends on the county. The state’s county auditor rental registration (R.C. 5323.02) applies only in counties of more than 200,000 people, so it applies on the Franklin County side of Pickerington and not on the Fairfield County side, which covers most of the city. We check the parcel’s county at onboarding and file as your designated agent where it applies.' },
+  { q: 'Why does the county auditor rental filing not apply in Fairfield County?',
+    a: 'Ohio Revised Code 5323.01(E) defines residential rental property as property in a county of more than 200,000 people at the last census, and Fairfield County had 158,921 in 2020. The 200,000 line decides whether the filing applies at all, not just whether the auditor sends a reminder.' },
   { q: 'Who provides water and sewer in Pickerington, Ohio?',
-    a: 'The City of Pickerington runs its own utility, at 100 Lockville Rd, Pickerington, OH 43147, telephone 614-833-2289. Water and sewer are billed monthly for the previous month of use, bills go out on the first and are due on the fifteenth. Pickerington is not a City of Columbus water and sewer contract community, so nothing about the Columbus arrangement applies here. Electricity is AEP Ohio and natural gas is Columbia Gas of Ohio.' },
+    a: 'The City of Pickerington, 100 Lockville Rd, Pickerington, OH 43147 (614-833-2289), billing monthly for the prior month, sent on the first and due on the fifteenth. It is not a Columbus contract community. Electricity is AEP Ohio and gas is Columbia Gas of Ohio.' },
   { q: 'Is my Pickerington address actually in the City of Pickerington?',
-    a: 'Often not. Many addresses with a Pickerington mailing address sit in unincorporated Violet Township, Fairfield County, rather than inside the city. The court and the auditor stay the same, because Violet Township is Fairfield County. What changes is city utility service, city zoning and city code enforcement, none of which reach an address outside the corporation limit. Check the parcel with the county auditor rather than trusting the postmark.' },
+    a: 'Often not. Many Pickerington mailing addresses are in unincorporated Violet Township, Fairfield County, so the county court is the same but city utilities, zoning and code enforcement do not apply. Check the parcel with the county auditor, not the postmark.' },
   { q: 'What kind of rental property is there in Pickerington?',
-    a: 'Predominantly detached single-family houses in subdivisions built from the 1990s onward: three and four bedrooms, attached garages, full basements. Old Pickerington Village at the center is a small older core and the exception. Demand is driven heavily by the Pickerington Local School District, which means families, longer tenancies and a leasing season that peaks before the school year.' },
+    a: 'Mostly three and four bedroom detached houses with attached garages and full basements, in subdivisions built from the 1990s on; Old Pickerington Village is the small older exception. The Pickerington Local School District drives family demand, long tenancies and a leasing peak before the school year.' },
   { q: 'How much does property management cost in Pickerington?',
-    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Nothing about the price changes because the property is in Fairfield County rather than Franklin. Photography is not included in the leasing fee and is billed separately at $250 to $450. Every other charge that can appear on an owner statement is published on the pricing page.` },
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} per renewal, the same in Fairfield County as in Franklin. Photography is billed separately at $250 to $450, and every other charge is on the pricing page.` },
 ];
 
 const schemaNodes = [
@@ -160,27 +162,23 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="county-h" class="text-[clamp(26px,3.2vw,38px)]">What county is Pickerington in, and which court hears an eviction?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Mostly Fairfield County, which means most Pickerington evictions are filed in Lancaster rather than in
-        Columbus. Pickerington lies partly in Fairfield County and partly in Franklin County, with the larger
-        share in Fairfield, so the correct answer depends on the parcel. Eviction jurisdiction follows the county
-        under R.C. 1901.02, and so does the auditor you owe your rental owner filing to. Neither follows the city
-        name or the mailing address.
+        Mostly Fairfield County, so most Pickerington evictions are filed in Lancaster, not Columbus. Part of the
+        city is in Franklin County, so check the parcel: under Ohio Revised Code 1901.02 the court follows the county, and so
+        does whether the county auditor rental filing applies.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        This is the most common factual error made about Pickerington by managers who market themselves as
-        Columbus companies. It reads as a Columbus suburb and sits inside the metro, so the Franklin County
-        assumption is easy and expensive to make. A complaint filed in the wrong court is dismissed, and
-        you file again three weeks later with the resident still in the house and still not paying.
+        It is the most common error Columbus-based managers make about Pickerington. A wrong-court complaint is dismissed, and you
+        refile three weeks later with the resident still in the house, still not paying.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
-          <caption class="sr-only">Eviction court and county auditor by county for Pickerington, Ohio rental property</caption>
+          <caption class="sr-only">Eviction court and county auditor rental filing by county for Pickerington, Ohio rental property</caption>
           <thead>
             <tr class="bg-wash-soft">
               <th scope="col" class="text-left p-3.5 border border-line font-semibold">If your parcel is in</th>
               <th scope="col" class="text-left p-3.5 border border-line font-semibold">You file an eviction at</th>
               <th scope="col" class="text-left p-3.5 border border-line font-semibold">Where, and what it covers</th>
-              <th scope="col" class="text-left p-3.5 border border-line font-semibold">R.C. 5323 filing goes to</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">R.C. 5323 auditor filing</th>
             </tr>
           </thead>
           <tbody>
@@ -196,14 +194,12 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        Whichever court it is, the case starts before the filing. Ohio requires a three-day notice to leave the
-        premises under R.C. 1923.04, carrying specific statutory language, and Fairfield County requires a copy of
-        that notice attached to the complaint. Our published costs are {usd(pricing.eviction.attorneyFee)} to the
-        eviction attorney for the filing and up to two appearances and {usd(pricing.eviction.rlpmProcessFee)} to
-        us to run the process, plus the county filing fee, all set out on the
-        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
-        {' '}The {usd(pricing.eviction.countyFilingFee)} figure published there is the Franklin County eviction
-        complaint fee; a Fairfield County filing is billed at that court's own rate.
+        Either way, the case starts with a three-day notice under R.C. 1923.04 in the statutory wording, and
+        Fairfield County wants a copy attached to the complaint. Our costs: {usd(pricing.eviction.attorneyFee)} to
+        the attorney (filing plus up to two appearances), {usd(pricing.eviction.rlpmProcessFee)} to us, plus the
+        county filing fee. The {usd(pricing.eviction.countyFilingFee)} figure on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>
+        {' '}is Franklin County's; Fairfield County bills at its own rate.
       </p>
     </div>
   </section>
@@ -214,16 +210,13 @@ const schemaNodes = [
       <span class="eyebrow">The second trap</span>
       <h2 id="limits-h" class="text-[clamp(26px,3.2vw,38px)]">Is a Pickerington address actually in the City of Pickerington?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Frequently not. A large number of addresses carrying a Pickerington mailing address sit in unincorporated
-        Violet Township, Fairfield County, outside the corporation limit. The county answers do not change,
-        because Violet Township is Fairfield County too, so the court and the auditor stay put. What changes is
-        everything the city controls: utility service, zoning, code enforcement and permits. An owner who calls
-        Pickerington City Hall about a property that is not in Pickerington gets a polite answer and no help.
+        Frequently not. Many Pickerington mailing addresses are in unincorporated Violet Township, Fairfield
+        County. The county court stays the same, but city utility service, zoning, code enforcement and
+        permits do not reach them, and City Hall cannot help.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Settle it by parcel, not by postmark. Look the property up on the county auditor's parcel record, which
-        shows the taxing district, and confirm the utility account before assuming who bills the water. We do
-        this at onboarding, because getting it wrong once means a resident with no water on move-in day.
+        Settle it by parcel, not postmark: the county auditor's parcel record shows the taxing district. We check
+        it and the utility account at onboarding, so no resident arrives to no water on move-in day.
       </p>
     </div>
   </section>
@@ -233,23 +226,17 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Pickerington rental property?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Yes, with the county auditor, and for most of Pickerington that is the Fairfield County Auditor rather
-        than the Franklin County Auditor. Ohio Revised Code 5323.02 requires every owner of residential rental
-        property to file their name, address and telephone number, plus the property street address and permanent
-        parcel number, and to update within 60 days of any change. There is no filing fee. Owners holding title
-        through an LLC or a trust must name the responsible member, officer or trustee.
+        It depends on the county. The state's county auditor rental registration (R.C. 5323.02) applies only in
+        counties of more than 200,000 people. Fairfield County had 158,921 in the 2020 census, so it does not
+        apply to the Fairfield County side, which is most of Pickerington. It does apply on the Franklin County
+        side: your name, address and phone plus the property street address and permanent parcel number, filed
+        with the Franklin County Auditor and updated within 60 days of any change. No fee.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The statute applies in every Ohio county, but the
-        duty it puts on an auditor to notify owners attaches to counties over 200,000 in population, and
-        Fairfield County recorded 158,921 residents in the 2020 decennial census. A Fairfield County owner is
-        therefore less likely to be reminded, while the obligation and the R.C. 5323.99 assessment of $50 to $150
-        are unchanged. A manager may file as the owner's designated agent, and we do that at onboarding, as set out
-        on the
-        {' '}<a href="/services/compliance/" class="text-crimson font-semibold no-underline hover:underline">compliance page</a>.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and file on time, so you do not have to.
+        We check the parcel's county at onboarding, file as your designated agent where the filing applies (see the
+        {' '}<a href="/services/compliance/" class="text-crimson font-semibold no-underline hover:underline">compliance page</a>)
+        and track any city program on top, such as the Columbus registry added in April 2026 under City Code
+        Chapter 4515.
       </p>
     </div>
   </section>
@@ -260,10 +247,8 @@ const schemaNodes = [
       <span class="eyebrow">Utilities</span>
       <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in Pickerington, and who pays them?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        The City of Pickerington runs its own water and sewer utility, which sets it apart from most of
-        the metro we work in, where the water is Columbus under a contract community agreement. Pickerington does
-        not appear on the Columbus water and sewer contract community list, so no Columbus billing arrangement or
-        water ordinance reaches a Pickerington city address.
+        The City of Pickerington runs its own water and sewer, unlike most of the metro. It is not on the
+        Columbus contract community list, so no Columbus billing rule reaches a city address.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -295,12 +280,9 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        The billing cycle sets how fast an unpaid utility balance becomes your problem. Pickerington
-        bills monthly for the previous month's use, sends bills on the first and makes them due on the fifteenth.
-        Rent is due on {rentPolicy.dueDate} with late fees after {rentPolicy.lateFeesAfter}. A resident sliding on
-        one is usually sliding on the other, and the utility balance is the earlier signal.
-      </p>
-      <p class="text-[16px] text-muted mt-5">
+        Pickerington bills monthly for the previous month's use, on the first, due the fifteenth. Rent is due on
+        {' '}{rentPolicy.dueDate} with late fees after {rentPolicy.lateFeesAfter}. A resident sliding on one usually
+        slides on the other, and the utility balance shows it first.
       </p>
     </div>
   </section>
@@ -310,18 +292,15 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Pickerington, and what does management cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Mostly detached single-family houses in subdivisions built from the 1990s onward: three and four
-        bedrooms, attached garages, full basements, on streets off Refugee Road, Hill Road, Diley Road and the
-        Route 256 corridor. Old Pickerington Village at the center is a small older core and the exception.
-        Demand runs heavily through the Pickerington Local School District, which means families rather than
-        singles, longer tenancies, and a leasing season that peaks before the school year.
-        </p>
+        Mostly 1990s-and-later subdivision houses with three and four bedrooms, attached garages and full
+        basements, off Refugee Road, Hill Road, Diley Road and the Route 256 corridor. Old Pickerington Village is
+        the small older core. The Pickerington Local School District brings families, longer tenancies and a
+        leasing peak before the school year.
+      </p>
       <p class="text-[17.5px] text-muted mt-5">
-        We do not publish a Pickerington rent median, because we publish a market and bedroom median only where
-        at least five of our own units support it and Pickerington does not clear that bar. Portfolio-wide across
-        the metro our median is {usd(rentByBedroom['3'].median)} for a three bedroom and
-        {' '}{usd(rentByBedroom['4'].median)} for a four bedroom. Those are metro-wide, not Pickerington. Anyone
-        handing you a confident city-level average is reading a public index, not their own book.
+        No Pickerington median yet: fewer than five of our units are here. Metro-wide, our median is
+        {' '}{usd(rentByBedroom['3'].median)} for a three bedroom and {usd(rentByBedroom['4'].median)} for a four
+        bedroom.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (
@@ -334,14 +313,11 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16.5px] text-muted mt-7">
-        The three plans differ in one variable: how large a repair we can approve before we call you. The leasing
-        fee is {usd(pricing.leasingFee)} and a renewal is {usd(pricing.leaseRenewalFee)}. Being in Fairfield
-        County changes nothing about the price. It changes where we file, which auditor we register you with and
-        which court calendar we work around, and we carry that work so you do not have to learn it.
+        Plans differ only in the repair approval limit. Leasing is {usd(pricing.leasingFee)} and a renewal is
+        {' '}{usd(pricing.leaseRenewalFee)}. Fairfield County changes where we file, not what you pay.
       </p>
       <p class="text-[14px] text-faint mt-4">
-        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at $250
-        to $450.
+        Photography is billed separately at $250 to $450.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
         <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
@@ -358,7 +334,7 @@ const schemaNodes = [
       <Faq items={faq} heading="Pickerington property management questions" id="pickerington-faq" />
       <p class="mt-7 text-[15.5px] text-muted">
         Owner funds go out on the {rentPolicy.ownerDisbursementDay}th and take
-        {' '}{rentPolicy.disbursementNote}. Another forty answers sit on the
+        {' '}{rentPolicy.disbursementNote}. More on the
         {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
       </p>
       <div class="mt-6"><Verified date="2026-09-09" /></div>
@@ -375,7 +351,7 @@ const schemaNodes = [
 
   <Cta
     heading="Find out what your Pickerington rental should earn"
-    body="Tell us the address and we will price it against comparable listings, confirm which county the parcel is in, and tell you what filing that implies. No charge, and no obligation to hire us."
+    body="Send the address. We will price it against comparable listings and confirm which county and court apply. Free."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Talk to us about a portfolio', href: '/property-management-consultation/' }}
   />

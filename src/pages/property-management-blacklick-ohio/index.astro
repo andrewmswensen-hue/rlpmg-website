@@ -22,8 +22,8 @@ import { serviceNode } from '../../lib/schema';
  * other side of the county.
  *
  * That distinction is not trivia. It decides whose zoning applies, whose building
- * department issues a permit, which auditor takes the R.C. 5323 filing and which
- * court hears an eviction.
+ * department issues a permit, whether the R.C. 5323 auditor filing applies and
+ * which court hears an eviction.
  *
  * SOURCES (verified 2026-09-09):
  *  - Blacklick is an unincorporated community in southern Jefferson Township,
@@ -43,6 +43,10 @@ import { serviceNode } from '../../lib/schema';
  *  - Court jurisdiction follows the county under R.C. 1901.02. Franklin County
  *    Municipal Court eviction division: franklincountymunicourt.org/Courts/Eviction-Court.
  *  - Owner filing with the county auditor: R.C. 5323.02, penalty R.C. 5323.99.
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties of more
+ *    than 200,000 people at the last decennial census, so the 5323.02 filing
+ *    applies on the Franklin side only, not in Licking (178,519 in 2020).
+ *    Verified on codes.ohio.gov 2026-11-05: https://codes.ohio.gov/ohio-revised-code/section-5323.01
  *  - Three-day notice to leave the premises: R.C. 1923.04.
  *  - AEP Ohio and Columbia Gas of Ohio per docs/area-research-verified.md.
  *
@@ -64,8 +68,7 @@ const breadcrumbs = [
 ];
 
 const keyFacts = [
-  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
-  `${usd(pricing.leasingFee)} leasing fee every time a Blacklick unit turns`,
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, ${usd(pricing.leasingFee)} leasing fee`,
   'Blacklick is not an incorporated city: it is unincorporated Jefferson Township, Franklin County',
   'The 43004 ZIP is a postal designation, and its eastern reach crosses into Licking County',
   'Franklin County parcels: eviction filed at 375 S. High St., Columbus',
@@ -74,19 +77,19 @@ const keyFacts = [
 
 const faq = [
   { q: 'Is Blacklick, Ohio a city?',
-    a: 'No. Blacklick is an unincorporated community in southern Jefferson Township, Franklin County, and a postal designation attached to the 43004 ZIP code. There is no City of Blacklick and no Blacklick building department. The rules come from the township, the county and the State of Ohio rather than from a municipality, unless your parcel has been annexed into a neighboring city.' },
+    a: 'No. Blacklick is an unincorporated community in southern Jefferson Township, Franklin County, and a postal designation attached to the 43004 ZIP code. There is no City of Blacklick, so the rules come from the township, the county and the State of Ohio, unless your parcel has been annexed into a neighboring city.' },
   { q: 'Which court hears an eviction in Blacklick, Ohio?',
-    a: 'It follows the county, not the postal address. A Franklin County parcel, whether in unincorporated Jefferson Township or inside a neighboring municipality, is filed at Franklin County Municipal Court, 375 S. High St., Columbus, OH 43215, eviction division, Courtroom 11B. A parcel on the Licking County side goes to Licking County Municipal Court. Being unincorporated does not create a separate court.' },
+    a: 'It follows the county, not the postal address. A Franklin County parcel, whether in unincorporated Jefferson Township or inside a neighboring municipality, is filed at Franklin County Municipal Court, 375 S. High St., Columbus, OH 43215, eviction division, Courtroom 11B. A parcel on the Licking County side goes to Licking County Municipal Court.' },
   { q: 'What is the difference between Blacklick and Blacklick Estates?',
-    a: 'They are two different places. Blacklick is the unincorporated community in southern Jefferson Township on the northeast side of Franklin County, with the 43004 ZIP. Blacklick Estates is a census-designated place on the southeast side of the county, partly in Madison Township and partly in Truro Township. They have different school districts and different township governments, and listings and market data routinely mix them up. If you are reading a rent comparison or a crime statistic for "Blacklick", check which one it is about.' },
+    a: 'They are two different places. Blacklick is the unincorporated community in southern Jefferson Township on the northeast side of Franklin County, with the 43004 ZIP. Blacklick Estates is a census-designated place on the southeast side of the county, partly in Madison Township and partly in Truro Township. They have different school districts and township governments, and listings and market data routinely mix them up.' },
   { q: 'Do I have to register my Blacklick rental property with anyone?',
-    a: 'Yes, with the county auditor. Ohio Revised Code 5323.02 requires every rental owner to file owner details and the permanent parcel number with the auditor of the county the property sits in, within 60 days of acquiring it and of any change. There is no fee. For Blacklick that is the Franklin County Auditor, or the Licking County Auditor for a parcel across the line. Failing to file draws a special assessment of $50 to $150 under R.C. 5323.99, and the Franklin County Auditor states $150 per tax year. Being unincorporated does not exempt you.' },
+    a: 'On the Franklin County side, yes, with the Franklin County Auditor. The state’s county auditor rental registration (R.C. 5323.02) applies only in counties of more than 200,000 people, so it applies to Franklin County parcels and not to a parcel across the Licking County line. On the Franklin side it means owner details and the parcel number within 60 days of the county’s notice and of any change, with no fee, and failing to file draws a $50 to $150 special assessment under R.C. 5323.99 (Franklin County states $150 per tax year). Being unincorporated does not exempt you. We check the parcel’s county at onboarding.' },
   { q: 'Who regulates zoning and building work on an unincorporated Blacklick parcel?',
-    a: 'For unincorporated township land, zoning authority comes from Ohio Revised Code chapter 519, which is the chapter that gives townships zoning power, and it is administered by the township rather than by a city planning department. If your parcel has been annexed into a neighboring municipality, that city governs instead, which is why the parcel number matters more than the mailing address.' },
+    a: 'The township, under Ohio Revised Code chapter 519, which gives townships zoning power. If your parcel has been annexed into a neighboring municipality, that city governs instead, which is why the parcel number matters more than the mailing address.' },
   { q: 'What does a rental in Blacklick, Ohio rent for?',
-    a: `We do not publish a Blacklick rent median, because our managed sample there is below the five-unit threshold we set before calling a number a market median. Across our whole portfolio the median is ${usd(rentByBedroom['3'].median)} for a 3 bedroom and ${usd(rentByBedroom['2'].median)} for a 2 bedroom, and the nearest market where we do publish our own figure is Reynoldsburg at ${usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)} for a 3 bedroom.` },
+    a: `We do not publish a Blacklick median, because our sample there is under five units. Across our whole portfolio the median is ${usd(rentByBedroom['3'].median)} for a 3 bedroom and ${usd(rentByBedroom['2'].median)} for a 2 bedroom, and the nearest market where we do publish our own figure is Reynoldsburg at ${usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)} for a 3 bedroom.` },
   { q: 'How much does property management cost in Blacklick?',
-    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. The three plans differ only in the per-item repair approval limit: ${usd(pricing.plans[0].repairApprovalLimit)}, ${usd(pricing.plans[1].repairApprovalLimit)} and ${usd(pricing.plans[2].repairApprovalLimit)}. We do not charge more to manage a property in an unincorporated area.` },
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. The three plans differ only in the per-item repair approval limit: ${usd(pricing.plans[0].repairApprovalLimit)}, ${usd(pricing.plans[1].repairApprovalLimit)} and ${usd(pricing.plans[2].repairApprovalLimit)}. Unincorporated property costs no more to manage.` },
 ];
 
 const schemaNodes = [
@@ -122,37 +125,26 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="incorp-h" class="text-[clamp(26px,3.2vw,38px)]">Is Blacklick a city, and why does the answer matter to a landlord?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        No, Blacklick is not a city. It is an unincorporated community in southern Jefferson Township, Franklin
-        County, and a postal designation attached to the 43004 ZIP code. There is no Blacklick council, no
-        Blacklick building department and no Blacklick rental registration, because there is no Blacklick
-        municipal government to create one. Many property management pages treat Blacklick as a suburb like
-        Gahanna or Westerville, but for an owner the difference decides whose rules apply.
+        No. It is an unincorporated community in southern Jefferson Township, Franklin County, and a postal
+        designation for the 43004 ZIP. There is no Blacklick council, building department or rental
+        registration. For an owner, that decides whose rules apply:
       </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        Three things change. Zoning on unincorporated township land comes from Ohio Revised
-        Code chapter 519, and is administered by the township rather than a city planning department. Local
-        services come from Jefferson Township and Franklin County. And the eastern reach of the 43004 postal
-        area crosses into Licking County, which moves both the eviction court and the county auditor.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        Careful owners still miss one point. Jefferson Township contains incorporated territory as
-        well as unincorporated territory, so a 43004 mailing address does not tell you whether your parcel sits
-        under township jurisdiction or inside a municipality's corporate limits. Two houses on the same road can
-        answer to different authorities, so check the parcel record rather than the mailing address.
-      </p>
+      <ul class="text-[17.5px] text-muted mt-4 list-disc pl-5 grid gap-2">
+        <li>Zoning comes from Ohio Revised Code chapter 519, administered by the township.</li>
+        <li>Local services come from Jefferson Township and Franklin County.</li>
+        <li>The eastern reach of 43004 crosses into Licking County, which moves the eviction court and takes the parcel out of the county auditor rental filing.</li>
+        <li>Jefferson Township also holds incorporated territory, so two houses on one road can answer to different authorities. Check the parcel record, not the mailing address.</li>
+      </ul>
 
       <h3 class="text-[21px] mt-10 mb-3">Blacklick is not Blacklick Estates</h3>
       <p class="text-[17.5px] text-muted mt-4">
-        These are two separate places on opposite sides of Franklin County, and confusing them skews any
-        research you do. Blacklick is the unincorporated community in southern Jefferson Township on the
-        northeast side, with the 43004 ZIP. Blacklick Estates is a census-designated place on the southeast
-        side, partly in Madison Township and partly in Truro Township.
+        Two places on opposite sides of Franklin County. Blacklick is the 43004 community on the northeast
+        side. Blacklick Estates is a census-designated place on the southeast side, partly in Madison Township
+        and partly in Truro Township.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The mix-up costs money. A rent comparison or market report labeled "Blacklick" may be describing
-        either one, and an owner who prices a Jefferson Township house off Blacklick Estates data will list too
-        low and never know why it leased in four days. When we price a Blacklick property we work from the parcel
-        and from comparable listings on the same side of the county, not from a place name.
+        A report labeled "Blacklick" may describe either, and pricing a Jefferson Township house off Blacklick
+        Estates data lists it too low. We price from the parcel and from comparables on the same side of the county.
       </p>
     </div>
   </section>
@@ -163,37 +155,35 @@ const schemaNodes = [
       <span class="eyebrow">Jurisdiction</span>
       <h2 id="county-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Blacklick?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        It follows the county, not the postal address and not whether the parcel is incorporated. A Franklin
-        County parcel is filed at Franklin County Municipal Court, 375 S. High St., Columbus, where the eviction
-        division sits in Courtroom 11B, whether the property is in unincorporated Jefferson Township or inside a
-        neighboring city. A parcel on the Licking County side of the 43004 area goes to Licking County
-        Municipal Court instead. Ohio Revised Code 1901.02 fixes each municipal court to its territory, and
-        being unincorporated does not create a township court.
+        It follows the county, not the postal address. A Franklin County parcel, township or city, is filed at
+        Franklin County Municipal Court, 375 S. High St., Columbus, eviction division in Courtroom 11B. A parcel
+        on the Licking County side of 43004 goes to Licking County Municipal Court. Ohio Revised Code 1901.02
+        fixes each municipal court to its territory; there is no township court.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Before any court sees the case, Ohio requires a three-day notice to leave the premises under R.C. 1923.04,
-        with specific statutory language. A notice with the wrong wording gets the case dismissed, and you
-        restart roughly three weeks later with the arrears larger than they were.
+        First comes a three-day notice under R.C. 1923.04, with specific statutory language. Wrong wording gets
+        the case dismissed, and you restart about three weeks later with larger arrears.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        In Franklin County the hard cost of an eviction is {usd(pricing.eviction.hardCostTotal)}:
+        Franklin County hard cost is {usd(pricing.eviction.hardCostTotal)}:
         {' '}{usd(pricing.eviction.countyFilingFee)} to the county for the eviction complaint and
         {' '}{usd(pricing.eviction.attorneyFee)} to the eviction attorney for the filing and up to two
         appearances. We charge {usd(pricing.eviction.rlpmProcessFee)} to run the process, so a typical total is
         {' '}{usd(pricing.eviction.typicalTotal)} before any setout. If a setout is required, add
         {' '}{usd(pricing.eviction.tagAndSetoutFee)} to the county and {usd(pricing.eviction.setoutFee)} to us.
-        A Licking County parcel files in Newark instead: Licking County Municipal Court in Newark charges $110 for a forcible entry and detainer, which includes regular mail and bailiff service for up to two defendants, with a further $50 if a writ of restitution is needed. The full
-        sequence, and the {pricing.eviction.disputeRatePct}% of our cases that end up disputed, is set out on the
+        Licking County Municipal Court in Newark charges $110 for a forcible entry and detainer, including regular mail and bailiff service for up to two defendants, plus $50 if a writ of restitution is needed. The full
+        sequence, and the {pricing.eviction.disputeRatePct}% of our cases that end up disputed, is on the
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
       </p>
-      <h3 class="text-[21px] mt-9 mb-3">The filing you owe regardless</h3>
+      <h3 class="text-[21px] mt-9 mb-3">The county filing on the Franklin side</h3>
       <p class="text-[17.5px] text-muted mt-4">
-        Ohio Revised Code 5323.02 requires every rental owner to file owner details and the permanent parcel
-        number with the auditor of the county the property sits in, within 60 days of purchase and of any
-        change. There is no fee. Miss it and the auditor can place a special assessment of $50 to $150 under R.C.
-        5323.99, and the Franklin County Auditor states $150 per tax year. Owners here sometimes assume that
-        because there is no city to register with, there is nothing to register. The county filing is a state
-        requirement and applies to unincorporated land exactly as it applies inside a city.
+        No city to register with does not mean nothing to register. The state's county auditor rental
+        registration (Ohio Revised Code 5323.02) applies only in counties of more than 200,000 people, so it
+        applies to a Franklin County parcel and not to one across the Licking County line. On the Franklin side
+        it means owner details and the parcel number with the county auditor within 60 days of the county’s
+        notice and of any change, no fee. Miss it and the auditor can assess $50 to $150 under R.C. 5323.99
+        (Franklin County states $150 per tax year). We check the parcel's county at onboarding and handle this
+        filing for you where it applies.
       </p>
     </div>
   </section>
@@ -203,9 +193,8 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in Blacklick, and who pays them?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Electricity is distributed by AEP Ohio and natural gas by Columbia Gas of Ohio. Water and sanitary sewer
-        have to be checked parcel by parcel, and the question is sharper here than in an incorporated suburb, because
-        unincorporated land is where private wells and household sewage treatment systems survive.
+        AEP Ohio for electricity and Columbia Gas of Ohio for gas. Water and sewer must be checked parcel by
+        parcel, because unincorporated land is where private wells and septic systems survive.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -237,11 +226,9 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        A house on a septic system is a different asset from a house
-        on public sewer. It carries a servicing obligation, it constrains how many people can reasonably occupy
-        the property, and a failure is a five-figure event rather than a call to the utility. Where a property is on
-        City of Columbus water, Columbus states that the owner is ultimately responsible for all charges even
-        with a tenant billing agreement in place.
+        A septic house is a different asset: it needs servicing, limits occupancy, and a failure is a
+        five-figure event. On City of Columbus water, Columbus holds the owner ultimately responsible for all
+        charges, even with a tenant billing agreement.
       </p>
     </div>
   </section>
@@ -252,27 +239,21 @@ const schemaNodes = [
       <span class="eyebrow">The market</span>
       <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Blacklick?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        The 43004 area is dominated by subdivision-era detached single-family houses, with newer building toward
-        the Licking County line and older, larger-lot property nearer the original settlement along Blacklick
-        Creek. We do not give a median year built, because the US Census
-        publishes place-level tables for incorporated places and census-designated places, and Blacklick is
-        neither. For
-        comparison, the median Reynoldsburg structure immediately south was built in 1984, per US Census ACS
-        2024 5-year estimates.
+        Mostly subdivision-era detached single-family houses, newer toward the Licking County line and older,
+        larger-lot property near the original settlement along Blacklick Creek. There is no median year built,
+        because the US Census publishes place tables only for incorporated and census-designated places. For
+        comparison, the median Reynoldsburg structure just south was built in 1984 (US Census ACS 2024 5-year).
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The missing place-level data causes its own problem. Automated valuation tools lean on place
-        tables, and where one does not exist they substitute the nearest, which here may be Blacklick Estates on
-        the other side of the county. Owners get a number that looks authoritative, is precise to the dollar,
-        and describes a different housing market entirely.
+        Without a place table, automated valuation tools may substitute Blacklick Estates, across the county,
+        and return a precise number for a different market.
       </p>
       <h3 class="text-[21px] mt-9 mb-3">Where in the Blacklick area we work</h3>
       <p class="text-[16.5px] text-muted">
         The Waggoner Road and Havens Corners Road corridors, Blacklick Creek, the Broad Street and Taylor Road
-        approaches from Reynoldsburg, and the newer development running east toward the Licking County line. The
-        area is served primarily by Gahanna-Jefferson Public Schools, with a portion in Licking Heights Local
-        Schools. The district line does not follow the ZIP, so getting it right in the listing prevents two
-        weeks of applications that withdraw at the credit check.
+        approaches from Reynoldsburg, and newer development east toward the Licking County line. Schools are
+        mainly Gahanna-Jefferson Public Schools, with a portion in Licking Heights Local Schools. The district
+        line does not follow the ZIP, so we get it right in the listing.
       </p>
     </div>
   </section>
@@ -282,12 +263,10 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Blacklick rental earn, and what does management cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        We are not publishing a Blacklick rent median, because our managed sample there is below the five-unit
-        threshold we set before we will call a number a market median. Across our whole portfolio the median is
+        Our Blacklick sample is under the five units we need to publish a median. Across our whole portfolio the median is
         {' '}{usd(rentByBedroom['3'].median)} for a three bedroom and {usd(rentByBedroom['2'].median)} for a two
         bedroom. The nearest market where we do publish our own figure is Reynoldsburg, at
-        {' '}{usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)} for a three bedroom. Neither is a
-        substitute for pricing your specific address.
+        {' '}{usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)} for a three bedroom.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (
@@ -300,18 +279,15 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16.5px] text-muted mt-7">
-        The fee is a fixed dollar amount per unit per month, so it does not rise when your rent rises. On a
-        house renting at {usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)}, a manager charging 10% takes
+        On a house renting at {usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)}, a manager charging 10% takes
         about {usd(Math.round(rentByMarketAndBedroom['Reynoldsburg']['3'].median * 0.1) * 12)} a year and roughly
         {' '}{usd(Math.round(rentByMarketAndBedroom['Reynoldsburg']['3'].median / 2))} again at every turn. Our
         lowest plan is {usd(pricing.plans[0].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}.
-        If a property has been listed longer than 60 days we credit management fees back to your account without
-        you having to ask.
+        If a property is listed longer than 60 days, we credit management fees back without you asking.
       </p>
       <p class="text-[14px] text-faint mt-4">
-        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
-        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at
-        $250 to $450.
+        Percentages are typical of Columbus managers generally, not quoted from a specific company. Photography
+        is extra, at $250 to $450.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
         <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>

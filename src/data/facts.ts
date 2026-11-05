@@ -59,7 +59,9 @@ export const company = {
   /** Google reviews. 591 at 4.4 stars on the Google Business Profile, 2026-11-05;
    *  Andrew asked for "4.4 out of 5, 590+". Publish the rounded-down figure so the
    *  claim does not go stale between updates. */
-  reviews: { count: 591, display: '590+', rating: 4.4, asOf: '2026-11-05', platform: 'Google' },
+  reviews: { count: 591, display: '590+', rating: 4.4, asOf: '2026-11-05', platform: 'Google',
+    /** The Google Business Profile, by its stable place CID (Maps place 0xc30b874676a14303). */
+    url: 'https://maps.google.com/?cid=14054475798847505155' },
   social: {
     youtube: 'https://www.youtube.com/channel/UCLzWGP73xNc-1Wj55M2bUfw',
     instagram: 'https://www.instagram.com/rlpropertymanagement/',
@@ -193,6 +195,12 @@ export const pricing = {
       { court: 'Fairfield County Municipal Court', city: 'Lancaster', fee: 140,
         note: 'Eviction complaint filing fee.',
         verified: '2026-09-10', source: 'Court eviction packet, rev. 2024-10-24' },
+      { court: 'Circleville Municipal Court', city: 'Circleville', fee: 130, eachAdditionalDefendant: 25,
+        note: 'New eviction (forcible entry and detainer), one defendant. Each additional defendant is a further $25. Serves all of Pickaway County.',
+        verified: '2026-11-05', source: 'Court cost schedule effective 2023-01-01 (circlevillecourt.com/PDFDirectory/filingfees.pdf)' },
+      { court: 'Marysville Municipal Court', city: 'Marysville', fee: 125, eachAdditionalDefendant: 25,
+        note: 'Eviction filing, one defendant. Each additional defendant is a further $25. No credit cards for civil cases. Serves all of Union County.',
+        verified: '2026-11-05', source: 'Court eviction instructions PDF on marysvilleohio.org' },
       { court: 'Delaware Municipal Court', city: 'Delaware', fee: null,
         note: '[SOURCE NEEDED: eviction filing deposit. The court website blocks automated access, so this one needs a call to the clerk.]',
         verified: null, source: null },
@@ -335,15 +343,23 @@ export const coreValues = [
  * perishable per-city claims we would then have to keep current.
  */
 export const rentalRegistration = {
-  /** Statewide. Applies to every residential rental in Ohio. */
+  /**
+   * State law, but NOT statewide. R.C. 5323.01(E) defines "residential rental
+   * property" as property in a county of more than 200,000 people at the last
+   * decennial census, so the 5323.02 filing applies only there. In our footprint
+   * (2020 census): Franklin 1,323,807 and Delaware 214,124 are covered; Licking
+   * 178,519, Fairfield 158,921, Union 62,784, Pickaway 58,539 and Madison 43,824
+   * are not. Verified against codes.ohio.gov sections 5323.01 and 5323.02 on
+   * 2026-11-05.
+   */
   state:
-    'Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number with the county auditor, along with the property address and parcel number, within 60 days of acquiring it and again within 60 days of any change. There is no fee. Not filing draws a special assessment under R.C. 5323.99.',
+    'In Ohio counties of more than 200,000 people (Franklin and Delaware in our area), Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number with the county auditor, along with the property address and parcel number, within 60 days after the county gives notice of the requirement and again within 60 days of any change. There is no fee. Not filing draws a special assessment under R.C. 5323.99.',
   /** Columbus, passed 2026-04-20, verified against the ordinance coverage. */
   columbus:
     'The City of Columbus added its own citywide registry on April 20, 2026 under City Code Chapter 4515: annual registration with Building and Zoning Services at $15 per unit, capped at $1,500 per complex, and a safety inspection of common areas and building systems every three years. The city has not yet published the portal or the first deadline.',
   /** The reframe. This is the sentence that belongs on every area page. */
   weHandleIt:
-    'Keeping up with which registration applies to which address is our job, not yours. We file the county auditor registration as your designated agent during onboarding, we track the municipal programs across the communities we work in, and we handle the filings and renewals. This is one of the obligations that quietly becomes your problem the moment you self-manage.',
+    'Keeping up with which registration applies to which address is our job, not yours. Where the county auditor registration applies, we file it as your designated agent during onboarding, we track the municipal programs across the communities we work in, and we handle the filings and renewals. This is one of the obligations that quietly becomes your problem the moment you self-manage.',
 } as const;
 
 /**

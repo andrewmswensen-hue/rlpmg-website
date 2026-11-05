@@ -1,0 +1,326 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import LegalNote from '../../components/LegalNote.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Lancaster, Ohio. Target query: "property management lancaster ohio".
+ * Market tier: 'coverage' (we serve it and will take property on; no volume
+ * claimed). Copy is kept short on purpose, per Andrew: direct answers first.
+ *
+ * The differentiating fact: Lancaster runs its OWN natural gas utility, along
+ * with water, wastewater, stormwater and refuse. Almost nowhere else in our
+ * footprint does an owner deal with a city gas department, and its rules
+ * (signed lease to open an account, a pressure test after 60 days off) land
+ * directly on turnover and vacancy. Second: the county seat hosts the eviction
+ * court, so a Lancaster eviction is filed downtown, not in Columbus.
+ *
+ * SOURCES (all opened and verified 2026-11-05):
+ *  - Lancaster is a city in Fairfield County and its county seat; 40,552 at the
+ *    2020 census; about 33 miles southeast of Columbus; Lancaster City School
+ *    District: https://en.wikipedia.org/wiki/Lancaster,_Ohio
+ *  - City operates five utilities: natural gas, water, wastewater treatment,
+ *    stormwater drainage and refuse collection; gas wells back to 1850; new
+ *    water facility in 2025: https://www.lancasterohio.gov/552/Public-Utilities
+ *  - Utilities Collection Office, 104 E. Main St., Room 105, (740) 687-6627:
+ *    https://lancasterohioutilities.org/
+ *  - Utilities FAQ (rev. 2025-05-01): a renter needs photo ID and a copy of the
+ *    lease signed by lessor and lessees to open service; deposits required for
+ *    new customers; 5% penalty on unpaid balances; gas off longer than 60 days
+ *    needs a "DOT" qualified plumber with a pressure test on and holding before
+ *    the gas department turns it on; water is not restored until the primary
+ *    heat source is back on; the office is not PUCO regulated and does not run
+ *    PIPP: https://www.lancasterohioutilities.org/sites/default/files/2025-05/frequently_asked_questions_05.01.25.pdf
+ *  - Electricity: AEP Ohio serves customers in Lancaster (abc6onyourside.com,
+ *    2016-07-25, https://abc6onyourside.com/news/local/1900-aep-customers-without-power-in-lancaster);
+ *    South Central Power Company is headquartered at 720 Mill Park Dr.,
+ *    Lancaster (https://www.southcentralpower.com/about-us) and serves customers
+ *    in Fairfield County (myfox28columbus.com, 2026-03-07,
+ *    https://www.myfox28columbus.com/news/local/crews-scramble-to-restore-power-in-fairfield-and-pickaway-counties-after-heavy-winds).
+ *    Which one serves a parcel is not stated anywhere, so the page says confirm per address.
+ *  - Eviction court: "Beginning January 2, 2000, the Fairfield county municipal
+ *    court has jurisdiction within Fairfield county." R.C. 1901.02,
+ *    https://codes.ohio.gov/ohio-revised-code/section-1901.02
+ *  - Fairfield County Municipal Court, 136 W. Main St., Lancaster, OH 43130,
+ *    740-687-6621: https://www.fcmcourt.org/
+ *  - Court eviction packet, rev. 10/24/24: $140 filing fee (also in facts.ts
+ *    otherCountyFilingFees); trial set about 21 days from filing; copy of the
+ *    notice to leave attached; LLCs, corporations and trusts must use an attorney:
+ *    https://www.fcmcourt.org/docs/document_selector/upload/Civil%20Forms/Eviction_packet.pdf
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties of more
+ *    than 200,000 people at the last decennial census, so the 5323.02 auditor
+ *    filing does not apply in Fairfield County (158,921 in 2020). Verified on
+ *    codes.ohio.gov 2026-11-05: https://codes.ohio.gov/ohio-revised-code/section-5323.01
+ *  - Fairfield County 2020 population 158,921: RLPM guide below, citing
+ *    https://en.wikipedia.org/wiki/Fairfield_County,_Ohio
+ *  - No city rental registry: RLPM's own guide (below), "As of October 2026...
+ *    the city has no rental registry on the books." Cross-checked 2026-11-05 on
+ *    the Lancaster Codified Ordinances (local legislation current through
+ *    2025-12-31): no rental registration, license or inspection chapter in Part
+ *    Seven (Business Regulation), Part Thirteen (Building) or Part Fifteen (Fire
+ *    Prevention): https://codelibrary.amlegal.com/codes/lancaster/latest/overview
+ *  - Historic design review: C.O. 1327.08, no architectural change to a
+ *    building in a design review district or listed property until the Historic
+ *    Lancaster Commission issues a Certificate of Appropriateness, and no
+ *    building permit issues before then:
+ *    https://codelibrary.amlegal.com/codes/lancaster/latest/lancaster_oh/0-0-0-71793
+ *  - RLPM's own Lancaster guide (rlpmg.com, mirrored at
+ *    /blog/lancaster-ohio-rental-market-guide-2026/):
+ *    https://rlpmg.com/blog/lancaster-ohio-rental-market-guide-2026/
+ *    Used for: median year built 1963, about 71% of units built before 1980 and
+ *    24.6% in 1939 or earlier (ACS via Point2Homes); about 41% of households
+ *    rent; Census median gross rent $1,083 (ACS 2020 to 2024); downtown on Main
+ *    and Broad inside the Lancaster Historic District (National Register 1983),
+ *    Sherman House Museum and Square 13; Rising Park on East Fair Ave. with
+ *    Mount Pleasant, next to the fairgrounds; postwar neighborhoods farther out;
+ *    some 43130 addresses fall in other school districts such as Berne Union.
+ *  - Median owner-occupied home value $193,900 matches US Census ACS 2024
+ *    5-year: https://censusreporter.org/profiles/16000US3941720-lancaster-oh/
+ *
+ * NO entry in rentByMarketAndBedroom for Lancaster, so no RLPM rent median is
+ * published. The Census figure is labeled as Census. No door counts. No
+ * per-market days on market.
+ */
+
+const CITY = 'Lancaster';
+const PATH = '/property-management-lancaster-ohio/';
+
+const title = 'Lancaster Property Management | RL Property Management';
+const description =
+  `Lancaster, Ohio property management for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month ` +
+  `and a ${usd(pricing.leasingFee)} leasing fee. City gas, Fairfield County court.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Lancaster', path: PATH },
+];
+
+const publishesOwnRent = canPublishOwnRent(CITY);
+
+/** Fairfield County Municipal Court filing cost, from facts.ts (verified there). */
+const fairfieldFiling =
+  pricing.eviction.otherCountyFilingFees.find((c) => c.court === 'Fairfield County Municipal Court')?.fee ?? 0;
+const evictionTotal = pricing.eviction.attorneyFee + fairfieldFiling + pricing.eviction.rlpmProcessFee;
+const photography = pricing.otherFees.find((f) => f.name === 'Property photography')?.amount;
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee each time a Lancaster unit turns`,
+  'Lancaster is the Fairfield County seat, about 33 miles southeast of Columbus',
+  'Evictions are filed at Fairfield County Municipal Court, 136 W. Main St.',
+  'The city itself sells natural gas, water, sewer and trash service',
+  'No city rental registry, and no state county auditor rental filing in Fairfield County',
+];
+
+const faq = [
+  { q: 'Which court hears an eviction in Lancaster, Ohio?',
+    a: `Fairfield County Municipal Court, 136 W. Main St., Lancaster. Ohio Revised Code 1901.02 gives it jurisdiction across Fairfield County. The court lists a ${usd(fairfieldFiling)} filing cost and sets trial about 21 days after filing.` },
+  { q: 'Who supplies natural gas to a Lancaster rental?',
+    a: 'Inside the city, usually the City of Lancaster. The city runs its own gas department alongside water, wastewater, stormwater and trash, all billed through the Utilities Collection Office at 104 E. Main St. Because it is a municipal utility, it is not regulated by the Public Utilities Commission of Ohio.' },
+  { q: 'What happens if the gas is off at a vacant Lancaster rental?',
+    a: 'If gas service has been off for more than 60 days, the city will not turn it back on until a DOT qualified plumber, hired at the customer\'s expense, has a pressure test on and holding when the gas crew arrives. Water is not restored until the primary heat source is back on.' },
+  { q: 'Does Lancaster require rental registration or inspection?',
+    a: 'No city rental registry or rental inspection program appears in the Lancaster Codified Ordinances as published through December 31, 2025. The state’s county auditor rental registration (R.C. 5323.02) applies only in counties of more than 200,000 people, so it does not apply to a Fairfield County rental either.' },
+  { q: 'Do I need approval to change the outside of a downtown Lancaster rental?',
+    a: 'Often, yes. Inside a design review district or on a listed property, Codified Ordinance 1327.08 bars architectural changes until the Historic Lancaster Commission issues a Certificate of Appropriateness, and the city will not issue the building permit before then.' },
+  { q: 'What does a rental in Lancaster rent for?',
+    a: 'The US Census puts Lancaster\'s median gross rent at $1,083 (ACS 2020 to 2024 estimates). That is a Census figure, not ours. Send us an address and we will price the property against live listings.' },
+  { q: 'How much does property management cost in Lancaster?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, a ${usd(pricing.leasingFee)} leasing fee, and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Nothing changes because the property is in Fairfield County.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Lancaster, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Lancaster, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Fairfield County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Lancaster, Ohio"
+    answer={`${company.name} manages Lancaster rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. We manage rental property throughout Lancaster and the surrounding Fairfield County area. If you own a rental here, we can take it on.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Lancaster, at a glance" />
+
+  <!-- THE HOOK: the city is the gas company. -->
+  <section class="band-tight" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities to a Lancaster rental?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Mostly the city. Lancaster runs five utilities of its own: natural gas, water, wastewater, stormwater
+        and trash. Its gas history goes back to the city's first gas wells in 1850. Electricity is not on
+        that list.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Lancaster, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider inside the city</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Lancaster gas department</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water, sewer, stormwater</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Lancaster</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Trash and recycling</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Lancaster sanitation</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio or South Central Power, confirm per address</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <h3 class="text-[20px] mt-8 mb-3">What the city utility rules mean for an owner</h3>
+      <ul class="grid gap-2.5 text-[16.5px] text-muted list-disc pl-5">
+        <li>A new resident needs photo ID and a copy of the lease signed by both sides to open an account. Anyone without city service in their name in the last three years pays a deposit.</li>
+        <li>Gas off for more than 60 days needs a pressure test by a DOT qualified plumber before the city turns it back on. Do not let a vacant unit sit that long with the gas shut off.</li>
+        <li>Water is not restored until the primary heat source is on again.</li>
+        <li>A balance left unpaid from the previous month is assessed a 5% penalty.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- COURT -->
+  <section class="band band-wash" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Evictions</span>
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Lancaster?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Fairfield County Municipal Court, 136 W. Main St., downtown. Under Ohio Revised Code 1901.02 it hears
+        every eviction in Fairfield County. The complaint goes in with a copy of the three-day notice to leave
+        already served, and trial is set about 21 days after filing.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        If you own through an LLC, a corporation or a trust, the court requires an attorney at every stage.
+        Only an individual deeded owner may file alone.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner here</h3>
+        <ul class="grid gap-2 text-[15.5px] text-muted mb-0 list-none pl-0">
+          <li><strong class="text-navy">{usd(pricing.eviction.attorneyFee)}</strong> to the eviction attorney, filing plus up to two appearances</li>
+          <li><strong class="text-navy">{usd(fairfieldFiling)}</strong> Fairfield County Municipal Court filing cost</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.rlpmProcessFee)}</strong> to us to run the process end to end</li>
+          <li><strong class="text-navy">{usd(evictionTotal)}</strong> typical total before any setout</li>
+        </ul>
+        <p class="text-[14px] text-faint mt-4 mb-0">Court cost from the Fairfield County Municipal Court eviction packet, revised October 24, 2024.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band-tight" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Lancaster rental?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        No, with neither the county nor the city. The state's county auditor rental registration (Ohio Revised
+        Code 5323.02) applies only in counties of more than 200,000 people, and Fairfield County had 158,921
+        at the 2020 census, so it does not apply to a Fairfield County rental. We track which rules apply to
+        each address and handle the filings that do.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Lancaster has no city rental registry, no rental license and no rental inspection cycle. The rule that
+        does catch owners is historic design review: in a design review district, architectural changes
+        wait on a Certificate of Appropriateness from the Historic Lancaster Commission.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK, AREAS AND PRICE -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Housing and cost</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in Lancaster?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Old houses, mostly. The median Lancaster home was built in 1963, about 71% of units predate 1980, and
+        roughly one in four was built in 1939 or earlier. Plan for older plumbing and electrical panels, and
+        the federal lead paint disclosure on anything built before 1978. About 41% of households rent.
+      </p>
+      <ul class="grid gap-2.5 text-[16.5px] text-muted list-disc pl-5 mt-5">
+        <li><strong class="text-navy">Downtown</strong> around Main and Broad sits inside the Lancaster Historic District, listed on the National Register in 1983, with the Sherman House Museum and the Square 13 blocks.</li>
+        <li><strong class="text-navy">Rising Park and Mount Pleasant</strong> on East Fair Avenue, next to the Fairfield County Fairgrounds.</li>
+        <li><strong class="text-navy">Postwar neighborhoods</strong> farther from downtown.</li>
+      </ul>
+      <p class="text-[17.5px] text-muted mt-5">
+        Check the school district by parcel. Lancaster City Schools covers most of the city, but some 43130
+        addresses fall in other districts such as Berne Union.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        {publishesOwnRent
+          ? 'Our portfolio sample in Lancaster now supports a published median. Update this page before relying on it.'
+          : 'We do not publish our own rent figure for Lancaster. The US Census median gross rent is $1,083 (ACS 2020 to 2024).'}
+        {' '}Photography is billed separately at {photography}. The full market picture is in our
+        {' '}<a href="/blog/lancaster-ohio-rental-market-guide-2026/" class="text-crimson font-semibold no-underline hover:underline">Lancaster rental market guide</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band-tight" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Lancaster property management questions</h2>
+      <Faq items={faq} heading="Lancaster property management questions" id="lancaster-faq" />
+      <LegalNote class="mt-7 mb-5" />
+      <div class="mt-6"><Verified date="2026-11-05" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-pickerington-ohio/', label: 'Pickerington property management', note: 'Mostly Fairfield County, so the same court.' },
+    { href: '/property-management-canal-winchester/', label: 'Canal Winchester property management', note: 'Up US 33, split between Franklin and Fairfield counties.' },
+    { href: '/property-management-ashville-ohio/', label: 'Ashville property management', note: 'Pickaway County village with its own water and a quarterly tenant report.' },
+    { href: '/blog/lancaster-ohio-rental-market-guide-2026/', label: 'Lancaster rental market guide', note: 'Rents, prices, employers and the numbers behind this page.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Lancaster rental should earn"
+    body="Send us the address and we will price it against live comparable listings in Lancaster. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

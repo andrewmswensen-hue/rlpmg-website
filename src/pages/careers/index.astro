@@ -26,33 +26,33 @@ const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Careers', path: '/car
 /** From the live careers page. Do not add to this list without a source. */
 const benefits = [
   { h: 'Medical, dental and vision',
-    p: 'Comprehensive medical, dental and vision coverage for full-time employees and their dependents.' },
+    p: 'For full-time employees and their dependents.' },
   { h: '3% company match on 401k',
-    p: 'A 3% company match on 401k contributions.' },
+    p: '' },
   { h: 'Two weeks paid time off',
-    p: 'Two weeks of paid time off per year, separate from paid holidays.' },
+    p: 'Per year, separate from paid holidays.' },
   { h: 'Six paid holidays',
-    p: 'Six paid holidays each year.' },
+    p: '' },
   { h: 'Three weeks paid parental leave',
-    p: 'Up to three weeks of paid parental leave.' },
+    p: '' },
   { h: 'Employee Assistance Program',
-    p: 'Access to support and resources through an EAP, covering mental and emotional wellbeing.' },
+    p: 'Support for mental and emotional wellbeing.' },
   { h: 'Referral bonus',
     p: 'A bonus when someone you refer joins the team.' },
   { h: 'Continued education assistance',
-    p: 'An education assistance program covering certifications and professional development.' },
+    p: 'Certifications and professional development.' },
 ];
 
 /** Why work here, from the live careers page, rewritten to the house voice. */
 const reasons = [
   { h: 'A defined book of work',
-    p: 'We manage a defined set of property types in a defined service area. That focus keeps the work predictable, so you are not learning a new asset class every week.' },
+    p: 'Defined property types in a defined service area, so the work is predictable.' },
   { h: 'Owners who stay',
-    p: 'The client base is long-term investors rather than one-off landlords. Long relationships mean fewer fire drills and more work that compounds.' },
+    p: 'Mostly long-term investors, not one-off landlords. Fewer fire drills.' },
   { h: 'Systems built for the person doing the job',
-    p: 'We build processes to remove repeated decisions rather than to add approval steps. If a system makes your job harder, we treat that as a bug.' },
+    p: 'Processes remove repeated decisions, not add approval steps. A system that makes your job harder is a bug.' },
   { h: 'Plain and straightforward',
-    p: 'We publish our prices, our operating numbers and our whole team roster. The internal culture matches: say the real thing, in plain language, the first time.' },
+    p: 'We publish our prices, numbers and team roster. Inside, we say the real thing, plainly, the first time.' },
 ];
 
 /** The functions we hire into, derived from the published team roster on /team/. */
@@ -83,9 +83,9 @@ const faq = [
   { q: 'Do I need a real estate license to work here?',
     a: '[SOURCE NEEDED: which roles at RL Property Management require an active Ohio real estate license, and whether the company sponsors or pays for licensing.]' },
   { q: 'What is it like to work in property management?',
-    a: 'It is operational work with a clock on it. Vacant units cost money every day they sit, repairs get worse the longer they wait, and residents remember how they were spoken to. The people who do well here like closing loops and dislike leaving things ambiguous.' },
+    a: 'Operational work with a clock on it. Vacant units cost money every day, repairs get worse as they wait, and residents remember how they were spoken to. People who like closing loops do well here.' },
   { q: 'What does RL Property Management look for in a hire?',
-    a: `The same six core values the company runs on: clear communication, doing things in realtime, figuring it out and getting it done, keeping everything where it belongs, lending a hand, and respect for clients, residents and each other. We hire against those values and review people against them after they join.` },
+    a: `The same six core values the company runs on: clear communication, doing things in realtime, figuring it out and getting it done, keeping everything where it belongs, lending a hand, and respect for clients, residents and each other. We hire and review against them.` },
   { q: 'How do I apply?',
     a: `[SOURCE NEEDED: the current application link or process. Until it is confirmed, applicants can email ${company.email} or call ${company.phone}.]` },
 ];
@@ -114,17 +114,10 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="why-h">Why work at RL Property Management?</h2>
       <p>
-        The work is concrete, and the company is honest about what it is. We manage
-        {' '}{company.unitsManaged} {company.propertyTypes} in Central Ohio, we publish our prices
-        and our operating numbers, and the whole team roster is
-        {' '}<a href="/team/">on the website with names and titles</a>. Very little here is hidden,
-        internally or externally.
-      </p>
-      <p>
-        Property management is unglamorous work. A furnace fails at 11pm, a resident is upset for a
-        reason that is their landlord's fault, and a vacant unit costs an owner money every day it
-        sits. The satisfaction comes from closing those loops quickly, and the company is organized
-        to do that.
+        Concrete work, and very little hidden. We manage {company.unitsManaged} {company.propertyTypes}
+        {' '}in Central Ohio, publish our prices and numbers, and list the
+        {' '}<a href="/team/">whole team by name</a>. The job is closing loops fast: a furnace at 11pm,
+        an upset resident, a vacant unit losing money every day.
       </p>
     </div>
   </section>
@@ -142,7 +135,7 @@ const related = [
         ))}
       </div>
       <p class="text-[15px] text-muted mt-7 max-w-[44em]">
-        The six values behind all of this are written down and public. Read them on the
+        Our six values are public. Read them on the
         {' '}<a href="/core-values/" class="text-crimson font-semibold no-underline hover:underline">core values page</a>:
         {coreValues.map((v, i) => (
           <span>{i === 0 ? ' ' : ', '}{v.name.toLowerCase()}</span>
@@ -154,16 +147,12 @@ const related = [
   <section class="band-tight" aria-labelledby="benefits-h">
     <div class="wrap max-w-[940px]">
       <span class="eyebrow">Perks and benefits</span>
-      <h2 id="benefits-h" class="text-[clamp(28px,3.3vw,40px)]">What benefits does RL Property Management offer?</h2>
-      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Medical, dental and vision for full-time employees and their dependents, a 3% 401k match,
-        paid time off, paid holidays and paid parental leave. The full list:
-      </p>
+      <h2 id="benefits-h" class="text-[clamp(28px,3.3vw,40px)] mb-8">What benefits does RL Property Management offer?</h2>
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {benefits.map((b) => (
           <div class="card">
-            <h3 class="text-[18px] mb-2">{b.h}</h3>
-            <p class="text-[15px] text-muted m-0">{b.p}</p>
+            <h3 class={b.p ? 'text-[18px] mb-2' : 'text-[18px] m-0'}>{b.h}</h3>
+            {b.p && <p class="text-[15px] text-muted m-0">{b.p}</p>}
           </div>
         ))}
       </div>
@@ -180,8 +169,7 @@ const related = [
       <span class="eyebrow">Where people work</span>
       <h2 id="functions-h" class="text-[clamp(28px,3.3vw,40px)]">What kinds of roles does RL Property Management hire for?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        We hire into five functions. The company is organized by what people do rather than by which
-        properties they cover, so each role is a specialty rather than a bit of everything.
+        Five functions. Each role is a specialty, not a bit of everything.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse text-[15.5px]">

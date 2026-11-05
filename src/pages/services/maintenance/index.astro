@@ -57,23 +57,23 @@ const rateRows = [
 
 const faq = [
   { q: 'What do property managers charge for maintenance?',
-    a: `${company.name} charges ${usd(m.inHouseHourly)} per hour for in-house labor plus a ${usd(m.tripCharge)} trip charge per visit, with materials at cost and no minimum charge. Vendor work carries a ${m.vendorProjectFeePct}% project management fee on vendor costs up to ${usd(m.vendorProjectFeeAppliesUpTo)}, capped at ${usd(m.vendorProjectFeeCap)} per project. Those rates are published rather than quoted case by case.` },
+    a: `${company.name} charges ${usd(m.inHouseHourly)} per hour for in-house labor plus a ${usd(m.tripCharge)} trip charge per visit, with materials at cost and no minimum charge. Vendor work carries a ${m.vendorProjectFeePct}% project management fee on vendor costs up to ${usd(m.vendorProjectFeeAppliesUpTo)}, capped at ${usd(m.vendorProjectFeeCap)} per project.` },
   { q: 'Do I have to approve every repair?',
     a: `No, and that is what the three plans differ on. ${pricing.plans[0].name} at ${usd(pricing.plans[0].monthly)} per unit per month carries a ${usd(pricing.plans[0].repairApprovalLimit)} per-item approval limit, ${pricing.plans[1].name} at ${usd(pricing.plans[1].monthly)} carries ${usd(pricing.plans[1].repairApprovalLimit)}, and ${pricing.plans[2].name} at ${usd(pricing.plans[2].monthly)} carries ${usd(pricing.plans[2].repairApprovalLimit)}. Anything above your limit needs your approval before work starts.` },
   { q: 'What counts as an emergency?',
     a: 'Anything that threatens safety or is actively causing damage: no heat in winter, no water, an active leak, sewage backup, no power, a security failure such as a broken exterior door or lock, a gas smell. Those get a same-night response. A dishwasher that stopped draining is a next-business-day repair, and residents are told the difference.' },
   { q: 'What does after-hours maintenance cost?',
-    a: `Labor is billed at ${pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, and ${pricing.afterHours.sunday}x on Sundays. That is why the emergency definition matters: it decides which calls are worth paying a multiplier for tonight instead of tomorrow morning.` },
+    a: `Labor is billed at ${pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, and ${pricing.afterHours.sunday}x on Sundays. A written emergency definition decides which calls are worth that multiplier tonight instead of tomorrow morning.` },
   { q: 'Why do you hold a maintenance reserve?',
-    a: `A reserve of ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit sits on your account so a routine repair does not wait on a funding request. It stays your money and it is returned when management ends. Without it, a small plumbing call turns into a two-day delay while funds move.` },
+    a: `A reserve of ${usd(pricing.reserves.min)} to ${usd(pricing.reserves.max)} per unit sits on your account so a routine repair does not wait on a funding request. It stays your money and it is returned when management ends.` },
   { q: 'Do you mark up materials?',
-    a: `No. Materials are provided at cost. The markup that does exist is the ${m.vendorProjectFeePct}% project management fee on outside vendor work, and it is capped at ${usd(m.vendorProjectFeeCap)} per project, so a large vendor project cannot generate an unbounded fee.` },
+    a: `No. Materials are provided at cost. The only markup is the ${m.vendorProjectFeePct}% project management fee on outside vendor work, capped at ${usd(m.vendorProjectFeeCap)} per project.` },
   { q: 'What happens on an insurance claim?',
-    a: `${claimFee?.note} End to end claim handling is ${claimFee?.amount}. We waive the project fee because a claim is already an expensive month for the owner, and we do not want two fees stacked on the same work.` },
+    a: `${claimFee?.note} Claim oversight itself is ${claimFee?.amount}, so two fees are never stacked on the same work.` },
   { q: 'How fast do repairs get closed?',
     a: `Median ${kpi('repairDays')} days from request to closed across the portfolio, as of ${kpis.asOfLabel}. Emergencies are handled the same night. The long tail is parts and vendor scheduling, particularly HVAC in July and January.` },
   { q: 'Who is responsible for what, the resident or the owner?',
-    a: 'The lease decides. As a general division, the owner covers systems and structure while the resident covers small consumables and anything they damaged, such as filters, batteries, light bulbs and a clog they caused. Ambiguity here is what turns a small repair into an argument, so the split belongs in the lease in writing.' },
+    a: 'The lease decides. As a general division, the owner covers systems and structure while the resident covers small consumables and anything they damaged, such as filters, batteries, light bulbs and a clog they caused. The split belongs in the lease in writing.' },
 ];
 
 const schemaNodes = [
@@ -104,9 +104,8 @@ const schemaNodes = [
       <span class="eyebrow">Published rates</span>
       <h2 id="rates-h" class="text-[clamp(28px,3.3vw,40px)]">What does maintenance cost?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[46em]">
-        Every rate is below. Ask any manager you are considering for the same four numbers: hourly labor, trip
-        charge, material markup, and vendor markup with a cap. If a quote does not include a cap on the vendor
-        markup, the vendor markup is uncapped.
+        Every rate is below. When comparing managers, ask for the same four numbers: hourly labor, trip charge,
+        material markup, and vendor markup with a cap.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse text-[15.5px]">
@@ -130,8 +129,7 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[15px] text-muted mt-6">
-        There is no minimum charge on a work order, so a fifteen-minute fix is billed as a fifteen-minute fix
-        plus the {usd(m.tripCharge)} trip. Materials are at cost.
+        No minimum charge: a fifteen-minute fix is billed as fifteen minutes plus the {usd(m.tripCharge)} trip.
       </p>
     </div>
   </section>
@@ -141,9 +139,8 @@ const schemaNodes = [
       <span class="eyebrow">Your control</span>
       <h2 id="limit-h" class="text-[clamp(28px,3.3vw,40px)]">Who approves a repair?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        You do, above your plan limit. Below it we handle the work and you see it on the statement. This is the
-        only thing the three plans differ on, and it is a tradeoff: a low limit means more control and more
-        emails, a high limit means fewer interruptions and less visibility on small spending.
+        You do, above your plan limit. Below it we handle the work and you see it on the statement. A low limit
+        means more control and more emails, a high limit means fewer interruptions.
       </p>
       <div class="grid gap-5 sm:grid-cols-3">
         {pricing.plans.map((p) => (
@@ -155,8 +152,7 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[15px] text-muted mt-7">
-        One exception applies whatever your limit: we stabilize an emergency first, because a leak that waits
-        for an email costs more than the repair would have.
+        One exception, whatever your limit: we stabilize an emergency first.
       </p>
     </div>
   </section>
@@ -166,10 +162,9 @@ const schemaNodes = [
       <span class="eyebrow">Emergencies</span>
       <h2 id="emerg-h" class="text-[clamp(28px,3.3vw,40px)]">What happens at 11pm?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6">
-        The resident calls us, not you. Emergency response is included in the monthly fee. Labor after hours is
+        The resident calls us, not you. Emergency response is included in the monthly fee. After-hours labor is
         billed at {pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, and
-        {' '}{pricing.afterHours.sunday}x on Sundays, which is why the line between an emergency and a
-        next-day repair has to be written down.
+        {' '}{pricing.afterHours.sunday}x on Sundays, so the line is written down.
       </p>
       <div class="grid gap-5 sm:grid-cols-2">
         <div class="card">
@@ -194,10 +189,6 @@ const schemaNodes = [
           </ul>
         </div>
       </div>
-      <p class="text-[15px] text-muted mt-6">
-        Giving residents that list at move-in is the cheapest maintenance policy there is, because it converts a
-        {' '}{pricing.afterHours.sunday}x Sunday call into a Monday work order without a fight.
-      </p>
     </div>
   </section>
 
@@ -206,9 +197,7 @@ const schemaNodes = [
       <span class="eyebrow">Turns</span>
       <h2 id="turn-h" class="text-[clamp(28px,3.3vw,40px)]">How is a turn between residents billed?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6">
-        A turn is the work between one resident moving out and the next moving in: clean, paint, repairs,
-        flooring where needed. Vendor cost on a turn carries a tiered fee, so the percentage falls as the
-        project grows.
+        Vendor cost on a turn (clean, paint, repairs, flooring) carries a tiered fee that falls as the project grows.
       </p>
       <ul class="grid gap-3.5">
         <li class="card !p-5 text-[15.5px]"><strong class="text-navy">{m.turnTiers[0].pct}%</strong> <span class="text-muted">on turns up to {usd(m.turnTiers[0].upTo as number)}</span></li>
@@ -216,9 +205,8 @@ const schemaNodes = [
         <li class="card !p-5 text-[15.5px]"><strong class="text-navy">{m.turnTiers[2].pct}%</strong> <span class="text-muted">above {usd(m.turnTiers[1].upTo as number)}</span></li>
       </ul>
       <p class="text-[15px] text-muted mt-6">
-        Median turn time across the portfolio is {kpi('turn')} days. If you take our turn scope and then have
-        the work done by someone else, the scope itself is $250. Every other turn charge is labor, materials
-        and vendor cost at the rates above.
+        Median turn time is {kpi('turn')} days. If you take our turn scope and have someone else do the work, the
+        scope is $250. Everything else is labor, materials and vendor cost at the rates above.
       </p>
     </div>
   </section>
@@ -241,7 +229,7 @@ const schemaNodes = [
 
   <Cta
     heading="Get off the emergency call list"
-    body="Residents call us, work gets scoped at published rates, and you see it on the statement. Start with a rent evaluation and we will walk through how your property would be handled."
+    body="Residents call us, work is billed at published rates, and you see it on the statement. Start with a free rent evaluation."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
   />

@@ -50,12 +50,12 @@ const keyFacts = [
 ];
 
 const agenda = [
-  { h: 'What you own and where', p: 'Addresses, unit counts, bedroom counts and condition. If you own several, we look at the portfolio as one thing rather than a list.' },
-  { h: 'What you want it to do', p: 'Hold for appreciation, maximize monthly cash flow, stabilize and sell in three years, or stop being the person who gets the 11pm call. These lead to different decisions.' },
-  { h: 'What it should rent for', p: 'A rent range for each unit against our own leasing data and current comps, including whether anything on the property is holding the number down.' },
-  { h: 'What we would charge', p: 'The plan that fits, the repair approval limit that goes with it, and for portfolio owners, a discounted number in writing.' },
-  { h: 'What happens if you say yes', p: 'The sequence, the dates, and who your point of contact is. If you are leaving another manager, we build the transition plan on this call.' },
-  { h: 'Whether this is a fit at all', p: 'If your property needs a renovation first, or sits outside where we can serve it well, we will say so on the call rather than after you sign.' },
+  { h: 'What you own and where', p: 'Addresses, unit and bedroom counts, and condition.' },
+  { h: 'What you want it to do', p: 'Appreciation, cash flow, a sale in three years, or no more 11pm calls.' },
+  { h: 'What it should rent for', p: 'A rent range for each unit from our leasing data and current comps.' },
+  { h: 'What we would charge', p: 'The plan, its repair approval limit, and any portfolio discount, in writing.' },
+  { h: 'What happens if you say yes', p: 'The dates, your point of contact, and a transition plan if you are leaving another manager.' },
+  { h: 'Whether this is a fit at all', p: 'If the property needs a renovation first or sits outside our area, we say so.' },
 ];
 
 const bring = [
@@ -69,21 +69,21 @@ const bring = [
 
 const faq = [
   { q: 'What happens on a property management consultation?',
-    a: `A call, usually about half an hour. We go through what you own, what you want it to do, what it should rent for, and what ${company.name} would charge to manage it. You leave with a written quote. Nothing is signed on the call.` },
+    a: `A call of about half an hour covering what you own, your goals, what it should rent for, and what ${company.name} would charge to manage it. You leave with a written quote, and nothing is signed on the call.` },
   { q: 'Is the consultation free?',
-    a: 'Yes. There is no fee and no obligation. If we are not the right manager for your property we will tell you on the call.' },
+    a: 'Yes, the consultation is free with no obligation. If we are not the right manager for your property, we will tell you on the call.' },
   { q: 'What does property management cost?',
     a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee, ${usd(pricing.leaseRenewalFee)} lease renewals and no startup fee on an occupied unit. The full fee schedule is published on the pricing page.` },
   { q: 'How does portfolio pricing work?',
     a: `${pricing.portfolioDiscount.line} For 40 units and up, this consultation is where the number gets built and put in writing.` },
   { q: 'I already have a property manager. Should I still book?',
-    a: 'Yes, and bring your current management agreement. Owners lose money on a switch when the transfer is timed badly. We will read the termination clause with you and build a plan around your lease dates before anyone gives notice.' },
+    a: 'Yes, and bring your current management agreement. A badly timed transfer costs owners money, so we read the termination clause with you and plan around your lease dates before anyone gives notice.' },
   { q: 'Do I have to commit to anything on the call?',
-    a: 'No. The output of the call is a written quote and a plan. What you do with it is your decision, and plenty of owners take the rent range and keep self-managing.' },
+    a: 'No. You leave with a written quote and a plan, and what you do with them is your decision. Plenty of owners take the rent range and keep self-managing.' },
   { q: 'How quickly can you take over a property?',
-    a: 'That depends on your current agreement, your lease dates and whether the unit is occupied. We build the schedule on the consultation call rather than promising a date before we have seen the paperwork.' },
+    a: 'It depends on your current agreement, your lease dates and whether the unit is occupied. We build the takeover schedule on the consultation call, once we have seen the paperwork.' },
   { q: 'What if my property is outside the Columbus metro?',
-    a: `We serve ${areas.length} communities across Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. If you are close to that footprint, ask. We would rather decline than manage a property badly from an hour away.` },
+    a: `We serve ${areas.length} communities across Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. If you are close to that footprint, ask; we would rather decline than manage a property badly from an hour away.` },
 ];
 
 const schemaNodes = [
@@ -144,8 +144,8 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
         <span class="eyebrow">Free consultation</span>
         <h1 class="text-[clamp(32px,4.2vw,48px)] tracking-[-.022em]">Book a property management consultation</h1>
         <p class="text-[19px] text-muted mt-5">
-          A free call with {company.name}. Tell us what you own and you leave with a written management
-          quote, including investor pricing if you own five or more units. Nothing is signed on the call.
+          Tell us what you own. You leave with a written management quote, including investor pricing
+          if you own five or more units.
         </p>
 
         <ul class="grid gap-3 mt-7 text-[15.5px] text-navy">
@@ -322,9 +322,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
   <section class="band-tight" aria-labelledby="agenda-h">
     <div class="wrap max-w-[880px]">
       <h2 id="agenda-h" class="text-[clamp(26px,3.2vw,38px)]">What happens on the call?</h2>
-      <p class="text-[17.5px] text-muted mt-4 mb-8">
-        Six things, in this order. It is a working call with no presentation and no deck.
-      </p>
+      <p class="text-[17.5px] text-muted mt-4 mb-8">Six things, in this order. No deck.</p>
       <div class="grid gap-5 sm:grid-cols-2">
         {agenda.map((a) => (
           <div class="card">
@@ -342,13 +340,9 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <div class="card !border-2 !border-navy !p-9 md:!p-11">
         <span class="eyebrow">For portfolio owners</span>
         <h2 id="portfolio-h" class="text-[clamp(24px,2.9vw,34px)] mb-4">Investor pricing, and custom pricing at 40 units and up</h2>
-        <p class="text-[17.5px] text-muted mb-5">
-          {pricing.portfolioDiscount.line} At 40 units and up, the right number depends on your mix of
-          properties and how close together they sit, so we build it around the portfolio.
-        </p>
         <p class="text-[17.5px] text-muted mb-6">
-          Tell us what you own on the form below and we will put a number in writing. If you are consolidating
-          from several managers, say so, because that changes the transition plan more than it changes the price.
+          {pricing.portfolioDiscount.line} At 40 units and up, we price around your mix of properties and how
+          close together they sit, and put the number in writing.
         </p>
         <div class="flex flex-wrap gap-3">
           <a href="#consultation-form" class="btn btn-navy">Get custom pricing</a>
@@ -364,8 +358,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">Come prepared</span>
       <h2 id="bring-h" class="text-[clamp(26px,3.2vw,38px)]">What should you bring?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6">
-        None of it is required, but the more you bring, the more likely you leave with an exact number
-        instead of a range.
+        None of it is required. The more you bring, the more likely you leave with an exact number.
       </p>
       <ul class="grid gap-x-8 gap-y-1 sm:grid-cols-2">
         {bring.map((x) => (
@@ -375,9 +368,9 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
         ))}
       </ul>
       <p class="text-[15.5px] text-muted mt-7">
-        If you are currently with another manager, read
+        With another manager now? Read
         {' '}<a href="/switching-property-managers/" class="text-crimson font-semibold no-underline hover:underline">how to switch property managers</a>
-        {' '}before the call. The timing of a transfer matters more than most owners expect.
+        {' '}before the call.
       </p>
     </div>
   </section>
@@ -387,11 +380,9 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
     <div class="wrap max-w-[880px]">
       <h2 id="known-h" class="text-[clamp(26px,3.2vw,38px)]">What can you find out before you even call?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Almost everything. The complete fee schedule is published, including the fees that only appear in bad
-        months. So are the operating numbers: median {kpis.metrics[0].value} days on market,
+        Almost everything. The full fee schedule is published, and so is the scorecard: median {kpis.metrics[0].value} days on market,
         {' '}{kpis.metrics[6].value} of rent collected by the 5th, a {kpis.metrics[2].value} lease renewal rate,
-        and owner funds out on the {rentPolicy.ownerDisbursementDay}th. Read all of it first, then use the call
-        for the things a web page cannot answer about your specific property.
+        and owner funds out on the {rentPolicy.ownerDisbursementDay}th.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
         <a href="/pricing/" class="btn btn-ghost">The full fee schedule</a>
@@ -419,7 +410,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
 
   <Cta
     heading="Bring the addresses, leave with a number"
-    body="No deck, no pressure, and nothing to sign on the call. If we are not the right manager for your property, we will say so."
+    body="Nothing to sign on the call. If we are not the right manager for your property, we will say so."
     primary={{ label: 'Request a consultation', href: '#consultation-form' }}
     secondary={{ label: `Call ${company.salesPhone}`, href: `tel:${company.phoneE164}` }}
   />

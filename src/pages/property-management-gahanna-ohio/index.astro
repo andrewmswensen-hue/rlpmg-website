@@ -56,8 +56,7 @@ const breadcrumbs = [
 ];
 
 const keyFacts = [
-  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
-  `${usd(pricing.leasingFee)} leasing fee every time a Gahanna unit turns`,
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, ${usd(pricing.leasingFee)} leasing fee`,
   'Gahanna is entirely within Franklin County: one court, one auditor',
   'Evictions are filed at 375 S. High St., Columbus, Courtroom 11B',
   'Gahanna buys City of Columbus water under contract',
@@ -66,21 +65,21 @@ const keyFacts = [
 
 const faq = [
   { q: 'What county is Gahanna, Ohio in?',
-    a: 'Gahanna is entirely within Franklin County, Ohio. Unlike Dublin, Reynoldsburg and the Blacklick area, there is no county line running through the city, so every Gahanna parcel answers to the same court and the same county auditor. That is a simplification for an owner, and it is the reason Gahanna paperwork is faster than an equivalent Reynoldsburg file.' },
+    a: 'Gahanna is entirely within Franklin County, Ohio. Unlike Dublin, Reynoldsburg and the Blacklick area, no county line runs through it, so every Gahanna parcel answers to one court and one county auditor.' },
   { q: 'Which court hears an eviction in Gahanna, Ohio?',
-    a: 'Franklin County Municipal Court, at 375 S. High St., Columbus, OH 43215, where the eviction division sits in Courtroom 11B. Ohio Revised Code 1901.02 fixes the court to the county, and because all of Gahanna is in Franklin County there is no address-by-address question here. Before a case is filed, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, with specific statutory language.' },
+    a: 'Franklin County Municipal Court, at 375 S. High St., Columbus, OH 43215, where the eviction division sits in Courtroom 11B. Ohio Revised Code 1901.02 fixes the court to the county, so there is no address-by-address question, and a three-day notice under R.C. 1923.04 comes first.' },
   { q: 'Do I have to register my Gahanna rental property with anyone?',
-    a: 'Yes, with the Franklin County Auditor, not with the City of Gahanna. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number along with the property address and permanent parcel number, within 60 days of acquiring the property and again within 60 days of any change. There is no fee to file. Failing to file draws a special assessment under R.C. 5323.99, a statutory range of $50 to $150, and the Franklin County Auditor states $150 per tax year. We file as the owner designated agent as part of onboarding.' },
+    a: 'Yes, with the Franklin County Auditor, not the City of Gahanna. Ohio Revised Code 5323.02 requires owner contact details plus the property address and parcel number within 60 days of the county’s notice and of any change, with no fee; missing it draws a $50 to $150 assessment under R.C. 5323.99 (the auditor states $150 per tax year). We file it for you as your designated agent.' },
   { q: 'Does the City of Gahanna require a rental license or inspection?',
-    a: 'Where a Central Ohio city runs its own registration or inspection program, it sits on top of the Ohio R.C. 5323 county auditor filing rather than replacing it. Tracking which one applies to which address is our job, not yours. We file the auditor registration as your designated agent during onboarding and we handle the municipal filings and renewals in the communities we work in. If you self-manage, that tracking is yours to do.' },
+    a: 'Any city registration or inspection program sits on top of the R.C. 5323 Franklin County Auditor filing, not in place of it. We handle the auditor registration and any municipal filings and renewals for you; if you self-manage, that tracking is yours.' },
   { q: 'Who provides water and sewer in Gahanna, Ohio?',
-    a: 'Gahanna is a City of Columbus water and sewer contract community, so the water in a Gahanna rental comes from the Columbus system. Columbus states the property owner is ultimately responsible for all charges even where a tenant billing agreement is in place. Electricity is distributed by AEP Ohio and natural gas by Columbia Gas of Ohio. On our standard lease the resident holds every utility account in their own name.' },
+    a: 'The City of Columbus, under contract, and Columbus holds the owner ultimately responsible for all charges even with a tenant billing agreement. Electricity is AEP Ohio and gas is Columbia Gas of Ohio, and on our lease the resident holds every account.' },
   { q: 'Is RL Property Management actually based in Gahanna?',
-    a: `Our office is at ${company.address.street}, in the ${company.address.postalCode} ZIP code, which is the Gahanna ZIP, at the Cross Pointe Road and Taylor Station Road corner. The mailing city of record on our address is ${company.address.city}. Office hours are by appointment. Being close does not by itself make anyone a better manager, but it does mean key pickup and an in-person walkthrough are short trips rather than a scheduling problem.` },
+    a: `Our office is at ${company.address.street}, in the ${company.address.postalCode} ZIP code, which is the Gahanna ZIP, at the Cross Pointe Road and Taylor Station Road corner. The mailing city of record is ${company.address.city}, and office hours are by appointment, so key pickup and walkthroughs are short trips.` },
   { q: 'What does a rental in Gahanna, Ohio rent for?',
-    a: `We do not publish a Gahanna-specific rent median, because our sample in Gahanna is below the five-unit threshold we set for publishing a market-level number, and we will not dress a public rent index up as our own rent roll. Across our whole portfolio the median is ${usd(rentByBedroom['3'].median)} for a 3 bedroom and ${usd(rentByBedroom['2'].median)} for a 2 bedroom. A rent evaluation on your specific address is free and takes about a day.` },
+    a: `We do not publish a Gahanna median, because our sample there is under five units. Across our whole portfolio the median is ${usd(rentByBedroom['3'].median)} for a 3 bedroom and ${usd(rentByBedroom['2'].median)} for a 2 bedroom. A rent evaluation on your specific address is free and takes about a day.` },
   { q: 'How much does property management cost in Gahanna?',
-    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. The three plans differ in one variable, the per-item repair approval limit: ${usd(pricing.plans[0].repairApprovalLimit)}, ${usd(pricing.plans[1].repairApprovalLimit)} and ${usd(pricing.plans[2].repairApprovalLimit)}. Because the fee is a fixed dollar figure, raising your rent does not raise our fee.` },
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. The three plans differ in one variable, the per-item repair approval limit: ${usd(pricing.plans[0].repairApprovalLimit)}, ${usd(pricing.plans[1].repairApprovalLimit)} and ${usd(pricing.plans[2].repairApprovalLimit)}. Raising your rent does not raise our price.` },
 ];
 
 const schemaNodes = [
@@ -117,24 +116,22 @@ const schemaNodes = [
       <h2 id="county-h" class="text-[clamp(26px,3.2vw,38px)]">What county is Gahanna in, and which court hears an eviction?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Gahanna is entirely within Franklin County, and an eviction is filed at Franklin County Municipal Court,
-        375 S. High St., Columbus, where the eviction division sits in Courtroom 11B. Several of Gahanna's immediate neighbors are split by county lines. Reynoldsburg
-        to the south lies in Franklin, Licking and Fairfield counties. The Blacklick area to the southeast runs
-        across the Franklin and Licking line. New Albany to the north extends into Licking County. In Gahanna
-        there is nothing to check: one court, one county auditor, one set of court costs.
+        375 S. High St., Columbus, eviction division in Courtroom 11B. Neighbors are split: Reynoldsburg spans
+        Franklin, Licking and Fairfield, Blacklick crosses the Licking line, and New Albany extends into Licking
+        County. In Gahanna: one court, one auditor, one set of court costs.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Ohio Revised Code 1901.02 fixes each municipal court to a territory, which is why the answer is
-        never "the nearest courthouse". Before any case is filed, Ohio requires a three-day notice to leave the
-        premises under R.C. 1923.04, with specific statutory language. Wrong wording or wrong service gets the
-        case dismissed, and you start again about three weeks later with the rent still unpaid.
+        Ohio Revised Code 1901.02 fixes each municipal court to a territory. First comes a three-day notice
+        under R.C. 1923.04, with specific statutory language; wrong wording or service means dismissal and a
+        three-week restart.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The hard cost of an eviction here is {usd(pricing.eviction.hardCostTotal)}:
+        Hard cost: {usd(pricing.eviction.hardCostTotal)}:
         {' '}{usd(pricing.eviction.countyFilingFee)} to Franklin County for the eviction complaint and
         {' '}{usd(pricing.eviction.attorneyFee)} to the eviction attorney for the filing plus up to two appearances.
-        We charge {usd(pricing.eviction.rlpmProcessFee)} to run the process, so a typical total is
-        {' '}{usd(pricing.eviction.typicalTotal)} before any setout. If a setout is required, add
-        {' '}{usd(pricing.eviction.tagAndSetoutFee)} to the county and {usd(pricing.eviction.setoutFee)} to us.
+        Our {usd(pricing.eviction.rlpmProcessFee)} process fee brings a typical Gahanna eviction to
+        {' '}{usd(pricing.eviction.typicalTotal)}; a setout adds {usd(pricing.eviction.tagAndSetoutFee)} (county)
+        and {usd(pricing.eviction.setoutFee)} (us).
         The full sequence is on the
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
       </p>
@@ -147,20 +144,15 @@ const schemaNodes = [
       <span class="eyebrow">Compliance</span>
       <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Gahanna rental property?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Yes, with the Franklin County Auditor, not with the City of Gahanna. Ohio Revised Code 5323.02 requires
-        every owner of residential rental property to file owner details and the permanent parcel number with
-        the auditor of the county where the property sits. There is no fee. The filing is due within 60 days of
-        acquiring the property, and any change has to be updated within 60 days. Miss it and the auditor can
-        place a special assessment of $50 to $150 under R.C. 5323.99. The Franklin County Auditor states $150
-        per tax year.
+        Yes, with the Franklin County Auditor (not the City of Gahanna), and we handle it for you as your
+        designated agent during onboarding. Ohio Revised Code 5323.02 requires owner details and the parcel
+        number within 60 days of the county’s notice, with changes updated within 60 days, and no fee. Miss it
+        and the auditor can assess $50 to $150 under R.C. 5323.99 (Franklin County states $150 per tax year).
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The statute lets an owner designate a property manager as the agent who files, and that is part of
-        onboarding here. Owners holding title through an LLC or a trust have to name the responsible officer,
-        member or trustee, the line that gets skipped most often.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We track which program applies to your address and meet its filing deadlines for you.
+        LLC and trust owners must name the responsible officer, member or trustee, the line most often skipped.
+        City programs such as the Columbus registry (City Code Chapter 4515, April 2026) stack on top of this
+        filing; we track which apply and meet their deadlines.
       </p>
     </div>
   </section>
@@ -170,9 +162,8 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in Gahanna, and who pays them?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Gahanna is a City of Columbus water and sewer contract community, so water and sanitary sewer come from
-        the Columbus system under contract. Electricity is distributed by AEP Ohio and natural gas by Columbia
-        Gas of Ohio.
+        Water and sanitary sewer come from the Columbus system: Gahanna is a Columbus contract community. AEP
+        Ohio and Columbia Gas of Ohio handle electric and gas.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -204,11 +195,9 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        Columbus states that the property owner is ultimately responsible for all
-        charges, even where a tenant billing agreement puts the bill in the resident's name. So a resident who
-        leaves owing a water balance can leave that balance attached to your parcel, and you usually find out
-        about it at closing. We put the accounts in the resident name at lease
-        signing and check them again at move-out, before the deposit is settled.
+        Columbus holds the owner ultimately responsible for all charges, even under a tenant billing agreement,
+        so an unpaid water balance can attach to your parcel and surface at closing. We check accounts at
+        move-out, before the deposit is settled.
       </p>
     </div>
   </section>
@@ -219,18 +208,15 @@ const schemaNodes = [
       <span class="eyebrow">The market</span>
       <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Gahanna?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Gahanna rentals are mostly detached single-family houses on subdivision lots, with condominium and small multifamily stock
-        concentrated near the Hamilton Road and Morse Road corridors. Gahanna grew outward from an
-        early-nineteenth-century village core along Big Walnut Creek, so the housing runs from a small historic
-        center near Creekside through decades of postwar and late-century subdivision to newer building on the
-        northern and eastern edges.
+        Mostly detached single-family houses on subdivision lots, with condos and small multifamily near the
+        Hamilton Road and Morse Road corridors. The city grew out from an early-nineteenth-century village along
+        Big Walnut Creek: a small historic center near Creekside, then postwar and late-century subdivisions,
+        then newer building on the northern and eastern edges.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        For an owner the practical consequence is that two Gahanna houses a mile apart can be twenty-five years
-        apart in mechanical age, and the reserve you need behind them is not the same. We set a reserve of
-        {' '}{usd(pricing.reserves.min)} to {usd(pricing.reserves.max)} per unit depending on plan, and on an
-        older Gahanna house we would rather set it at the top of that band than have you approving a furnace by
-        text message in February.
+        Two Gahanna houses a mile apart can be twenty-five years apart in mechanical age. Our reserve runs
+        {' '}{usd(pricing.reserves.min)} to {usd(pricing.reserves.max)} per unit by plan, and on an older house we
+        set it at the top of that band.
       </p>
 
       <h3 class="text-[21px] mt-9 mb-3">Our office is in the 43230 ZIP</h3>
@@ -239,9 +225,7 @@ const schemaNodes = [
         Taylor Station Road corner near Interstate 270 and John Glenn Columbus International Airport. The mailing
         city of record on our address is {company.address.city}.
         {' '}{company.officeHoursNote}. Key pickup at our office is free, and there is no charge to post a
-        three-day or thirty-day notice to vacate. We do not claim that being nearby makes us better managers,
-        but it does mean a Gahanna owner collecting keys, or a Gahanna resident dropping
-        off a document, is making a short trip.
+        three-day or thirty-day notice to vacate.
       </p>
 
       <h3 class="text-[21px] mt-9 mb-3">Where in Gahanna we work</h3>
@@ -249,9 +233,7 @@ const schemaNodes = [
         The Creekside and Olde Gahanna core, the Hamilton Road corridor, Granville Street, Havens Corners Road,
         Stygler Road, Clotts Road, Morse Road and the Taylor Station Road area on the southern edge.
         Gahanna-Jefferson Public Schools serves the city, and Big Walnut Creek, Creekside and Friendship Park are
-        the landmarks residents navigate by. School district and park access are the two things Gahanna
-        applicants ask about first, which is why both belong in the listing text rather than only in the
-        photographs.
+        the landmarks. Applicants ask about schools and parks first, so both go in the listing text.
       </p>
     </div>
   </section>
@@ -261,9 +243,7 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Gahanna rental earn, and what does management cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        We are not publishing a Gahanna rent median, because our sample of managed units in Gahanna is below the five-unit threshold we set before we will call a number a market median. Publishing
-        one anyway would mean either inventing it or quoting a public rent index and letting you assume it came
-        off our rent roll. Across our whole portfolio the median is {usd(rentByBedroom['3'].median)} for a three
+        Our Gahanna sample is under the five units we need to publish a median. Across our whole portfolio the median is {usd(rentByBedroom['3'].median)} for a three
         bedroom and {usd(rentByBedroom['2'].median)} for a two bedroom, and the nearest market where we do publish
         our own figure is Reynoldsburg at {usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)} for a three
         bedroom. Gahanna generally prices above Reynoldsburg.
@@ -279,17 +259,15 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16.5px] text-muted mt-7">
-        The three plans differ in one variable: how much we can spend on a single repair before we stop and ask
-        you. There is no featured plan and no upsell, because the right answer depends on how involved you want to
-        be, not on which one earns us more. A manager charging 10% of collected rent on a
+        Plans differ only in how much we spend on one repair before asking you, and there is no featured plan.
+        A 10% manager on a
         {' '}{usd(rentByBedroom['3'].median)} house takes about {usd(Math.round(rentByBedroom['3'].median * 0.1) * 12)}
         {' '}a year and roughly {usd(Math.round(rentByBedroom['3'].median / 2))} again at each turn. Our lowest plan
-        is {usd(pricing.plans[0].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}.
+        runs {usd(pricing.plans[0].monthly * 12)} a year, with {usd(pricing.leasingFee)} to place a resident.
       </p>
       <p class="text-[14px] text-faint mt-4">
-        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
-        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at
-        $250 to $450.
+        The 10% comparison uses a common Columbus rate, not a named company's pricing. Photography is billed on
+        its own at $250 to $450.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
         <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>

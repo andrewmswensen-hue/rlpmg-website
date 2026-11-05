@@ -80,21 +80,21 @@ const utilities = [
 
 const faq = [
   { q: 'Who is responsible for an unpaid water bill on a Hilliard rental?',
-    a: 'The property owner. Hilliard buys water and sewer from the City of Columbus under contract, and Columbus states that the property owner is ultimately responsible for all charges even where a Tenant Billing Agreement puts the bill in the resident name. That is why the owner keeps receiving copies of the bill. A resident who leaves owing several hundred dollars in water leaves that balance with you.' },
+    a: 'The property owner. Hilliard buys water and sewer from the City of Columbus, and Columbus holds the owner ultimately responsible for all charges even when a Tenant Billing Agreement puts the bill in the resident name. A resident who leaves owing water leaves that balance with you.' },
   { q: 'What county is Hilliard, Ohio in?',
-    a: 'Franklin County, all of it. Unlike Dublin, which spans three counties, and unlike Powell, which is in Delaware County, Hilliard does not straddle a county line. Every Hilliard parcel files with the Franklin County Auditor and every Hilliard eviction is heard by the same court.' },
+    a: 'Franklin County, all of it. Unlike Dublin (three counties) or Powell (Delaware County), every Hilliard parcel files with the Franklin County Auditor and every Hilliard eviction goes to the same court.' },
   { q: 'Which court hears an eviction in Hilliard, Ohio?',
-    a: 'Franklin County Municipal Court, civil and eviction division, 375 S. High St., 3rd floor, Columbus, OH 43215, where Eviction Court sits in Courtroom 11B. Jurisdiction follows the county under Ohio Revised Code 1901.02. Before the case is filed, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, carrying specific statutory language. If the wording is wrong, the case is dismissed and you lose three weeks.' },
+    a: 'Franklin County Municipal Court, 375 S. High St., 3rd floor, Columbus, OH 43215, Courtroom 11B, with jurisdiction following the county under R.C. 1901.02. The case must start with a three-day notice under R.C. 1923.04 in the statutory wording, or it is dismissed and you lose three weeks.' },
   { q: 'Do I have to register my Hilliard rental property with anyone?',
-    a: 'Yes, with the Franklin County Auditor, not with the city. Ohio Revised Code 5323.02 requires the owner of residential rental property to file owner name, address and telephone number plus the property address and parcel number, and to update it within 60 days of any change. There is no fee. The Franklin County Auditor states a penalty of $150 per tax year for failing to file. A property manager can file as the owner designated agent, and we do.' },
+    a: 'Yes, with the Franklin County Auditor, not the city. R.C. 5323.02 requires owner name, address and phone plus the property address and parcel number, updated within 60 days of any change, at no fee, and the Auditor states a $150 per tax year penalty for not filing. We file it as your designated agent.' },
   { q: 'Does the City of Hilliard require a rental license or inspection?',
-    a: 'Where a Central Ohio city runs its own registration or inspection program, it sits on top of the Ohio R.C. 5323 county auditor filing rather than replacing it. We track which one applies to which address. We file the auditor registration as your designated agent during onboarding and we handle the municipal filings and renewals in the communities we work in. If you self-manage, tracking these filings falls to you. The Franklin County Auditor filing under R.C. 5323 applies either way.' },
+    a: 'Any city registration or inspection program in Central Ohio sits on top of the R.C. 5323 county auditor filing, which applies to a Hilliard rental either way. We track which rules apply to each address and handle the filings and renewals for you.' },
   { q: 'What does a rental in Hilliard, Ohio rent for?',
-    a: `Across the units we manage in Hilliard, the median rent is ${usd(rent['3'].median)} for a three bedroom. That is our own portfolio median, not a market survey. We are not publishing a bedroom-level median at other bedroom counts in Hilliard because the sample is under five units, and a median built on three houses is not something anyone should price against.` },
+    a: `Across the units we manage in Hilliard, the median rent is ${usd(rent['3'].median)} for a three bedroom. That is our own portfolio median, not a market survey; other bedroom counts have under five units, so we do not publish a median for them.` },
   { q: 'How old is the housing stock in Hilliard?',
-    a: 'The median Hilliard home was built in 1997, per US Census ACS 2024 5-year estimates. That is newer than Westerville at 1982, Reynoldsburg at 1984, Worthington at 1963 and Upper Arlington at 1959. In practice it means a Hilliard rental is mostly 1990s and 2000s subdivision construction on slab or over a full basement, with the original furnace, condenser, water heater and roof all reaching the end of a first service life at around the same time.' },
+    a: 'The median Hilliard home was built in 1997 (US Census ACS 2024 5-year), newer than Westerville (1982), Reynoldsburg (1984), Worthington (1963) and Upper Arlington (1959). Most rentals are 1990s and 2000s subdivision houses whose original furnace, condenser, water heater and roof are reaching the end of their first service life together.' },
   { q: 'How much does property management cost in Hilliard?',
-    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Because the fee is a fixed dollar amount, a Hilliard house renting at ${usd(rent['3'].median)} costs the same to manage as one renting at ${usd(1200)}. A manager charging 10% of collected rent would take roughly ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year on that same house. Photography is not included in the ${usd(pricing.leasingFee)} leasing fee and is billed separately at $250 to $450.` },
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} per lease renewal. On a ${usd(rent['3'].median)} Hilliard rent, a 10% manager would take roughly ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year. Photography is billed separately at $250 to $450.` },
 ];
 
 const schemaNodes = [
@@ -130,25 +130,15 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="water-h" class="text-[clamp(26px,3.2vw,38px)]">Who is responsible for the water bill on a Hilliard rental?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        You are, as the owner, even when the resident is the one being billed. Hilliard is a City of Columbus
-        water and sewer contract community, and Hilliard addresses are served by the Columbus Division of Water.
-        Columbus lets a resident receive the bill under a Tenant Billing Agreement signed by the owner, and it
-        states that the property owner is ultimately responsible for all charges. That is why Columbus
-        keeps sending the owner copies of a bill the owner is not paying.
+        You are, even when the resident gets the bill. Hilliard is a City of Columbus water and sewer contract
+        community. Columbus lets a resident take the bill under a Tenant Billing Agreement, but it holds the
+        property owner ultimately responsible for all charges, which is why you keep getting copies.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Say a resident stops paying the water bill in month nine and keeps paying rent,
-        so nothing looks broken from your side. They give notice, move out clean, and you release the deposit
-        because the unit looks fine. Six weeks later the balance surfaces, attached to your property, and the
-        person who ran it up has a new address in another county. The deposit that would have covered it is
-        gone, and you are chasing a former resident for a utility bill in your own name.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        We put the water account in the resident's name at lease signing
-        rather than after move-in, we treat the Tenant Billing Agreement as an owner document rather than a
-        formality, and we verify the account status at move-out before the security deposit is settled. Ohio gives a landlord 30 days from the end of the tenancy to return a deposit with an itemized
-        statement of deductions, so the check has to happen inside that window or the deduction is not available
-        to you.
+        The risk: a resident who stops paying water but keeps paying rent can move out, get the deposit back,
+        and leave the balance on your property weeks later. So we put the account in the resident's name at
+        lease signing and check its status at move-out, inside the 30 days Ohio gives you to return the deposit
+        with an itemized list of deductions.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -172,10 +162,9 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        Hilliard also runs a community electricity aggregation program, which changes who supplies the
-        electrons while AEP Ohio stays the company that owns the wires and answers an outage call. Trash and
-        recycling are handled by Local Waste Services and billed quarterly, in January, April, July and October,
-        so check that before you write a lease that assumes a monthly utility bill.
+        Under Hilliard's electricity aggregation program, AEP Ohio still owns the wires and handles outages.
+        Local Waste Services bills trash quarterly (January, April, July, October), so do not write a lease that
+        assumes a monthly bill.
       </p>
     </div>
   </section>
@@ -187,32 +176,31 @@ const schemaNodes = [
       <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears a Hilliard eviction, and where do you register the property?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Franklin County Municipal Court, civil and eviction division, at 375 S. High St., 3rd floor, Columbus,
-        OH 43215, where Eviction Court sits in Courtroom 11B. Hilliard is entirely inside Franklin County, which
-        makes it simpler than Dublin, where three counties meet inside one city, and simpler than Powell, which
-        is in Delaware County and files twenty-five miles north.
+        OH 43215, Courtroom 11B. All of Hilliard is in Franklin County, unlike Dublin, where three counties meet,
+        or Powell, which files in Delaware County twenty-five miles north.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        The registration goes to the county too, not to the city. Ohio Revised Code 5323.02 requires every owner
-        of residential rental property to file their name, address and telephone number, plus the property street
-        address and permanent parcel number, with the Franklin County Auditor. There is no fee, the filing is due
-        within 60 days, and any change has to be updated within 60 days. The Franklin County Auditor states a
-        penalty of $150 per tax year for failing to file, and the statutory range under R.C. 5323.99 is $50 to
-        $150. Owners holding through an LLC or a trust also have to name the responsible officer, member or
-        trustee, a step owners often skip. The statute lets an owner designate a property manager as
-        the agent who files, and that is part of onboarding here.
+        Registration also goes to the county, not the city. Under Ohio Revised Code 5323.02, you file with the Franklin
+        County Auditor:
+      </p>
+      <ul class="text-[17px] text-muted mt-3 list-disc pl-6 space-y-1.5">
+        <li>Your name, address and phone, plus the property street address and permanent parcel number.</li>
+        <li>No fee. Due within 60 days, and any change updated within 60 days.</li>
+        <li>Penalty: $150 per tax year per the Auditor (statutory range $50 to $150 under R.C. 5323.99).</li>
+        <li>An LLC or trust must also name the responsible officer, member or trustee.</li>
+      </ul>
+      <p class="text-[17.5px] text-muted mt-5">
+        We file as your designated agent during onboarding. A city program (such as the Columbus registry
+        added in April 2026 under City Code Chapter 4515) stacks on top of the auditor filing, and we track
+        which applies to your address.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        On cost: filing an eviction complaint in Franklin County is {usd(pricing.eviction.countyFilingFee)}, the
-        eviction attorney is {usd(pricing.eviction.attorneyFee)} for the filing plus up to two appearances, and
-        we charge {usd(pricing.eviction.rlpmProcessFee)} to run the process. That is
-        {' '}{usd(pricing.eviction.typicalTotal)} for a typical case before any setout. A setout, if the resident
-        has to be physically removed, adds {usd(pricing.eviction.tagAndSetoutFee)} to the county and
-        {' '}{usd(pricing.eviction.setoutFee)} to us. Roughly {pricing.eviction.disputeRatePct}% of our cases are
-        disputed. The whole sequence is written out on the
+        A typical Franklin County eviction costs {usd(pricing.eviction.typicalTotal)} before any setout:
+        {' '}{usd(pricing.eviction.countyFilingFee)} to file, {usd(pricing.eviction.attorneyFee)} for the attorney
+        (filing plus up to two appearances) and {usd(pricing.eviction.rlpmProcessFee)} for us to run it. A setout
+        adds {usd(pricing.eviction.tagAndSetoutFee)} county and {usd(pricing.eviction.setoutFee)} ours. Roughly
+        {' '}{pricing.eviction.disputeRatePct}% of our cases are disputed. See the
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and file on time, so you do not have to.
       </p>
     </div>
   </section>
@@ -223,36 +211,23 @@ const schemaNodes = [
       <span class="eyebrow">The market</span>
       <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Hilliard?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Mostly late-century subdivision houses. The median Hilliard home was built in 1997, per US Census ACS
-        2024 5-year estimates, which sits it between the 1980s stock in Westerville and Reynoldsburg and the
-        2001 medians in Powell and Canal Winchester. Old Hilliard, the small original village around Main and
-        Norwich, is the exception and it is a thin slice of the total.
+        Mostly late-century subdivision houses. The median Hilliard home was built in 1997 (US Census ACS 2024
+        5-year), between the 1980s stock in Westerville and Reynoldsburg and the 2001 medians in Powell and Canal
+        Winchester. Old Hilliard, the original village around Main and Norwich, is a thin slice of the total.
       </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        A 1997 median has a specific consequence for an owner. Original builder-grade systems in a house of that
-        age are at or past the end of a first service life, so furnaces, condensers, water heaters and roofs come
-        due in clusters rather than one at a time. Owners who bought a Hilliard rental on the strength of the
-        school district and a clean inspection report are often surprised by two or three four-figure capital
-        items inside a couple of years. We record the age of every major system at onboarding so those land on
-        your calendar instead of at 11pm in February.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        The stock also skews to three and four bedroom detached houses with attached garages, which draws
-        families rather than first-time renters. Applications are fewer and stronger, tenancies run longer, and
-        turns are more expensive when they come because a family exit means carpet, paint and a full clean rather
-        than a touch-up. Many Hilliard subdivisions of this era carry recorded deed restrictions on parking,
-        fencing and lawn condition, and a violation notice from the association goes to the owner of record
-        rather than to the resident who left the trailer in the driveway. We route those to the resident with a
-        cure date rather than letting them stack up.
-      </p>
+      <ul class="text-[17px] text-muted mt-4 list-disc pl-6 space-y-1.5">
+        <li><strong>Systems come due together.</strong> Original furnaces, condensers, water heaters and roofs are at the end of a first service life, so expect clustered four-figure items. We log every system's age at onboarding.</li>
+        <li><strong>Family renters.</strong> Three and four bedroom detached houses with attached garages draw fewer, stronger applications and longer tenancies, but costlier turns (carpet, paint, full clean).</li>
+        <li><strong>Deed restrictions.</strong> Many subdivisions restrict parking, fencing and lawn condition, and the association notice goes to the owner. We route it to the resident with a cure date.</li>
+      </ul>
       <h3 class="text-[21px] mt-9 mb-3">Where in Hilliard we work</h3>
       <p class="text-[16.5px] text-muted">
         Old Hilliard, Britton Farms, Heritage Lakes, Brown Township, Davidson Road, Cemetery Road, Scioto Darby
         Road, Leap Road, Avery Road, the Trueman Boulevard corridor and the newer sections out toward Alton
-        Darby. Houses across the city feed the Hilliard City School District, which is a large part of why
-        Hilliard rents where it does. The Franklin County Fairgrounds, the Hilliard Station Park area and the
-        Heritage Rail Trail are the landmarks people navigate by, and the I-270 and Cemetery Road interchange is
-        what puts most of these houses inside a twenty-minute commute of the west side employment corridor.
+        Darby. Houses across the city feed the Hilliard City School District, a large part of why Hilliard rents
+        where it does. Landmarks: the Franklin County Fairgrounds, Hilliard Station Park and the Heritage Rail
+        Trail. The I-270 and Cemetery Road interchange puts most of these houses within twenty minutes of the
+        west side employment corridor.
       </p>
     </div>
   </section>
@@ -262,11 +237,9 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Hilliard rental earn, and what does management cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Across the units we manage in Hilliard, the median rent is {usd(rent['3'].median)} for a three bedroom.
-        That is our own portfolio median, not a market survey, and we say so because plenty of local pages quote
-        a public rent index as if it were their own book. We are not publishing a median at other bedroom counts
-        in Hilliard, because the sample is under five units and we do not publish a median we would not price
-        against ourselves.
+        {usd(rent['3'].median)} for a three bedroom, the median across the units we manage in Hilliard. That is
+        our own portfolio, not a market survey. Other bedroom counts have under five units, so we do not publish
+        a median for them.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (
@@ -282,10 +255,8 @@ const schemaNodes = [
         At a {usd(rent['3'].median)} rent, a manager charging 10% of collected rent takes about
         {' '}{usd(Math.round(rent['3'].median * 0.1) * 12)} a year, plus roughly
         {' '}{usd(Math.round(rent['3'].median / 2))} again every time the unit turns. Our middle plan is
-        {' '}{usd(pricing.plans[1].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}. The gap
-        widens every time you raise the rent, because a flat fee does not move when your rent does. The three
-        plans differ in exactly one variable: how much we can spend on a single repair before we stop and call
-        you.
+        {' '}{usd(pricing.plans[1].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}. The plans
+        differ only in the repair approval limit.
       </p>
       <p class="text-[14px] text-faint mt-4">
         Percentage figures describe common Columbus market rates. They are not a quote from any named company.
@@ -306,8 +277,8 @@ const schemaNodes = [
       <h2 id="faq-section" class="sr-only">Hilliard property management questions</h2>
       <Faq items={faq} heading="Hilliard property management questions" id="hilliard-faq" />
       <p class="mt-7 text-[15.5px] text-muted">
-        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
-        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        Rent is due on {rentPolicy.dueDate}, late fees apply after {rentPolicy.lateFeesAfter}, and owner funds go
+        out on the {rentPolicy.ownerDisbursementDay}th. More on the
         {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
       </p>
       <div class="mt-6"><Verified date="2026-09-09" /></div>
@@ -324,7 +295,7 @@ const schemaNodes = [
 
   <Cta
     heading="Find out what your Hilliard rental should earn"
-    body="Tell us the address and we will price it against the units we already manage in Hilliard and the comparable listings live right now. No charge, and no obligation to hire us."
+    body="Send the address. We will price it against the units we manage in Hilliard and live comparable listings. Free, no obligation."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
   />

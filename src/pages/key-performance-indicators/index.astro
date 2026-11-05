@@ -47,42 +47,42 @@ const explained = [
     id: 'dom',
     heading: 'Median days on market',
     definition: kpis.domDefinition,
-    why: `Every day a unit sits empty is a day of rent you do not get back. At the ${m.avgRent.value} average rent under management, an extra month of vacancy costs you a full month of rent.`,
+    why: `Every empty day is rent you do not get back. At the ${m.avgRent.value} average rent under management, an extra month of vacancy costs a full month of rent.`,
   },
   {
     id: 'turn',
     heading: 'Median days to turn a unit',
-    why: 'A turn is the work between one resident moving out and the next one moving in: cleaning, paint, repairs, and getting the unit ready to show. Turn time and days on market are separate clocks, and a manager who is fast at one can be slow at the other.',
+    why: 'The work between one resident moving out and the next moving in: cleaning, paint, repairs, getting the unit ready to show. It is a separate clock from days on market.',
   },
   {
     id: 'renewal',
     heading: 'Lease renewal rate',
-    why: 'The share of residents who sign another lease instead of moving out. Renewals are the cheapest possible outcome for an owner, because a renewal has no turn cost, no vacancy and no leasing work. It is also one of the clearest signs of whether residents are treated decently.',
+    why: 'The share of residents who sign another lease instead of moving out. A renewal is the cheapest outcome for an owner: no turn cost, no vacancy, no leasing work.',
   },
   {
     id: 'occupancy',
     heading: 'Portfolio occupancy',
-    why: 'The share of managed units that are occupied. It is the blunt version of the vacancy question, across the whole book rather than one property.',
+    why: 'The share of managed units that are occupied, across the whole portfolio.',
   },
   {
     id: 'avgRent',
     heading: 'Average rent under management',
-    why: 'What the average managed unit rents for. It is context for every other number on this page: a portfolio of studios and a portfolio of four-bedroom houses do not behave the same way.',
+    why: 'What the average managed unit rents for. It is context for every other number here.',
   },
   {
     id: 'repairDays',
     heading: 'Median days to close a repair',
-    why: 'The time from a submitted request to finished work. Slow repairs are how a good resident becomes a former resident, and how a small problem becomes an insurance claim.',
+    why: 'The time from a submitted request to finished work. Slow repairs lose good residents and turn small problems into big ones.',
   },
   {
     id: 'collectedBy5',
     heading: 'Rent collected by the 5th',
-    why: `The share of rent in hand by the 5th of the month. Rent is due on ${rentPolicy.dueDate}, late fees are assessed after ${rentPolicy.lateFeesAfter}, and owner funds go out on the ${rentPolicy.ownerDisbursementDay}th. Collection speed is what makes that disbursement date possible.`,
+    why: `The share of rent in hand by the 5th of the month. Rent is due on ${rentPolicy.dueDate}, late fees are assessed after ${rentPolicy.lateFeesAfter}, and owner funds go out on the ${rentPolicy.ownerDisbursementDay}th. Fast collection makes that date possible.`,
   },
   {
     id: 'satisfaction',
     heading: 'Resident satisfaction',
-    why: 'How residents rate their experience, out of 5. Owners sometimes treat this as the soft metric, but unhappy residents leave, and a turn costs an owner more than almost any repair.',
+    why: 'How residents rate their experience, out of 5. Unhappy residents leave, and a turn costs an owner more than almost any repair.',
   },
 ].map((e) => ({ ...e, value: m[e.id].value, label: m[e.id].label }));
 
@@ -92,11 +92,11 @@ const faq = [
   { q: 'How is days on market measured?',
     a: `${kpis.domDefinition} It is currently ${m.dom.value} days. The figure is a trailing 12-month median rather than a recent average, because Columbus leasing is seasonal and a 30-day number mostly measures what month it is.` },
   { q: 'How often are these numbers updated?',
-    a: `Monthly. The current set is as of ${kpis.asOfLabel} and every figure on the page carries that date. A weekly refresh is not sustainable by hand, and a number that is quietly stale is worse than no number at all.` },
+    a: `Monthly. The current set is as of ${kpis.asOfLabel} and every figure on the page carries that date.` },
   { q: 'Why does RL Property Management publish its operating numbers?',
-    a: 'We publish them because they can be checked, and they are what an owner is trying to assess. Most property management websites publish adjectives, which cost nothing to write and prove nothing. Publishing a number means it can be held against us at the next monthly refresh.' },
+    a: 'Because numbers can be checked, and they are what an owner is trying to assess. Most property management websites publish adjectives, which prove nothing. A published number can be held against us at the next monthly refresh.' },
   { q: 'Do you publish days on market by neighborhood?',
-    a: 'No, and that is deliberate. Outside Columbus itself, no single market in the portfolio has enough units leased in a year for a median to mean anything. A figure built on a handful of units is noise presented as data, so we publish site-wide only.' },
+    a: 'No. Outside Columbus itself, no single market in the portfolio leases enough units in a year for a median to mean anything, so we publish site-wide only.' },
   { q: 'Is a lower days on market always better?',
     a: 'No. A unit priced below market will lease in three days, and the owner will pay for that discount every month for a year. The pairing that matters is days on market alongside rent achieved, because speed alone is easy to buy.' },
   { q: 'What does a 72% lease renewal rate mean for an owner?',
@@ -150,19 +150,9 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="why-h">Why does RL Property Management publish operating numbers?</h2>
       <p>
-        Operating numbers can be checked, and almost nothing else on a property management website can
-        be. An owner comparing managers is usually handed adjectives: responsive, experienced,
-        trusted. None of those cost anything to write and none of them can be wrong. A published
-        median repair time can be wrong, and that is what makes it worth reading.
-      </p>
-      <p>
-        Publishing also changes how we behave internally, and that is a large part of why we do it.
-        Someone on the team owns each number that goes on a public page four times a year, and when the
-        renewal rate moves, clients see it.
-      </p>
-      <p>
-        The tradeoff is that some quarters will look worse than others. We would rather accept that
-        cost than publish nothing.
+        Because numbers can be checked. Adjectives like "responsive" and "trusted" cannot. Someone on
+        our team owns each number, and when one moves, clients see it. Some months will look worse than
+        others; we would rather accept that than publish nothing.
       </p>
 
       <h2>How is days on market measured?</h2>
@@ -170,31 +160,20 @@ const related = [
         <strong>{kpis.domDefinition}</strong>
       </p>
       <p>
-        That definition matters more than the {m.dom.value} does. Days on market can be measured
-        from listing to lease signature, from listing to move-in, or from the previous resident
-        moving out, and those three produce very different numbers for the same unit. If a manager
-        quotes a figure without saying which one they mean, you cannot compare it to anything.
+        Days on market can run to lease signature, to move-in, or from the last move-out, and each gives
+        a different number for the same unit. Ask any manager which one they mean.
       </p>
       <p>
-        We use a trailing 12-month window rather than a recent average because Columbus leasing is
-        strongly seasonal: spring and summer move fast, and deep winter does not. A trailing 30-day
-        figure mostly measures what month it is. A 12-month median absorbs the season and describes
-        how the operation runs, which is what an owner is trying to assess.
-      </p>
-      <p>
-        For an owner, that means your unit will not take exactly {m.dom.value} days. A well-priced
-        unit listed in May will beat it, and the same unit listed in January will not.
+        We use a trailing 12 months because Columbus leasing is seasonal: spring and summer move fast,
+        deep winter does not. A well-priced unit listed in May will beat {m.dom.value} days; the same unit
+        in January will not.
       </p>
 
       <h2>Is faster always better?</h2>
       <p>
-        No, and this is the most common mistake in reading a days-on-market figure. Any unit will
-        lease in a few days if it is priced far enough below market, and the owner then pays for
-        that discount every month for the next twelve.
-      </p>
-      <p>
-        The pair that matters is time to lease alongside rent achieved. Average rent under
-        management here is {m.avgRent.value}, published on this page for that reason.
+        No. Any unit leases fast if it is priced below market, and the owner pays for that discount
+        every month for a year. Read time to lease alongside rent achieved: average rent under
+        management here is {m.avgRent.value}.
       </p>
     </div>
   </section>
@@ -203,11 +182,7 @@ const related = [
   <section class="band band-wash" aria-labelledby="each-h">
     <div class="wrap max-w-[940px]">
       <span class="eyebrow">Metric by metric</span>
-      <h2 id="each-h" class="text-[clamp(28px,3.3vw,40px)]">What does each number measure?</h2>
-      <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        For each of the eight numbers: what it describes, and why it matters to the person paying
-        the mortgage.
-      </p>
+      <h2 id="each-h" class="text-[clamp(28px,3.3vw,40px)] mb-8">What does each number measure?</h2>
 
       {explained.map((e) => (
         <details class="fee-group">
@@ -241,12 +216,7 @@ const related = [
   <section class="band-tight" aria-labelledby="use-h">
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="use-h">How should an owner use these numbers?</h2>
-      <p>
-        Use them as questions to ask any manager, including us. If a company will not give you a
-        figure for median days to close a repair, the refusal tells you something. If they give you one, ask how it is
-        measured and over what window, the way the definition above is stated.
-      </p>
-      <p>Four questions worth asking anyone:</p>
+      <p>As questions to ask any manager, including us:</p>
       <ul>
         <li>What is your median days on market, and is that measured to lease signature or to move-in?</li>
         <li>What share of rent is in hand by the 5th, and what happens to my disbursement when it is not?</li>
@@ -254,19 +224,16 @@ const related = [
         <li>How long does a repair take from request to closed, at the median rather than the average?</li>
       </ul>
       <p>
-        The third question matters more than it looks. A manager who charges half a month of rent to
-        place a resident earns money every time a lease ends. Placing a resident costs
-        {' '}{usd(pricing.leasingFee)} here, on every plan, which removes that conflict entirely.
+        The third matters most. A manager who charges a leasing fee earns money every time a lease ends.
+        Placing a resident costs {usd(pricing.leasingFee)} here, on every plan.
         The full fee schedule is on the <a href="/pricing/">pricing page</a>, where monthly
         management runs {priceRange()} per unit.
       </p>
 
       <h2>When is this page updated?</h2>
       <p>
-        Monthly. The current figures are as of {kpis.asOfLabel} and the verification line at the
-        bottom of this page carries the date they were last checked. Every number renders from a
-        single source file, so the figures on this page, in the page's structured data and in the
-        machine-readable facts feed can never disagree with each other.
+        Monthly. The current figures are as of {kpis.asOfLabel}. Every number comes from one source
+        file, so this page, its structured data and our machine-readable facts feed always match.
       </p>
     </div>
   </section>

@@ -84,21 +84,21 @@ const keyFacts = [
 
 const faq = [
   { q: 'Which historic commission reviews work on a Short North property?',
-    a: 'It depends which side of High Street the property sits on. West of High is Victorian Village, reviewed by the Victorian Village Commission. East of High is Italian Village, reviewed by the Italian Village Commission. Both issue Certificates of Appropriateness for exterior alterations under Columbus City Code chapters 3116 and 3119, and both take applications through the Columbus Citizens Access Portal roughly a month before the meeting. The High Street corridor running through both is additionally governed by the Short North Design Guidelines, adopted September 19, 2011. An owner who applies to the wrong commission can lose a month on a simple repair.' },
+    a: 'It depends on the side of High Street. West is the Victorian Village Commission, east is the Italian Village Commission. Both issue Certificates of Appropriateness under Columbus City Code chapters 3116 and 3119, with applications through the Columbus Citizens Access Portal roughly a month before the meeting, and the High Street corridor also falls under the Short North Design Guidelines, adopted September 19, 2011.' },
   { q: 'Where exactly is the Short North?',
-    a: 'It runs along High Street between downtown Columbus and the Ohio State campus, with the Arena District to the south and the University District to the north. Victorian Village flanks it on the west and Italian Village on the east, with Harrison West beyond Victorian Village out to the Olentangy River. Italian Village itself is bounded by I-670 on the south, Fifth Avenue on the north, North High Street on the west and the Conrail tracks on the east. Most of it falls in zip code 43201.' },
+    a: 'It runs along High Street between downtown Columbus and the Ohio State campus, with the Arena District to the south and the University District to the north. Victorian Village flanks it on the west, Italian Village on the east, and Harrison West runs out to the Olentangy River. Most of it falls in zip code 43201.' },
   { q: 'Is the Short North its own city?',
-    a: 'No. It is a Columbus district in Franklin County, so Columbus ordinances apply in full: the rental registry, source of income protections, Columbus water and sewer, and Columbus Division of Refuse Collection for buildings of four attached units or fewer. Evictions go to Franklin County Municipal Court like every other Franklin County address.' },
+    a: 'No. It is a Columbus district in Franklin County, so Columbus ordinances apply in full: the rental registry, source of income protections, Columbus water and sewer, and city refuse collection for buildings of four attached units or fewer. Evictions go to Franklin County Municipal Court.' },
   { q: 'What kind of rental housing is in the Short North?',
-    a: 'Two-story brick houses are the backbone, many of them cut into two or three units decades ago, plus doubles, converted commercial upper floors along High Street and a growing set of newer infill buildings. Typical Italian Village stock is soft-burned red brick with a gray slate hipped or flat roof, chimneys rising from the ridge line, moderate roof overhangs and hanging or box gutters. Flat and low-slope roofs are far more common here than in the rest of the city, and they are the single largest capital item an owner should plan for.' },
+    a: 'Two-story brick houses, many cut into two or three units decades ago, plus doubles, apartments above High Street retail and newer infill. Flat and low-slope roofs are far more common here than in the rest of the city, and they are the largest capital item to plan for.' },
   { q: 'Which court hears an eviction in the Short North?',
-    a: 'Franklin County Municipal Court, at 375 S. High St., a short distance south of the district itself. Ohio Revised Code 1901.02 gives that court jurisdiction throughout Franklin County. An Ohio eviction is a forcible entry and detainer action under Revised Code Chapter 1923, filed in two causes: one for possession and one for the money judgment.' },
+    a: 'Franklin County Municipal Court, at 375 S. High St., just south of the district. Ohio Revised Code 1901.02 gives it jurisdiction throughout Franklin County, and the case is a forcible entry and detainer action under Revised Code Chapter 1923, with one cause for possession and one for the money judgment.' },
   { q: 'Who bills the water on a Short North rental, and who is liable?',
-    a: 'The City of Columbus Department of Public Utilities bills water, sewer and stormwater. A resident can be put on the bill through the city Tenant Billing Agreement, but Columbus City Code 1105.045 is titled "Unpaid charges a lien. Owner liable." and section 1147.16 does the same for sewer. The owner stays liable and unpaid charges attach to the property. The risk is higher here than elsewhere, because older brick buildings cut into multiple units frequently sit on a single water meter, so one bill covers several households.' },
+    a: 'The City of Columbus Department of Public Utilities bills water, sewer and stormwater, and under Columbus City Code 1105.045 and 1147.16 the owner stays liable even with a Tenant Billing Agreement. The risk is higher here because divided brick buildings often share one water meter, so one bill covers several households.' },
   { q: 'Did Columbus weaken the Italian Village and Victorian Village commissions in 2025?',
-    a: 'Not for private property. In December 2025 Columbus City Council amended the code so the City, its officials, agents and contractors do not need a Certificate of Appropriateness when doing construction, reconstruction, demolition or alteration in a right of way. That covers city work on public streets and sidewalks. Review of exterior alterations on privately owned buildings was not changed.' },
+    a: 'Not for private property. In December 2025 Columbus City Council exempted the City, its officials, agents and contractors from needing a Certificate of Appropriateness for work in a right of way. Review of exterior alterations on privately owned buildings was not changed.' },
   { q: 'How much does property management cost in the Short North?',
-    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee and no startup fee on an occupied unit. Pricing does not vary by Columbus neighborhood, and there is no historic-district surcharge. Since Short North rents run above the Columbus median, a flat fee is worth proportionally more here than a percentage fee would be.` },
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee and no startup fee on an occupied unit. There is no historic-district surcharge, and because Short North rents run above the Columbus median, a flat price saves more here than a percentage would.` },
 ];
 
 const schemaNodes = [
@@ -129,16 +129,14 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="where-h" class="text-[clamp(26px,3vw,36px)]">Where is the Short North, and what is it made of?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        The Short North is the stretch of High Street between downtown Columbus and the Ohio State
-        campus, with the Arena District at its southern end and the University District at its
-        northern one. It is a district rather than a single neighborhood: Victorian Village lies west
-        of High Street, Italian Village lies east, and Harrison West runs beyond Victorian Village out
-        to the Olentangy River. Goodale Park sits at the southwest corner. Most of it is zip code 43201.
+        High Street between downtown and the Ohio State campus, from the Arena District to the University
+        District. It is a district, not one neighborhood: Victorian Village lies west of High, Italian
+        Village east, and Harrison West runs out to the Olentangy River. Goodale Park sits at the
+        southwest corner. Most of it is zip code 43201.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        For an owner, the side of High Street a property sits on decides which commission reviews any
-        exterior work on it, and the two commissions are separate bodies with separate guidelines and
-        separate calendars.
+        Your side of High Street decides which commission reviews exterior work, and the two have
+        separate guidelines and calendars.
       </p>
     </div>
   </section>
@@ -149,15 +147,14 @@ const schemaNodes = [
       <span class="eyebrow">Design review</span>
       <h2 id="review-h" class="text-[clamp(28px,3.3vw,40px)]">Which commission has to approve exterior work here?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
-        Whichever one your side of High Street falls under. Both issue Certificates of Appropriateness
-        for exterior alterations under Columbus City Code chapters 3116 and 3119, and applications go
-        through the Columbus Citizens Access Portal about a month ahead of the meeting.
+        Both issue Certificates of Appropriateness under Columbus City Code chapters 3116 and 3119, with
+        applications through the Columbus Citizens Access Portal about a month before the meeting.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-7">
         {[
           { h: 'Italian Village Commission', p: 'East of High Street. The commission and the district were established by Ordinance 1579-73 in 1973, and the district guidelines were adopted in 1990. The district runs from I-670 on the south to Fifth Avenue on the north, North High Street on the west and the Conrail tracks on the east.' },
-          { h: 'Victorian Village Commission', p: 'West of High Street, covering Victorian Village. Same statutory basis, same Certificate of Appropriateness requirement for exterior alterations, its own guidelines and its own meeting calendar.' },
-          { h: 'Short North Design Guidelines', p: 'Adopted September 19, 2011, these cover the High Street corridor running through both districts, so a storefront or a mixed-use building on High is reviewed against the corridor guidelines as well as the district ones.' },
+          { h: 'Victorian Village Commission', p: 'West of High Street. Same legal basis and certificate requirement, with its own guidelines and meeting calendar.' },
+          { h: 'Short North Design Guidelines', p: 'Adopted September 19, 2011, for the High Street corridor through both districts. A building on High is reviewed against these and the district guidelines.' },
         ].map((x) => (
           <div class="card">
             <h3 class="text-[18.5px] mb-2">{x.h}</h3>
@@ -166,9 +163,8 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[15px] text-muted mt-7">
-        The December 2025 code amendment that exempted the City from obtaining a Certificate of
-        Appropriateness applies only to work the City does in a right of way. Private property review
-        was not changed, so an owner's obligations here are unchanged.
+        The December 2025 amendment exempting the City from the certificate covers only city work in a
+        right of way. Private property review did not change.
       </p>
       <p class="text-[14px] text-faint mt-4">
       </p>
@@ -181,17 +177,16 @@ const schemaNodes = [
       <span class="eyebrow">The buildings</span>
       <h2 id="stock-h" class="text-[clamp(28px,3.3vw,40px)]">What kind of buildings do you manage in the Short North?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
-        We mostly manage nineteenth-century brick buildings here, many of them divided into more units
-        than they were built for. Typical Italian Village stock is two-story soft-burned red brick with a gray slate hipped
-        or flat roof, chimneys rising from the ridge line, moderate overhangs and hanging or box
-        gutters. Victorian Village runs to larger and more elaborate houses on wider lots.
+        Mostly nineteenth-century brick, often divided into more units than it was built for. Typical
+        Italian Village stock is two-story soft-burned red brick with a gray slate hipped or flat roof,
+        ridge-line chimneys and hanging or box gutters. Victorian Village runs to larger houses on wider lots.
       </p>
       <div class="grid gap-5 sm:grid-cols-2 mt-7">
         {[
-          { h: 'The divided brick house', p: 'A single-family house cut into two or three flats sometime in the last century. Good rent per foot, but the shared stairs, the single water meter and the original stack are where the money goes.' },
-          { h: 'The double', p: 'Purpose-built two-unit brick or frame buildings on the side streets. The most straightforward thing to own here and the easiest to lease.' },
-          { h: 'The commercial upper', p: 'Apartments above retail along High Street. Reviewed against the Short North Design Guidelines as well as the district guidelines, and subject to whatever the ground-floor use does to noise and refuse.' },
-          { h: 'Newer infill', p: 'Townhomes and small apartment buildings dropped into gaps over the last two decades. Newer systems, higher rent, and an association document to read before you buy.' },
+          { h: 'The divided brick house', p: 'A house cut into two or three flats. Good rent per foot, but the shared stairs, single water meter and original stack are where the money goes.' },
+          { h: 'The double', p: 'Purpose-built two-unit brick or frame buildings on the side streets. The simplest to own and lease.' },
+          { h: 'The commercial upper', p: 'Apartments above High Street retail, under both sets of guidelines and exposed to ground-floor noise and refuse.' },
+          { h: 'Newer infill', p: 'Townhomes and small apartment buildings from the last two decades. Newer systems, higher rent, and association documents to read.' },
         ].map((x) => (
           <div class="card">
             <h3 class="text-[18.5px] mb-2">{x.h}</h3>
@@ -200,10 +195,9 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[15px] text-muted mt-7">
-        That stock leaves an owner with two things to plan for. Flat and low-slope roofs are common here and
-        uncommon elsewhere in Columbus, so the roof is the capital item to underwrite hardest. And
-        multi-unit buildings on a single water meter mean one city bill for several households, which
-        under Columbus City Code 1105.045 is the owner's liability regardless of whose name is on it.
+        Two things to plan for: flat and low-slope roofs, which are rare elsewhere in Columbus and the
+        capital item to underwrite hardest, and shared water meters, where one city bill covers several
+        households and stays the owner's liability under Columbus City Code 1105.045.
       </p>
     </div>
   </section>
@@ -214,10 +208,8 @@ const schemaNodes = [
       <span class="eyebrow">Our own numbers, labeled</span>
       <h2 id="rent-h" class="text-[clamp(28px,3.3vw,40px)]">What do Short North rentals rent for?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
-        We do not publish a Short North median because we do not have enough leases inside the district
-        to support one. Short North rents run above the Columbus median, sometimes well above, and we
-        would rather publish no number than one we cannot defend. The two figures below come from our
-        own leases, labeled for what they cover.
+        Above the Columbus median, sometimes well above. We do not have enough leases here for an honest
+        district median, so these are two labeled figures from our own leases.
       </p>
       <div class="grid gap-5 sm:grid-cols-2 mt-7">
         <div class="card">
@@ -244,15 +236,13 @@ const schemaNodes = [
         </div>
       </div>
       <p class="text-[15px] text-muted mt-6">
-        Because rents here sit at the top of the Columbus range, a flat fee saves you more in the Short
-        North than anywhere else in the city. A percentage manager charging 10% earns more on the same
-        building only because the rent is higher, while our fee stays the same dollar amount.
-        The comparison at three rent levels is on the
+        With rents at the top of the Columbus range, a flat price saves more here than anywhere else in
+        the city: a 10% manager earns more only because the rent is higher. See the comparison at three
+        rent levels on the
         {' '}<a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">pricing page</a>.
       </p>
       <p class="text-[14px] text-faint mt-4">
-        The left column is our own Columbus leases. The right column is our whole portfolio across the
-        metro. Neither is a Short North figure and neither is presented as one.
+        Left: our Columbus leases. Right: our whole metro portfolio. Neither is a Short North figure.
       </p>
     </div>
   </section>
@@ -282,7 +272,7 @@ const schemaNodes = [
           <h3 class="text-[18.5px] mb-2">Franklin County Auditor</h3>
           <p class="text-[15px] text-muted m-0">
             Ohio Revised Code 5323.02. Filed once, no fee, updated within 60 days of any change.
-            Out-of-state owners must name an Ohio agent for service of process.
+            An owner outside Ohio names an Ohio agent for service of process.
           </p>
         </div>
       </div>

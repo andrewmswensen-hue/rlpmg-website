@@ -64,11 +64,11 @@ const turnTiers = [
 ];
 
 const process = [
-  { n: '1', h: 'You apply', p: 'Fill in the form below. Tell us what you do, where you work, and how to reach you. It takes a few minutes and there is no account to create.' },
-  { n: '2', h: 'We review it', p: 'A person reads it and checks it against what we currently need. Trades where we already have good coverage move slower than trades where we do not.' },
+  { n: '1', h: 'You apply', p: 'Fill in the form below: what you do, where you work, how to reach you. A few minutes, no account.' },
+  { n: '2', h: 'We review it', p: 'A person checks it against what we need. Trades we already cover well move slower.' },
   { n: '3', h: 'We verify your paperwork', p: 'Insurance, licensing and tax documentation are confirmed before any work is assigned.' },
-  { n: '4', h: 'You get in the system', p: 'Approved vendors are set up so work orders, scheduling and repair history run through one place rather than a chain of text messages.' },
-  { n: '5', h: 'You get a first job', p: 'It is usually something small and well defined, so both sides can see how the other works before anything larger is on the line.' },
+  { n: '4', h: 'You get in the system', p: 'Approved vendors get work orders, scheduling and repair history in one place.' },
+  { n: '5', h: 'You get a first job', p: 'Usually small and well defined, so both sides can see how the other works.' },
 ];
 
 const faq = [
@@ -90,7 +90,7 @@ const faq = [
   },
   {
     q: 'What areas do you send work in?',
-    a: `${areas.length} communities across Central Ohio, anchored in Columbus and Franklin County and reaching into Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. Tell us your service radius on the form. A vendor who covers three suburbs well is more useful to us than one who claims the whole metro.`,
+    a: `${areas.length} communities across Central Ohio, anchored in Columbus and Franklin County and reaching into Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. Tell us your service radius on the form.`,
   },
   {
     q: 'How does scheduling and communication work?',
@@ -125,38 +125,30 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <h2 id="work-h">What work does RL Property Management send out?</h2>
       <p>
         Repairs, unit turns and larger projects across {company.unitsManaged} units, mostly
-        {' '}{company.propertyTypes}, spread across {areas.length} Central Ohio communities. Our
-        own maintenance team handles a large share of routine work at an in-house labor rate of
-        {' '}{usd(pricing.maintenance.inHouseHourly)} per hour plus a
-        {' '}{usd(pricing.maintenance.tripCharge)} trip charge, so outside vendors come in for
-        specialized trade work, licensed work, and capacity when several turns land at once.
+        {' '}{company.propertyTypes}, in {areas.length} Central Ohio communities. Our in-house team
+        handles most routine work (billed at {usd(pricing.maintenance.inHouseHourly)} per hour plus a
+        {' '}{usd(pricing.maintenance.tripCharge)} trip charge). Vendors get:
       </p>
-      <p>
-        Anything that legally requires a license goes to a vendor. That means
-        {' '}{vendors.licensedTrades.join(', ')}. Work that does not require a license we keep in
-        house wherever we can, which is why our vendor list is deliberately shorter than those of
-        most managers our size.
-      </p>
+      <ul>
+        <li>Anything that legally requires a license: {vendors.licensedTrades.join(', ')}</li>
+        <li>Specialized trade work</li>
+        <li>Extra capacity when several turns land at once</li>
+      </ul>
 
       <h2>What is it like to work with us?</h2>
-      <p>
-        Most contractors ask about three things before anything else.
-      </p>
       <ul>
         <li>
           <strong>The volume is steady year-round.</strong> {company.unitsManaged} units
-          generate repairs every week of the year. Turns cluster in the leasing season, but the
-          repair flow does not stop in February.
+          generate repairs every week. Turns cluster in leasing season.
         </li>
         <li>
           <strong>Everything runs through one system.</strong> Work orders, scheduling, photos and
-          history live in Property Meld, so each job has a record, and so does the conversation about it.
+          history live in Property Meld.
         </li>
         <li>
-          <strong>The scope is written down.</strong> We scope turns before the work starts, which
-          is how a bid stays a bid. Median time to close a repair across the portfolio is
-          {' '}{kpis.metrics[5].value} days, and that number depends on vendors who show up when
-          they said they would.
+          <strong>The scope is written down.</strong> We scope turns before work starts, so a bid
+          stays a bid. Median time to close a repair is {kpis.metrics[5].value} days, which depends
+          on vendors who show up on time.
         </li>
       </ul>
     </div>
@@ -167,9 +159,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">Published fee schedule</span>
       <h2 id="fee-h" class="text-[clamp(26px,3.2vw,38px)]">How is vendor work priced to the owner?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        We publish our own fee schedule, so a vendor can see exactly how the job is structured
-        before working on one. These are charges that appear on the property owner's statement for
-        our oversight of the project.
+        These charges appear on the owner's statement for our oversight of the project.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]">
@@ -193,8 +183,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
         </table>
       </div>
       <p class="text-[15px] text-muted mt-6 max-w-[44em]">
-        This fee is billed to the owner for our oversight of the work. It is not deducted from what
-        you invoice.
+        It is billed to the owner, not deducted from what you invoice.
         {' '}The complete schedule is on the <a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">pricing page</a>.
       </p>
     </div>
@@ -212,29 +201,22 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
           licensed. {vendors.permits}
         </li>
         <li>
-          <strong>Insurance and tax setup.</strong> Both are verified during review. Ask the office
-          for the current requirement before you buy a policy to meet it.
+          <strong>Insurance and tax setup.</strong> Both are verified during review. Call
+          {' '}{company.phone} for the current requirement before you buy a policy to meet it.
         </li>
         <li>
           <strong>Background screening.</strong> {vendors.backgroundChecks}
         </li>
       </ul>
-      <p>
-        Until operations confirms those requirements, call {company.phone} and ask. We will add the
-        answer to this page once it is settled. The form below is enough to start the conversation.
-      </p>
 
       <h2>How do vendors get paid?</h2>
       <p>
-        Net {vendors.paymentTermsDays} days from an approved invoice. {vendors.invoicing} Each
-        job has one record, so an invoice does not end up attached to a text message that nobody can
-        find in March.
+        Net {vendors.paymentTermsDays} days from an approved invoice. {vendors.invoicing}
       </p>
 
       <h2>Is applying an agreement?</h2>
       <p>
-        No. Submitting the form below starts a conversation. It does not create a relationship, and
-        it does not assign any work.
+        No. The form starts a conversation. It does not create a relationship or assign work.
       </p>
     </div>
   </section>
@@ -244,7 +226,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">What happens next</span>
       <h2 id="proc-h" class="text-[clamp(26px,3.2vw,38px)]">How does the application process work?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        The process has five steps, and a person handles each one.
+        Five steps, each handled by a person.
       </p>
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {process.map((s) => (
@@ -263,8 +245,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
       <span class="eyebrow">Apply</span>
       <h2 id="form-h" class="text-[clamp(26px,3.2vw,38px)]">Vendor application</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        We need the fields marked required to evaluate the application. Do not send certificates, license copies or tax forms through this form. We will ask for
-        documents directly once the application is reviewed.
+        Do not send certificates, license copies or tax forms here. We ask for documents after review.
       </p>
 
       <!--
@@ -346,8 +327,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
             <label class={labelCls} for="trades">Trades and services you provide <span class="text-crimson">(required)</span></label>
             <textarea class={inputCls} id="trades" name="trades" rows="3" required></textarea>
             <span class={hintCls}>
-              In your own words. Be specific about what you will and will not take, because that is
-              more useful to us than a long list.
+              In your own words. Say what you will and will not take.
             </span>
           </div>
 
@@ -355,8 +335,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
             <label class={labelCls} for="service-area">Service area <span class="text-crimson">(required)</span></label>
             <textarea class={inputCls} id="service-area" name="service_area" rows="2" required></textarea>
             <span class={hintCls}>
-              The cities, suburbs or ZIP codes you cover. A tight radius you serve well beats
-              a claim on the whole metro.
+              The cities, suburbs or ZIP codes you cover well.
             </span>
           </div>
 
@@ -393,7 +372,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
               ))}
             </div>
             <span class={hintCls}>
-              Do not attach a certificate here. We will ask for documents directly during review.
+              Do not attach a certificate. We ask during review.
             </span>
           </fieldset>
 
@@ -415,8 +394,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
             <label class={labelCls} for="notes">Anything else we should know?</label>
             <textarea class={inputCls} id="notes" name="notes" rows="4"></textarea>
             <span class={hintCls}>
-              Your typical response time, whether you take after-hours calls, capacity you have open
-              right now, or anything that makes you a better fit than the last person who applied.
+              Response time, after-hours availability, open capacity, or anything that makes you a good fit.
             </span>
           </div>
         </fieldset>
@@ -433,8 +411,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
             <button type="submit" class="btn btn-primary">Submit vendor application</button>
           </div>
           <p class="text-[13px] text-faint m-0">
-            Submitting this form starts a conversation. It is not an agreement, and it does not
-            assign any work. See our
+            This is not an agreement and does not assign work. See our
             {' '}<a href="/privacy-policy/" class="text-crimson font-semibold no-underline hover:underline">privacy policy</a>.
             Prefer to talk? Call {company.phone}.
           </p>

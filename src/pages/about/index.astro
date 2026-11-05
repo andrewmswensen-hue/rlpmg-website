@@ -45,17 +45,17 @@ const clients = [
 /** What is different, from the current live About page, with numbers added from facts.ts. */
 const differences = [
   { h: 'Pricing you can read before you call',
-    p: `Monthly management is a flat ${priceRange()} per unit. Placing a resident costs ${usd(pricing.leasingFee)}. The full fee schedule, including the charges that only show up in a bad month, is published on the pricing page.` },
+    p: `A flat ${priceRange()} per unit per month. Placing a resident costs ${usd(pricing.leasingFee)}. Every charge is published, including the ones that only show up in a bad month.` },
   { h: 'Quarterly inspections, not annual ones',
-    p: 'Every managed property is inspected quarterly. Small problems found in month three are cheaper than the same problems found in month eleven.' },
+    p: 'Every managed property, every quarter. Problems found in month three cost less than in month eleven.' },
   { h: 'A custom lease reviewed by legal counsel',
-    p: 'The lease is a custom document reviewed by counsel and written against Ohio landlord-tenant law and Franklin County practice, rather than a form download.' },
+    p: 'Written for Ohio landlord-tenant law and Franklin County practice, not a form download.' },
   { h: 'We publish our operating numbers',
     p: `The scorecard is public and refreshed monthly: ${kpis.metrics[0].value} median days on market, ${kpis.metrics[3].value} occupancy, ${kpis.metrics[6].value} of rent collected by the 5th.` },
   { h: 'Local since 2013',
-    p: `The team works out of ${company.address.city}, Ohio, and the properties are in Franklin County and the counties that touch it. Nothing is managed remotely from another state.` },
+    p: `The team works out of ${company.address.city}, Ohio. Nothing is managed remotely from another state.` },
   { h: 'We are selective about the work',
-    p: 'We take on property in a defined service area and a defined property profile. We say no to property outside it so we can serve the properties we take on well.' },
+    p: 'A defined service area and property profile. We say no to the rest so we can serve what we take on well.' },
 ];
 
 const faq = [
@@ -103,31 +103,26 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="what-h">What does RL Property Management do?</h2>
       <p>
-        We manage {company.propertyTypes} for people who own them as investments. That covers
-        marketing and leasing a vacant unit, screening applicants, writing and renewing leases,
-        collecting rent, coordinating maintenance, inspecting the property quarterly, keeping the
-        owner compliant with Ohio landlord-tenant law, and running an eviction when one becomes
-        unavoidable.
+        We manage {company.propertyTypes} for investors. That covers:
       </p>
+      <ul>
+        <li>Marketing, leasing and screening</li>
+        <li>Writing and renewing leases</li>
+        <li>Rent collection</li>
+        <li>Maintenance and quarterly inspections</li>
+        <li>Ohio landlord-tenant compliance, and evictions when unavoidable</li>
+      </ul>
       <p>
-        The purpose is one sentence: {mission.charAt(0).toLowerCase() + mission.slice(1)} An owner
-        should not be fielding an 11pm call about a furnace, chasing rent that is nineteen days late,
-        or discovering in month eight that nobody ever walked the property.
+        Our purpose: {mission.charAt(0).toLowerCase() + mission.slice(1)}
       </p>
 
       <h2>Who does RL Property Management work with?</h2>
       <p>
-        Owners of 1 to 99 units in the Columbus metro. Portfolios in that range are large enough to
-        behave like a business and small enough that one bad turn is felt. We work with:
+        Owners of 1 to 99 units in the Columbus metro, including:
       </p>
       <ul>
         {clients.map((c) => <li>{c}</li>)}
       </ul>
-      <p>
-        We are selective about who we work with and where we manage. Keeping to a defined service
-        area and a defined property profile is what lets a team of this size be at the property
-        when something goes wrong.
-      </p>
     </div>
   </section>
 
@@ -136,8 +131,7 @@ const related = [
       <span class="eyebrow">The difference</span>
       <h2 id="diff-h" class="text-[clamp(28px,3.3vw,40px)]">What makes RL Property Management different?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        Most of it comes down to publishing things other managers keep private: the prices, the
-        operating numbers, and the names of the people doing the work.
+        We publish what most managers keep private: prices, operating numbers, and who does the work.
       </p>
       <div class="grid gap-5 sm:grid-cols-2 mt-2">
         {differences.map((d) => (
@@ -154,15 +148,13 @@ const related = [
     <div class="wrap max-w-[880px] prose-rl">
       <h2 id="where-h">Where does RL Property Management operate?</h2>
       <p>
-        Across {areas.length} communities in Central Ohio, anchored in Columbus and Franklin County
-        and reaching into Delaware, Fairfield, Licking, Union, Madison and Pickaway counties.
-        Evictions run through the Franklin County Municipal Court, which is where the great majority
-        of the portfolio sits.
+        {areas.length} Central Ohio communities, anchored in Columbus and Franklin County and reaching
+        into Delaware, Fairfield, Licking, Union, Madison and Pickaway counties. Most of the portfolio
+        sits in Franklin County, where evictions go to Franklin County Municipal Court.
       </p>
       <p>
         The office is at {company.address.street}, {company.address.city}, {company.address.region}
-        {' '}{company.address.postalCode}. {company.officeHoursNote}, so call ahead rather than
-        stopping by.
+        {' '}{company.address.postalCode}. {company.officeHoursNote}, so call ahead.
       </p>
       <p>
         <a href="/areas-we-serve/">See all {areas.length} areas we serve</a>.
@@ -171,33 +163,29 @@ const related = [
       <h2>Who runs the company?</h2>
       <p>
         {company.brokerOfRecord.name} is {company.brokerOfRecord.title} and the broker of record.
-        The rest of the team, every name and every title, is on the
-        {' '}<a href="/team/">team page</a>. Leasing, maintenance, resident support, owner reporting
-        and people operations are separate functions with named people in them, rather than one
-        generalist covering all of it.
+        Leasing, maintenance, resident support, owner reporting and people operations each have named
+        people, listed on the <a href="/team/">team page</a>.
       </p>
 
       <h2>What does RL Property Management believe?</h2>
       <p>
-        Six core values, written to be used as operating instructions:
+        Six core values:
         {coreValues.map((v, i) => (
           <span>{i === 0 ? ' ' : ', '}{v.name.toLowerCase()}</span>
-        ))}. Each one is explained, with what it looks like in practice, on the
+        ))}. See what each looks like in practice on the
         {' '}<a href="/core-values/">core values page</a>.
       </p>
 
       <h2>How is RL Property Management paid?</h2>
       <p>
-        A flat {priceRange()} per unit per month, depending on which of the three plans you pick.
-        The plans differ in one thing, the per-item repair approval limit. Placing a resident costs
-        {' '}{usd(pricing.leasingFee)} on every plan, a lease renewal is {usd(pricing.leaseRenewalFee)},
-        and bringing an occupied unit under management costs {usd(pricing.startupFeeOccupied)}.
+        A flat {priceRange()} per unit per month across three plans, which differ only in the
+        per-item repair approval limit. Placing a resident costs {usd(pricing.leasingFee)} on every
+        plan, a lease renewal is {usd(pricing.leaseRenewalFee)}, and bringing an occupied unit under
+        management costs {usd(pricing.startupFeeOccupied)}.
       </p>
       <p>
-        A flat fee means our revenue does not rise when your rent does, and a
-        {' '}{usd(pricing.leasingFee)} leasing fee means we have no financial reason to prefer a new
-        lease over a renewal. The full schedule, including maintenance rates and eviction costs, is
-        on the <a href="/pricing/">pricing page</a>.
+        With a {usd(pricing.leasingFee)} leasing fee, we have no reason to prefer a new lease over a
+        renewal. The full schedule is on the <a href="/pricing/">pricing page</a>.
       </p>
     </div>
   </section>

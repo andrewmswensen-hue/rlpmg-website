@@ -66,15 +66,15 @@ const faq = [
   { q: 'What homes do you have for rent in Columbus, Ohio right now?',
     a: `${company.name} manages ${company.unitsManaged} single-family homes and small multifamily units across ${areas.length} communities in the Columbus metro, and the list of what is available changes weekly. Current listings appear on this page. If nothing on the list fits, call ${company.phone} and tell us what you are looking for.` },
   { q: 'How do I schedule a showing?',
-    a: 'Every listing carries its own showing option, so you book the home you want to see rather than calling a general line and waiting for a callback. [SOURCE NEEDED: whether showings are self-guided, agent-led, or both, and any identity or payment card verification required to book one].' },
+    a: 'Book from the listing for the home you want to see. Each listing has its own showing option. [SOURCE NEEDED: whether showings are self-guided, agent-led, or both, and any identity or payment card verification required to book one].' },
   { q: 'How much does it cost to apply?',
-    a: 'The application fee is [SOURCE NEEDED: application fee amount, and whether it is charged per adult applicant or per household]. It is charged when you submit, and it covers the cost of running the screening reports.' },
+    a: 'The application fee is [SOURCE NEEDED: application fee amount, and whether it is charged per adult applicant or per household]. It is charged when you submit and covers the screening reports.' },
   { q: 'Do you allow pets?',
     a: `Many of our homes accept pets, and the specific listing says whether that home does. Approved pets carry a monthly pet administration fee, which funds coverage of up to ${usd(pricing.petDamageCoverage.cap)} in pet damage above the security deposit. Service animals and assistance animals are not pets, are not charged a pet fee, and are handled under fair housing law. [SOURCE NEEDED: monthly pet administration fee amount, pet deposit if any, and the number, size or breed limits that apply].` },
   { q: 'What do I need to qualify for a rental?',
-    a: 'Every applicant is screened on the same published criteria: identity, income, credit, rental history, and background. The thresholds are listed in full on our application criteria page so you can check yourself before you pay an application fee. [SOURCE NEEDED: income multiple, credit score minimum, and rental history requirements].' },
+    a: 'Every applicant is screened on the same published criteria: identity, income, credit, rental history, and background. The full thresholds are on our application criteria page. [SOURCE NEEDED: income multiple, credit score minimum, and rental history requirements].' },
   { q: 'How fast do your rentals get leased?',
-    a: `Median days on market across the portfolio is ${dom} days as of ${kpis.asOfLabel}, measured as ${kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)} Portfolio occupancy is ${occupancy}. A home you like will not sit for long, so book the showing before you finish comparing.` },
+    a: `Median days on market across the portfolio is ${dom} days as of ${kpis.asOfLabel}, measured as ${kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)} Portfolio occupancy is ${occupancy}.` },
   { q: 'Do you rent to applicants using a housing voucher?',
     a: 'Yes. Columbus City Code sections 2331.02 and 4551.03 prohibit refusing to rent to someone because their income includes housing assistance, and many surrounding Central Ohio municipalities have the same protection. We apply the same screening criteria to every applicant regardless of how the income arrives.' },
   { q: 'What areas do you have rentals in?',
@@ -132,10 +132,6 @@ const faq = [
         {' '}<a href="https://rentengine.io/c/rlpmg" rel="noopener" class="text-crimson font-semibold no-underline hover:underline">Open them in a new tab</a>,
         or call {company.phone} and tell us the bedroom count, area and move-in date you want.
       </p>
-      <p class="text-[15px] text-faint mt-5 max-w-[880px]">
-        Everything below applies to every home we lease, so you can work out whether you qualify and what
-        the process looks like before you apply.
-      </p>
     </div>
   </section>
 
@@ -145,16 +141,13 @@ const faq = [
       <span class="eyebrow">Step one</span>
       <h2 id="see-h" class="text-[clamp(28px,3.3vw,40px)]">How do I see one of your homes?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        You book the showing from the listing for the specific home, not from a general contact form.
-        We set it up that way so you are scheduled against a real address and a real time window instead
-        of waiting on a callback that may come after the home is gone.
+        Book the showing from the listing for that home, not a general contact form. No waiting on a callback.
       </p>
       <ol class="mt-6 grid gap-4">
         <li class="card !p-5">
           <span class="block font-serif text-[18px] font-semibold text-navy mb-1">1. Find the home</span>
           <span class="block text-[15.5px] text-muted">
-            Check the bedroom count, the rent, the pet policy and the available date on the listing before
-            you book. Those four things rule out most mismatches.
+            Check the bedrooms, rent, pet policy and available date on the listing first.
           </span>
         </li>
         <li class="card !p-5">
@@ -168,14 +161,13 @@ const faq = [
         <li class="card !p-5">
           <span class="block font-serif text-[18px] font-semibold text-navy mb-1">3. Apply the same day if you want it</span>
           <span class="block text-[15.5px] text-muted">
-            Applications are reviewed in the order they are completed, not in the order they are started.
-            An application missing income documents sits behind a complete one filed later.
+            Applications are reviewed in the order they are completed, not started. An incomplete
+            one waits behind a complete one filed later.
           </span>
         </li>
       </ol>
       <p class="text-[15px] text-muted mt-6">
-        Median days on market across our portfolio is {dom} days as of {kpis.asOfLabel}. Homes priced at
-        market in good condition move faster than that.
+        Median days on market across our portfolio: {dom} days as of {kpis.asOfLabel}.
       </p>
     </div>
   </section>
@@ -186,9 +178,7 @@ const faq = [
       <span class="eyebrow">Before you pay a fee</span>
       <h2 id="qualify-h" class="text-[clamp(28px,3.3vw,40px)]">What do I need to qualify?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        You are checked on five things, the same way for every applicant on every home: identity, income,
-        credit, rental history and a background check. We publish the standard so you can check yourself against
-        it before you spend anything.
+        Five checks, the same for every applicant on every home. Check yourself against them before you pay anything.
       </p>
       <ul class="mt-6 grid gap-3">
         <li class="flex gap-3 text-[15.5px]"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">1</span><span><strong class="text-navy">Identity.</strong> A government issued photo ID for every adult who will live in the home.</span></li>
@@ -198,7 +188,7 @@ const faq = [
         <li class="flex gap-3 text-[15.5px]"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">5</span><span><strong class="text-navy">Background.</strong> A criminal background check is run for every adult applicant, and the result is assessed individually. <span class="text-crimson font-semibold">[SOURCE NEEDED: the written criminal screening standard, including lookback period and the individualized assessment process]</span></span></li>
       </ul>
       <p class="text-[15px] text-muted mt-6">
-        The full standard, including how we treat each of the items above, lives on the
+        The full standard is on the
         {' '}<a href="/residents/application-criteria/" class="text-crimson font-semibold no-underline hover:underline">application criteria</a> page.
       </p>
     </div>
@@ -210,8 +200,7 @@ const faq = [
       <span class="eyebrow">Money up front</span>
       <h2 id="cost-h" class="text-[clamp(28px,3.3vw,40px)]">What does it cost to apply, and what is due at move-in?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        There are two separate moments where money moves: the application fee when you submit, and the
-        move-in funds when you sign. Nothing else is due between them.
+        Money moves twice: the application fee when you submit, and move-in funds when you sign. Nothing is due in between.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -248,9 +237,9 @@ const faq = [
         </table>
       </div>
       <p class="text-[15px] text-muted mt-6">
-        After move-in, rent is due on {rentPolicy.dueDate}. In practice most residents pay between
-        {' '}{rentPolicy.practicalWindow}, and late fees are assessed after {rentPolicy.lateFeesAfter}. Across the
-        portfolio, {kpis.metrics.find((m) => m.id === 'collectedBy5')?.value} of rent is collected by the 5th.
+        After move-in, rent is due on {rentPolicy.dueDate}. Most residents pay between
+        {' '}{rentPolicy.practicalWindow}; late fees are assessed after {rentPolicy.lateFeesAfter}.
+        {' '}{kpis.metrics.find((m) => m.id === 'collectedBy5')?.value} of rent is collected by the 5th.
       </p>
     </div>
   </section>
@@ -261,15 +250,13 @@ const faq = [
       <span class="eyebrow">Pet friendly rentals</span>
       <h2 id="pets-h" class="text-[clamp(28px,3.3vw,40px)]">Can I have a pet?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        In many of our homes, yes, and the listing for each home says so. Pet policy is set per property,
-        because the owner of that property makes the call, so a home that says no pets is not a decision
-        we can reverse for an individual applicant.
+        In many of our homes, yes. Each listing says so. The owner sets the pet policy per property, so we
+        cannot override a "no pets" home for one applicant.
       </p>
       <p class="text-[16.5px] text-muted mt-4">
-        Where pets are allowed, an approved pet carries a monthly pet administration fee. That fee funds
-        coverage: if an approved pet causes damage beyond normal wear and tear and the cost runs past
-        the security deposit, up to {usd(pricing.petDamageCoverage.cap)} of the difference is covered. That
-        protects the owner, and it is the reason pets are welcome in as many of our homes as they are.
+        An approved pet carries a monthly pet administration fee. It funds coverage of up to
+        {' '}{usd(pricing.petDamageCoverage.cap)} in pet damage (beyond normal wear and tear) above the
+        security deposit, which is why so many owners allow pets.
       </p>
       <div class="card mt-6">
         <h3 class="text-[18.5px] mb-2">Service animals and assistance animals are not pets</h3>
@@ -294,10 +281,8 @@ const faq = [
       <span class="eyebrow">What things cost</span>
       <h2 id="rents-h" class="text-[clamp(28px,3.3vw,40px)]">What do homes rent for in the Columbus metro?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Median rent across the {company.unitsManaged} homes we manage runs from
-        {' '}{usd(rentByBedroom['1'].median)} for a one bedroom to {usd(rentByBedroom['4'].median)} for a four
-        bedroom. These are our own leases, not a market estimate, so they show what people are paying
-        now.
+        From {usd(rentByBedroom['1'].median)} for a one bedroom to {usd(rentByBedroom['4'].median)} for a four
+        bedroom (median). These are our own leases across {company.unitsManaged} homes, not a market estimate.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse bg-white text-[15.5px] rounded-[12px] overflow-hidden">
@@ -321,9 +306,8 @@ const faq = [
         </table>
       </div>
       <p class="text-[15px] text-faint mt-5">
-        Median rent across the whole portfolio is
-        {' '}{kpis.metrics.find((m) => m.id === 'avgRent')?.value}, as of {kpis.asOfLabel}. Rent on any
-        individual home depends on the home, not on this table.
+        Portfolio average: {kpis.metrics.find((m) => m.id === 'avgRent')?.value}, as of {kpis.asOfLabel}.
+        Each listing shows that home's rent.
       </p>
     </div>
   </section>
@@ -334,8 +318,7 @@ const faq = [
       <span class="eyebrow">Where we lease</span>
       <h2 id="where-h" class="text-[clamp(28px,3.3vw,40px)]">Where do you have rentals?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Across {areas.length} communities in the Columbus metro, spanning Franklin, Delaware, Fairfield,
-        Licking, Union, Madison and Pickaway counties. If you are searching by suburb, start here.
+        {areas.length} communities across Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway counties.
       </p>
       <div class="flex flex-wrap gap-x-5 gap-y-2 mt-6 text-[15.5px]">
         {linkedAreas.map((a) => (
@@ -346,8 +329,7 @@ const faq = [
         ))}
       </div>
       <p class="text-[15px] text-muted mt-6">
-        Not every community has something open every week. Tell us the areas you are searching and the
-        bedroom count you need, and we will tell you what is coming up.
+        Nothing open where you want? Tell us the area and bedroom count, and we will tell you what is coming up.
       </p>
     </div>
   </section>

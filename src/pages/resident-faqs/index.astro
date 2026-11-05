@@ -56,7 +56,7 @@ const groups = [
     heading: 'Applying for a home',
     items: [
       { q: 'How do I apply for one of your rentals?',
-        a: 'Tour the home, then submit an online application for every adult who will live there. Screening covers identity, income, credit, rental history and background, applied the same way to every applicant. The full process is on our how to apply page.' },
+        a: 'Tour the home, then submit an online application for every adult who will live there. Every applicant is screened the same way on identity, income, credit, rental history and background. The full process is on our how to apply page.' },
       { q: 'What are your application criteria?',
         a: 'Identity, verifiable income against the rent, credit, rental history verified with prior landlords, and a criminal background check assessed individually rather than as a blanket bar. The published standard is on our application criteria page. [SOURCE NEEDED: income multiple, credit score minimum, rental history lookback].' },
       { q: 'How much is the application fee?',
@@ -66,7 +66,7 @@ const groups = [
       { q: 'Do you accept housing vouchers?',
         a: 'Yes. Columbus City Code sections 2331.02 and 4551.03 prohibit refusing to rent to someone because their income includes housing assistance, and many surrounding Central Ohio municipalities have the same protection. Income is measured on amount and verifiability, never on source.' },
       { q: 'Does submitting an application hold the home?',
-        a: 'No, and neither does an approval on its own. The home comes off the market when the lease is signed and the funds due at signing have cleared. Until then it stays listed and other applications keep arriving.' },
+        a: 'No, and neither does an approval on its own. The home comes off the market when the lease is signed and the funds due at signing have cleared. Until then it stays listed.' },
     ],
   },
   {
@@ -82,7 +82,7 @@ const groups = [
       { q: 'What if I cannot pay in full this month?',
         a: `Tell us before ${rentPolicy.lateFeesAfter}, in writing through the portal, and say when the rest arrives. [SOURCE NEEDED: whether payment plans are offered, who approves one, and whether partial payments are accepted].` },
       { q: 'Why does month-to-month cost more?',
-        a: `A tenancy that lapses into month-to-month rather than renewing carries a ${rentPolicy.monthToMonthIncreasePct}% higher rent, because a home that can be vacated on short notice can be turned in any month of the year. Renewing is almost always cheaper.` },
+        a: `A tenancy that lapses into month-to-month rather than renewing carries a ${rentPolicy.monthToMonthIncreasePct}% higher rent, because a home that can be vacated on short notice can be turned in any month of the year.` },
     ],
   },
   {
@@ -90,7 +90,7 @@ const groups = [
     heading: 'Maintenance and repairs',
     items: [
       { q: 'How do I submit a maintenance request?',
-        a: `In the resident portal, in writing, with photos. A written request is timestamped, assigned and tracked. Median time to close a repair across the portfolio is ${repairDays} days as of ${kpis.asOfLabel}.` },
+        a: `In the resident portal, in writing, with photos, so it is timestamped and tracked. Median time to close a repair across the portfolio is ${repairDays} days as of ${kpis.asOfLabel}.` },
       { q: 'What do I do in an emergency?',
         a: `Call ${company.phone}, which is answered 24 hours a day, rather than filing a portal request. For fire, a gas smell, or immediate danger to a person, call 911 first and call us once you are safe. [SOURCE NEEDED: the lease definition of an after-hours emergency].` },
       { q: 'Will I be charged for a repair?',
@@ -148,9 +148,9 @@ const groups = [
       { q: 'How do I get a rental verification for a lender or a new landlord?',
         a: `Send the request to ${company.email} with the property address and the name on the lease, and say where the completed verification should go. [SOURCE NEEDED: the current rental verification intake process and any turnaround commitment].` },
       { q: 'Do you own the homes you manage?',
-        a: 'No. Each home is owned by a separate property owner, and we manage it on their behalf. That is why some policies, most obviously whether a home accepts pets, vary from one of our homes to another.' },
+        a: 'No. Each home is owned by a separate property owner, and we manage it on their behalf. That is why some policies, such as pets, vary from home to home.' },
       { q: 'How do I make a complaint?',
-        a: `Put it in writing through the resident portal or to ${company.email} so it is recorded and routed. Resident satisfaction across the portfolio is ${satisfaction} out of 5, and we publish that number so you can see it if it moves.` },
+        a: `Put it in writing through the resident portal or to ${company.email} so it is recorded and routed. Resident satisfaction across the portfolio is ${satisfaction} out of 5, and we publish that number.` },
     ],
   },
 ];
@@ -181,8 +181,7 @@ const faq = groups.flatMap((g) => g.items);
         ))}
       </div>
       <p class="text-[15px] text-muted mt-6">
-        {faq.length} questions, grouped. Anything marked as needing a source is a number we will not
-        publish until it is confirmed against the lease, because an applicant would rely on it.
+        {faq.length} questions, grouped by topic.
       </p>
     </div>
   </section>
@@ -201,10 +200,9 @@ const faq = groups.flatMap((g) => g.items);
       <span class="eyebrow">Not answered here</span>
       <h2 id="stuck-h" class="text-[clamp(26px,3vw,36px)]">What if my question is not on this page?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Ask it in the resident portal if you are a current resident, so the question and the answer are both
-        attached to your tenancy in writing. If you are not a resident yet, call {company.phone} or email
+        Residents: ask in the resident portal so it is in writing. Everyone else: call {company.phone} or email
         {' '}<a href={`mailto:${company.email}`} class="text-crimson font-semibold no-underline hover:underline">{company.email}</a>.
-        For anything that is an emergency, call rather than write, at any hour.
+        Emergencies: call, at any hour.
       </p>
       <div class="mt-8">
         <Verified date="2026-09-09" />

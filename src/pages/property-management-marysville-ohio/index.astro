@@ -1,0 +1,356 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import LegalNote from '../../components/LegalNote.astro';
+import { company, pricing, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Marysville, Ohio. Target query: "property management marysville ohio".
+ * Tier 'coverage' in markets.ts: we serve the area and will take property on.
+ * Use the plain coverage language and never imply volume.
+ *
+ * The differentiating facts: Union County is below the 200,000 population line
+ * that R.C. 5323.01(E) uses to define "residential rental property", so the state
+ * county-auditor filing that applies in Franklin and Delaware counties does not
+ * reach a Marysville rental. The city utility puts the owner on the tenant's
+ * water contract and keeps stormwater on the owner. The municipal court publishes
+ * its own eviction filing fee, and the city has a vacant building registry.
+ *
+ * SOURCES (all opened and verified 2026-11-05):
+ *  - Marysville is the county seat of Union County, about 27 miles northwest of
+ *    Columbus, population 25,571 at the 2020 census. Honda's Marysville Auto Plant
+ *    opened 1982. Scotts Miracle-Gro global headquarters. Timberview and Greenwood
+ *    Colony on the south side: https://en.wikipedia.org/wiki/Marysville,_Ohio
+ *  - Union County population 62,784 at the 2020 census; county seat Marysville;
+ *    Dublin (part) and Plain City (part) in the county:
+ *    https://en.wikipedia.org/wiki/Union_County,_Ohio
+ *  - RLPM's own guide, "Marysville / Union County Rental Market Guide (2026)",
+ *    published 2026-10-26: https://rlpmg.com/blog/marysville-ohio-rental-market-guide-2026/
+ *    Used for: estimated 30,190 residents July 2025 (US Census); Honda Marysville
+ *    Auto Plant about 4,400 employees (Honda 2026 Digital FactBook); Honda cancelled
+ *    the EV models planned for Ohio on 2026-03-12, gas and hybrid production
+ *    continues; Uptown along Fifth Street; Mill Valley; many subdivisions have
+ *    HOAs and some restrict leasing; Marysville Exempted Village Schools, with
+ *    parts of the county in Fairbanks, North Union and Dublin City Schools;
+ *    1.5% municipal income tax.
+ *  - City Utility Billing: about 11,000 customers; water, wastewater, recycling
+ *    and refuse, yard waste, stormwater, billed monthly, due last business day;
+ *    tenant deposit $150 (cash, money order or credit card), Contract for Utility
+ *    Services signed by landlord and all residents on the lease; 209 S. Main St.:
+ *    https://www.marysvilleohio.org/144/Utility-Billing
+ *  - Utility FAQ: "Tenants are not charged for stormwater service"; 5% late
+ *    payment fee; personal and business checks not accepted for a deposit:
+ *    https://www.marysvilleohio.org/Faq.aspx?QID=391
+ *  - Water from city-owned wells and the city reservoir, new treatment plant
+ *    commissioned January 2023 at 18000 Raymond Road:
+ *    https://www.marysvilleohio.org/130/Water
+ *  - City wastewater system, Water Reclamation Facility on Beecher Gamble Road:
+ *    https://www.marysvilleohio.org/113/Wastewater
+ *  - Electric: Dayton Power and Light (DP&L) or Union Rural Electric (URE); gas:
+ *    Columbia Gas or URE; Union County Auditor at 233 West Sixth Street:
+ *    https://www.marysvilleohio.org/276/New-Resident-Information
+ *  - DP&L "was rebranded as AES Ohio" on 2021-02-24: https://en.wikipedia.org/wiki/DP%26L_Inc.
+ *  - Marysville Municipal Court, 1250 W. 5th St., hears forcible entry and
+ *    detainer: https://www.marysvilleohio.org/724/Civil
+ *  - Court eviction instructions: three-day notice first, count starts the day
+ *    after service and excludes weekends and holidays; filing fee $125 plus $25
+ *    per additional defendant; cash, check or money order, no credit cards for
+ *    civil cases; hearing in about two to three weeks; bailiff supervises a setout
+ *    and the landlord supplies the workers:
+ *    https://www.marysvilleohio.org/DocumentCenter/View/5904/Instructions-for-Eviction-Cases
+ *  - Chapter 1320 Vacant Building Registration: register with Code Enforcement
+ *    within 90 days after a building becomes vacant (definitions include
+ *    unoccupied with utilities disconnected, or unused for its intended purpose
+ *    more than 180 days); property maintenance under Chapter 1319:
+ *    https://marysvilleohio.org/DocumentCenter/View/2300/1320--Vacant-Building-Registration
+ *  - No long-term rental registration or inspection program found on the city
+ *    site, 2026-11-05. The codified ordinances on Municode were not read; the RLPM
+ *    guide above also leaves this unconfirmed.
+ *  - US Census, ACS 2024 5-year estimates, Marysville city (place 3948160), via
+ *    https://censusreporter.org/profiles/16000US3948160-marysville-oh/ :
+ *    B25035 median year built 1999; B25034 4,960 of 10,472 units built 2000 or
+ *    later (47.4%), 1,185 built 1939 or earlier (11.3%); B25024 6,929 detached
+ *    single-family (66.2%); B25003 3,307 of 10,163 occupied units renter-occupied
+ *    (32.5%); B25064 median gross rent $1,223.
+ *  - Court: "The Marysville municipal court has jurisdiction within Union county."
+ *    https://codes.ohio.gov/ohio-revised-code/section-1901.02
+ *  - R.C. 5323.01(E): "residential rental property" means real property located
+ *    in a county with more than 200,000 people at the most recent decennial census:
+ *    https://codes.ohio.gov/ohio-revised-code/section-5323.01 (and -5323.02)
+ *  - R.C. 1923.04 three-day notice to leave the premises.
+ *
+ * NO qualifying entry in rentByMarketAndBedroom for Marysville. Census median
+ * gross rent is published, labelled as Census. No door counts. No per-market
+ * days on market.
+ */
+
+const CITY = 'Marysville';
+const PATH = '/property-management-marysville-ohio/';
+const COURT_FILING = pricing.eviction.otherCountyFilingFees.find((c) => c.court === 'Marysville Municipal Court')!.fee!; // facts.ts, verified 2026-11-05
+const COURT_EXTRA_DEFENDANT = 25;  // each additional defendant
+
+const title = 'Marysville Property Management | RL Property Management';
+const description =
+  `Marysville, Ohio property management at a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, ` +
+  `${usd(pricing.leasingFee)} leasing fee. Union County court, city utility rules, local answers.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Marysville', path: PATH },
+];
+
+const publishesOwnRent = canPublishOwnRent(CITY);
+const evictionTotal = pricing.eviction.attorneyFee + COURT_FILING + pricing.eviction.rlpmProcessFee;
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee each time a Marysville unit turns`,
+  'Marysville is the Union County seat, and evictions go to Marysville Municipal Court',
+  `The court's eviction filing fee is ${usd(COURT_FILING)}, plus ${usd(COURT_EXTRA_DEFENDANT)} per extra defendant`,
+  'City water in a tenant name needs a contract signed by the owner and every resident on the lease',
+  'Union County is under the population line for the state rental filing with the auditor',
+];
+
+const faq = [
+  { q: 'What county is Marysville, Ohio in?',
+    a: 'Union County, and Marysville is the county seat. Evictions go to Marysville Municipal Court, which also covers the Union County part of Dublin. Property taxes run through the Union County Auditor at 233 West Sixth Street.' },
+  { q: 'What does it cost to file an eviction in Marysville?',
+    a: `The court's published filing fee is ${usd(COURT_FILING)}, plus ${usd(COURT_EXTRA_DEFENDANT)} for each additional defendant, paid by cash, check or money order. The court does not take credit cards for civil cases. With the attorney and our process work, a one-defendant case comes to ${usd(evictionTotal)} before any setout.` },
+  { q: 'Do I have to register a Marysville rental with the county auditor?',
+    a: 'Not under current state law. The Ohio filing in R.C. 5323.02 covers rental property in counties with more than 200,000 people at the last census, and Union County had 62,784 in 2020. Franklin and Delaware county rentals do have to file.' },
+  { q: 'Does Marysville make owners register a vacant rental?',
+    a: 'It can. Chapter 1320 of the city code requires an owner to register a vacant building with Code Enforcement within 90 days. A house that sits unoccupied with the utilities disconnected, or unused for more than 180 days, can meet the definition.' },
+  { q: 'Do you manage rental property in Marysville?',
+    a: 'Yes. We manage rental property throughout Marysville and the surrounding Union County area. If you own a rental here, we can take it on, with the same pricing and process we use across Central Ohio.' },
+  { q: 'How much does property management cost in Marysville?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, a ${usd(pricing.leasingFee)} leasing fee, and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Photography is billed separately at $250 to $450 when needed.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Marysville, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Marysville, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Union County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Marysville, Ohio"
+    answer={`${company.name} manages Marysville rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Marysville is the Union County seat, and evictions are heard at Marysville Municipal Court.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Marysville, at a glance" />
+
+  <!-- COVERAGE AND DEMAND -->
+  <section class="band-tight" aria-labelledby="demand-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="demand-h" class="text-[clamp(26px,3.2vw,38px)]">What drives rental demand in Marysville?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        We manage rental property throughout Marysville and the surrounding Union County area. If you own a
+        rental here, we can take it on.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Honda's Marysville Auto Plant, about six miles northwest of the city, has built cars since 1982 and
+        employs about 4,400 people. Scotts Miracle-Gro has its global headquarters in town. The city had 25,571
+        residents at the 2020 census and an estimated 30,190 in 2025.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Underwrite on today's rent, not on announcements. In March 2026 Honda cancelled the electric models it
+        had planned to build in Ohio, while gas and hybrid production continues at Marysville. Our
+        {' '}<a href="/blog/marysville-ohio-rental-market-guide-2026/" class="text-crimson font-semibold no-underline hover:underline">Marysville rental market guide</a>
+        {' '}covers rents, taxes and the project pipeline in more depth.
+      </p>
+    </div>
+  </section>
+
+  <!-- UTILITIES: the owner signature and stormwater are the Marysville specifics. -->
+  <section class="band band-wash" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Utilities</span>
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">How do utilities work on a Marysville rental?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The City of Marysville bills water, sewer, trash, yard waste and stormwater on one monthly bill, due on
+        the last business day of the month. For a tenant to take over the account, three things happen:
+      </p>
+      <ul class="text-[16.5px] text-muted mt-4 grid gap-2">
+        <li>The tenant pays a $150 deposit by cash, money order or credit card. Personal and business checks are not accepted.</li>
+        <li>The owner and every resident on the lease sign a Contract for City Utility Services.</li>
+        <li>Stormwater stays with the owner, because the city does not bill tenants for it.</li>
+      </ul>
+      <p class="text-[16.5px] text-muted mt-5">
+        Without the owner's signature the account cannot move to the tenant, so it belongs on the move-in checklist.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Marysville, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water, sewer, trash</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Marysville Utility Billing, 209 S. Main St.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AES Ohio (formerly DP&amp;L) or Union Rural Electric, by address</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio or Union Rural Electric, by address</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        City water comes from city wells and a city reservoir, treated at a plant that opened in January 2023.
+      </p>
+    </div>
+  </section>
+
+  <!-- COURT -->
+  <section class="band-tight" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Marysville, Ohio?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Marysville Municipal Court, at 1250 W. 5th St. Ohio Revised Code 1901.02 gives it jurisdiction over all
+        of Union County. A three-day notice under R.C. 1923.04 comes first, and the court's own instructions
+        count those days from the day after service, skipping weekends and holidays.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The court sets an eviction hearing about two to three weeks after filing. If a judge rules for the owner
+        and the tenant has not left three days after the writ is served, the bailiff schedules a setout and
+        supervises it. The owner supplies the crew, and if a setout is needed we provide it for {usd(pricing.eviction.setoutFee)}.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What a Marysville eviction costs an owner</h3>
+        <ul class="grid gap-2 text-[15.5px] text-muted mb-0 list-none pl-0">
+          <li><strong class="text-navy">{usd(COURT_FILING)}</strong> court filing fee, plus {usd(COURT_EXTRA_DEFENDANT)} for each additional defendant</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.attorneyFee)}</strong> to the eviction attorney, filing plus up to two appearances</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.rlpmProcessFee)}</strong> to us to run the process end to end</li>
+          <li><strong class="text-navy">{usd(evictionTotal)}</strong> total for one defendant, before any setout</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOUSING -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Housing stock</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in Marysville?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Mostly newer houses. The median home in Marysville was built in 1999, and about 47% were built in 2000
+        or later. About 66% are detached single-family houses, and about a third of occupied homes are rented
+        (US Census, ACS 2024 5-year estimates).
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The older stock is in Uptown, the historic downtown along Fifth Street. Newer rentals sit in
+        subdivisions such as Mill Valley, with Timberview and Greenwood Colony on the south side. Many
+        subdivisions have homeowners associations and some restrict leasing, so read the HOA rules before you
+        buy. Most of the city is in the Marysville Exempted Village School District.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band-tight" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Marysville rental?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Not with the county, under current state law. The Ohio owner filing in R.C. 5323.02 covers "residential
+        rental property", which R.C. 5323.01 limits to counties with more than 200,000 people at the most recent
+        census. Union County had 62,784 in 2020. If you also own in Franklin or Delaware County, those rentals
+        do need the filing, and we handle it.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        We found no city registration or inspection program for occupied rentals as of November 2026. The city
+        does run a vacant building registry under Chapter 1320. An owner must register within 90 days after a
+        building becomes vacant, which can include a house left unoccupied with utilities disconnected, or one
+        unused for more than 180 days.
+      </p>
+      <LegalNote class="mt-6" />
+    </div>
+  </section>
+
+  <!-- COST -->
+  <section class="band band-wash" aria-labelledby="cost-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="cost-h" class="text-[clamp(26px,3.2vw,38px)]">What does property management cost in Marysville?</h2>
+      <div class="grid gap-5 sm:grid-cols-3 mt-6">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        {publishesOwnRent
+          ? 'Our portfolio sample in Marysville now supports a published median. Update this page before relying on it.'
+          : 'We do not publish our own Marysville rent figure. The Census median gross rent in Marysville (rent plus tenant-paid utilities, all unit sizes) is $1,223 in the ACS 2024 5-year estimates. That is a Census figure, not ours. Single-family houses usually rent above it, as our market guide shows.'}
+        {' '}Photography is not part of the {usd(pricing.leasingFee)} leasing fee and is billed at $250 to $450
+        when a unit needs new photos.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Marysville rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band-tight" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Marysville property management questions</h2>
+      <Faq items={faq} heading="Marysville property management questions" id="marysville-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        More answers are on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-11-05" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-dublin-ohio/', label: 'Dublin property management', note: 'Southeast, and partly in Union County.' },
+    { href: '/property-management-plain-city-ohio/', label: 'Plain City property management', note: 'Southeast, split between Madison and Union counties.' },
+    { href: '/property-management-delaware-ohio/', label: 'Delaware property management', note: 'East, Delaware County and its own municipal court.' },
+    { href: '/blog/marysville-ohio-rental-market-guide-2026/', label: 'Marysville rental market guide (2026)', note: 'Rents, taxes, employers and the project pipeline.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Marysville rental should earn"
+    body="Send us the address and we will price it against live comparable listings in Marysville and the rest of Union County. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

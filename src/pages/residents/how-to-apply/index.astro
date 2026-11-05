@@ -49,32 +49,32 @@ const steps = [
   {
     n: '1',
     h: 'See the home first',
-    p: 'Tour before you apply. An application fee is spent whether or not you take the home, so a showing is the cheapest step in the process. Check the pet policy, the available date and the utilities on the listing while you are there.',
+    p: 'Tour before you pay an application fee. Check the pet policy, available date and utilities on the listing.',
   },
   {
     n: '2',
     h: 'Gather your documents before you start',
-    p: 'The application asks for the same things every time, and it is far faster to collect them first than to start, stall, and lose your place in line to someone who was ready.',
+    p: 'Collect them first (list below). A stalled application loses its place to one that is complete.',
   },
   {
     n: '3',
     h: 'Every adult applies',
-    p: 'Each adult who will live in the home submits their own application and is screened individually, including a spouse or partner who is not on the income. Occupants under 18 are listed on the application but not screened as applicants.',
+    p: 'Each adult who will live in the home applies and is screened individually, including a spouse or partner with no income. Occupants under 18 are listed but not screened.',
   },
   {
     n: '4',
     h: 'Screening runs',
-    p: 'We check identity, income, credit, rental history and background against the published criteria, in exactly the same way for every applicant. Nothing about the order or the standard changes based on who is applying.',
+    p: 'Identity, income, credit, rental history and background, checked against the published criteria the same way for every applicant.',
   },
   {
     n: '5',
     h: 'Decision, then lease signing',
-    p: 'An approval comes with the terms attached: the home, the rent, the deposit and the start date. The home is not held until the lease is signed and the funds required at signing have cleared.',
+    p: 'An approval comes with the terms: home, rent, deposit, start date. The home is held only once the lease is signed and the funds due at signing clear.',
   },
   {
     n: '6',
     h: 'Move-in day',
-    p: 'Utilities go into your name before you get keys, and the condition report gets filled in during your first days in the home. Both are covered on the moving in page.',
+    p: 'Utilities go into your name before keys. Fill in the condition report in your first days. See the moving in page.',
   },
 ];
 
@@ -89,17 +89,17 @@ const documents = [
 
 const faq = [
   { q: 'How do I apply for a rental with RL Property Management?',
-    a: 'Tour the home, then submit an online application for every adult who will live there. Screening covers identity, income, credit, rental history and background, applied identically to every applicant. Once approved, you sign the lease and pay the funds due at signing, and the home is held from that point.' },
+    a: 'Tour the home, then submit an online application for every adult who will live there. Every applicant is screened the same way on identity, income, credit, rental history and background. Once approved, you sign and pay the funds due at signing, and the home is held from then.' },
   { q: 'How much is the application fee?',
     a: 'The application fee is [SOURCE NEEDED: application fee amount and whether it is charged per adult applicant or per household]. It pays for the screening reports, so it is spent when the reports run and is not refunded if the application is declined or if you change your mind.' },
   { q: 'How long does it take to hear back?',
-    a: 'A complete application moves quickly. An incomplete one stalls until the missing piece arrives. The most common delay is income documentation an applicant has not uploaded yet, or a prior landlord who has not returned our call. [SOURCE NEEDED: typical business days from a complete application to a decision].' },
+    a: 'A complete application moves quickly; an incomplete one stalls. The most common delays are missing income documents and prior landlords who have not called back. [SOURCE NEEDED: typical business days from a complete application to a decision].' },
   { q: 'Does everyone in the house have to apply?',
     a: 'Every adult who will live in the home applies and is screened separately, including adults who will not be contributing income. Occupants under 18 are listed on the application but are not screened. Adding an adult after move-in requires that person to apply and be approved first.' },
   { q: 'Can I apply for more than one home at a time?',
-    a: 'Yes, and applicants who are moving on a deadline often do. Each home is a separate application, so a separate fee applies to each. If you are choosing between two of our homes, call ' + company.phone + ' before you pay twice.' },
+    a: 'Yes. Each home is a separate application with a separate fee. If you are choosing between two of our homes, call ' + company.phone + ' before you pay twice.' },
   { q: 'Does applying hold the home?',
-    a: 'No. A submitted application does not take a home off the market, and neither does an approval on its own. The home comes off the market when the lease is signed and the funds due at signing have cleared. Until then it stays listed and other applications keep coming in.' },
+    a: 'No. A submitted application does not take a home off the market, and neither does an approval on its own. The home comes off the market when the lease is signed and the funds due at signing have cleared. Until then it stays listed.' },
   { q: 'What if I am declined?',
     a: 'We tell you, and if the decision was based in whole or in part on a consumer report, you receive an adverse action notice naming the reporting agency so you can request your file and dispute anything wrong in it. That is your right under the federal Fair Credit Reporting Act, and it is free from the agency.' },
   { q: 'Can I apply with a co-signer or a guarantor?',
@@ -127,8 +127,7 @@ const faq = [
       <span class="eyebrow">The process</span>
       <h2 id="steps-h" class="text-[clamp(28px,3.3vw,40px)]">What are the steps to apply?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        There are six, in order. If you come prepared, you can move through them in days rather than
-        weeks.
+        Six, in order. Come prepared and it takes days, not weeks.
       </p>
       <ol class="grid gap-4 mt-7">
         {steps.map((s) => (
@@ -154,8 +153,7 @@ const faq = [
       <span class="eyebrow">Come prepared</span>
       <h2 id="docs-h" class="text-[clamp(28px,3.3vw,40px)]">What do I need to have ready?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        You need the six things below. Having them in one folder before you start is the biggest difference
-        between an application that gets a decision this week and one that stalls.
+        Six things. Have them in one folder before you start.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -185,14 +183,12 @@ const faq = [
       <span class="eyebrow">How the queue works</span>
       <h2 id="rank-h" class="text-[clamp(28px,3.3vw,40px)]">If two people apply for the same home, who gets it?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        The first qualified applicant to complete an application gets the home. We review applications in the
-        order they are completed, not started, so an application started Monday with no income documents
-        attached sits behind one filed Wednesday with everything in it.
+        The first qualified applicant to complete an application. One started Monday without income
+        documents sits behind one filed complete on Wednesday.
       </p>
       <p class="text-[16.5px] text-muted mt-4">
-        The same criteria are applied to every applicant, in the same order, on every home. We do not hold
-        a home for a preferred applicant, we do not shop applications between homes, and we do not steer
-        anyone toward or away from a property or an area.
+        The same criteria apply to every applicant on every home. We do not hold a home for a preferred
+        applicant, shop applications between homes, or steer anyone toward or away from a property or an area.
       </p>
       <div class="card !border-2 !border-navy mt-7">
         <h3 class="text-[18.5px] mb-2">Equal housing opportunity</h3>
@@ -212,20 +208,18 @@ const faq = [
       <span class="eyebrow">Approval to keys</span>
       <h2 id="after-h" class="text-[clamp(28px,3.3vw,40px)]">What happens after I am approved?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        You get the terms in writing, you sign, you pay the funds due at signing, and only then does the
-        home come off the market. An approval by itself does not reserve anything.
+        The home comes off the market only after you sign and pay. An approval alone reserves nothing.
       </p>
       <ul class="grid gap-3 mt-6 text-[15.5px]">
         <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">1</span><span><strong class="text-navy">Terms in writing.</strong> The home, the rent, the lease start and end dates, the deposit and any pet terms.</span></li>
         <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">2</span><span><strong class="text-navy">Deadline to sign.</strong> <span class="text-crimson font-semibold">[SOURCE NEEDED: how long an approved applicant has to sign and fund before the home goes back on the market]</span></span></li>
         <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">3</span><span><strong class="text-navy">Funds due at signing.</strong> <span class="text-crimson font-semibold">[SOURCE NEEDED: security deposit amount or formula, whether first month rent is due at signing or at move-in, and accepted payment methods for move-in funds]</span></span></li>
         <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">4</span><span><strong class="text-navy">Utilities in your name.</strong> Required before keys are released. The list of which utilities you carry is on the <a href="/residents/moving-in/" class="text-crimson font-semibold no-underline hover:underline">moving in</a> page.</span></li>
-        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">5</span><span><strong class="text-navy">Keys and the condition report.</strong> Document the home in writing and with photos in your first days. That report is what your deposit is measured against when you leave.</span></li>
+        <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">5</span><span><strong class="text-navy">Keys and the condition report.</strong> Document the home in writing and photos in your first days. Your deposit is measured against it.</span></li>
       </ul>
       <p class="text-[15px] text-muted mt-6">
-        Once you are in, rent is due on {rentPolicy.dueDate} and late fees are assessed after
-        {' '}{rentPolicy.lateFeesAfter}. Across our portfolio,
-        {' '}{kpis.metrics.find((m) => m.id === 'collectedBy5')?.value} of rent is collected by the 5th.
+        Once you are in, rent is due on {rentPolicy.dueDate}; late fees are assessed after
+        {' '}{rentPolicy.lateFeesAfter}.
       </p>
     </div>
   </section>

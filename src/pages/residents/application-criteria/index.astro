@@ -51,31 +51,31 @@ const criteria = [
   {
     h: 'Identity',
     a: 'Every adult applicant provides a government issued photo ID, and the name on the application has to match it.',
-    detail: 'This is the one criterion with no judgment in it. We verify that the person applying is the person being screened, and the person named on the lease is the person who moves in.',
+    detail: 'We verify that the person applying is the person screened, and the person on the lease is the person who moves in.',
     unknown: null,
   },
   {
     h: 'Income',
     a: 'Income has to be verifiable and it has to be sufficient against the rent on that specific home.',
-    detail: 'Income is measured on the total household, and the source of that income does not matter. Wages, self-employment, retirement, disability, Social Security, child support, housing assistance and any other lawful, verifiable source count the same way. What we verify is that the money is real and that it arrives.',
+    detail: 'Measured on the total household, regardless of source. Wages, self-employment, retirement, disability, Social Security, child support, housing assistance and any other lawful, verifiable source count the same way.',
     unknown: 'income multiple required against monthly rent, which documents are accepted as proof, and how many months of history are required',
   },
   {
     h: 'Credit',
     a: 'A credit report is pulled for every adult applicant and measured against a published standard.',
-    detail: 'We read a credit report as a record of payment history, not of character. Balances owed to a prior landlord or utility carry more weight than an old medical account, because they describe the same obligation you are applying to take on.',
+    detail: 'Read as a record of payment history. Balances owed to a prior landlord or utility carry more weight than an old medical account.',
     unknown: 'minimum credit score, and how open collections, medical debt, charge-offs and a prior bankruptcy are each treated',
   },
   {
     h: 'Rental history',
     a: 'We contact prior landlords directly and verify what you reported on the application.',
-    detail: 'What we ask is narrow and the same every time: did you pay on time, did you give proper notice, was the home returned in reasonable condition, and would they rent to you again. A first-time renter with no rental history is not automatically declined; the other criteria carry more of the decision.',
+    detail: 'The same four questions every time: did you pay on time, give proper notice, return the home in reasonable condition, and would they rent to you again. A first-time renter is not automatically declined; the other criteria carry more weight.',
     unknown: 'how many years of rental history are verified, and how a prior eviction filing, an eviction judgment, or a balance owed to a former landlord is treated, including any lookback period',
   },
   {
     h: 'Background check',
     a: 'A criminal background check is run for every adult applicant, and results are assessed individually rather than as a blanket bar.',
-    detail: 'A blanket refusal to rent to anyone with any record is a fair housing problem, so it is not what we do. Where a record appears, the assessment looks at the nature of the conduct, how long ago it happened, and whether it bears on the safety of the property, neighbors or staff.',
+    detail: 'A blanket refusal to rent to anyone with a record is a fair housing problem, so we do not do it. Where a record appears, we look at the nature of the conduct, how long ago it happened, and whether it bears on the safety of the property, neighbors or staff.',
     unknown: 'the written criminal screening standard, including the lookback period, which categories of offense are considered, and the individualized assessment process',
   },
 ];
@@ -120,10 +120,8 @@ const faq = [
       <span class="eyebrow">Why this page exists</span>
       <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Why publish the criteria at all?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        We publish them so you can check yourself against the standard before you spend an application fee,
-        and so nobody has to wonder whether the standard moved for someone else. A written standard applied the same way every
-        time is also the practical safeguard against a fair housing complaint, which is why it is written
-        down rather than held in somebody's head.
+        So you can check yourself before you pay an application fee, and know the standard does not move for
+        anyone else. A written standard applied the same way every time is also how fair housing is protected.
       </p>
     </div>
   </section>
@@ -134,8 +132,7 @@ const faq = [
       <span class="eyebrow">The five checks</span>
       <h2 id="criteria-h" class="text-[clamp(28px,3.3vw,40px)]">What is checked, and how?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8">
-        We run five checks, in the same order, on every application. Nothing outside this list factors into
-        the decision.
+        Five checks, in the same order, on every application. Nothing else factors in.
       </p>
       <div class="grid gap-5">
         {criteria.map((c, i) => (
@@ -165,9 +162,8 @@ const faq = [
       <span class="eyebrow">How it is applied</span>
       <h2 id="consistent-h" class="text-[clamp(28px,3.3vw,40px)]">Is the standard the same for everyone?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Yes. We apply the same criteria, in the same order, on every home and for every applicant. Applications are
-        reviewed in the order they are completed, and the first qualified completed application gets the
-        home.
+        Yes, on every home and for every applicant. Applications are reviewed in the order they are completed,
+        and the first qualified completed application gets the home.
       </p>
       <ul class="grid gap-3 mt-6 text-[15.5px]">
         <li class="flex gap-3"><span class="text-crimson font-extrabold shrink-0" aria-hidden="true">✓</span><span>No applicant is asked for a larger deposit, a co-signer, or extra documentation that another applicant on the same home would not be asked for.</span></li>
@@ -215,11 +211,9 @@ const faq = [
       <span class="eyebrow">If the answer is no</span>
       <h2 id="declined-h" class="text-[clamp(28px,3.3vw,40px)]">What happens if I am declined?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        We tell you, and where the decision relied on a consumer report you receive an adverse action
-        notice naming the consumer reporting agency that supplied it. The federal Fair Credit Reporting Act
-        then gives you two rights worth using: a free copy of that file from the agency, and the right to
-        dispute anything in it that is wrong. Reports do contain errors, and a corrected report can change
-        an outcome.
+        We tell you. Where the decision relied on a consumer report, you receive an adverse action notice
+        naming the consumer reporting agency. Under the federal Fair Credit Reporting Act you can get a free
+        copy of that file and dispute anything wrong in it. A corrected report can change an outcome.
       </p>
       <p class="text-[16px] text-muted mt-4">
         The application fee is not refunded on a decline, because it paid for the reports we ran.

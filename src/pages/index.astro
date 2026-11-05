@@ -17,15 +17,18 @@ const description =
 const { linked: linkedAreas, unlinked: namedAreas } = partitionAreas(areas, areaUrl);
 
 const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)!.value;
+const avgRent = kpi('avgRent');
+/** Half a month of average rent, rounded to $25: what a typical leasing fee would cost. */
+const leasingSaving = Math.round(Number(avgRent.replace(/[^0-9.]/g, '')) / 2 / 25) * 25;
 const heroStats = kpis.metrics.filter((m) => ['dom', 'collectedBy5', 'renewal', 'repairDays'].includes(m.id));
 
 const services = [
-  { h: 'Marketing and leasing', p: 'Syndication to every major rental portal, self-guided showings, and pricing set against our own Columbus portfolio data.', href: '/services/marketing-and-leasing/', cta: 'How leasing works', icon: 'key' },
-  { h: 'Resident screening', p: 'Credit, criminal, income, rental history and eviction checks, applied consistently and within fair housing law.', href: '/services/tenant-screening/', cta: 'Our screening criteria', icon: 'userCheck' },
-  { h: 'Maintenance', p: `In-house technicians at ${usd(pricing.maintenance.inHouseHourly)} an hour, vetted vendors, quarterly inspections, and 24/7 emergency coverage.`, href: '/services/maintenance/', cta: 'Maintenance details', icon: 'wrench' },
-  { h: 'Rent collection', p: 'Online payment, automated late notices, and owner direct deposit. 96% of rent lands by the 5th.', href: '/services/rent-collection/', cta: 'How we collect', icon: 'banknote' },
-  { h: 'Owner reporting', p: 'Monthly statements, year-end reporting, and a real-time owner portal you can check at any time.', href: '/services/owner-reporting/', cta: 'See a sample', icon: 'chart' },
-  { h: 'Compliance and evictions', p: 'A custom lease reviewed by counsel, Ohio landlord-tenant compliance, and eviction handling when it is needed.', href: '/services/evictions/', cta: 'The process', icon: 'scale' },
+  { h: 'Marketing and leasing', p: 'Listed on every major rental site and priced with our own Columbus data.', href: '/services/marketing-and-leasing/', cta: 'How leasing works', icon: 'key' },
+  { h: 'Resident screening', p: 'Credit, income, rental history and background checks, applied the same way every time.', href: '/services/tenant-screening/', cta: 'Our screening criteria', icon: 'userCheck' },
+  { h: 'Maintenance', p: `In-house technicians at ${usd(pricing.maintenance.inHouseHourly)} an hour, vetted vendors, quarterly inspections and 24/7 emergency coverage.`, href: '/services/maintenance/', cta: 'Maintenance details', icon: 'wrench' },
+  { h: 'Rent collection', p: 'Online payments and direct deposit. 96% of rent arrives by the 5th.', href: '/services/rent-collection/', cta: 'How we collect', icon: 'banknote' },
+  { h: 'Owner reporting', p: 'Monthly statements, year-end reporting and an owner portal you can check anytime.', href: '/services/owner-reporting/', cta: 'See a sample', icon: 'chart' },
+  { h: 'Compliance and evictions', p: 'A lease reviewed by counsel, Ohio compliance, and evictions handled when needed.', href: '/services/evictions/', cta: 'The process', icon: 'scale' },
 ];
 
 /**
@@ -49,13 +52,13 @@ const serviceIcons: Record<string, string> = {
  */
 const howItWorks = [
   { h: 'Free consultation',
-    p: 'Tell us about the property, what you want out of it, and how involved you want to be. No charge and no obligation.' },
+    p: 'Tell us about the property and your goals. No cost, no obligation.' },
   { h: 'Rent evaluation',
-    p: 'We price it against our own Columbus portfolio, not a public index, and tell you what it should rent for and what it needs first.' },
+    p: 'We price it with our own Columbus data and flag anything it needs first.' },
   { h: 'Pick a plan',
-    p: `Three plans, ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month. You see the whole cost, including what we do not charge for, before you sign.` },
+    p: `${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month. You see the full cost before you sign.` },
   { h: 'We take it from here',
-    p: 'Marketing, showings, screening, the lease, rent collection and maintenance. You get monthly statements and a portal that is always current.' },
+    p: 'Leasing, rent collection and maintenance, with monthly statements and an always-current portal.' },
 ];
 
 /**
@@ -64,7 +67,7 @@ const howItWorks = [
  * residents page itself uses both, because "tenant portal" is what people search.
  */
 const router = [
-  { h: 'I own rental property', p: 'Pricing, management, and a free consultation', href: '/property-management-consultation/#consultation-form' },
+  { h: 'I need a property manager', p: 'Pricing, management, and a free consultation', href: '/property-management-consultation/#consultation-form' },
   { h: "I'm looking to rent", p: 'Available homes and how to apply', href: '/homes-for-rent/' },
   { h: "I'm a current resident", p: 'Pay rent, request a repair, find answers', href: '/residents/' },
 ];
@@ -137,9 +140,9 @@ const schemaNodes = [serviceNode({
             Full-Service Columbus Property Management Company
           </h1>
           <p class="text-[17px] sm:text-[19px] text-muted mt-4 sm:mt-5 mb-0 sm:mb-2 max-w-[32em]">
-            We manage {company.unitsManaged} single-family and small multifamily rentals across the
-            Columbus metro. Flat pricing from {usd(pricing.plans[0].monthly)} per unit, investor pricing from
-            five units, and no leasing fee.
+            {company.unitsManaged} single-family and small multifamily rentals managed across Columbus.
+            Flat pricing from {usd(pricing.plans[0].monthly)} per unit, investor rates from five units,
+            and <strong class="text-navy font-semibold">no leasing fee</strong>.
           </p>
           <p class="hidden sm:block text-[15px] text-faint mb-6">
             {company.brokerOfRecord.name}, {company.brokerOfRecord.title}.
@@ -157,8 +160,7 @@ const schemaNodes = [serviceNode({
 
         <!-- RIGHT CARD: the router. Owners first, because they are the business. -->
         <nav class="card !p-6 sm:!p-7 md:!p-8 !rounded-[22px] flex flex-col" aria-labelledby="router-h">
-          <h2 id="router-h" class="text-[22px] mb-4 sm:mb-1.5">How can we help?</h2>
-          <p class="hidden sm:block text-[14.5px] text-muted mb-5">Tell us what brings you here and we will take you straight there.</p>
+          <h2 id="router-h" class="text-[22px] mb-4">How can we help?</h2>
           <ul class="grid gap-3 flex-1 content-start sm:grid-rows-3 sm:content-stretch">
             {router.map((r, i) => (
               <li class="sm:h-full">
@@ -172,11 +174,12 @@ const schemaNodes = [serviceNode({
               </li>
             ))}
           </ul>
-          <div class="mt-6 pt-5 border-t border-line flex items-center gap-2 text-[13.5px]">
+          <a href={company.reviews.url} target="_blank" rel="noopener"
+             class="mt-6 pt-5 border-t border-line flex items-center gap-2 text-[13.5px] no-underline group">
             <Stars rating={company.reviews.rating} />
-            <span class="font-semibold text-navy">{company.reviews.rating} out of 5</span>
-            <span class="text-muted">&middot; {company.reviews.display} Google reviews</span>
-          </div>
+            <span class="font-semibold text-navy group-hover:underline">{company.reviews.rating} out of 5</span>
+            <span class="text-muted group-hover:underline">&middot; {company.reviews.display} Google reviews</span>
+          </a>
         </nav>
       </div>
 
@@ -209,14 +212,11 @@ const schemaNodes = [serviceNode({
       <div class="max-w-[660px] mx-auto text-center mb-11">
         <span class="eyebrow">Why choose RL Property Management</span>
         <h2 class="text-[clamp(28px,3.3vw,40px)]">Full-service property management with flat-rate, transparent pricing.</h2>
-        <p class="mt-3.5 text-[17.5px] text-muted">
-          Everything a Columbus rental needs, handled by a team that publishes its own numbers.
-        </p>
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
           <article class="card card-hover flex flex-col relative overflow-hidden">
-            <svg class="absolute -right-7 -bottom-9 w-[44%] max-w-[170px] text-crimson opacity-[.11] pointer-events-none"
+            <svg class="absolute right-5 bottom-5 w-[36%] max-w-[132px] text-crimson opacity-[.13] pointer-events-none"
                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"
                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"
                  set:html={serviceIcons[s.icon]} />
@@ -233,10 +233,11 @@ const schemaNodes = [serviceNode({
   <section class="band" aria-labelledby="how-h">
     <div class="wrap">
       <div class="max-w-[660px] mb-12">
-        <span class="eyebrow">How it works</span>
+        <span class="eyebrow">How to get started</span>
         <h2 id="how-h" class="text-[clamp(28px,3.3vw,40px)]">From first call to placed resident</h2>
         <p class="mt-3.5 text-[17.5px] text-muted">
-          Four steps, and you know the rent number and the full cost before you commit to anything.
+          Before you commit to anything, talk with our team: find out what your property can rent for and
+          get your questions answered.
         </p>
       </div>
 
@@ -273,23 +274,37 @@ const schemaNodes = [serviceNode({
         <span class="eyebrow">Clear pricing</span>
         <h2 id="pricing-h" class="text-[clamp(28px,3.3vw,40px)]">A flat rate, not a slice of your rent</h2>
         <p class="mt-3.5 text-[17.5px] text-muted">
-          Published on the website, the same for everyone. A percentage manager earns more every time
-          your rent goes up. We do not, so the whole of any rent increase goes to you.
+          Published, and the same for everyone. When your rent goes up, the whole increase is yours.
         </p>
       </div>
       <PricingTable id="home-pricing" />
 
       <div class="max-w-[760px] mx-auto text-center mt-10">
-        <p class="text-[17px] text-navy font-medium">
-          Most Columbus managers charge half a month of rent every time they place a resident. On a
-          {' '}{kpis.metrics.find((m) => m.id === 'avgRent')!.value} unit that is roughly $825 gone with each
-          turnover. Our leasing fee is {usd(pricing.leasingFee)} on every plan.
-        </p>
-        <p class="text-[15px] text-muted mt-3">
+        <p class="text-[15px] text-muted">
           No startup cost on occupied units.
           <a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline"> See exactly what management costs &rarr;</a>
         </p>
       </div>
+    </div>
+  </section>
+
+  <!--
+    NO LEASING FEE BANNER. Andrew, 2026-11-05: a red band between pricing and the
+    scorecard that names the differentiator and what it saves up front. The saving
+    is half a month of the portfolio's average rent, rounded to the nearest $25,
+    so it moves on its own when kpis.avgRent is updated.
+  -->
+  <section class="bg-crimson text-white" aria-labelledby="noleasing-h">
+    <div class="wrap py-12 sm:py-14 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+      <div>
+        <h2 id="noleasing-h" class="!text-white text-[clamp(28px,3.4vw,42px)] mb-3">No leasing fees. On every plan.</h2>
+        <p class="text-[17.5px] text-white/90 max-w-[40em] m-0">
+          Most Columbus managers charge about half a month of rent every time they place a resident. At our
+          average rent of {avgRent}, that is roughly {usd(leasingSaving)} you keep at every turnover, and it is
+          the first cost you skip when you switch.
+        </p>
+      </div>
+      <a href="/pricing/" class="btn btn-on-dark justify-self-start lg:justify-self-end">See full pricing</a>
     </div>
   </section>
 
@@ -300,8 +315,7 @@ const schemaNodes = [serviceNode({
         <span class="eyebrow">Our scorecard</span>
         <h2 class="text-[clamp(28px,3.3vw,40px)]">We publish our numbers, monthly.</h2>
         <p class="text-[17.5px] text-muted mt-4 mb-6">
-          Instead of telling you we are responsive and thorough, we show you the median number of days
-          a repair stays open, and we update it whether the number flatters us or not.
+          Days to lease, repair times, renewals and rent collected, updated every month, good or bad.
         </p>
         <a href="/key-performance-indicators/" class="btn btn-navy">See the full scorecard</a>
 
@@ -331,7 +345,7 @@ const schemaNodes = [serviceNode({
         <span class="eyebrow">Owner tools</span>
         <h2 class="text-[clamp(28px,3.3vw,40px)]">Run the numbers before you call us</h2>
         <p class="mt-3.5 text-[17.5px] text-muted">
-          Free calculators built on our own Columbus portfolio data. No email required.
+          Free calculators built on our own Columbus data. No email required.
         </p>
       </div>
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -393,7 +407,7 @@ const schemaNodes = [serviceNode({
         Find out what your Columbus rental should earn
       </h2>
       <p class="text-[#e2c8cc] text-[18px] max-w-[34em] mx-auto mb-7">
-        A free, data-backed rent evaluation using our own portfolio numbers and current market comps.
+        A free rent evaluation based on our own portfolio and current comps.
       </p>
       <div class="flex flex-wrap gap-3 justify-center">
         <a href="/free-rent-evaluation/" class="btn btn-on-dark">Get a free rent evaluation</a>

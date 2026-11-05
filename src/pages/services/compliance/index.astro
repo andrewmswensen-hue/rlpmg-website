@@ -50,38 +50,38 @@ const facts = [
 
 const areasOfLaw = [
   { h: 'Fair housing',
-    b: 'This is the highest-consequence area, because a violation brings a complaint and potentially a lawsuit rather than a fine on a form. Protected classes come from federal law, from Ohio law, and from Columbus and Franklin County ordinances, and the local list is longer than the federal one. Federal law covers race, color, national origin, religion, sex, familial status and disability. Ohio adds ancestry and military status. Columbus adds sexual orientation, gender identity or expression, age, and source of income. Whatever the list, the operational answer is the same: one written standard, applied identically and documented every time.' },
+    b: 'The highest-consequence area: a violation brings a complaint and potentially a lawsuit, not a fine on a form. Protected classes come from federal law, Ohio law, and Columbus and Franklin County ordinances. Federal law covers race, color, national origin, religion, sex, familial status and disability. Ohio adds ancestry and military status. Columbus adds sexual orientation, gender identity or expression, age, and source of income. The operational answer is the same: one written standard, applied identically and documented every time.' },
   { h: 'Source of income',
-    b: 'Whether a landlord may decline an applicant because they hold a housing voucher is governed by local ordinance in Central Ohio, and the answer differs by jurisdiction. Columbus adopted source of income protection in March 2021, effective that July, so inside the city a voucher cannot be a reason to decline. Where an income multiple applies, the voucher portion comes off first and the test runs against the share the resident pays.' },
+    b: 'Whether a landlord may decline a housing voucher is set by local ordinance in Central Ohio, and it differs by jurisdiction. Columbus adopted source of income protection in March 2021, effective that July, so inside the city a voucher cannot be a reason to decline. Where an income multiple applies, the voucher portion comes off first and the test runs against the share the resident pays.' },
   { h: 'Ohio landlord-tenant law',
-    b: 'Ohio law sets what a landlord must do to keep a unit habitable, what notice must be given before entering, how security deposits are handled and returned, and how a tenancy is ended. That is Ohio Revised Code Chapter 5321: 24 hours of notice before entry, and the deposit returned with an itemized statement within 30 days of the tenancy ending and possession being delivered.' },
+    b: 'Ohio Revised Code Chapter 5321 sets habitability duties, entry notice (24 hours before entry), security deposit handling and how a tenancy ends.' },
   { h: 'Security deposits',
-    b: 'Deposits are the most common source of a small claims case against a landlord, and almost every loss comes from the same two failures: no dated move-in condition documentation, and a deduction that was not itemized in writing within the required window. R.C. 5321.16 gives you 30 days from the end of the tenancy and delivery of possession to return the balance with an itemized written statement of every deduction.' },
+    b: 'Deposits are the most common source of small claims cases against landlords, and almost every loss comes from two failures: no dated move-in condition documentation, and a deduction not itemized in writing within the required window. R.C. 5321.16 gives you 30 days from the end of the tenancy and delivery of possession to return the balance with an itemized written statement of every deduction.' },
   { h: 'Local registration and inspection',
-    b: 'Columbus City Council passed a citywide rental registry on April 20, 2026, creating City Code Chapter 4515. Every residential rental unit in the city registers annually with the Department of Building and Zoning Services at $15 per unit, capped at $1,500 per complex, and the registration carries unit counts, parcel IDs, ownership and a local emergency contact. Common areas and building systems get a safety inspection every three years. Operating unregistered carries civil penalties of $2 per unit per day with a $10 per day minimum, and a property with violations can be put in conditional status, which adds a $250 annual inspection fee. The city has not yet published the portal or the first registration deadline.' },
+    b: 'Columbus City Council passed a citywide rental registry on April 20, 2026 (City Code Chapter 4515). Every residential rental unit in the city registers annually with the Department of Building and Zoning Services at $15 per unit, capped at $1,500 per complex, listing unit counts, parcel IDs, ownership and a local emergency contact. Common areas and building systems get a safety inspection every three years. Operating unregistered carries civil penalties of $2 per unit per day with a $10 per day minimum, and a property with violations can be put in conditional status, which adds a $250 annual inspection fee. The city has not yet published the portal or the first registration deadline. On the properties we manage, we handle the filings and renewals for you.' },
   { h: 'Lead-based paint',
-    b: 'Federal disclosure rules apply to housing built before 1978, which is a large share of the Columbus rental stock, particularly in the older neighborhoods. The requirement is a signed disclosure form naming any known lead-based paint or hazards, the EPA pamphlet "Protect Your Family From Lead in Your Home", and the records kept for three years. Both go in the lease packet on every pre-1978 property.' },
+    b: 'Federal disclosure rules apply to housing built before 1978, a large share of Columbus rental stock. The requirement: a signed disclosure form naming any known lead-based paint or hazards, the EPA pamphlet "Protect Your Family From Lead in Your Home", and the records kept for three years. Both go in the lease packet on every pre-1978 property.' },
   { h: 'Insurance',
-    b: `We require a Rental Dwelling Policy or Commercial Policy carrying at least ${usd(pricing.insuranceRequired.liabilityMin)} in liability coverage, with ${company.name} named as an additional insured. If proof is not on file the charge is ${insuranceFee?.amount ?? ''}. The requirement exists because an uninsured or underinsured claim on a managed property is the fastest way for an owner to lose more than the property earns in a decade.` },
+    b: `We require a Rental Dwelling Policy or Commercial Policy carrying at least ${usd(pricing.insuranceRequired.liabilityMin)} in liability coverage, with ${company.name} named as an additional insured. If proof is not on file the charge is ${insuranceFee?.amount ?? ''}. An uninsured claim can cost more than the property earns in a decade.` },
 ];
 
 const faq = [
   { q: 'What does Ohio landlord-tenant law require of a landlord?',
-    a: 'Ohio Revised Code Chapter 5321 governs residential landlord and tenant relationships. The core duties: keep the unit fit and habitable, comply with building, housing, health and safety codes, make repairs, keep common areas safe, give at least 24 hours of reasonable notice before entering, return the security deposit with an itemized statement of deductions within 30 days of the tenancy ending and possession being delivered, and follow the notice and filing process in Chapter 1923 to end a tenancy. Local ordinances add to that, and they differ between Columbus and a suburb a mile away. This page is general information, not legal advice.' },
+    a: 'Ohio Revised Code Chapter 5321 governs residential landlord and tenant relationships. The core duties: keep the unit fit and habitable, comply with building, housing, health and safety codes, make repairs, keep common areas safe, give at least 24 hours of reasonable notice before entering, return the security deposit with an itemized statement of deductions within 30 days of the tenancy ending and possession being delivered, and follow the notice and filing process in Chapter 1923 to end a tenancy. Local ordinances add more. This page is general information, not legal advice.' },
   { q: 'Do I have to register my rental property in Columbus?',
-    a: 'Yes, as of the ordinance Council passed on April 20, 2026. Columbus City Code Chapter 4515 requires every residential rental unit inside the city to register annually with the Department of Building and Zoning Services, at $15 per unit capped at $1,500 per complex, with a safety inspection of common areas and building systems every three years. Not registering carries civil penalties of $2 per unit per day, minimum $10 per day. The city has not published the portal or the first deadline yet, and the Columbus Apartment Association has signaled a challenge, so treat the operational details as unsettled and the requirement itself as real. Requirements also differ by suburb, so a property in one of our service communities may face rules a Columbus property does not.' },
+    a: 'Yes. Columbus City Code Chapter 4515, passed April 20, 2026, requires every residential rental unit inside the city to register annually with the Department of Building and Zoning Services at $15 per unit capped at $1,500 per complex, with a safety inspection of common areas and building systems every three years and civil penalties of $2 per unit per day (minimum $10 per day) for not registering. The city has not published the portal or the first deadline yet, and the Columbus Apartment Association has signaled a challenge, so treat the operational details as unsettled and the requirement itself as real. Suburbs have their own rules, and on the properties we manage, we handle the registration for you.' },
   { q: 'What are the fair housing rules for renting a property?',
-    a: 'You may set standards, and you may not apply them selectively. Write the standard before you advertise, publish it with the listing, apply it identically to every applicant, and document every decision. Advertising language matters too, since describing an ideal resident rather than the property is where many complaints start. Federal law protects race, color, national origin, religion, sex, familial status and disability. Ohio adds ancestry and military status. Columbus adds sexual orientation, gender identity or expression, age, and source of income, which is why a Housing Choice Voucher cannot be refused inside the city.' },
+    a: 'You may set standards, but not apply them selectively: write the standard before you advertise, publish it with the listing, apply it identically to every applicant, and document every decision. Federal law protects race, color, national origin, religion, sex, familial status and disability. Ohio adds ancestry and military status. Columbus adds sexual orientation, gender identity or expression, age, and source of income, which is why a Housing Choice Voucher cannot be refused inside the city.' },
   { q: 'Are service animals treated like pets?',
-    a: `No. Service and assistance animals are not pets. A no-pets policy does not apply to them and pet fees are not charged for them. Our ${usd(pricing.petDamageCoverage.cap)} pet damage coverage, which sits above the security deposit and is funded by a monthly pet administration fee, applies to approved pets only, not to service or assistance animals. Where a disability or the need for the animal is not obvious, a housing provider may ask for documentation of both. We handle those requests the same way every time, in writing.` },
+    a: `No. Service and assistance animals are not pets, so a no-pets policy does not apply to them and pet fees are not charged for them. Our ${usd(pricing.petDamageCoverage.cap)} pet damage coverage, which sits above the security deposit and is funded by a monthly pet administration fee, applies to approved pets only. Where a disability or the need for the animal is not obvious, a housing provider may ask for documentation of both, and we handle those requests the same way every time, in writing.` },
   { q: 'What insurance do I need on a rental property?',
     a: `A Rental Dwelling Policy or Commercial Policy carrying at least ${usd(pricing.insuranceRequired.liabilityMin)} in liability coverage, with ${company.name} named as an additional insured. If proof of coverage is not on file we charge ${insuranceFee?.amount ?? ''} until it is. A homeowner's policy on a property you no longer occupy is one of the most common and most dangerous gaps we see.` },
   { q: 'Who is liable if something goes wrong, me or the manager?',
     a: `You own the property, so you carry the ownership liability, which is exactly why the insurance requirement exists and why we are named as an additional insured. We carry the responsibility for operating within the law on your behalf. If a lawsuit other than a normal eviction arises, our time on it is billed at ${lawsuitFee?.amount ?? ''}.` },
   { q: 'Does using a property manager make me compliant?',
-    a: 'Not entirely. It moves the operating work to a team that does it every day, and it gets you a lease reviewed by counsel and a documented, consistent process. It does not transfer ownership obligations, and no manager should tell you it does. Keep your own counsel and your own insurance agent.' },
+    a: 'Not entirely. It moves the operating work to a team that does it every day, with a lease reviewed by counsel and a documented, consistent process. It does not transfer ownership obligations, so keep your own counsel and your own insurance agent.' },
   { q: 'What is the most common compliance mistake owners make?',
-    a: 'Improvising the screening decision. The second is a handshake lease or a downloaded template that does not match Ohio requirements. The third is a security deposit deduction with no move-in documentation behind it. All three are cheap to prevent and expensive to lose.' },
+    a: 'Improvising the screening decision. Close behind: a handshake lease or downloaded template that does not match Ohio requirements, and a security deposit deduction with no move-in documentation. All three are cheap to prevent and expensive to lose.' },
 ];
 
 const schemaNodes = [
@@ -110,14 +110,9 @@ const schemaNodes = [
       <span class="eyebrow">The exposure</span>
       <h2 id="why-h" class="text-[clamp(28px,3.3vw,40px)]">Why does compliance cost owners money?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Most of the rules that cost you money are ones you did not know existed. A fair housing complaint, a
-        security deposit case, a registration penalty and a lead disclosure failure usually start the same way,
-        with an owner operating without knowing the rule was there.
-      </p>
-      <p class="text-[17.5px] text-muted mt-4">
-        They also share a fix: documentation. Nearly every one of these is winnable with a written standard, a
-        dated record and a lease that says what everyone thought it said. That documentation is what a manager
-        sells you here, and it is why this page tells you what we have verified and what we have not.
+        Most are rules the owner did not know existed: a fair housing complaint, a security deposit case, a
+        registration penalty, a lead disclosure failure. They share a fix, documentation. Nearly all are winnable
+        with a written standard, a dated record and a lease that says what everyone thought it said.
       </p>
     </div>
   </section>
@@ -127,9 +122,8 @@ const schemaNodes = [
       <span class="eyebrow">The seven areas</span>
       <h2 id="law-h" class="text-[clamp(28px,3.3vw,40px)]">What laws apply to a rental property in Columbus?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
-        There are seven areas, from federal law down to a suburb's own ordinance. Where our own documentation
-        does not confirm the exact requirement, we say so rather than guess, because a wrong legal detail is
-        worse than a gap.
+        Seven areas, from federal law down to a suburb's own ordinance. Where our documentation does not confirm
+        an exact requirement, we say so rather than guess.
       </p>
       <div class="grid gap-5">
         {areasOfLaw.map((a) => (

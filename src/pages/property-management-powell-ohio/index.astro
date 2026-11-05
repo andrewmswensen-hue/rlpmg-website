@@ -78,21 +78,21 @@ const utilities = [
 
 const faq = [
   { q: 'What county is Powell, Ohio in?',
-    a: 'Powell is in Delaware County. It is not in Franklin County, even though it sits directly north of Dublin and most people describe it as a Columbus suburb. That single fact changes which court hears an eviction, which county auditor holds your rental registration, and which county recorder and treasurer you deal with.' },
+    a: 'Delaware County, not Franklin, even though Powell sits directly north of Dublin and reads as a Columbus suburb. That sets the eviction court, the auditor for your rental registration, and the recorder and treasurer.' },
   { q: 'Which court hears an eviction in Powell, Ohio?',
-    a: 'Delaware Municipal Court, at 70 N. Union St., 2nd floor, Delaware, OH 43015. It hears forcible entry and detainer cases, which is the legal name for an eviction, and civil claims up to $15,000. Jurisdiction follows the county under Ohio Revised Code 1901.02, so a Powell address never goes to Franklin County Municipal Court in downtown Columbus. Filing there costs you the fee and the calendar time, and you start over.' },
+    a: 'Delaware Municipal Court, 70 N. Union St., 2nd floor, Delaware, OH 43015, which hears forcible entry and detainer (eviction) cases and civil claims up to $15,000. Under R.C. 1901.02 a Powell case never goes to Franklin County Municipal Court; filing there costs the fee and the calendar time.' },
   { q: 'Where do I register a Powell rental property?',
-    a: 'With the Delaware County Auditor at 145 N. Union St., Delaware, Ohio. Ohio Revised Code 5323.02 requires the owner of residential rental property to file owner name, address and telephone number plus the property address and parcel number with the auditor of the county the property sits in, within 60 days, and to update it within 60 days of any change. The Delaware County Auditor runs its own rental registration, separate from Franklin County. Filing with Franklin does not satisfy the requirement for a Powell parcel.' },
+    a: 'With the Delaware County Auditor, 145 N. Union St., Delaware, Ohio, under R.C. 5323.02: owner and property details within 60 days, updated within 60 days of any change. It is a separate registration from Franklin County, and filing with Franklin does not cover a Powell parcel.' },
   { q: 'What happens if I do not file the rental registration?',
-    a: 'The county auditor can place a special assessment on the property under R.C. 5323.99. The statutory range is $50 to $150. It is a small number that becomes an annoying one, because it attaches to the tax bill and it is easy to leave unnoticed for years. The statute lets an owner designate a property manager as the agent who files, and that is part of onboarding here.' },
+    a: 'The county auditor can place a $50 to $150 special assessment on the property under R.C. 5323.99, which attaches to the tax bill and can go unnoticed for years. We file as your designated agent at onboarding.' },
   { q: 'Does the City of Powell require a separate rental license or inspection?',
-    a: 'Where a Central Ohio city runs its own registration or inspection program, it sits on top of the Ohio R.C. 5323 county auditor filing rather than replacing it. We keep track of which one applies to which address. We file the auditor registration as your designated agent during onboarding and we handle the municipal filings and renewals in the communities we work in. Owners who self-manage carry these filings themselves. The Delaware County Auditor filing under R.C. 5323 applies either way.' },
+    a: 'The Delaware County Auditor filing under R.C. 5323 applies to every Powell rental, and any city program would sit on top of it, not replace it. We track what applies to each address and handle the filings and renewals for you.' },
   { q: 'Who provides water and sewer in Powell?',
-    a: 'Water comes from Del-Co Water Company, Inc. and sanitary sewer from the Delaware County Regional Sewer District, both named by the City of Powell on its own utilities page. Electricity is distributed by AEP Ohio and natural gas by Columbia Gas. Powell is not on the City of Columbus water and sewer contract community list, so the Columbus rule that makes the property owner ultimately responsible for a resident water balance does not govern a Powell address.' },
+    a: 'Del-Co Water Company, Inc. for water and the Delaware County Regional Sewer District for sewer, with AEP Ohio electricity and Columbia Gas. Powell is not a Columbus contract community, so the Columbus rule making owners liable for a resident water balance does not govern it.' },
   { q: 'What does a rental in Powell, Ohio rent for?',
-    a: `Across the units we manage in Powell, the median rent is ${usd(rent['2'].median)} for a two bedroom. That is our own portfolio median, not a market survey. We do not publish a bedroom-level median for larger Powell homes because our sample at those bedroom counts is under five units, and a median built on three houses is not a number anyone should price against.` },
+    a: `Across the units we manage in Powell, the median rent is ${usd(rent['2'].median)} for a two bedroom, our own portfolio figure. Larger Powell homes have under five units in our sample, so we publish no median for them.` },
   { q: 'How much does property management cost in Powell?',
-    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. The fee is a fixed dollar amount, so raising the rent on a Powell house does not raise what you pay us. Photography is not included in the ${usd(pricing.leasingFee)} leasing fee and is billed separately at $250 to $450.` },
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} per renewal, so raising a Powell rent does not raise our fee. Photography is billed separately at $250 to $450.` },
 ];
 
 const schemaNodes = [
@@ -128,19 +128,14 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="county-h" class="text-[clamp(26px,3.2vw,38px)]">What county is Powell in, and which court hears an eviction?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Powell is in Delaware County, and an eviction on a Powell address is filed at Delaware Municipal Court,
-        70 N. Union St., 2nd floor, Delaware, OH 43015. That court hears forcible entry and detainer actions,
-        which is the legal name for an eviction, along with civil claims up to $15,000. It is a twenty-five
-        minute drive north of downtown Columbus, and it is nowhere near the Franklin County courthouse where
-        most Columbus-area owners assume their case will be heard.
+        Delaware County. A Powell eviction is filed at Delaware Municipal Court, 70 N. Union St., 2nd floor,
+        Delaware, OH 43015, twenty-five minutes north of downtown Columbus. It hears forcible entry and detainer
+        (eviction) actions and civil claims up to $15,000.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        This is the mistake that costs Powell owners the most time. Powell has a Columbus mailing feel, it sits
-        directly north of Dublin, its residents commute into Franklin County, and a manager working from a
-        Columbus template will file at Franklin County Municipal Court on High Street. Jurisdiction in Ohio
-        follows the county under Ohio Revised Code 1901.02. A case filed in the wrong court does not get
-        transferred as a courtesy. You lose the filing fee, you lose the hearing date, and the resident who
-        stopped paying in month three keeps living there for another three weeks while you refile.
+        Powell feels like Columbus, so managers working from a Columbus template file on High Street. Under
+        Ohio Revised Code 1901.02 jurisdiction follows the county, and a wrong-court case is not transferred: you lose the fee
+        and the hearing date, and a non-paying resident stays three more weeks while you refile.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -167,13 +162,11 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        Before any court sees the case, Ohio requires a three-day notice to leave the premises under R.C.
-        1923.04, carrying specific statutory language, served by certified mail, handed to the resident, or left
-        at the property. If the wording is wrong, the case is dismissed and you start again. Our process and what it costs are written out
-        on the
+        First comes a three-day notice under R.C. 1923.04 in the statutory wording, served by certified mail, by
+        hand or left at the property; wrong wording means dismissal. Costs are on the
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
-        One note specific to Powell: the {usd(pricing.eviction.countyFilingFee)} county filing fee in our
-        published schedule is the Franklin County eviction complaint fee. A Delaware County parcel files at Delaware Municipal Court instead, and we confirm that court's current filing deposit at the time of filing rather than quoting a figure that may have moved.
+        {' '}Its {usd(pricing.eviction.countyFilingFee)} filing fee is Franklin County's; for Delaware Municipal Court
+        we confirm the current filing deposit when we file.
       </p>
     </div>
   </section>
@@ -184,26 +177,19 @@ const schemaNodes = [
       <span class="eyebrow">Compliance</span>
       <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Where do you register a Powell rental property?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        With the Delaware County Auditor, at 145 N. Union St., Delaware, Ohio. Ohio Revised Code 5323.02 requires
-        every owner of residential rental property to file their name, address and telephone number, plus the
-        property street address and permanent parcel number, with the auditor of the county the property sits in.
-        The filing is due within 60 days, there is no fee, and any change has to be updated within 60 days.
+        With the Delaware County Auditor, 145 N. Union St., Delaware, Ohio, on its own forms, separate from
+        Franklin County. Filing in Franklin with the rest of your portfolio leaves the Powell house unregistered.
+        We file it for you as your designated agent at onboarding.
       </p>
+      <ul class="text-[17px] text-muted mt-4 list-disc pl-6 grid gap-1.5">
+        <li><strong>What:</strong> your name, address and phone, plus the property street address and permanent parcel number (R.C. 5323.02).</li>
+        <li><strong>When:</strong> within 60 days, and within 60 days of any change. No fee.</li>
+        <li><strong>LLC or trust:</strong> name the responsible officer, member or trustee, the step owners miss most because the deed shows only the LLC.</li>
+        <li><strong>Penalty:</strong> a special assessment of $50 to $150 under R.C. 5323.99, appealable to the county board of revision.</li>
+      </ul>
       <p class="text-[17.5px] text-muted mt-5">
-        The Delaware County Auditor runs its own rental registration, on its own forms, entirely separate from
-        the Franklin County Auditor. An owner who files in Franklin because that is where the rest of their
-        portfolio sits has not registered the Powell house at all. Miss it and the auditor can place a special
-        assessment on the property under R.C. 5323.99, in a statutory range of $50 to $150, appealable to the
-        county board of revision.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        Owners who bought through an LLC or a trust have to name the responsible officer, member or trustee.
-        Owners miss this step most often, because the LLC name goes on the deed and nobody goes back
-        to add a person. The statute lets an owner designate a property manager as the agent who files, and we
-        do that during onboarding rather than sending you a form and hoping.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We keep track of which program applies to your address and file on time, so you do not have to.
+        Any city program stacks on top of this filing (Columbus added a registry in April 2026 under City Code
+        Chapter 4515), and we track which applies.
       </p>
     </div>
   </section>
@@ -213,9 +199,8 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who provides utilities in Powell, and who pays them?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Water comes from Del-Co Water Company, Inc. and sanitary sewer from the Delaware County Regional Sewer
-        District. Those are the providers the City of Powell names on its own utilities page, and neither one is
-        the city itself. Electricity is distributed by AEP Ohio and natural gas by Columbia Gas.
+        Not the city. Powell's own utilities page names Del-Co Water Company, Inc. for water and the Delaware
+        County Regional Sewer District for sewer. AEP Ohio distributes electricity and Columbia Gas supplies gas.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -239,13 +224,11 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        One thing Powell owners get that most of our Franklin County owners do not: Powell is not on the City of
-        Columbus water and sewer contract community list. Columbus states that the property owner is ultimately
-        responsible for all charges even where a Tenant Billing Agreement puts the bill in the resident's name,
-        which is a live exposure in Dublin, Hilliard, Worthington and Upper Arlington. That specific Columbus
-        rule does not reach a Powell address. Until that is confirmed in writing, we handle Powell the same way we handle
-        everywhere else: accounts in the resident's name at lease signing, verified again at move-out before the
-        deposit is settled.
+        Powell is not a City of Columbus water and sewer contract community, so the Columbus rule holding owners
+        ultimately responsible for all charges under a Tenant Billing Agreement (a live exposure in Dublin,
+        Hilliard, Worthington and Upper Arlington) does not reach it. Until that is confirmed in writing, we still
+        put accounts in the resident's name at lease signing and verify them at move-out before the deposit is
+        settled.
       </p>
     </div>
   </section>
@@ -256,34 +239,22 @@ const schemaNodes = [
       <span class="eyebrow">The market</span>
       <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is there in Powell?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Newer stock than almost anywhere else in the metro. The median Powell home was built in 2001, according
-        to US Census ACS 2024 5-year estimates, which puts it a full generation later than Upper Arlington at
-        1959 or Worthington at 1963. Powell is mostly detached single-family houses in subdivisions built through
-        the late 1990s and 2000s boom, plus a small nineteenth-century core around the Four Corners at Olentangy
+        Newer stock than almost anywhere in the metro. The median Powell home was built in 2001 (US Census ACS 2024
+        5-year), a generation after Upper Arlington (1959) or Worthington (1963). Most of it is detached houses
+        from the late 1990s and 2000s boom, plus a small nineteenth-century core at the Four Corners of Olentangy
         and Liberty.
       </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        Newer is not the same as maintenance-free, and this is the part Powell owners misjudge. A house built in
-        2001 is now sitting in the window where the original furnace, condenser, water heater and roof all reach
-        the end of a first service life at roughly the same time. Owners who bought a Powell rental expecting a
-        decade of quiet get a run of four-figure capital items inside two years instead. Plan the
-        replacements on your own calendar rather than at 11pm in February when the furnace quits. That means
-        setting a real reserve and knowing the age of every major system before you need it. We record system ages at onboarding for that reason.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        The other Powell-specific line item is the subdivision covenant. A lot of the stock here was built inside
-        associations with deed restrictions on parking, fencing, exterior color and lawn condition, and a
-        violation notice goes to the owner of record rather than to the person parking the boat in the
-        driveway. We route those to the resident with a cure date rather than letting them accumulate until the
-        association escalates.
-      </p>
+      <ul class="text-[17px] text-muted mt-4 list-disc pl-6 grid gap-1.5">
+        <li><strong>Newer is not maintenance-free.</strong> A 2001 house is where the original furnace, condenser, water heater and roof all wear out together, often as several four-figure items inside two years. We record system ages at onboarding so you can set a real reserve.</li>
+        <li><strong>Covenants.</strong> Many associations restrict parking, fencing, exterior color and lawn condition, and violation notices go to the owner. We route them to the resident with a cure date before the association escalates.</li>
+      </ul>
       <h3 class="text-[21px] mt-9 mb-3">Where in Powell we work</h3>
       <p class="text-[16.5px] text-muted">
         Historic downtown Powell around the Four Corners, the Olentangy Street and Liberty Street corridors,
         Sawmill Parkway, Seldom Seen Road, Home Road, Steitz Road and the subdivisions along Presidential Parkway.
-        Houses here feed the Olentangy Local School District, which is a large part of why Powell holds the rents
-        it does. The Columbus Zoo and Aquarium and the Scioto River sit on the western edge. We also work Lewis
-        Center and the city of Delaware itself, both in the same county and both filed at the same court.
+        Houses feed the Olentangy Local School District, a big reason Powell holds its rents. The Columbus Zoo and
+        Aquarium and the Scioto River sit on the western edge. We also work Lewis Center and the city of Delaware,
+        same county, same court.
       </p>
     </div>
   </section>
@@ -293,11 +264,8 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="rent-h" class="text-[clamp(26px,3.2vw,38px)]">What does a Powell rental earn, and what does management cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Across the units we manage in Powell, the median rent is {usd(rent['2'].median)} for a two bedroom. That
-        is our own portfolio median, not a market survey. We are not publishing a bedroom-level median for larger
-        Powell homes, because our sample at those bedroom counts is under five units and a median built on three
-        houses would be a made-up number with a dollar sign in front of it. Plenty of local pages quote a public
-        rent index as if it were their own book, and we would rather tell you where our data stops.
+        {usd(rent['2'].median)} for a two bedroom: the median across the units we manage in Powell, our own
+        portfolio, not a market survey. Larger Powell homes have under five units in our sample, so we stop there.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (
@@ -310,16 +278,13 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16.5px] text-muted mt-7">
-        The three plans differ in one variable: how much we can spend on a single repair before we stop and call
-        you. Everything else is identical. A manager charging a percentage of collected rent takes more from you
-        every time you raise the rent, and takes roughly half a month again every time the unit turns. Our
-        number does not move when your rent does, and the placement fee is {usd(pricing.leasingFee)}. Lease
-        renewal is {usd(pricing.leaseRenewalFee)}.
+        Plans differ only in how much we can spend on one repair before calling you. A percentage manager takes
+        more with every rent increase and about half a month at each turn. Our fee stays flat, placement is
+        {' '}{usd(pricing.leasingFee)} and a renewal is {usd(pricing.leaseRenewalFee)}.
       </p>
       <p class="text-[14px] text-faint mt-4">
-        Percentage figures describe common Columbus market rates. They are not a quote from any named company.
-        Photography is not included in the {usd(pricing.leasingFee)} leasing fee and is billed separately at
-        $250 to $450.
+        Percentage figures describe common Columbus market rates, not a quote from any named company.
+        Photography is billed separately at $250 to $450.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
         <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
@@ -335,8 +300,8 @@ const schemaNodes = [
       <h2 id="faq-section" class="sr-only">Powell property management questions</h2>
       <Faq items={faq} heading="Powell property management questions" id="powell-faq" />
       <p class="mt-7 text-[15.5px] text-muted">
-        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. Owner
-        funds go out on the {rentPolicy.ownerDisbursementDay}th. Another forty answers sit on the
+        Rent is due {rentPolicy.dueDate}; late fees follow after {rentPolicy.lateFeesAfter}. We pay owners on the
+        {' '}{rentPolicy.ownerDisbursementDay}th. Read more on the
         {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
       </p>
       <div class="mt-6"><Verified date="2026-09-09" /></div>
@@ -353,7 +318,7 @@ const schemaNodes = [
 
   <Cta
     heading="Find out what your Powell rental should earn"
-    body="Tell us the address and we will price it against the units we already manage in Delaware County and the comparable listings live right now. No charge, and no obligation to hire us."
+    body="Send the address and we will price it against our Delaware County units and live comparable listings. Free, no obligation."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
   />

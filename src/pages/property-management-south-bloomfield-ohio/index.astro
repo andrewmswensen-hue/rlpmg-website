@@ -1,0 +1,312 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import LegalNote from '../../components/LegalNote.astro';
+import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * South Bloomfield, Ohio. Target query: "property management south bloomfield ohio".
+ *
+ * The differentiating fact: South Bloomfield publishes its own list of landlord
+ * duties, and they are not the ones owners expect. A new tenant has to be
+ * reported to the village income tax director within 30 days, the owner is
+ * responsible for the trash bill even when the tenant lives there, and utility
+ * final notices go to the landlord. Second, the village shares the 43103 ZIP
+ * code with Ashville, so addresses and listings blur the two. Third, electric is
+ * South Central Power, not AEP Ohio.
+ *
+ * SOURCES (all opened and verified 2026-11-05):
+ *  - Village in Pickaway County, Harrison Township. Population 1,744 at the 2010
+ *    census, 2,143 at the 2020 census, 2025 estimate 4,164 (Census Bureau, City
+ *    and Town Population Totals: 2020-2025, as cited). Laid out in 1803. ZIP code
+ *    43103, area code 740. US Highway 23 runs through the village as North Walnut
+ *    Street. Teays Valley Local School District:
+ *    https://en.wikipedia.org/wiki/South_Bloomfield,_Ohio
+ *  - Ashville's ZIP code is also 43103: https://en.wikipedia.org/wiki/Ashville,_Ohio
+ *  - Village history: town laid out in 1803 on 80 lots surveyed by General James
+ *    Denny; the Columbus and Portsmouth Turnpike stage line, later US Route 23,
+ *    began service in 1819; the road later became a four-lane highway; the
+ *    village estimates 35,000+ vehicles pass through daily:
+ *    https://southbloomfieldoh.com/community/history.php
+ *  - Renters and Landlords page: within 30 days after a tenant occupies a
+ *    rental, the owner must file a report with the Village Income Tax Director
+ *    listing tenant names and addresses (move-out report gives names and vacate
+ *    date); "Landlord(s) and Property Owner(s) are responsible for all trash bills
+ *    whether owner occupied or rented"; final notices for unpaid utility bills go
+ *    to the landlord(s) on the account and the tenant(s); the village notifies the
+ *    landlord within 60 days if a tenant does not pay a trash bill; 3% excise tax
+ *    on rents for lodging furnished to transient guests; fair housing under
+ *    Ordinance 286A. No rental registration, license or inspection program is
+ *    listed: https://southbloomfieldoh.com/community/homes___neighborhood/renters___landlords.php
+ *  - Water Department: $150 deposit for water, sewer and trash, applied to the
+ *    final bill; one bill for water, sewer and trash, sent before the 26th, due
+ *    the 15th of the following month; 5% penalty on the 16th; shut-off roughly two
+ *    weeks later; water system and tower on Northup Avenue:
+ *    https://southbloomfieldoh.com/departments/water_department/
+ *  - Electric South Central Power Company, gas Columbia Gas of Ohio:
+ *    https://southbloomfieldoh.com/community/other_utilities.php
+ *  - Village income tax, flat 1% on earned income, filed through RITA:
+ *    https://southbloomfieldoh.com/departments/tax_dept/index.php
+ *  - HOAs known to the village: Bloomfield Hills, Riverbend at Scioto Landing;
+ *    Day Farm also listed:
+ *    https://southbloomfieldoh.com/community/homes___neighborhood/homeowners_associations.php
+ *  - Active housing developments with Maronda, Fischer, Pulte and Arbor Homes;
+ *    Arbor's Day Farm page is under Ashville; Scioto Estates is a mobile home park
+ *    on the west side of the village:
+ *    https://southbloomfieldoh.com/community/homes___neighborhood/building_construction.php
+ *  - 1,185 housing units; median value of owner-occupied housing $219,000: US
+ *    Census, ACS 2024 5-year estimates, via
+ *    https://censusreporter.org/profiles/16000US3973068-south-bloomfield-oh/
+ *  - "The Circleville municipal court has jurisdiction within Pickaway county":
+ *    R.C. 1901.02, https://codes.ohio.gov/ohio-revised-code/section-1901.02
+ *  - Circleville Municipal Court, 151 East Franklin Street, Circleville, OH 43113;
+ *    civil claims to $15,000; Friday eviction hearings; 3-day notice first:
+ *    https://www.circlevillecourt.com/CivilDivision.asp and
+ *    https://www.ohiolegalhelp.org/resource/circleville-municipal-court
+ *  - Circleville Municipal Court Civil Division Cost Schedule, effective
+ *    January 1, 2023: new eviction $130 for one defendant, $25 each additional;
+ *    original plus three copies per defendant:
+ *    https://www.circlevillecourt.com/PDFDirectory/filingfees.pdf
+ *    (Not yet in facts.ts otherCountyFilingFees. Should be added there.)
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties of more
+ *    than 200,000 people at the last decennial census, so the 5323.02 auditor
+ *    filing does not apply in Pickaway County (58,539 in 2020). Verified on
+ *    codes.ohio.gov 2026-11-05: https://codes.ohio.gov/ohio-revised-code/section-5323.01
+ *
+ * NOT STATED: any penalty for missing the village tenant report (the village
+ * page cites none), and the text of the village ordinances themselves
+ * (codelibrary.amlegal.com refuses automated requests).
+ *
+ * NO qualifying entry in rentByMarketAndBedroom for South Bloomfield. No rent
+ * median is published here. No door counts. No per-market days on market.
+ */
+
+const CITY = 'South Bloomfield';
+const PATH = '/property-management-south-bloomfield-ohio/';
+
+/** Circleville Municipal Court cost schedule, effective 2023-01-01. See SOURCES. */
+const circlevilleEvictionCourt = pricing.eviction.otherCountyFilingFees.find((c) => c.court === 'Circleville Municipal Court')!;
+const circlevilleEviction = { oneDefendant: circlevilleEvictionCourt.fee!, eachAdditional: circlevilleEvictionCourt.eachAdditionalDefendant! };
+const evictionTotal = pricing.eviction.attorneyFee + circlevilleEviction.oneDefendant + pricing.eviction.rlpmProcessFee;
+
+const title = 'South Bloomfield Property Management | RL Property Management';
+const description =
+  `South Bloomfield, Ohio rentals managed for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, ` +
+  `${usd(pricing.leasingFee)} leasing fee. We handle the village tenant report and trash rules.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'South Bloomfield', path: PATH },
+];
+
+const publishesOwnRent = canPublishOwnRent(CITY);
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee every time a South Bloomfield unit turns`,
+  'New tenants must be reported to the village tax director within 30 days',
+  'The owner is responsible for the trash bill, even with a tenant in place',
+  'Shares the 43103 ZIP code with Ashville, but is its own village',
+  'Electric is South Central Power, and evictions go to Circleville',
+];
+
+const faq = [
+  { q: 'Is South Bloomfield part of Ashville?',
+    a: 'No. South Bloomfield is its own village in Harrison Township, Pickaway County, with its own council, utilities and income tax. It shares the 43103 ZIP code with Ashville, so mailing addresses and some builder listings use the Ashville name. Check the parcel record with the Pickaway County Auditor to confirm which village a house is in.' },
+  { q: 'Do South Bloomfield landlords have to report tenants to the village?',
+    a: 'Yes. Within 30 days after a tenant moves in, the owner must file a report with the Village Income Tax Director listing the tenant names and addresses, and a move-out report gives the names and the date the unit was vacated. The state’s county auditor rental registration (R.C. 5323.02) applies only in counties of more than 200,000 people, so it does not apply to a Pickaway County rental, but this village report does. We handle it for owners we manage for.' },
+  { q: 'Who pays the trash bill on a South Bloomfield rental?',
+    a: 'The owner. The village holds landlords and property owners responsible for all trash bills, rented or not. If a tenant does not pay, the village notifies the landlord within 60 days.' },
+  { q: 'Who provides utilities in South Bloomfield?',
+    a: 'The village bills water, sewer and trash together, with a $150 deposit applied to the final bill. Bills are due the 15th, with a 5% penalty from the 16th. Electric is South Central Power Company, not AEP Ohio, and gas is Columbia Gas of Ohio.' },
+  { q: 'Which court hears an eviction in South Bloomfield?',
+    a: `Circleville Municipal Court, 151 East Franklin Street, Circleville. Ohio Revised Code 1901.02 gives it jurisdiction within Pickaway County. Filing costs ${usd(circlevilleEviction.oneDefendant)} for one defendant and ${usd(circlevilleEviction.eachAdditional)} for each additional one, and eviction hearings are on Fridays.` },
+  { q: 'How much does property management cost in South Bloomfield?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} for a lease renewal. Photography is not included in the leasing fee and is billed separately at $250 to $450.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in South Bloomfield, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'South Bloomfield, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Pickaway County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in South Bloomfield, Ohio"
+    answer={`${company.name} manages South Bloomfield rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. It is a Pickaway County village with landlord rules of its own.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="South Bloomfield, at a glance" />
+
+  <!-- THE HOOK: the village's own landlord duties. -->
+  <section class="band-tight" aria-labelledby="duties-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="duties-h" class="text-[clamp(26px,3.2vw,38px)]">What does South Bloomfield require of landlords?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        A short list, published by the village itself.
+        Three items are easy to miss from out of town.
+      </p>
+      <h3 class="text-[21px] mt-7 mb-3">Report every new tenant within 30 days</h3>
+      <p class="text-[16.5px] text-muted">
+        When a tenant moves in, the owner has 30 days to file the tenant names and address with the Village
+        Income Tax Director. When they move out, the owner reports the names and the date they left. The village
+        levies a 1% income tax on earned income, filed through RITA.
+      </p>
+      <h3 class="text-[21px] mt-7 mb-3">The trash bill stays with the owner</h3>
+      <p class="text-[16.5px] text-muted">
+        The village holds landlords and property owners responsible for all trash bills, rented or not. Water,
+        sewer and trash come on one village bill, and final notices for an unpaid bill go to the landlord on the
+        account as well as the tenant. An unpaid trash bill is yours to cover.
+      </p>
+      <h3 class="text-[21px] mt-7 mb-3">Short stays carry a lodging tax</h3>
+      <p class="text-[16.5px] text-muted">
+        Rent collected for lodging furnished to transient guests owes the village a 3% excise tax. That matters
+        if you are weighing a short-term rental in the village.
+      </p>
+      <h3 class="text-[21px] mt-7 mb-3">No county auditor filing here</h3>
+      <p class="text-[16.5px] text-muted">
+        The state's county auditor rental registration (Ohio Revised Code 5323.02) applies only in counties of
+        more than 200,000 people, so it does not apply to a Pickaway County rental. The village tenant reports
+        above still do. We track which rules apply to each address and file the village tenant reports at every
+        move-in and move-out, so none of it lands on you.
+        The village&rsquo;s landlord page lists no separate rental registration or inspection program.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSING STOCK -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">The market</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in South Bloomfield?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        A wider mix than a typical new-build village. South Bloomfield was laid out in 1803 on 80 lots. The
+        stage line that started running through it in 1819 became US 23, now a four-lane highway the village
+        estimates carries more than 35,000 vehicles a day.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Growth has picked up sharply. The village counted 2,143 residents in 2020, and the Census Bureau estimates
+        4,164 for 2025. New subdivisions include Bloomfield Hills, Riverbend at Scioto Landing and Day Farm,
+        and the builders the village lists include Maronda, Fischer, Pulte and Arbor Homes. Scioto Estates, a mobile home
+        park, sits on the west side. Schools are Teays Valley Local.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The Census counts 1,185 housing units with a median owner-occupied value of $219,000 (US Census, ACS
+        2024 5-year estimates). With a mobile home park, the original 1803 village and new subdivisions inside
+        one boundary, rent has to be priced address by address.
+        {' '}{publishesOwnRent
+          ? 'Our portfolio sample in South Bloomfield now supports a published median. Update this page before relying on it.'
+          : 'We do not publish a rent median for South Bloomfield, because our sample here is below the five-unit floor we set for any market-level figure.'}
+      </p>
+    </div>
+  </section>
+
+  <!-- COURT -->
+  <section class="band-tight" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in South Bloomfield?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Circleville Municipal Court, on East Franklin Street in Circleville. Ohio Revised Code 1901.02 gives it
+        jurisdiction within Pickaway County, so a South Bloomfield eviction is never filed in Columbus, even
+        with an Ashville mailing address on the lease.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        A three-day notice to leave the premises comes first. Circleville sets the first hearing date the day
+        the case is filed, hears evictions on Fridays, and wants the original complaint plus three copies for
+        each defendant.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner here</h3>
+        <ul class="grid gap-2 text-[15.5px] text-muted mb-0 list-none pl-0">
+          <li><strong class="text-navy">{usd(pricing.eviction.attorneyFee)}</strong> to the eviction attorney, filing plus up to two appearances</li>
+          <li><strong class="text-navy">{usd(circlevilleEviction.oneDefendant)}</strong> Circleville filing cost for one defendant, {usd(circlevilleEviction.eachAdditional)} more per additional defendant</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.rlpmProcessFee)}</strong> to us to run the process end to end</li>
+          <li><strong class="text-navy">{usd(evictionTotal)}</strong> typical total for one defendant, before any setout</li>
+        </ul>
+        <p class="text-[14px] text-faint mt-4 mb-0">
+          Court cost from the Circleville Municipal Court civil cost schedule effective January 1, 2023.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="band band-wash" aria-labelledby="price-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Cost</span>
+      <h2 id="price-h" class="text-[clamp(26px,3.2vw,38px)]">What does management cost in South Bloomfield?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        A flat monthly price per unit, the same as in Columbus. The plan you pick sets how large a repair we can
+        approve without calling you.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my South Bloomfield rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band-tight" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">South Bloomfield property management questions</h2>
+      <Faq items={faq} heading="South Bloomfield property management questions" id="south-bloomfield-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        Late fees are assessed after {rentPolicy.lateFeesAfter}, and owner funds go out on the
+        {' '}{rentPolicy.ownerDisbursementDay}th. More answers are on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <LegalNote class="mb-5" />
+      <div class="mt-6"><Verified date="2026-11-05" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-ashville-ohio/', label: 'Ashville property management', note: 'The neighboring village that shares the 43103 ZIP code.' },
+    { href: '/property-management-commercial-point-ohio/', label: 'Commercial Point property management', note: 'North, the same county and court, and mostly new construction.' },
+    { href: '/property-management-groveport-ohio/', label: 'Groveport property management', note: 'Northeast, in Franklin County, next to Rickenbacker.' },
+    { href: '/areas-we-serve/', label: 'Every area we serve', note: 'With the eviction court for each county.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your South Bloomfield rental should earn"
+    body="Send us the address and we will price it against the rentals around it, from the original village to the new subdivisions. No charge."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

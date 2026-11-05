@@ -42,19 +42,19 @@ const keyFacts = [
 
 /** Utility providers by service across the Columbus metro. Named, not numbered. */
 const utilities = [
-  ['Electric', 'AEP Ohio is the electric utility across most of the Columbus metro. You may choose a competing supplier for the generation portion, but AEP Ohio still delivers it and reads the meter.'],
-  ['Natural gas', 'Columbia Gas of Ohio serves most of the metro. As with electric, the supplier can be chosen separately from the delivery utility.'],
-  ['Water and sewer', 'Set by the municipality rather than a single regional provider. In the city of Columbus this is the Department of Public Utilities; in suburbs such as Westerville and Dublin it is the city itself.'],
-  ['Trash', 'Municipal in most of the metro and billed with water or on the tax bill, but privately contracted in some townships and communities.'],
-  ['Internet', 'Your choice. Arrange it before move-in day rather than after, because install appointments take the longest to book.'],
+  ['Electric', 'AEP Ohio is the electric utility across most of the Columbus metro. You can choose a different supplier, but AEP Ohio still delivers it and reads the meter.'],
+  ['Natural gas', 'Columbia Gas of Ohio serves most of the metro. You can choose a separate supplier.'],
+  ['Water and sewer', 'Your municipality. In Columbus, the Department of Public Utilities; in suburbs such as Westerville and Dublin, the city itself.'],
+  ['Trash', 'Usually municipal, billed with water or on the tax bill. Private in some townships and communities.'],
+  ['Internet', 'Your choice. Book the install before move-in day; appointments fill up.'],
 ];
 
 const firstWeek = [
-  ['Complete the condition report', 'Room by room, in writing, with photos and dates. Include things you would not think to mention: a scuffed baseboard, a stiff window, a stain on a carpet, a chipped counter. This is the document your deposit is measured against when you leave.'],
-  ['Find the shutoffs', 'The main water shutoff, the electrical panel, and the gas shutoff. Locate all three before you need them at 1am. Photograph where they are.'],
-  ['Test the smoke and carbon monoxide alarms', 'Press and hold the test button on each. Report anything that does not sound, immediately.'],
-  ['Check the furnace filter', 'Note the size and the date it was last changed. A clogged filter is the most common cause of heating and cooling complaints.'],
-  ['Set up your rent payment', 'Log into the resident portal, confirm you can get in, and set up how you will pay before the 1st arrives.'],
+  ['Complete the condition report', 'Room by room, in writing, with dated photos. Include small things: a scuffed baseboard, a stiff window, a carpet stain. Your deposit is measured against it.'],
+  ['Find the shutoffs', 'Main water shutoff, electrical panel, gas shutoff. Find and photograph all three before you need them.'],
+  ['Test the smoke and carbon monoxide alarms', 'Press and hold each test button. Report any that do not sound, right away.'],
+  ['Check the furnace filter', 'Note the size and when it was last changed. A clogged filter is the top cause of heating and cooling complaints.'],
+  ['Set up your rent payment', 'Log into the resident portal and set up how you will pay before the 1st.'],
   ['Save the emergency number', `Put ${company.phone} in your phone now, not while you are standing in water.`],
 ];
 
@@ -66,7 +66,7 @@ const faq = [
   { q: 'Do I need renters insurance?',
     a: 'Your lease says whether it is required. Get it either way. The owner\'s insurance policy covers the building, never your belongings, and a renters policy usually costs a few dollars a month.' },
   { q: 'What is the move-in condition report and why does it matter?',
-    a: 'It is a written record, with photos, of the condition of the home on the day you moved in. It matters because it is the baseline your deposit is measured against when you leave. Anything you fail to note becomes hard to argue was there before you.' },
+    a: 'A written record, with photos, of the home on the day you moved in. Your deposit is measured against it when you leave, so anything you do not note is hard to prove was there before you.' },
   { q: 'When is my first rent payment due?',
     a: `Rent is due on ${rentPolicy.dueDate} of each month. If you move in mid-month, the first month is usually prorated for the days you occupy the home. Late fees are assessed after ${rentPolicy.lateFeesAfter}.` },
   { q: 'Can I paint, mount a TV, or change the fixtures?',
@@ -74,7 +74,7 @@ const faq = [
   { q: 'How do I get a second set of keys?',
     a: 'Ask through the portal rather than cutting your own, so the number of keys in circulation for the home stays known. We keep two working copies of every unit.' },
   { q: 'What if something is broken when I move in?',
-    a: `Note it on the condition report and file a maintenance request the same day. Do both. The condition report protects your deposit, and the maintenance request gets the problem fixed. Median time to close a repair is ${kpis.metrics.find((m) => m.id === 'repairDays')?.value} days.` },
+    a: `Note it on the condition report and file a maintenance request the same day. The report protects your deposit; the request gets it fixed. Median time to close a repair is ${kpis.metrics.find((m) => m.id === 'repairDays')?.value} days.` },
 ];
 ---
 <Base {title} {description} {faq} {breadcrumbs}>
@@ -96,16 +96,14 @@ const faq = [
       <span class="eyebrow">Before keys</span>
       <h2 id="before-h" class="text-[clamp(28px,3.3vw,40px)]">What has to happen before I get keys?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Three things, in order: the lease is signed, the funds due at signing clear, and the utilities you
-        are responsible for are in your name effective on your lease start date. Keys are released after
-        that, not before.
+        Three things, in order. Keys are released after all three, not before.
       </p>
       <ol class="grid gap-4 mt-7">
         <li class="card !p-6">
           <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">1. Sign the lease</span>
           <span class="block text-[15.5px] text-muted">
-            Read it before you sign it, particularly the sections on utilities, alterations, pets, notice to
-            vacate and what happens to the deposit. Ask about anything that is unclear before you sign.
+            Read it first, especially utilities, alterations, pets, notice to vacate and the deposit. Ask
+            about anything unclear.
           </span>
         </li>
         <li class="card !p-6">
@@ -117,8 +115,7 @@ const faq = [
         <li class="card !p-6">
           <span class="block font-serif text-[19px] font-semibold text-navy mb-1.5">3. Put the utilities in your name</span>
           <span class="block text-[15.5px] text-muted">
-            Effective on your lease start date, not your move date. If there is a gap between the two, you
-            can end up with the power shut off on the day the movers arrive.
+            Effective on your lease start date, not your move date, so the power is on when the movers arrive.
           </span>
         </li>
       </ol>
@@ -131,8 +128,7 @@ const faq = [
       <span class="eyebrow">Who to call</span>
       <h2 id="util-h" class="text-[clamp(28px,3.3vw,40px)]">Which utilities do I need to set up?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Your lease says which utilities you carry, and that varies by home. Across the Columbus metro these
-        are the providers you will usually be dealing with.
+        Your lease says which ones you carry. These are the usual Columbus metro providers.
       </p>
       <div class="scroll-x mt-7">
         <table class="w-full border-collapse text-[15.5px]">
@@ -162,25 +158,23 @@ const faq = [
       <span class="eyebrow">The one that matters</span>
       <h2 id="condition-h" class="text-[clamp(28px,3.3vw,40px)]">Why does the move-in condition report matter so much?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        It is the document your security deposit is measured against when you leave, sometimes years
-        later. Most deposit disputes come down to one question: was this here before you moved in? The
-        condition report is the record that answers it.
+        Your security deposit is measured against it when you leave, even years later. It answers the
+        question behind most deposit disputes: was this here before you moved in?
       </p>
       <div class="card !border-2 !border-navy mt-7">
         <h3 class="text-[18.5px] mb-3">How to fill it in so it protects you</h3>
         <ul class="text-[15.5px] text-muted grid gap-2">
-          <li>Go room by room and write down everything, including things that seem too small to mention.</li>
-          <li>Photograph every room wide, then photograph every defect close up. Include a shot with something showing the date where you can.</li>
-          <li>Do not skip the parts you cannot see from standing height: under sinks, behind doors, the inside of the oven, the top of the refrigerator, the corners of the carpet.</li>
-          <li>Note anything that works badly rather than not at all: a window that sticks, a door that does not latch, a burner that runs cool.</li>
-          <li>Keep your own copy of what you submitted, in your own storage, not only in the portal.</li>
+          <li>Go room by room and write down everything, even small things.</li>
+          <li>Photograph every room wide, then every defect close up, with the date showing where you can.</li>
+          <li>Check under sinks, behind doors, inside the oven, the top of the refrigerator, carpet corners.</li>
+          <li>Note things that work badly: a sticking window, a door that does not latch, a burner that runs cool.</li>
+          <li>Keep your own copy, not only the one in the portal.</li>
         </ul>
       </div>
       <p class="text-[15px] text-muted mt-5">
-        If anything is broken, also file a
+        Anything broken? Also file a
         {' '}<a href="/residents/maintenance-requests/" class="text-crimson font-semibold no-underline hover:underline">maintenance request</a>
-        {' '}the same day. The condition report protects your deposit, and the maintenance request gets the
-        problem fixed.
+        {' '}the same day.
       </p>
     </div>
   </section>
@@ -191,7 +185,7 @@ const faq = [
       <span class="eyebrow">Your first week</span>
       <h2 id="week-h" class="text-[clamp(28px,3.3vw,40px)]">What should I do in my first week?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Do these six things now, while they are easier than they will be the first time something goes wrong.
+        Six things, easier now than the first time something goes wrong.
       </p>
       <div class="grid gap-4 sm:grid-cols-2 mt-7">
         {firstWeek.map(([h, p]) => (
@@ -210,10 +204,8 @@ const faq = [
       <span class="eyebrow">Your belongings</span>
       <h2 id="ins-h" class="text-[clamp(28px,3.3vw,40px)]">Do I need renters insurance?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Get a policy whether or not your lease requires it. The owner's policy on the building does not
-        cover anything of yours: your furniture, your electronics, a hotel room if the home becomes
-        uninhabitable, or your liability if something you did causes damage to the property or to a
-        neighbor.
+        Get a policy whether or not your lease requires it. The owner's policy does not cover your
+        belongings, a hotel if the home becomes uninhabitable, or your liability for damage you cause.
       </p>
     </div>
   </section>

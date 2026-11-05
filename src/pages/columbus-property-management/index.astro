@@ -40,14 +40,13 @@ const halfMonth = Math.round(avgRent / 2);
 const keyFacts = [
   `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
   `${usd(pricing.leasingFee)} leasing fee on every plan, every time a unit turns`,
-  `${company.unitsManaged} units under management, managing since ${company.founded}`,
   `Median ${kpis.metrics[0].value} days on market and ${kpis.metrics[1].value} days to turn a unit`,
   `${kpis.metrics[6].value} of rent collected by the 5th, owner funds sent on the ${rentPolicy.ownerDisbursementDay}th`,
   `${pricing.portfolioDiscount.short}`,
 ];
 
 const services = [
-  { h: 'Marketing and leasing', p: 'Listing syndication to every major rental portal, self-guided and agent-led showings, and pricing set against our own Columbus portfolio data.', href: '/services/marketing-and-leasing/' },
+  { h: 'Marketing and leasing', p: 'Listings on every major rental portal, self-guided and agent-led showings, and pricing from our own Columbus data.', href: '/services/marketing-and-leasing/' },
   { h: 'Resident screening', p: 'Credit, criminal, income, rental history and eviction checks, applied the same way to every applicant and inside fair housing law.', href: '/services/tenant-screening/' },
   { h: 'Maintenance', p: `In-house technicians at ${usd(pricing.maintenance.inHouseHourly)} an hour plus a ${usd(pricing.maintenance.tripCharge)} trip charge, vetted vendors for specialty work, and 24/7 emergency coverage.`, href: '/services/maintenance/' },
   { h: 'Rent collection', p: `Online payment, automated late notices after ${rentPolicy.lateFeesAfter}, and owner direct deposit on the ${rentPolicy.ownerDisbursementDay}th.`, href: '/services/rent-collection/' },
@@ -58,18 +57,18 @@ const services = [
 ];
 
 const steps = [
-  { h: 'A consultation', p: 'A call about what you own, how involved you want to be, and what you want the property to do for you. No charge and no obligation.' },
-  { h: 'A rent evaluation', p: 'We price the unit against our own portfolio data and current comparable listings, and tell you what it should earn.' },
+  { h: 'A consultation', p: 'A free call about what you own and how involved you want to be. No obligation.' },
+  { h: 'A rent evaluation', p: 'What the unit should earn, from our portfolio data and current comparable listings.' },
   { h: 'A pre-signature inspection', p: `We walk the property so nothing is a surprise later. ${usd(pricing.prePurchaseInspection.fee)}, ${pricing.prePurchaseInspection.note}.` },
-  { h: 'The management agreement', p: 'You sign the Property Management Agreement, fund the maintenance reserve, and hand over keys. Everything is signed digitally.' },
-  { h: 'We take over', p: 'If the unit is occupied, we introduce ourselves to the resident and move the lease, deposit and payment method onto our systems. If it is vacant, it goes on the market.' },
+  { h: 'The management agreement', p: 'You sign the Property Management Agreement digitally, fund the maintenance reserve, and hand over keys.' },
+  { h: 'We take over', p: 'Occupied: we introduce ourselves to the resident and move the lease, deposit and payment method onto our systems. Vacant: it goes on the market.' },
 ];
 
 const faq = [
   { q: 'How much does property management cost in Columbus, Ohio?',
-    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee, ${usd(pricing.leaseRenewalFee)} lease renewals and no startup fee on an occupied unit. It is a fixed dollar amount, not a percentage of collected rent.` },
+    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee, ${usd(pricing.leaseRenewalFee)} lease renewals and no startup fee on an occupied unit. It is a fixed dollar amount, not a percentage of rent.` },
   { q: 'What does a Columbus property manager do?',
-    a: 'A residential property manager markets and prices the unit, screens applicants, writes and signs the lease, collects rent, handles maintenance and emergencies, inspects the property, keeps the owner compliant with Ohio landlord-tenant law, files evictions when they are needed, and reports the money monthly.' },
+    a: 'A residential property manager prices and markets the unit, screens applicants, signs the lease, collects rent, handles maintenance and emergencies, and inspects the property. They also keep the owner compliant with Ohio landlord-tenant law, file evictions when needed, and report the money monthly.' },
   { q: 'What kind of properties does RL Property Management manage?',
     a: `${company.name} manages ${company.propertyTypes} across the Columbus metro, in properties that do not require on-site staff. Homeowner and condominium associations are not managed, though a rental unit that sits inside one is.` },
   { q: 'Do you work with owners who have more than one property?',
@@ -130,10 +129,10 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16px] text-muted mt-6">
-        The plans differ in one variable: how much repair spending we handle before calling you. Everything else
-        is in all three. On the average rent under management of {kpis.metrics[4].value}, a 10% manager collects
-        about {usd(pct10Year)} a year, plus about {usd(halfMonth)} to place a resident.
-        {std.name} is {usd(std.monthly * 12)} a year, and the placement is {usd(pricing.leasingFee)}.
+        The plans differ only in how much repair spending we approve before calling you. On our average rent of
+        {' '}{kpis.metrics[4].value}, a 10% manager collects about {usd(pct10Year)} a year, plus about
+        {' '}{usd(halfMonth)} to place a resident. {std.name} is {usd(std.monthly * 12)} a year, and placement is
+        {' '}{usd(pricing.leasingFee)}.
       </p>
       <p class="text-[14px] text-faint mt-4">
         Percentage figures describe common Columbus market rates. They are not a quote from any named company.
@@ -151,8 +150,7 @@ const schemaNodes = [
       <span class="eyebrow">What is included</span>
       <h2 id="services-h" class="text-[clamp(26px,3.2vw,38px)]">What does a property manager actually do?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[46em]">
-        Eight jobs, all of them included in the monthly fee. Each one has its own page with the process, the
-        limits and the cost written out.
+        Eight jobs, all included in the monthly fee. Each has its own page with the process and the cost.
       </p>
       <div class="grid gap-5 md:grid-cols-2 mt-8">
         {services.map((s) => (
@@ -175,9 +173,8 @@ const schemaNodes = [
       <span class="eyebrow">Published, with definitions</span>
       <h2 id="kpi-h" class="text-[clamp(26px,3.2vw,38px)]">How is the portfolio performing?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
-        These are the operating numbers across every unit we manage, as of {kpis.asOfLabel}. We publish them
-        whether they flatter us or not, because a manager who will not show you their numbers is asking you
-        to take leasing speed and collection rate on faith.
+        Operating numbers across every unit we manage, as of {kpis.asOfLabel}, published whether they flatter
+        us or not.
       </p>
       <div class="grid gap-4 grid-cols-2 lg:grid-cols-4 mt-8">
         {kpis.metrics.map((m) => (
@@ -201,12 +198,12 @@ const schemaNodes = [
         <span class="eyebrow">For portfolio owners</span>
         <h2 id="portfolio-h" class="text-[clamp(24px,2.9vw,34px)] mb-4">Do you manage larger portfolios?</h2>
         <p class="text-[17.5px] text-muted mb-5">
-          Yes, and that is the part of the business we are built around. {pricing.portfolioDiscount.line}
+          Yes. {pricing.portfolioDiscount.line}
           {' '}<a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline">See the full table</a>.
         </p>
         <p class="text-[17.5px] text-muted mb-6">
-          Out-of-state owners, 1031 buyers and owners consolidating from several managers all get the same thing:
-          a written number, a named point of contact, and a transition plan with dates on it.
+          Out-of-state owners, 1031 buyers and owners consolidating from several managers get a written number,
+          a named point of contact, and a dated transition plan.
         </p>
         <div class="flex flex-wrap gap-3">
           <a href="/investors/" class="btn btn-navy">Portfolio and investor services</a>
@@ -236,7 +233,7 @@ const schemaNodes = [
         ))}
       </ol>
       <p class="text-[16px] text-muted mt-7">
-        Already have a manager? The transition is a separate process with its own timing rules. Read
+        Already have a manager? Read
         {' '}<a href="/switching-property-managers/" class="text-crimson font-semibold no-underline hover:underline">how to switch property managers</a>
         {' '}before you give notice.
       </p>
@@ -249,9 +246,9 @@ const schemaNodes = [
       <h2 id="what-h" class="text-[clamp(26px,3.2vw,38px)]">What kinds of property do you manage?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         {company.propertyTypes.charAt(0).toUpperCase() + company.propertyTypes.slice(1)}, in buildings that do not
-        require on-site staff. We do not manage homeowner or condominium associations, though we manage rental
-        units that sit inside one. We take on properties that are rent-ready or close to it. If yours needs a full
-        renovation first, we will point you at contractors and pick the conversation back up when the work is done.
+        require on-site staff. We do not manage homeowner or condominium associations, but we do manage rental
+        units inside one. Properties should be rent-ready or close to it; if yours needs a full renovation, we
+        will point you to contractors.
       </p>
       <p class="text-[16px] text-muted mt-5">
         Median rent across the units we manage:
@@ -269,7 +266,7 @@ const schemaNodes = [
       <h2 id="areas-h" class="text-[clamp(26px,3.2vw,38px)]">What areas around Columbus do you serve?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7">
         {areas.length} communities across Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway
-        counties. The linked ones have their own page with local rent data and what we manage there.
+        counties. Linked ones have their own page with local rent data.
       </p>
       <ul class="flex flex-wrap gap-x-5 gap-y-2 text-[15.5px]">
         {linkedAreas.map((a) => (
@@ -310,7 +307,7 @@ const schemaNodes = [
 
   <Cta
     heading="Find out what your Columbus rental should earn"
-    body="A free rent evaluation gives you a number for your unit and the comparable listings behind it. Own several? Ask for a portfolio quote instead."
+    body="A free rent evaluation gives you a number and the comparable listings behind it. Own several? Ask for a portfolio quote."
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
   />

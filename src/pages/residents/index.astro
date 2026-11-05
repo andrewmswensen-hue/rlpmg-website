@@ -46,11 +46,11 @@ const keyFacts = [
 ];
 
 const tasks = [
-  { h: 'Pay rent', p: `Due on ${rentPolicy.dueDate}, late fees after ${rentPolicy.lateFeesAfter}. Where to pay and what happens if you are short.`, href: '/residents/pay-rent/' },
-  { h: 'Submit a maintenance request', p: `What counts as an emergency, what does not, and how a request moves. Median ${repairDays} days to close.`, href: '/residents/maintenance-requests/' },
-  { h: 'Apply for a home', p: 'The application start to finish, and what to have ready before you pay a fee.', href: '/residents/how-to-apply/' },
-  { h: 'Application criteria', p: 'The written standard every applicant is screened against, published so you can check yourself first.', href: '/residents/application-criteria/' },
-  { h: 'Moving in', p: 'Utilities, keys, renters insurance and the condition report that protects your deposit.', href: '/residents/moving-in/' },
+  { h: 'Pay rent', p: `Due on ${rentPolicy.dueDate}, late fees after ${rentPolicy.lateFeesAfter}. Where to pay, and what to do if you are short.`, href: '/residents/pay-rent/' },
+  { h: 'Submit a maintenance request', p: `What counts as an emergency, and how a request moves. Median ${repairDays} days to close.`, href: '/residents/maintenance-requests/' },
+  { h: 'Apply for a home', p: 'Start to finish, and what to have ready.', href: '/residents/how-to-apply/' },
+  { h: 'Application criteria', p: 'The written screening standard. Check yourself first.', href: '/residents/application-criteria/' },
+  { h: 'Moving in', p: 'Utilities, keys, renters insurance and the condition report.', href: '/residents/moving-in/' },
   { h: 'Moving out', p: 'Notice, cleaning, the final walkthrough and how your deposit comes back.', href: '/residents/moving-out/' },
 ];
 
@@ -66,7 +66,7 @@ const faq = [
   { q: 'Can I add a roommate or a pet after I move in?',
     a: 'Both require written approval before the person or the animal moves in, and an adult roommate has to apply and be screened against the same criteria as the original applicants.' },
   { q: 'What happens when my lease is ending?',
-    a: `We reach out ahead of the end date with renewal terms. ${renewal} of residents renew. If a lease is allowed to lapse into month-to-month rather than renewed, rent increases by ${rentPolicy.monthToMonthIncreasePct}%, so a renewal is almost always the cheaper option.` },
+    a: `We reach out ahead of the end date with renewal terms. ${renewal} of residents renew. If a lease lapses into month-to-month instead, rent increases by ${rentPolicy.monthToMonthIncreasePct}%.` },
   { q: 'How do I verify my tenancy for a lender or a new landlord?',
     a: `Send the request to ${company.email} with the property address and the name on the lease, and tell us where the completed verification should go.` },
 ];
@@ -92,7 +92,7 @@ const faq = [
       <span class="eyebrow">Start here</span>
       <h2 id="tasks-h" class="text-[clamp(28px,3.3vw,40px)]">What do you need to do?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Six things cover almost every reason a resident contacts us. Pick the one you came for.
+        Pick the task you came for.
       </p>
       <ul class="grid gap-4 sm:grid-cols-2 mt-7">
         {tasks.map((t) => (
@@ -113,9 +113,8 @@ const faq = [
       <span class="eyebrow">The portal</span>
       <h2 id="portal-h" class="text-[clamp(28px,3.3vw,40px)]">What is the resident portal for?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Four things: paying rent, filing maintenance requests, reading your lease and notices, and seeing
-        your ledger. Use it rather than text or email. Everything filed there is timestamped and attached to your
-        tenancy, and that record protects you if there is a disagreement later.
+        Paying rent, filing maintenance requests, reading your lease and notices, and seeing your ledger.
+        Use it instead of text or email: everything there is timestamped, which protects you later.
       </p>
       <div class="grid gap-4 sm:grid-cols-2 mt-7">
         <div class="card">
@@ -131,8 +130,8 @@ const faq = [
           <h3 class="text-[18px] mb-2">If you cannot get in</h3>
           <p class="text-[15px] text-muted m-0">
             Email <a href={`mailto:${company.email}`} class="text-crimson font-semibold no-underline hover:underline">{company.email}</a>
-            {' '}from the address on your lease, or call {company.phone} during business hours. Do not miss a
-            rent payment over a login problem. Tell us before {rentPolicy.lateFeesAfter}.
+            {' '}from the address on your lease, or call {company.phone} during business hours, before
+            {' '}{rentPolicy.lateFeesAfter}.
           </p>
         </div>
       </div>
@@ -145,9 +144,8 @@ const faq = [
       <span class="eyebrow">What to expect from us</span>
       <h2 id="expect-h" class="text-[clamp(28px,3.3vw,40px)]">What can a resident expect from us?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        A written answer to anything you send, repairs that get scheduled rather than acknowledged, and
-        rules applied the same way to every resident. Resident satisfaction across the portfolio is
-        {' '}{satisfaction} out of 5, and {renewal} of residents renew when their lease ends.
+        A written answer to anything you send, repairs that get scheduled, not just acknowledged, and the
+        same rules for every resident.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         <div class="card">
@@ -175,11 +173,9 @@ const faq = [
       <span class="eyebrow">Pets</span>
       <h2 id="pet-h" class="text-[clamp(28px,3.3vw,40px)]">What does the pet fee pay for?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Coverage of up to {usd(pricing.petDamageCoverage.cap)} in pet damage above the security deposit. If
-        an approved pet causes damage beyond normal wear and tear and the repair costs more than the
-        deposit, that coverage absorbs the difference rather than the bill landing on you or on the owner.
-        It is funded by the monthly pet administration fee, and it is why pets are allowed in as many of
-        our homes as they are.
+        Coverage of up to {usd(pricing.petDamageCoverage.cap)} in pet damage (beyond normal wear and tear)
+        above the security deposit, so the bill does not land on you or the owner. The monthly pet
+        administration fee funds it.
       </p>
       <p class="text-[16px] text-muted mt-4">
         Service animals and assistance animals are not pets. No pet fee applies to them, and this coverage

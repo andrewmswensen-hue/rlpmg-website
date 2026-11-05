@@ -1,0 +1,289 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import LegalNote from '../../components/LegalNote.astro';
+import Cta from '../../components/Cta.astro';
+import { company, pricing, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Ashville, Ohio. Target query: "property management ashville ohio".
+ * Market tier: 'coverage' (we serve it and will take property on; no volume
+ * claimed). A small village, so the page is deliberately short.
+ *
+ * The differentiating fact: Ashville's income tax ordinance makes every rental
+ * owner report tenants to the village. New tenants and departing tenants go to
+ * the Village Tax Administrator every quarter, and owners of three or more units
+ * also file a tenant list every March 15 and September 15. Almost no owner who
+ * bought here from Columbus knows it exists. Second: Pickaway County, so
+ * evictions go to Circleville, not Columbus.
+ *
+ * SOURCES (all opened and verified 2026-11-05):
+ *  - Ashville is a village in Harrison Township, Pickaway County; 4,529 at the
+ *    2020 census (2,254 in 1990, 4,097 in 2010); 1,891 housing units and a 5.1%
+ *    rental vacancy rate in 2020; 17 miles south of Columbus and 8 miles north
+ *    of Circleville; incorporated 1882; first modern subdivisions in 1994
+ *    (Ashton Village and Ashton Woods, nearly 100 homes); Teays Valley Local
+ *    School District with Teays Valley High School, East Middle School and
+ *    Ashville Elementary in the village; Rickenbacker Global Logistics Park
+ *    expansion credited with thousands of jobs for the area:
+ *    https://en.wikipedia.org/wiki/Ashville,_Ohio
+ *  - Pickaway County 2020 population 58,539; county seat Circleville:
+ *    https://en.wikipedia.org/wiki/Pickaway_County,_Ohio
+ *  - US Census ACS 2024 5-year: 4,648 residents, 1,878 housing units, median
+ *    owner-occupied value $291,000:
+ *    https://censusreporter.org/profiles/16000US3902680-ashville-oh/
+ *  - Codified Ordinances of Ashville (local legislation current through
+ *    2024-03-19): https://codelibrary.amlegal.com/codes/ashville/latest/overview
+ *    - C.O. 192.23 Rental and Leased Property (Chapter 192, Income Tax):
+ *      (A) owners or their agents with three or more units file a tenant list
+ *      with the Village Tax Administrator on March 15 and September 15 each year;
+ *      (B) all owners of rental property file a report of new tenants (names,
+ *      addresses, phone numbers, move-in date) by the end of the month following
+ *      each calendar quarter; (C) same deadline for vacating tenants, with a
+ *      forwarding address; (E) failure to file is subject to C.O. 192.99:
+ *      https://codelibrary.amlegal.com/codes/ashville/latest/ashville_oh/0-0-0-17267
+ *    - Part Thirteen (Building Code) chapters: 1305 permits, 1311 Property
+ *      Maintenance Code, 1321 contractor registration, 1325 flood, 1329/1330
+ *      residential codes, 1333 electrical, 1341 state building codes. No rental
+ *      registration, license or inspection chapter:
+ *      https://codelibrary.amlegal.com/codes/ashville/latest/ashville_oh/0-0-0-13227
+ *    - Part Seven (Business Regulation) chapters: 709, 735, 749 only. No rental
+ *      license: https://codelibrary.amlegal.com/codes/ashville/latest/ashville_oh/0-0-0-8296
+ *    - C.O. 925.08 (Chapter 925, Water Regulations): the village will not refuse
+ *      or cut off service to a household over arrears owed by people who formerly
+ *      received service at the same premises, provided they no longer live there:
+ *      https://codelibrary.amlegal.com/codes/ashville/latest/ashville_oh/0-0-0-9080
+ *  - Pickaway County utilities: Village of Ashville listed as a water and sewer
+ *    provider; electric providers AEP Ohio, South Central Power and AES Ohio;
+ *    natural gas Columbia Gas of Ohio and Knox Energy Cooperative:
+ *    https://www.pickawayprogress.com/Why-Pickaway-County-Transportation-Utilities-P3.html
+ *    Which electric and gas utility serves a given parcel is not stated, so the
+ *    page says confirm per address.
+ *  - "The Circleville municipal court has jurisdiction within Pickaway county."
+ *    R.C. 1901.02: https://codes.ohio.gov/ohio-revised-code/section-1901.02
+ *  - Circleville Municipal Court, 151 East Franklin Street, Circleville, OH
+ *    43113; eviction hearings on Friday; first hearing date set the day the case
+ *    is filed; adequate copies to serve every tenant:
+ *    https://www.circlevillecourt.com/CivilDivision.asp
+ *  - Circleville Municipal Court Civil Division Cost Schedule, effective
+ *    2023-01-01: new eviction (forcible entry and detainer) $130 for one
+ *    defendant, $25 each additional (scanned PDF, read page 1):
+ *    https://www.circlevillecourt.com/PDFDirectory/filingfees.pdf
+ *    NOT in facts.ts otherCountyFilingFees yet; should move there.
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties of more
+ *    than 200,000 people at the last decennial census, so the 5323.02 auditor
+ *    filing does not apply in Pickaway County (58,539 in 2020). Verified on
+ *    codes.ohio.gov 2026-11-05: https://codes.ohio.gov/ohio-revised-code/section-5323.01
+ *
+ * DELIBERATELY NOT STATED: the village income tax rate, the penalty amount
+ * under C.O. 192.99, and any claim that unpaid tenant water bills go on the
+ * owner's tax bill (R.C. 735.29(A) limits that to owner-occupant contracts).
+ *
+ * NO entry in rentByMarketAndBedroom for Ashville, and no reliable public rent
+ * figure for the village, so no rent number is published. No door counts. No
+ * per-market days on market.
+ */
+
+const CITY = 'Ashville';
+const PATH = '/property-management-ashville-ohio/';
+
+const title = 'Ashville Property Management | RL Property Management';
+const description =
+  `Ashville, Ohio property management for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month ` +
+  `and a ${usd(pricing.leasingFee)} leasing fee. Pickaway County court, village tenant reports.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Ashville', path: PATH },
+];
+
+const publishesOwnRent = canPublishOwnRent(CITY);
+
+/** Circleville Municipal Court cost schedule, effective 2023-01-01. See SOURCES. */
+const circlevilleCourt = pricing.eviction.otherCountyFilingFees.find((c) => c.court === 'Circleville Municipal Court')!;
+const circleville = { oneDefendant: circlevilleCourt.fee!, eachAdditional: circlevilleCourt.eachAdditionalDefendant! };
+const evictionTotal = pricing.eviction.attorneyFee + circleville.oneDefendant + pricing.eviction.rlpmProcessFee;
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee each time an Ashville unit turns`,
+  'Ashville is a village in Pickaway County, 17 miles south of Columbus',
+  'Evictions are filed at Circleville Municipal Court, not in Columbus',
+  'The village requires a quarterly report of new and departing tenants',
+  'Water and sewer come from the Village of Ashville',
+];
+
+const faq = [
+  { q: 'Is Ashville, Ohio a city?',
+    a: 'No. Ashville is a village in Harrison Township, Pickaway County, with 4,529 residents at the 2020 census. Circleville is the county seat, 8 miles south.' },
+  { q: 'Do Ashville landlords have to report tenants to the village?',
+    a: 'Yes. Under Codified Ordinance 192.23, part of the village income tax chapter, every rental owner reports new tenants and departing tenants to the Village Tax Administrator by the end of the month after each calendar quarter. Owners of three or more units also file a tenant list each March 15 and September 15.' },
+  { q: 'Which court hears an eviction in Ashville?',
+    a: `Circleville Municipal Court, 151 E. Franklin St., Circleville. Ohio Revised Code 1901.02 gives it jurisdiction across Pickaway County. Filing costs ${usd(circleville.oneDefendant)} for one defendant, and eviction hearings are held on Fridays.` },
+  { q: 'Does Ashville require a rental license or inspection?',
+    a: 'Not that we found. The village code, as published through March 19, 2024, has no rental registration, license or inspection chapter. Its property maintenance code applies to rentals like any other building. The state’s county auditor rental registration (R.C. 5323.02) applies only in counties of more than 200,000 people, so it does not apply to a Pickaway County rental.' },
+  { q: 'Will the village refuse water service because the last tenant left a balance?',
+    a: 'No. Codified Ordinance 925.08 says the village will not refuse or cut off service to a household over a balance owed by people who used to live there, as long as they have moved out.' },
+  { q: 'How much does property management cost in Ashville?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, a ${usd(pricing.leasingFee)} leasing fee, and ${usd(pricing.leaseRenewalFee)} on a lease renewal.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Ashville, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Ashville, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Pickaway County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Ashville, Ohio"
+    answer={`${company.name} manages Ashville rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. We manage rental property throughout Ashville and the surrounding Pickaway County area. If you own a rental here, we can take it on.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Ashville, at a glance" />
+
+  <!-- THE HOOK: the village tenant report. -->
+  <section class="band-tight" aria-labelledby="report-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="report-h" class="text-[clamp(26px,3.2vw,38px)]">What does the Village of Ashville require of landlords?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        A tenant report. Ashville's income tax ordinance, Codified Ordinance 192.23, makes rental owners tell
+        the Village Tax Administrator who lives in their units.
+      </p>
+      <ul class="grid gap-2.5 text-[16.5px] text-muted list-disc pl-5 mt-5">
+        <li><strong class="text-navy">Every owner, every quarter:</strong> names, addresses, phone numbers and move-in dates of new tenants, due by the end of the month after the quarter closes.</li>
+        <li><strong class="text-navy">Departing tenants:</strong> the move-out date and a forwarding address, on the same schedule.</li>
+        <li><strong class="text-navy">Three or more units:</strong> a full tenant list every March 15 and September 15.</li>
+      </ul>
+      <p class="text-[17.5px] text-muted mt-5">
+        Missing a report falls under the chapter's penalty section. We keep the tenant records anyway, so we
+        file these for you.
+      </p>
+    </div>
+  </section>
+
+  <!-- COURT -->
+  <section class="band band-wash" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Evictions</span>
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Ashville?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Circleville Municipal Court, 151 E. Franklin St. Ohio Revised Code 1901.02 gives it every eviction in
+        Pickaway County. The court sets the first hearing date the day the case is filed and hears evictions on
+        Fridays.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner here</h3>
+        <ul class="grid gap-2 text-[15.5px] text-muted mb-0 list-none pl-0">
+          <li><strong class="text-navy">{usd(pricing.eviction.attorneyFee)}</strong> to the eviction attorney, filing plus up to two appearances</li>
+          <li><strong class="text-navy">{usd(circleville.oneDefendant)}</strong> Circleville filing cost for one defendant, {usd(circleville.eachAdditional)} for each additional</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.rlpmProcessFee)}</strong> to us to run the process end to end</li>
+          <li><strong class="text-navy">{usd(evictionTotal)}</strong> typical total for one defendant, before any setout</li>
+        </ul>
+        <p class="text-[14px] text-faint mt-4 mb-0">Court cost from the Circleville Municipal Court cost schedule effective January 1, 2023.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COUNTY FILING AND UTILITIES -->
+  <section class="band-tight" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">What else does an Ashville owner file, and who supplies utilities?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The state's county auditor rental registration (Ohio Revised Code 5323.02) applies only in counties
+        of more than 200,000 people, so it does not apply to a Pickaway County rental. The village tenant report
+        above is a separate rule, and it does apply. We found no village rental
+        license or inspection program in the published code.
+      </p>
+      <ul class="grid gap-2.5 text-[16.5px] text-muted list-disc pl-5 mt-5">
+        <li><strong class="text-navy">Water and sewer:</strong> the Village of Ashville. A new tenant is not refused service over a balance a former occupant left behind.</li>
+        <li><strong class="text-navy">Electricity:</strong> AEP Ohio, South Central Power and AES Ohio all serve Pickaway County. Confirm per address.</li>
+        <li><strong class="text-navy">Natural gas:</strong> Columbia Gas of Ohio or Knox Energy Cooperative. Confirm per address.</li>
+      </ul>
+      <p class="text-[16px] text-muted mt-5">
+        An Ashville mailing address does not prove the parcel is inside the village. Check it on the county
+        auditor's site before counting on village water or the village reporting rule.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOUSING AND PRICE -->
+  <section class="band band-wash" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Housing and cost</span>
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in Ashville?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        A village that doubled in a generation. Ashville had 2,254 residents in 1990 and 4,529 in 2020. The
+        first modern subdivisions, Ashton Village and Ashton Woods, brought nearly 100 homes in 1994, and several
+        more developments have followed. The Census counts 1,878 housing units and a
+        median owner-occupied value of $291,000 (ACS 2024 5-year).
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Teays Valley Local Schools runs its high school, East Middle School and Ashville Elementary inside the
+        village. The expansion of the Rickenbacker Global Logistics Park has added thousands of jobs to the area.
+      </p>
+      <div class="grid gap-5 sm:grid-cols-3 mt-8">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        {publishesOwnRent
+          ? 'Our portfolio sample in Ashville now supports a published median. Update this page before relying on it.'
+          : 'We do not publish a rent figure for Ashville. Send us an address and we will price it against live listings nearby.'}
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band-tight" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Ashville property management questions</h2>
+      <Faq items={faq} heading="Ashville property management questions" id="ashville-faq" />
+      <LegalNote class="mt-7 mb-5" />
+      <div class="mt-6"><Verified date="2026-11-05" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-south-bloomfield-ohio/', label: 'South Bloomfield property management', note: 'Pickaway County village, same Circleville court.' },
+    { href: '/property-management-commercial-point-ohio/', label: 'Commercial Point property management', note: 'Pickaway County village, same eviction court.' },
+    { href: '/property-management-groveport-ohio/', label: 'Groveport property management', note: 'Franklin County, so a different court.' },
+    { href: '/property-management-lancaster-ohio/', label: 'Lancaster property management', note: 'Fairfield County seat, where the city sells natural gas.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Ashville rental should earn"
+    body="Send us the address and we will price it against live comparable listings in and around Ashville. No charge, and no obligation to hire us."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

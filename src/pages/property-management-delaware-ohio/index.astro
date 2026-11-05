@@ -1,0 +1,348 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHero from '../../components/PageHero.astro';
+import KeyFacts from '../../components/KeyFacts.astro';
+import Faq from '../../components/Faq.astro';
+import Verified from '../../components/Verified.astro';
+import RelatedLinks from '../../components/RelatedLinks.astro';
+import Cta from '../../components/Cta.astro';
+import LegalNote from '../../components/LegalNote.astro';
+import { company, pricing, usd } from '../../data/facts';
+import { canPublishOwnRent } from '../../data/markets';
+import { serviceNode } from '../../lib/schema';
+
+/**
+ * Delaware, Ohio. Target query: "property management delaware ohio".
+ * Tier 'present' in markets.ts: we operate here, sample too small for our own medians.
+ *
+ * The differentiating facts: Delaware is the county seat, so the court and the
+ * auditor are local; the city runs its own water and sewer on one bill with a
+ * deposit rule written only for rentals; electric is split between AEP Ohio and
+ * Ohio Edison; and the downtown historic district requires city approval before
+ * exterior work. Two housing eras sit side by side: a pre-1940 core and a
+ * post-2000 ring.
+ *
+ * SOURCES (all opened and verified 2026-11-05):
+ *  - Delaware is a city and the county seat of Delaware County. Population 41,302
+ *    at the 2020 census. Historic Northwest Neighborhood: more than 500 homes and
+ *    carriage houses on the National Register of Historic Places. Ohio Wesleyan
+ *    University, founded 1844, about 1,950 students. Council-manager government:
+ *    https://en.wikipedia.org/wiki/Delaware,_Ohio
+ *  - Delaware County population 214,124 at the 2020 census, county seat Delaware:
+ *    https://en.wikipedia.org/wiki/Delaware_County,_Ohio
+ *  - City population 48,628 in 2025, "almost doubled" since 2000; top employers
+ *    Kroger 2,496, Ohio Wesleyan 1,571, Delaware County Government 1,114,
+ *    OhioHealth 1,022: https://www.cityofdelawareoh.gov/About-Us/Fast-Facts
+ *  - City utility bill covers water, wastewater, storm water, curbside refuse and
+ *    recycling. $100 deposit "for residential rental properties only", waivable
+ *    after a two-year good payment record. 10% penalty on a late bill, shutoff
+ *    possible by the 15th of the following month, $50 to restore. Utility Billing
+ *    at City Hall, 1 S. Sandusky St.:
+ *    https://www.cityofdelawareoh.gov/Government/Departments/Utility-Billing
+ *  - Water from the Olentangy River blended with groundwater, more than 12,000
+ *    customers; city sewer returns treated water to the Olentangy:
+ *    https://www.cityofdelawareoh.gov/Government/Departments/Public-Utilities/Our-Utilities
+ *  - Electric: the city names AEP Ohio and Ohio Edison as the local utilities; its
+ *    electric aggregation program ended June 2026 and accounts returned to the
+ *    utility default supply:
+ *    https://www.cityofdelawareoh.gov/Government/City-Hall/Electric-Aggregation
+ *  - Gas: Columbia Gas of Ohio named as the natural gas utility for Delaware County:
+ *    https://www.aepenergy.com/?p=26011
+ *  - Downtown Historic District: exterior alterations need a Certificate of
+ *    Appropriateness from the Historic Preservation Commission in addition to
+ *    permits; paint, signs and roofs often approved administratively; apply before
+ *    work or risk a penalty fee and code enforcement action (Zoning Code Ch. 1115):
+ *    https://www.cityofdelawareoh.gov/Government/Departments/Planning-Community-Development/Planning-Zoning/Downtown-Historic-District
+ *  - Short-term rentals: city registration application, code compliance inspection
+ *    by Code Enforcement and Fire Department staff:
+ *    https://www.cityofdelawareoh.gov/files/assets/city/v/1/planning-amp-community-development/documents/shortterm-rentals.pdf
+ *  - Code Enforcement enforces the Property Maintenance and Zoning Codes; notices
+ *    of violation are mailed to the owner by certified and regular mail:
+ *    https://www.cityofdelawareoh.gov/Government/Departments/Planning-Community-Development/Code-Enforcement
+ *  - No long-term rental registration or inspection program found on the city's
+ *    planning, code enforcement or forms pages, 2026-11-05. The codified
+ *    ordinances (Municode, amlegal) refuse automated requests and were not read.
+ *  - US Census, ACS 2024 5-year estimates, Delaware city (place 3921434), via
+ *    https://censusreporter.org/profiles/16000US3921434-delaware-oh/ :
+ *    B25035 median year built 1995; B25034 2,895 of 17,726 units built 1939 or
+ *    earlier (16.3%), 7,311 built 2000 or later (41.2%); B25024 11,237 detached
+ *    single-family (63.4%); B25003 5,898 of 16,728 occupied units renter-occupied
+ *    (35.3%); B25064 median gross rent $1,286.
+ *  - Court: "The Delaware municipal court has jurisdiction within Delaware county."
+ *    https://codes.ohio.gov/ohio-revised-code/section-1901.02
+ *  - R.C. 5323.01(E) limits "residential rental property" to counties over 200,000
+ *    at the last decennial census; 5323.02 filing contents, 60-day update, agent may
+ *    file (F); 5323.03 out-of-state owner must designate an Ohio agent; 5323.99
+ *    special assessment $50 to $150:
+ *    https://codes.ohio.gov/ohio-revised-code/section-5323.01 (and -5323.02, -5323.03, -5323.99)
+ *  - Delaware County Auditor rental registration FAQ (entity contact must be an
+ *    individual; (740) 833-2900):
+ *    https://auditor.co.delaware.oh.us/wp-content/uploads/sites/23/2020/05/RentalRegistration.pdf
+ *  - R.C. 1923.04 three-day notice to leave the premises.
+ *  - Delaware Municipal Court eviction filing deposit: not verified (the court site
+ *    refuses automated requests; see facts.ts otherCountyFilingFees). Not quoted.
+ *
+ * NO qualifying entry in rentByMarketAndBedroom for Delaware. The Census median
+ * gross rent is published, labelled as Census. No door counts. No per-market
+ * days on market.
+ */
+
+const CITY = 'Delaware';
+const PATH = '/property-management-delaware-ohio/';
+
+const title = 'Delaware Property Management | RL Property Management';
+const description =
+  `Delaware, Ohio property management at a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, ` +
+  `${usd(pricing.leasingFee)} leasing fee. Delaware Municipal Court, city water, historic district rules.`;
+
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Areas we serve', path: '/areas-we-serve/' },
+  { name: 'Delaware', path: PATH },
+];
+
+const publishesOwnRent = canPublishOwnRent(CITY);
+const utilitySetup = pricing.otherFees.find((f) => f.name === 'Utility setup');
+
+const keyFacts = [
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
+  `${usd(pricing.leasingFee)} leasing fee each time a Delaware unit turns`,
+  'Evictions go to Delaware Municipal Court, which covers all of Delaware County',
+  'The city bills water, sewer and trash together, with a deposit set only for rentals',
+  'Electric is AEP Ohio or Ohio Edison, depending on the address',
+  'Exterior work in the Downtown Historic District needs city approval first',
+];
+
+const faq = [
+  { q: 'What county is Delaware, Ohio in?',
+    a: 'Delaware County, and the city is its county seat, so the municipal court and the county auditor are in the same city as your rental.' },
+  { q: 'Which court hears an eviction in Delaware, Ohio?',
+    a: 'Delaware Municipal Court. Under Ohio Revised Code 1901.02 it covers all of Delaware County, so a Delaware eviction is not filed in Franklin County. A three-day notice under R.C. 1923.04 comes first.' },
+  { q: 'Who provides water and sewer in Delaware, Ohio?',
+    a: 'The City of Delaware, on one monthly bill with stormwater and curbside trash. Rental properties carry a $100 deposit, which the city can waive for a tenant with two years of on-time payments.' },
+  { q: 'Does the City of Delaware require a rental license?',
+    a: 'Only for short-term rentals, which the city registers and inspects. We found no city program for a standard lease as of November 2026. The county auditor filing under R.C. 5323.02 still applies, and we file it for you.' },
+  { q: 'Can I repaint or reroof a rental in downtown Delaware without approval?',
+    a: 'Not inside the Downtown Historic District. Exterior work there needs a Certificate of Appropriateness from the Historic Preservation Commission before it starts. Paint, signs and roofs are often approved by staff.' },
+  { q: 'How much does property management cost in Delaware?',
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, a ${usd(pricing.leasingFee)} leasing fee, and ${usd(pricing.leaseRenewalFee)} on a lease renewal. Photography is billed separately at $250 to $450.` },
+];
+
+const schemaNodes = [
+  {
+    ...serviceNode({
+      path: PATH,
+      name: 'Residential property management in Delaware, Ohio',
+      description,
+    }),
+    areaServed: {
+      '@type': 'City',
+      name: 'Delaware, Ohio',
+      containedInPlace: { '@type': 'AdministrativeArea', name: 'Delaware County, Ohio' },
+    },
+  },
+];
+---
+<Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+
+  <PageHero
+    eyebrow="Where we work"
+    title="Property management in Delaware, Ohio"
+    answer={`${company.name} manages Delaware rentals for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Delaware is the Delaware County seat, and evictions are heard at Delaware Municipal Court.`}
+    breadcrumbs={breadcrumbs}
+    primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondaryCta={{ label: 'See the full fee schedule', href: '/pricing/' }}
+  />
+
+  <KeyFacts items={keyFacts} heading="Delaware, at a glance" />
+
+  <!-- HOUSING: two eras side by side is what makes Delaware different. -->
+  <section class="band-tight" aria-labelledby="stock-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="stock-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in Delaware?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Two eras of housing, side by side. About 16% of Delaware's homes were built in 1939 or earlier, and
+        about 41% were built in 2000 or later. Roughly 63% are detached single-family houses, and about 35% of
+        occupied homes are rented (US Census, ACS 2024 5-year estimates).
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The older stock is in the core: the Historic Northwest Neighborhood, where more than 500 homes and
+        carriage houses are on the National Register of Historic Places, downtown along Sandusky Street, and
+        the blocks around Ohio Wesleyan University. The newer stock reflects growth: the city says its population
+        has almost doubled since 2000, reaching 48,628 in 2025.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        An older house near campus and a newer house on the edge of town need different repair budgets, and
+        different rent assumptions. Demand is broad: the city's largest employers include Kroger, Ohio
+        Wesleyan, Delaware County government and OhioHealth.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">The downtown historic district rule</h3>
+        <p class="text-[16px] text-muted mt-0 mb-0">
+          Inside the Downtown Historic District, any exterior alteration needs a Certificate of Appropriateness
+          from the Historic Preservation Commission, in addition to normal permits. Paint, signs and roofs are
+          often approved by staff. Larger facade work goes before the commission. Start the work first and you
+          risk a penalty and a code enforcement case, so plan the lead time into any exterior repair there.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- UTILITIES -->
+  <section class="band band-wash" aria-labelledby="util-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Utilities</span>
+      <h2 id="util-h" class="text-[clamp(26px,3.2vw,38px)]">Who supplies water, sewer and power on a Delaware rental?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        The City of Delaware supplies water and sewer, on one monthly bill that also covers stormwater and
+        curbside trash and recycling. Its water comes mainly from the Olentangy River, blended with well water.
+      </p>
+      <div class="scroll-x mt-7">
+        <table class="w-full border-collapse text-[15.5px]">
+          <caption class="sr-only">Utility providers for Delaware, Ohio rental property</caption>
+          <thead>
+            <tr class="bg-wash-soft">
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Service</th>
+              <th scope="col" class="text-left p-3.5 border border-line font-semibold">Provider</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Water, sewer, trash</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">City of Delaware Utility Billing, 1 S. Sandusky St.</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Electricity</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">AEP Ohio or Ohio Edison, by address</td>
+            </tr>
+            <tr>
+              <th scope="row" class="text-left p-3.5 border border-line font-medium">Natural gas</th>
+              <td class="p-3.5 border border-line text-navy font-semibold">Columbia Gas of Ohio</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-[16.5px] text-muted mt-6">
+        Two city rules affect owners. The city takes a $100 deposit on residential rental properties only, and
+        waives it for a tenant with two years of on-time payments to the city. A late bill takes a 10% penalty,
+        service can be shut off by the 15th of the following month, and restoring it costs $50.
+      </p>
+      <p class="text-[16.5px] text-muted mt-5">
+        Between residents we put service in your name and confirm the incoming resident has moved it into
+        theirs{utilitySetup ? ` (${utilitySetup.amount} on our fee schedule)` : ''}. The city's electric
+        aggregation program ended in June 2026, so accounts are back on AEP Ohio or Ohio Edison default supply.
+        A house outside the city system can have a different water provider, so we confirm it by parcel.
+      </p>
+    </div>
+  </section>
+
+  <!-- COURT -->
+  <section class="band-tight" aria-labelledby="court-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Delaware, Ohio?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Delaware Municipal Court. Ohio Revised Code 1901.02 gives it jurisdiction over all of Delaware County,
+        so the same court hears cases from Delaware, Powell and Lewis Center. Nothing goes to Franklin County
+        Municipal Court in Columbus.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The case starts with a three-day notice to leave the premises under R.C. 1923.04, worded as the statute
+        requires and served correctly. Get either wrong and the case is dismissed, and you start again weeks behind.
+      </p>
+      <div class="card mt-7">
+        <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner</h3>
+        <ul class="grid gap-2 text-[15.5px] text-muted mb-0 list-none pl-0">
+          <li><strong class="text-navy">{usd(pricing.eviction.attorneyFee)}</strong> to the eviction attorney, filing plus up to two appearances</li>
+          <li><strong class="text-navy">{usd(pricing.eviction.rlpmProcessFee)}</strong> to us to run the process end to end</li>
+          <li><strong class="text-navy">Court filing deposit</strong> set by Delaware Municipal Court, confirmed with the clerk when we file</li>
+        </ul>
+      </div>
+      <p class="text-[16px] text-muted mt-6">
+        Our full process is on the
+        {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section class="band band-wash" aria-labelledby="reg-h">
+    <div class="wrap max-w-[880px]">
+      <span class="eyebrow">Compliance</span>
+      <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Delaware rental?</h2>
+      <p class="text-[17.5px] text-muted mt-4">
+        Yes, with the Delaware County Auditor, and we file it for you. Ohio Revised Code 5323.02 applies in
+        counties over 200,000 people, and Delaware County had 214,124 in 2020. The filing lists the owner's
+        name, address and phone plus the parcel number, updated within 60 days of any change. It is free to
+        file. Missing it can bring a special assessment of $50 to $150.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        Owners commonly miss two details. An LLC or trust has to name an individual, such as a member or
+        trustee, as the contact. An owner living outside Ohio has to designate an Ohio resident to accept legal
+        papers under R.C. 5323.03. We cover both at onboarding.
+      </p>
+      <p class="text-[17.5px] text-muted mt-5">
+        The city registers and inspects short-term rentals. For a standard lease, we found no city registration
+        or inspection program as of November 2026. Code enforcement mails violation notices to the owner, so
+        the address on file has to be current.
+      </p>
+      <LegalNote class="mt-6" />
+    </div>
+  </section>
+
+  <!-- COST -->
+  <section class="band-tight" aria-labelledby="cost-h">
+    <div class="wrap max-w-[880px]">
+      <h2 id="cost-h" class="text-[clamp(26px,3.2vw,38px)]">What does property management cost in Delaware?</h2>
+      <div class="grid gap-5 sm:grid-cols-3 mt-6">
+        {pricing.plans.map((p) => (
+          <div class="card text-center">
+            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">{p.name}</div>
+            <div class="font-sans text-[42px] font-extrabold tracking-[-.045em] text-navy leading-none">{usd(p.monthly)}</div>
+            <div class="font-sans text-[13px] text-faint mt-2">per unit, per month</div>
+            <p class="text-[14.5px] text-muted mt-4 mb-0">{usd(p.repairApprovalLimit)} per-item repair approval limit</p>
+          </div>
+        ))}
+      </div>
+      <p class="text-[16.5px] text-muted mt-7">
+        {publishesOwnRent
+          ? 'Our portfolio sample in Delaware now supports a published median. Update this page before relying on it.'
+          : 'We do not publish our own Delaware rent median yet, because our sample there is under the five-unit floor we set. For reference, the Census median gross rent in Delaware (rent plus tenant-paid utilities, all unit sizes) is $1,286 in the ACS 2024 5-year estimates. That is a Census figure, not ours.'}
+        {' '}The {usd(pricing.leasingFee)} leasing fee does not include photography, which is billed at $250 to
+        $450 when a unit needs new photos.
+      </p>
+      <div class="flex flex-wrap gap-3 mt-7">
+        <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
+        <a href="/free-rent-evaluation/" class="btn btn-ghost">Price my Delaware rental</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="band band-wash" aria-labelledby="faq-section">
+    <div class="wrap max-w-[820px]">
+      <span class="eyebrow">Real answers</span>
+      <h2 id="faq-section" class="sr-only">Delaware property management questions</h2>
+      <Faq items={faq} heading="Delaware property management questions" id="delaware-faq" />
+      <p class="mt-7 text-[15.5px] text-muted">
+        More answers are on the
+        {' '}<a href="/owner-faqs/" class="text-crimson font-semibold no-underline hover:underline">owner FAQs page</a>.
+      </p>
+      <div class="mt-6"><Verified date="2026-11-05" /></div>
+    </div>
+  </section>
+
+  <RelatedLinks links={[
+    { href: '/property-management-powell-ohio/', label: 'Powell property management', note: 'South of Delaware, same county and same court.' },
+    { href: '/property-management-lewis-center-ohio/', label: 'Lewis Center property management', note: 'Unincorporated Orange Township, on Del-Co Water.' },
+    { href: '/property-management-marysville-ohio/', label: 'Marysville property management', note: 'West in Union County, with its own municipal court.' },
+    { href: '/property-management-westerville-ohio/', label: 'Westerville property management', note: 'Split across Franklin and Delaware counties.' },
+    { href: '/pricing/', label: 'Pricing and the full fee schedule', note: 'Every charge that can appear on an owner statement.' },
+  ]} heading="Nearby markets and what to read next" />
+
+  <Cta
+    heading="Find out what your Delaware rental should earn"
+    body="Send us the address. We will price it against live comparable listings, whether it is a historic house near campus or a newer build on the edge of town. No charge."
+    primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
+    secondary={{ label: 'Get a portfolio quote', href: '/property-management-consultation/' }}
+  />
+</Base>

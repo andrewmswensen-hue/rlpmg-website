@@ -62,8 +62,7 @@ const publishesOwnRent = canPublishOwnRent(CITY);
 const collectedBy5 = kpis.metrics.find((m) => m.id === 'collectedBy5');
 
 const keyFacts = [
-  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
-  `${usd(pricing.leasingFee)} leasing fee every time a Groveport unit turns`,
+  `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, ${usd(pricing.leasingFee)} leasing fee`,
   'Groveport is in Franklin County, so evictions go to 375 S. High St., Columbus',
   'The R.C. 5323 owner filing goes to the Franklin County Auditor',
   'The Rickenbacker logistics cluster sits immediately next door',
@@ -74,19 +73,19 @@ const faq = [
   { q: 'What county is Groveport, Ohio in?',
     a: 'Franklin County. Groveport is an incorporated Franklin County city in the southeast corner of the county, next to the Rickenbacker logistics hub, and every county-level filing runs through Franklin County.' },
   { q: 'Which court hears an eviction in Groveport, Ohio?',
-    a: 'Franklin County Municipal Court. The civil and eviction division sits at 375 S. High St., 3rd floor, Columbus, OH 43215, with jurisdiction running countywide under Ohio Revised Code 1901.02. Before filing, Ohio requires a three-day notice to leave the premises under R.C. 1923.04, carrying specific statutory language and served correctly, or the case is dismissed and you start again roughly three weeks later.' },
+    a: 'Franklin County Municipal Court. The civil and eviction division sits at 375 S. High St., 3rd floor, Columbus, OH 43215, with jurisdiction running countywide under Ohio Revised Code 1901.02. A correctly served three-day notice under R.C. 1923.04, in specific statutory language, comes first, or the case is dismissed.' },
   { q: 'Why does Groveport have so much warehouse space?',
-    a: 'Because of Rickenbacker. The city sits next to a cargo-dedicated airport inside a multimodal freight hub that includes the North American International Freight Center, where three intermodal terminals handle roughly 800,000 container lifts a year. Groveport began attracting investment in the cluster in the mid to late 1980s, and the result is millions of square feet of ambient and temperature-controlled logistics and e-commerce space within a short drive of most of the housing in the city.' },
+    a: 'Because of Rickenbacker. The city sits next to a cargo-dedicated airport inside a multimodal freight hub that includes the North American International Freight Center, where three intermodal terminals handle roughly 800,000 container lifts a year. Investment began arriving in the mid to late 1980s, and millions of square feet of ambient and temperature-controlled logistics and e-commerce space now sit a short drive from most Groveport housing.' },
   { q: 'How does a logistics employment base change managing a rental?',
-    a: 'In four concrete ways. Showings and maintenance appointments have to work around second and third shift, so a 9-to-5 showing schedule loses applicants. Income verification has to separate base hours from overtime, because an application that clears a three-times-rent test on peak-season overtime may not clear it in February. Pay cycles are often weekly or biweekly rather than semi-monthly, which changes how the first-to-fifth rent window behaves. And employment is concentrated, so one operator trimming a shift can affect several households in the same month.' },
+    a: 'Four ways: showings and maintenance must fit second and third shift; screening must separate base hours from peak-season overtime; weekly or biweekly pay changes how the first-to-fifth rent window behaves; and concentrated employment means one operator trimming a shift can hit several households in the same month.' },
   { q: 'Does that make Groveport a worse market to own in?',
-    a: 'No, but absentee management does badly here. The stock is affordable relative to the north side, the demand is steady because the freight cluster is not going anywhere, and tenancies can run long when the unit is maintained. A manager who only answers the phone between nine and five and screens on a single gross-income number will struggle here.' },
+    a: 'No, but absentee management does badly here. The stock is affordable relative to the north side, freight-cluster demand is steady, and well-kept units hold tenants a long time. A nine-to-five manager screening on one gross-income number will struggle.' },
   { q: 'Do I have to register a Groveport rental property?',
-    a: 'Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires the owner of residential rental property to file the owner name, address and telephone number plus the property address and parcel number with the county auditor, and to update it within 60 days of any change. There is no fee. The Franklin County Auditor states a penalty of $150 per tax year for failing to file, within a statutory range of $50 to $150 under R.C. 5323.99.' },
+    a: 'Yes, with the Franklin County Auditor under Ohio Revised Code 5323.02: owner contact details, property address and parcel number, free, kept current within 60 days of a change. The auditor states $150 per tax year for not filing, inside the $50 to $150 range of R.C. 5323.99.' },
   { q: 'What does a rental in Groveport rent for?',
-    a: 'We are not publishing a bedroom-level median for Groveport. Our own sample there is below the five-unit floor we set before publishing a market-level figure, and we will not relabel a public rent index as our own portfolio data. Send an address and we will price it against live comparables.' },
+    a: 'We do not publish a Groveport median, because our sample there is under five units. Send an address and we will price it against live comparables.' },
   { q: 'How much does property management cost in Groveport?',
-    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. The flat fee matters more in a moderate-rent market than a high-rent one, because a percentage fee is a smaller absolute number but a larger share of thin cash flow. Photography is not included in the leasing fee and is billed separately at $250 to $450.` },
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on plan, with a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} on a lease renewal. On thinner moderate-rent cash flow, a percentage takes a bigger share of what you keep. Photography is not included in the leasing fee and is billed separately at $250 to $450.` },
 ];
 
 const schemaNodes = [
@@ -122,47 +121,39 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="shift-h" class="text-[clamp(26px,3.2vw,38px)]">How does Groveport's logistics economy change managing a rental there?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        It changes when you can show the unit, how you read an application, when rent arrives, and how
-        correlated your vacancy risk is. Groveport sits next to Rickenbacker, a cargo-dedicated airport inside a
-        multimodal freight hub whose three intermodal terminals handle roughly 800,000 container lifts a year.
-        The city has been attracting warehousing, fulfilment and distribution investment since the mid to late
-        1980s. A large share of the people who rent houses in Groveport work inside that cluster.
+        It changes showing times, screening, rent timing and vacancy risk. Groveport sits next to Rickenbacker,
+        a cargo-dedicated airport in a multimodal freight hub whose three intermodal terminals handle roughly
+        800,000 container lifts a year, and warehousing, fulfillment and distribution investment has arrived
+        since the mid to late 1980s. Many Groveport renters work in that cluster.
       </p>
 
       <h3 class="text-[21px] mt-9 mb-3">Showings and maintenance have to fit around shifts</h3>
       <p class="text-[16.5px] text-muted">
-        A second-shift worker cannot see a house at 2pm and a third-shift worker is asleep at 10am. A leasing
-        process built on weekday daytime appointments quietly filters out a large part of the qualified
-        applicant pool in this market, and you never see the applications that did not happen. The same
-        problem applies to maintenance access: a technician who can only come Tuesday at 11am does not fix the
-        furnace of a resident who works nights, so the ticket ages and the resident stops reporting things.
+        A second-shift worker cannot tour at 2pm and a third-shift worker is asleep at 10am, so weekday daytime
+        showings quietly lose qualified applicants. Maintenance is the same: a Tuesday 11am slot does not fix a
+        night worker's furnace, and the ticket ages.
       </p>
 
       <h3 class="text-[21px] mt-9 mb-3">Overtime is not base income</h3>
       <p class="text-[16.5px] text-muted">
-        Warehouse pay in central Ohio is hourly, and peak season from roughly September through December can add
-        significant overtime. An application built on eight weeks of peak pay stubs can clear a three-times-rent test
-        and then fail in February when the hours come off. Screening here means looking at base scheduled hours,
-        not the biggest recent pay stub, and it means asking about the employment start date rather than
-        treating any warehouse job as interchangeable with any other.
+        Warehouse pay is hourly, and peak season (roughly September through December) adds overtime. Eight weeks of
+        peak stubs can clear a three-times-rent test and fail in February. We screen on base scheduled hours and
+        the employment start date, not the biggest recent stub.
       </p>
 
       <h3 class="text-[21px] mt-9 mb-3">Pay cycles are weekly, rent is monthly</h3>
       <p class="text-[16.5px] text-muted">
-        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}. That
-        policy does not change in Groveport. What changes is the mechanics: a resident paid weekly or biweekly
-        does not have one monthly deposit that lines up with the 1st, and a month where the pay date falls on
-        the 2nd is a month where a perfectly reliable resident is late by default. Across our whole portfolio
-        {' '}{collectedBy5?.value} of rent is collected by the 5th, and the way you protect that in a
-        weekly-pay market is by setting up the payment schedule at lease signing rather than chasing it later.
+        Rent is due on {rentPolicy.dueDate} and late fees are assessed after {rentPolicy.lateFeesAfter}, same as
+        everywhere. But weekly or biweekly pay rarely lines up with the 1st, so a reliable resident paid on the
+        2nd is late by default. Across our portfolio {collectedBy5?.value} of rent is collected by the 5th; here
+        we protect that by setting the payment schedule at lease signing.
       </p>
 
       <h3 class="text-[21px] mt-9 mb-3">Employment here is concentrated, so risk is correlated</h3>
       <p class="text-[16.5px] text-muted">
-        If you own three houses in Groveport and all three residents work in fulfilment, you do not have three
-        independent risks. One operator cutting a shift, or a seasonal contract ending, can hit all three in the
-        same month. You do not need to avoid the market, but you should hold reserves at the top of our published
-        range rather than the bottom, and plan for a cut before it happens rather than in the middle of it.
+        Three Groveport houses with three fulfillment-worker residents are not three independent risks: one shift
+        cut or ended seasonal contract can hit all three in one month. Hold reserves at the top of our published
+        range and plan for a cut before it happens.
       </p>
     </div>
   </section>
@@ -173,14 +164,12 @@ const schemaNodes = [
       <span class="eyebrow">Evictions</span>
       <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Groveport, Ohio?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Franklin County Municipal Court, whose civil and eviction division sits at 375 S. High St., 3rd floor,
-        Columbus, OH 43215. Jurisdiction runs countywide under Ohio Revised Code 1901.02, so a Groveport
-        property files there like any other Franklin County property.
+        Franklin County Municipal Court. Its civil and eviction division is on the 3rd floor of 375 S. High St.,
+        Columbus, OH 43215, with countywide jurisdiction under Ohio Revised Code 1901.02.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
-        Ohio requires a three-day notice to leave the premises under R.C. 1923.04 before the complaint, with
-        specific statutory language and correct service. Wrong wording or wrong service and the case is
-        dismissed, which costs the filing fee and roughly three weeks.
+        The complaint follows a three-day notice under R.C. 1923.04, with specific statutory language and correct
+        service. Get either wrong and the dismissal costs the filing fee and roughly three weeks.
       </p>
       <div class="card mt-7">
         <h3 class="text-[19px] mt-0 mb-3">What an eviction costs an owner</h3>
@@ -193,9 +182,8 @@ const schemaNodes = [
         </ul>
       </div>
       <p class="text-[16px] text-muted mt-6">
-        Across the portfolio, {pricing.eviction.disputeRatePct}% of tenancies reach a dispute. Most of the work
-        that keeps that number down happens at screening and in the first week of a missed payment, not at the
-        courthouse. The procedure is on the
+        Across the portfolio, {pricing.eviction.disputeRatePct}% of tenancies reach a dispute; screening and the
+        first week of a missed payment keep that low. The procedure is on the
         {' '}<a href="/services/evictions/" class="text-crimson font-semibold no-underline hover:underline">evictions page</a>.
       </p>
     </div>
@@ -206,21 +194,17 @@ const schemaNodes = [
     <div class="wrap max-w-[880px]">
       <h2 id="reg-h" class="text-[clamp(26px,3.2vw,38px)]">Do you have to register a Groveport rental property?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Yes, with the Franklin County Auditor. Ohio Revised Code 5323.02 requires every owner of residential
-        rental property to file their name, address and telephone number, plus the property street address and
-        permanent parcel number, with the auditor of the county the property sits in, updated within 60 days of
-        any change. There is no fee. The Franklin County Auditor states a penalty of $150 per tax year for
-        failing to file, inside a statutory range of $50 to $150 under R.C. 5323.99.
+        Yes, with the Franklin County Auditor. As your designated filing agent, we take care of it during
+        onboarding.
       </p>
+      <ul class="text-[17.5px] text-muted mt-4 list-disc pl-5 grid gap-2">
+        <li>What: under Ohio Revised Code 5323.02, your name, address and telephone number, plus the property address and parcel number.</li>
+        <li>Cost and updates: free, refreshed within 60 days of any change.</li>
+        <li>Entities: an LLC or trust names its responsible officer, member or trustee.</li>
+        <li>Penalty: $150 per tax year per the Franklin County Auditor, within the $50 to $150 range of R.C. 5323.99.</li>
+      </ul>
       <p class="text-[17.5px] text-muted mt-5">
-        Owners holding through an LLC or a trust have to name the responsible officer, member or trustee. The
-        statute lets an owner designate a property manager as the filing agent, and that is part of onboarding
-        here.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
-        Where a city runs its own registration, license or inspection program, it stacks on top of the county auditor filing rather than replacing it. Columbus added a citywide registry in April 2026 under City Code Chapter 4515. We track which program applies to your address and handle the filing on time.
-      </p>
-      <p class="text-[17.5px] text-muted mt-5">
+        Any city program, such as the Columbus registry (City Code Chapter 4515, April 2026), adds to this filing rather than replacing it, and we handle those deadlines too.
       </p>
     </div>
   </section>
@@ -231,15 +215,14 @@ const schemaNodes = [
       <span class="eyebrow">The market</span>
       <h2 id="market-h" class="text-[clamp(26px,3.2vw,38px)]">What kind of rental property is in Groveport, and what does management cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Groveport rentals are detached single-family houses and small multifamily buildings at price points well below the north and
-        northwest suburbs, with an older village core around Main Street and rings of postwar and later
-        subdivision building outward from it. That affordability is why the market works: the rent a warehouse
-        household can support and the rent these houses command are close enough that occupancy holds.
+        Detached single-family houses and small multifamily buildings, priced well below the north and northwest
+        suburbs: an older village core around Main Street ringed by postwar and later subdivisions. Rents sit
+        close to what a warehouse household can carry, so occupancy holds.
       </p>
       <p class="text-[17.5px] text-muted mt-5">
         {publishesOwnRent
           ? 'Our portfolio sample in Groveport now supports a published median. Update this page before relying on it.'
-          : 'We are not publishing a bedroom-level rent median for Groveport. Our sample there sits below the five-unit floor we set before we will publish a market-level figure, and quoting a public rent index as though it came from our own book is what we criticize other local pages for doing.'}
+          : 'Our Groveport sample is under the five units we need to publish a rent median.'}
         {' '}Send an address and we will price it against live comparable listings.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
@@ -253,12 +236,10 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16.5px] text-muted mt-7">
-        A flat fee is worth the most in a moderate-rent market. A percentage manager takes a smaller absolute
-        number here than in a high-rent suburb, but the cash flow is thinner, so the same percentage is a bigger
+        A flat price is worth most in a moderate-rent market, where thin cash flow makes any percentage a bigger
         share of what you keep. Placement is {usd(pricing.leasingFee)}. Maintenance is
         {' '}{usd(pricing.maintenance.inHouseHourly)} an hour with a {usd(pricing.maintenance.tripCharge)} trip
-        charge and no minimum, materials at cost. Photography is not included in the leasing fee and is billed
-        separately at $250 to $450.
+        charge and no minimum, materials at cost. Photography is billed separately at $250 to $450.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
         <a href="/pricing/" class="btn btn-navy">See every fee we charge</a>
