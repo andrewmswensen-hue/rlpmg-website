@@ -29,13 +29,13 @@ Key Takeaways
 
 In This Article
 
-1. [Why Does Bexley Attract Renters?](#why-renters)
-2. [What Does Bexley Rental Market Data Show in 2026?](#market-data)
-3. [What Should You Expect for Vacancy and Lease Timing?](#vacancy-timing)
-4. [What Should Investors Know Before Buying in Bexley?](#investors)
-5. [Which Rental Compliance Rules Apply in Bexley?](#compliance)
-6. [The Bottom Line for Investors](#bottom-line)
-7. [Frequently Asked Questions](#faq)
+1. [Why Does Bexley Attract Renters?](#why-does-bexley-attract-renters)
+2. [What Does Bexley Rental Market Data Show in 2026?](#what-does-bexley-rental-market-data-show-in-2026)
+3. [What Should You Expect for Vacancy and Lease Timing?](#what-should-you-expect-for-vacancy-and-lease-timing)
+4. [What Should Investors Know Before Buying in Bexley?](#what-should-investors-know-before-buying-in-bexley)
+5. [Which Rental Compliance Rules Apply in Bexley?](#which-rental-compliance-rules-apply-in-bexley)
+6. [The Bottom Line for Investors](#the-bottom-line-for-investors)
+7. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why Does Bexley Attract Renters?
 

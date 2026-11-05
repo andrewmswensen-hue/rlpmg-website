@@ -20,10 +20,10 @@ A rental listing getting no applications usually has one of three problems, in t
 
 In This Article
 
-1. [What Are the Three Most Likely Problems?](#three-problems)
-2. [Which Quick Fixes Actually Work?](#quick-fixes)
-3. [When Should You Call for Help?](#call-for-help)
-4. [Frequently Asked Questions](#faq)
+1. [What Are the Three Most Likely Problems?](#what-are-the-three-most-likely-problems)
+2. [Which Quick Fixes Actually Work?](#which-quick-fixes-actually-work)
+3. [When Should You Call for Help?](#when-should-you-call-for-help)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## What Are the Three Most Likely Problems?
 

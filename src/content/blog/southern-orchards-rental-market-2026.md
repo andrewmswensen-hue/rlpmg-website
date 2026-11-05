@@ -140,19 +140,19 @@ This creates a **clear pricing ceiling**: if rents in those areas approach those
 
 Southern Orchards follows typical Columbus rental patterns, with heightened sensitivity due to renters’ price constraints.
 
-### Peak Season: May, August
+### Peak Season: May to August
 
 - Fastest leasing timelines
 - Strongest pricing leverage
 - Increased relocation activity tied to healthcare and service jobs
 
-### Shoulder Season: March, April, September, October
+### Shoulder Season: March to April, September to October
 
 - Stable absorption
 - Moderate price sensitivity
 - Good window for renewals or moderate increases
 
-### Slow Season: November, February
+### Slow Season: November to February
 
 - Longer vacancy periods
 - More negotiation from renters

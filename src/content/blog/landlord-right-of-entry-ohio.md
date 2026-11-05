@@ -26,12 +26,12 @@ Key Takeaways
 
 In This Article
 
-1. [What Ohio law says about landlord entry](#ohio-entry-law)
-2. [What counts as reasonable notice in Ohio?](#reasonable-notice)
-3. [Can an Ohio tenant refuse to let the landlord in?](#tenant-refuse)
-4. [What happens when entry goes wrong](#penalties)
-5. [How Columbus registry inspections fit in](#columbus-registry)
-6. [Frequently Asked Questions](#faq)
+1. [What Ohio law says about landlord entry](#what-ohio-law-says-about-landlord-entry)
+2. [What counts as reasonable notice in Ohio?](#what-counts-as-reasonable-notice-in-ohio)
+3. [Can an Ohio tenant refuse to let the landlord in?](#can-an-ohio-tenant-refuse-to-let-the-landlord-in)
+4. [What happens when entry goes wrong](#what-happens-when-entry-goes-wrong)
+5. [How Columbus registry inspections fit in](#how-columbus-registry-inspections-fit-in)
+6. [Frequently Asked Questions](#frequently-asked-questions)
 
 In Ohio, a landlord may enter an occupied rental unit after giving the resident reasonable notice, and the statute puts a number on it. [ORC 5321.04(A)(8)](https://codes.ohio.gov/ohio-revised-code/section-5321.04) states that twenty-four hours is presumed to be reasonable notice in the absence of evidence to the contrary. Entry has to be at a reasonable time and for a legitimate purpose (an inspection, a repair, an agreed service, or a showing), and the exception is an emergency or a situation where notice is impracticable.
 

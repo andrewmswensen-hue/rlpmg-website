@@ -31,14 +31,14 @@ Key Takeaways
 
 In This Article
 
-1. [What Just Changed: HUD’s April 2026 Fair Housing Guidance Withdrawal](#hud-withdrawal)
-2. [The Basics: What Fair Housing Actually Requires in Screening](#fair-housing-basics)
-3. [What We Actually Check and Why](#rlpm-criteria)
+1. [What Just Changed: HUD’s April 2026 Fair Housing Guidance Withdrawal](#what-just-changed-huds-april-2026-fair-housing-guidance-withdrawal)
+2. [The Basics: What Fair Housing Actually Requires in Screening](#the-basics-what-fair-housing-actually-requires-in-screening)
+3. [What We Actually Check and Why](#what-we-actually-check-and-why)
 4. [Red Flags in a Rental Application](#red-flags-in-a-rental-application)
-5. [Rental Application Fraud Is Surging: Here’s What to Watch For](#application-fraud)
-6. [AI in Screening: What’s Changing and What to Watch](#ai-screening)
-7. [Common Screening Mistakes That Cost Columbus Landlords](#common-mistakes)
-8. [Frequently Asked Questions](#faq)
+5. [Rental Application Fraud Is Surging: Here’s What to Watch For](#rental-application-fraud-is-surging-heres-what-to-watch-for)
+6. [AI in Screening: What’s Changing and What to Watch](#ai-in-screening-whats-changing-and-what-to-watch)
+7. [Common Screening Mistakes That Cost Columbus Landlords](#common-screening-mistakes-that-cost-columbus-landlords)
+8. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## What Just Changed: HUD’s April 2026 Fair Housing Guidance Withdrawal
 

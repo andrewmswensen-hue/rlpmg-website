@@ -33,16 +33,16 @@ Key Takeaways
 
 In This Article
 
-1. [Columbus Rental Market Context (Q1 2026)](#market-context)
-2. [How We Evaluated These Companies](#methodology)
-3. [RL Property Management Group (Best Overall)](#rl-property-management)
-4. [Oakwood Management Company (Best for Large Multifamily)](#oakwood)
-5. [All County NEO (Best for Student Housing)](#all-county-neo)
-6. [ERA Real Solutions Realty (Best for Section 8)](#era-real-solutions)
-7. [Towne Properties & SBS Management (Best for HOA & COA)](#hoa-coa)
-8. [Housepitality (Best for Short-Term Rentals)](#housepitality)
-9. [How to Choose the Right Property Management Company](#how-to-choose)
-10. [Frequently Asked Questions](#faq)
+1. [Columbus Rental Market Context (Q1 2026)](#columbus-rental-market-context-q1-2026)
+2. [How We Evaluated These Companies](#how-we-evaluated-these-companies)
+3. [RL Property Management Group (Best Overall)](#-rl-property-management-group-best-overall-for-residential-investors)
+4. [Oakwood Management Company (Best for Large Multifamily)](#-oakwood-management-company-best-for-large-multifamily)
+5. [All County NEO (Best for Student Housing)](#-all-county-neo-property-management-best-for-student-housing)
+6. [ERA Real Solutions Realty (Best for Section 8)](#-era-real-solutions-realty-best-for-section-8-and-affordable-housing)
+7. [Towne Properties & SBS Management (Best for HOA & COA)](#-towne-properties--sbs-management-best-for-hoa--coa-management)
+8. [Housepitality (Best for Short-Term Rentals)](#️-housepitality-best-for-short-term-and-airbnb-rentals)
+9. [How to Choose the Right Property Management Company](#how-to-choose-the-right-property-management-company)
+10. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Columbus Rental Market Context (Q1 2026)
 

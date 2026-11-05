@@ -35,15 +35,15 @@ Key Takeaways
 
 In This Article
 
-1. [The Mortgage Math Rewards Patience](#mortgage-math)
-2. [The Tax Bill at Sale Is Bigger Than Most Owners Realize](#tax-bill)
-3. [The Devil You Know Beats the Devil You Don’t](#known-devil)
-4. [Leveraged Appreciation Is Effectively Free Money](#appreciation)
-5. [Good Management Makes Ownership Passive](#management)
-6. [Transaction Costs Are Bigger Than They Look](#transaction-costs)
-7. [When Selling Actually Makes Sense](#when-to-sell)
+1. [The Mortgage Math Rewards Patience](#1-the-mortgage-math-rewards-patience)
+2. [The Tax Bill at Sale Is Bigger Than Most Owners Realize](#2-the-tax-bill-at-sale-is-bigger-than-most-owners-realize)
+3. [The Devil You Know Beats the Devil You Don’t](#3-the-devil-you-know-beats-the-devil-you-dont)
+4. [Leveraged Appreciation Is Effectively Free Money](#4-leveraged-appreciation-is-effectively-free-money)
+5. [Good Management Makes Ownership Passive](#5-good-management-makes-ownership-passive)
+6. [Transaction Costs Are Bigger Than They Look](#6-transaction-costs-are-bigger-than-they-look)
+7. [When Selling Actually Makes Sense](#when-selling-actually-makes-sense)
 8. [Final Thoughts](#final-thoughts)
-9. [Frequently Asked Questions](#faq)
+9. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## 1. The Mortgage Math Rewards Patience
 

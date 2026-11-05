@@ -28,10 +28,10 @@ Key Takeaways
 
 In This Article
 
-1. [When Does a Month-to-Month Lease Make Sense?](#when-month-to-month-makes-sense)
-2. [What Risk Does Month-to-Month Actually Create?](#risks-of-month-to-month)
-3. [How RLPM Approaches Lease Term Strategy](#rlpm-approach-to-lease-terms)
-4. [Frequently Asked Questions](#faq)
+1. [When Does a Month-to-Month Lease Make Sense?](#when-does-a-month-to-month-lease-make-sense)
+2. [What Risk Does Month-to-Month Actually Create?](#what-risk-does-month-to-month-actually-create)
+3. [How RLPM Approaches Lease Term Strategy](#how-rlpm-approaches-lease-term-strategy)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## When Does a Month-to-Month Lease Make Sense?
 

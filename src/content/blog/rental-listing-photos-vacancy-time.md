@@ -31,10 +31,10 @@ Key Takeaways
 
 In This Article
 
-1. [What the Data Actually Shows](#photo-data)
-2. [What “Good Enough” Phone Photos Cost You](#cost-of-phone-photos)
-3. [What a Strong Photo Set Looks Like](#strong-photo-set)
-4. [Frequently Asked Questions](#faq)
+1. [What the Data Actually Shows](#what-the-data-actually-shows)
+2. [What “Good Enough” Phone Photos Cost You](#what-good-enough-phone-photos-actually-cost-you)
+3. [What a Strong Photo Set Looks Like](#what-a-strong-photo-set-looks-like)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## What the Data Actually Shows
 

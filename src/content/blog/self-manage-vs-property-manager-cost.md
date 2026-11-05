@@ -28,14 +28,14 @@ Key Takeaways
 
 In This Article
 
-1. [What does professional management cost in Columbus?](#visible-costs)
-2. [What does self-managing actually cost?](#hidden-costs)
-3. [The Columbus rental registry adds a new job to your list](#rental-registry)
-4. [What does one eviction cost in Franklin County?](#eviction-math)
-5. [What the same math looks like on ten doors](#ten-doors)
-6. [The ROI math most owners skip](#roi-math)
-7. [When self-managing fits, and when it stops fitting](#when-it-fits)
-8. [Frequently Asked Questions](#faq)
+1. [What does professional management cost in Columbus?](#what-does-professional-management-cost-in-columbus)
+2. [What does self-managing actually cost?](#what-does-self-managing-actually-cost)
+3. [The Columbus rental registry adds a new job to your list](#the-columbus-rental-registry-adds-a-new-job-to-your-list)
+4. [What does one eviction cost in Franklin County?](#what-does-one-eviction-cost-in-franklin-county)
+5. [What the same math looks like on ten doors](#what-the-same-math-looks-like-on-ten-doors)
+6. [The ROI math most owners skip](#the-roi-math-most-owners-skip)
+7. [When self-managing fits, and when it stops fitting](#when-self-managing-fits-and-when-it-stops-fitting)
+8. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## What does professional management cost in Columbus?
 

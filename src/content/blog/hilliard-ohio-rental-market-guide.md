@@ -29,13 +29,13 @@ Key Takeaways
 
 In This Article
 
-1. [Why Hilliard Attracts Renters](#why-hilliard)
-2. [Rental Market Data (2026)](#rental-data)
-3. [Vacancy and Lease Timing](#vacancy-timing)
-4. [What Investors Should Know](#investor-considerations)
-5. [Rental Compliance Considerations](#compliance)
-6. [Bottom Line for Investors](#bottom-line)
-7. [Frequently Asked Questions](#faq)
+1. [Why Hilliard Attracts Renters](#why-hilliard-attracts-renters)
+2. [Rental Market Data (2026)](#rental-market-data-2026)
+3. [Vacancy and Lease Timing](#vacancy-and-lease-timing)
+4. [What Investors Should Know](#what-investors-should-know)
+5. [Rental Compliance Considerations](#rental-compliance-considerations)
+6. [Bottom Line for Investors](#bottom-line-for-investors)
+7. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why Hilliard Attracts Renters
 
@@ -91,7 +91,7 @@ Hilliard follows the same seasonal pattern as most Columbus family-oriented subu
 
 July and August remain active for family renters who waited too long and now face urgency. September through November slows considerably. December and January are the softest months in the Columbus market generally, and Hilliard is no exception. Properties that sit vacant through late fall face a harder path to placement until the following spring.
 
-The practical implication for investors: plan your turns to be complete by late March or early April. A unit that becomes available in late winter is better listed immediately rather than sitting for several additional weeks of vacancy hoping for better timing. Days on market in Hilliard when properties are priced at market and rent-ready typically run in the 3 to 6 week range.
+The practical implication for investors: plan your turns to be complete by late March or early April. A unit that becomes available in late winter is better listed immediately rather than sitting for several additional weeks of vacancy hoping for better timing. Days on market in Hilliard when properties are priced at market and rent-ready typically run in the 3 to 6 week range. Related: [How long it takes to rent a property in Columbus](/blog/how-long-to-rent-property-columbus-2026/).
 
 > **Properties that come to market overpriced in a low-demand month absorb the cost twice: once from extended vacancy, once from the price reduction that eventually follows.**
 
@@ -105,7 +105,7 @@ The Hilliard rental market is predominantly single-family homes and townhomes, w
 
 Purchase price points for investment-grade single-family properties in Hilliard typically start around $300,000 to $350,000 for older stock in established neighborhoods. Newer construction or larger homes in premium pockets push to $400,000 and above. [Redfin’s September 2025 data](https://www.redfin.com/city/9031/OH/Hilliard/housing-market) showed a median sale price of $421,000 for Hilliard homes, though the market has continued to show movement since then.
 
-At a purchase price of $380,000 and a monthly rent of $2,300, a Hilliard single-family rental produces a gross rent multiplier of approximately 13.8x and a gross yield near 7.3%. That calculation doesn’t include operating expenses, vacancies, or financing costs, so it’s a starting point, not a business plan. But it reflects a market where cash flow is achievable for investors who buy at reasonable prices and manage costs actively.
+At a purchase price of $380,000 and a monthly rent of $2,300, a Hilliard single-family rental produces a gross rent multiplier of approximately 13.8x and a gross yield near 7.3%. That calculation doesn’t include operating expenses, vacancies, or financing costs, so it’s a starting point, not a business plan. But it reflects a market where cash flow is achievable for investors who buy at reasonable prices and manage costs actively. Related: [How to calculate cash flow on a Columbus rental property](/blog/what-to-consider-when-calculating-cash-flow-for-a-rental-property/).
 
 ### New Development and Market Trajectory
 
@@ -137,7 +137,7 @@ As of mid-2026, Hilliard does not have source-of-income (SOI) protection ordinan
 
 Hilliard properties are subject to Franklin County property tax assessment and Franklin County Auditor oversight on valuation. Investors should verify current assessed values and tax rates through the [Franklin County Auditor’s office](https://www.franklincountyauditor.com/) before closing on any acquisition.
 
-Federal Fair Housing Act protections apply to all Hilliard rentals. Ohio’s Fair Housing Act adds state-level protections. Consistent application of screening criteria across all applicants is the most important compliance practice for landlords.
+Federal Fair Housing Act protections apply to all Hilliard rentals. Ohio’s Fair Housing Act adds state-level protections. Consistent application of screening criteria across all applicants is the most important compliance practice for landlords. Related: [How to screen tenants in Ohio without breaking Fair Housing law](/blog/tenant-screening-ohio-fair-housing-2026/).
 
 ## Bottom Line for Investors
 

@@ -30,12 +30,12 @@ Key Takeaways
 
 In This Article
 
-1. [What Gets Checked During a Quarterly Rental Inspection?](#what-gets-checked)
-2. [Why Quarterly Instead of Annual?](#why-quarterly)
-3. [How Do Inspections Change Tenant Behavior?](#tenant-accountability)
-4. [How Do Inspections Protect Your Security Deposit Position?](#security-deposit)
-5. [What Do Self-Managing Owners Typically Miss?](#self-managing)
-6. [Frequently Asked Questions](#faq)
+1. [What Gets Checked During a Quarterly Rental Inspection?](#what-gets-checked-during-a-quarterly-rental-inspection)
+2. [Why Quarterly Instead of Annual?](#why-quarterly-instead-of-annual)
+3. [How Do Inspections Change Tenant Behavior?](#how-do-inspections-change-tenant-behavior)
+4. [How Do Inspections Protect Your Security Deposit Position?](#how-do-inspections-protect-your-security-deposit-position)
+5. [What Do Self-Managing Owners Typically Miss?](#what-do-self-managing-owners-typically-miss)
+6. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## What Gets Checked During a Quarterly Rental Inspection?
 

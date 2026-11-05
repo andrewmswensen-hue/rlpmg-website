@@ -21,10 +21,10 @@ Ohio has no statute spelling out how landlords must handle belongings a tenant l
 
 In This Article
 
-1. [What Does Ohio Law Actually Require?](#ohio-law)
-2. [How Do You Protect Yourself Before Disposing of Anything?](#protect-yourself)
-3. [Which Mistakes Create Legal Exposure?](#mistakes)
-4. [Frequently Asked Questions](#faq)
+1. [What Does Ohio Law Actually Require?](#what-does-ohio-law-actually-require)
+2. [How Do You Protect Yourself Before Disposing of Anything?](#how-do-you-protect-yourself-before-disposing-of-anything)
+3. [Which Mistakes Create Legal Exposure?](#which-mistakes-create-legal-exposure)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 *This article is informational, not legal advice. Ohio law on abandoned tenant property is thin and fact-specific; citations are current as of August 2026. Consult a qualified attorney before disposing of a former tenant’s belongings.*
 

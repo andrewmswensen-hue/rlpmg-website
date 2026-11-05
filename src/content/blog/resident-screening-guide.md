@@ -19,14 +19,14 @@ tags:
 
 ## ![Tenant receiving keys to rental home after resident screening](https://rlpmg.com/wp-content/uploads/2025/03/AdobeStock_407113467-300x200.jpeg)Table of Contents
 
-- [Why Thorough Resident Screening Matters](#why-screening-matters)
-- [Step 1, Pre-Screening Your Prospects](#step-1)
-- [Step 2, The Rental Application Process](#step-2)
-- [Step 3, Conducting Background and Credit Checks](#step-3)
-- [Step 4, Calling References and Previous Landlords](#step-4)
-- [Step 5, Making a Decision and Offering the Lease](#step-5)
-- [Ohio Laws and Fair Screening Practices](#ohio-laws)
-- [Setting the Stage for a Great Tenancy](#conclusion)
+- [Why Thorough Resident Screening Matters](#why-thorough-resident-screening-matters)
+- [Step 1, Pre-Screening Your Prospects](#step-1-pre-screening-your-prospects)
+- [Step 2, The Rental Application Process](#step-2-the-rental-application-process)
+- [Step 3, Conducting Background and Credit Checks](#step-3-conducting-background-and-credit-checks)
+- [Step 4, Calling References and Previous Landlords](#step-4-calling-references-and-previous-landlords)
+- [Step 5, Making a Decision and Offering the Lease](#step-5-making-a-decision-and-offering-the-lease)
+- [Ohio Laws and Fair Screening Practices](#ohio-laws-and-fair-screening-practices)
+- [Setting the Stage for a Great Tenancy](#setting-the-stage-for-a-great-tenancy)
 
 Picture this: You’ve just handed over the keys to a new resident, expecting a smooth lease term. Instead, late rent payments pile up, maintenance requests skyrocket, and eviction becomes a looming possibility. Sound familiar? A single poor screening decision can cost **thousands in unpaid rent, property damage, and legal fees**, not to mention the stress and lost time.
 

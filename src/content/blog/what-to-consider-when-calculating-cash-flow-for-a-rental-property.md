@@ -24,13 +24,13 @@ Cash flow is rent collected, minus a vacancy allowance, minus operating expenses
 
 In this article
 
-1. [What is cash flow, and how is it different from NOI?](#cash-flow-vs-noi)
-2. [How do you build the income side?](#income)
-3. [Which expenses belong in the calculation?](#expenses)
-4. [The three places owners get the numbers wrong](#mistakes)
-5. [A worked example on a Columbus single-family rental](#worked-example)
-6. [How do you build a pro forma for future years?](#pro-forma)
-7. [Frequently asked questions](#faq)
+1. [What is cash flow, and how is it different from NOI?](#what-is-cash-flow-and-how-is-it-different-from-noi)
+2. [How do you build the income side?](#how-do-you-build-the-income-side)
+3. [Which expenses belong in the calculation?](#which-expenses-belong-in-the-calculation)
+4. [The three places owners get the numbers wrong](#the-three-places-owners-get-the-numbers-wrong)
+5. [A worked example on a Columbus single-family rental](#a-worked-example-on-a-columbus-single-family-rental)
+6. [How do you build a pro forma for future years?](#how-do-you-build-a-pro-forma-for-future-years)
+7. [Frequently asked questions](#frequently-asked-questions)
 
 ## What is cash flow, and how is it different from NOI?
 

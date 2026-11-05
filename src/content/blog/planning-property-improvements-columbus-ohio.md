@@ -138,7 +138,7 @@ For example, if a tenant’s lease ends in May, scheduling paint, flooring, and 
 
 Columbus’s rental market follows a predictable rhythm. Most lease renewals and turnovers occur between **April and August**, when renters are more willing to move and competition peaks. During these months, even moderate upgrades, fresh paint, updated fixtures, or landscaping can help your property stand out among similar listings.
 
-According to market observations and property management data, **spring and summer units rent faster and at higher rates** than winter listings. In contrast, **off-peak months (November, February)** are ideal for system and infrastructure projects. Contractors typically offer **10 to 15% lower pricing** during these months due to reduced demand, and scheduling flexibility is far greater.
+According to market observations and property management data, **spring and summer units rent faster and at higher rates** than winter listings. In contrast, **off-peak months (November to February)** are ideal for system and infrastructure projects. Contractors typically offer **10 to 15% lower pricing** during these months due to reduced demand, and scheduling flexibility is far greater.
 
 **Timing Strategy Example:**
 

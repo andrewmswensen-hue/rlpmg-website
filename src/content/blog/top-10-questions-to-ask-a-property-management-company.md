@@ -27,16 +27,16 @@ It starts with asking the right questions. Below are the top 10 questions every 
 
 ## Table of Contents
 
-- [What is your fee structure, and what’s included?](#question-1)
-- [How do you handle leasing, renewals, and vacancies?](#question-2)
-- [How do you price rentals and adjust rates over time?](#question-3)
-- [What is your process for screening tenants?](#question-4)
-- [What maintenance services do you offer, and at what cost?](#question-5)
-- [How do you handle large repairs and owner approvals?](#question-6)
-- [What kind of financial reporting do you provide?](#question-7)
-- [How transparent are you about fees and vendor charges?](#question-8)
-- [What happens if I want to end the agreement early?](#question-9)
-- [Can you share examples of how you’ve helped clients improve ROI?](#question-10)
+- [What is your fee structure, and what’s included?](#1-what-is-your-pricing-structure-and-whats-included)
+- [How do you handle leasing, renewals, and vacancies?](#2-how-do-you-handle-leasing-renewals-and-vacancies)
+- [How do you price rentals and adjust rates over time?](#3-how-do-you-price-rentals-and-adjust-rates-over-time)
+- [What is your process for screening tenants?](#4-what-is-your-process-for-screening-tenants)
+- [What maintenance services do you offer, and at what cost?](#5-what-maintenance-services-do-you-offer-and-at-what-cost)
+- [How do you handle large repairs and owner approvals?](#6-how-do-you-handle-large-repairs-and-owner-approvals)
+- [What kind of financial reporting do you provide?](#7-what-kind-of-financial-reporting-do-you-provide)
+- [How transparent are you about fees and vendor charges?](#8-how-transparent-are-you-about-fees-and-vendor-charges)
+- [What happens if I want to end the agreement early?](#9-what-happens-if-i-want-to-end-the-agreement-early)
+- [Can you share examples of how you’ve helped clients improve ROI?](#10-can-you-share-examples-of-how-youve-helped-clients-improve-roi)
 - [Five more questions worth asking](#five-more-questions-worth-asking)
 
 ## 1. What is your pricing structure, and what’s included?

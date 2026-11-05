@@ -24,13 +24,13 @@ Net operating income is rent and other income minus operating expenses, before a
 
 In this article
 
-1. [What is NOI, and how do you calculate it?](#what-is-noi)
-2. [Why does NOI matter more than the rent number?](#why-noi-matters)
-3. [Is NOI the same as cash flow?](#noi-vs-cash-flow)
-4. [What actually moves NOI on a Columbus rental?](#five-levers)
-5. [What does professional management change about NOI?](#management)
-6. [Which NOI ideas are not worth chasing?](#not-worth-it)
-7. [Frequently asked questions](#faq)
+1. [What is NOI, and how do you calculate it?](#what-is-noi-and-how-do-you-calculate-it)
+2. [Why does NOI matter more than the rent number?](#why-does-noi-matter-more-than-the-rent-number)
+3. [Is NOI the same as cash flow?](#is-noi-the-same-as-cash-flow)
+4. [What actually moves NOI on a Columbus rental?](#what-actually-moves-noi-on-a-columbus-rental)
+5. [What does professional management change about NOI?](#what-does-professional-management-change-about-noi)
+6. [Which NOI ideas are not worth chasing?](#which-noi-ideas-are-not-worth-chasing)
+7. [Frequently asked questions](#frequently-asked-questions)
 
 ## What is NOI, and how do you calculate it?
 

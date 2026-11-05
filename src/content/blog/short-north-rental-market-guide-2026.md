@@ -83,9 +83,9 @@ The renter base here skews toward singles and young professionals with discretio
 
 Short North reflects broader **Columbus rental seasonality**, where leasing activity intensifies in **late spring through early fall** and moderates in winter. Investors should align pricing and promotions accordingly:
 
-- **Peak Season (May, September):** Larger applicant pools and faster lease-ups; landlords can push tighter pricing.
-- **Shoulder (October, December):** Demand moderates; targeted concessions or shorter lease incentives can maintain occupancy.
-- **Winter (Jan, Mar):** Slower traffic; realistic pricing key, and lease starts timed for spring move-ins often perform better.
+- **Peak Season (May to September):** Larger applicant pools and faster lease-ups; landlords can push tighter pricing.
+- **Shoulder (October to December):** Demand moderates; targeted concessions or shorter lease incentives can maintain occupancy.
+- **Winter (Jan to Mar):** Slower traffic; realistic pricing key, and lease starts timed for spring move-ins often perform better.
 
 **Strategy Tip:** Aim to list vacant units in early spring. For mid-winter expirations, offering flexible move-in dates or modest concessions can limit vacancy duration.
 

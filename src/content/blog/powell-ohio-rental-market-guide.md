@@ -28,13 +28,13 @@ Key Takeaways
 
 In This Article
 
-1. [Why Powell and Delaware County Attract Renters](#why-powell-attracts-renters)
+1. [Why Powell and Delaware County Attract Renters](#why-powell-and-delaware-county-attract-renters)
 2. [Rental Market Data](#rental-market-data)
 3. [Vacancy and Lease Timing](#vacancy-and-lease-timing)
 4. [What Investors Should Know](#what-investors-should-know)
 5. [Rental Compliance Considerations](#rental-compliance-considerations)
 6. [Bottom Line for Investors](#bottom-line-for-investors)
-7. [Frequently Asked Questions](#faq)
+7. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why Powell and Delaware County Attract Renters
 
@@ -100,6 +100,8 @@ Beyond rental registration, RLPM’s research did not turn up a separate Powell-
 Powell is a premium market with a clear value proposition: a top-tier school district, a fast-growing and high-income county, and a tenant pool that tends to stay put. None of that comes cheap. Entry prices run higher and current yields run lower than in more affordable Columbus suburbs, and new apartment construction across Delaware County is worth watching even though it competes more with multifamily than with single-family product.
 
 For investors who already hold property elsewhere in Columbus, Powell is less a cash-flow play and more a stability and appreciation play. For investors weighing Powell against another submarket for the first time, the right comparison isn’t “which market has the highest cap rate” but “which market matches the holding period, risk tolerance, and management bandwidth I actually have.”
+
+Related: [RLPM’s other Columbus-area rental market guides](/blog/category/rental-market-guide/).
 
 ## Frequently Asked Questions
 

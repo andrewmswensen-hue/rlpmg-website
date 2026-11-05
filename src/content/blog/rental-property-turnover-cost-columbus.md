@@ -29,15 +29,15 @@ Key Takeaways
 
 In This Article
 
-1. [How Much Does a Turnover Really Cost?](#real-cost)
-2. [Where the Money Goes: A Columbus Cost Breakdown](#cost-breakdown)
+1. [How Much Does a Turnover Really Cost?](#how-much-does-a-turnover-really-cost)
+2. [Where the Money Goes: A Columbus Cost Breakdown](#where-the-money-goes-a-columbus-cost-breakdown)
 3. [How Much Should You Set Aside Each Year for Turnover?](#how-much-should-you-set-aside-each-year-for-turnover)
-4. [Normal Wear vs. Tenant Damage, What Ohio Law Says](#wear-vs-damage)
-5. [What a Thorough Move-Out Inspection Covers](#move-out-inspection)
-6. [Why Spring Timing Matters in Columbus](#spring-timing)
+4. [Normal Wear vs. Tenant Damage, What Ohio Law Says](#normal-wear-vs-tenant-damage-what-ohio-law-says)
+5. [What a Thorough Move-Out Inspection Covers](#what-a-thorough-move-out-inspection-covers)
+6. [Why Spring Timing Matters in Columbus](#why-spring-timing-matters-in-columbus)
 7. [How to Shorten the Turn Itself](#how-to-shorten-the-turn-itself)
-8. [How to Reduce Turnover Costs Before They Start](#reduce-costs)
-9. [Frequently Asked Questions](#faq)
+8. [How to Reduce Turnover Costs Before They Start](#how-to-reduce-turnover-costs-before-they-start)
+9. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## How Much Does a Turnover Really Cost?
 

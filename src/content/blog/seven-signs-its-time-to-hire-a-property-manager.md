@@ -29,13 +29,13 @@ Let’s walk through the most common signs that DIY property management isn’t 
 
 ## Table of Contents
 
-- [1. You’re Spending Too Much Time on Management Tasks](#section-1)
-- [2. Tenant Issues Are Constant and Stressful](#section-2)
-- [3. Maintenance Is Eating Up Your Weekends (and Wallet)](#section-3)
-- [4. You’re Losing Money Due to Vacancies or Rent Pricing Errors](#section-4)
-- [5. You’re Unclear About Legal Requirements and Risk Exposure](#section-5)
-- [6. Scaling Feels Impossible on Your Own](#section-6)
-- [7. You’re Just Not Enjoying It Anymore](#section-7)
+- [1. You’re Spending Too Much Time on Management Tasks](#1-youre-spending-too-much-time-on-management-tasks)
+- [2. Tenant Issues Are Constant and Stressful](#2-resident-issues-are-constant-and-stressful)
+- [3. Maintenance Is Eating Up Your Weekends (and Wallet)](#3-maintenance-is-eating-up-your-weekends-and-wallet)
+- [4. You’re Losing Money Due to Vacancies or Rent Pricing Errors](#4-youre-losing-money-due-to-vacancies-or-rent-pricing-errors)
+- [5. You’re Unclear About Legal Requirements and Risk Exposure](#5-youre-unclear-about-legal-requirements-and-risk-exposure)
+- [6. Scaling Feels Impossible on Your Own](#6-scaling-feels-impossible-on-your-own)
+- [7. You’re Just Not Enjoying It Anymore](#7-youre-just-not-enjoying-it-anymore)
 
 ## 1. You’re Spending Too Much Time on Management Tasks
 

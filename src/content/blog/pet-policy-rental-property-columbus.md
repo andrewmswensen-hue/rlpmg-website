@@ -28,11 +28,11 @@ Key Takeaways
 
 In This Article
 
-1. [Should You Allow Pets in Your Rental? The Business Case](#business-case)
-2. [How Do You Structure a Pet Policy That Protects You?](#structure)
-3. [Assistance Animals: What Changed in 2025 to 2026, and What Didn’t](#assistance-animals)
-4. [What Are the Most Common Pet Policy Mistakes?](#mistakes)
-5. [Frequently Asked Questions](#faq)
+1. [Should You Allow Pets in Your Rental? The Business Case](#should-you-allow-pets-in-your-rental-the-business-case)
+2. [How Do You Structure a Pet Policy That Protects You?](#how-do-you-structure-a-pet-policy-that-protects-you)
+3. [Assistance Animals: What Changed in 2025 to 2026, and What Didn’t](#assistance-animals-what-changed-in-2025-to-2026-and-what-didnt)
+4. [What Are the Most Common Pet Policy Mistakes?](#what-are-the-most-common-pet-policy-mistakes)
+5. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Should You Allow Pets in Your Rental? The Business Case
 

@@ -28,10 +28,10 @@ Key Takeaways
 
 In This Article
 
-1. [What Should a Monthly Property Management Statement Include?](#statement-basics)
-2. [What Makes a Property Management Statement Great?](#statement-great)
-3. [What Are the Red Flags in a Property Manager’s Statement?](#red-flags)
-4. [Frequently Asked Questions](#faq)
+1. [What Should a Monthly Property Management Statement Include?](#what-should-a-monthly-property-management-statement-include)
+2. [What Makes a Property Management Statement Great?](#what-makes-a-property-management-statement-great)
+3. [What Are the Red Flags in a Property Manager’s Statement?](#what-are-the-red-flags-in-a-property-managers-statement)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 A property manager’s monthly statement should account for every dollar that came in, every dollar that went out, and every dollar still sitting in reserve, with enough detail to verify each line without picking up the phone. If yours doesn’t, the statement is failing at its core job: keeping you informed about your investment.
 

@@ -19,18 +19,18 @@ tags:
 
 ## Table of Contents
 
-- [Should You Rent or Sell Your Property?](#should-you-rent-or-sell)
-- [The Long-Term Wealth Advantage of Renting](#wealth-advantage)
-- [Why People Sell (and why that might be shortsighted)](#why-people-sell)
-- [What Renting Looks Like for Different Types of Property Owners](#what-renting-looks-like)
-  - [For the Accidental Landlord](#accidental-landlord)
-  - [For the First-Time Investor](#first-time-investor)
-  - [For the Small Portfolio Owner](#small-portfolio-owner)
-  - [For the Out-of-State Investor](#out-of-state-investor)
-  - [For the Long-Term Investor](#long-term-investor)
-- [The Hidden Math: Cash Flow Isn’t the Whole Picture](#hidden-math)
-- [Use the Calculator to Get Real Answers](#calculator)
-- [Ready to See What Your Property Could Really Do?](#cta)
+- [Should You Rent or Sell Your Property?](#should-you-rent-or-sell-your-property-lets-talk-it-through)
+- [The Long-Term Wealth Advantage of Renting](#the-long-term-wealth-advantage-of-renting)
+- [Why People Sell (and why that might be shortsighted)](#why-people-sell-and-why-that-might-be-shortsighted)
+- [What Renting Looks Like for Different Types of Property Owners](#what-renting-looks-like-for-different-types-of-property-owners)
+  - [For the Accidental Landlord](#for-the-accidental-landlord)
+  - [For the First-Time Investor](#for-the-first-time-investor)
+  - [For the Small Portfolio Owner](#for-the-small-portfolio-owner)
+  - [For the Out-of-State Investor](#for-the-out-of-state-investor)
+  - [For the Long-Term Investor](#for-the-long-term-investor)
+- [The Hidden Math: Cash Flow Isn’t the Whole Picture](#the-hidden-math-cash-flow-isnt-the-whole-picture)
+- [Use the Calculator to Get Real Answers](#use-the-calculator-to-get-real-answers)
+- [Ready to See What Your Property Could Really Do?](#ready-to-see-what-your-property-could-really-do)
 
 ## ![FOR SALE SIGN NEXT TO FOR RENT SIGN](https://rlpmg.com/wp-content/uploads/2025/03/rent-vs-sellArtboard-1@2x-300x169.png)Should You Rent or Sell Your Property? Let’s Talk It Through
 

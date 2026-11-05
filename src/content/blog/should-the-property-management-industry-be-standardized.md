@@ -29,7 +29,7 @@ This is problematic for a few reasons.
 
 First, without some level of standardization, it can be difficult to compare quotes among companies, as their scope of services often vary widely.
 
-Second, many property owners fail to differentiate between the services of **asset management and property management**. Failing to understand the differences between these two roles can cause friction. But the bottom line is that it is simply not within the realm of services for a property manager to offer advice and guidance on the positioning, branding and overall strategic forecasting of a given real estate investment. Their job is to manage the property, collect the rent, and ensure the units are safe and habitable.
+Second, many property owners fail to differentiate between the services of **[asset management and property management](/blog/the-difference-between-asset-management-and-property-management/)**. Failing to understand the differences between these two roles can cause friction. But the bottom line is that it is simply not within the realm of services for a property manager to offer advice and guidance on the positioning, branding and overall strategic forecasting of a given real estate investment. Their job is to manage the property, collect the rent, and ensure the units are safe and habitable.
 
 ## Why the Push for Industry Standardization
 

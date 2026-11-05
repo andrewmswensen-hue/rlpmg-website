@@ -30,11 +30,11 @@ In This Article
 
 1. [Why Pickerington Attracts Renters](#why-pickerington-attracts-renters)
 2. [Pickerington Rental Market Data (2026)](#pickerington-rental-market-data-2026)
-3. [How Fast Do Pickerington Rentals Lease, and When?](#vacancy-and-lease-timing)
-4. [What Should Investors Know Before Buying in Pickerington?](#what-investors-should-know)
-5. [Rental Compliance Considerations](#rental-compliance-pickerington)
-6. [Bottom Line for Pickerington Investors](#bottom-line-pickerington-investors)
-7. [Frequently Asked Questions](#faq)
+3. [How Fast Do Pickerington Rentals Lease, and When?](#how-fast-do-pickerington-rentals-lease-and-when)
+4. [What Should Investors Know Before Buying in Pickerington?](#what-should-investors-know-before-buying-in-pickerington)
+5. [Rental Compliance Considerations](#rental-compliance-considerations)
+6. [Bottom Line for Pickerington Investors](#bottom-line-for-pickerington-investors)
+7. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why Pickerington Attracts Renters
 
@@ -81,7 +81,7 @@ It’s worth separating sales-market timing from rental timing here, because the
 
 Pickerington’s rental stock breaks into three rough tiers. Older single-family homes in Olde Pickerington Village and the early subdivisions tend to trade in the $300,000s and rent in the high $1,700s to low $2,000s. Mid-tier homes from the 1990s and 2000s building boom, the bulk of the inventory, land closer to the $400,000s median and rent in the $2,000 to $2,400 range depending on size and finish. Newer construction at the city’s edges pushes past $500,000 and commands rent to match, though cap rates compress accordingly. None of these are universal; pull comps on the specific street and school assignment before underwriting.
 
-Property taxes are a detail out-of-state buyers sometimes miss: Pickerington spans both Fairfield and Franklin Counties, and the effective rate differs by which county your parcel sits in (roughly 1.25%, 1.50% in Fairfield County, closer to 1.40% in Franklin County). Confirm the county and current rate with the relevant county auditor before finalizing a pro forma. The two offices don’t share one portal, and using the wrong county’s rate will throw off a cash-flow projection more than most investors expect.
+Property taxes are a detail out-of-state buyers sometimes miss: Pickerington spans both Fairfield and Franklin Counties, and the effective rate differs by which county your parcel sits in (roughly 1.25% to 1.50% in Fairfield County, closer to 1.40% in Franklin County). Confirm the county and current rate with the relevant county auditor before finalizing a pro forma. The two offices don’t share one portal, and using the wrong county’s rate will throw off a cash-flow projection more than most investors expect.
 
 ### A Simplified Cash-Flow Example
 

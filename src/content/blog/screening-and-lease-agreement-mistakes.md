@@ -24,10 +24,10 @@ This article focuses on the real-world consequences of 4 common landlord mistake
 
 ## Table of Contents
 
-- [Mistake 1, Incomplete or Inconsistent Screening Practices](#mistake-1)
-- [Mistake 2, Using Generic or Non-Compliant Lease Templates](#mistake-2)
-- [Mistake 3, Relying on Verbal Agreements or Vague Lease Terms](#mistake-3)
-- [Mistake 4, Not Enforcing the Lease or Managing Inconsistently](#mistake-4)
+- [Mistake 1, Incomplete or Inconsistent Screening Practices](#mistake-1-incomplete-or-inconsistent-screening-practices)
+- [Mistake 2, Using Generic or Non-Compliant Lease Templates](#mistake-2-using-generic-or-non-compliant-lease-templates)
+- [Mistake 3, Relying on Verbal Agreements or Vague Lease Terms](#mistake-3-relying-on-verbal-agreements-or-vague-lease-terms)
+- [Mistake 4, Not Enforcing the Lease or Managing Inconsistently](#mistake-4-not-enforcing-the-lease-or-managing-inconsistently)
 
 ## Mistake 1, Incomplete or Inconsistent Screening Practices
 

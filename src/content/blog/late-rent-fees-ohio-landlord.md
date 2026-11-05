@@ -22,10 +22,10 @@ Ohio has no statute capping late rent fees. Enforceability depends on the lease:
 
 In This Article
 
-1. [What Does Ohio Law Say About Late Rent Fees?](#ohio-law)
-2. [How Do You Structure a Late Fee That Holds Up?](#structure)
-3. [Why Are Late Fees a Management Tool, Not a Profit Center?](#management-tool)
-4. [Frequently Asked Questions](#faq)
+1. [What Does Ohio Law Say About Late Rent Fees?](#what-does-ohio-law-say-about-late-rent-fees)
+2. [How Do You Structure a Late Fee That Holds Up?](#how-do-you-structure-a-late-fee-that-holds-up)
+3. [Why Are Late Fees a Management Tool, Not a Profit Center?](#why-are-late-fees-a-management-tool-not-a-profit-center)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 *This article is informational, not legal advice. Citations are current as of August 2026; consult a qualified attorney for your specific lease and situation.*
 

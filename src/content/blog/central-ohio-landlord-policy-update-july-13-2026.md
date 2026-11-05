@@ -19,11 +19,11 @@ categories:
 - Worthington owners should watch the November 3 zoning charter vote; the outcome could reshape what’s buildable on their parcels.
 - Powell’s zoning code rewrite (up for discussion this Tuesday) is worth a look if you own anywhere near downtown.
 
-- [Franklin: Short-Term Rental Regulations Take Shape](#franklin-str)
-- [Grove City: Wet Basement Program Amendment Passes](#grove-city-wet-basement)
-- [Worthington: Zoning Map Changes and a November Ballot Question](#worthington-zoning)
-- [Westerville: Supplement to Ordinance No. 2026-13 Under Discussion](#westerville-ordinance)
-- [Powell: City-Wide Zoning Code Rewrite Up This Tuesday](#powell-zoning-rewrite)
+- [Franklin: Short-Term Rental Regulations Take Shape](#franklin-short-term-rental-regulations-take-shape)
+- [Grove City: Wet Basement Program Amendment Passes](#grove-city-wet-basement-program-amendment-passes)
+- [Worthington: Zoning Map Changes and a November Ballot Question](#worthington-zoning-map-changes-and-a-november-ballot-question)
+- [Westerville: Supplement to Ordinance No. 2026-13 Under Discussion](#westerville-supplement-to-ordinance-no-2026-13-under-discussion)
+- [Powell: City-Wide Zoning Code Rewrite Up This Tuesday](#powell-city-wide-zoning-code-rewrite-up-this-tuesday)
 - [Also On the Radar](#also-on-the-radar)
 
 ## Franklin: Short-Term Rental Regulations Take Shape

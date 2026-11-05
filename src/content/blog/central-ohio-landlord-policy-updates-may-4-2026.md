@@ -33,13 +33,13 @@ Key Takeaways
 
 In This Article
 
-1. [Plain City: New property maintenance code](#plain-city-maintenance-code)
-2. [Granville: Short-term rental code revision](#granville-str-code)
-3. [Powell: Comprehensive zoning code rewrite](#powell-zoning-rewrite)
-4. [Gahanna: Zoning amendments adopted May 4](#gahanna-zoning-amendments)
-5. [Canal Winchester: Zoning code rewrite progress](#canal-winchester-zoning)
-6. [Also On the Radar This Week](#also-on-radar)
-7. [What to Do With This Information](#what-to-do)
+1. [Plain City: New property maintenance code](#plain-city-prepares-to-shift-from-complaint-driven-to-active-code-enforcement)
+2. [Granville: Short-term rental code revision](#granville-moves-toward-a-permit-and-bed-tax-framework-for-short-term-rentals)
+3. [Powell: Comprehensive zoning code rewrite](#powell-formally-begins-consultant-led-zoning-code-rewrite-expected-through-mid-2026)
+4. [Gahanna: Zoning amendments adopted May 4](#gahanna-council-passes-zoning-amendments-touching-chapters-1103-through-1123)
+5. [Canal Winchester: Zoning code rewrite progress](#canal-winchester-targets-october-2026-for-new-zoning-code-adoption)
+6. [Also On the Radar This Week](#also-on-the-radar-this-week)
+7. [What to Do With This Information](#what-to-do-with-this-information)
 
 ## Plain City prepares to shift from complaint-driven to active code enforcement
 
@@ -109,21 +109,21 @@ The removal of “planned” applications closes a flexibility lever that has be
 
 Eight more Central Ohio municipalities took action worth tracking. None rise to the depth of the featured items above, but each merits a quick look if you operate in that jurisdiction.
 
-**Worthington, OH** . Multiple new ordinances were introduced at the May 4 council meeting with public hearings to follow. Pull the council packet and identify any items touching housing, building maintenance, or zoning before the next meeting. [Worthington Council Agenda](https://www.worthington.org/ArchiveCenter/ViewFile/Item/6676)
+**Worthington, OH** \[Introduced, public hearings pending\]. Multiple new ordinances were introduced at the May 4 council meeting with public hearings to follow. Pull the council packet and identify any items touching housing, building maintenance, or zoning before the next meeting. [Worthington Council Agenda](https://www.worthington.org/ArchiveCenter/ViewFile/Item/6676)
 
-**Pickerington, OH** . Council waived the multi-reading requirement on May 5 and adopted an ordinance in a single sitting. The full text and supporting memos are in the agenda packet. Read the ordinance now and check whether it touches your portfolio. [Pickerington Agenda Packet (May 5)](https://public.destinyhosted.com/pickedocs/2026/CC/20260505_775/AGENDApacket_05-05-26_0130_774.pdf)
+**Pickerington, OH** \[Just passed\]. Council waived the multi-reading requirement on May 5 and adopted an ordinance in a single sitting. The full text and supporting memos are in the agenda packet. Read the ordinance now and check whether it touches your portfolio. [Pickerington Agenda Packet (May 5)](https://public.destinyhosted.com/pickedocs/2026/CC/20260505_775/AGENDApacket_05-05-26_0130_774.pdf)
 
-**Sunbury, OH** . Council tabled Ordinances 2026.08 and 2026.12 on May 6, delaying changes to local regulations. Worth re-checking the next council agenda. [Sunbury Council Agenda (May 6)](https://sunburyvillage.com/AgendaCenter/ViewFile/Agenda/_05062026-828?packet=true)
+**Sunbury, OH** \[Under discussion (no vote scheduled)\]. Council tabled Ordinances 2026.08 and 2026.12 on May 6, delaying changes to local regulations. Worth re-checking the next council agenda. [Sunbury Council Agenda (May 6)](https://sunburyvillage.com/AgendaCenter/ViewFile/Agenda/_05062026-828?packet=true)
 
-**Gahanna, OH** . Separately from the May 4 ordinance, council adopted a related set of zoning amendments on April 27. Now in effect. [Gahanna Council Minutes (April 27)](https://gahanna.legistar.com/View.ashx?M=M&ID=1406071)
+**Gahanna, OH** \[Recently passed\]. Separately from the May 4 ordinance, council adopted a related set of zoning amendments on April 27. Now in effect. [Gahanna Council Minutes (April 27)](https://gahanna.legistar.com/View.ashx?M=M&ID=1406071)
 
-**Powell, OH** . The same May 6 agenda included an earlier review-process item for the zoning code rewrite, separate from the formal launch. Track both. [Powell Planning & Zoning Agenda (May 6)](https://cityofpowell.granicus.com/AgendaViewer.php?view_id=2)
+**Powell, OH** \[Under discussion (no vote scheduled)\]. The same May 6 agenda included an earlier review-process item for the zoning code rewrite, separate from the formal launch. Track both. [Powell Planning & Zoning Agenda (May 6)](https://cityofpowell.granicus.com/AgendaViewer.php?view_id=2)
 
-**Whitehall, OH** . Ordinance 036-2026 amended Ordinance 129-2025 on emergency basis at the May 6 council meeting. Public records suggest 129-2025 governs the city’s 2026 salary schedule, so this is administrative rather than a property regulation. Worth noting for completeness; no landlord action required. [Whitehall Council Agenda (May 6)](https://www.whitehall-oh.us/AgendaCenter/ViewFile/Agenda/_05062026-3809)
+**Whitehall, OH** \[Passed on emergency basis (in effect now)\]. Ordinance 036-2026 amended Ordinance 129-2025 on emergency basis at the May 6 council meeting. Public records suggest 129-2025 governs the city’s 2026 salary schedule, so this is administrative rather than a property regulation. Worth noting for completeness; no landlord action required. [Whitehall Council Agenda (May 6)](https://www.whitehall-oh.us/AgendaCenter/ViewFile/Agenda/_05062026-3809)
 
-**Canal Winchester, OH** . Two separate items on the May 4 agenda approved the editing and inclusion of finance and other ordinances into the codified codes. Administrative, but compliance language may shift. [Finance Ordinances Agenda](https://www.canalwinchesterohio.gov/AgendaCenter/ViewFile/Agenda/_05042026-756) | [Codified Ordinances Editing Agenda](https://www.canalwinchesterohio.gov/AgendaCenter/ViewFile/Agenda/_05042026-755)
+**Canal Winchester, OH** \[Just passed\]. Two separate items on the May 4 agenda approved the editing and inclusion of finance and other ordinances into the codified codes. Administrative, but compliance language may shift. [Finance Ordinances Agenda](https://www.canalwinchesterohio.gov/AgendaCenter/ViewFile/Agenda/_05042026-756) | [Codified Ordinances Editing Agenda](https://www.canalwinchesterohio.gov/AgendaCenter/ViewFile/Agenda/_05042026-755)
 
-**Lancaster, OH** . An ordinance editing and incorporating certain ordinances into the codified laws was approved May 4. Administrative housekeeping; check your operating practices for any references to old chapter numbers. [Lancaster Council Agenda (May 4)](https://www.lancasterohio.gov/AgendaCenter/ViewFile/Agenda/_05042026-1652)
+**Lancaster, OH** \[Just passed\]. An ordinance editing and incorporating certain ordinances into the codified laws was approved May 4. Administrative housekeeping; check your operating practices for any references to old chapter numbers. [Lancaster Council Agenda (May 4)](https://www.lancasterohio.gov/AgendaCenter/ViewFile/Agenda/_05042026-1652)
 
 ## What to Do With This Information
 

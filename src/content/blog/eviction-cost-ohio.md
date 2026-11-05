@@ -30,14 +30,14 @@ Key Takeaways
 
 In This Article
 
-1. [What an Eviction Actually Costs: Three Different Paths](#short-answer)
-2. [The Ohio Eviction Process: Step by Step](#process)
-3. [The Mistakes That Get Cases Dismissed](#mistakes)
-4. [The Hidden Costs Most Landlords Don’t Budget For](#hidden-costs)
-5. [What Happens After the Set-Out](#after-setout)
-6. [Alternatives to Eviction That Protect Your Investment](#alternatives)
-7. [Self-Managing vs. Professional Management: What the Difference Actually Costs](#self-managing-vs-pm)
-8. [Frequently Asked Questions](#faq)
+1. [What an Eviction Actually Costs: Three Different Paths](#what-an-eviction-actually-costs-three-different-paths-not-including-vacancies)
+2. [The Ohio Eviction Process: Step by Step](#the-ohio-eviction-process-step-by-step)
+3. [The Mistakes That Get Cases Dismissed](#the-mistakes-that-get-cases-dismissed)
+4. [The Hidden Costs Most Landlords Don’t Budget For](#the-hidden-costs-most-landlords-dont-budget-for)
+5. [What Happens After the Set-Out](#what-happens-after-the-set-out)
+6. [Alternatives to Eviction That Protect Your Investment](#alternatives-to-eviction-that-protect-your-investment)
+7. [Self-Managing vs. Professional Management: What the Difference Actually Costs](#self-managing-vs-professional-management-what-the-difference-actually-costs)
+8. [Frequently Asked Questions](#frequently-asked-questions)
 
 Informational only, current as of May 2026. This article is not legal advice. Court fees, ordinances, and procedures change; consult a qualified Ohio real estate attorney for guidance on any specific eviction.
 

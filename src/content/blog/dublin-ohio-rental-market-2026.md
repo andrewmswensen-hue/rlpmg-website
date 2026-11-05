@@ -28,15 +28,15 @@ Key Takeaways
 
 In This Article
 
-1. [Why Dublin Commands Premium Rents](#why-dublin)
-2. [Dublin Rental Market Data: What Properties Rent For](#rental-market-data)
-3. [Home Values and Acquisition Costs](#home-values)
-4. [Schools: The #1 District in Columbus](#schools)
-5. [Employers, Corporate Headquarters, and Growth Pipeline](#employers)
-6. [Bridge Park, Bridge North, and What’s Coming Next](#development)
-7. [Vacancy and Lease Timing](#vacancy-timing)
-8. [What Investors Should Know Before Buying in Dublin](#investor-considerations)
-9. [Frequently Asked Questions](#faq)
+1. [Why Dublin Commands Premium Rents](#why-dublin-commands-premium-rents)
+2. [Dublin Rental Market Data: What Properties Rent For](#dublin-rental-market-data-what-properties-rent-for)
+3. [Home Values and Acquisition Costs](#home-values-and-acquisition-costs)
+4. [Schools: The #1 District in Columbus](#schools-the-1-district-in-columbus)
+5. [Employers, Corporate Headquarters, and Growth Pipeline](#employers-corporate-headquarters-and-growth-pipeline)
+6. [Bridge Park, Bridge North, and What’s Coming Next](#bridge-park-bridge-north-and-whats-coming-next)
+7. [Vacancy and Lease Timing](#vacancy-and-lease-timing)
+8. [What Investors Should Know Before Buying in Dublin](#what-investors-should-know-before-buying-in-dublin)
+9. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why Dublin Commands Premium Rents
 

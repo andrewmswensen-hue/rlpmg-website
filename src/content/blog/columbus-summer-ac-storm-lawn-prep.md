@@ -28,15 +28,15 @@ Key Takeaways
 
 In This Article
 
-1. [Why This Summer Is Testing Columbus Rentals](#why-this-summer)
-2. [The Real Reason AC Systems Fail in July](#why-ac-fails)
-3. [Preventing the Failure Before It Happens](#prevent-failure)
-4. [What Ohio Law Actually Requires on AC](#ohio-ac-law)
-5. [A Same-Day Response Checklist When the AC Goes Out](#ac-failure-checklist)
-6. [Storms, Power Outages, and What They Knock Out](#storms-power-outages)
-7. [The Lawn Code Doesn’t Pause for a Vacancy](#lawn-code-compliance)
-8. [Building a Summer That Doesn’t Need Emergency Calls](#building-predictable-summer)
-9. [Frequently Asked Questions](#faq)
+1. [Why This Summer Is Testing Columbus Rentals](#why-this-summer-is-testing-columbus-rentals)
+2. [The Real Reason AC Systems Fail in July](#the-real-reason-ac-systems-fail-in-july)
+3. [Preventing the Failure Before It Happens](#preventing-the-failure-before-it-happens)
+4. [What Ohio Law Actually Requires on AC](#what-ohio-law-actually-requires-on-ac)
+5. [A Same-Day Response Checklist When the AC Goes Out](#a-same-day-response-checklist-when-the-ac-goes-out)
+6. [Storms, Power Outages, and What They Knock Out](#storms-power-outages-and-what-they-knock-out)
+7. [The Lawn Code Doesn’t Pause for a Vacancy](#the-lawn-code-doesnt-pause-for-a-vacancy)
+8. [Building a Summer That Doesn’t Need Emergency Calls](#building-a-summer-that-doesnt-need-emergency-calls)
+9. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why This Summer Is Testing Columbus Rentals
 

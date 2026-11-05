@@ -29,12 +29,12 @@ Key Takeaways
 
 In This Article
 
-1. [Powell: Zoning Code and Permitting Software Approved](#powell-permitting-zoning)
-2. [Powell: New Zoning Code and Fee Schedule Introduced](#powell-fee-schedule)
-3. [Whitehall: Zoning Amendment Could Limit Construction](#whitehall-zoning-construction)
-4. [Whitehall: Peddlers and Vendors Ordinance Introduced](#whitehall-peddlers-vendors)
-5. [Worthington: Building and Zoning Amendments Proposed](#worthington-building-zoning)
-6. [Also on the Radar This Week](#also-on-radar)
+1. [Powell: Zoning Code and Permitting Software Approved](#powell-zoning-code-and-permitting-software-approved)
+2. [Powell: New Zoning Code and Fee Schedule Introduced](#powell-new-zoning-code-and-fee-schedule-introduced)
+3. [Whitehall: Zoning Amendment Could Limit Construction](#whitehall-zoning-amendment-could-limit-construction)
+4. [Whitehall: Peddlers and Vendors Ordinance Introduced](#whitehall-peddlers-and-vendors-ordinance-introduced)
+5. [Worthington: Building and Zoning Amendments Proposed](#worthington-building-and-zoning-amendments-proposed)
+6. [Also on the Radar This Week](#also-on-the-radar-this-week)
 
 ## Powell: Zoning Code and Permitting Software Approved
 

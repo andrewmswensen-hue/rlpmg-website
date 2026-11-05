@@ -27,11 +27,11 @@ Key Takeaways
 
 In This Article
 
-1. [The Short Answer (With Context)](#short-answer)
-2. [The Five Factors That Determine Your Lease-Up Time](#five-factors)
-3. [What You Can Control and What You Can’t](#control)
-4. [How Days on Market Affects Your Bottom Line](#vacancy-cost)
-5. [Frequently Asked Questions](#faq)
+1. [The Short Answer (With Context)](#how-long-does-it-take-to-rent-a-property-in-columbus)
+2. [The Five Factors That Determine Your Lease-Up Time](#the-five-factors-that-determine-your-lease-up-time)
+3. [What You Can Control and What You Can’t](#what-you-can-control-and-what-you-cant)
+4. [How Days on Market Affects Your Bottom Line](#how-days-on-market-affects-your-bottom-line)
+5. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## How Long Does It Take to Rent a Property in Columbus?
 

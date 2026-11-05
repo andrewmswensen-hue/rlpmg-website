@@ -28,12 +28,12 @@ Key Takeaways
 
 In This Article
 
-1. [Why Pricing Right Matters More Than Marketing Hard](#pricing-right)
-2. [Where Your Listing Actually Needs to Be in 2026](#where-to-list)
-3. [What “Rent-Ready” Actually Means (And Why It Matters for Speed)](#rent-ready)
-4. [The Spring Leasing Window in Columbus](#spring-window)
-5. [Red Flags That Your Marketing Isn’t Working](#red-flags)
-6. [Frequently Asked Questions](#faq)
+1. [Why Pricing Right Matters More Than Marketing Hard](#why-pricing-right-matters-more-than-marketing-hard)
+2. [Where Your Listing Actually Needs to Be in 2026](#where-your-listing-actually-needs-to-be-in-2026)
+3. [What “Rent-Ready” Actually Means (And Why It Matters for Speed)](#what-rent-ready-actually-means-and-why-it-matters-for-speed)
+4. [The Spring Leasing Window in Columbus](#the-spring-leasing-window-in-columbus)
+5. [Red Flags That Your Marketing Isn’t Working](#red-flags-that-your-marketing-isnt-working)
+6. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why Pricing Right Matters More Than Marketing Hard
 

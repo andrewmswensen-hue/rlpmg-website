@@ -123,18 +123,18 @@ Access to major employment centers, including Ohio State University and downtown
 
 Upper Arlington generally follows the broader Columbus rental cycle, though the family-oriented renter base slightly shifts the timing compared with downtown markets.
 
-### Peak Season: May, August
+### Peak Season: May to August
 
 - Strongest renter demand
 - School-year transitions drive family relocations
 - Faster leasing timelines
 
-### Shoulder Season: March, April, September
+### Shoulder Season: March to April, September
 
 - Steady activity
 - Good window for renewals and moderate rent adjustments
 
-### Slow Season: November, February
+### Slow Season: November to February
 
 - Smaller applicant pools
 - Listings may take longer to lease without competitive pricing

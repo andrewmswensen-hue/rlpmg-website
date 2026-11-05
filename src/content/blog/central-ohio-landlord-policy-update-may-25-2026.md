@@ -29,13 +29,13 @@ Key Takeaways
 
 In This Article
 
-1. [Whitehall: Emergency Property Tax Levy](#whitehall-property-tax-levy)
-2. [Franklin County’s 2026 Reappraisal Timeline](#franklin-county-property-values)
-3. [Plain City’s New Property Maintenance Code](#plain-city-maintenance-code)
-4. [Powell Weighs Property Tax Relief](#powell-property-tax-relief)
-5. [Grandview Heights Fire Prevention Amendment](#grandview-heights-fire-code)
-6. [Also On the Radar This Week](#also-on-radar)
-7. [What to Do With This Information](#what-to-do)
+1. [Whitehall: Emergency Property Tax Levy](#whitehall-emergency-property-tax-levy)
+2. [Franklin County’s 2026 Reappraisal Timeline](#franklin-countys-2026-reappraisal-timeline)
+3. [Plain City’s New Property Maintenance Code](#plain-citys-new-property-maintenance-code)
+4. [Powell Weighs Property Tax Relief](#powell-weighs-property-tax-relief)
+5. [Grandview Heights Fire Prevention Amendment](#grandview-heights-fire-prevention-amendment)
+6. [Also On the Radar This Week](#also-on-the-radar-this-week)
+7. [What to Do With This Information](#what-to-do-with-this-information)
 
 ## Whitehall: Emergency Property Tax Levy
 
@@ -109,10 +109,10 @@ Source: [Grandview Heights Council Document, May 26, 2026](https://www.grandview
 
 Four additional items from across Central Ohio worth knowing about, organized loosely by status. Not every item demands action this week, but each is tracking toward something that could.
 
-- **Buckeye Lake, OH**, Village Council debated a resolution on a property tax levy contingent on adopting a village income tax. Nothing is voted yet, but if you hold units in Buckeye Lake, the interaction between a potential income tax and a property tax levy materially changes the operating expense picture.
-- **Grandview Heights, OH**, Separate from the Fire Prevention Code item above, Council reviewed an ordinance amending publication requirements in the Codified Ordinances. Changes to public notice rules can shift how landlords learn about hearings and adopted ordinances, so the final language is worth watching.
-- **Sunbury, OH**, Council passed an ordinance designed to take effect immediately upon passage. The full subject and any new regulations or fees should be reviewed in the meeting packet by landlords with Sunbury units.
-- **Sunbury, OH**, A second Sunbury ordinance was also passed with immediate effect at the same meeting. Review the packet to understand the scope and any compliance implications for rental operations.
+- **Buckeye Lake, OH** \[Under discussion (no vote scheduled)\], Village Council debated a resolution on a property tax levy contingent on adopting a village income tax. Nothing is voted yet, but if you hold units in Buckeye Lake, the interaction between a potential income tax and a property tax levy materially changes the operating expense picture. \[Source: [Council Meeting Agenda](https://buckeyelakevillage.com/documents/334/May_26__2026_-_Council_Meeting_Agenda.pdf)\]
+- **Grandview Heights, OH** \[Under discussion (no vote scheduled)\], Separate from the Fire Prevention Code item above, Council reviewed an ordinance amending publication requirements in the Codified Ordinances. Changes to public notice rules can shift how landlords learn about hearings and adopted ordinances, so the final language is worth watching. \[Source: [Council Document](https://www.grandviewheights.gov/ArchiveCenter/ViewFile/Item/3728)\]
+- **Sunbury, OH** \[Passed on emergency basis (in effect now)\], Council passed an ordinance designed to take effect immediately upon passage. The full subject and any new regulations or fees should be reviewed in the meeting packet by landlords with Sunbury units. \[Source: [Agenda Packet](https://sunburyvillage.com/AgendaCenter/ViewFile/Agenda/_05202026-832?packet=true)\]
+- **Sunbury, OH** \[Passed on emergency basis (in effect now)\], A second Sunbury ordinance was also passed with immediate effect at the same meeting. Review the packet to understand the scope and any compliance implications for rental operations. \[Source: [Agenda Packet](https://sunburyvillage.com/AgendaCenter/ViewFile/Agenda/_05202026-832?packet=true)\]
 
 ## What to Do With This Information
 

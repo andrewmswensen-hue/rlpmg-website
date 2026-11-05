@@ -28,14 +28,14 @@ Key Takeaways
 
 In This Article
 
-1. [What Should Be Settled Before the Tenant Leaves?](#before-move-out)
-2. [The Move-Out Inspection, Step by Step](#move-out-inspection)
-3. [The Ohio Deposit Interest Rule Most Landlords Miss](#deposit-interest)
-4. [How Long Does an Ohio Landlord Have to Return a Deposit?](#thirty-day-clock)
-5. [What Counts as Damage Beyond Normal Wear and Tear?](#wear-and-tear)
-6. [What Ohio Law Actually Says About Belongings Left Behind](#left-behind)
-7. [The Turn: Getting the Unit Back on the Market](#the-turn)
-8. [Frequently Asked Questions](#faq)
+1. [What Should Be Settled Before the Tenant Leaves?](#what-should-be-settled-before-the-tenant-leaves)
+2. [The Move-Out Inspection, Step by Step](#the-move-out-inspection-step-by-step)
+3. [The Ohio Deposit Interest Rule Most Landlords Miss](#the-ohio-deposit-interest-rule-most-landlords-miss)
+4. [How Long Does an Ohio Landlord Have to Return a Deposit?](#how-long-does-an-ohio-landlord-have-to-return-a-deposit)
+5. [What Counts as Damage Beyond Normal Wear and Tear?](#what-counts-as-damage-beyond-normal-wear-and-tear)
+6. [What Ohio Law Actually Says About Belongings Left Behind](#what-ohio-law-actually-says-about-belongings-left-behind)
+7. [The Turn: Getting the Unit Back on the Market](#the-turn-getting-the-unit-back-on-the-market)
+8. [Frequently Asked Questions](#frequently-asked-questions)
 
 A tenant move-out in Ohio runs on one statute and one deadline. [ORC 5321.16](https://codes.ohio.gov/ohio-revised-code/section-5321.16) gives a landlord 30 days after termination of the rental agreement and delivery of possession to deliver a written, itemized list of deductions along with any money still owed. Miss it, or deduct something you cannot support, and the tenant’s remedy is that money plus damages equal to the amount wrongfully withheld plus attorney fees.
 

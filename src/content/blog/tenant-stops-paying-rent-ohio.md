@@ -27,12 +27,12 @@ Key Takeaways
 
 In This Article
 
-1. [Day 1 to 5: Rent Is Late. Now What?](#day-1-5)
-2. [Day 5 to 15: Still No Payment. What Does Escalation Look Like?](#day-5-15)
-3. [Day 15 to 30: How Does the 3-Day Notice Work in Ohio?](#three-day-notice)
-4. [Day 30+: What Does Filing an Eviction in Franklin County Involve?](#filing)
-5. [After the Eviction: What Comes Next?](#after)
-6. [Frequently Asked Questions](#faq)
+1. [Day 1 to 5: Rent Is Late. Now What?](#day-1-to-5-rent-is-late-now-what)
+2. [Day 5 to 15: Still No Payment. What Does Escalation Look Like?](#day-5-to-15-still-no-payment-what-does-escalation-look-like)
+3. [Day 15 to 30: How Does the 3-Day Notice Work in Ohio?](#day-15-to-30-how-does-the-3-day-notice-work-in-ohio)
+4. [Day 30+: What Does Filing an Eviction in Franklin County Involve?](#day-30-what-does-filing-an-eviction-in-franklin-county-involve)
+5. [After the Eviction: What Comes Next?](#after-the-eviction-what-comes-next)
+6. [Frequently Asked Questions](#frequently-asked-questions)
 
 *This article is informational, not legal advice. Ohio eviction law and local court procedures change; figures and citations are current as of August 2026. Consult a qualified attorney for your specific situation.*
 
@@ -87,7 +87,7 @@ Here is what the process and the hard costs look like for a typical uncontested 
 | RLPM eviction process management fee | $199 |
 | Typical out-of-pocket for an RLPM client | ~$450 |
 
-RLPM uses professional local attorneys for court filings rather than sending owners or staff to argue cases, and makes the effort to recover these costs from the resident where possible. Filing for money damages alongside possession raises the filing fee (currently $186 for two causes [SOURCE NEEDED: confirm the current two-cause filing fee]), which is a case-by-case decision with the attorney.
+RLPM uses professional local attorneys for court filings rather than sending owners or staff to argue cases, and makes the effort to recover these costs from the resident where possible. Filing for money damages alongside possession raises the filing fee (currently $186 for two causes), which is a case-by-case decision with the attorney.
 
 The timeline from filing runs roughly like this: Franklin County Municipal Court sets the hearing 2 to 3 weeks after filing, depending on service. If the court grants judgment for possession, the tenant typically has a short window before a red tag is posted and a bailiff-supervised set-out can be scheduled. End to end, an uncontested case usually lands around six weeks from notice to possession, per the timelines published by [Ohio Legal Help](https://www.ohiolegalhelp.org/eviction-timeline). Contested cases, counterclaims, or continuances can stretch the process to months.
 

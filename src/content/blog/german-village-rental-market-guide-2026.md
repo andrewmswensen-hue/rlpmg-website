@@ -97,7 +97,7 @@ A majority of urban Columbus renters either have pets or plan to get one. Strict
 
 German Village follows broader Columbus rental seasonality, with some urban-specific nuances that experienced investors can use to their advantage.
 
-### Peak Season: March, August
+### Peak Season: March to August
 
 - Highest renter demand and shortest days on market
 - Larger applicant pools and stronger screening options
@@ -105,7 +105,7 @@ German Village follows broader Columbus rental seasonality, with some urban-spec
 
 Listings that hit the market during this window often see multiple applications, allowing owners to prioritize credit quality, income stability, and longer-term tenancy.
 
-### Shoulder Season: September, October
+### Shoulder Season: September to October
 
 - Stable demand with slightly increased price sensitivity
 - Ideal window for renewals and lease extensions
@@ -113,7 +113,7 @@ Listings that hit the market during this window often see multiple applications,
 
 This period often works well for properties that missed the summer rush but are still positioned well on price and condition.
 
-### Slow Season: November, February
+### Slow Season: November to February
 
 - Fewer renters are actively searching
 - Longer marketing times are common

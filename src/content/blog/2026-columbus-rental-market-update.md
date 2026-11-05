@@ -30,14 +30,14 @@ Key Takeaways
 
 In This Report
 
-1. [Columbus Housing Market Overview: Q1 2026](#housing-market)
-2. [Rental Market Performance](#rental-performance)
-3. [Best Neighborhoods for Investment in 2026](#neighborhoods)
-4. [Economic & Employment Drivers](#economy-jobs)
-5. [Regulatory Updates Landlords Need to Know](#regulations)
-6. [2026 Investment Outlook](#outlook)
-7. [Frequently Asked Questions](#faq)
-8. [DOWNLOAD THE FULL REPORT](#download)
+1. [Columbus Housing Market Overview: Q1 2026](#columbus-housing-market-overview-q1-2026)
+2. [Rental Market Performance](#rental-market-performance)
+3. [Best Neighborhoods for Investment in 2026](#best-neighborhoods-for-investment-in-2026)
+4. [Economic & Employment Drivers](#economic--employment-drivers)
+5. [Regulatory Updates Landlords Need to Know](#regulatory-updates-landlords-need-to-know)
+6. [2026 Investment Outlook](#2026-investment-outlook)
+7. [Frequently Asked Questions](#frequently-asked-questions)
+8. [DOWNLOAD THE FULL REPORT](#get-the-full-2026-columbus-sfr-report)
 
 ## Columbus Housing Market Overview: Q1 2026
 

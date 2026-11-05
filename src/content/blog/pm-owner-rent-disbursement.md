@@ -29,11 +29,11 @@ Key Takeaways
 
 In This Article
 
-1. [The Typical Disbursement Timeline](#disbursement-timeline)
-2. [What Gets Deducted Before You See the Money](#what-gets-deducted)
-3. [What Ohio Law Requires of Your Property Manager](#ohio-law-fiduciary-duty)
-4. [How to Track It All](#how-to-track-it)
-5. [Frequently Asked Questions](#faq)
+1. [The Typical Disbursement Timeline](#the-typical-disbursement-timeline)
+2. [What Gets Deducted Before You See the Money](#what-gets-deducted-before-you-see-the-money)
+3. [What Ohio Law Requires of Your Property Manager](#what-ohio-law-requires-of-your-property-manager)
+4. [How to Track It All](#how-to-track-it-all)
+5. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## The Typical Disbursement Timeline
 

@@ -13,7 +13,7 @@ categories:
 
 ![How Much Money Should You Hold In Reserve for Each Rental Unit?](https://rlpmg.com/wp-content/uploads/2019/08/Thumb-2019-08-15T072801.644-min-1024x576.png)
 
-![A small suitcase of money](https://rlpm.wpengine.comhttps://rlpmg.com/wp-content/uploads/2019/08/money-300x200.jpg)RL Property Management generally recommends that rental property owners hold at least 6 months worth of rent in reserve for each unit that they own. Your goal is to be prepared when you need a new $5,000 HVAC system or a $9,000 roof or a new $1,200 refrigerator.
+![A small suitcase of money](https://rlpmg.com/wp-content/uploads/2019/08/money-300x200.jpg)RL Property Management generally recommends that rental property owners hold at least 6 months worth of rent in reserve for each unit that they own. Your goal is to be prepared when you need a new $5,000 HVAC system or a $9,000 roof or a new $1,200 refrigerator.
 
 This article will discuss this topic in more detail. Key points to consider are as follows:
 

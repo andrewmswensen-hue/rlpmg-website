@@ -28,10 +28,10 @@ Key Takeaways
 
 In This Article
 
-1. [How PM Companies Structure Maintenance Fees](#how-pm-companies-structure-maintenance)
-2. [What to Compare When Evaluating Maintenance Costs](#what-to-compare)
-3. [Why In-House Maintenance Matters for Owners](#why-in-house-matters)
-4. [Frequently Asked Questions](#faq)
+1. [How PM Companies Structure Maintenance Fees](#how-do-property-management-companies-structure-maintenance-fees)
+2. [What to Compare When Evaluating Maintenance Costs](#what-should-you-actually-compare-when-evaluating-maintenance-costs)
+3. [Why In-House Maintenance Matters for Owners](#why-does-in-house-maintenance-matter-for-property-owners)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## How Do Property Management Companies Structure Maintenance Fees?
 

@@ -27,13 +27,13 @@ Whether you’re adding a third duplex or buying your first investment property,
 
 ### Table of Contents
 
-- [Why Financing Strategy Matters More Than You Think](#why-financing-strategy-matters)
-- [Traditional Mortgages: The Reliable Workhorse](#traditional-mortgages)
-- [Hard Money Loans: Fast Cash, Higher Risk](#hard-money-loans)
-- [Creative & Partnership-Based Financing Options](#creative-financing)
-- [Getting “Lender Ready” as an Investor](#lender-ready)
-- [How RL Property Management Supports Your Financing & Growth Goals](#rl-support)
-- [Start Smarter, Scale Faster](#start-smarter)
+- [Why Financing Strategy Matters More Than You Think](#why-financing-strategy-matters-more-than-you-think)
+- [Traditional Mortgages: The Reliable Workhorse](#traditional-mortgages-the-reliable-workhorse)
+- [Hard Money Loans: Fast Cash, Higher Risk](#hard-money-loans-fast-cash-higher-risk)
+- [Creative & Partnership-Based Financing Options](#creative--partnership-based-financing-options)
+- [Getting “Lender Ready” as an Investor](#getting-lender-ready-as-an-investor)
+- [How RL Property Management Supports Your Financing & Growth Goals](#how-rl-property-management-supports-your-financing--growth-goals)
+- [Start Smarter, Scale Faster](#start-smarter-scale-faster)
 
 ## Why Financing Strategy Matters More Than You Think
 

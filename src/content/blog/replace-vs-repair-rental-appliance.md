@@ -30,10 +30,10 @@ Key Takeaways
 
 In This Article
 
-1. [The General Rule: Age Plus Repair Cost](#general-rule)
-2. [Why Keeping It Running Can Cost More Than Replacing](#cost-of-keeping-it-running)
-3. [How RLPM Handles Appliance Decisions](#how-rlpm-handles-it)
-4. [Frequently Asked Questions](#faq)
+1. [The General Rule: Age Plus Repair Cost](#the-general-rule-age-plus-repair-cost)
+2. [Why Keeping It Running Can Cost More Than Replacing](#why-keeping-it-running-can-cost-more-than-replacing)
+3. [How RLPM Handles Appliance Decisions](#how-rlpm-handles-appliance-decisions)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## The General Rule: Age Plus Repair Cost
 
@@ -41,7 +41,7 @@ Start with two numbers: how old the appliance is, and what the repair will cost.
 
 If an appliance has passed roughly 75% of its expected lifespan and the repair estimate runs more than half of what a replacement would cost, replace it. Below that line, repair is usually the better math.
 
-Lifespans vary by appliance type. According to the [NAHB Study of Life Expectancy of Home Components](https://hcmuddox.comhttps://rlpmg.com/wp-content/uploads/2022/10/nahb20study20of20life20expectancy20of20home20components.pdf), refrigerators average about 13 years, dishwashers about 9, washers about 10 and dryers about 13, ranges run 13 years (electric) to 15 years (gas), and water heaters last about 10 to 11 years. HVAC systems hold up the longest: furnaces typically run 15 to 20 years.
+Lifespans vary by appliance type. According to the [NAHB Study of Life Expectancy of Home Components](https://hcmuddox.com/wp-content/uploads/2022/10/nahb20study20of20life20expectancy20of20home20components.pdf), refrigerators average about 13 years, dishwashers about 9, washers about 10 and dryers about 13, ranges run 13 years (electric) to 15 years (gas), and water heaters last about 10 to 11 years. HVAC systems hold up the longest: furnaces typically run 15 to 20 years.
 
 A 9-year-old dishwasher with a $180 repair quote is already past its average expected life, and that repair alone exceeds half the cost of a new unit. Replace it. A 4-year-old refrigerator with a $150 fan repair isn’t close to that threshold. Fix it.
 
@@ -99,5 +99,5 @@ Or [get a free rent evaluation](/free-rent-evaluation/) · 614.725.3059
 
 ### Sources & Suggested External Links
 
-- [NAHB Study of Life Expectancy of Home Components](https://hcmuddox.comhttps://rlpmg.com/wp-content/uploads/2022/10/nahb20study20of20life20expectancy20of20home20components.pdf): appliance lifespan benchmarks used in the general rule above.
+- [NAHB Study of Life Expectancy of Home Components](https://hcmuddox.com/wp-content/uploads/2022/10/nahb20study20of20life20expectancy20of20home20components.pdf): appliance lifespan benchmarks used in the general rule above.
 - [ENERGY STAR Appliances Guidance (U.S. EPA)](https://www.energystar.gov/sites/default/files/tools/ENERGY%20STAR%20Appliances%20Brochure_508.pdf): energy cost impact of aging appliances.

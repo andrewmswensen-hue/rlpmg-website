@@ -27,13 +27,13 @@ Key Takeaways
 
 In This Article
 
-1. [Powell: Comprehensive Zoning Code Rewrite Heads to Council](#powell-zoning-rewrite)
-2. [Plain City: New Exterior Property Maintenance Code](#plain-city-maintenance-code)
-3. [Hilliard: Housing Study Recommended for Council](#hilliard-housing-study)
-4. [Worthington and Dublin: Councils Push Back on Property Taxes](#worthington-property-tax)
-5. [Pickerington: Zoning Review Targets Data Centers](#pickerington-data-center-zoning)
-6. [Also On the Radar This Week](#also-on-radar)
-7. [What to Do With This Information](#what-to-do)
+1. [Powell: Comprehensive Zoning Code Rewrite Heads to Council](#powell-comprehensive-zoning-code-rewrite-heads-to-council-june-10)
+2. [Plain City: New Exterior Property Maintenance Code](#plain-city-new-exterior-property-maintenance-code-under-discussion)
+3. [Hilliard: Housing Study Recommended for Council](#hilliard-housing-study-recommended-for-council-adoption)
+4. [Worthington and Dublin: Councils Push Back on Property Taxes](#worthington-and-dublin-councils-push-back-on-property-tax-elimination)
+5. [Pickerington: Zoning Review Targets Data Centers](#pickerington-zoning-review-targets-data-centers-and-high-density-computing)
+6. [Also On the Radar This Week](#also-on-the-radar-this-week)
+7. [What to Do With This Information](#what-to-do-with-this-information)
 
 ## Powell: Comprehensive Zoning Code Rewrite Heads to Council June 10
 
@@ -97,19 +97,19 @@ The [National Association of Counties has published a primer](https://www.naco.o
 
 Thirteen additional items across Central Ohio municipalities are in active legislative motion. None reached a final vote with direct landlord impact this week, but several are one step from adoption or have open public hearing windows.
 
-- **Powell, OH** . The Planning Director outlined the procedural roadmap for updating Powell’s zoning code, including scheduled public hearings. This is the formal front-end of the larger rewrite covered above. Expect posted notice of hearing dates soon. [Source.](https://d3n9y02raazwpg.cloudfront.net/cityofpowell/392594da-d45d-11f0-bb28-005056a89546-fdd6ab69-f4f9-4014-a9c8-a4637f25ae9b-1780063742.pdf)
-- **Powell, OH** . Council approved Ordinance 2026-10. The available summary is light on specifics. Review the ordinance text directly for any provisions affecting property use, fees, or operational requirements. [Source.](https://d3n9y02raazwpg.cloudfront.net/cityofpowell/13d69f40-d45c-11f0-bb28-005056a89546-fdd6ab69-f4f9-4014-a9c8-a4637f25ae9b-1780062977.pdf)
-- **Gahanna, OH** . Gahanna Council reviewed current zoning codes and development regulations. Gahanna is a high rental-density suburb, so changes here carry meaningful weight for residential operators. Early-stage review, but worth monitoring. [Source.](https://gahanna.legistar.com/View.ashx?M=A&ID=16348)
-- **Granville, OH** . Council introduced several ordinances for adoption that will be discussed at upcoming meetings. Check for any rental or property maintenance provisions before the hearings close. [Source.](https://www.granville.oh.us/s/Council-Packet-060326.pdf)
-- **Sunbury, OH** . Council completed a third reading of Ordinance No. 2026.10. Adoption is imminent. Confirm whether the ordinance touches property management practices before it takes effect. [Source.](https://sunburyvillage.com/AgendaCenter/ViewFile/Agenda/_06032026-837?packet=true)
-- **Grove City, OH** . Grove City Council scheduled a public hearing on several ordinances, including items affecting property regulations. The hearing is an open comment window. [Source.](https://grovecityoh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream)
-- **Worthington, OH** . Council introduced Ordinance 2026-07, set to take effect July 1, 2026. Review now for any provisions that change operating requirements before the effective date arrives. [Source.](https://www.worthington.org/ArchiveCenter/ViewFile/Item/6706)
-- **Canal Winchester, OH** . Canal Winchester Council completed a third reading on a Codified Ordinances update. Final adoption is close. Check the full package for rental-relevant provisions. [Source.](https://meetings.municode.com/d/f?u=https://mccmeetings.blob.core.usgovcloudapi.net/frnklnoh-pubu/MEET-Packet-3ab10f99413844e69365a2d116734202.pdf&n=AgendaPacket-CITY%20COUNCIL%20MEETING-June%201,%202026%205.30%20PM.pdf)
-- **Canal Winchester, OH** . Council discussed upcoming property tax policy changes. No vote is scheduled, but the discussion signals where local tax policy is heading in the context of the statewide property tax debate. [Source.](https://www.canalwinchesterohio.gov/AgendaCenter/ViewFile/Agenda/_06012026-764)
-- **Upper Arlington, OH** . Council discussed scheduling a public hearing on zoning code text amendments. Text amendments can quietly alter permitted uses or setback requirements. Track the posted hearing date. [Source.](https://upperarlingtonoh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream)
-- **Dublin, OH** . Ordinance 30-26 (Supplement S-57 to the Code of Ordinances) received first reading. A second reading and public hearing are scheduled for June 8. Routine codification, but worth a review. [Source.](https://dublinohiousa.gov/alphahttps://rlpmg.com/wp-content/uploads/2024/11/05-26-26-Council-Action-Summary.pdf)
-- **Hilliard, OH** . A Hilliard ordinance was noted as in effect from the earliest time provided by law. The entry is thin on detail. Confirm the underlying ordinance text if properties in Hilliard could be affected. [Source.](https://hilliardohio.civicweb.net/Portal/MeetingInformation.aspx)
-- **Upper Arlington, OH** . Councilmembers gave feedback on a sidewalk ordinance and the Homestead exemption credit. Neither is directly property-management related, but both can affect costs and property values in a high-income suburb where compliance standards tend to be enforced. [Source.](https://upperarlingtonoh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream?fileId=44)
+- **Powell, OH** \[Introduced, public hearings pending\]. The Planning Director outlined the procedural roadmap for updating Powell’s zoning code, including scheduled public hearings. This is the formal front-end of the larger rewrite covered above. Expect posted notice of hearing dates soon. [Source.](https://d3n9y02raazwpg.cloudfront.net/cityofpowell/392594da-d45d-11f0-bb28-005056a89546-fdd6ab69-f4f9-4014-a9c8-a4637f25ae9b-1780063742.pdf)
+- **Powell, OH** \[Recently passed\]. Council approved Ordinance 2026-10. The available summary is light on specifics. Review the ordinance text directly for any provisions affecting property use, fees, or operational requirements. [Source.](https://d3n9y02raazwpg.cloudfront.net/cityofpowell/13d69f40-d45c-11f0-bb28-005056a89546-fdd6ab69-f4f9-4014-a9c8-a4637f25ae9b-1780062977.pdf)
+- **Gahanna, OH** \[Under discussion (no vote scheduled)\]. Gahanna Council reviewed current zoning codes and development regulations. Gahanna is a high rental-density suburb, so changes here carry meaningful weight for residential operators. Early-stage review, but worth monitoring. [Source.](https://gahanna.legistar.com/View.ashx?M=A&ID=16348)
+- **Granville, OH** \[Introduced, public hearings pending\]. Council introduced several ordinances for adoption that will be discussed at upcoming meetings. Check for any rental or property maintenance provisions before the hearings close. [Source.](https://www.granville.oh.us/s/Council-Packet-060326.pdf)
+- **Sunbury, OH** \[Third reading completed (final adoption imminent)\]. Council completed a third reading of Ordinance No. 2026.10. Adoption is imminent. Confirm whether the ordinance touches property management practices before it takes effect. [Source.](https://sunburyvillage.com/AgendaCenter/ViewFile/Agenda/_06032026-837?packet=true)
+- **Grove City, OH** \[Introduced, public hearings pending\]. Grove City Council scheduled a public hearing on several ordinances, including items affecting property regulations. The hearing is an open comment window. [Source.](https://grovecityoh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream)
+- **Worthington, OH** \[Introduced, public hearings pending\]. Council introduced Ordinance 2026-07, set to take effect July 1, 2026. Review now for any provisions that change operating requirements before the effective date arrives. [Source.](https://www.worthington.org/ArchiveCenter/ViewFile/Item/6706)
+- **Canal Winchester, OH** \[Third reading completed (final adoption imminent)\]. Canal Winchester Council completed a third reading on a Codified Ordinances update. Final adoption is close. Check the full package for rental-relevant provisions. [Source.](https://meetings.municode.com/d/f?u=https://mccmeetings.blob.core.usgovcloudapi.net/frnklnoh-pubu/MEET-Packet-3ab10f99413844e69365a2d116734202.pdf&n=AgendaPacket-CITY%20COUNCIL%20MEETING-June%201,%202026%205.30%20PM.pdf)
+- **Canal Winchester, OH** \[Under discussion (no vote scheduled)\]. Council discussed upcoming property tax policy changes. No vote is scheduled, but the discussion signals where local tax policy is heading in the context of the statewide property tax debate. [Source.](https://www.canalwinchesterohio.gov/AgendaCenter/ViewFile/Agenda/_06012026-764)
+- **Upper Arlington, OH** \[Introduced, public hearings pending\]. Council discussed scheduling a public hearing on zoning code text amendments. Text amendments can quietly alter permitted uses or setback requirements. Track the posted hearing date. [Source.](https://upperarlingtonoh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream)
+- **Dublin, OH** \[Introduced, public hearings pending\]. Ordinance 30-26 (Supplement S-57 to the Code of Ordinances) received first reading. A second reading and public hearing are scheduled for June 8. Routine codification, but worth a review. [Source.](https://dublinohiousa.gov/alpha/wp-content/uploads/2024/11/05-26-26-Council-Action-Summary.pdf)
+- **Hilliard, OH** \[Recently adopted (now in effect)\]. A Hilliard ordinance was noted as in effect from the earliest time provided by law. The entry is thin on detail. Confirm the underlying ordinance text if properties in Hilliard could be affected. [Source.](https://hilliardohio.civicweb.net/Portal/MeetingInformation.aspx)
+- **Upper Arlington, OH** \[Under discussion (no vote scheduled)\]. Councilmembers gave feedback on a sidewalk ordinance and the Homestead exemption credit. Neither is directly property-management related, but both can affect costs and property values in a high-income suburb where compliance standards tend to be enforced. [Source.](https://upperarlingtonoh.api.civicclerk.com/v1/Meetings/GetMeetingFileStream?fileId=44)
 
 ## What to Do With This Information
 

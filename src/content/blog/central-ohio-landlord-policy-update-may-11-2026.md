@@ -27,13 +27,13 @@ Key Takeaways
 
 In This Article
 
-1. [Grandview Heights: Emergency Fire Prevention Code Amendments](#grandview-fire-code)
-2. [Hilliard: Emergency Ordinance Package Effective May 13](#hilliard-emergency-ordinances)
-3. [Groveport: Permit Fee Structure Changes](#groveport-permit-fees)
-4. [Delaware: Property Maintenance Code Overhaul](#delaware-property-maintenance)
-5. [Powell: Zoning Code Rewrite and Fee Schedule](#powell-zoning-rewrite)
-6. [Also On the Radar This Week](#also-on-radar)
-7. [What to Do With This Information](#what-to-do)
+1. [Grandview Heights: Emergency Fire Prevention Code Amendments](#grandview-heights-emergency-fire-prevention-code-amendments)
+2. [Hilliard: Emergency Ordinance Package Effective May 13](#hilliard-emergency-ordinance-package-effective-may-13)
+3. [Groveport: Permit Fee Structure Changes](#groveport-permit-fee-structure-changes)
+4. [Delaware: Property Maintenance Code Overhaul](#delaware-property-maintenance-code-overhaul)
+5. [Powell: Zoning Code Rewrite and Fee Schedule](#powell-zoning-code-rewrite-and-fee-schedule)
+6. [Also On the Radar This Week](#also-on-the-radar-this-week)
+7. [What to Do With This Information](#what-to-do-with-this-information)
 
 ## Grandview Heights: Emergency Fire Prevention Code Amendments
 
@@ -99,19 +99,19 @@ Source: [Powell Planning Department May 12, 2026 Zoning Code Rewrite Packet](htt
 
 Thirteen additional items from across Central Ohio worth knowing about, organized by status. Not every item demands action this week, but each is tracking toward something that will.
 
-- **Buckeye Lake, OH**, Buckeye Lake held a public hearing on May 11 on newly proposed zoning code revisions. The comment window is open for owners with Buckeye Lake rentals who want to weigh in before the language gets finalized.
-- **Plain City, OH**, Plain City Village Council completed a second reading of Ordinance 16-2026 on May 11, which changes the procedures for considering Planning and Zoning Code amendments. It is procedural, but it sets the rules for every future zoning amendment in the village.
-- **Grandview Heights, OH**, Separate from the Fire Prevention Code item above, Grandview Heights Council also passed amendments to publication requirements in the Codified Ordinances on May 11. This affects how official notices, including hearings on properties, are disseminated to property owners.
-- **Sunbury, OH**, Sunbury Village Council authorized the City Manager to permit certain activities per the codified ordinance on May 6, potentially streamlining some permits that previously required council-level approval.
-- **Whitehall, OH**, Whitehall City Council adopted replacement pages for the codified ordinances on May 6. Largely a housekeeping refresh, but worth confirming that any operational rules referenced in the code still read as expected.
-- **Powell, OH**, Separate from the zoning rewrite above, Powell Council discussed the potential abolition of a property tax ballot measure on May 6. The backdrop is a statewide initiative to eliminate all Ohio property taxes that is currently collecting signatures for the November 2026 ballot (roughly 305,000 of 413,488 signatures as of late April).
-- **Delaware, OH**, Delaware Council held a public hearing on Ord 26-23 as a companion record to the second-reading item already featured above. Same ordinance, different agenda entry.
-- **Baltimore, OH**, Baltimore Council held a public hearing on April 27 regarding updates to the building permit and inspection fee schedule. The hearing surfaced in this week’s data; landlords with Baltimore property should track the next council step.
-- **Franklin, OH**, Franklin Council held a public hearing on April 20 for Ordinance 2026-03 amending Chapter 1313 (Building Permit and Inspection Fees). The hearing surfaced in this week’s data; relevant for owners running active or planned permit work in Franklin.
-- **Westerville, OH**, Westerville Council introduced several temporary ordinances for first reading on April 21. The first reading surfaced in this week’s data; property managers should track the second-reading agenda for substance.
-- **Powell, OH**, A Powell committee motioned on April 21 to send multiple ordinances to Council. The committee action surfaced in this week’s data; the Council vote is the next step to watch.
-- **Lancaster, OH**, Lancaster City Council held a first reading on April 20 of Temporary Ordinances 9-26 and 10-26. The first reading surfaced in this week’s data; owners with Lancaster property should track the next reading.
-- **Baltimore, OH**, Baltimore Service Committee voted 3-0 on April 13 to send Ordinances 2026-11, 2026-12, and 2026-14 to Council. The committee action surfaced in this week’s data; the Council vote is the next step to watch.
+- **Buckeye Lake, OH** \[Under discussion (no vote scheduled)\], Buckeye Lake held a public hearing on May 11 on newly proposed zoning code revisions. The comment window is open for owners with Buckeye Lake rentals who want to weigh in before the language gets finalized. \[Source: [Hearing Agenda](https://buckeyelakevillage.com/documents/334/May_11__2026_-_Public_Hearing_Agenda.pdf)\]
+- **Plain City, OH** \[Second reading completed (one step from final vote)\], Plain City Village Council completed a second reading of Ordinance 16-2026 on May 11, which changes the procedures for considering Planning and Zoning Code amendments. It is procedural, but it sets the rules for every future zoning amendment in the village. \[Source: [Council Agenda](https://www.plaincityohio.gov/Government/Council%20Agendas/2026/05.11.2026%20Council%20Regular%20Meeting%20Agenda.pdf)\]
+- **Grandview Heights, OH** \[Just passed\], Separate from the Fire Prevention Code item above, Grandview Heights Council also passed amendments to publication requirements in the Codified Ordinances on May 11. This affects how official notices, including hearings on properties, are disseminated to property owners. \[Source: [Ordinance](https://www.grandviewheights.gov/ArchiveCenter/ViewFile/Item/3721)\]
+- **Sunbury, OH** \[Just passed\], Sunbury Village Council authorized the City Manager to permit certain activities per the codified ordinance on May 6, potentially streamlining some permits that previously required council-level approval. \[Source: [Agenda Packet](https://sunburyvillage.com/AgendaCenter/ViewFile/Agenda/_05062026-828?packet=true)\]
+- **Whitehall, OH** \[Just passed\], Whitehall City Council adopted replacement pages for the codified ordinances on May 6. Largely a housekeeping refresh, but worth confirming that any operational rules referenced in the code still read as expected. \[Source: [Agenda](https://www.whitehall-oh.us/AgendaCenter/ViewFile/Agenda/_05062026-3809)\]
+- **Powell, OH** \[Under discussion (no vote scheduled)\], Separate from the zoning rewrite above, Powell Council discussed the potential abolition of a property tax ballot measure on May 6. The backdrop is a statewide initiative to eliminate all Ohio property taxes that is currently collecting signatures for the November 2026 ballot (roughly 305,000 of 413,488 signatures as of late April). \[Source: [Meeting Record](https://d3n9y02raazwpg.cloudfront.net/cityofpowell/13cde6ed-d45c-11f0-bb28-005056a89546-fdd6ab69-f4f9-4014-a9c8-a4637f25ae9b-1778156428.pdf)\]
+- **Delaware, OH** \[Under discussion (no vote scheduled)\], Delaware Council held a public hearing on Ord 26-23 as a companion record to the second-reading item already featured above. Same ordinance, different agenda entry. \[Source: [Hearing Packet](https://d3n9y02raazwpg.cloudfront.net/delawareohio/ad5678b1-d60b-11f0-bb28-005056a89546-811c34ad-cca4-4524-83d0-4de17d0d6a4b-1778162627.pdf)\]
+- **Baltimore, OH** \[Under discussion (no vote scheduled)\], Baltimore Council held a public hearing on April 27 regarding updates to the building permit and inspection fee schedule. The hearing surfaced in this week’s data; landlords with Baltimore property should track the next council step. \[Source: [Council Minutes](https://www.baltimoreohio.org/sites/default/files/2026-05/04-27-2026_council_minutes.pdf)\]
+- **Franklin, OH** \[Under discussion (no vote scheduled)\], Franklin Council held a public hearing on April 20 for Ordinance 2026-03 amending Chapter 1313 (Building Permit and Inspection Fees). The hearing surfaced in this week’s data; relevant for owners running active or planned permit work in Franklin. \[Source: [Meeting Minutes](https://meetings.municode.com/d/f?u=https://mccmeetings.blob.core.usgovcloudapi.net/frnklnoh-pubu/MEET-Minutes-7efcd98f0186418aba400911c0ffb175.pdf)\]
+- **Westerville, OH** \[Introduced, public hearings pending\], Westerville Council introduced several temporary ordinances for first reading on April 21. The first reading surfaced in this week’s data; property managers should track the second-reading agenda for substance. \[Source: [Meeting Minutes](https://westerville.hylandcloud.com/agendaonline/Documents/DownloadFile/Regular_Meeting_2944_Minutes_4_21_2026_7_00_00_PM.pdf)\]
+- **Powell, OH** \[Recommended for approval (awaiting Council vote)\], A Powell committee motioned on April 21 to send multiple ordinances to Council. The committee action surfaced in this week’s data; the Council vote is the next step to watch. \[Source: [Committee Minutes](https://cityofpowell.granicus.com/MinutesViewer.php?view_id=2)\]
+- **Lancaster, OH** \[Introduced, public hearings pending\], Lancaster City Council held a first reading on April 20 of Temporary Ordinances 9-26 and 10-26. The first reading surfaced in this week’s data; owners with Lancaster property should track the next reading. \[Source: [Meeting Minutes](https://www.lancasterohio.gov/AgendaCenter/ViewFile/Minutes/_04202026-1648)\]
+- **Baltimore, OH** \[Recommended for approval (awaiting Council vote)\], Baltimore Service Committee voted 3-0 on April 13 to send Ordinances 2026-11, 2026-12, and 2026-14 to Council. The committee action surfaced in this week’s data; the Council vote is the next step to watch. \[Source: [Service Committee Minutes](https://www.baltimoreohio.org/sites/default/files/2026-05/04-13-2026_service_minutes.pdf)\]
 
 ## What to Do With This Information
 

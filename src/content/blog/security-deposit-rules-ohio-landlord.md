@@ -28,12 +28,12 @@ Key Takeaways
 
 In This Article
 
-1. [Ohio Security Deposit Law: The Basics (ORC § 5321.16)](#ohio-law-basics)
-2. [Normal Wear and Tear vs. Tenant Damage: The Line That Matters](#wear-and-tear)
-3. [What You Can Deduct (With Documentation)](#what-you-can-deduct)
-4. [What You Can’t Deduct: Common Mistakes](#what-you-cannot-deduct)
-5. [How to Make Your Deductions Defensible](#making-deductions-defensible)
-6. [Frequently Asked Questions](#faq)
+1. [Ohio Security Deposit Law: The Basics (ORC § 5321.16)](#ohio-security-deposit-law-the-basics-orc--532116)
+2. [Normal Wear and Tear vs. Tenant Damage: The Line That Matters](#normal-wear-and-tear-vs-tenant-damage-the-line-that-matters)
+3. [What You Can Deduct (With Documentation)](#what-you-can-deduct-with-documentation)
+4. [What You Can’t Deduct: Common Mistakes](#what-you-cant-deduct-common-mistakes)
+5. [How to Make Your Deductions Defensible](#how-to-make-your-deductions-defensible)
+6. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Ohio Security Deposit Law: The Basics (ORC § 5321.16)
 
@@ -95,6 +95,8 @@ The landlords who rarely face security deposit disputes in Franklin County follo
 
 Every room, every surface, every fixture documented before the tenant takes possession. Reports should be specific (“minor scuff on south bedroom wall near closet door”) not vague (“walls: good”). Both parties sign it. This is the baseline everything else is measured against.
 
+Related: [The move-in inspection: what Columbus landlords should document](/blog/move-in-inspection-columbus-rental-property/).
+
 ### Step 2: Timestamped photos at move-in, quarterly inspections, and move-out
 
 Move-in photos establish the baseline. Quarterly photos document mid-tenancy condition and catch issues before they escalate. Move-out photos show what the tenant left behind. Without a clear before-and-after comparison, a damage claim is an assertion. With it, the claim is documented. RLPM’s quarterly inspections create this paper trail on every managed unit as part of the standard process.
@@ -106,6 +108,10 @@ Every line connects to a specific item, location, the nature of the damage, and 
 ### Step 4: Delivery within 30 days to the forwarding address
 
 Mail the itemization and any remaining balance within 30 days of move-out. Courts look at the mailing date. Waiting for final invoices is not a valid reason to miss the deadline, return what you can and follow up before the window closes.
+
+Related: [What a rental property turnover actually costs in Columbus](/blog/rental-property-turnover-cost-columbus/).
+
+Related: [How to handle a tenant move-out in Columbus, Ohio](/blog/tenant-move-out-process-ohio/).
 
 ## Frequently Asked Questions
 

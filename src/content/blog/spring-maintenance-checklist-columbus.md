@@ -21,10 +21,10 @@ Spring maintenance on a Columbus rental property comes down to two passes: an ex
 
 In This Article
 
-1. [Exterior: What Winter Left Behind](#exterior)
-2. [Interior Systems Check](#interior)
-3. [Why Spring Is the Best Time to Catch Problems Early](#timing)
-4. [Frequently Asked Questions](#faq)
+1. [Exterior: What Winter Left Behind](#exterior-what-winter-left-behind)
+2. [Interior Systems Check](#interior-systems-check)
+3. [Why Spring Is the Best Time to Catch Problems Early](#why-spring-is-the-best-time-to-catch-problems-early)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Exterior: What Winter Left Behind
 

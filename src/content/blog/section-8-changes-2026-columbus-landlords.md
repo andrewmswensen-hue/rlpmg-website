@@ -30,12 +30,12 @@ Key Takeaways
 
 In This Article
 
-1. [What Actually Happened With Section 8 Funding for FY2026](#funding-status)
-2. [HUD’s March 2026 Proposed Rule: Work Requirements and Time Limits](#proposed-rule)
-3. [The Emergency Housing Voucher Wind-Down](#ehv-wind-down)
-4. [Source-of-Income Protections in Central Ohio](#ohio-source-of-income)
-5. [What This Means for Columbus Landlords](#what-it-means)
-6. [Frequently Asked Questions](#faq)
+1. [What Actually Happened With Section 8 Funding for FY2026](#what-actually-happened-with-section-8-funding-for-fy2026)
+2. [HUD’s March 2026 Proposed Rule: Work Requirements and Time Limits](#huds-march-2026-proposed-rule-work-requirements-and-time-limits)
+3. [The Emergency Housing Voucher Wind-Down](#the-emergency-housing-voucher-wind-down)
+4. [Source-of-Income Protections in Central Ohio](#source-of-income-protections-in-central-ohio)
+5. [What This Means for Columbus Landlords](#what-this-means-for-columbus-landlords)
+6. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## What Actually Happened With Section 8 Funding for FY2026
 

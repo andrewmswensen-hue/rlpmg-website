@@ -29,11 +29,11 @@ Key Takeaways
 In This Article
 
 1. [How Big Is the Problem?](#how-big-is-the-problem)
-2. [The Five Most Common Types of Rental Application Fraud](#five-types)
-3. [Red Flags That Should Trigger a Closer Look](#red-flags)
-4. [How Professional Screening Catches What You Miss](#professional-screening)
-5. [What One Fraudulent Tenant Actually Costs](#real-cost)
-6. [Frequently Asked Questions](#faq)
+2. [The Five Most Common Types of Rental Application Fraud](#the-five-most-common-types-of-rental-application-fraud)
+3. [Red Flags That Should Trigger a Closer Look](#red-flags-that-should-trigger-a-closer-look)
+4. [How Professional Screening Catches What You Miss](#how-professional-screening-catches-what-you-miss)
+5. [What One Fraudulent Tenant Actually Costs](#what-one-fraudulent-tenant-actually-costs)
+6. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## How Big Is the Problem?
 

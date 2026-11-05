@@ -28,10 +28,10 @@ Key Takeaways
 
 In This Article
 
-1. [When a Tenant Can Legally Break a Lease in Ohio](#legal-reasons)
-2. [When There’s No Legal Basis, and What You Can Do](#no-legal-basis)
-3. [How to Protect Yourself Before This Happens](#protect-yourself)
-4. [Frequently Asked Questions](#faq)
+1. [When a Tenant Can Legally Break a Lease in Ohio](#when-a-tenant-can-legally-break-a-lease-in-ohio)
+2. [When There’s No Legal Basis, and What You Can Do](#when-theres-no-legal-basis-and-what-you-can-do)
+3. [How to Protect Yourself Before This Happens](#how-to-protect-yourself-before-this-happens)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## When a Tenant Can Legally Break a Lease in Ohio
 
@@ -75,7 +75,7 @@ In practice, this means three things:
 
 Once a new tenant moves in, the prior tenant’s exposure to ongoing rent is over. The amount recoverable is: rent owed for the vacant period, plus any documented re-leasing costs (such as advertising expenses) that the lease specifically allows the landlord to recover.
 
-covers the re-leasing process in more detail, including where to list the property and what documentation to keep.
+[RLPM’s guide to reducing vacancy](/blog/4-ways-a-property-management-company-can-reduce-your-vacancy-rate/) covers the re-leasing process in more detail, including where to list the property and what documentation to keep.
 
 ## How to Protect Yourself Before This Happens
 
@@ -83,7 +83,7 @@ The best time to address early lease termination is before any tenant ever bring
 
 ### Include a Clear Early Termination Clause
 
-A well-drafted early termination clause defines the notice period required (typically 60 days), any financial obligation (a fee equal to one or two months’ rent is common), and the conditions under which the clause can be exercised. This gives a tenant who needs to leave a legitimate path out, and it gives the landlord defined compensation and a timeline to work with. goes deeper on what Ohio-compliant lease terms look like.
+A well-drafted early termination clause defines the notice period required (typically 60 days), any financial obligation (a fee equal to one or two months’ rent is common), and the conditions under which the clause can be exercised. This gives a tenant who needs to leave a legitimate path out, and it gives the landlord defined compensation and a timeline to work with. [RLPM’s Columbus lease checklist](/blog/columbus-rental-lease-checklist/) goes deeper on what Ohio-compliant lease terms look like.
 
 Leases used by RLPM include early termination provisions reviewed by Ohio attorneys, which means the language has been tested against current Ohio landlord-tenant law, not pulled from a generic template.
 

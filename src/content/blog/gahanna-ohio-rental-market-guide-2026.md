@@ -27,12 +27,12 @@ Key Takeaways
 
 In This Article
 
-1. [Why Gahanna Attracts Renters](#why-gahanna)
-2. [Gahanna Rental Market Data (2026)](#rental-market-data)
-3. [Vacancy and Lease Timing](#vacancy-and-timing)
-4. [What Investors Should Know](#investors)
-5. [Rental Compliance Considerations](#compliance)
-6. [Frequently Asked Questions](#faq)
+1. [Why Gahanna Attracts Renters](#why-gahanna-attracts-renters)
+2. [Gahanna Rental Market Data (2026)](#gahanna-rental-market-data-2026)
+3. [Vacancy and Lease Timing](#vacancy-and-lease-timing)
+4. [What Investors Should Know](#what-investors-should-know)
+5. [Rental Compliance Considerations](#rental-compliance-considerations)
+6. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why Gahanna Attracts Renters
 

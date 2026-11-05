@@ -111,7 +111,7 @@ A simple, friendly reminder can make all the difference, especially in a world w
 
 Example:
 
- “Hi , just a quick reminder that your rent is due on the 1st. You can pay anytime using the online portal: . Let us know if you have any questions!”
+ “Hi \[Tenant Name\], just a quick reminder that your rent is due on the 1st. You can pay anytime using the online portal: \[link\]. Let us know if you have any questions!”
 
 ### Follow Up Immediately When Rent Is Missed
 

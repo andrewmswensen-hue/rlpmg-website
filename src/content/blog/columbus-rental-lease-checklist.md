@@ -29,12 +29,12 @@ Key Takeaways
 
 In This Article
 
-1. [Why a Solid Lease Is Your Best Legal Protection](#legal-protection)
-2. [The Non-Negotiables: What Ohio Law Requires](#ohio-requirements)
-3. [What Most Landlords Forget to Include (And Regret Later)](#commonly-forgotten)
-4. [Clauses That Protect Your Investment Long-Term](#protective-clauses)
-5. [How RLPM’s Lease Protects Owners Differently](#rlpm-difference)
-6. [Frequently Asked Questions](#faq)
+1. [Why a Solid Lease Is Your Best Legal Protection](#why-a-solid-lease-is-your-best-legal-protection)
+2. [The Non-Negotiables: What Ohio Law Requires](#the-non-negotiables-what-ohio-law-requires)
+3. [What Most Landlords Forget to Include (And Regret Later)](#what-most-landlords-forget-to-include-and-regret-later)
+4. [Clauses That Protect Your Investment Long-Term](#clauses-that-protect-your-investment-long-term)
+5. [How RLPM’s Lease Protects Owners Differently](#how-rlpms-lease-protects-owners-differently)
+6. [Frequently Asked Questions](#frequently-asked-questions)
 
 Informational only, current as of May 2026. This article is not legal advice. Ohio landlord-tenant law and Columbus city ordinances change; consult a qualified Ohio real estate attorney for guidance on any specific lease.
 

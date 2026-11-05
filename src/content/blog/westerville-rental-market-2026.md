@@ -28,16 +28,16 @@ Key Takeaways
 
 In This Article
 
-1. [Why Westerville Attracts Renters (and Keeps Them)](#why-westerville)
-2. [Westerville Rental Market Data: What Properties Rent For](#rental-market-data)
-3. [Home Values and Acquisition Costs](#home-values)
-4. [Schools: The Tenant Magnet](#schools)
-5. [Employers and Economic Growth](#employers)
-6. [Vacancy and Lease Timing](#vacancy-timing)
-7. [What Investors Should Know Before Buying](#investor-considerations)
-8. [Rental Compliance Considerations](#compliance)
-9. [The Bottom Line for Westerville Investors](#bottom-line)
-10. [Frequently Asked Questions](#faq)
+1. [Why Westerville Attracts Renters (and Keeps Them)](#why-westerville-attracts-renters-and-keeps-them)
+2. [Westerville Rental Market Data: What Properties Rent For](#westerville-rental-market-data-what-properties-rent-for)
+3. [Home Values and Acquisition Costs](#home-values-and-acquisition-costs)
+4. [Schools: The Tenant Magnet](#schools-the-tenant-magnet)
+5. [Employers and Economic Growth](#employers-and-economic-growth)
+6. [Vacancy and Lease Timing](#vacancy-and-lease-timing)
+7. [What Investors Should Know Before Buying](#what-investors-should-know-before-buying)
+8. [Rental Compliance Considerations](#rental-compliance-considerations)
+9. [The Bottom Line for Westerville Investors](#the-bottom-line-for-westerville-investors)
+10. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why Westerville Attracts Renters (and Keeps Them)
 
@@ -106,9 +106,9 @@ The broader Columbus region continues to benefit from the **Intel semiconductor 
 
 Westerville’s rental market benefits from a structural supply constraint: [74% of residents own their homes](https://www.rentcafe.com/apartments-for-rent/westerville-oh/), which keeps rental inventory limited relative to demand. Only 26% of the housing stock is renter-occupied, meaning available rentals tend to be absorbed quickly when priced correctly.
 
-Seasonal leasing patterns in Westerville follow the broader Central Ohio rhythm. Peak demand runs from late spring through early fall (May, September), driven by families relocating before the school year and professionals starting new positions. Properties listed during this window typically lease faster and at stronger rents.
+Seasonal leasing patterns in Westerville follow the broader Central Ohio rhythm. Peak demand runs from late spring through early fall (May to September), driven by families relocating before the school year and professionals starting new positions. Properties listed during this window typically lease faster and at stronger rents.
 
-Winter leasing (November, February) slows, as it does across the Columbus metro. Investors who anticipate turnover during this period should factor in slightly longer vacancy and potentially more competitive pricing to attract tenants outside the peak window.
+Winter leasing (November to February) slows, as it does across the Columbus metro. Investors who anticipate turnover during this period should factor in slightly longer vacancy and potentially more competitive pricing to attract tenants outside the peak window.
 
 For current performance benchmarks on lease-up speed, occupancy, and renewal rates across the Columbus metro, check [RL Property Management’s live KPI scorecard](/key-performance-indicators/).
 

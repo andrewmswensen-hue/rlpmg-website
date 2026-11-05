@@ -28,11 +28,11 @@ Key Takeaways
 
 In This Article
 
-1. [The Short Answer: Six Months’ Rent Is the Target](#short-answer)
-2. [What a Reserve Fund Actually Covers](#what-reserves-cover)
-3. [What Happens Without Reserves](#without-reserves)
-4. [How RLPM Helps Owners Track Reserves](#rlpm-reserve-support)
-5. [Frequently Asked Questions](#faq)
+1. [The Short Answer: Six Months’ Rent Is the Target](#the-short-answer-six-months-rent-is-th-wise-target)
+2. [What a Reserve Fund Actually Covers](#what-a-reserve-fund-actually-covers)
+3. [What Happens Without Reserves](#what-happens-without-reserves)
+4. [How RLPM Helps Owners Track Reserves](#how-rlpm-helps-owners-track-reserves)
+5. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## The Short Answer: Six Months’ Rent Is th Wise Target
 

@@ -28,11 +28,11 @@ Key Takeaways
 
 In This Article
 
-1. [The Standard Rent Collection Process](#standard-process)
-2. [What Happens When a Tenant Pays Late](#late-payment)
-3. [What Happens When a Tenant Doesn’t Pay at All](#no-payment)
-4. [How Self-Managing Owners Handle This Differently](#self-managing)
-5. [Frequently Asked Questions](#faq)
+1. [The Standard Rent Collection Process](#the-standard-rent-collection-process)
+2. [What Happens When a Tenant Pays Late](#what-happens-when-a-tenant-pays-late)
+3. [What Happens When a Tenant Doesn’t Pay at All](#what-happens-when-a-tenant-doesnt-pay-at-all)
+4. [How Self-Managing Owners Handle This Differently](#how-self-managing-owners-handle-this-differently-and-what-it-costs-them)
+5. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## The Standard Rent Collection Process
 

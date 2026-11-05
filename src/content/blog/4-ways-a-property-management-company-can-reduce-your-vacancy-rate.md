@@ -22,15 +22,15 @@ A vacant day on the Columbus portfolio average rent of $1,653 costs about $54, a
 
 In this article
 
-1. [What does vacancy actually cost?](#what-vacancy-costs)
-2. [Why is rent pricing the biggest lever?](#pricing)
-3. [How does screening reduce vacancy?](#screening)
-4. [Does allowing pets reduce vacancy?](#pets)
-5. [Can your fees be keeping applicants away?](#fees)
-6. [How do lease terms affect vacancy in Central Ohio?](#lease-terms)
-7. [Do incentives work, and when should you use one?](#incentives)
-8. [Why renewals are decided in the first month](#renewals)
-9. [Frequently asked questions](#faq)
+1. [What does vacancy actually cost?](#what-does-vacancy-actually-cost)
+2. [Why is rent pricing the biggest lever?](#why-is-rent-pricing-the-biggest-lever)
+3. [How does screening reduce vacancy?](#how-does-screening-reduce-vacancy)
+4. [Does allowing pets reduce vacancy?](#does-allowing-pets-reduce-vacancy)
+5. [Can your fees be keeping applicants away?](#can-your-fees-be-keeping-applicants-away)
+6. [How do lease terms affect vacancy in Central Ohio?](#how-do-lease-terms-affect-vacancy-in-central-ohio)
+7. [Do incentives work, and when should you use one?](#do-incentives-work-and-when-should-you-use-one)
+8. [Why renewals are decided in the first month](#why-renewals-are-decided-in-the-first-month)
+9. [Frequently asked questions](#frequently-asked-questions)
 
 ## What does vacancy actually cost?
 

@@ -26,13 +26,13 @@ Key Takeaways
 
 In This Article
 
-1. [Why Grove City Attracts Renters](#why-renters)
-2. [Rental Market Data](#rental-data)
-3. [Vacancy and Lease Timing](#vacancy-timing)
-4. [What Investors Should Know](#investor-considerations)
-5. [Rental Compliance Considerations](#compliance)
-6. [Bottom Line for Grove City Investors](#bottom-line)
-7. [Frequently Asked Questions](#faq)
+1. [Why Grove City Attracts Renters](#why-grove-city-attracts-renters)
+2. [Rental Market Data](#what-are-rental-rates-in-grove-city-ohio)
+3. [Vacancy and Lease Timing](#vacancy-and-lease-timing-in-grove-city)
+4. [What Investors Should Know](#what-should-investors-know-about-grove-city)
+5. [Rental Compliance Considerations](#rental-compliance-considerations-for-grove-city)
+6. [Bottom Line for Grove City Investors](#bottom-line-for-grove-city-investors)
+7. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why Grove City Attracts Renters
 
@@ -94,7 +94,7 @@ At the entry level, Grove City properties that make sense as long-term rentals t
 
 ### Comparison to Other Southwest Columbus Suburbs
 
-Hilliard, directly to the north, commands higher rents (3-bedroom single-family homes frequently run $2,000 to $2,500 or more) but also carries higher acquisition costs and more competitive buyer demand. The trade-off is better capitalization at current market values in some Hilliard segments, but a narrower margin for error.
+Hilliard, directly to the north, commands higher rents (3-bedroom single-family homes frequently run $2,000 to $2,500 or more) but also carries higher acquisition costs and more competitive buyer demand. The trade-off is better capitalization at current market values in some Hilliard segments, but a narrower margin for error. See the [Hilliard rental market guide](/blog/hilliard-ohio-rental-market-guide/).
 
 Galloway, immediately to the north and east of Grove City, is a more working-class submarket with lower acquisition costs and lower rents. Vacancy periods in Galloway can run longer than Grove City for comparable property types, and the tenant qualification pool is somewhat thinner on average.
 
@@ -126,7 +126,7 @@ Fair Housing laws apply at the federal, state, and local level. Ohio’s Fair Ho
 
 Grove City is not a flashy market. There are no rapidly gentrifying corridors, no new-construction luxury rental towers, and no speculative rent surge story to tell. What it does offer is durability: steady population growth, a well-regarded school district, excellent highway access, and a workforce renter base that occupies properties for multiple lease terms when treated well.
 
-For investors seeking a Columbus-area entry point with manageable acquisition costs, a predictable tenant pool, and defensible fundamentals, Grove City earns serious underwriting attention. Its position relative to Hilliard (more affordable) and Galloway (more stable demand) gives it a distinct niche in the southwest submarket.
+For investors seeking a Columbus-area entry point with manageable acquisition costs, a predictable tenant pool, and defensible fundamentals, Grove City earns serious underwriting attention. Its position relative to Hilliard (more affordable) and Galloway (more stable demand) gives it a distinct niche in the southwest submarket. See [other Columbus neighborhood rental market guides](/blog/category/rental-market-guide/).
 
 Execution matters in any market. A property that is genuinely rent-ready, priced accurately to current comps, listed on 45+ platforms, and managed with consistent communication will outperform the submarket average. A property that sits vacant because it was overpriced or under-maintained will underperform regardless of neighborhood fundamentals.
 

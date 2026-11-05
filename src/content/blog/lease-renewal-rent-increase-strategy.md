@@ -27,13 +27,13 @@ Key Takeaways
 
 In This Article
 
-1. [Start with turnover cost, not the rent comp](#turnover-cost)
-2. [When should you raise rent at renewal?](#when-to-raise)
-3. [When holding rent steady earns more](#when-to-hold)
-4. [How much notice does Ohio require for a rent increase?](#ohio-notice)
-5. [How RLPM prices and times a renewal](#rlpm-approach)
-6. [What fall 2026 adds to the renewal calendar](#fall-2026)
-7. [Frequently Asked Questions](#faq)
+1. [Start with turnover cost, not the rent comp](#start-with-turnover-cost-not-the-rent-comp)
+2. [When should you raise rent at renewal?](#when-should-you-raise-rent-at-renewal)
+3. [When holding rent steady earns more](#when-holding-rent-steady-earns-more)
+4. [How much notice does Ohio require for a rent increase?](#how-much-notice-does-ohio-require-for-a-rent-increase)
+5. [How RLPM prices and times a renewal](#how-rlpm-prices-and-times-a-renewal)
+6. [What fall 2026 adds to the renewal calendar](#what-fall-2026-adds-to-the-renewal-calendar)
+7. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Start with turnover cost, not the rent comp
 

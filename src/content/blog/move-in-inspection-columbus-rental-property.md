@@ -27,11 +27,11 @@ Key Takeaways
 
 In This Article
 
-1. [Why the Move-In Inspection Is the Most Important 30 Minutes of a Tenancy](#why-move-in-inspection-matters)
-2. [What to Document: Room-by-Room](#room-by-room-checklist)
-3. [How to Make the Documentation Defensible](#making-documentation-defensible)
-4. [What Happens When You Skip This Step](#what-happens-when-you-skip)
-5. [Frequently Asked Questions](#faq)
+1. [Why the Move-In Inspection Is the Most Important 30 Minutes of a Tenancy](#why-the-move-in-inspection-is-the-most-important-30-minutes-of-a-tenancy)
+2. [What to Document: Room-by-Room](#what-to-document-room-by-room)
+3. [How to Make the Documentation Defensible](#how-to-make-the-documentation-defensible)
+4. [What Happens When You Skip This Step](#what-happens-when-you-skip-this-step)
+5. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why the Move-In Inspection Is the Most Important 30 Minutes of a Tenancy
 

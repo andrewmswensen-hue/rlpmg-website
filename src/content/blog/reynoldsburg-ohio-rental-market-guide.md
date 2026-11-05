@@ -29,13 +29,13 @@ Key Takeaways
 
 In This Article
 
-1. [Why Reynoldsburg Attracts Renters](#why-renters)
-2. [Rental Market Data (2026)](#rental-data)
-3. [Vacancy and Lease Timing](#vacancy-timing)
-4. [What Investors Should Know](#investors)
-5. [Rental Compliance Considerations](#compliance)
-6. [Bottom Line for Investors](#bottom-line)
-7. [Frequently Asked Questions](#faq)
+1. [Why Reynoldsburg Attracts Renters](#why-reynoldsburg-attracts-renters)
+2. [Rental Market Data (2026)](#rental-market-data-2026)
+3. [Vacancy and Lease Timing](#vacancy-and-lease-timing)
+4. [What Investors Should Know](#what-investors-should-know)
+5. [Rental Compliance Considerations](#rental-compliance-considerations)
+6. [Bottom Line for Investors](#bottom-line-for-investors)
+7. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why Reynoldsburg Attracts Renters
 

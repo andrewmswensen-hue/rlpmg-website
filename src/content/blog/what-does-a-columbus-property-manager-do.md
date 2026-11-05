@@ -28,13 +28,13 @@ Key Takeaways
 
 In This Article
 
-1. [Tenant Placement: From Listing to Lease Signing](#tenant-placement)
-2. [Day-to-Day Property Management](#day-to-day)
-3. [Financial Management and Reporting](#financial-reporting)
-4. [Compliance and Risk Management](#compliance)
-5. [Lease Renewals and Tenant Retention](#lease-renewals)
-6. [When Things Go Wrong: Evictions and Disputes](#evictions)
-7. [Frequently Asked Questions](#faq)
+1. [Tenant Placement: From Listing to Lease Signing](#tenant-placement-from-listing-to-lease-signing)
+2. [Day-to-Day Property Management](#day-to-day-property-management)
+3. [Financial Management and Reporting](#financial-management-and-reporting)
+4. [Compliance and Risk Management](#compliance-and-risk-management)
+5. [Lease Renewals and Tenant Retention](#lease-renewals-and-tenant-retention)
+6. [When Things Go Wrong: Evictions and Disputes](#when-things-go-wrong-evictions-and-disputes)
+7. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Tenant Placement: From Listing to Lease Signing
 
@@ -164,7 +164,7 @@ A property manager receives maintenance requests from tenants, triages urgency, 
 
 **What happens if a tenant stops paying rent?**
 
-The manager initiates the established collections process: late notices per the lease terms, direct communication with the tenant, and escalation toward a formal eviction filing if the situation isn’t resolved. Alternatives like payment plans or pay-and-stay agreements are explored first when viable.
+The manager initiates the established collections process: late notices per the lease terms, direct communication with the tenant, and escalation toward a formal eviction filing if the situation isn’t resolved. Alternatives like payment plans or pay-and-stay agreements are explored first when viable. Related: [How much an eviction costs in Ohio](/blog/eviction-cost-ohio/).
 
 **How often does a property manager inspect the property?**
 

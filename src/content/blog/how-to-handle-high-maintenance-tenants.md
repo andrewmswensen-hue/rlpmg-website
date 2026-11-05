@@ -32,14 +32,14 @@ Key Takeaways
 
 In This Article
 
-1. [What Makes a Tenant “High-Maintenance”?](#what-is-high-maintenance)
-2. [How Self-Managing Landlords Unknowingly Enable Chaos](#enable-chaos)
-3. [Establish Firm, Fair Systems That Do the Heavy Lifting](#systems)
-4. [Create Emotional Distance With Documentation and Tech](#documentation)
-5. [Enforce the Lease Like a Pro, Without the Guilt](#lease-enforcement)
-6. [Know When It’s Time to Say Goodbye](#say-goodbye)
-7. [What Professional Property Managers Do Differently](#professional-difference)
-8. [Frequently Asked Questions](#faq)
+1. [What Makes a Tenant “High-Maintenance”?](#what-makes-a-tenant-high-maintenance)
+2. [How Self-Managing Landlords Unknowingly Enable Chaos](#how-self-managing-landlords-unknowingly-enable-chaos)
+3. [Establish Firm, Fair Systems That Do the Heavy Lifting](#establish-firm-fair-systems-that-do-the-heavy-lifting)
+4. [Create Emotional Distance With Documentation and Tech](#create-emotional-distance-with-documentation-and-tech)
+5. [Enforce the Lease Like a Pro, Without the Guilt](#enforce-the-lease-like-a-pro-without-the-guilt)
+6. [Know When It’s Time to Say Goodbye](#know-when-its-time-to-say-goodbye)
+7. [What Professional Property Managers Do Differently](#what-professional-property-managers-do-differently)
+8. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## What Makes a Tenant “High-Maintenance”?
 

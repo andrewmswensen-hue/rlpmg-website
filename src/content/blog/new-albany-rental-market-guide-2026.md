@@ -30,14 +30,14 @@ Key Takeaways
 
 In This Article
 
-1. [Why Does New Albany Attract Renters?](#why-renters)
-2. [What Does New Albany Rental Data Show in 2026?](#market-data)
-3. [What Is Intel Actually Doing in New Albany, and When?](#intel)
-4. [What Should You Expect for Vacancy and Lease Timing?](#vacancy-timing)
-5. [What Should Investors Know Before Buying in New Albany?](#investors)
-6. [Which Rental Compliance Rules Apply?](#compliance)
-7. [The Bottom Line for Investors](#bottom-line)
-8. [Frequently Asked Questions](#faq)
+1. [Why Does New Albany Attract Renters?](#why-does-new-albany-attract-renters)
+2. [What Does New Albany Rental Data Show in 2026?](#what-does-new-albany-rental-data-show-in-2026)
+3. [What Is Intel Actually Doing in New Albany, and When?](#what-is-intel-actually-doing-in-new-albany-and-when)
+4. [What Should You Expect for Vacancy and Lease Timing?](#what-should-you-expect-for-vacancy-and-lease-timing)
+5. [What Should Investors Know Before Buying in New Albany?](#what-should-investors-know-before-buying-in-new-albany)
+6. [Which Rental Compliance Rules Apply?](#which-rental-compliance-rules-apply)
+7. [The Bottom Line for Investors](#the-bottom-line-for-investors)
+8. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## Why Does New Albany Attract Renters?
 

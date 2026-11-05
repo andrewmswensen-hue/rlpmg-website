@@ -27,10 +27,10 @@ Key Takeaways
 
 In This Article
 
-1. [What Source-of-Income Protection Means in Columbus](#what-soi-means)
-2. [Which Central Ohio Cities Have SOI Protections?](#which-cities)
-3. [What This Means for Your Screening Process](#screening-process)
-4. [Frequently Asked Questions](#faq)
+1. [What Source-of-Income Protection Means in Columbus](#what-source-of-income-protection-means-in-columbus)
+2. [Which Central Ohio Cities Have SOI Protections?](#which-central-ohio-cities-have-soi-protections)
+3. [What This Means for Your Screening Process](#what-this-means-for-your-screening-process)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## What Source-of-Income Protection Means in Columbus
 

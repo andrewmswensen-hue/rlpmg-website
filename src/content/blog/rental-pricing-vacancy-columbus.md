@@ -30,13 +30,13 @@ Key Takeaways
 
 In This Article
 
-1. [What Columbus’s May 2026 Rental Data Is Actually Telling Owners](#columbus-may-2026-data)
-2. [How Vacancies Happen (and Why Pricing Is the Primary Driver)](#how-vacancies-happen)
-3. [The Vacancy Math: What an Extra 65 Days Actually Costs](#vacancy-math)
-4. [This Market Is Different From the Last Few Years](#market-context)
-5. [How to Price Your Columbus Rental Accurately](#how-to-price)
+1. [What Columbus’s May 2026 Rental Data Is Actually Telling Owners](#what-columbuss-may-2026-rental-data-is-actually-telling-owners)
+2. [How Vacancies Happen (and Why Pricing Is the Primary Driver)](#how-vacancies-happen-and-why-pricing-is-the-primary-driver)
+3. [The Vacancy Math: What an Extra 65 Days Actually Costs](#the-vacancy-math-what-an-extra-65-days-actually-costs)
+4. [This Market Is Different From the Last Few Years](#this-market-is-different-from-the-last-few-years)
+5. [How to Price Your Columbus Rental Accurately](#how-to-price-your-columbus-rental-accurately)
 6. [How Should You Price a Lease Renewal?](#how-should-you-price-a-lease-renewal)
-7. [Frequently Asked Questions](#faq)
+7. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## What Columbus’s May 2026 Rental Data Is Actually Telling Owners
 

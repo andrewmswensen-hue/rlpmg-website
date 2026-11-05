@@ -22,10 +22,10 @@ In April 2026, HUD formally withdrew eight fair housing guidance documents cover
 
 In This Article
 
-1. [What HUD Actually Withdrew (and When)](#what-withdrew)
-2. [What This Means for Ohio Landlords Right Now](#ohio-impact)
-3. [The Bottom Line: What Should You Actually Do?](#what-to-do)
-4. [Frequently Asked Questions](#faq)
+1. [What HUD Actually Withdrew (and When)](#what-hud-actually-withdrew-and-when)
+2. [What This Means for Ohio Landlords Right Now](#what-this-means-for-ohio-landlords-right-now)
+3. [The Bottom Line: What Should You Actually Do?](#the-bottom-line-what-should-you-actually-do)
+4. [Frequently Asked Questions](#frequently-asked-questions)
 
 ## What HUD Actually Withdrew (and When)
 

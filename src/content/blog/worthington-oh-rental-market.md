@@ -121,19 +121,19 @@ Pet acceptance meaningfully expands the tenant pool in this submarket, especiall
 
 Worthington follows Columbus seasonality closely, but with slightly more dependence on family-driven move cycles.
 
-### Peak Season: May, August
+### Peak Season: May to August
 
 - Strongest demand
 - Faster lease-up (often under 30 days)
 - Best opportunity to test upper rent ranges
 
-### Shoulder Season: March, April, September, October
+### Shoulder Season: March to April, September to October
 
 - Stable activity
 - Moderate price sensitivity
 - Ideal for renewals or repositioning
 
-### Slow Season: November, February
+### Slow Season: November to February
 
 - Limited renter movement
 - Longer vacancy periods for single-family homes

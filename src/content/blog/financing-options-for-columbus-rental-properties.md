@@ -201,6 +201,7 @@ Three common triggers prompt investors to explore a refinance:
 
 - **Rate reductions:** Even modest drops can meaningfully improve monthly cash flow.
 - **Equity growth:** Columbus home values have climbed steadily over the past decade, giving many investors access to additional borrowing power
+  - ****
 - **Cash-flow improvement:** Adjusting amortization or replacing a short-term loan with long-term financing can stabilize payments and reduce pressure on reserves.
 
 Each of these moments provides an opportunity to realign debt with long-term goals.
