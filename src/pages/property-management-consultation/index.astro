@@ -100,7 +100,7 @@ const schemaNodes = [
  * they picked the wrong door.
  */
 const ownerTypes = [
-  { v: 'intentional-investor', h: 'I own several rental properties', p: 'For serious investors' },
+  { v: 'intentional-investor', h: 'I own several rental properties', p: 'For experienced investors with larger portfolios' },
   { v: 'future-investor',      h: 'I am buying, or about to buy rental(s)',  p: 'Planning to buy a first or next investment property' },
   { v: 'accidental-landlord',  h: 'I ended up with a rental',      p: 'Inherited, relocated, or it did not sell' },
 ];
@@ -126,7 +126,7 @@ const hintCls = 'block text-[13px] text-faint mt-1.5';
 ---
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
 
-  <section class="pt-12 pb-16 lg:pt-14" id="consultation-form">
+  <section class="pt-12 pb-16 lg:pt-14 scroll-mt-24" id="consultation-form">
     <div class="wrap grid gap-12 lg:grid-cols-[minmax(0,.92fr)_minmax(0,1.08fr)] lg:items-start">
 
       <!-- LEFT: what they get, and why to trust it -->

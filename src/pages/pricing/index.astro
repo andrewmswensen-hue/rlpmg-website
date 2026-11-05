@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import PricingTable from '../../components/PricingTable.astro';
 import Faq from '../../components/Faq.astro';
-import { company, pricing, kpis, commitments, rentPolicy, usd, tierPrice } from '../../data/facts';
+import { company, pricing, kpis, commitments, rentPolicy, usd, tierPrice, typicalManager } from '../../data/facts';
 import { rentByBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 
@@ -26,11 +26,21 @@ const std = pricing.plans[1];   // the middle plan, used for every worked compar
 const rents = [1200, 1650, 2100];
 const compare = rents.map((rent) => {
   const rl = std.monthly * 12;
-  const lease = Math.round(rent / 2);
-  const p8 = Math.round(rent * 0.08) * 12 + lease;
-  const p10 = Math.round(rent * 0.10) * 12 + lease;
-  return { rent, rl, lease, p8, p10, save8: p8 - rl, save10: p10 - rl };
+  const lease = typicalManager.leasingFee(rent);   // facts.ts: 75% of one month's rent
+  // Monthly fees only.
+  const f8 = Math.round(rent * 0.08) * 12;
+  const f10 = Math.round(rent * 0.10) * 12;
+  // A year with one resident placement: add the typical leasing fee (ours is $0).
+  const p8 = f8 + lease;
+  const p10 = f10 + lease;
+  return { rent, rl, lease, f8, f10, p8, p10,
+           fsave8: f8 - rl, fsave10: f10 - rl, save8: p8 - rl, save10: p10 - rl };
 });
+/** Honest savings wording: a range when both are positive, and say so plainly when we cost more. */
+const saveText = (a: number, b: number) =>
+  a > 0 && b > 0 ? `${usd(a)} to ${usd(b)}`
+  : a <= 0 && b > 0 ? `Up to ${usd(b)}`
+  : `${usd(-b)} to ${usd(-a)} more with us`;
 const mid = compare[1];
 
 const included = [
@@ -81,11 +91,11 @@ const evictionFees = [
 
 const faq = [
   { q: 'How much does property management cost in Columbus, Ohio?',
-    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with no leasing fee. Most Columbus managers charge 8% to 10% of collected rent plus roughly half a month of rent to place each resident.` },
+    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with no leasing fee. Most Columbus managers charge 8% to 10% of collected rent plus about ${typicalManager.leasingFeePhrase} to place each resident.` },
   { q: 'Do you charge a leasing fee?',
-    a: `No. Placing a resident costs ${usd(pricing.leasingFee)} on every plan, covering listing syndication, showings, full applicant screening and lease preparation. On a ${usd(mid.rent)} rent, a manager charging half a month would bill ${usd(mid.lease)} for the same work.` },
+    a: `No. Placing a resident costs ${usd(pricing.leasingFee)} on every plan, covering listing syndication, showings, full applicant screening and lease preparation. On a ${usd(mid.rent)} rent, a manager charging ${typicalManager.leasingFeePhrase} would bill ${usd(mid.lease)} for the same work.` },
   { q: 'Is flat fee or percentage property management better?',
-    a: `A flat fee costs the same whether rent is ${usd(1200)} or ${usd(2100)}, and it does not rise when rent does. A percentage fee compounds with every rent increase. On a ${usd(mid.rent)} rent in a year that includes one resident placement, ${std.name} costs ${usd(mid.rl)} against roughly ${usd(mid.p10)} for a typical 10% manager.` },
+    a: `A flat fee costs the same whether rent is ${usd(1200)} or ${usd(2100)}, and it does not rise when rent does. A percentage fee compounds with every rent increase. On a ${usd(mid.rent)} rent in a year that includes one resident placement, ${company.name} at ${usd(std.monthly)} a month costs ${usd(mid.rl)} against roughly ${usd(mid.p10)} for a typical 10% manager.` },
   { q: 'Do you discount pricing for larger portfolios?',
     a: `Yes. ${pricing.portfolioDiscount.line} Switch the pricing above to Investor to see the rate for your portfolio size.` },
   { q: 'Is there a startup fee?',
@@ -179,7 +189,7 @@ const schemaNodes = [
           <div class="font-sans text-[11px] font-bold tracking-[.16em] uppercase text-[#e8b9c0] mt-1.5">Leasing fee</div>
         </div>
         <p class="text-[#e9d0d4] text-[16.5px] m-0">
-          Most Columbus managers charge about half a month of rent to place a resident: on a
+          Most Columbus managers charge about {typicalManager.leasingFeePhrase} to place a resident: on a
           {usd(mid.rent)} rent, <strong class="text-white font-semibold">{usd(mid.lease)} every time the unit turns</strong>.
           We charge nothing, on every plan, so we have no reason to prefer a new lease over a renewal.
         </p>
@@ -226,26 +236,40 @@ const schemaNodes = [
     </div>
   </section>
 
-  <!-- FLAT VS PERCENTAGE, THREE RENTS -->
+  <!-- FLAT VS PERCENTAGE, THREE RENTS.
+       Andrew, 2026-11-05: "the math across one year", RL at the standard price
+       without a plan name, and a toggle between monthly fees only and a year
+       with a resident placement (typical leasing fee 75% of a month, ours $0).
+       No JavaScript: radio inputs and :has(), so both views are in the HTML. -->
   <section class="band band-wash" aria-labelledby="compare-h">
-    <div class="wrap max-w-[940px]">
-      <span class="eyebrow">The math</span>
+    <div class="wrap max-w-[940px] lt">
+      <span class="eyebrow">The math across one year</span>
       <h2 id="compare-h" class="text-[clamp(28px,3.3vw,40px)]">A flat fee against a percentage, at three Columbus rents</h2>
+
+      <fieldset class="lt-toggle mt-6" aria-label="What to include in the yearly cost">
+        <input type="radio" class="sr-only lt-fees" name="lt-mode" id="lt-fees" value="fees" />
+        <label for="lt-fees">Monthly fees only</label>
+        <input type="radio" class="sr-only lt-lease" name="lt-mode" id="lt-lease" value="lease" checked />
+        <label for="lt-lease">Plus a leasing fee</label>
+      </fieldset>
+
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
-        One year on our middle plan against a percentage manager, including one resident placement.
-        Much of the gap is the leasing fee.
+        <span class="v-l">On years when the property turns over for a new resident, here is what our
+        {' '}{usd(pricing.leasingFee)} leasing fee saves you. A typical manager charges about
+        {' '}{typicalManager.leasingFeePhrase} to place a resident.</span>
+        <span class="v-f">Twelve months of management fees, with no resident placement in the year.</span>
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
                style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
-          <caption class="sr-only">Annual management cost at three monthly rents, including one resident placement</caption>
+          <caption class="sr-only">Annual management cost at three monthly rents, with and without a resident placement</caption>
           <thead>
             <tr class="bg-wash-soft">
               <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Monthly rent</th>
-              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Us, {std.name}</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">RL ({usd(std.monthly)}/mo.)</th>
               <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Typical 8%</th>
               <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Typical 10%</th>
-              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">You keep</th>
+              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">You save</th>
             </tr>
           </thead>
           <tbody>
@@ -253,10 +277,14 @@ const schemaNodes = [
               <tr>
                 <th scope="row" class="text-left p-3.5 border-b border-line font-medium tabular-nums">{usd(c.rent)}</th>
                 <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(c.rl)}</td>
-                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(c.p8)}</td>
-                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">{usd(c.p10)}</td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">
+                  <span class="v-l">{usd(c.p8)}</span><span class="v-f">{usd(c.f8)}</span>
+                </td>
+                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">
+                  <span class="v-l">{usd(c.p10)}</span><span class="v-f">{usd(c.f10)}</span>
+                </td>
                 <td class="text-right p-3.5 border-b border-line tabular-nums font-semibold text-navy">
-                  {usd(c.save8)} to {usd(c.save10)}
+                  <span class="v-l">{saveText(c.save8, c.save10)}</span><span class="v-f">{saveText(c.fsave8, c.fsave10)}</span>
                 </td>
               </tr>
             ))}
@@ -264,13 +292,14 @@ const schemaNodes = [
         </table>
       </div>
       <p class="text-[15.5px] text-muted mt-6">
-        The gap widens as rent rises, because our fee does not move when your rent does. On {pricing.plans[0].name}
-        at {usd(pricing.plans[0].monthly)}, a {usd(compare[0].rent)} rental saves
-        {' '}{usd(compare[0].p8 - pricing.plans[0].monthly * 12)} a year against an 8% manager.
+        <span class="v-l">Most of the gap is the leasing fee, and it widens as rent rises because our fee
+        does not move when your rent does.</span>
+        <span class="v-f">On monthly fees alone, an 8% manager can cost less at lower rents. The
+        difference opens up in any year the unit turns over, and grows with every rent increase.</span>
       </p>
       <p class="text-[14px] text-faint mt-4">
-        Percentage figures illustrate common Columbus market rates and are not a quote from any named
-        competitor. Our figures are exact.
+        Percentage and leasing figures illustrate common Columbus market rates and are not a quote from any
+        named competitor. Our figures are exact.
       </p>
     </div>
   </section>
@@ -379,3 +408,14 @@ const schemaNodes = [
     </div>
   </section>
 </Base>
+
+<style>
+  .lt-toggle { display: inline-flex; gap: 4px; padding: 4px; border: 0; margin-inline: 0;
+    background: #fff; border-radius: 999px; box-shadow: 0 1px 2px rgb(18 49 67 / .08), 0 4px 14px rgb(18 49 67 / .08); }
+  .lt-toggle label { cursor: pointer; padding: 9px 18px; border-radius: 999px; font-family: var(--font-sans);
+    font-size: 14.5px; font-weight: 600; color: var(--color-navy); transition: background .15s, color .15s; }
+  .lt-toggle input:checked + label { background: var(--color-navy); color: #fff; }
+  .lt-toggle input:focus-visible + label { outline: 2px solid var(--color-crimson); outline-offset: 2px; }
+  .lt:has(.lt-fees:checked) .v-l { display: none; }
+  .lt:has(.lt-lease:checked) .v-f { display: none; }
+</style>

@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, kpis, commitments, rentPolicy, areas, usd } from '../../data/facts';
+import { company, pricing, kpis, commitments, rentPolicy, areas, typicalManager, usd } from '../../data/facts';
 import { serviceNode } from '../../lib/schema';
 
 /**
@@ -79,7 +79,7 @@ const faq = [
   { q: 'What is included in the monthly management fee?',
     a: `Listing and syndication, showings, full applicant screening, lease preparation, rent collection and late notices, owner statements and portal access, maintenance coordination, 24/7 emergency response, quarterly inspections, and compliance work. Placing a resident is included at ${usd(pricing.leasingFee)}. Maintenance labor, materials, lease renewals at ${usd(pricing.leaseRenewalFee)}, photography at $250 to $450, and eviction costs are billed separately.` },
   { q: 'How much does a property manager cost in Columbus?',
-    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)}, ${usd(pricing.plans[1].monthly)} or ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan. Most Columbus managers charge 8% to 10% of collected rent plus roughly half a month of rent each time the unit is leased. The full fee schedule is published on our pricing page.` },
+    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)}, ${usd(pricing.plans[1].monthly)} or ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan. Most Columbus managers charge 8% to 10% of collected rent plus about ${typicalManager.leasingFeePhrase} each time the unit is leased. The full fee schedule is published on our pricing page.` },
   { q: 'Do I still get called at 2am about a furnace?',
     a: 'No. Emergency response is included in the monthly fee and residents call us, not you. After-hours labor is billed at a multiplier: ' + `${pricing.afterHours.weekdayEveningAndSaturday}x on weekday evenings and Saturdays, ${pricing.afterHours.sunday}x on Sundays.` },
   { q: 'What kinds of property do you manage?',

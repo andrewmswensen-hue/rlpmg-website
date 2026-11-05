@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, kpis, areas, usd, referral } from '../../data/facts';
+import { company, pricing, kpis, areas, typicalManager, usd, referral } from '../../data/facts';
 import { serviceNode } from '../../lib/schema';
 
 /**
@@ -40,7 +40,7 @@ const answer =
 
 const facts = [
   `Flat pricing, ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month`,
-  `${usd(pricing.leasingFee)} leasing fee, so your client is not charged half a month to place a resident`,
+  `${usd(pricing.leasingFee)} leasing fee, so your client is not charged ${typicalManager.leasingFeePhrase} to place a resident`,
   `${company.reviews.display} Google reviews at ${company.reviews.rating} stars`,
   `Portfolio results: ${kpi('dom')} median days on market, ${kpi('renewal')} renewal rate, ${kpi('occupancy')} occupancy`,
   `${usd(referral.fee)} referral fee, paid to ${referral.paidTo}`,

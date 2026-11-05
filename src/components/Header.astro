@@ -52,7 +52,7 @@ const sectionActive = (item: (typeof nav)[number]) =>
 
           <div class="megapanel">
             <div class="megainner">
-              <div class={`megagrid ${item.promo ? 'has-promo' : ''}`}>
+              <div class={`megagrid ${item.promo ? 'has-promo' : ''} ${item.columns === 2 ? 'cols-2' : ''}`}>
                 {item.groups.map((g) => (
                   <div>
                     <p class="megagroup">{g.heading}</p>

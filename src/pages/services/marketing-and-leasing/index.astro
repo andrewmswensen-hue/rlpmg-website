@@ -6,7 +6,7 @@ import Faq from '../../../components/Faq.astro';
 import Verified from '../../../components/Verified.astro';
 import RelatedLinks from '../../../components/RelatedLinks.astro';
 import Cta from '../../../components/Cta.astro';
-import { company, pricing, kpis, rentPolicy, usd } from '../../../data/facts';
+import { company, pricing, kpis, rentPolicy, typicalManager, usd } from '../../../data/facts';
 import { serviceNode } from '../../../lib/schema';
 
 /**
@@ -16,6 +16,8 @@ import { serviceNode } from '../../../lib/schema';
  */
 
 const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+/** The avgRent KPI as a number, so the typical leasing fee below is computed, not typed. */
+const avgRentNum = Number(kpi('avgRent').replace(/[^0-9.]/g, ''));
 const photoFee = pricing.otherFees.find((f) => f.name === 'Property photography');
 
 const title = 'Rental Marketing and Leasing in Columbus, Ohio | RL Property Management';
@@ -61,7 +63,7 @@ const steps = [
 
 const faq = [
   { q: 'How much does it cost to lease a rental property in Columbus?',
-    a: `${company.name} charges ${usd(pricing.leasingFee)} to place a resident, on every plan. Most Columbus managers charge roughly half a month of rent, which on the ${kpi('avgRent')} average rent under our management is a few hundred to over eight hundred dollars each time the unit turns. Photography is the one leasing cost we bill separately, at $250 to $450.` },
+    a: `${company.name} charges ${usd(pricing.leasingFee)} to place a resident, on every plan. Most Columbus managers charge about ${typicalManager.leasingFeePhrase}, which on the ${kpi('avgRent')} average rent under our management is about ${usd(typicalManager.leasingFee(avgRentNum))} each time the unit turns. Photography is the one leasing cost we bill separately, at $250 to $450.` },
   { q: 'How long does it take to rent a house in Columbus?',
     a: `Median days on market across our portfolio is ${kpi('dom')}. That is measured as ${kpis.domDefinition.charAt(0).toLowerCase() + kpis.domDefinition.slice(1)} When a unit sits past 60 days, the cause is almost always pricing or condition rather than marketing.` },
   { q: 'Is photography included in the leasing fee?',
@@ -111,7 +113,7 @@ const schemaNodes = [
         flat management on {pricing.plans[0].name}.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
-        A manager who charges half a month of rent to lease a unit is paid more when your unit turns. At a
+        A manager who charges {typicalManager.leasingFeePhrase} to lease a unit is paid more when your unit turns. At a
         {' '}{usd(pricing.leasingFee)} leasing fee, we are neutral about whether your resident renews.
       </p>
     </div>

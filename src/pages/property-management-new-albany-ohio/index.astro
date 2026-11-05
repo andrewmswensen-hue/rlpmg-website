@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { company, pricing, rentPolicy, typicalManager, usd } from '../../data/facts';
 import { rentByBedroom, rentByMarketAndBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 import LegalNote from '../../components/LegalNote.astro';
@@ -278,7 +278,7 @@ const schemaNodes = [
       </div>
       <p class="text-[16.5px] text-muted mt-7">
         Flat pricing saves more as rent rises. On a {usd(3000)} rent, a 10% manager takes {usd(3600)} a year and
-        about {usd(1500)} at every turn. Our lowest plan is {usd(pricing.plans[0].monthly * 12)} a year and the
+        about {usd(typicalManager.leasingFee(3000))} at every turn. Our lowest plan is {usd(pricing.plans[0].monthly * 12)} a year and the
         placement is {usd(pricing.leasingFee)}. If you own several units, {pricing.portfolioDiscount.line}
       </p>
       <p class="text-[14px] text-faint mt-4">

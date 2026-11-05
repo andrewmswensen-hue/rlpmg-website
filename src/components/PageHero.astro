@@ -20,6 +20,8 @@ interface Props {
   breadcrumbs?: { name: string; path: string }[];
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
+  /** Optional plain text link under the buttons, a little larger than body copy. */
+  textLink?: { label: string; href: string };
   wide?: boolean;
   image?: { src: string; alt: string; widths: number[]; ratio: number };
 }
@@ -27,6 +29,7 @@ const {
   eyebrow, title, answer, breadcrumbs = [],
   primaryCta = { label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' },
   secondaryCta,
+  textLink,
   wide = false,
   image,
 } = Astro.props;
@@ -54,6 +57,11 @@ const {
       <a href={primaryCta.href} class="btn btn-primary">{primaryCta.label}</a>
       {secondaryCta && <a href={secondaryCta.href} class="btn btn-ghost">{secondaryCta.label}</a>}
     </div>
+    {textLink && (
+      <p class="mt-4 mb-0">
+        <a href={textLink.href} class="text-[17.5px] font-semibold text-crimson no-underline hover:underline">{textLink.label} &rarr;</a>
+      </p>
+    )}
   </div>
     {image && (
       <div class="rounded-[18px] overflow-hidden border border-line aspect-[4/3] lg:aspect-[5/4]"

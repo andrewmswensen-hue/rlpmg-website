@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { company, pricing, rentPolicy, typicalManager, usd } from '../../data/facts';
 import { rentByBedroom, rentByMarketAndBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 
@@ -262,11 +262,11 @@ const schemaNodes = [
         Plans differ only in how much we spend on one repair before asking you, and there is no featured plan.
         A 10% manager on a
         {' '}{usd(rentByBedroom['3'].median)} house takes about {usd(Math.round(rentByBedroom['3'].median * 0.1) * 12)}
-        {' '}a year and roughly {usd(Math.round(rentByBedroom['3'].median / 2))} again at each turn. Our lowest plan
+        {' '}a year and roughly {usd(typicalManager.leasingFee(rentByBedroom['3'].median))} again at each turn. Our lowest plan
         runs {usd(pricing.plans[0].monthly * 12)} a year, with {usd(pricing.leasingFee)} to place a resident.
       </p>
       <p class="text-[14px] text-faint mt-4">
-        The 10% comparison uses a common Columbus rate, not a named company's pricing. Photography is billed on
+        The 10% rate and the leasing fee of {typicalManager.leasingFeePhrase} are common Columbus rates, not a named company's pricing. Photography is billed on
         its own at $250 to $450.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">

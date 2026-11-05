@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { company, pricing, rentPolicy, typicalManager, usd } from '../../data/facts';
 import { rentByMarketAndBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 
@@ -282,7 +282,7 @@ const schemaNodes = [
       <p class="text-[16.5px] text-muted mt-7">
         Plans differ only in the repair approval limit. A 10% manager on a {usd(rent['3'].median)} Westerville
         house takes about {usd(Math.round(rent['3'].median * 0.1) * 12)} a year plus
-        {' '}{usd(Math.round(rent['3'].median / 2))} at each turn. Our middle plan is
+        {' '}{usd(typicalManager.leasingFee(rent['3'].median))} at each turn. Our middle plan is
         {' '}{usd(pricing.plans[1].monthly * 12)} a year with {usd(pricing.leasingFee)} placement, and it does not
         rise with your rent.
       </p>

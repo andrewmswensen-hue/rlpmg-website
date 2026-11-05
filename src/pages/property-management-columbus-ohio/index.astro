@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, kpis, rentPolicy, usd } from '../../data/facts';
+import { company, pricing, kpis, rentPolicy, typicalManager, usd } from '../../data/facts';
 import { rentByMarketAndBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 import LegalNote from '../../components/LegalNote.astro';
@@ -119,7 +119,7 @@ const services = [
 
 const faq = [
   { q: 'How much does property management cost in Columbus, Ohio?',
-    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee and no startup fee on an occupied unit. It is a fixed dollar amount, so it does not rise with your rent. Most Columbus managers charge 8% to 10% of collected rent plus roughly half a month of rent to place each resident.` },
+    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month depending on the plan, with a ${usd(pricing.leasingFee)} leasing fee and no startup fee on an occupied unit. It is a fixed dollar amount, so it does not rise with your rent. Most Columbus managers charge 8% to 10% of collected rent plus about ${typicalManager.leasingFeePhrase} to place each resident.` },
   { q: 'Does Columbus require landlords to register rental property?',
     a: `Yes. Chapter 4515 of the Columbus City Codes, enacted April 20, 2026, created an annual rental registry run by the Department of Building and Zoning Services. Registration is ${usd(REGISTRY_PER_UNIT)} per unit per year, capped at ${usd(REGISTRY_CAP)} per complex, and covers a safety inspection every three years for registrants in good standing. Separately, Ohio Revised Code 5323.02 requires a one-time, no-fee filing with the Franklin County Auditor.` },
   { q: 'Which court hears an eviction for a Columbus address?',
@@ -232,8 +232,8 @@ const schemaNodes = [
         occupied unit. It is a dollar amount, not a share of your rent.
       </p>
       <p class="text-[17.5px] text-muted mb-6 max-w-[44em]">
-        A manager charging half a month to place a resident bills about
-        {' '}{usd(Math.round(cbusRent['3'].median / 2))} on a median Columbus three-bedroom, every time
+        A manager charging the typical {typicalManager.leasingFeePhrase} to place a resident bills about
+        {' '}{usd(typicalManager.leasingFee(cbusRent['3'].median))} on a median Columbus three-bedroom, every time
         it turns. We charge nothing, so we have no reason to prefer a new lease over a renewal.
       </p>
       <div class="flex flex-wrap gap-3">

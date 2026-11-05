@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { company, pricing, rentPolicy, typicalManager, usd } from '../../data/facts';
 import { rentByMarketAndBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 
@@ -105,7 +105,7 @@ const faq = [
   { q: 'Does the City of Reynoldsburg require a rental license or inspection?',
     a: 'Any city program is separate from the R.C. 5323 county auditor filing, which applies only to Franklin County parcels. We track which rules apply to each address and handle the filings that do. Short-term rental rules are a separate question.' },
   { q: 'How much does property management cost in Reynoldsburg?',
-    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} per renewal. On a ${usd(rent['3'].median)} Reynoldsburg house, a 10% manager takes about ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year plus ${usd(Math.round(rent['3'].median / 2))} per turn; our lowest plan is ${usd(pricing.plans[0].monthly * 12)} a year.` },
+    a: `A flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, a ${usd(pricing.leasingFee)} leasing fee and ${usd(pricing.leaseRenewalFee)} per renewal. On a ${usd(rent['3'].median)} Reynoldsburg house, a 10% manager takes about ${usd(Math.round(rent['3'].median * 0.1) * 12)} a year plus ${usd(typicalManager.leasingFee(rent['3'].median))} per turn; our lowest plan is ${usd(pricing.plans[0].monthly * 12)} a year.` },
   { q: 'What does an eviction cost in Reynoldsburg?',
     a: `For a Franklin County parcel, a typical total of ${usd(pricing.eviction.typicalTotal)} before any setout: ${usd(pricing.eviction.countyFilingFee)} county filing, ${usd(pricing.eviction.attorneyFee)} attorney (filing plus up to two appearances) and ${usd(pricing.eviction.rlpmProcessFee)} to us, a ${usd(pricing.eviction.hardCostTotal)} hard cost. A setout adds ${usd(pricing.eviction.tagAndSetoutFee)} county and ${usd(pricing.eviction.setoutFee)} ours, and Licking or Fairfield County filing fees differ.` },
 ];
@@ -300,7 +300,7 @@ const schemaNodes = [
       <p class="text-[16.5px] text-muted mt-7">
         On a {usd(rent['3'].median)} Reynoldsburg house, a manager charging 10% of
         collected rent takes about {usd(Math.round(rent['3'].median * 0.1) * 12)} a year, and roughly
-        {' '}{usd(Math.round(rent['3'].median / 2))} at each turn, often every second or third year here. Our lowest
+        {' '}{usd(typicalManager.leasingFee(rent['3'].median))} at each turn, often every second or third year here. Our lowest
         plan is {usd(pricing.plans[0].monthly * 12)} a year and placement is {usd(pricing.leasingFee)}. Their
         leasing fee hurts most, landing in the month the unit sat empty.
       </p>

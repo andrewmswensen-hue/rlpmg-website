@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { company, pricing, rentPolicy, typicalManager, usd } from '../../data/facts';
 import { canPublishOwnRent } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 
@@ -276,7 +276,7 @@ const schemaNodes = [
         ))}
       </div>
       <p class="text-[16.5px] text-muted mt-7">
-        On a {usd(2000)} rent, a 10% manager collects {usd(2400)} a year plus about half a month at each turn.
+        On a {usd(2000)} rent, a 10% manager collects {usd(2400)} a year plus about {usd(typicalManager.leasingFee(2000))}, {typicalManager.leasingFeePhrase}, at each turn.
         Our middle plan is {usd(pricing.plans[1].monthly * 12)} a year with a {usd(pricing.leasingFee)} placement.
         Percentage figures describe common Columbus market rates, not a quote from any named company.
         Photography is billed separately at $250 to $450.

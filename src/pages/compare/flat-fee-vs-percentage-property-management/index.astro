@@ -6,7 +6,7 @@ import Faq from '../../../components/Faq.astro';
 import Verified from '../../../components/Verified.astro';
 import RelatedLinks from '../../../components/RelatedLinks.astro';
 import Cta from '../../../components/Cta.astro';
-import { company, pricing, kpis, usd } from '../../../data/facts';
+import { company, pricing, kpis, typicalManager, usd } from '../../../data/facts';
 import { rentByBedroom } from '../../../data/markets';
 import { serviceNode } from '../../../lib/schema';
 
@@ -18,9 +18,10 @@ import { serviceNode } from '../../../lib/schema';
  * about the rents where a percentage fee is the cheaper answer.
  *
  * EVERY figure below is computed from src/data/facts.ts. Nothing is hand typed.
- * The percentage side uses 8% and 10% of collected rent plus half a month of
- * rent per placement, which is how the common market structure is written. It
- * is illustrative of that structure, not a quote from any named company.
+ * The percentage side uses 8% and 10% of collected rent plus a typical Columbus
+ * leasing fee per placement (typicalManager in facts.ts: a share of one month's
+ * rent, rounded to $5). It is illustrative of that common market structure, not
+ * a quote from any named company.
  */
 
 const rents = [1200, 1650, 2100];          // same three reference rents as /pricing/
@@ -32,16 +33,17 @@ const PCT_LOW = 0.08;
 const PCT_HIGH = 0.10;
 const pctLabel = (p: number) => `${Math.round(p * 100)}%`;
 
-/** Half a month of rent, the common structure for a placement fee. */
-const halfMonth = (r: number) => Math.round(r / 2);
+/** A typical Columbus manager's leasing fee at this rent (typicalManager in facts.ts). */
+const typicalLeasing = (r: number) => typicalManager.leasingFee(r);
+const leasePhrase = typicalManager.leasingFeePhrase;
 const pctMonthly = (r: number, p: number) => Math.round(r * p);
 
 /** Year one: the year a resident is placed. */
 const placementYear = rents.map((rent) => {
   const us = plan.monthly * 12 + pricing.leasingFee;
-  const p8 = pctMonthly(rent, PCT_LOW) * 12 + halfMonth(rent);
-  const p10 = pctMonthly(rent, PCT_HIGH) * 12 + halfMonth(rent);
-  return { rent, lease: halfMonth(rent), us, p8, p10, d8: p8 - us, d10: p10 - us };
+  const p8 = pctMonthly(rent, PCT_LOW) * 12 + typicalLeasing(rent);
+  const p10 = pctMonthly(rent, PCT_HIGH) * 12 + typicalLeasing(rent);
+  return { rent, lease: typicalLeasing(rent), us, p8, p10, d8: p8 - us, d10: p10 - us };
 });
 
 /** A year with no turn: the resident renews and stays. */
@@ -58,17 +60,22 @@ const RENEWALS = CYCLE_YEARS - 1;
 const usCycle = (monthly: number) => monthly * 12 * CYCLE_YEARS + pricing.leaseRenewalFee * RENEWALS;
 const cycle = rents.map((rent) => {
   const us = usCycle(plan.monthly);
-  const p8 = pctMonthly(rent, PCT_LOW) * 12 * CYCLE_YEARS + halfMonth(rent);
-  const p10 = pctMonthly(rent, PCT_HIGH) * 12 * CYCLE_YEARS + halfMonth(rent);
+  const p8 = pctMonthly(rent, PCT_LOW) * 12 * CYCLE_YEARS + typicalLeasing(rent);
+  const p10 = pctMonthly(rent, PCT_HIGH) * 12 * CYCLE_YEARS + typicalLeasing(rent);
   return { rent, us, p8, p10, d8: p8 - us, d10: p10 - us };
 });
 
 /**
  * The rent at which the two structures cost the same over one three-year cycle.
- * Solve: monthly * 36 + renewalFee * 2 = pct * rent * 36 + rent / 2
+ * Solve: monthly * 36 + renewalFee * 2 = pct * rent * 36 + share * rent,
+ * where share is typicalManager.leasingFeeShare (the leasing fee as a share of
+ * one month's rent). So rent = usCycle / (36 * pct + share). This ignores the
+ * $5 rounding of the leasing fee and the whole-dollar rounding of the monthly
+ * percentage, so it is accurate to within a few dollars, which is why the page
+ * says "about".
  */
 const breakEven = (monthly: number, p: number) =>
-  Math.round(usCycle(monthly) / (12 * CYCLE_YEARS * p + 0.5));
+  Math.round(usCycle(monthly) / (12 * CYCLE_YEARS * p + typicalManager.leasingFeeShare));
 
 const breakEvens = pricing.plans.map((p) => ({
   name: p.name,
@@ -110,14 +117,14 @@ const breadcrumbs = [
 
 const answer =
   `A flat fee is a fixed dollar amount per unit per month. A percentage fee is ${pctLabel(PCT_LOW)} to ` +
-  `${pctLabel(PCT_HIGH)} of collected rent, usually plus half a month of rent per placement. ` +
+  `${pctLabel(PCT_HIGH)} of collected rent, usually plus a leasing fee of about ${leasePhrase} per placement. ` +
   `${company.shortName} charges ${usd(plan.monthly)} flat and ${usd(pricing.leasingFee)} to lease.`;
 
 const facts = [
   `${company.name} charges ${usd(planLow.monthly)} to ${usd(planHigh.monthly)} per unit per month, flat`,
   `Leasing fee: ${usd(pricing.leasingFee)} on all three plans`,
   `A percentage manager at ${pctLabel(PCT_HIGH)} of a ${usd(mid.rent)} rent charges ${usd(pctMonthly(mid.rent, PCT_HIGH))} a month`,
-  `Half a month of rent to place a resident on ${usd(mid.rent)} rent is ${usd(mid.lease)}`,
+  `A typical leasing fee of ${leasePhrase} on ${usd(mid.rent)} rent is ${usd(mid.lease)}`,
   `Over a ${CYCLE_YEARS}-year tenancy at ${usd(cycleMid.rent)}, the flat fee runs ${gap(cycleMid.d10)} than ${pctLabel(PCT_HIGH)}`,
   `Below roughly ${usd(breakEvens[1].at10)} rent, a ${pctLabel(PCT_HIGH)} manager is the cheaper structure`,
   `A percentage fee rises every time rent rises. A flat fee does not`,
@@ -128,9 +135,9 @@ const faq = [
   { q: 'Is flat fee or percentage property management better?',
     a: `It depends on the rent. A flat fee costs the same at ${usd(rents[0])} rent and at ${usd(rents[2])} rent, so its advantage widens as rent rises. Over a ${CYCLE_YEARS}-year tenancy on ${plan.name} at ${usd(plan.monthly)} per unit per month, flat pricing costs the same as a ${pctLabel(PCT_HIGH)} manager at about ${usd(breakEvens[1].at10)} rent and about ${usd(breakEvens[1].at8)} against an ${pctLabel(PCT_LOW)} manager. Above those rents the flat fee is cheaper. Below them the percentage fee is cheaper.` },
   { q: 'What is a typical property management percentage in Columbus, Ohio?',
-    a: `Most Columbus managers price at ${pctLabel(PCT_LOW)} to ${pctLabel(PCT_HIGH)} of collected rent, plus roughly half a month of rent to place each resident, plus a lease renewal fee. On a ${usd(mid.rent)} rent that is ${usd(pctMonthly(mid.rent, PCT_LOW))} to ${usd(pctMonthly(mid.rent, PCT_HIGH))} a month and ${usd(mid.lease)} at each turn. These are illustrative market rates, not a quote from any named company.` },
+    a: `Most Columbus managers price at ${pctLabel(PCT_LOW)} to ${pctLabel(PCT_HIGH)} of collected rent, plus a leasing fee of about ${leasePhrase} to place each resident, plus a lease renewal fee. On a ${usd(mid.rent)} rent that is ${usd(pctMonthly(mid.rent, PCT_LOW))} to ${usd(pctMonthly(mid.rent, PCT_HIGH))} a month and ${usd(mid.lease)} at each turn. These are illustrative market rates, not a quote from any named company.` },
   { q: 'Why does the leasing fee matter so much?',
-    a: `Because it is the largest single charge in most management relationships and it rarely appears in a quote. Half a month of rent on ${usd(mid.rent)} is ${usd(mid.lease)}, which is more than ${Math.floor(mid.lease / plan.monthly)} months of our entire management fee. ${company.name} charges ${usd(pricing.leasingFee)} to place a resident on every plan, which also means we have no financial reason to prefer a new lease over a renewal.` },
+    a: `Because it is the largest single charge in most management relationships and it rarely appears in a quote. A typical leasing fee of ${leasePhrase} on ${usd(mid.rent)} is ${usd(mid.lease)}, which is more than ${Math.floor(mid.lease / plan.monthly)} months of our entire management fee. ${company.name} charges ${usd(pricing.leasingFee)} to place a resident on every plan, which also means we have no financial reason to prefer a new lease over a renewal.` },
   { q: 'Does a flat fee mean fewer services?',
     a: `No. The flat fee covers listing and syndication, showings, full screening, lease preparation, rent collection, maintenance coordination, 24/7 emergency response, quarterly inspections, monthly statements and eviction coordination. The three plans differ in one thing: the per-item repair approval limit, which runs from ${usd(planHigh.repairApprovalLimit)} to ${usd(planLow.repairApprovalLimit)}.` },
   { q: 'When is a percentage manager cheaper?',
@@ -178,7 +185,7 @@ const schemaNodes = [
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         A percentage manager almost always charges a placement or
-        leasing fee as well, typically half a month of rent, every time a new resident signs. On a
+        leasing fee as well, typically {leasePhrase}, every time a new resident signs. On a
         {' '}{usd(mid.rent)} rent that is {usd(mid.lease)} per turn. It is a single large charge, and it is
         the line most often left out of a verbal quote.
       </p>
@@ -197,7 +204,7 @@ const schemaNodes = [
           <h3 class="text-[19.5px] mb-2">Percentage, the common structure</h3>
           <ul class="text-[15.5px] text-muted grid gap-1.5 mt-3">
             <li>{pctLabel(PCT_LOW)} to {pctLabel(PCT_HIGH)} of collected rent, monthly</li>
-            <li>Roughly half a month of rent per placement</li>
+            <li>About {leasePhrase} per placement</li>
             <li>A lease renewal fee, amount varies</li>
             <li>A setup or onboarding fee, amount varies</li>
             <li>Rises every time your rent rises</li>
@@ -218,7 +225,7 @@ const schemaNodes = [
       <span class="eyebrow">The line nobody quotes</span>
       <h2 id="lease-h" class="text-[clamp(28px,3.3vw,40px)]">Where does the money go?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Most of it goes to the leasing fee. Half a month of rent is
+        Most of it goes to the leasing fee. A typical leasing fee of {leasePhrase} is
         {' '}{usd(low.lease)} at {usd(low.rent)}, {usd(mid.lease)} at {usd(mid.rent)} and
         {' '}{usd(high.lease)} at {usd(high.rent)}. At the middle rent that single charge is larger than
         {' '}{Math.floor(mid.lease / plan.monthly)} months of our entire management fee, and it repeats at
@@ -252,7 +259,7 @@ const schemaNodes = [
       <h2 id="year1-h" class="text-[clamp(28px,3.3vw,40px)]">What does a year with one placement cost?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         Twelve months of management on {plan.name} at {usd(plan.monthly)} per unit per month, plus placing
-        one resident, against the same year priced as a percentage plus half a month of rent.
+        one resident, against the same year priced as a percentage plus a leasing fee of {leasePhrase}.
       </p>
       <div class="scroll-x">
         <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
@@ -548,7 +555,7 @@ const schemaNodes = [
       <div class="mt-8"><Verified date="2026-09-09" /></div>
       <p class="text-[13px] text-faint mt-3">
         Percentage figures on this page illustrate common Columbus market pricing structures at
-        {' '}{pctLabel(PCT_LOW)} and {pctLabel(PCT_HIGH)} of collected rent plus half a month of rent per
+        {' '}{pctLabel(PCT_LOW)} and {pctLabel(PCT_HIGH)} of collected rent plus a leasing fee of {leasePhrase} per
         placement. They are not a quote from, or a statement about, any named company. Figures for
         {' '}{company.name} come from our published fee schedule.
       </p>

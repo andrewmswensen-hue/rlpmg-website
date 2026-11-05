@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { company, pricing, rentPolicy, typicalManager, usd } from '../../data/facts';
 import { rentByMarketAndBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 import LegalNote from '../../components/LegalNote.astro';
@@ -309,7 +309,7 @@ const schemaNodes = [
         Plans differ only in how large a repair we can approve without calling you, which matters when a
         sixty-year-old sewer lateral fails. A 10% manager on a {usd(rent['3'].median)} Worthington house takes
         about {usd(Math.round(rent['3'].median * 0.1) * 12)} a year plus
-        {' '}{usd(Math.round(rent['3'].median / 2))} each turn. Our middle plan is
+        {' '}{usd(typicalManager.leasingFee(rent['3'].median))} each turn. Our middle plan is
         {' '}{usd(pricing.plans[1].monthly * 12)} a year, and placement is {usd(pricing.leasingFee)}.
       </p>
       <p class="text-[14px] text-faint mt-4">

@@ -444,3 +444,16 @@ export const priceRange = () => {
   const m = pricing.plans.map((p) => p.monthly);
   return `${usd(Math.min(...m))} to ${usd(Math.max(...m))}`;
 };
+
+/**
+ * What a typical Columbus manager charges to place a resident, used wherever the
+ * site compares our $0 leasing fee against "a typical manager". Andrew, 2026-11-05:
+ * treat 75% of one month's rent as the typical standard leasing fee, site-wide.
+ * Illustrative of common market practice, never attributed to a named competitor.
+ */
+export const typicalManager = {
+  leasingFeeShare: 0.75,
+  leasingFeePhrase: '75% of one month’s rent',
+  /** Dollar leasing fee for a given monthly rent, rounded to the nearest $5. */
+  leasingFee: (rent: number) => Math.round((rent * 0.75) / 5) * 5,
+} as const;

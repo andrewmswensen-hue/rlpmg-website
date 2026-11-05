@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, kpis, rentPolicy, usd } from '../../data/facts';
+import { company, pricing, kpis, rentPolicy, typicalManager, usd } from '../../data/facts';
 import { articleNode, serviceNode } from '../../lib/schema';
 
 /**
@@ -52,7 +52,7 @@ const questions = [
   },
   {
     q: 'What do you charge to place a resident?',
-    why: 'The leasing fee is the number that decides your year, and it is usually the one left out of a quote. Half a month of rent every time a unit turns can exceed the entire difference between an 8% and a 10% management fee.',
+    why: `The leasing fee is the number that decides your year, and it is usually the one left out of a quote. A typical leasing fee of ${typicalManager.leasingFeePhrase}, charged every time a unit turns, can exceed the entire difference between an 8% and a 10% management fee.`,
     look: 'A dollar figure or a fraction of a month, plus whether it is charged again on a renewal, and whether photography, syndication and screening are inside it or billed separately.',
     ours: `${usd(pricing.leasingFee)} on every plan. Photography is not included and runs ${pricing.otherFees.find((f) => f.name === 'Property photography')?.amount} when new photos are needed.`,
   },
@@ -155,9 +155,9 @@ const faq = [
   { q: 'What should a property management fee schedule disclose?',
     a: 'Monthly management, leasing and renewal fees, setup fees for occupied and vacant units, the maintenance hourly and trip rates, vendor markup and whether it is capped, after-hours multipliers, turn fees, inspection fees, eviction handling, insurance claim handling, reserve requirements and the early termination fee. If a charge can appear on an owner statement, it belongs on the schedule.' },
   { q: 'Is flat fee or percentage property management better?',
-    a: 'A flat fee costs the same whether rent is low or high and does not rise when rent does. A percentage fee compounds with every increase. The bigger variable is usually the leasing fee, which many percentage managers charge at about half a month of rent every time a unit turns, and which rarely appears in a verbal quote.' },
+    a: `A flat fee costs the same whether rent is low or high and does not rise when rent does. A percentage fee compounds with every increase. The bigger variable is usually the leasing fee, which many percentage managers charge at about ${typicalManager.leasingFeePhrase} every time a unit turns, and which rarely appears in a verbal quote.` },
   { q: 'What is a normal property management fee in Columbus?',
-    a: `Most Columbus managers charge 8% to 10% of collected rent plus roughly half a month of rent to place a resident. ${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Compare total annual cost including placements, not the headline rate.` },
+    a: `Most Columbus managers charge 8% to 10% of collected rent plus about ${typicalManager.leasingFeePhrase} to place a resident. ${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee. Compare total annual cost including placements, not the headline rate.` },
   { q: 'Are online reviews a good way to pick a property manager?',
     a: 'They are useful for one thing: spotting a pattern of unanswered communication. Most reviews of property managers are written by residents rather than owners, and a resident who was evicted and an owner whose unit leased in ten days are rating different things. Read the owner reviews and ignore the star average.' },
   { q: 'Should I hire a property manager or self-manage?',
@@ -259,7 +259,7 @@ const schemaNodes = [
       <p class="text-[16px] text-muted mt-7">
         Then do the arithmetic across a full year including one resident placement, because that is the year a
         percentage quote tends to leave out. On a {kpis.metrics[4].value} rent, a 10% manager collects
-        about {usd(Math.round(avgRent * 0.10) * 12)} a year and then roughly {usd(Math.round(avgRent / 2))} more the
+        about {usd(Math.round(avgRent * 0.10) * 12)} a year and then about {usd(typicalManager.leasingFee(avgRent))} more the
         first time the unit turns.
       </p>
       <p class="text-[14px] text-faint mt-4">

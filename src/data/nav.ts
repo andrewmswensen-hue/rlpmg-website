@@ -13,7 +13,7 @@
  * Every href here must be a page that exists. scripts/check-links.mjs fails the
  * build otherwise.
  */
-import { pricing } from './facts';
+import { pricing, areas, company } from './facts';
 
 export interface NavLink { label: string; href: string; note?: string }
 export interface NavGroup { heading: string; links: NavLink[] }
@@ -188,14 +188,43 @@ export const nav: NavItem[] = [
       eyebrow: 'Local coverage',
       heading: 'One office, not a franchise',
       body: 'Every property we manage is in the Columbus metro, run from one office on Cross Pointe Road, so we can be there in person.',
-      cta: { label: 'View all 22 areas', href: '/areas-we-serve/' },
+      cta: { label: `View all ${areas.length} areas`, href: '/areas-we-serve/' },
+    },
+  },
+
+  {
+    label: 'Resources',
+    href: '/guides/',
+    columns: 2,
+    groups: [
+      {
+        heading: 'Read',
+        links: [
+          { label: 'In-depth guides', href: '/guides/', note: 'The long answers, properly researched.' },
+          { label: 'All articles', href: '/blog/', note: 'Everything we have written.' },
+          { label: 'Policy updates', href: '/policy-updates/', note: 'What is changing for Central Ohio landlords.' },
+        ],
+      },
+      {
+        heading: 'Reach us',
+        links: [
+          { label: 'Contact us', href: '/contact-us/', note: 'Phone, email, and office hours.' },
+          { label: `Call ${company.phone}`, href: `tel:${company.phoneE164}`, note: 'Talk to the office directly.' },
+        ],
+      },
+    ],
+    promo: {
+      eyebrow: 'New for 2026',
+      heading: 'The Columbus market report',
+      body: 'Rents, yields by neighborhood and the new rental registry, from the homes we manage.',
+      cta: { label: 'Read the report', href: '/2026-columbus-market-report/' },
     },
   },
 
   {
     label: 'Company',
     href: '/about/',
-    columns: 3,
+    columns: 2,
     groups: [
       {
         heading: 'About RL',
@@ -214,15 +243,6 @@ export const nav: NavItem[] = [
           { label: 'Reviews', href: '/reviews/', note: 'What owners and residents say.' },
           { label: 'Editorial policy', href: '/editorial-policy/', note: 'Who writes this, and who checks it.' },
           { label: 'AI and human oversight', href: '/ai-content-policy/', note: 'Where we use AI, and who reviews it.' },
-        ],
-      },
-      {
-        heading: 'Read and reach us',
-        links: [
-          { label: 'In-depth guides', href: '/guides/', note: 'The long answers, properly researched.' },
-          { label: 'All articles', href: '/blog/', note: 'Everything we have written.' },
-          { label: 'Policy updates', href: '/policy-updates/', note: 'What is changing for Central Ohio landlords.' },
-          { label: 'Contact us', href: '/contact-us/', note: 'Phone, email, and office hours.' },
         ],
       },
     ],

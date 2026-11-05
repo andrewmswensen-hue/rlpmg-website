@@ -7,7 +7,7 @@ import Verified from '../../../components/Verified.astro';
 import RelatedLinks from '../../../components/RelatedLinks.astro';
 import Cta from '../../../components/Cta.astro';
 import CalcStickyBar from '../../../components/CalcStickyBar.astro';
-import { company, pricing, kpis, usd } from '../../../data/facts';
+import { company, pricing, kpis, typicalManager, usd } from '../../../data/facts';
 import { rentByBedroom } from '../../../data/markets';
 import { DAYS_IN_MONTH, lostRent, vacancyCost, compareManagers, stickyLine } from '../../../lib/calculators/vacancyCost';
 import { estimateRent, describeEstimate, sqftHint, BEDROOM_OPTIONS, BATHROOM_OPTIONS, bathLabel } from '../../../lib/calculators/rentEstimate';
@@ -89,9 +89,10 @@ const defaultRent = defaultEstimate.kind === 'none' ? three.rent : defaultEstima
  *                      its own blog (lease-renewal-rent-increase-strategy), which is a sanity
  *                      check only and is not quoted on this page.
  *   otherDom 30        another manager's days on market. A placeholder, not a market statistic.
- *   otherPct 50        another manager's leasing charge as a percent of one month's rent. RLPM's
- *                      own posts say a percentage of the first month's rent is a common charge;
- *                      the 50 is a placeholder, not a survey figure.
+ *   otherPct 75        another manager's leasing charge as a percent of one month's rent, read
+ *                      from typicalManager.leasingFeeShare in facts.ts (Andrew: 75% of one
+ *                      month's rent is the typical Columbus leasing fee). A typical market rate,
+ *                      not any named competitor's charge.
  */
 const D = {
   rent: defaultRent,
@@ -101,7 +102,7 @@ const D = {
   leasing: pricing.leasingFee,
   fixed: 0,
   otherDom: 30,
-  otherPct: 50,
+  otherPct: Math.round(typicalManager.leasingFeeShare * 100),
 };
 
 const initial = vacancyCost({
@@ -139,7 +140,7 @@ const compareFields: Field[] = [
   { id: 'vc-other-dom', label: 'Their days on market', value: D.otherDom, post: 'days', mode: 'numeric',
     hint: 'Assumption, not a market figure. Use what your current or quoted manager reports.' },
   { id: 'vc-other-pct', label: 'Their leasing charge', value: D.otherPct, post: '% of a month', mode: 'decimal',
-    hint: 'Assumption. Check the management agreement.' },
+    hint: `Default: ${typicalManager.leasingFeePhrase}, a typical Columbus leasing fee. Check the management agreement.` },
 ];
 
 const title = 'Vacancy Cost Calculator for Columbus Rentals | RL Property Management';

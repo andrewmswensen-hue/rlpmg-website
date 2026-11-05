@@ -7,7 +7,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, kpis, rentPolicy, areas, usd } from '../../data/facts';
+import { company, pricing, kpis, rentPolicy, areas, typicalManager, usd } from '../../data/facts';
 import { serviceNode } from '../../lib/schema';
 
 /**
@@ -41,7 +41,7 @@ const perDoor = doors.map((d) => {
   const flat = std.monthly * 12 * d;
   const pct8 = Math.round(avgRent * 0.08) * 12 * d;
   const pct10 = Math.round(avgRent * 0.10) * 12 * d;
-  const leasing = Math.round(avgRent / 2) * Math.round(d * 0.28);   // turns at the portfolio renewal rate
+  const leasing = typicalManager.leasingFee(avgRent) * Math.round(d * 0.28);   // typical leasing fee x turns at the portfolio renewal rate
   return { d, flat, pct8: pct8 + leasing, pct10: pct10 + leasing, leasing };
 });
 
@@ -84,7 +84,7 @@ const faq = [
   { q: 'Why is pricing custom above 40 units?',
     a: 'At that size a fixed table stops being accurate. Forty units in one suburb and forty across five counties cost very different amounts to run, so we price the actual portfolio.' },
   { q: 'What is my real cost per door?',
-    a: `On the middle plan the management line is ${usd(std.monthly)} per door per month before any portfolio discount, plus ${usd(pricing.leaseRenewalFee)} when a lease renews. Placing a resident is ${usd(pricing.leasingFee)}. A manager charging 10% of an average ${kpis.metrics[4].value} rent runs about ${usd(Math.round(avgRent * 0.10))} per door per month, plus roughly ${usd(Math.round(avgRent / 2))} each time a unit turns.` },
+    a: `On the middle plan the management line is ${usd(std.monthly)} per door per month before any portfolio discount, plus ${usd(pricing.leaseRenewalFee)} when a lease renews. Placing a resident is ${usd(pricing.leasingFee)}. A manager charging 10% of an average ${kpis.metrics[4].value} rent runs about ${usd(Math.round(avgRent * 0.10))} per door per month, plus about ${usd(typicalManager.leasingFee(avgRent))} (${typicalManager.leasingFeePhrase}) each time a unit turns.` },
   { q: 'Can you manage for an out-of-state investor?',
     a: 'Yes. Out-of-state owners get the same portal, monthly statements with invoices attached, quarterly inspections with photographs, and direct deposit. Your plan\'s repair approval limit decides how often a decision needs you.' },
   { q: 'Can you take on a portfolio that is currently with another manager?',
@@ -130,7 +130,7 @@ const schemaNodes = [
         {' '}{usd(std.monthly * 12)} per door per year. A percentage manager on the portfolio average rent of
         {' '}{kpis.metrics[4].value} costs roughly {usd(Math.round(avgRent * 0.08))} to
         {' '}{usd(Math.round(avgRent * 0.10))} per door per month, plus about
-        {' '}{usd(Math.round(avgRent / 2))} every time a unit turns. At scale, the leasing fee decides the year.
+        {' '}{usd(typicalManager.leasingFee(avgRent))} every time a unit turns. At scale, the leasing fee decides the year.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         Annual cost at three portfolio sizes, before any portfolio discount. Turns are estimated from our
@@ -164,8 +164,8 @@ const schemaNodes = [
       </div>
       <p class="text-[14px] text-faint mt-5">
         Our column is exact at published pricing and goes down with a portfolio discount. The comparison columns
-        are illustrative, at the portfolio average rent of {kpis.metrics[4].value} with a half-month placement fee
-        on each estimated turn. They describe common Columbus market rates, not a quote from any named company.
+        are illustrative, at the portfolio average rent of {kpis.metrics[4].value} with a typical placement fee of
+        {' '}{typicalManager.leasingFeePhrase} on each estimated turn. They describe common Columbus market rates, not a quote from any named company.
       </p>
       <div class="flex flex-wrap gap-3 mt-7">
         <a href="/property-management-consultation/" class="btn btn-primary">Get your portfolio number</a>

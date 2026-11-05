@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, rentPolicy, kpis, usd } from '../../data/facts';
+import { company, pricing, rentPolicy, kpis, typicalManager, usd } from '../../data/facts';
 import { serviceNode } from '../../lib/schema';
 
 /**
@@ -331,7 +331,7 @@ const schemaNodes = [
       <p class="text-[16.5px] text-muted mt-7">
         On the {usd(CENSUS_MEDIAN_GROSS_RENT)} Census median, a 10% manager takes about
         {' '}{usd(Math.round(CENSUS_MEDIAN_GROSS_RENT * 0.1) * 12)} a year plus
-        {' '}{usd(Math.round(CENSUS_MEDIAN_GROSS_RENT / 2))} at each turn. Our middle plan is
+        {' '}{usd(typicalManager.leasingFee(CENSUS_MEDIAN_GROSS_RENT))}, {typicalManager.leasingFeePhrase}, at each turn. Our middle plan is
         {' '}{usd(pricing.plans[1].monthly * 12)} a year, placement {usd(pricing.leasingFee)}. Most houses here
         rent above that median, so the gap is wider still.
       </p>

@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, kpis, usd } from '../../data/facts';
+import { company, pricing, kpis, typicalManager, usd } from '../../data/facts';
 
 /**
  * The /compare/ hub.
@@ -23,7 +23,8 @@ const plan = pricing.plans[1];
 const planLow = pricing.plans[0];
 const planHigh = pricing.plans[2];
 const REF_RENT = 1650;
-const halfMonth = Math.round(REF_RENT / 2);
+/** A typical Columbus manager's leasing fee on the reference rent (typicalManager in facts.ts). */
+const typicalLeasing = typicalManager.leasingFee(REF_RENT);
 
 const comparisons = [
   {
@@ -31,8 +32,8 @@ const comparisons = [
     name: 'Flat fee vs percentage property management',
     question: 'Should I pay a flat monthly fee or a percentage of rent?',
     body: `A worked comparison at ${usd(1200)}, ${usd(REF_RENT)} and ${usd(2100)} in monthly rent, over a single year and over a full three-year tenancy. It includes the leasing fee that rarely appears in a quote, and the break-even rent below which a percentage manager is cheaper.`,
-    stat: `${usd(halfMonth)}`,
-    statNote: `the placement fee on ${usd(REF_RENT)} rent`,
+    stat: `${usd(typicalLeasing)}`,
+    statNote: `a typical placement fee on ${usd(REF_RENT)} rent`,
   },
   {
     href: '/compare/self-managing-vs-property-manager/',
@@ -47,7 +48,7 @@ const comparisons = [
 const rules = [
   {
     h: 'We never name a competitor',
-    b: 'Every comparison describes a pricing structure, such as a manager charging 8% to 10% of collected rent plus half a month of rent per placement. Those are illustrative of common Columbus market rates. They are not a quote from, or a claim about, any specific company.',
+    b: `Every comparison describes a pricing structure, such as a manager charging 8% to 10% of collected rent plus ${typicalManager.leasingFeePhrase} per placement. Those are illustrative of common Columbus market rates. They are not a quote from, or a claim about, any specific company.`,
   },
   {
     h: 'Our own numbers are exact and published',
@@ -78,8 +79,8 @@ const answer =
 const facts = [
   `${company.name} charges ${usd(planLow.monthly)} to ${usd(planHigh.monthly)} per unit per month, flat`,
   `Leasing fee: ${usd(pricing.leasingFee)} on all three plans`,
-  `A percentage manager typically charges 8% to 10% of rent plus about half a month per placement`,
-  `On ${usd(REF_RENT)} rent, half a month is ${usd(halfMonth)} every time the unit turns`,
+  `A percentage manager typically charges 8% to 10% of rent plus about ${typicalManager.leasingFeePhrase} per placement`,
+  `On ${usd(REF_RENT)} rent, that leasing fee is ${usd(typicalLeasing)} every time the unit turns`,
   `We publish the rents at which a percentage manager costs less than we do`,
   `Portfolio results: ${kpi('dom')} median days on market, ${kpi('renewal')} renewal rate, ${kpi('occupancy')} occupancy`,
   'No competitor is named on any comparison page',

@@ -4,7 +4,7 @@ import Photo from '../components/Photo.astro';
 import Stars from '../components/Stars.astro';
 import PricingTable from '../components/PricingTable.astro';
 import Faq from '../components/Faq.astro';
-import { company, pricing, kpis, areas, areaUrl, usd } from '../data/facts';
+import { company, pricing, kpis, areas, areaUrl, usd, typicalManager } from '../data/facts';
 import { partitionAreas } from '../lib/areas';
 import { totalActiveDoors } from '../data/markets';
 import { serviceNode } from '../lib/schema';
@@ -18,8 +18,8 @@ const { linked: linkedAreas, unlinked: namedAreas } = partitionAreas(areas, area
 
 const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)!.value;
 const avgRent = kpi('avgRent');
-/** Half a month of average rent, rounded to $25: what a typical leasing fee would cost. */
-const leasingSaving = Math.round(Number(avgRent.replace(/[^0-9.]/g, '')) / 2 / 25) * 25;
+/** A typical manager's leasing fee (facts.ts typicalManager, 75% of a month) on our average rent. */
+const leasingSaving = typicalManager.leasingFee(Number(avgRent.replace(/[^0-9.]/g, '')));
 const heroStats = kpis.metrics.filter((m) => ['dom', 'collectedBy5', 'renewal', 'repairDays'].includes(m.id));
 
 const services = [
@@ -56,7 +56,7 @@ const howItWorks = [
   { h: 'Rent evaluation',
     p: 'We price it with our own Columbus data and flag anything it needs first.' },
   { h: 'Pick a plan',
-    p: `${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month. You see the full cost before you sign.` },
+    p: `Starting at ${usd(pricing.plans[0].monthly)} per month. You see the full cost before you sign.` },
   { h: 'We take it from here',
     p: 'Leasing, rent collection and maintenance, with monthly statements and an always-current portal.' },
 ];
@@ -67,7 +67,7 @@ const howItWorks = [
  * residents page itself uses both, because "tenant portal" is what people search.
  */
 const router = [
-  { h: 'I own rentals', p: 'See services, pricing, & get a free consultation for management services.', href: '/property-management-consultation/#consultation-form' },
+  { h: 'I own rentals', p: 'See services, pricing, & get a free consultation for management services.', href: '/property-management-consultation/' },
   { h: "I'm looking to rent", p: 'Available homes and how to apply', href: '/homes-for-rent/' },
   { h: "I'm a current resident", p: 'Pay rent, request a repair, find answers', href: '/residents/' },
 ];
@@ -85,7 +85,7 @@ const faq = [
   { q: 'What does RL Property Management charge?',
     a: `Flat monthly management runs ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month across three plans. There is no leasing fee on any plan, lease renewals are ${usd(pricing.leaseRenewalFee)}, and there is no startup fee on occupied units.` },
   { q: 'Does RL Property Management charge a leasing fee?',
-    a: 'No. Placing a resident costs nothing on every plan, including listing syndication, showings, applicant screening and lease preparation. Most Columbus managers charge about half a month of rent for the same work.' },
+    a: `No. Placing a resident costs nothing on every plan, including listing syndication, showings, applicant screening and lease preparation. Most Columbus managers charge about ${typicalManager.leasingFeePhrase} for the same work.` },
   { q: 'What areas does RL Property Management serve?',
     a: `RL Property Management serves ${areas.length} communities across the Columbus, Ohio metro, including Columbus, Dublin, Upper Arlington, Westerville, Worthington, Gahanna, Hilliard, Powell, New Albany, Bexley, Grove City, Reynoldsburg and Pickerington.` },
   { q: 'How quickly does RL Property Management fill a vacancy?',
@@ -291,7 +291,7 @@ const schemaNodes = [serviceNode({
   <!--
     NO LEASING FEE BANNER. Andrew, 2026-11-05: a red band between pricing and the
     scorecard that names the differentiator and what it saves up front. The saving
-    is half a month of the portfolio's average rent, rounded to the nearest $25,
+    is typicalManager.leasingFee (75% of a month) on the portfolio's average rent,
     so it moves on its own when kpis.avgRent is updated.
   -->
   <section class="bg-crimson text-white" aria-labelledby="noleasing-h">
@@ -299,7 +299,7 @@ const schemaNodes = [serviceNode({
       <div>
         <h2 id="noleasing-h" class="!text-white text-[clamp(28px,3.4vw,42px)] mb-3">No leasing fees. On every plan.</h2>
         <p class="text-[17.5px] text-white/90 max-w-[40em] m-0">
-          Most Columbus managers charge about half a month of rent every time they place a resident. At our
+          Most Columbus managers charge about {typicalManager.leasingFeePhrase} every time they place a resident. At our
           average rent of {avgRent}, that is roughly {usd(leasingSaving)} you keep at every turnover, and it is
           the first cost you skip when you switch.
         </p>

@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, kpis, rentPolicy, areas, areaUrl, usd } from '../../data/facts';
+import { company, pricing, kpis, rentPolicy, areas, areaUrl, typicalManager, usd } from '../../data/facts';
 import { partitionAreas } from '../../lib/areas';
 import { rentByBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
@@ -35,7 +35,7 @@ const breadcrumbs = [
 const std = pricing.plans[1];
 const avgRent = 1653;              // kpis.metrics avgRent, as a number for arithmetic
 const pct10Year = Math.round(avgRent * 0.10) * 12;
-const halfMonth = Math.round(avgRent / 2);
+const typicalLeasing = typicalManager.leasingFee(avgRent);
 
 const keyFacts = [
   `Flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, not a percentage of rent`,
@@ -114,7 +114,7 @@ const schemaNodes = [
         A flat {usd(pricing.plans[0].monthly)} to {usd(pricing.plans[2].monthly)} per unit per month, depending on
         which of the three plans you choose, plus {usd(pricing.leaseRenewalFee)} when a lease renews. Placing a
         resident is {usd(pricing.leasingFee)}. Most Columbus managers instead charge 8% to 10% of collected rent and
-        roughly half a month of rent every time the unit turns.
+        about {typicalManager.leasingFeePhrase} every time the unit turns.
       </p>
       <div class="grid gap-5 sm:grid-cols-3 mt-8">
         {pricing.plans.map((p) => (
@@ -131,7 +131,7 @@ const schemaNodes = [
       <p class="text-[16px] text-muted mt-6">
         The plans differ only in how much repair spending we approve before calling you. On our average rent of
         {' '}{kpis.metrics[4].value}, a 10% manager collects about {usd(pct10Year)} a year, plus about
-        {' '}{usd(halfMonth)} to place a resident. {std.name} is {usd(std.monthly * 12)} a year, and placement is
+        {' '}{usd(typicalLeasing)} to place a resident. {std.name} is {usd(std.monthly * 12)} a year, and placement is
         {' '}{usd(pricing.leasingFee)}.
       </p>
       <p class="text-[14px] text-faint mt-4">

@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { company, pricing, rentPolicy, typicalManager, usd } from '../../data/facts';
 import { rentByMarketAndBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 
@@ -254,7 +254,7 @@ const schemaNodes = [
       <p class="text-[16.5px] text-muted mt-7">
         At a {usd(rent['3'].median)} rent, a manager charging 10% of collected rent takes about
         {' '}{usd(Math.round(rent['3'].median * 0.1) * 12)} a year, plus roughly
-        {' '}{usd(Math.round(rent['3'].median / 2))} again every time the unit turns. Our middle plan is
+        {' '}{usd(typicalManager.leasingFee(rent['3'].median))} again every time the unit turns. Our middle plan is
         {' '}{usd(pricing.plans[1].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}. The plans
         differ only in the repair approval limit.
       </p>

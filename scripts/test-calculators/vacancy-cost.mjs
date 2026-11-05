@@ -90,14 +90,14 @@ t('parseAmount reads what people type', () => {
 t('compare: only days on market and leasing differ', () => {
   const c = compareManagers({
     monthlyRent: 1800, monthlyVacantCosts: 150, turnCost: 1500, turnDays: 12,
-    otherDaysOnMarket: 30, otherLeasingPct: 50, rlDaysOnMarket: 20, rlLeasingFee: 0,
+    otherDaysOnMarket: 30, otherLeasingPct: 75, rlDaysOnMarket: 20, rlLeasingFee: 0,
   });
   assert.equal(c.other.days, 42);
   assert.equal(c.rl.days, 32);
-  near(c.other.leasingCost, 900);
+  near(c.other.leasingCost, 1350);
   assert.equal(c.rl.leasingCost, 0);
-  // 10 extra days at (1800 + 150) / 30 a day, plus the 900 leasing charge.
-  near(c.difference, 10 * (1950 / 30) + 900);
+  // 10 extra days at (1800 + 150) / 30 a day, plus the 1350 leasing charge (75% of 1800).
+  near(c.difference, 10 * (1950 / 30) + 1350);
 });
 
 t('compare: difference can be negative and is reported honestly', () => {

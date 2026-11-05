@@ -6,7 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
-import { company, pricing, rentPolicy, usd } from '../../data/facts';
+import { company, pricing, rentPolicy, typicalManager, usd } from '../../data/facts';
 import { rentByBedroom, rentByMarketAndBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 
@@ -281,7 +281,7 @@ const schemaNodes = [
       <p class="text-[16.5px] text-muted mt-7">
         On a house renting at {usd(rentByMarketAndBedroom['Reynoldsburg']['3'].median)}, a manager charging 10% takes
         about {usd(Math.round(rentByMarketAndBedroom['Reynoldsburg']['3'].median * 0.1) * 12)} a year and roughly
-        {' '}{usd(Math.round(rentByMarketAndBedroom['Reynoldsburg']['3'].median / 2))} again at every turn. Our
+        {' '}{usd(typicalManager.leasingFee(rentByMarketAndBedroom['Reynoldsburg']['3'].median))} again at every turn. Our
         lowest plan is {usd(pricing.plans[0].monthly * 12)} a year and the placement is {usd(pricing.leasingFee)}.
         If a property is listed longer than 60 days, we credit management fees back without you asking.
       </p>
