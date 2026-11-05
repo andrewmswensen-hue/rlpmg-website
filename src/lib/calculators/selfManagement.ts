@@ -8,8 +8,13 @@
  *   2. In the browser, by that page's processed <script>, to make it live.
  *   3. By scripts/test-calculators/self-management.mjs.
  *
- * Every RLPM price comes in through `buildConfig(pricing)`, which reads the
- * fact bank in src/data/facts.ts. Nothing here hard-codes an RLPM price.
+ * Every RLPM price comes in through `buildConfig(pricing, company)`, which reads
+ * the fact bank in src/data/facts.ts. Nothing here hard-codes an RLPM price.
+ *
+ * Andrew 2026-11-05: the calculators compare against one RL price and never name
+ * a plan. That price is pricing.plans[1].monthly, the $137 standard price. The
+ * published investor tiers still apply to it from 5 units, described as "RL
+ * investor pricing".
  *
  * The model, line by line (all per year):
  *
@@ -20,7 +25,7 @@
  *   other       software, bookkeeping, legal help, listing costs, paid help (as entered)
  *
  * MANAGEMENT (costs you take on if you hire us)
- *   monthly     plan price per unit, after any published investor discount, x units x 12
+ *   monthly     RL price per unit, after any published investor discount, x units x 12
  *   renewals    units x share of leases that renew x the lease renewal fee
  *   leasing     units x share of leases that turn over x the leasing fee ($0)
  *   projectMgmt managed repair spend x the vendor project management percentage.
@@ -36,13 +41,6 @@
  * calculator on the old rlpmg.com, and the page labels them as editable.
  */
 
-export interface PlanConfig {
-  id: string;
-  name: string;
-  monthly: number;
-  repairApprovalLimit: number;
-}
-
 export interface TierConfig {
   min: number;
   max: number;
@@ -51,7 +49,12 @@ export interface TierConfig {
 }
 
 export interface SelfManagementConfig {
-  plans: PlanConfig[];
+  /** Company name as shown on the page, e.g. "RL Property Management". */
+  name: string;
+  /** Short name for tight spaces, e.g. "RLPM". */
+  shortName: string;
+  /** Standard RL monthly price per unit, before any investor discount. */
+  monthly: number;
   leasingFee: number;
   leaseRenewalFee: number;
   /** Investor tiers. Below the first tier's `min`, standard pricing applies. */
@@ -78,7 +81,6 @@ export interface SelfManagementInputs {
   legal: number;
   marketing: number;
   otherCosts: number;
-  planId: string;
   renewalPct: number;
   entities: number;
 }
@@ -88,8 +90,9 @@ export interface Line {
   amount: number;
 }
 
-export interface PlanPrice {
-  plan: PlanConfig;
+export interface RlPrice {
+  /** Standard monthly price per unit, before any discount. */
+  standardMonthly: number;
   /** Monthly price per unit after any investor discount, whole dollars. */
   perUnitMonthly: number;
   /** Discount applied, as a percentage. 0 for standard pricing. */
@@ -102,7 +105,7 @@ export interface PlanPrice {
 
 export interface SelfManagementResult {
   inputs: SelfManagementInputs;
-  price: PlanPrice;
+  price: RlPrice;
   self: { time: number; vacancy: number; repairs: number; other: number; total: number };
   managed: {
     monthly: number; renewals: number; leasing: number;
@@ -144,9 +147,6 @@ export function normalizeInputs(
     return n;
   };
   const units = num('units');
-  const planId = cfg.plans.some((p) => p.id === raw.planId)
-    ? String(raw.planId)
-    : cfg.plans[Math.min(1, cfg.plans.length - 1)].id;
   return {
     units,
     rent: num('rent'),
@@ -161,7 +161,6 @@ export function normalizeInputs(
     legal: num('legal'),
     marketing: num('marketing'),
     otherCosts: num('otherCosts'),
-    planId,
     renewalPct: num('renewalPct'),
     entities: num('entities'),
   };
@@ -171,20 +170,19 @@ export function normalizeInputs(
 const discounted = (monthly: number, pct: number) => Math.round(monthly * (1 - pct / 100));
 
 /**
- * Monthly price per unit for a plan at a portfolio size, using the published
- * investor tiers. At `customFrom` and above pricing is custom, so this returns
- * the deepest published tier's price and flags it as an estimate.
+ * RL monthly price per unit at a portfolio size, using the published investor
+ * tiers. At `customFrom` and above pricing is custom, so this returns the
+ * deepest published tier's price and flags it as an estimate.
  */
-export function planPrice(planId: string, units: number, cfg: SelfManagementConfig): PlanPrice {
-  const plan = cfg.plans.find((p) => p.id === planId) ?? cfg.plans[0];
+export function rlPrice(units: number, cfg: SelfManagementConfig): RlPrice {
   const custom = units >= cfg.customFrom;
   const tier = custom
     ? cfg.tiers[cfg.tiers.length - 1] ?? null
     : cfg.tiers.find((t) => units >= t.min && units <= t.max) ?? null;
   const pct = tier ? tier.pct : 0;
   return {
-    plan,
-    perUnitMonthly: discounted(plan.monthly, pct),
+    standardMonthly: cfg.monthly,
+    perUnitMonthly: discounted(cfg.monthly, pct),
     discountPct: pct,
     tierLabel: tier ? tier.label : null,
     custom,
@@ -198,7 +196,7 @@ export function calculate(
   cfg: SelfManagementConfig,
 ): SelfManagementResult {
   const i = normalizeInputs(raw, cfg);
-  const price = planPrice(i.planId, i.units, cfg);
+  const price = rlPrice(i.units, cfg);
 
   const repairSpend = i.repairsPerUnit * i.units;
   const markup = repairSpend * (i.repairMarkupPct / 100);
@@ -244,13 +242,20 @@ export const money = (n: number) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(n);
 
 /** The one-sentence answer shown as the headline. */
-export function headline(res: SelfManagementResult): string {
-  const plan = res.price.plan.name;
-  const lead = `Self-managing costs you about ${money(res.self.total)} a year. ${plan} management would cost about ${money(res.managed.total)}.`;
+export function headline(res: SelfManagementResult, cfg: SelfManagementConfig): string {
+  const lead = `Self-managing costs you about ${money(res.self.total)} a year. ${cfg.name} would cost about ${money(res.managed.total)}.`;
   const d = res.difference;
   if (Math.abs(d) < 1) return `${lead} On these numbers the two come out about even.`;
   if (d > 0) return `${lead} Management comes out ${money(d)} a year ahead on these numbers.`;
   return `${lead} Self-managing comes out ${money(-d)} a year cheaper on these numbers, so keep doing it if they hold.`;
+}
+
+/** The short headline for the mobile sticky bar. Plain text, one or two lines on a phone. */
+export function stickyLine(res: SelfManagementResult, cfg: SelfManagementConfig): string {
+  const d = res.difference;
+  if (Math.abs(d) < 1) return `Self-managing and ${cfg.shortName} cost about the same`;
+  if (d > 0) return `Self-managing costs ${money(d)} more a year`;
+  return `Self-managing saves you ${money(-d)} a year`;
 }
 
 export interface BreakdownRow {
@@ -281,7 +286,7 @@ export function breakdown(res: SelfManagementResult, cfg: SelfManagementConfig):
   const priceNote = p.custom
     ? `, an estimate: pricing is custom from ${cfg.customFrom} units`
     : p.discountPct
-      ? `, ${p.discountPct}% investor pricing at ${p.tierLabel}`
+      ? `, RL investor pricing: ${p.discountPct}% off at ${p.tierLabel}`
       : '';
   return [
     { id: 'time', side: 'self', label: 'Your time', amount: res.self.time,
@@ -294,10 +299,10 @@ export function breakdown(res: SelfManagementResult, cfg: SelfManagementConfig):
       note: 'Software, bookkeeping, legal help, listing costs, paid help' },
     { id: 'self-total', side: 'self', label: 'Self-managing, per year', amount: res.self.total, total: true,
       note: `${money(res.perUnitMonthly.self)} per unit per month` },
-    { id: 'monthly', side: 'managed', label: `${p.plan.name} management`, amount: res.managed.monthly,
+    { id: 'monthly', side: 'managed', label: 'Monthly management', amount: res.managed.monthly,
       note: `${money(p.perUnitMonthly)} per unit × ${unitsWord(i.units)} × 12 months${priceNote}` },
     { id: 'leasing', side: 'managed', label: 'Leasing fee', amount: res.managed.leasing,
-      note: `${money(cfg.leasingFee)} on every plan` },
+      note: `${money(cfg.leasingFee)} with us` },
     { id: 'renewals', side: 'managed', label: 'Lease renewal fee', amount: res.managed.renewals,
       note: `${plain(i.renewalPct)}% of ${unitsWord(i.units)} renew × ${money(cfg.leaseRenewalFee)}` },
     { id: 'project', side: 'managed', label: 'Project management on repairs, at most', amount: res.managed.projectMgmt,
@@ -315,16 +320,19 @@ export function breakdown(res: SelfManagementResult, cfg: SelfManagementConfig):
  * browser bundle only carries the handful of numbers it needs.
  */
 export function buildConfig(pricing: {
-  plans: readonly { id: string; name: string; monthly: number; repairApprovalLimit: number }[];
+  plans: readonly { monthly: number }[];
   leasingFee: number;
   leaseRenewalFee: number;
   maintenance: { vendorProjectFeePct: number };
   portfolioDiscount: { customFrom: number; tiers: readonly { min: number; max: number; pct: number; label: string }[] };
   otherFees: readonly { name: string; amount: string }[];
-}): SelfManagementConfig {
+}, company: { name: string; shortName: string }): SelfManagementConfig {
   const tech = pricing.otherFees.find((f) => /technology and accounting/i.test(f.name));
   return {
-    plans: pricing.plans.map((p) => ({ id: p.id, name: p.name, monthly: p.monthly, repairApprovalLimit: p.repairApprovalLimit })),
+    name: company.name,
+    shortName: company.shortName,
+    /* The $137 standard price. See the note at the top of this file. */
+    monthly: pricing.plans[1].monthly,
     leasingFee: pricing.leasingFee,
     leaseRenewalFee: pricing.leaseRenewalFee,
     tiers: pricing.portfolioDiscount.tiers.map((t) => ({ min: t.min, max: t.max, pct: t.pct, label: t.label })),

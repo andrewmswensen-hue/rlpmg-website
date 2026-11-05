@@ -34,7 +34,7 @@ export interface RvsInputs {
   insuranceMonthly: number; landlordInsBump: number; hoaMonthly: number;
   /** Percent of collected rent, used when pmMode is 'percent' (the original model). */
   pmRate: number;
-  /** 'flat' = a fixed monthly price, like RLPM's plans. Missing = 'percent'. */
+  /** 'flat' = a fixed monthly price, like RLPM's. Missing = 'percent'. */
   pmMode?: PmMode;
   /** Monthly management price when pmMode is 'flat'. Rises with expense inflation. */
   pmMonthly?: number;
@@ -281,20 +281,37 @@ export function model(x: RvsInputs): RvsResult {
    Defaults and the management choice
    ========================================================================= */
 
-/** How the home would be managed. RLPM's three plans come from the fact bank. */
+/**
+ * How the home would be managed: RL Property Management at one price, another
+ * manager at a percent of rent, or the owner.
+ *
+ * Andrew 2026-11-05: the calculators show one RL price and never name a plan.
+ * The price is pricing.plans[1].monthly in the fact bank, the $137 standard
+ * price (the same one the previous version of this page defaulted to).
+ */
 export interface ManagementOption { value: string; label: string; mode: PmMode; monthly?: number }
 
+export const RL_MONTHLY = pricing.plans[1].monthly;
+
 export const MANAGEMENT_OPTIONS: ManagementOption[] = [
-  ...pricing.plans.map((p) => ({
-    value: p.id, label: `${company.shortName} ${p.name} (${usd(p.monthly)} a month)`,
-    mode: 'flat' as PmMode, monthly: p.monthly,
-  })),
+  { value: 'rl', label: `${company.name} (${usd(RL_MONTHLY)} a month)`, mode: 'flat', monthly: RL_MONTHLY },
   { value: 'percent', label: 'Another manager, percent of rent', mode: 'percent' },
   { value: 'self', label: 'I would manage it myself', mode: 'flat', monthly: 0 },
 ];
 
-/** The middle plan, the same one the previous version of this page used. */
-export const DEFAULT_MANAGEMENT = pricing.plans[1].id;
+export const DEFAULT_MANAGEMENT = 'rl';
+
+/**
+ * Any stored management value to a current option. Share links made before
+ * 2026-11-05 carry a plan id (plan-one, plan-two, plan-three); those all map to
+ * the RL option, so an old link opens cleanly instead of falling back silently.
+ */
+export function normalizeManagement(v: unknown): string {
+  const s = String(v ?? '');
+  if (MANAGEMENT_OPTIONS.some((o) => o.value === s)) return s;
+  if (/^plan-/.test(s)) return 'rl';
+  return DEFAULT_MANAGEMENT;
+}
 
 /** Calculator state as the page holds it: the engine inputs plus the management choice. */
 export type RvsState = RvsInputs & { management: string };
@@ -322,7 +339,8 @@ export const DEFAULTS: RvsState = {
 
 /** Turn page state into engine inputs, resolving the management choice. */
 export function toInputs(s: RvsState): RvsInputs {
-  const opt = MANAGEMENT_OPTIONS.find((o) => o.value === s.management) ?? MANAGEMENT_OPTIONS[1];
+  const value = normalizeManagement(s.management);
+  const opt = MANAGEMENT_OPTIONS.find((o) => o.value === value) ?? MANAGEMENT_OPTIONS[0];
   return { ...s, pmMode: opt.mode, pmMonthly: opt.monthly ?? 0 };
 }
 
@@ -363,6 +381,13 @@ export function verdict(R: RvsResult, s: RvsState): Verdict {
     note += ` Renting still costs you ${money(Math.abs(sm.monthlyCashFlowY1))} a month out of pocket in year one, so the gain is equity and appreciation, not income.`;
   }
   return { lead, amount, tail, note, plain: `${lead} ${amount} ${tail}.` };
+}
+
+/** The short headline for the mobile sticky bar. Plain text, one or two lines on a phone. */
+export function stickyLine(R: RvsResult): string {
+  const sm = R.summary;
+  const side = sm.difference >= 0 ? 'Renting' : 'Selling now';
+  return `${side} comes out ahead by ${money(Math.abs(sm.difference))} over ${yrs(sm.years)}`;
 }
 
 /** One line restating the scenario, so the result never floats free of its inputs. */

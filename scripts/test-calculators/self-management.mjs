@@ -12,16 +12,18 @@ import assert from 'node:assert/strict';
 
 const entry = `
   export * from './src/lib/calculators/selfManagement.ts';
-  export { pricing, kpis, tierPrice } from './src/data/facts.ts';
+  export { pricing, kpis, tierPrice, company } from './src/data/facts.ts';
 `;
 const out = await build({
   stdin: { contents: entry, resolveDir: process.cwd(), loader: 'ts' },
   bundle: true, format: 'esm', platform: 'node', write: false, logLevel: 'silent',
 });
 const m = await import('data:text/javascript;base64,' + Buffer.from(out.outputFiles[0].text).toString('base64'));
-const { calculate, normalizeInputs, planPrice, buildConfig, headline, toNumber, pricing, tierPrice } = m;
+const { calculate, normalizeInputs, rlPrice, buildConfig, headline, stickyLine, toNumber, pricing, tierPrice, company } = m;
 
-const cfg = buildConfig(pricing);
+const cfg = buildConfig(pricing, company);
+/** The one RL price the calculators use: the $137 standard price in facts.ts. */
+const RL = pricing.plans[1].monthly;
 let passed = 0, failed = 0;
 const test = (name, fn) => {
   try { fn(); passed++; console.log(`ok    ${name}`); }
@@ -32,12 +34,14 @@ const base = {
   units: 1, rent: 1653, hoursPerUnit: 5, hourlyValue: 50,
   vacantDays: 30, vacancySavedPct: 50, repairsPerUnit: 1200, repairMarkupPct: 20,
   software: 0, bookkeeping: 0, legal: 0, marketing: 0, otherCosts: 0,
-  planId: 'plan-two', renewalPct: 72, entities: 1,
+  renewalPct: 72, entities: 1,
 };
 
 test('config reads prices from the fact bank', () => {
-  assert.equal(cfg.plans.length, pricing.plans.length);
-  assert.deepEqual(cfg.plans.map((p) => p.monthly), pricing.plans.map((p) => p.monthly));
+  assert.equal(cfg.monthly, RL, 'one RL price, from pricing.plans[1]');
+  assert.equal(cfg.monthly, 137, 'the standard price is $137');
+  assert.equal(cfg.name, company.name);
+  assert.equal('plans' in cfg, false, 'no plan list reaches the page');
   assert.equal(cfg.leaseRenewalFee, pricing.leaseRenewalFee);
   assert.equal(cfg.leasingFee, pricing.leasingFee);
   assert.equal(cfg.vendorProjectFeePct, pricing.maintenance.vendorProjectFeePct);
@@ -49,13 +53,12 @@ test('config reads prices from the fact bank', () => {
 
 test('main formula, one unit, default numbers', () => {
   const r = calculate(base, cfg);
-  const plan = pricing.plans.find((p) => p.id === 'plan-two');
   assert.equal(r.self.time, 5 * 1 * 50 * 12);                       // 3,000
   assert.equal(r.self.vacancy, Math.round(30 * (1653 / 30) * 0.5));  // 827
   assert.equal(r.self.repairs, Math.round(1200 * 0.2));              // 240
   assert.equal(r.self.other, 0);
   assert.equal(r.self.total, r.self.time + r.self.vacancy + r.self.repairs);
-  assert.equal(r.managed.monthly, plan.monthly * 12);
+  assert.equal(r.managed.monthly, RL * 12);
   assert.equal(r.managed.renewals, Math.round(0.72 * pricing.leaseRenewalFee));
   assert.equal(r.managed.leasing, Math.round(0.28 * pricing.leasingFee));
   assert.equal(r.managed.projectMgmt, Math.round(1200 * 0.8 * pricing.maintenance.vendorProjectFeePct / 100));
@@ -78,29 +81,29 @@ test('other costs are added as entered', () => {
 test('investor pricing follows the published tiers, same rounding as /pricing/', () => {
   for (const t of pricing.portfolioDiscount.tiers) {
     for (const u of [t.min, t.max]) {
-      const p = planPrice('plan-two', u, cfg);
-      assert.equal(p.perUnitMonthly, tierPrice(137, t.pct), `${u} units`);
+      const p = rlPrice(u, cfg);
+      assert.equal(p.perUnitMonthly, tierPrice(RL, t.pct), `${u} units`);
       assert.equal(p.discountPct, t.pct);
       assert.equal(p.custom, false);
     }
   }
-  const below = planPrice('plan-one', pricing.portfolioDiscount.investorFrom - 1, cfg);
-  assert.equal(below.perUnitMonthly, pricing.plans[0].monthly);
+  const below = rlPrice(pricing.portfolioDiscount.investorFrom - 1, cfg);
+  assert.equal(below.perUnitMonthly, RL);
   assert.equal(below.discountPct, 0);
   assert.equal(below.tierLabel, null);
 });
 
 test('40+ units is flagged custom and estimated at the deepest published tier', () => {
-  const p = planPrice('plan-three', pricing.portfolioDiscount.customFrom, cfg);
+  const p = rlPrice(pricing.portfolioDiscount.customFrom, cfg);
   const deepest = pricing.portfolioDiscount.tiers.at(-1);
   assert.equal(p.custom, true);
-  assert.equal(p.perUnitMonthly, tierPrice(pricing.plans[2].monthly, deepest.pct));
+  assert.equal(p.perUnitMonthly, tierPrice(RL, deepest.pct));
 });
 
-test('monthly management scales with units and plan', () => {
-  const r = calculate({ ...base, units: 10, planId: 'plan-one' }, cfg);
+test('monthly management scales with units, at RL investor pricing', () => {
+  const r = calculate({ ...base, units: 10, planId: 'plan-one' }, cfg);   // an old planId is ignored
   const tier = pricing.portfolioDiscount.tiers.find((t) => 10 >= t.min && 10 <= t.max);
-  assert.equal(r.managed.monthly, tierPrice(pricing.plans[0].monthly, tier.pct) * 10 * 12);
+  assert.equal(r.managed.monthly, tierPrice(RL, tier.pct) * 10 * 12);
   assert.equal(r.self.time, 5 * 10 * 50 * 12);
 });
 
@@ -111,7 +114,7 @@ test('blank and junk inputs become 0, units and entities floor at 1', () => {
   assert.equal(n.rent, 0);
   assert.equal(n.hoursPerUnit, 0);
   assert.equal(n.hourlyValue, 0);
-  assert.equal(n.planId, 'plan-two', 'unknown plan falls back to the middle plan');
+  assert.equal('planId' in n, false, 'there is no plan input any more');
   const r = calculate({}, cfg);
   assert.equal(r.self.total, 0);
   assert.ok(r.managed.total > 0, 'management still costs something with no inputs');
@@ -141,9 +144,10 @@ test('zero repair markup means no repair line, and project management on the ful
 });
 
 test('headline says which way it comes out, with no dashes', () => {
-  const ahead = headline(calculate(base, cfg));
+  const ahead = headline(calculate(base, cfg), cfg);
+  assert.match(ahead, /RL Property Management would cost about \$[\d,]+\./);
   assert.match(ahead, /Management comes out \$[\d,]+ a year ahead/);
-  const cheaper = headline(calculate({ ...base, hoursPerUnit: 0, vacantDays: 0 }, cfg));
+  const cheaper = headline(calculate({ ...base, hoursPerUnit: 0, vacantDays: 0 }, cfg), cfg);
   assert.match(cheaper, /Self-managing comes out \$[\d,]+ a year cheaper/);
   for (const h of [ahead, cheaper]) assert.ok(!/[\u2013\u2014]/.test(h));
 });
@@ -152,11 +156,12 @@ test('break-even: the two totals can be made equal and read as even', () => {
   const r0 = calculate({ ...base, hoursPerUnit: 0, vacantDays: 0, repairMarkupPct: 0 }, cfg);
   const r = calculate({ ...base, hoursPerUnit: 0, vacantDays: 0, repairMarkupPct: 0, otherCosts: r0.managed.total }, cfg);
   assert.equal(r.difference, 0);
-  assert.match(headline(r), /about even/);
+  assert.match(headline(r, cfg), /about even/);
+  assert.equal(stickyLine(r, cfg), 'Self-managing and RLPM cost about the same');
 });
 
 test('breakdown rows add up to the totals and contain no dashes', () => {
-  for (const inp of [base, { ...base, units: 12, planId: 'plan-three', entities: 2 }, { ...base, units: 45 }]) {
+  for (const inp of [base, { ...base, units: 12, entities: 2 }, { ...base, units: 45 }]) {
     const r = calculate(inp, cfg);
     const rows = m.breakdown(r, cfg);
     for (const side of ['self', 'managed']) {
@@ -168,6 +173,32 @@ test('breakdown rows add up to the totals and contain no dashes', () => {
   }
   const custom = m.breakdown(calculate({ ...base, units: 45 }, cfg), cfg).find((x) => x.id === 'monthly');
   assert.match(custom.note, /custom from 40 units/);
+});
+
+test('sticky bar line says which way it comes out', () => {
+  const ahead = calculate(base, cfg);
+  assert.equal(stickyLine(ahead, cfg), `Self-managing costs ${m.money(ahead.difference)} more a year`);
+  const cheaper = calculate({ ...base, hoursPerUnit: 0, vacantDays: 0 }, cfg);
+  assert.equal(stickyLine(cheaper, cfg), `Self-managing saves you ${m.money(-cheaper.difference)} a year`);
+});
+
+test('investor pricing is described without a plan name', () => {
+  const note = m.breakdown(calculate({ ...base, units: 7 }, cfg), cfg).find((x) => x.id === 'monthly').note;
+  assert.match(note, /RL investor pricing: 10% off at 5 to 9 units/);
+});
+
+test('no output string mentions a plan', () => {
+  const inputs = [base, { ...base, units: 7 }, { ...base, units: 25, entities: 3 }, { ...base, units: 45 },
+    { ...base, hoursPerUnit: 0, vacantDays: 0 }, {}];
+  const text = [];
+  for (const inp of inputs) {
+    const r = calculate(inp, cfg);
+    text.push(headline(r, cfg), stickyLine(r, cfg));
+    for (const row of m.breakdown(r, cfg)) text.push(row.label, row.note);
+  }
+  const all = text.join(' | ');
+  assert.ok(!/\bplans?\b/i.test(all), all.match(/.{0,40}\bplans?\b.{0,40}/i)?.[0]);
+  assert.ok(!/[\u2013\u2014]/.test(all), 'no dashes');
 });
 
 console.log(`\n${passed} passed, ${failed} failed`);

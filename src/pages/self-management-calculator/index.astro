@@ -4,11 +4,12 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
+import CalcStickyBar from '../../components/CalcStickyBar.astro';
 import { company, pricing, kpis, usd } from '../../data/facts';
 import { rentByBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 import {
-  buildConfig, calculate, breakdown, headline, money,
+  buildConfig, calculate, breakdown, headline, stickyLine, money,
   type SelfManagementInputs,
 } from '../../lib/calculators/selfManagement';
 
@@ -29,7 +30,7 @@ import {
  * the full static content either way.
  *
  * Rebuilt 2026-11-05 from the calculator on the live rlpmg.com, which used a
- * flat $150 per door "all-in" estimate. This version uses the real plan prices
+ * flat $150 per door "all-in" estimate. This version uses the real RL price
  * and investor tiers from src/data/facts.ts, and shows the costs management adds
  * (renewals, project management, the annual technology fee) as well as the ones
  * it removes.
@@ -44,8 +45,9 @@ const breadcrumbs = [
   { name: 'Self-management calculator', path: '/self-management-calculator/' },
 ];
 
-const cfg = buildConfig(pricing);
-const mid = pricing.plans[1];
+const cfg = buildConfig(pricing, company);
+/** One RL price, read from the fact bank (the $137 standard price). Never a plan name. */
+const rlMonthly = cfg.monthly;
 const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
 const kpiNum = (id: string) => Number(kpi(id).replace(/[^0-9.]/g, ''));
 
@@ -66,7 +68,6 @@ const defaults: SelfManagementInputs = {
   repairsPerUnit: 1200,
   repairMarkupPct: 20,
   software: 0, bookkeeping: 0, legal: 0, marketing: 0, otherCosts: 0,
-  planId: mid.id,
   renewalPct: kpiNum('renewal'),
   entities: 1,
 };
@@ -134,11 +135,11 @@ const faq = [
   { q: 'What does self-managing cost?',
     a: `Mainly three things: your hours, the vacancy you carry while finding a resident, and the markup you pay for repairs without a vendor relationship. On one unit, ${defaults.hoursPerUnit} hours a month valued at ${usd(defaults.hourlyValue)} an hour is ${usd(ex.self.time)} a year before a single day of vacancy.` },
   { q: 'How much does a property manager cost in Columbus?',
-    a: `${company.name} charges a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee and a ${usd(pricing.leaseRenewalFee)} lease renewal fee. On ${mid.name} that is ${usd(mid.monthly * 12)} a year per unit in monthly management.` },
+    a: `${company.name} charges a flat ${usd(rlMonthly)} per unit per month with a ${usd(pricing.leasingFee)} leasing fee and a ${usd(pricing.leaseRenewalFee)} lease renewal fee. That is ${usd(rlMonthly * 12)} a year per unit in monthly management, with investor pricing from ${pricing.portfolioDiscount.investorFrom} units.` },
   { q: 'Is a property manager worth it for one rental?',
     a: 'It depends on what your time is worth and how close you live to the property. Run this calculator with your own numbers to answer it. Some owners should keep self-managing, and we will tell you so.' },
   { q: 'Does vacancy cost more than management?',
-    a: `Often, yes. A single month of vacancy on a ${usd(defaults.rent)} rent costs ${usd(defaults.rent)}, close to a year of ${mid.name} management at ${usd(mid.monthly * 12)}. Speed of leasing is usually where management pays for itself.` },
+    a: `Often, yes. A single month of vacancy on a ${usd(defaults.rent)} rent costs ${usd(defaults.rent)}, close to a year of our management at ${usd(rlMonthly * 12)}. Speed of leasing is usually where management pays for itself.` },
 ];
 
 const schemaNodes = [serviceNode({
@@ -222,20 +223,10 @@ const inputCls = 'sm-input';
           <fieldset class="sm-group">
             <legend class="sm-legend">Compare with</legend>
             <div class="sm-fields">
-              <div class="sm-wide">
-                <label for="sm-planId" class="sm-label">{company.name} plan</label>
-                <select id="sm-planId" name="planId" class={inputCls} aria-describedby="sm-planId-hint">
-                  {pricing.plans.map((p) => (
-                    <option value={p.id} selected={p.id === defaults.planId}>
-                      {p.name}: {usd(p.monthly)} per unit per month, {usd(p.repairApprovalLimit)} repair approval limit
-                    </option>
-                  ))}
-                </select>
-                <p class="sm-hint" id="sm-planId-hint">
-                  Plans differ only in the repair approval limit. Investor pricing applies automatically
-                  from {pricing.portfolioDiscount.investorFrom} units.
-                </p>
-              </div>
+              <p class="sm-wide sm-compare">
+                <strong>{company.name}</strong> at {usd(rlMonthly)} per unit per month. RL investor pricing
+                applies automatically from {pricing.portfolioDiscount.investorFrom} units.
+              </p>
               {compareFields.map((f) => (
                 <div>
                   <label for={`sm-${f.id}`} class="sm-label">
@@ -257,7 +248,7 @@ const inputCls = 'sm-input';
           <button type="reset" class="btn btn-ghost mt-6" id="sm-reset" hidden>Reset to starting numbers</button>
         </form>
 
-        <aside class="sm-side" aria-labelledby="sm-result-h">
+        <aside class="sm-side" id="sm-results" aria-labelledby="sm-result-h">
           <div class="card sm-result">
             <span class="eyebrow" id="sm-result-h">Your result, per year</span>
             <p class="sm-nojs" id="sm-nojs">
@@ -272,13 +263,13 @@ const inputCls = 'sm-input';
               <div class="sm-stat-sub" id="sm-out-self-unit">{money(ex.perUnitMonthly.self)} per unit per month</div>
             </div>
             <div class="sm-stat">
-              <div class="sm-stat-label"><span id="sm-out-plan">{ex.price.plan.name}</span> management</div>
+              <div class="sm-stat-label">With {company.name}</div>
               <div class="sm-stat-num sm-stat-rl" id="sm-out-managed">{money(ex.managed.total)}</div>
               <div class="sm-bar" aria-hidden="true"><span class="sm-bar-rl" id="sm-bar-rl" style={`width:${pctW(ex.managed.total)}`}></span></div>
               <div class="sm-stat-sub" id="sm-out-managed-unit">{money(ex.perUnitMonthly.managed)} per unit per month</div>
             </div>
 
-            <p class="sm-verdict" id="sm-verdict" aria-live="polite" aria-atomic="true">{headline(ex)}</p>
+            <p class="sm-verdict" id="sm-verdict" aria-live="polite" aria-atomic="true">{headline(ex, cfg)}</p>
 
             <div class="flex flex-col gap-2.5 mt-5">
               <a href="/property-management-consultation/" class="btn btn-primary text-center">Book a free consultation</a>
@@ -337,7 +328,7 @@ const inputCls = 'sm-input';
           <li><strong>Your time.</strong> Hours a month per unit, times units, times what an hour is worth, times 12: {selfRows[0].note} = {money(ex.self.time)}.</li>
           <li><strong>Vacancy.</strong> Rent divided by 30 is a daily rate. Multiply by the days your units sat empty and by the share a manager would save you: {selfRows[1].note} = {money(ex.self.vacancy)}.</li>
           <li><strong>Repairs.</strong> The share of your repair spend that is retail markup: {selfRows[2].note} = {money(ex.self.repairs)}.</li>
-          <li><strong>Management.</strong> The plan price times units times 12, plus {usd(pricing.leaseRenewalFee)} for each lease that renews, plus project management on repairs, plus the annual technology and accounting fee: {money(ex.managed.monthly)} + {money(ex.managed.renewals)} + {money(ex.managed.projectMgmt)} + {money(ex.managed.techFee)} = {money(ex.managed.total)}. New leases add {usd(pricing.leasingFee)}, because there is no leasing fee on any plan.</li>
+          <li><strong>Management.</strong> Our monthly price times units times 12, plus {usd(pricing.leaseRenewalFee)} for each lease that renews, plus project management on repairs, plus the annual technology and accounting fee: {money(ex.managed.monthly)} + {money(ex.managed.renewals)} + {money(ex.managed.projectMgmt)} + {money(ex.managed.techFee)} = {money(ex.managed.total)}. New leases add {usd(pricing.leasingFee)}, because there is no leasing fee.</li>
         </ol>
         <p>
           On those numbers self-managing costs {money(ex.self.total)} a year and management costs
@@ -364,15 +355,17 @@ const inputCls = 'sm-input';
   ]} />
 
   <Cta heading="Want to go through your numbers with us?"
-       body="A free consultation walks through your property, your costs and which plan fits, with no obligation."
+       body="A free consultation walks through your property and your costs, with no obligation."
        primary={{ label: 'Book a free consultation', href: '/property-management-consultation/' }}
        secondary={{ label: 'See pricing', href: '/pricing/' }} />
+
+  <CalcStickyBar target="#sm-results" text={stickyLine(ex, cfg)} />
 </Base>
 
 <script>
   // Progressive enhancement only. The HTML above is already a complete worked example.
   import {
-    calculate, breakdown, headline, money,
+    calculate, breakdown, headline, stickyLine, money,
     type SelfManagementConfig, type SelfManagementInputs,
   } from '../../lib/calculators/selfManagement';
 
@@ -399,7 +392,7 @@ const inputCls = 'sm-input';
       setText('sm-out-managed', money(res.managed.total));
       setText('sm-out-self-unit', `${money(res.perUnitMonthly.self)} per unit per month`);
       setText('sm-out-managed-unit', `${money(res.perUnitMonthly.managed)} per unit per month`);
-      setText('sm-out-plan', res.price.plan.name);
+      setText('calc-bar-text', stickyLine(res, cfg));
 
       const max = Math.max(res.self.total, res.managed.total, 1);
       const w = (n: number) => `${Math.max(2, Math.round((n / max) * 100))}%`;
@@ -409,7 +402,7 @@ const inputCls = 'sm-input';
 
       // Only touch the live region when the sentence changes, so screen readers
       // are not re-read the same verdict on every keystroke.
-      const verdict = headline(res);
+      const verdict = headline(res, cfg);
       if (verdict !== lastVerdict) { setText('sm-verdict', verdict); lastVerdict = verdict; }
 
       for (const row of breakdown(res, cfg)) {
@@ -477,6 +470,8 @@ const inputCls = 'sm-input';
   }
   .sm-pre { left: 14px; }
   .sm-post { right: 14px; }
+  .sm-compare { font-size: 14.5px; color: var(--color-muted); margin: 0; line-height: 1.5; }
+  .sm-compare strong { color: var(--color-navy); }
   .sm-hint { font-size: 13px; color: var(--color-muted); margin: 6px 0 0; line-height: 1.45; }
 
   .sm-more {

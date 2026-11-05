@@ -181,6 +181,22 @@ test('the page wiring: RLPM rates from facts.ts give the page\'s published repai
   assert.ok(r.total.reserve > 0 && r.total.monthly > 0);
 });
 
+test('sticky bar line: reserve and monthly set-aside', () => {
+  const inp = defaultInputs(mr.rentByBedroom['3'].median);
+  const r = calculateReserve(inp, RATES);
+  assert.equal(mr.stickyLine(r), `Hold ${money(r.total.reserve)}, set aside ${money(r.total.monthly)} a month`);
+});
+
+test('no output string mentions a plan', () => {
+  const texts = [];
+  for (const inp of [defaultInputs(1805), { ...defaultInputs(1805), units: 4 }, { ...defaultInputs(900), monthsOfRent: 0 }]) {
+    const r = calculateReserve(inp, RATES);
+    texts.push(mr.stickyLine(r), ...Object.values(mr.resultText(inp, r)));
+  }
+  const all = texts.join(' | ');
+  assert.ok(!/\bplans?\b/i.test(all), all.match(/.{0,40}\bplans?\b.{0,40}/i)?.[0]);
+});
+
 test('money() formats whole dollars like usd() in facts.ts', () => {
   assert.equal(money(10248), '$10,248');
   assert.equal(money(178.28), '$178');

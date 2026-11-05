@@ -6,9 +6,10 @@ import Faq from '../../../components/Faq.astro';
 import Verified from '../../../components/Verified.astro';
 import RelatedLinks from '../../../components/RelatedLinks.astro';
 import Cta from '../../../components/Cta.astro';
+import CalcStickyBar from '../../../components/CalcStickyBar.astro';
 import { company, pricing, kpis, usd } from '../../../data/facts';
 import { rentByBedroom } from '../../../data/markets';
-import { DAYS_IN_MONTH, lostRent, vacancyCost, compareManagers } from '../../../lib/calculators/vacancyCost';
+import { DAYS_IN_MONTH, lostRent, vacancyCost, compareManagers, stickyLine } from '../../../lib/calculators/vacancyCost';
 import { estimateRent, describeEstimate, sqftHint, BEDROOM_OPTIONS, BATHROOM_OPTIONS, bathLabel } from '../../../lib/calculators/rentEstimate';
 
 /**
@@ -66,6 +67,9 @@ const two = beds.find((b) => b.bed === '2')!;
 const four = beds.find((b) => b.bed === '4')!;
 
 const VACANCY_CREDIT_DAYS = 60;
+
+/** One RL price, read from the fact bank (the $137 standard price). Never a plan name. */
+const rlMonthly = pricing.plans[1].monthly;
 
 /**
  * Property details panel defaults (Andrew, 2026-11-05): 3 bed, 2 bath, square feet
@@ -265,7 +269,7 @@ const faq = [
             <button type="reset" class="btn btn-ghost !py-2.5 !px-5 !text-[14px] mt-6">Reset to defaults</button>
           </fieldset>
 
-          <section class="card !p-6 sm:!p-7 min-w-0" aria-labelledby="vc-res-h">
+          <section class="card !p-6 sm:!p-7 min-w-0" id="vc-results" aria-labelledby="vc-res-h">
             <h3 id="vc-res-h" class="eyebrow !mb-1.5">This vacancy costs you</h3>
             <p class="vc-total" id="vc-total">{usd(initial.total)}</p>
             <p class="text-[15px] text-muted mt-1 mb-0">
@@ -484,8 +488,8 @@ const faq = [
           <h3 class="text-[19.5px] mb-3">A 2 bed at {usd(two.rent)}, still empty at {VACANCY_CREDIT_DAYS} days</h3>
           <p class="text-[15.5px] text-muted">
             Daily cost is {usd(two.daily)}. At {VACANCY_CREDIT_DAYS} days the lost rent is
-            {' '}{usd(two.at60)}, more than {Math.floor(two.at60 / pricing.plans[1].monthly)} months
-            of management on {pricing.plans[1].name}. A unit still empty at {VACANCY_CREDIT_DAYS} days is
+            {' '}{usd(two.at60)}, more than {Math.floor(two.at60 / rlMonthly)} months of our
+            {' '}{usd(rlMonthly)} monthly management. A unit still empty at {VACANCY_CREDIT_DAYS} days is
             almost always priced above the market or showing badly, and both are fixable in a week.
           </p>
           <p class="text-[15.5px] text-navy font-semibold mt-3 mb-0">
@@ -588,6 +592,8 @@ const faq = [
     primary={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}
     secondary={{ label: `Call ${company.phone}`, href: `tel:${company.phoneE164}` }}
   />
+
+  <CalcStickyBar target="#vc-results" text={stickyLine(initial, usd)} />
 </Base>
 
 <style>
@@ -643,7 +649,7 @@ const faq = [
 
 <script>
   // Live recalculation. The math is in the shared lib; this file only reads inputs and writes text.
-  import { vacancyCost, compareManagers, parseAmount } from '../../../lib/calculators/vacancyCost';
+  import { vacancyCost, compareManagers, parseAmount, stickyLine } from '../../../lib/calculators/vacancyCost';
   import { estimateRent, describeEstimate, sqftHint } from '../../../lib/calculators/rentEstimate';
   import { usd } from '../../../data/facts';
 
@@ -665,6 +671,7 @@ const faq = [
         turnCost: turn, leasingCost: num('vc-leasing'), monthlyFixedCosts: num('vc-fixed'),
       });
       set('vc-total', usd(r.total));
+      set('calc-bar-text', stickyLine(r, usd));
       set('vc-perday', usd(r.perDay));
       set('vc-share', r.shareOfYearRent == null ? 'n/a' : `${(r.shareOfYearRent * 100).toFixed(1)}%`);
       set('vc-days-used', String(r.days));

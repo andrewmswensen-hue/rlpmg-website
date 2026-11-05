@@ -15,7 +15,7 @@ const load = async (rel) => {
   const out = await build({ entryPoints: [entry], bundle: true, format: 'esm', write: false, platform: 'neutral' });
   return import('data:text/javascript;base64,' + Buffer.from(out.outputFiles[0].text).toString('base64'));
 };
-const { vacancyCost, compareManagers, parseAmount, clampDays, lostRent, DAYS_IN_MONTH, MAX_DAYS } =
+const { vacancyCost, compareManagers, parseAmount, clampDays, lostRent, stickyLine, DAYS_IN_MONTH, MAX_DAYS } =
   await load('../../src/lib/calculators/vacancyCost.ts');
 const { estimateRent, describeEstimate, sqftHint, MIN_SQFT } = await load('../../src/lib/calculators/rentEstimate.ts');
 
@@ -156,6 +156,21 @@ t('default vacancy result at the 3 bed, 2 bath estimate', () => {
   const r = vacancyCost({ monthlyRent: 1805, daysVacant: 32, monthlyVacantCosts: 150, turnCost: 1500, leasingCost: 0 });
   assert.equal(Math.round(r.total), 3585);
   assert.equal(Math.round(r.perDay), 65);
+});
+
+const usd = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(Math.round(n));
+
+t('sticky bar line states the total', () => {
+  const r = vacancyCost({ monthlyRent: 1805, daysVacant: 32, monthlyVacantCosts: 150, turnCost: 1500, leasingCost: 0 });
+  assert.equal(stickyLine(r, usd), 'This vacancy costs you $3,585');
+});
+
+t('no output string mentions a plan', () => {
+  const r = vacancyCost({ monthlyRent: 1805, daysVacant: 32, monthlyVacantCosts: 150, turnCost: 1500, leasingCost: 0 });
+  const all = [stickyLine(r, usd), describeEstimate(estimateRent({ beds: '3', baths: '2' })),
+    describeEstimate(estimateRent({ beds: '2', baths: '1', sqft: 900 })), describeEstimate(estimateRent({ beds: '5+', baths: '3' })),
+    sqftHint('3'), sqftHint('5+')].join(' | ');
+  assert.ok(!/\bplans?\b/i.test(all), all);
 });
 
 console.log(`\nvacancy-cost: ${passed} tests passed`);

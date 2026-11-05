@@ -6,10 +6,11 @@ import Faq from '../../../components/Faq.astro';
 import Verified from '../../../components/Verified.astro';
 import RelatedLinks from '../../../components/RelatedLinks.astro';
 import Cta from '../../../components/Cta.astro';
+import CalcStickyBar from '../../../components/CalcStickyBar.astro';
 import { company, pricing, kpis, usd } from '../../../data/facts';
 import { rentByBedroom } from '../../../data/markets';
 import {
-  calculateReserve, defaultInputs, resultText, DEFAULT_MONTHS_OF_RENT,
+  calculateReserve, defaultInputs, resultText, stickyLine, DEFAULT_MONTHS_OF_RENT,
   type ReserveRates,
 } from '../../../lib/calculators/maintenanceReserve';
 
@@ -46,6 +47,13 @@ const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
 const m = pricing.maintenance;
 const RESERVE_MIN = pricing.reserves.min;
 const RESERVE_MAX = pricing.reserves.max;
+/**
+ * The per-item repair approval limit, as a range. Andrew 2026-11-05: the
+ * calculators never name a plan or say which limit or reserve goes with which.
+ */
+const approvalLimits = pricing.plans.map((p) => p.repairApprovalLimit);
+const APPROVAL_MIN = Math.min(...approvalLimits);
+const APPROVAL_MAX = Math.max(...approvalLimits);
 
 /** A repair priced at our published rates, at each of the three time bands. */
 const REPAIR_HOURS = 2;
@@ -112,7 +120,7 @@ const hintCls = 'text-[13px] text-faint mt-1.5 mb-0';
 const title = 'Maintenance Reserve Calculator for Rental Units | RL Property Management';
 const description =
   `How much to hold per unit for repairs, worked out at published Columbus rates. ${company.name} requires ` +
-  `${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit depending on plan, and a ${REPAIR_HOURS}-hour in-house ` +
+  `${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit, and a ${REPAIR_HOURS}-hour in-house ` +
   `repair runs ${usd(repairNormal)} on a weekday.`;
 
 const breadcrumbs = [
@@ -122,12 +130,12 @@ const breadcrumbs = [
 ];
 
 const answer =
-  `${company.name} holds ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit on your account, by plan. ` +
+  `${company.name} holds a ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per-unit reserve on your account. ` +
   `Behind that, keep at least ${DEFAULT_MONTHS_OF_RENT} months of rent per unit in your own reserve, plus a ` +
   `monthly set-aside for the roof, HVAC and other big items.`;
 
 const facts = [
-  `${company.shortName} holds a reserve of ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit, by plan`,
+  `${company.shortName} holds a reserve of ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit on your account`,
   'The reserve stays your money and is returned when management ends',
   `Our starting point for your own cash reserve is ${DEFAULT_MONTHS_OF_RENT} months of rent per unit`,
   `In-house labor is ${usd(m.inHouseHourly)} per hour plus a ${usd(m.tripCharge)} trip charge, ${m.rateYear} rate`,
@@ -139,7 +147,7 @@ const facts = [
 
 const faq = [
   { q: 'How much should I hold in reserve per rental unit?',
-    a: `Our starting point is at least ${DEFAULT_MONTHS_OF_RENT} months of rent per unit in your own reserve, plus a monthly set-aside for the big items. Separately, ${company.name} holds ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit on your account, depending on the plan, so routine repairs do not wait on funding. At our rates, a ${usd(RESERVE_MAX)} account reserve covers about ${reserveLevels[1].normalRepairs} weekday ${REPAIR_HOURS}-hour repairs.` },
+    a: `Our starting point is at least ${DEFAULT_MONTHS_OF_RENT} months of rent per unit in your own reserve, plus a monthly set-aside for the big items. Separately, ${company.name} holds ${usd(RESERVE_MIN)} to ${usd(RESERVE_MAX)} per unit on your account, so routine repairs do not wait on funding. At our rates, a ${usd(RESERVE_MAX)} account reserve covers about ${reserveLevels[1].normalRepairs} weekday ${REPAIR_HOURS}-hour repairs.` },
   { q: 'How does this calculator work?',
     a: `It adds ${DEFAULT_MONTHS_OF_RENT} months of rent (or the months you choose) to the cost of anything already past its expected life. That is the reserve. The monthly set-aside is each big item's replacement cost divided by the months it has left, plus a twelfth of a two-repair float at our ${usd(m.inHouseHourly)} hourly rate. Everything runs in your browser and nothing is sent anywhere.` },
   { q: 'Is six months of rent per unit too much?',
@@ -280,7 +288,7 @@ const faq = [
           </div>
 
           <!-- RESULTS -->
-          <div class="bg-navy text-white p-6 sm:p-8">
+          <div class="bg-navy text-white p-6 sm:p-8" id="mr-results">
             <div class="lg:sticky lg:top-24">
               <span class="eyebrow !text-[#f0b9c4]">Your result</span>
               <p id="mr-summary" class="sr-only" aria-live="polite" aria-atomic="true">{t['summary']}</p>
@@ -338,7 +346,7 @@ const faq = [
               <p id="mr-check" class="text-[14px] mt-5 mb-0 rounded-[10px] bg-white/10 p-3">{t['check']}</p>
               <p class="text-[13.5px] text-[#c9d6df] mt-4 mb-0">
                 With {company.shortName}, <span id="mr-account" class="text-white font-semibold">{t['account']}</span> of
-                this sits on your account as the maintenance reserve, set by plan. It is still your money.
+                this sits on your account as the maintenance reserve. It is still your money.
               </p>
 
               <div class="flex flex-wrap gap-3 mt-6">
@@ -371,7 +379,7 @@ const faq = [
         <div class="card">
           <h3 class="text-[19.5px] mb-2">The account reserve</h3>
           <p class="text-[15.5px] text-muted m-0">
-            {usd(RESERVE_MIN)} to {usd(RESERVE_MAX)} per unit on your {company.shortName} account, by plan. It
+            {usd(RESERVE_MIN)} to {usd(RESERVE_MAX)} per unit on your {company.shortName} account. It
             covers this month's repairs and is returned when management ends.
           </p>
         </div>
@@ -399,9 +407,9 @@ const faq = [
       <span class="eyebrow">The formula</span>
       <h2 id="formula-h" class="text-[clamp(28px,3.3vw,40px)]">How do you calculate a maintenance reserve?</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        Four lines, the same ones the calculator runs. On our plans the repair approval limit
-        ({pricing.plans.map((p, i) => <span>{i > 0 ? ', ' : ''}{p.name} {usd(p.repairApprovalLimit)}</span>)})
-        says what we can authorize without calling you, and the account reserve funds it.
+        Four lines, the same ones the calculator runs. Our repair approval limit, {usd(APPROVAL_MIN)} to
+        {' '}{usd(APPROVAL_MAX)} per item, says what we can authorize without calling you, and the account
+        reserve funds it.
       </p>
       <div class="card !bg-white mt-8">
         <ol class="grid gap-2.5 text-[16px]">
@@ -646,14 +654,16 @@ const faq = [
 
   <Cta
     heading="Want a second look at your reserve?"
-    body="A free consultation covers your property, which plan fits it, and how the reserve works on it. Every maintenance charge is on the published fee schedule."
+    body="A free consultation covers your property and how the reserve works on it. Every maintenance charge is on the published fee schedule."
     primary={{ label: 'Book a free consultation', href: '/property-management-consultation/' }}
     secondary={{ label: 'See pricing', href: '/pricing/' }}
   />
+
+  <CalcStickyBar target="#mr-results" text={stickyLine(exResult)} />
 </Base>
 
 <script>
-  import { calculateReserve, resultText, type ReserveInputs, type ReserveRates } from '../../../lib/calculators/maintenanceReserve';
+  import { calculateReserve, resultText, stickyLine, type ReserveInputs, type ReserveRates } from '../../../lib/calculators/maintenanceReserve';
 
   const form = document.getElementById('mr-calc') as HTMLFormElement | null;
   const fields = form?.querySelector<HTMLFieldSetElement>('[data-mr-fields]');
@@ -687,7 +697,10 @@ const faq = [
     let last = '';
     const update = () => {
       const input = read();
-      const text = resultText(input, calculateReserve(input, rates));
+      const result = calculateReserve(input, rates);
+      const text = resultText(input, result);
+      const bar = document.getElementById('calc-bar-text');
+      if (bar) bar.textContent = stickyLine(result);
       for (const [key, value] of Object.entries(text)) {
         if (key === 'summary') continue;
         const el = document.getElementById(`mr-${key}`);

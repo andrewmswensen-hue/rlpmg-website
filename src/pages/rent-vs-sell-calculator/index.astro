@@ -4,12 +4,13 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
+import CalcStickyBar from '../../components/CalcStickyBar.astro';
 import { company, pricing, usd } from '../../data/facts';
 import { rentByBedroom } from '../../data/markets';
 import { serviceNode } from '../../lib/schema';
 import {
-  DEFAULTS, MANAGEMENT_OPTIONS, EXCLUSION_JOINT, EXCLUSION_SINGLE,
-  model, toInputs, verdict, scenarioLine, stats, hints, chartSvg, chartCaption,
+  DEFAULTS, MANAGEMENT_OPTIONS, EXCLUSION_JOINT, EXCLUSION_SINGLE, RL_MONTHLY,
+  model, toInputs, verdict, stickyLine, scenarioLine, stats, hints, chartSvg, chartCaption,
   breakdownHtml, tableRowsHtml, money, num, type RvsState,
 } from '../../lib/calculators/rentVsSell';
 
@@ -49,7 +50,6 @@ const R = model(toInputs(S));
 const V = verdict(R, S);
 const H = hints(S, R);
 const sm = R.summary;
-const plan = pricing.plans.find((p) => p.id === S.management) ?? pricing.plans[1];
 const cf1 = sm.monthlyCashFlowY1;
 const carry = cf1 < 0 ? `costs about ${money(-cf1)} a month to carry in year one` : `clears about ${money(cf1)} a month in year one`;
 
@@ -235,7 +235,7 @@ const statList = stats(R);
                 <select id="rvs-management" name="management" data-k="management" class="rvs-input rvs-select" aria-describedby="rvs-management-h">
                   {MANAGEMENT_OPTIONS.map((o) => <option value={o.value} selected={o.value === S.management}>{o.label}</option>)}
                 </select>
-                <p class="rvs-hint" id="rvs-management-h"><strong data-live="management">{H.management}</strong> Our plans differ only in the repair approval limit.
+                <p class="rvs-hint" id="rvs-management-h"><strong data-live="management">{H.management}</strong>
                   <a href="/pricing/" class="text-crimson underline underline-offset-2">See pricing</a></p>
                 <div class="mt-3" data-when-k="management" data-when-v="percent" hidden={!shown('management', 'percent')}>
                   <label for="rvs-pmRate" class="rvs-label">Management, share of rent collected<span class="sr-only">, percent</span></label>
@@ -249,7 +249,7 @@ const statList = stats(R);
           </fieldset>
 
           <fieldset class="rvs-group">
-            <legend class="rvs-legend">Your plans</legend>
+            <legend class="rvs-legend">Your situation</legend>
             <div class="rvs-fields">
               <div class="rvs-field rvs-wide">
                 <div class="flex items-baseline justify-between gap-3">
@@ -311,7 +311,7 @@ const statList = stats(R);
         </form>
 
         <!-- ================= RESULTS ================= -->
-        <section class="rvs-results" aria-labelledby="rvs-results-h">
+        <section class="rvs-results" id="rvs-results" aria-labelledby="rvs-results-h">
           <h2 id="rvs-results-h" class="sr-only">Results</h2>
 
           <section class="card rvs-verdict">
@@ -400,7 +400,7 @@ const statList = stats(R);
           <li><strong>Depreciation</strong> runs straight line over 27.5 years on the building, not the land, and is taxed back as recapture when you sell.</li>
           <li><strong>The primary-residence exclusion</strong> needs 2 of the 5 years before the sale as your home, so it runs out 3 years after you move out. That is the step down in the chart.</li>
           <li><strong>Rental losses</strong> carry forward and are used when you sell.</li>
-          <li><strong>Management</strong> defaults to our {plan.name} price, {usd(plan.monthly)} a month with a {usd(pricing.leasingFee)} leasing fee. You can switch plans, enter a percent or manage it yourself.</li>
+          <li><strong>Management</strong> defaults to {company.name} at {usd(RL_MONTHLY)} a month with a {usd(pricing.leasingFee)} leasing fee. You can enter another manager's percent of rent or manage it yourself.</li>
           <li><strong>Cash earns the same return</strong> on both sides: the sale proceeds and the rental cash flow.</li>
           <li><strong>Not modeled:</strong> a 1031 exchange, cost segregation, the net investment income tax, AMT, the QBI deduction and income limits on passive losses.</li>
         </ul>
@@ -429,12 +429,14 @@ const statList = stats(R);
 
   <Cta heading="Not sure what it would rent for?"
        body="That one number changes the whole answer. A free rent evaluation uses our own portfolio data and current comps." />
+
+  <CalcStickyBar target="#rvs-results" text={stickyLine(R)} />
 </Base>
 
 <script>
   import {
-    DEFAULTS, model, toInputs, verdict, scenarioLine, stats, hints, chartSvg, chartCaption,
-    breakdownHtml, tableRowsHtml, num, parseNum, type RvsState,
+    DEFAULTS, model, toInputs, verdict, stickyLine, scenarioLine, stats, hints, chartSvg, chartCaption,
+    breakdownHtml, tableRowsHtml, num, parseNum, normalizeManagement, type RvsState,
   } from '../../lib/calculators/rentVsSell';
 
   const form = document.getElementById('rvs-form') as HTMLFormElement | null;
@@ -493,7 +495,7 @@ const statList = stats(R);
         if (typeof d[k] === 'boolean') s[k] = v === '1';
         else if (typeof d[k] === 'number') s[k] = parseNum(v);
         else if (k === 'propertyTaxMode') s[k] = v === 'dollar' ? 'dollar' : 'percent';
-        else if (k === 'management' && form!.querySelector(`#rvs-management option[value="${CSS.escape(v)}"]`)) s[k] = v;
+        else if (k === 'management') s[k] = normalizeManagement(v);   /* old plan links map to RL */
       }
     }
 
@@ -518,6 +520,7 @@ const statList = stats(R);
         set('rvs-v-amount', ''); set('rvs-v-tail', '');
         set('rvs-v-note', 'Everything else is calculated from that number, so it comes first.');
         set('rvs-scenario', '');
+        set('calc-bar-text', 'Enter what your home is worth today');
         return;
       }
 
@@ -526,6 +529,7 @@ const statList = stats(R);
       set('rvs-v-lead', V.lead); set('rvs-v-amount', V.amount); set('rvs-v-tail', V.tail);
       set('rvs-v-note', V.note);
       set('rvs-scenario', scenarioLine(state));
+      set('calc-bar-text', stickyLine(R));
 
       $('rvs-stats')!.innerHTML = stats(R).map((s) =>
         `<div class="rvs-stat"><div class="rvs-stat-label">${s.label}</div>` +

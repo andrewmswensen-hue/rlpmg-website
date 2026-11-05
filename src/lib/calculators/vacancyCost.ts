@@ -155,3 +155,7 @@ export function compareManagers(c: CompareInputs): CompareResult {
   // Difference of the rounded totals, so the sentence matches the two figures shown above it.
   return { other, rl, difference: Math.round(other.total) - Math.round(rl.total) };
 }
+
+/** The short headline for the mobile sticky bar. `money` formats whole dollars (pass usd from facts.ts). */
+export const stickyLine = (r: VacancyResult, money: (n: number) => string): string =>
+  `This vacancy costs you ${money(r.total)}`;

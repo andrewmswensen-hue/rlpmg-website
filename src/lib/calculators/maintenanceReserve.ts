@@ -213,6 +213,10 @@ export function calculateReserve(input: ReserveInputs, rates: ReserveRates): Res
 export const money = (n: number) =>
   new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(Math.round(n));
 
+/** The short headline for the mobile sticky bar. Plain text, one or two lines on a phone. */
+export const stickyLine = (r: ReserveResult): string =>
+  `Hold ${money(r.total.reserve)}, set aside ${money(r.total.monthly)} a month`;
+
 /** 6 -> "6", 4.5 -> "4.5", 2.25 -> "2.3". */
 const num = (n: number) => (Number.isInteger(n) ? String(n) : n.toFixed(1).replace(/\.0$/, ''));
 const plural = (n: number, one: string, many: string) => `${num(n)} ${n === 1 ? one : many}`;

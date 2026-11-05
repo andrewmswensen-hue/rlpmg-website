@@ -1,0 +1,115 @@
+---
+/**
+ * Mobile sticky result bar for the four calculators.
+ *
+ * On a phone the results sit below a long form, so an owner typing into the
+ * form cannot see the answer change. This bar pins the one headline result to
+ * the bottom of the screen while they type, with a button that jumps to the
+ * full results.
+ *
+ * How it behaves:
+ *  - Phones only (under the sm breakpoint, 640px), and only after JavaScript
+ *    runs: the markup ships with `hidden`, and nothing without the script can
+ *    unhide it. With JavaScript off the page is exactly as before.
+ *  - Shown only while the full results are still BELOW the screen (the owner is
+ *    in the form). Hidden as soon as the results scroll onto the screen, and it
+ *    stays hidden once they are scrolled past, so it never covers or repeats them.
+ *  - The site-wide mobile call-to-action bar from Base.astro (Free consultation
+ *    / Call) is hidden under 640px only while this bar is showing, so the two
+ *    never stack. Above 640px, and whenever this bar is hidden, the global bar
+ *    works as it does on every other page. No change to Base.astro is needed.
+ *  - Not a live region and not aria-hidden: the main results already announce
+ *    changes to screen readers, so this one stays quiet. The button is a real
+ *    button and moves focus to the results.
+ *
+ * Usage, one per page:
+ *   <CalcStickyBar target="#rvs-results" text={initialLine} />
+ * `target` is a CSS selector for the results block. The page's own script
+ * keeps the line current by writing to the element with id "calc-bar-text".
+ */
+interface Props {
+  /** CSS selector for the full results block the button scrolls to. */
+  target: string;
+  /** The headline result for the worked example, so the first paint is right. */
+  text: string;
+}
+const { target, text } = Astro.props;
+---
+<div class="calc-bar" id="calc-bar" data-target={target} role="region" aria-label="Result summary" hidden>
+  <p class="calc-bar-text" id="calc-bar-text">{text}</p>
+  <button type="button" class="calc-bar-btn" id="calc-bar-btn">See details</button>
+</div>
+
+<script>
+  const bar = document.getElementById('calc-bar');
+  const target = bar?.dataset.target ? document.querySelector<HTMLElement>(bar.dataset.target) : null;
+
+  if (bar && target && 'IntersectionObserver' in window) {
+    const body = document.body;
+    body.classList.add('calc-bar-ready');
+    target.setAttribute('data-calc-results', '');
+
+    const show = (on: boolean) => {
+      bar.hidden = !on;
+      body.classList.toggle('calc-bar-on', on);
+    };
+
+    /* Show only while the results are below the screen. Once they are on screen,
+       or already scrolled past, the bar has nothing to add. */
+    const check = () => show(target.getBoundingClientRect().top >= window.innerHeight);
+    new IntersectionObserver(check).observe(target);
+    /* The observer only fires when the results cross the screen edge. A jump that
+       skips over them (tapping the iPhone status bar to go back to the top) does
+       not cross it, so also re-check on scroll, at most once a frame. */
+    let queued = false;
+    window.addEventListener('scroll', () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => { queued = false; check(); });
+    }, { passive: true });
+
+    document.getElementById('calc-bar-btn')?.addEventListener('click', () => {
+      const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+      target.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'start' });
+      target.focus({ preventScroll: true });
+    });
+  }
+</script>
+
+<style is:global>
+  /* Global because it styles body and the Base.astro bar. Every selector is calc-bar scoped. */
+  .calc-bar { display: none; }
+  @media (max-width: 639px) {
+    .calc-bar:not([hidden]) {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 41;
+      display: flex; align-items: center; gap: 12px;
+      min-height: 60px; padding: 8px 14px calc(8px + env(safe-area-inset-bottom));
+      background: #123143; color: #fff;
+      box-shadow: 0 -6px 20px rgb(18 49 67 / .18);
+    }
+    .calc-bar-text {
+      flex: 1 1 auto; min-width: 0; margin: 0;
+      font-family: var(--font-sans); font-size: 15px; font-weight: 600; line-height: 1.3;
+      font-variant-numeric: tabular-nums;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .calc-bar-btn {
+      flex: 0 0 auto; padding: 9px 14px; border-radius: 999px; border: 0; cursor: pointer;
+      background: #fff; color: #123143;
+      font-family: var(--font-sans); font-size: 14px; font-weight: 700; white-space: nowrap;
+    }
+    .calc-bar-btn:hover { background: #f3f7fa; }
+    .calc-bar-btn:focus-visible { outline: 3px solid #f0b9c4; outline-offset: 2px; }
+
+    /* One bar at a time: the site-wide call-to-action bar steps aside while this one shows. */
+    body.calc-bar-on .mobile-cta { display: none; }
+    /* Room at the end of the page for whichever bar is showing, plus the iPhone home indicator. */
+    body.calc-bar-ready { padding-bottom: calc(76px + env(safe-area-inset-bottom)); }
+    /* When the browser scrolls a focused field into view, keep it clear of the bar. */
+    html:has(body.calc-bar-on) { scroll-padding-bottom: 84px; }
+  }
+  /* The sticky header would otherwise cover the top of the results after "See details". */
+  [data-calc-results] { scroll-margin-top: 88px; }
+  [data-calc-results]:focus { outline: none; }
+</style>

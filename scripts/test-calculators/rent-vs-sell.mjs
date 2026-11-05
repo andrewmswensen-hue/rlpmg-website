@@ -143,13 +143,22 @@ ok('lossBenefit reconciles netProceeds', R.rows.every((x) => near(x.netProceeds,
   x.houseValue - x.sellingCosts - x.mortgageBalance - x.recaptureTax - x.capGainsTax + x.lossBenefit, 0.01)), 'mismatch', 'match');
 
 console.log('\n--- DEFAULTS AND FACTS ---');
-ok('default management is a published RLPM plan', pricing.plans.some((p) => p.id === RVS.DEFAULTS.management), RVS.DEFAULTS.management, 'a plan id');
-const plansInOptions = pricing.plans.every((p) => RVS.MANAGEMENT_OPTIONS.some((o) => o.value === p.id && o.monthly === p.monthly));
-ok('every plan price comes from facts.ts', plansInOptions, 'mismatch', 'match');
+ok('default management is RL Property Management', RVS.DEFAULTS.management === 'rl', RVS.DEFAULTS.management, 'rl');
+ok('RL price is the $137 standard price from facts.ts', RVS.RL_MONTHLY === pricing.plans[1].monthly && RVS.RL_MONTHLY === 137,
+  RVS.RL_MONTHLY, pricing.plans[1].monthly);
+const rlOpt = RVS.MANAGEMENT_OPTIONS.find((o) => o.value === 'rl');
+ok('RL option carries the facts.ts price', rlOpt && rlOpt.mode === 'flat' && rlOpt.monthly === pricing.plans[1].monthly, rlOpt?.monthly, pricing.plans[1].monthly);
+ok('three management options: RL, another manager, self',
+  RVS.MANAGEMENT_OPTIONS.map((o) => o.value).join(',') === 'rl,percent,self', RVS.MANAGEMENT_OPTIONS.map((o) => o.value).join(','), 'rl,percent,self');
+ok('old share links: every plan id maps to RL', ['plan-one', 'plan-two', 'plan-three'].every((v) => RVS.normalizeManagement(v) === 'rl'), 'not rl', 'rl');
+ok('unknown management value falls back to RL', RVS.normalizeManagement('nope') === 'rl' && RVS.normalizeManagement(undefined) === 'rl', 'other', 'rl');
+ok('current values pass through', RVS.normalizeManagement('percent') === 'percent' && RVS.normalizeManagement('self') === 'self', 'changed', 'unchanged');
+const oldLink = RVS.model(RVS.toInputs({ ...RVS.DEFAULTS, management: 'plan-three' }));
+ok('old plan-three link prices management at the RL price', near(oldLink.rows[0].breakdown.management, RVS.RL_MONTHLY * 12, 0.01),
+  oldLink.rows[0].breakdown.management.toFixed(0), RVS.RL_MONTHLY * 12);
 const D = RVS.model(RVS.toInputs(RVS.DEFAULTS));
-const plan = pricing.plans.find((p) => p.id === RVS.DEFAULTS.management);
-ok('defaults: year 1 management = plan price x 12', near(D.rows[0].breakdown.management, plan.monthly * 12, 0.01),
-  D.rows[0].breakdown.management.toFixed(0), plan.monthly * 12);
+ok('defaults: year 1 management = RL price x 12', near(D.rows[0].breakdown.management, RVS.RL_MONTHLY * 12, 0.01),
+  D.rows[0].breakdown.management.toFixed(0), RVS.RL_MONTHLY * 12);
 ok('defaults: same honest home (285k value, 2,050 rent, 150k owed)',
   RVS.DEFAULTS.homeValue === 285000 && RVS.DEFAULTS.monthlyRent === 2050 && RVS.DEFAULTS.mortgageBalance === 150000, 'changed', 'unchanged');
 ok('defaults: no NaN', !JSON.stringify(D).match(/NaN|null/), 'NaN', 'clean');
@@ -162,9 +171,16 @@ const S = RVS.DEFAULTS;
 const v = RVS.verdict(D, S);
 const allText = [v.plain, v.note, RVS.scenarioLine(S), RVS.chartCaption(D.rows), RVS.breakdownHtml(D, S),
   RVS.tableRowsHtml(D.rows), RVS.chartSvg(D.rows, 640), RVS.chartSvg(D.rows, 320),
-  ...RVS.stats(D).flatMap((s) => [s.label, s.value, s.sub]), ...Object.values(RVS.hints(S, D))].join(' ');
+  ...RVS.stats(D).flatMap((s) => [s.label, s.value, s.sub]), ...Object.values(RVS.hints(S, D)),
+  RVS.stickyLine(D), ...RVS.MANAGEMENT_OPTIONS.map((o) => o.label),
+  ...['percent', 'self'].map((m) => Object.values(RVS.hints({ ...S, management: m }, D)).join(' '))].join(' ');
 ok('no em or en dashes in any generated text', !dashes.test(allText), allText.match(dashes)?.[0], 'none');
 ok('no NaN or undefined in generated text', !/NaN|undefined|Infinity/.test(allText), 'found', 'none');
+ok('no output string mentions a plan', !/\bplans?\b/i.test(allText), allText.match(/.{0,30}\bplans?\b.{0,30}/i)?.[0], 'none');
+ok('sticky line: renting case', RVS.stickyLine(D) === `Renting comes out ahead by ${RVS.money(Math.abs(D.summary.difference))} over ${D.summary.years} years`,
+  RVS.stickyLine(D), 'Renting comes out ahead by ...');
+ok('sticky line: selling case', RVS.stickyLine(RVS.model({ ...base, monthlyRent: 1200 })).startsWith('Selling now comes out ahead by'),
+  RVS.stickyLine(RVS.model({ ...base, monthlyRent: 1200 })), 'Selling now ...');
 ok('verdict names the winning side', /^(Renting|Selling)/.test(v.plain), v.plain, 'Renting/Selling ...');
 ok('money() uses a true minus sign', RVS.money(-1234.4) === '−$1,234', RVS.money(-1234.4), '−$1,234');
 ok('parseNum strips commas and $', RVS.parseNum('$285,000') === 285000, RVS.parseNum('$285,000'), 285000);
