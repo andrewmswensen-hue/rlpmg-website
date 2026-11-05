@@ -1,5 +1,6 @@
 ---
 title: "How to Handle Abandoned Tenant Property in Ohio"
+seoTitle: "Abandoned Tenant Property in Ohio: A Landlord’s Guide"
 description: "The tenant is gone. The couch, the boxes, and half a closet of clothes are not. Before anything goes in a dumpster, it’s worth knowing that Ohio law says less about this situation than most landlords assume, and that the gap is where owners get sued. TL;DR Ohio has no statute spelling out how landlo"
 pubDate: "2026-08-27T09:19:37Z"
 updatedDate: "2026-09-01T13:49:12Z"

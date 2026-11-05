@@ -1,5 +1,6 @@
 ---
 title: "Central Ohio Landlord Policy Updates, Week of 4/20/2026"
+seoTitle: "Central Ohio Landlord Policy Update Week of 4/20/2026"
 description: "This is the weekly Central Ohio landlord policy update. Five featured items get the full treatment below, followed by a quick-hits section covering the rest of the municipal activity worth tracking this week. Most of this activity happens in rooms landlords do not have time to sit in, and it is wort"
 pubDate: "2026-04-20T14:14:22Z"
 updatedDate: "2026-06-02T15:56:46Z"

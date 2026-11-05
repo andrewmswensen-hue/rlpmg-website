@@ -1,5 +1,6 @@
 ---
 title: "New Albany Rental Market Guide (2026)"
+seoTitle: "New Albany, Ohio Rental Market Guide (2026)"
 description: "Ten years ago, New Albany was a master-planned suburb known for white fences and good schools. In 2026, it sits at the center of the largest concentration of tech and advanced manufacturing investment in Ohio’s history, and the rental math has changed with it. TL;DR New Albany is Columbus’s premium"
 pubDate: "2026-08-17T08:39:11Z"
 updatedDate: "2026-08-17T17:46:31Z"

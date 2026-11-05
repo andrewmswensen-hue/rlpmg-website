@@ -1,5 +1,6 @@
 ---
 title: "Central Ohio Landlord Policy Updates | Week of May 4, 2026"
+seoTitle: "Central Ohio Landlord Policy Updates: May 4, 2026"
 description: "This was a heavy week for landlords with property anywhere from Plain City out to Lancaster. Five suburbs moved consequential housing-related items, and another eight took action worth knowing about. The headline: Plain City is preparing to shift from complaint-driven property maintenance to active"
 pubDate: "2026-05-04T14:21:42Z"
 updatedDate: "2026-06-02T15:55:34Z"

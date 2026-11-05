@@ -20,7 +20,7 @@ import { serviceNode } from '../../lib/schema';
  * Every number reads from src/data/facts.ts.
  */
 
-const title = 'Property Management in Columbus, Ohio | RL Property Management';
+const title = 'Columbus Property Management Company | RL Property Management';
 const description =
   `${company.name} manages ${company.unitsManaged} single-family and small multifamily rentals across the Columbus, Ohio metro. ` +
   `Flat pricing from ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee.`;
@@ -96,7 +96,7 @@ const schemaNodes = [
 
   <PageHero
     eyebrow="For rental property owners"
-    title="Property management in Columbus, Ohio"
+    title="Columbus property management company"
     answer={`${company.name} manages ${company.unitsManaged} single-family and small multifamily rentals across the Columbus metro. Management is a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, the leasing fee is ${usd(pricing.leasingFee)}, and there is no startup fee on an occupied unit.`}
     breadcrumbs={breadcrumbs}
     primaryCta={{ label: 'Get a free rent evaluation', href: '/free-rent-evaluation/' }}

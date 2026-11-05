@@ -1,6 +1,6 @@
 ---
 title: "Columbus Rental Registry Update: What Landlords and Property Owners Should Know"
-seoTitle: "Columbus Rental Registry Update for Property Owners"
+seoTitle: "Columbus Rental Registry: What Landlords Need to Know"
 description: "Columbus City Council passed the citywide rental registry on April 20, 2026, creating City Code Chapter 4515. Here is what the ordinance requires of rental property owners, what it costs per unit, how the inspections work, and what is still unsettled."
 pubDate: "2026-03-04T18:17:14Z"
 updatedDate: "2026-09-10T00:00:00Z"

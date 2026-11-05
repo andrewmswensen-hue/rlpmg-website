@@ -1,5 +1,6 @@
 ---
 title: "Bexley Rental Market Guide (2026)"
+seoTitle: "Bexley, Ohio Rental Market Guide (2026)"
 description: "Bexley is three miles from downtown Columbus, wrapped on three sides by the city, and priced like neither of those things. For investors, it’s a live demonstration of what school district demand and constrained inventory do to a rental market. TL;DR Bexley is a premium, supply-constrained rental sub"
 pubDate: "2026-08-24T09:39:08Z"
 updatedDate: "2026-08-17T17:46:24Z"

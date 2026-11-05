@@ -1,5 +1,6 @@
 ---
 title: "2026 Columbus Single-Family Rental Market Update"
+seoTitle: "2026 Columbus Rental Market Update: SFR Investor Report"
 description: "Columbus remains one of the strongest single-family rental markets in the Midwest, but the 2026 investor playbook looks different from 2025. Intel is delayed. The rental registry passed. Property taxes are reappraising. Here’s what matters and what to do about it. TL;DR Columbus single-family rental"
 pubDate: "2026-04-20T10:39:48Z"
 updatedDate: "2026-06-02T15:42:52Z"

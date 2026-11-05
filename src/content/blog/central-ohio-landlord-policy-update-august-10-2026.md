@@ -1,5 +1,6 @@
 ---
 title: "Central Ohio Landlord Policy Update, Week of August 10, 2026"
+seoTitle: "Central Ohio Landlord Policy Update Aug 10, 2026"
 description: "Powell just closed the book on an eighteen-month zoning rewrite, Whitehall is weighing two ordinances that could touch construction and tenant activity, and a Franklin zoning board meets tonight. Here is what Central Ohio landlords need to track this week. TL;DR Powell City Council approved an updat"
 pubDate: "2026-08-11T17:51:34Z"
 updatedDate: "2026-08-21T18:47:26Z"

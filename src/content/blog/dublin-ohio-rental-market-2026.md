@@ -1,5 +1,6 @@
 ---
 title: "2026 Dublin (Columbus, OH) Rental Market Guide for Investors"
+seoTitle: "Dublin OH Rental Market Guide (2026)"
 description: "The #1 school district in the Columbus area. More than 20 corporate headquarters. A walkable mixed-use district that keeps winning national attention. Dublin commands premium rents for a reason, and 2026 is adding more fuel. Here’s the investor breakdown. TL;DR Dublin is the premium suburban rental"
 pubDate: "2026-04-30T08:52:15Z"
 updatedDate: "2026-06-02T15:55:45Z"

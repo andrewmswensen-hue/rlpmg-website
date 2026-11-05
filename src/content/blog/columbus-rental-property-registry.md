@@ -1,6 +1,6 @@
 ---
 title: "Columbus Considers Rental Property Registry: What Landlords Need to Know"
-seoTitle: "Columbus Rental Property Registry: What to Know"
+seoTitle: "Columbus Rental Property Registry Explained for Landlords"
 description: "Columbus now has a rental property registry. Council passed City Code Chapter 4515 on April 20, 2026. Here is what a registry is, why the city adopted one, what it requires of Columbus landlords, and how to prepare before the first deadline is published."
 pubDate: "2026-02-02T08:22:50Z"
 updatedDate: "2026-09-10T00:00:00Z"
