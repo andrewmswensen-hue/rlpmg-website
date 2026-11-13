@@ -39,7 +39,7 @@ export const nav: NavItem[] = [
         links: [
           { label: 'What we do', href: '/services/', note: 'Everything full service management covers.' },
           { label: 'Marketing and leasing', href: '/services/marketing-and-leasing/', note: 'How a vacant unit becomes a signed lease.' },
-          { label: 'Resident screening', href: '/services/tenant-screening/', note: 'What we check, applied the same way every time.' },
+          { label: 'Tenant screening', href: '/services/tenant-screening/', note: 'What we check, applied the same way every time.' },
         ],
       },
       {
