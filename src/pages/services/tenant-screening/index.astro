@@ -9,6 +9,7 @@ import Cta from '../../../components/Cta.astro';
 import { company, pricing, kpis, usd } from '../../../data/facts';
 import { serviceNode } from '../../../lib/schema';
 import LegalNote from '../../../components/LegalNote.astro';
+import ServiceVignettes from '../../../components/ServiceVignettes.astro';
 
 /**
  * Intent: "tenant screening columbus", "how to screen tenants ohio",
@@ -131,6 +132,7 @@ const schemaNodes = [
           </div>
         ))}
       </div>
+      <ServiceVignettes only="screening" link={false} label="One standard, every applicant" />
     </div>
   </section>
 

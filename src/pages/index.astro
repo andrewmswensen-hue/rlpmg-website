@@ -21,6 +21,16 @@ const avgRent = kpi('avgRent');
 /** A typical manager's leasing fee (facts.ts typicalManager, 75% of a month) on our average rent. */
 const leasingSaving = typicalManager.leasingFee(Number(avgRent.replace(/[^0-9.]/g, '')));
 const heroStats = kpis.metrics.filter((m) => ['dom', 'collectedBy5', 'renewal', 'repairDays'].includes(m.id));
+/**
+ * Count-up settings for a scorecard value (motion.css .rv-count), read from the
+ * value string itself: '72%' -> --to:72 with a % suffix, '20' -> --to:20. The
+ * counter prints whole numbers with no thousands separator, so anything else
+ * ('4.3', '$1,653') returns null and stays static.
+ */
+const countUp = (v: string) => {
+  const m = v.match(/^(\$?)(\d{1,3})(%?)$/);
+  return m ? { style: `--to:${m[2]}`, 'data-pre': m[1] || undefined, 'data-suf': m[3] || undefined } : null;
+};
 
 const services = [
   { h: 'Marketing and leasing', p: 'Listed on every major rental site and priced with our own Columbus data.', href: '/services/marketing-and-leasing/', cta: 'How leasing works', icon: 'key' },
@@ -248,9 +258,9 @@ const schemaNodes = [serviceNode({
           it is hidden from assistive technology and the list still reads as an
           ordered list of four steps.
         -->
-        <div class="hidden lg:block absolute left-[12.5%] right-[12.5%] top-[26px] h-px bg-line" aria-hidden="true"></div>
+        <div class="hidden lg:block absolute left-[12.5%] right-[12.5%] top-[26px] h-px bg-line rv-grow-x" aria-hidden="true"></div>
         {howItWorks.map((step, i) => (
-          <li class="relative text-center">
+          <li class="relative text-center rv" style={`--i:${i}`}>
             <div class="w-[52px] h-[52px] mx-auto rounded-full border-2 border-crimson bg-white
                         grid place-items-center font-serif text-[20px] font-semibold text-navy relative z-10">
               {i + 1}
@@ -297,6 +307,18 @@ const schemaNodes = [serviceNode({
   <section class="bg-crimson text-white" aria-labelledby="noleasing-h">
     <div class="wrap py-12 sm:py-14 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
       <div>
+        <!-- The typical fee struck through, then our $0. Static (with a plain
+             line-through) wherever scroll animation is off; see the style block. -->
+        <p class="font-sans m-0 mb-5 inline-flex flex-wrap items-baseline gap-x-6 gap-y-1 rounded-[14px] bg-white/10 px-4 py-2.5">
+          <span class="inline-flex items-baseline gap-3 whitespace-nowrap">
+            <span class="text-[11px] font-bold tracking-[.14em] uppercase text-[#f3c5cd]">Typical leasing fee</span>
+            <s class="lf-was rv-strike text-[21px] font-bold text-[#f3c5cd] tabular-nums">{usd(leasingSaving)}</s>
+          </span>
+          <span class="inline-flex items-baseline gap-3 whitespace-nowrap">
+            <span class="text-[11px] font-bold tracking-[.14em] uppercase text-[#f3c5cd]">Ours</span>
+            <span class="rv-pop inline-block text-[26px] font-extrabold text-white leading-none tabular-nums">{usd(pricing.leasingFee)}</span>
+          </span>
+        </p>
         <h2 id="noleasing-h" class="!text-white text-[clamp(28px,3.4vw,42px)] mb-3">No leasing fees. On every plan.</h2>
         <p class="text-[17.5px] text-white/90 max-w-[40em] m-0">
           Most Columbus managers charge about {typicalManager.leasingFeePhrase} every time they place a resident. At our
@@ -320,12 +342,17 @@ const schemaNodes = [serviceNode({
         <a href="/key-performance-indicators/" class="btn btn-navy">See the full scorecard</a>
 
         <div class="grid grid-cols-2 gap-4 mt-9">
-          {heroStats.map((m) => (
+          {heroStats.map((m) => {
+            const cu = countUp(m.value);
+            return (
             <div class="border-l-2 border-crimson pl-4">
-              <div class="font-sans text-[30px] font-extrabold text-navy tracking-[-.035em] leading-none">{m.value}</div>
+              <div class="font-sans text-[30px] font-extrabold text-navy tracking-[-.035em] leading-none">
+                {cu ? <span class="rv-count" {...cu}>{m.value}</span> : m.value}
+              </div>
               <div class="text-[13.5px] text-muted mt-1.5">{m.label}</div>
             </div>
-          ))}
+            );
+          })}
         </div>
         <p class="text-[13px] text-faint mt-5 mb-0">As of {kpis.asOfLabel}.</p>
       </div>
@@ -416,3 +443,14 @@ const schemaNodes = [serviceNode({
     </div>
   </section>
 </Base>
+
+<style>
+  /* The struck-through typical fee keeps a plain line-through by default, and
+     hands it to the animated .rv-strike line only where that line can draw. */
+  .lf-was { text-decoration: line-through; text-decoration-thickness: 2px; }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .lf-was { text-decoration: none; }
+    }
+  }
+</style>

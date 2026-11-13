@@ -1,0 +1,114 @@
+/*
+ * MOTION KIT (Andrew, 2026-11-13). Scroll-reveal animations in the spirit of
+ * findigs.com, built so they cost the site nothing:
+ *
+ *  - Pure CSS. No JavaScript: the animations run on the browser's scroll-driven
+ *    animation timeline (animation-timeline: view()). Chrome, Edge and Safari
+ *    animate; any browser without support shows the finished state.
+ *  - The FINISHED state is the default. Every class below only adds motion inside
+ *    @supports + prefers-reduced-motion: no-preference, so search engines, AI
+ *    crawlers, print, and anyone who asked for reduced motion see the real chart
+ *    and the real number immediately.
+ *  - Only transform, opacity, clip-path and stroke-dashoffset animate: no layout
+ *    work, no layout shift.
+ *  - Nothing in the first screen of a page should use these (protects LCP).
+ *
+ * UTILITIES
+ *  .rv            fade and rise into view
+ *  .rv-grow-y     bar grows up from its base (set the bar's real height in HTML)
+ *  .rv-grow-x     bar grows from the left
+ *  .rv-draw       SVG line draws itself. Give the path pathLength="1".
+ *  .rv-check      a checklist row: the row fades in, then its tick pops
+ *  .rv-count      a number counts up. Markup:
+ *                   <span class="rv-count" style="--to:72" data-suf="%">72%</span>
+ *                 The real text stays in the page (read by screen readers and
+ *                 search engines); while animating it is hidden behind a counter
+ *                 drawn with alt text "" so nothing is read twice. Integers only.
+ *  .rv-strike     a line strikes through the element (for "$1,240" -> "$0")
+ *  .rv-pop        scales in slightly, for a badge or stamp ("Approved", "$0")
+ *
+ * STAGGER: set --i on siblings (style="--i:2") to start each a little later.
+ * The range variables (--rv-start, --rv-end) can be overridden per element.
+ */
+
+@property --rl-n {
+  syntax: '<integer>';
+  inherits: false;
+  initial-value: 0;
+}
+
+.rv-count { position: relative; display: inline-block; }
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+
+    .rv, .rv-grow-y, .rv-grow-x, .rv-draw, .rv-check, .rv-strike, .rv-pop, .rv-count::after {
+      --rv-step: 5%;
+      animation-timeline: view();
+      animation-fill-mode: both;
+      animation-timing-function: cubic-bezier(.2, .7, .2, 1);
+      animation-range:
+        entry calc(var(--rv-start, 8%) + var(--i, 0) * var(--rv-step))
+        cover calc(var(--rv-end, 32%) + var(--i, 0) * var(--rv-step));
+    }
+
+    .rv { animation-name: rv-rise; }
+    @keyframes rv-rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    .rv-grow-y { animation-name: rv-grow-y; transform-origin: 50% 100%; }
+    @keyframes rv-grow-y { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+    .rv-grow-x { animation-name: rv-grow-x; transform-origin: 0 50%; }
+    @keyframes rv-grow-x { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+    .rv-draw { animation-name: rv-draw; stroke-dasharray: 1; }
+    @keyframes rv-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+
+    .rv-check { animation-name: rv-rise; }
+    .rv-check .rv-tick {
+      animation: rv-pop linear both;
+      animation-timeline: view();
+      animation-range:
+        entry calc(var(--rv-start, 8%) + var(--i, 0) * 5% + 6%)
+        cover calc(var(--rv-end, 32%) + var(--i, 0) * 5% + 6%);
+    }
+
+    .rv-pop { animation-name: rv-pop; }
+    @keyframes rv-pop {
+      0%   { opacity: 0; transform: scale(.6); }
+      70%  { opacity: 1; transform: scale(1.08); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    .rv-strike { position: relative; }
+    .rv-strike::after {
+      content: ""; position: absolute; left: -4%; right: -4%; top: 52%;
+      height: .09em; min-height: 2px; background: currentColor; border-radius: 2px;
+      transform-origin: 0 50%;
+      animation: rv-grow-x linear both;
+      animation-timeline: view();
+      animation-range: entry calc(var(--rv-start, 8%) + 10%) cover calc(var(--rv-end, 32%) + 10%);
+    }
+
+    /* Count-up: hide the real digits only while a counter can be drawn over them. */
+    @supports (content: "x" / "") {
+      /* Text fill, not color: the counter below paints in the element's own color. */
+      .rv-count { -webkit-text-fill-color: transparent; }
+      .rv-count::after {
+        content: attr(data-pre) counter(rlc) attr(data-suf) / "";
+        /* Base value is the real number, so an inactive timeline shows it, never 0. */
+        --rl-n: var(--to);
+        counter-reset: rlc var(--rl-n);
+        position: absolute; left: 0; top: 0;
+        -webkit-text-fill-color: currentColor;
+        white-space: nowrap;
+        animation-name: rv-count;
+        animation-timing-function: cubic-bezier(.25, .6, .25, 1);
+      }
+      @keyframes rv-count { from { --rl-n: 0; } to { --rl-n: var(--to); } }
+    }
+  }
+}

@@ -593,16 +593,20 @@ export function chartSvg(rows: RvsRow[], width = 640): string {
     }
   }
 
-  const path = (key: 'wealthRent' | 'wealthSell', color: string) => {
+  /* Motion kit classes (src/styles/motion.css): each line draws itself the first
+     time the chart scrolls into view (rv-draw needs pathLength="1"), then its end
+     point pops in. `stagger` delays the second line. Without motion support the
+     finished chart shows as before. */
+  const path = (key: 'wealthRent' | 'wealthSell', color: string, stagger: number) => {
     if (n > 1) {
       const d = rows.map((r, i) => `${i ? 'L' : 'M'}${f(X(i))} ${f(Y(r[key]))}`).join(' ');
-      out += `<path d="${d}" fill="none" stroke="${color}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`;
+      out += `<path class="rv-draw" pathLength="1" style="--i:${stagger}" d="${d}" fill="none" stroke="${color}" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`;
     }
     const lastR = rows[n - 1];
-    out += `<circle cx="${f(X(n - 1))}" cy="${f(Y(lastR[key]))}" r="4.5" fill="${color}" stroke="#fff" stroke-width="2"/>`;
+    out += `<circle class="rv-pop" style="--i:${stagger + 2}" cx="${f(X(n - 1))}" cy="${f(Y(lastR[key]))}" r="4.5" fill="${color}" stroke="#fff" stroke-width="2"/>`;
   };
-  path('wealthSell', C.sell);
-  path('wealthRent', C.rent);
+  path('wealthSell', C.sell, 0);
+  path('wealthRent', C.rent, 1);
 
   const last = rows[n - 1];
   const label = `Projected wealth over ${yrs(n)}. Rent it out, then sell: ${money(last.wealthRent)} by year ${last.year}. ` +

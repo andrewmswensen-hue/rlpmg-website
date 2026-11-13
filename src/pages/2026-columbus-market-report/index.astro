@@ -49,6 +49,19 @@ const glance = [
   ['$1,725', 'Avg 3BR rent', 'Columbus apartments'],
 ];
 
+/*
+ * Count-up markup for the stat panels (motion kit .rv-count). Splits a display
+ * value such as "7 to 10%" into text and whole numbers; each whole number under
+ * 1,000 counts up as it scrolls into view. Dollar amounts and decimals are left
+ * static. The visible text is exactly the value passed in.
+ */
+type CountPart = { s: string; n?: number; suf?: string };
+const countParts = (v: string): CountPart[] =>
+  /[$.,]/.test(v) ? [{ s: v }] : v.split(/(\d+%?\+?)/).filter(Boolean).map((s) => {
+    const m = s.match(/^(\d+)(%?\+?)$/);
+    return m && Number(m[1]) < 1000 ? { s, n: Number(m[1]), suf: m[2] || undefined } : { s };
+  });
+
 const metrics = [
   ['Median home sale price', '$350,000', 'About 20% below the national median'],
   ['YoY price growth', '+4.3%', 'National +1.8% (NAR, June)'],
@@ -214,7 +227,8 @@ const schemaNodes = [{
         <div class="r-glance">
           <h3 class="r-glance-title">At a glance &middot; Columbus SFR market, H1 2026</h3>
           {glance.map(([v, l, c]) => (
-            <div><div class="v">{v}</div><div class="l">{l}</div><div class="c">{c}</div></div>
+            <div><div class="v">{countParts(v).map((p) => p.n === undefined ? p.s
+              : <span class="rv-count" style={`--to:${p.n}`} data-suf={p.suf}>{p.s}</span>)}</div><div class="l">{l}</div><div class="c">{c}</div></div>
           ))}
         </div>
       </section>
@@ -386,7 +400,8 @@ const schemaNodes = [{
             </div>
             <div class="cap">
               <div class="k">{n.capLabel}</div>
-              <div class="v" style={n.cap === 'Variable' ? 'font-size:16px;' : ''}>{n.cap}</div>
+              <div class="v" style={n.cap === 'Variable' ? 'font-size:16px;' : ''}>{countParts(n.cap).map((p) => p.n === undefined ? p.s
+                : <span class="rv-count" style={`--to:${p.n}`} data-suf={p.suf}>{p.s}</span>)}</div>
               <div class="p">{n.profile}</div>
             </div>
           </div>
@@ -709,3 +724,12 @@ const schemaNodes = [{
     </main>
   </div>
 </Base>
+
+<style>
+  /* Motion: the neighborhood cards clip their rounded corners with overflow: hidden,
+     which also makes each card a scroll container, so the cap-rate count-up would
+     follow the card instead of the page and stall part way on phones. clip draws
+     the same corners without being a scroll container. Browsers without clip keep
+     hidden from report.css. */
+  :global(.rl-report) .r-nbhd { overflow: clip; }
+</style>

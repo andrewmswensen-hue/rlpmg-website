@@ -716,6 +716,15 @@ const statList = stats(R);
   .rvs-card-h { font-size: 20px; margin: 0 0 14px; }
   .rvs-chart { width: 100%; }
   .rvs-chart-svg { width: 100%; height: auto; overflow: visible; }
+  /* Motion. The lines draw in on first view (rv-draw in chartSvg). The end points
+     pop from their own center rather than the chart's corner. */
+  .rvs-chart-svg .rv-pop { transform-box: fill-box; transform-origin: 50% 50%; }
+  /* The script redraws the whole chart on every input, so the new drawing fades in
+     over the old position instead of snapping. */
+  @media (prefers-reduced-motion: no-preference) {
+    .rvs-chart-svg { animation: rvs-chart-in .3s ease-out; }
+  }
+  @keyframes rvs-chart-in { from { opacity: .55; } }
   .rvs-legend-row { display: flex; flex-wrap: wrap; gap: 8px 20px; list-style: none; padding: 0; margin: 10px 0 0; font-size: 14px; color: var(--color-navy); }
   .rvs-legend-row li { display: flex; align-items: center; gap: 8px; }
   .rvs-swatch { display: inline-block; width: 18px; height: 4px; border-radius: 2px; }

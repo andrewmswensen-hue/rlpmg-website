@@ -259,13 +259,13 @@ const inputCls = 'sm-input';
             <div class="sm-stat">
               <div class="sm-stat-label">Self-managing</div>
               <div class="sm-stat-num" id="sm-out-self">{money(ex.self.total)}</div>
-              <div class="sm-bar" aria-hidden="true"><span class="sm-bar-self" id="sm-bar-self" style={`width:${pctW(ex.self.total)}`}></span></div>
+              <div class="sm-bar" aria-hidden="true"><span class="sm-bar-self rv-grow-x" id="sm-bar-self" style={`width:${pctW(ex.self.total)}`}></span></div>
               <div class="sm-stat-sub" id="sm-out-self-unit">{money(ex.perUnitMonthly.self)} per unit per month</div>
             </div>
             <div class="sm-stat">
               <div class="sm-stat-label">With {company.name}</div>
               <div class="sm-stat-num sm-stat-rl" id="sm-out-managed">{money(ex.managed.total)}</div>
-              <div class="sm-bar" aria-hidden="true"><span class="sm-bar-rl" id="sm-bar-rl" style={`width:${pctW(ex.managed.total)}`}></span></div>
+              <div class="sm-bar" aria-hidden="true"><span class="sm-bar-rl rv-grow-x" id="sm-bar-rl" style={`width:${pctW(ex.managed.total)}`}></span></div>
               <div class="sm-stat-sub" id="sm-out-managed-unit">{money(ex.perUnitMonthly.managed)} per unit per month</div>
             </div>
 
@@ -501,8 +501,19 @@ const inputCls = 'sm-input';
   }
   .sm-stat-rl { color: var(--color-crimson); }
   .sm-stat-sub { font-size: 13px; color: var(--color-faint); margin-top: 6px; }
-  .sm-bar { height: 8px; border-radius: 999px; background: var(--color-wash); margin-top: 10px; overflow: hidden; }
-  .sm-bar span { display: block; height: 100%; border-radius: 999px; transition: width .25s; }
+  /* overflow: clip (not hidden) so the bar's scroll-reveal follows the page; hidden would
+     make the track its own scroll container. Older browsers fall back to hidden. */
+  .sm-bar { height: 8px; border-radius: 999px; background: var(--color-wash); margin-top: 10px; overflow: hidden; overflow: clip; }
+  .sm-bar span { display: block; height: 100%; border-radius: 999px; }
+  /* Motion: bars glide to their new length as the owner types, and grow in from the
+     left the first time they scroll into view (.rv-grow-x, motion kit). On wide
+     screens the result card is in the first screen, so the reveal is switched off. */
+  @media (prefers-reduced-motion: no-preference) {
+    .sm-bar span { transition: width .35s ease; }
+  }
+  @media (min-width: 1024px) {
+    .sm-bar span { animation: none; }
+  }
   .sm-bar-self { background: var(--color-navy); }
   .sm-bar-rl { background: var(--color-crimson); }
   .sm-verdict { font-size: 16px; line-height: 1.5; color: var(--color-navy); margin: 16px 0 0; font-weight: 500; }

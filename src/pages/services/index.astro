@@ -6,6 +6,7 @@ import Faq from '../../components/Faq.astro';
 import Verified from '../../components/Verified.astro';
 import RelatedLinks from '../../components/RelatedLinks.astro';
 import Cta from '../../components/Cta.astro';
+import ServiceVignettes from '../../components/ServiceVignettes.astro';
 import { company, pricing, kpis, commitments, rentPolicy, areas, typicalManager, usd } from '../../data/facts';
 import { serviceNode } from '../../lib/schema';
 
@@ -112,6 +113,8 @@ const schemaNodes = [
   />
 
   <KeyFacts items={facts} />
+
+  <ServiceVignettes />
 
   <section class="band" aria-labelledby="eight-h">
     <div class="wrap max-w-[1000px]">

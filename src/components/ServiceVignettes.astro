@@ -1,0 +1,410 @@
+---
+/**
+ * "How we run your rental": four service panels, each with a small mock-UI
+ * illustration that animates on scroll (Andrew, 2026-11-13, after the
+ * "One platform for the whole application" grid on findigs.com).
+ *
+ *   <ServiceVignettes />                                 the full 2x2 section (services hub)
+ *   <ServiceVignettes only="screening" link={false} />   one panel on its own
+ *
+ * Rules this component keeps:
+ *  - Every figure is read from facts.ts or markets.ts. Nothing here is typed in,
+ *    and nothing is illustrative: no made-up counts, IDs or dollar amounts.
+ *  - The panel text carries every fact. The mock UIs are aria-hidden because
+ *    they repeat the text as a picture.
+ *  - Motion comes only from the site motion kit (src/styles/motion.css). The
+ *    finished state is the default, so no-motion and no-CSS readers see the
+ *    complete picture. No JavaScript.
+ */
+import { pricing, kpis, rentPolicy, usd } from '../data/facts';
+import { rentByBedroom } from '../data/markets';
+
+type PanelId = 'leasing' | 'screening' | 'maintenance' | 'rent';
+interface Props {
+  /** Render one panel on its own instead of the full section. */
+  only?: PanelId;
+  /** Show the arrow link to the service page (turn off on that page itself). */
+  link?: boolean;
+  /** Override the panel label when used on its own. */
+  label?: string;
+  class?: string;
+}
+const { only, link = true, label: labelOverride, class: extraClass = '' } = Astro.props;
+
+const kpi = (id: string) => kpis.metrics.find((m) => m.id === id)?.value ?? '';
+/** Whole number from a KPI value like "96%" or "20", for the count-up. */
+const kpiInt = (id: string) => parseInt(kpi(id), 10) || 0;
+const ordinal = (n: number) => {
+  const s = ['th', 'st', 'nd', 'rd'];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+};
+
+const dom = kpi('dom');
+const repairDays = kpi('repairDays');
+const collected = kpi('collectedBy5');
+const payoutDay = ordinal(rentPolicy.ownerDisbursementDay);
+const threeBed = rentByBedroom['3'].median;
+const m = pricing.maintenance;
+
+/** The five checks, as listed on /services/tenant-screening/. */
+const screeningChecks = ['Credit', 'Criminal record', 'Income', 'Rental history', 'Eviction record'];
+const leasingSteps = ['Listed', 'Showings', 'Applications', 'Lease signed'];
+const workOrderSteps = ['Request received', 'Assigned', 'Scheduled', 'Closed'];
+/** A day strip from the 1st to the payout day: the collection window, then the wait, then payout. */
+const days = Array.from({ length: rentPolicy.ownerDisbursementDay }, (_, i) => i + 1);
+const collectDay = 5;
+
+const panels: { id: PanelId; href: string; label: string; line: string }[] = [
+  { id: 'leasing', href: '/services/marketing-and-leasing/', label: 'Marketing and leasing',
+    line: `Listed, shown and leased. Median ${dom} days on market. ${usd(pricing.leasingFee)} leasing fee on every plan.` },
+  { id: 'screening', href: '/services/tenant-screening/', label: 'Tenant screening',
+    line: `Every adult applicant is checked on credit, criminal record, income, rental history and eviction record, against one written standard.` },
+  { id: 'maintenance', href: '/services/maintenance/', label: 'Maintenance',
+    line: `Every request is logged, assigned, scheduled and closed. Median ${repairDays} days to close a repair. In-house labor is ${usd(m.inHouseHourly)} an hour plus a ${usd(m.tripCharge)} trip charge.` },
+  { id: 'rent', href: '/services/rent-collection/', label: 'Rent and owner payouts',
+    line: `Rent is due ${rentPolicy.dueDate}. ${collected} is collected by the 5th, and owners are paid out on the ${payoutDay} with a monthly statement.` },
+];
+
+const shown = only ? panels.filter((p) => p.id === only) : panels;
+/** The full section is a <section> with its own heading; a single panel is a plain block. */
+const Outer = only ? 'div' : 'section';
+---
+{shown.length > 0 && (
+  <Outer
+    class:list={[only ? 'vg-solo' : 'band band-wash', extraClass]}
+    aria-labelledby={only ? undefined : 'vg-h'}
+  >
+    <div class={only ? 'vg-solo-in' : 'wrap max-w-[1000px]'}>
+      {!only && (
+        <>
+          <span class="eyebrow">How we run your rental</span>
+          <h2 id="vg-h" class="text-[clamp(28px,3.3vw,40px)]">What happens day to day?</h2>
+          <p class="text-[17.5px] text-muted mt-4 mb-9 max-w-[46em]">
+            The four jobs owners ask about first, with the published number behind each.
+          </p>
+        </>
+      )}
+      <div class={only ? 'vg-one' : 'vg-grid'}>
+          {shown.map((p) => (
+            <article class="vg-panel">
+              <h3 class="vg-label">
+                {link ? (
+                  <a href={p.href} class="vg-link">
+                    {labelOverride ?? p.label}
+                    <span class="vg-arrow" aria-hidden="true">
+                      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 10 10 4M5 4h5v5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                  </a>
+                ) : (labelOverride ?? p.label)}
+              </h3>
+              <p class="vg-line">{p.line}</p>
+              <div class="vg-stage" aria-hidden="true" data-panel={p.id}>
+                {p.id === 'leasing' && (
+                  <div class="vg-card rv">
+                    <div class="vg-listing">
+                      <div class="vg-house">
+                        <svg width="64" height="56" viewBox="0 0 64 56" fill="none">
+                          <path class="rv-draw" pathLength="1" d="M6 27 32 6l26 21M12 22v28h40V22" stroke="#123143" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                          <path class="rv-draw" style="--i:2" pathLength="1" d="M27 50V36h10v14" stroke="#123143" stroke-width="2.2" stroke-linejoin="round"/>
+                        </svg>
+                      </div>
+                      <div class="vg-listing-body">
+                        <span class="vg-pill vg-pill-soft rv-pop" style="--i:1">Listed</span>
+                        <div class="vg-rent">{usd(threeBed)}<span>/mo</span></div>
+                        <div class="vg-cap">3 bed, portfolio median rent</div>
+                      </div>
+                    </div>
+                    <div class="vg-pipe-wrap">
+                      <span class="vg-pipe-track"><span class="vg-pipe-fill rv-grow-x" style="--rv-start:12%;--rv-end:50%"></span></span>
+                      <ol class="vg-pipe">
+                        {leasingSteps.map((s, i) => (
+                          <li>
+                            <span class="vg-dot"><span class="vg-dot-on rv-pop" style={`--i:${i + 1};--rv-step:3%`}></span></span>
+                            <span class="vg-pipe-l">{s}</span>
+                          </li>
+                        ))}
+                      </ol>
+                    </div>
+                    <div class="vg-tiles">
+                      <div class="vg-tile">
+                        <span class="vg-num"><span class="rv-count" style={`--to:${kpiInt('dom')};--i:1`} data-suf=" days">{dom} days</span></span>
+                        <span class="vg-tile-l">median on market</span>
+                      </div>
+                      <div class="vg-tile">
+                        <span class="vg-num vg-accent rv-pop" style="--i:2">{usd(pricing.leasingFee)}</span>
+                        <span class="vg-tile-l">leasing fee</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {p.id === 'screening' && (
+                  <div class="vg-card rv">
+                    <div class="vg-app">
+                      <span class="vg-avatar">
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="8" r="4" fill="currentColor"/><path d="M3.5 20c.8-4 3.8-6 7.5-6s6.7 2 7.5 6" fill="currentColor"/></svg>
+                      </span>
+                      <div class="vg-app-lines">
+                        <span class="vg-k">Applicant</span>
+                        <span class="vg-skel" style="width:72%"></span>
+                        <span class="vg-skel" style="width:48%"></span>
+                      </div>
+                    </div>
+                    <ul class="vg-checks">
+                      {screeningChecks.map((c, i) => (
+                        <li class="rv-check">
+                          <span class="vg-tick rv-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="m2 5.2 2 2L8 3" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                          <span>{c}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <span class="vg-pill vg-pill-navy rv-pop" style="--i:1">Meets criteria</span>
+                  </div>
+                )}
+                {p.id === 'maintenance' && (
+                  <div class="vg-card rv">
+                    <div class="vg-app">
+                      <span class="vg-avatar vg-avatar-sq">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12.6 3.2a4 4 0 0 0-4.9 5.2L3 13.1 4.9 15l4.7-4.7a4 4 0 0 0 5.2-4.9l-2.4 2.4-1.9-.5-.5-1.9 2.6-2.2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                      </span>
+                      <div class="vg-app-lines">
+                        <span class="vg-k">Work order</span>
+                        <span class="vg-skel" style="width:64%"></span>
+                      </div>
+                    </div>
+                    <ol class="vg-steps">
+                      {workOrderSteps.map((s, i) => (
+                        <li class="rv-check">
+                          <span class="vg-tick rv-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="m2 5.2 2 2L8 3" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                          <span>{s}</span>
+                        </li>
+                      ))}
+                    </ol>
+                    <div class="vg-tiles">
+                      <div class="vg-tile">
+                        <span class="vg-num"><span class="rv-count" style={`--to:${kpiInt('repairDays')}`} data-suf=" days">{repairDays} days</span></span>
+                        <span class="vg-tile-l">median to close</span>
+                      </div>
+                      <div class="vg-tile">
+                        <span class="vg-num rv-pop" style="--i:1">{usd(m.inHouseHourly)}<small>/hr</small></span>
+                        <span class="vg-tile-l">in-house labor</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+                {p.id === 'rent' && (
+                  <div class="vg-card rv">
+                    <div class="vg-st-head">
+                      <span class="vg-k">Owner statement</span>
+                      <span class="vg-pill vg-pill-soft">Monthly</span>
+                    </div>
+                    <div class="vg-days" style={`--n:${days.length}`}>
+                      {days.map((d, i) => (
+                        <span class:list={['vg-day rv-grow-y', d <= collectDay ? 'is-collect' : d === days.length ? 'is-payout' : 'is-wait']} style={`--i:${i};--rv-step:1.5%`}></span>
+                      ))}
+                    </div>
+                    <div class="vg-days vg-days-l" style={`--n:${days.length}`}>
+                      {days.map((d) => (
+                        <span>{d === 1 || d === collectDay || d === days.length ? ordinal(d) : ''}</span>
+                      ))}
+                    </div>
+                    <div class="vg-tiles">
+                      <div class="vg-tile">
+                        <span class="vg-num"><span class="rv-count" style={`--to:${kpiInt('collectedBy5')};--i:1`} data-suf="%">{collected}</span></span>
+                        <span class="vg-tile-l">collected by the 5th</span>
+                      </div>
+                      <div class="vg-tile">
+                        <span class="vg-num vg-num-text rv-pop" style="--i:2">Paid out on the {payoutDay}</span>
+                        <span class="vg-tile-l">to your account</span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </article>
+          ))}
+      </div>
+    </div>
+  </Outer>
+)}
+
+<style>
+  /* Values are the site tokens from global.css (with the hex as a fallback). */
+
+  /* ---- The 2x2 grid: hairlines come from a 1px gap over the line color. ---- */
+  .vg-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1px;
+    background: var(--color-line, #dde5eb);
+  }
+  .vg-panel {
+    --pt: 32px; --pr: 0px; --pb: 36px; --pl: 0px;
+    position: relative;
+    display: flex; flex-direction: column;
+    min-width: 0;
+    padding: var(--pt) var(--pr) var(--pb) var(--pl);
+    background: var(--color-wash-soft, #f3f7fa);
+  }
+  .vg-grid > .vg-panel:first-child { --pt: 4px; }
+  .vg-grid > .vg-panel:last-child { --pb: 4px; }
+  @media (min-width: 768px) {
+    .vg-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .vg-grid > .vg-panel { --pt: 40px; --pb: 44px; }
+    .vg-grid > .vg-panel:nth-child(odd)  { --pr: 40px; }
+    .vg-grid > .vg-panel:nth-child(even) { --pl: 40px; }
+    .vg-grid > .vg-panel:nth-child(-n+2) { --pt: 4px; }
+    .vg-grid > .vg-panel:nth-last-child(-n+2) { --pb: 4px; }
+  }
+
+  .vg-label { font-size: 21px; padding-right: 48px; }
+  .vg-link { text-decoration: none; color: inherit; transition: color .15s; }
+  .vg-link:hover { color: var(--color-crimson, #a60530); }
+  .vg-arrow {
+    position: absolute; top: calc(var(--pt) - 3px); right: var(--pr);
+    width: 32px; height: 32px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: #fff; border: 1px solid var(--color-line, #dde5eb);
+    color: var(--color-navy, #123143);
+    transition: background .15s, border-color .15s, color .15s;
+  }
+  .vg-link:hover .vg-arrow, .vg-link:focus-visible .vg-arrow {
+    background: var(--color-crimson, #a60530); border-color: var(--color-crimson, #a60530); color: #fff;
+  }
+  .vg-line { font-size: 15.5px; color: var(--color-muted, #5d7280); margin: 8px 0 22px; max-width: 34em; }
+  /* Motion tuning. The kit's default range finishes late for a small card low in
+     a panel, so the mock UIs start and finish earlier, while the card is still
+     in the lower half of the screen. Rows stacked vertically are already
+     staggered by their position, so only side-by-side items use --i. */
+  .vg-stage { margin-top: auto; --rv-start: 0%; --rv-end: 16%; }
+
+  /* ---- The mock card ---- */
+  .vg-card {
+    display: flex; flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--color-line, #dde5eb);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06);
+    font-family: var(--font-sans);
+    color: var(--color-navy, #123143);
+  }
+  /* Equal card heights only matter side by side. */
+  @media (min-width: 768px) { .vg-grid .vg-card { min-height: 300px; } }
+  .vg-k {
+    display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .12em;
+    text-transform: uppercase; color: var(--color-faint, #8798a3);
+  }
+  .vg-skel { display: block; height: 7px; border-radius: 4px; background: var(--color-wash, #e7eef3); margin-top: 7px; }
+  .vg-pill {
+    display: inline-block; align-self: flex-start;
+    font-size: 11.5px; font-weight: 700; line-height: 1; padding: 6px 11px; border-radius: 999px;
+  }
+  .vg-pill-soft { background: var(--color-wash, #e7eef3); color: var(--color-navy, #123143); }
+  .vg-pill-navy { background: var(--color-navy, #123143); color: #fff; margin-top: 14px; }
+
+  .vg-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: auto; padding-top: 16px; }
+  .vg-tile {
+    display: flex; flex-direction: column; align-items: flex-start;
+    background: var(--color-wash-soft, #f3f7fa); border-radius: 10px; padding: 10px 12px; min-width: 0;
+  }
+  .vg-num { display: inline-block; font-size: 21px; font-weight: 800; letter-spacing: -.03em; line-height: 1.15; color: var(--color-navy, #123143); }
+  .vg-num small { font-size: 12px; font-weight: 600; letter-spacing: 0; color: var(--color-muted, #5d7280); }
+  .vg-num-text { font-size: 14.5px; letter-spacing: -.01em; line-height: 1.25; padding-block: 2px; }
+  .vg-accent { color: var(--color-crimson, #a60530); }
+  .vg-tile-l { font-size: 11.5px; color: var(--color-muted, #5d7280); margin-top: 3px; line-height: 1.3; }
+
+  /* Applicant and work-order header */
+  .vg-app { display: flex; align-items: center; gap: 12px; }
+  .vg-app-lines { flex: 1; min-width: 0; }
+  .vg-avatar {
+    flex: none; width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--color-wash, #e7eef3); color: var(--color-faint, #8798a3); overflow: hidden;
+  }
+  .vg-avatar svg { margin-top: 6px; width: 26px; height: 26px; }
+  .vg-avatar-sq { border-radius: 10px; color: var(--color-navy, #123143); }
+  .vg-avatar-sq svg { margin-top: 0; width: 20px; height: 20px; }
+
+  .vg-tick {
+    flex: none; width: 18px; height: 18px; border-radius: 50%;
+    display: grid; place-items: center; background: var(--color-navy, #123143);
+  }
+
+  /* Screening checklist */
+  .vg-checks { margin-top: 12px; }
+  .vg-checks li {
+    display: flex; align-items: center; gap: 10px;
+    padding: 6px 0; font-size: 13px; font-weight: 600;
+    border-top: 1px solid var(--color-wash, #e7eef3);
+  }
+  .vg-checks li:first-child { border-top: 0; }
+
+  /* Work-order status steps, joined by a quiet rail */
+  .vg-steps { margin-top: 12px; }
+  .vg-steps li {
+    position: relative; display: flex; align-items: center; gap: 10px;
+    padding: 6px 0; font-size: 13px; font-weight: 600;
+  }
+  .vg-steps li:not(:last-child)::before {
+    content: ""; position: absolute; left: 8px; top: 24px; bottom: -6px; width: 2px;
+    background: var(--color-wash, #e7eef3);
+  }
+
+  /* Listing */
+  .vg-listing { display: flex; align-items: center; gap: 14px; }
+  .vg-house {
+    flex: none; width: 76px; height: 66px; border-radius: 10px;
+    display: grid; place-items: center; background: var(--color-wash-soft, #f3f7fa);
+  }
+  .vg-house svg { width: 52px; height: 46px; }
+  .vg-listing-body { min-width: 0; display: flex; flex-direction: column; align-items: flex-start; }
+  .vg-rent { font-size: 22px; font-weight: 800; letter-spacing: -.03em; line-height: 1.1; margin-top: 7px; }
+  .vg-rent span { font-size: 13px; font-weight: 500; letter-spacing: 0; color: var(--color-muted, #5d7280); }
+  .vg-cap { font-size: 11.5px; color: var(--color-muted, #5d7280); margin-top: 2px; }
+
+  /* Leasing pipeline: four dots on a rail that fills left to right */
+  .vg-pipe-wrap { position: relative; margin-top: 18px; }
+  .vg-pipe-track {
+    position: absolute; top: 6px; left: calc(12.5% - 2.25px); right: calc(12.5% - 2.25px); height: 2px;
+    background: var(--color-line, #dde5eb);
+  }
+  .vg-pipe-fill { position: absolute; inset: 0; background: var(--color-navy, #123143); }
+  .vg-pipe { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 6px; }
+  .vg-pipe li { display: flex; flex-direction: column; align-items: center; gap: 7px; text-align: center; }
+  .vg-dot {
+    position: relative; width: 14px; height: 14px; border-radius: 50%;
+    background: #fff; border: 2px solid var(--color-line, #dde5eb);
+  }
+  .vg-dot-on { position: absolute; inset: -2px; border-radius: 50%; background: var(--color-navy, #123143); }
+  .vg-pipe-l { font-size: 11px; font-weight: 600; line-height: 1.2; overflow-wrap: anywhere; }
+
+  /* Rent: a day strip from the 1st to payout day */
+  .vg-st-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .vg-days {
+    display: grid; grid-template-columns: repeat(var(--n, 10), minmax(0, 1fr)); gap: 5px;
+    height: 54px; margin-top: 20px;
+  }
+  .vg-day { display: block; height: 100%; border-radius: 4px 4px 2px 2px; }
+  .vg-day.is-collect { background: var(--color-navy, #123143); }
+  .vg-day.is-wait { background: var(--color-wash, #e7eef3); }
+  .vg-day.is-payout { background: var(--color-crimson, #a60530); }
+  .vg-days-l {
+    height: auto; margin-top: 6px;
+    font-size: 10.5px; font-weight: 600; color: var(--color-muted, #5d7280);
+  }
+  .vg-days-l span { text-align: center; white-space: nowrap; }
+
+  /* ---- One panel on its own (for example on the tenant screening page) ---- */
+  .vg-solo { margin-top: 36px; padding-top: 32px; border-top: 1px solid var(--color-line, #dde5eb); }
+  .vg-solo .vg-panel { --pt: 0px; --pb: 0px; background: transparent; }
+  @media (min-width: 768px) {
+    .vg-solo .vg-panel {
+      display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      grid-template-rows: auto 1fr; column-gap: 40px; align-items: start;
+    }
+    .vg-solo .vg-label, .vg-solo .vg-line { grid-column: 1; }
+    .vg-solo .vg-line { font-size: 16.5px; }
+    .vg-solo .vg-stage { grid-column: 2; grid-row: 1 / span 2; margin-top: 0; }
+  }
+</style>

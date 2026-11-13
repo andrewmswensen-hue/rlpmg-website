@@ -43,6 +43,31 @@ const saveText = (a: number, b: number) =>
   : `${usd(-b)} to ${usd(-a)} more with us`;
 const mid = compare[1];
 
+/**
+ * The animated bar chart above the yearly table (Andrew, 2026-11-13). Every bar is
+ * scaled against the largest yearly cost in EITHER view, so flipping the toggle
+ * visibly changes bar length. Each row has a fees-only bar (.v-f) and a bar with
+ * the leasing fee stacked on as a lighter segment (.v-l); CSS shows one.
+ */
+const chartMax = Math.max(...compare.flatMap((c) => [c.rl + pricing.leasingFee, c.p8, c.p10, c.f8, c.f10]));
+const barW = (n: number) => (n / chartMax).toFixed(4);
+const chartRows = (c: (typeof compare)[number]) => [
+  { name: 'RL', fee: c.rl, lease: pricing.leasingFee, rl: true },
+  { name: 'Typical 8%', fee: c.f8, lease: c.lease, rl: false },
+  { name: 'Typical 10%', fee: c.f10, lease: c.lease, rl: false },
+];
+/** One plain-English savings line per rent. Says so outright when a percentage manager costs less. */
+const chartSave = (a: number, b: number) =>
+  a > 0 && b > 0 ? `You save ${usd(a)} to ${usd(b)} a year`
+  : a <= 0 && b > 0 ? `You save ${usd(b)} a year against a 10% manager. An 8% manager costs ${usd(-a)} less.`
+  : `On monthly fees alone, a percentage manager costs ${usd(-b)} to ${usd(-a)} less`;
+/** What a screen reader hears instead of the bars (the table below stays the full data). */
+const chartSummary = (lease: boolean) =>
+  `Bar chart of yearly cost, ${lease ? 'in a year with one resident placement' : 'monthly fees only'}. ` +
+  compare.map((c) =>
+    `At ${usd(c.rent)} rent: RL ${usd(c.rl + (lease ? pricing.leasingFee : 0))}, ` +
+    `typical 8% manager ${usd(lease ? c.p8 : c.f8)}, typical 10% manager ${usd(lease ? c.p10 : c.f10)}.`).join(' ');
+
 const included = [
   'Listing syndication to every major rental portal',
   'Self-guided and agent-led showings',
@@ -259,38 +284,79 @@ const schemaNodes = [
         {' '}{typicalManager.leasingFeePhrase} to place a resident.</span>
         <span class="v-f">Twelve months of management fees, with no resident placement in the year.</span>
       </p>
-      <div class="scroll-x">
-        <table class="w-full border-collapse bg-white rounded-[12px] overflow-hidden text-[15.5px]"
-               style="box-shadow:0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06)">
-          <caption class="sr-only">Annual management cost at three monthly rents, with and without a resident placement</caption>
-          <thead>
-            <tr class="bg-wash-soft">
-              <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Monthly rent</th>
-              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">RL ({usd(std.monthly)}/mo.)</th>
-              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Typical 8%</th>
-              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Typical 10%</th>
-              <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">You save</th>
-            </tr>
-          </thead>
-          <tbody>
-            {compare.map((c) => (
-              <tr>
-                <th scope="row" class="text-left p-3.5 border-b border-line font-medium tabular-nums">{usd(c.rent)}</th>
-                <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(c.rl)}</td>
-                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">
-                  <span class="v-l">{usd(c.p8)}</span><span class="v-f">{usd(c.f8)}</span>
-                </td>
-                <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">
-                  <span class="v-l">{usd(c.p10)}</span><span class="v-f">{usd(c.f10)}</span>
-                </td>
-                <td class="text-right p-3.5 border-b border-line tabular-nums font-semibold text-navy">
-                  <span class="v-l">{saveText(c.save8, c.save10)}</span><span class="v-f">{saveText(c.fsave8, c.fsave10)}</span>
-                </td>
-              </tr>
+      <!-- The chart is decorative for assistive technology: the sr-only summary
+           and the table below carry the same numbers. -->
+      <p class="sr-only"><span class="v-l">{chartSummary(true)}</span><span class="v-f">{chartSummary(false)}</span></p>
+      <div class="lc card" aria-hidden="true">
+        <div class="lc-legend">
+          <span><i class="lc-sw lc-sw-rl"></i>RL Property Management ({usd(std.monthly)}/mo.)</span>
+          <span><i class="lc-sw lc-sw-fee"></i>Typical manager</span>
+          <span class="v-l"><i class="lc-sw lc-sw-lease"></i>Leasing fee (ours is {usd(pricing.leasingFee)})</span>
+        </div>
+        {compare.map((c) => (
+          <div class="lc-group">
+            <p class="lc-rent">{usd(c.rent)} monthly rent</p>
+            {chartRows(c).map((r, i) => (
+              <div class="lc-row">
+                <span class="lc-name">{r.name}</span>
+                <div class="lc-track v-f">
+                  <span class={`lc-bar rv-grow-x${r.rl ? ' is-rl' : ''}`} style={`--i:${i};--w:${barW(r.fee)}`}>
+                    <span class="lc-seg lc-fee"></span>
+                  </span>
+                  <span class="lc-val">{usd(r.fee)}</span>
+                </div>
+                <div class="lc-track v-l">
+                  <span class={`lc-bar rv-grow-x${r.rl ? ' is-rl' : ''}`} style={`--i:${i};--w:${barW(r.fee + r.lease)}`}>
+                    <span class="lc-seg lc-fee" style={`flex-grow:${r.fee}`}></span>
+                    {r.lease > 0 && <span class="lc-seg lc-lease" style={`flex-grow:${r.lease}`}></span>}
+                  </span>
+                  <span class="lc-val">{usd(r.fee + r.lease)}</span>
+                </div>
+              </div>
             ))}
-          </tbody>
-        </table>
+            <p class="lc-save">
+              <span class="v-l">{chartSave(c.save8, c.save10)}</span><span class="v-f">{chartSave(c.fsave8, c.fsave10)}</span>
+            </p>
+          </div>
+        ))}
       </div>
+
+      <details class="fee-group mt-5">
+        <summary><span><span class="fee-group-title">See the numbers as a table</span></span></summary>
+        <div class="fee-group-body">
+          <div class="scroll-x">
+            <table class="w-full border-collapse bg-white text-[15.5px]">
+              <caption class="sr-only">Annual management cost at three monthly rents, with and without a resident placement</caption>
+              <thead>
+                <tr class="bg-wash-soft">
+                  <th scope="col" class="text-left p-3.5 border-b border-line font-semibold">Monthly rent</th>
+                  <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">RL ({usd(std.monthly)}/mo.)</th>
+                  <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Typical 8%</th>
+                  <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">Typical 10%</th>
+                  <th scope="col" class="text-right p-3.5 border-b border-line font-semibold">You save</th>
+                </tr>
+              </thead>
+              <tbody>
+                {compare.map((c) => (
+                  <tr>
+                    <th scope="row" class="text-left p-3.5 border-b border-line font-medium tabular-nums">{usd(c.rent)}</th>
+                    <td class="text-right p-3.5 border-b border-line tabular-nums font-bold text-crimson">{usd(c.rl)}</td>
+                    <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">
+                      <span class="v-l">{usd(c.p8)}</span><span class="v-f">{usd(c.f8)}</span>
+                    </td>
+                    <td class="text-right p-3.5 border-b border-line tabular-nums text-muted">
+                      <span class="v-l">{usd(c.p10)}</span><span class="v-f">{usd(c.f10)}</span>
+                    </td>
+                    <td class="text-right p-3.5 border-b border-line tabular-nums font-semibold text-navy">
+                      <span class="v-l">{saveText(c.save8, c.save10)}</span><span class="v-f">{saveText(c.fsave8, c.fsave10)}</span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
       <p class="text-[15.5px] text-muted mt-6">
         <span class="v-l">Most of the gap is the leasing fee, and it widens as rent rises because our fee
         does not move when your rent does.</span>
@@ -418,4 +484,35 @@ const schemaNodes = [
   .lt-toggle input:focus-visible + label { outline: 2px solid var(--color-crimson); outline-offset: 2px; }
   .lt:has(.lt-fees:checked) .v-l { display: none; }
   .lt:has(.lt-lease:checked) .v-f { display: none; }
+
+  /* Yearly cost bar chart. Bars grow with motion.css .rv-grow-x; their finished
+     width is the default, so it reads the same with no animation support. */
+  .lc { padding: 22px 24px 8px; font-family: var(--font-sans); }
+  .lc-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--color-muted); }
+  .lc-legend > span { display: inline-flex; align-items: center; gap: 7px; }
+  .lc-sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; }
+  .lc-sw-rl { background: var(--color-crimson); }
+  .lc-sw-fee { background: var(--color-muted); }
+  .lc-sw-lease { background: #bccad3; }
+  .lc-group { border-top: 1px solid var(--color-line); margin-top: 16px; padding: 14px 0 6px; }
+  .lc-rent { font-size: 15px; font-weight: 700; color: var(--color-navy); margin: 0 0 6px; }
+  .lc-row { display: grid; grid-template-columns: 104px minmax(0, 1fr); align-items: center; gap: 10px; margin-top: 7px; }
+  .lc-name { font-size: 13.5px; font-weight: 600; color: var(--color-navy); white-space: nowrap; }
+  .lc-track { display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 14px; }
+  /* Width leaves 4.6em at the end of the track for the value label. */
+  .lc-bar { flex: none; display: flex; height: 22px; width: calc((100% - 4.6em) * var(--w));
+    border-radius: 0 6px 6px 0; overflow: hidden; }
+  .lc-seg { flex: 1 1 0; min-width: 0; }
+  .lc-fee { background: var(--color-muted); }
+  .is-rl .lc-fee { background: var(--color-crimson); }
+  .lc-lease { background: #bccad3; }
+  .lc-val { font-weight: 700; color: var(--color-navy); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .is-rl + .lc-val { color: var(--color-crimson); }
+  .lc-save { margin: 10px 0 0; font-size: 14.5px; font-weight: 600; color: var(--color-navy); }
+  /* Phones: the name sits above its bar so the bar gets the full card width. */
+  @media (max-width: 480px) {
+    .lc { padding: 18px 16px 6px; }
+    .lc-row { grid-template-columns: minmax(0, 1fr); gap: 3px; margin-top: 9px; }
+    .lc-name { font-size: 12.5px; }
+  }
 </style>
