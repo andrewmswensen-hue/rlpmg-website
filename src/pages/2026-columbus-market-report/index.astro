@@ -155,9 +155,11 @@ const schemaNodes = [{
   author: { '@id': `${company.url}/#organization` },
   publisher: { '@id': `${company.url}/#organization` },
 }];
+import MotionScript from '../../components/MotionScript.astro';
 ---
 <Base {title} {description} {breadcrumbs} {schemaNodes} faq={faq} bodyClass="rl-report"
       datePublished="2026-07-01T00:00:00Z" dateModified="2026-09-10T00:00:00Z">
+  <MotionScript />
 
   <header class="r-hero" style="--r-hero-img: url('/images/reports/autumn-street.jpg');">
     <div class="r-hero-top">

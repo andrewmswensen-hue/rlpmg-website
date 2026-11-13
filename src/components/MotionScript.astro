@@ -1,0 +1,39 @@
+---
+/**
+ * Plays each motion-kit animation ONCE, the first time its element scrolls into
+ * view (see src/styles/motion.css). Include this only on pages that animate:
+ * every other page stays JavaScript-free. Safe to include twice on one page.
+ *
+ * Without this script, or with reduced motion, the CSS shows the finished state.
+ * Elements a page script adds later (the rent vs. sell chart redraws on every
+ * keystroke) are shown finished at once, never replayed.
+ */
+---
+<script is:inline>
+(function () {
+  if (window.__rvMotion) return; window.__rvMotion = 1;
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var root = document.documentElement;
+  root.classList.add('rv-js');
+  var sel = '.rv,.rv-grow-y,.rv-grow-x,.rv-draw,.rv-check,.rv-count,.rv-strike,.rv-pop';
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('rv-in'); io.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -10% 0px' });
+  function start() {
+    document.querySelectorAll(sel).forEach(function (el) { io.observe(el); });
+    new MutationObserver(function (ms) {
+      ms.forEach(function (m) {
+        m.addedNodes.forEach(function (n) {
+          if (n.nodeType !== 1) return;
+          var list = n.matches(sel) ? [n] : [];
+          n.querySelectorAll(sel).forEach(function (el) { list.push(el); });
+          list.forEach(function (el) { el.classList.add('rv-in', 'rv-done'); });
+        });
+      });
+    }).observe(document.body, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+})();
+</script>

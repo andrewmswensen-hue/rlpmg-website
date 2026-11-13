@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import MotionScript from '../components/MotionScript.astro';
 import Photo from '../components/Photo.astro';
 import Stars from '../components/Stars.astro';
 import PricingTable from '../components/PricingTable.astro';
@@ -112,6 +113,7 @@ const schemaNodes = [serviceNode({
 })];
 ---
 <Base {title} {description} {faq} {schemaNodes}>
+  <MotionScript />
 
   <!-- HERO -->
   <!--
@@ -449,8 +451,6 @@ const schemaNodes = [serviceNode({
      hands it to the animated .rv-strike line only where that line can draw. */
   .lf-was { text-decoration: line-through; text-decoration-thickness: 2px; }
   @media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: view()) {
-      .lf-was { text-decoration: none; }
-    }
+    :global(.rv-js) .lf-was { text-decoration: none; }
   }
 </style>

@@ -149,8 +149,10 @@ const schemaNodes = [serviceNode({
 })];
 
 const inputCls = 'sm-input';
+import MotionScript from '../../components/MotionScript.astro';
 ---
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+  <MotionScript />
   <section class="pt-14 pb-8">
     <div class="wrap max-w-[1120px]">
       <nav aria-label="Breadcrumb" class="mb-5 text-[13px] text-faint">

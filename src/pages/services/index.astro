@@ -100,8 +100,10 @@ const schemaNodes = [
     description,
   }),
 ];
+import MotionScript from '../../components/MotionScript.astro';
 ---
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+  <MotionScript />
 
   <PageHero
     eyebrow="Our services"

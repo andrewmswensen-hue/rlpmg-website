@@ -171,8 +171,10 @@ const schemaNodes = [
     })),
   },
 ];
+import MotionScript from '../../components/MotionScript.astro';
 ---
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
+  <MotionScript />
 
   <section class="pt-14 pb-10">
     <div class="wrap max-w-[880px]">

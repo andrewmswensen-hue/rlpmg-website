@@ -116,11 +116,11 @@ const Outer = only ? 'div' : 'section';
                       </div>
                     </div>
                     <div class="vg-pipe-wrap">
-                      <span class="vg-pipe-track"><span class="vg-pipe-fill rv-grow-x" style="--rv-start:12%;--rv-end:50%"></span></span>
+                      <span class="vg-pipe-track"><span class="vg-pipe-fill rv-grow-x" style="--i:1"></span></span>
                       <ol class="vg-pipe">
                         {leasingSteps.map((s, i) => (
                           <li>
-                            <span class="vg-dot"><span class="vg-dot-on rv-pop" style={`--i:${i + 1};--rv-step:3%`}></span></span>
+                            <span class="vg-dot"><span class="vg-dot-on rv-pop" style={`--i:${(i + 1) * 3}`}></span></span>
                             <span class="vg-pipe-l">{s}</span>
                           </li>
                         ))}
@@ -152,13 +152,13 @@ const Outer = only ? 'div' : 'section';
                     </div>
                     <ul class="vg-checks">
                       {screeningChecks.map((c, i) => (
-                        <li class="rv-check">
+                        <li class="rv-check" style={`--i:${i * 2}`}>
                           <span class="vg-tick rv-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="m2 5.2 2 2L8 3" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                           <span>{c}</span>
                         </li>
                       ))}
                     </ul>
-                    <span class="vg-pill vg-pill-navy rv-pop" style="--i:1">Meets criteria</span>
+                    <span class="vg-pill vg-pill-navy rv-pop" style={`--i:${screeningChecks.length * 2 + 1}`}>Meets criteria</span>
                   </div>
                 )}
                 {p.id === 'maintenance' && (
@@ -174,7 +174,7 @@ const Outer = only ? 'div' : 'section';
                     </div>
                     <ol class="vg-steps">
                       {workOrderSteps.map((s, i) => (
-                        <li class="rv-check">
+                        <li class="rv-check" style={`--i:${i * 2}`}>
                           <span class="vg-tick rv-tick"><svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="m2 5.2 2 2L8 3" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                           <span>{s}</span>
                         </li>
@@ -200,7 +200,7 @@ const Outer = only ? 'div' : 'section';
                     </div>
                     <div class="vg-days" style={`--n:${days.length}`}>
                       {days.map((d, i) => (
-                        <span class:list={['vg-day rv-grow-y', d <= collectDay ? 'is-collect' : d === days.length ? 'is-payout' : 'is-wait']} style={`--i:${i};--rv-step:1.5%`}></span>
+                        <span class:list={['vg-day rv-grow-y', d <= collectDay ? 'is-collect' : d === days.length ? 'is-payout' : 'is-wait']} style={`--i:${i}`}></span>
                       ))}
                     </div>
                     <div class="vg-days vg-days-l" style={`--n:${days.length}`}>
@@ -276,7 +276,7 @@ const Outer = only ? 'div' : 'section';
      a panel, so the mock UIs start and finish earlier, while the card is still
      in the lower half of the screen. Rows stacked vertically are already
      staggered by their position, so only side-by-side items use --i. */
-  .vg-stage { margin-top: auto; --rv-start: 0%; --rv-end: 16%; }
+  .vg-stage { margin-top: auto; --rv-gap: 130ms; }
 
   /* ---- The mock card ---- */
   .vg-card {
