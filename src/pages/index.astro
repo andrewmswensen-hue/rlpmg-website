@@ -34,25 +34,26 @@ const countUp = (v: string) => {
 };
 
 const services = [
-  { h: 'Marketing and leasing', p: 'Listed on every major rental site and priced with our own Columbus data.', href: '/services/marketing-and-leasing/', cta: 'How leasing works', icon: 'key' },
-  { h: 'Tenant screening', p: 'Credit, income, rental history and background checks, applied the same way every time.', href: '/services/tenant-screening/', cta: 'Our screening criteria', icon: 'userCheck' },
-  { h: 'Maintenance', p: `In-house technicians at ${usd(pricing.maintenance.inHouseHourly)} an hour, vetted vendors, quarterly inspections and 24/7 emergency coverage.`, href: '/services/maintenance/', cta: 'Maintenance details', icon: 'wrench' },
+  { h: 'Marketing and leasing', p: 'Listed on every major rental site and priced with current Columbus rental data.', href: '/services/marketing-and-leasing/', cta: 'How leasing works', icon: 'key' },
+  { h: 'Tenant screening', p: 'Credit, income, rental history, and background checks to find the most qualified tenant for your rental.', href: '/services/tenant-screening/', cta: 'Our screening criteria', icon: 'userCheck' },
+  { h: 'Maintenance', p: 'In-house maintenance team & vetted vendors, quarterly inspections, and 24/7 emergency coverage.', href: '/services/maintenance/', cta: 'Maintenance details', icon: 'wrench' },
   { h: 'Rent collection', p: 'Online payments and direct deposit. 96% of rent arrives by the 5th.', href: '/services/rent-collection/', cta: 'How we collect', icon: 'banknote' },
-  { h: 'Owner reporting', p: 'Monthly statements, year-end reporting and an owner portal you can check anytime.', href: '/services/owner-reporting/', cta: 'See a sample', icon: 'chart' },
-  { h: 'Compliance and evictions', p: 'A lease reviewed by counsel, Ohio compliance, and evictions handled when needed.', href: '/services/evictions/', cta: 'The process', icon: 'scale' },
+  { h: 'Owner reporting', p: 'Monthly statements, year-end reporting, and an owner portal you can check anytime.', href: '/services/owner-reporting/', cta: 'See a sample', icon: 'chart' },
+  { h: 'Compliance and evictions', p: 'Ohio-compliant lease. Evictions handled when needed.', href: '/services/evictions/', cta: 'The process', icon: 'scale' },
 ];
 
 /**
- * Decorative outline icons for the service cards (Lucide, ISC licence), drawn
- * large and faint in the lower-right corner. Inline SVG, so no request and no JS.
+ * Decorative SOLID icons for the service cards (Andrew, 2026-11-16: filled, not
+ * outlined, smaller, tucked into the lower-right corner). Simple filled shapes
+ * drawn for this site on a 24-unit grid. Inline SVG, so no request and no JS.
  */
 const serviceIcons: Record<string, string> = {
-  key: '<path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4"/><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/>',
-  userCheck: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/>',
+  key: '<path fill-rule="evenodd" d="M8 6.5a5.5 5.5 0 1 0 5.2 7.25H17v2.75h2.6v-2.75H21v2h2v-4.5h-9.8A5.5 5.5 0 0 0 8 6.5Zm0 3.4a2.1 2.1 0 1 0 0 4.2 2.1 2.1 0 0 0 0-4.2Z"/>',
+  userCheck: '<circle cx="9" cy="7.5" r="4.2"/><path d="M1.5 21.5c0-4.3 3.4-7.6 7.5-7.6s7.5 3.3 7.5 7.6Z"/><circle cx="18.6" cy="10" r="4.4"/><path d="m16.6 10 1.4 1.4 2.6-2.8" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>',
   wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
-  banknote: '<rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/>',
-  chart: '<path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/>',
-  scale: '<path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>',
+  banknote: '<path fill-rule="evenodd" d="M4 5.5h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-9a2 2 0 0 1 2-2Zm8 3.4a3.1 3.1 0 1 0 0 6.2 3.1 3.1 0 0 0 0-6.2ZM5.5 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm13 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/>',
+  chart: '<rect x="2.5" y="13" width="5" height="8.5" rx="1.2"/><rect x="9.5" y="8" width="5" height="13.5" rx="1.2"/><rect x="16.5" y="2.5" width="5" height="19" rx="1.2"/>',
+  scale: '<rect x="11" y="3" width="2" height="17" rx="1"/><rect x="6.5" y="19.5" width="11" height="2.5" rx="1.25"/><rect x="2.5" y="5.5" width="19" height="2.2" rx="1.1"/><path d="M5.6 7.6 2.3 13.6h1.7l1.6-3.1 1.6 3.1h1.7Zm12.8 0-3.3 6h1.7l1.6-3.1 1.6 3.1h1.7Z"/><path d="M1.6 14.2h8a4 4 0 0 1-8 0Zm12.8 0h8a4 4 0 0 1-8 0Z"/>',
 };
 
 /**
@@ -69,7 +70,7 @@ const howItWorks = [
   { h: 'Pick a plan',
     p: `Starting at ${usd(pricing.plans[0].monthly)} per month. You see the full cost before you sign.` },
   { h: 'We take it from here',
-    p: 'Leasing, rent collection and maintenance, with monthly statements and an always-current portal.' },
+    p: 'Leasing, rent collection, and maintenance, with monthly statements and 24/7 portal access.' },
 ];
 
 /**
@@ -84,7 +85,7 @@ const router = [
 ];
 
 const tools = [
-  { h: 'Rent vs. sell', p: 'Keep it as a rental, or sell now?', href: '/rent-vs-sell-calculator/' },
+  { h: 'Rent vs. sell', p: 'Worth keeping as a rental or better to sell?', href: '/rent-vs-sell-calculator/' },
   { h: 'Self-management', p: 'What your own time is costing you.', href: '/self-management-calculator/' },
   { h: 'Vacancy cost', p: 'The daily cost of an empty unit.', href: '/tools/vacancy-cost-calculator/' },
   { h: 'Market report', p: '2026 Columbus single-family rental data.', href: '/2026-columbus-market-report/' },
@@ -228,13 +229,12 @@ const schemaNodes = [serviceNode({
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
           <article class="card card-hover flex flex-col relative overflow-hidden">
-            <svg class="absolute right-5 bottom-5 w-[27%] max-w-[100px] text-crimson opacity-[.13] pointer-events-none"
-                 viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.25"
-                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"
+            <svg class="absolute right-3.5 bottom-3.5 w-[54px] h-[54px] text-crimson opacity-[.14] pointer-events-none"
+                 viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"
                  set:html={serviceIcons[s.icon]} />
             <h3 class="relative text-[20px] mb-2">{s.h}</h3>
-            <p class="relative text-[15px] text-muted mb-3.5 flex-1 pr-6">{s.p}</p>
-            <a href={s.href} class="relative font-sans text-[14px] font-semibold text-crimson no-underline hover:underline">{s.cta} →</a>
+            <p class="relative text-[15px] text-muted mb-3.5 flex-1">{s.p}</p>
+            <a href={s.href} class="relative self-start pr-16 font-sans text-[14px] font-semibold text-crimson no-underline hover:underline">{s.cta} →</a>
           </article>
         ))}
       </div>
@@ -253,14 +253,14 @@ const schemaNodes = [serviceNode({
         </p>
       </div>
 
-      <ol class="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 relative">
+      <ol class="grid gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-4 relative">
         <!--
           The connector is a single line behind the numbered markers, drawn only
           on the wide layout where the steps sit in a row. It is decorative, so
           it is hidden from assistive technology and the list still reads as an
           ordered list of four steps.
         -->
-        <div class="hidden lg:block absolute left-[12.5%] right-[12.5%] top-[26px] h-px bg-line rv-grow-x" aria-hidden="true"></div>
+        <div class="hidden xl:block absolute left-[12.5%] right-[12.5%] top-[26px] h-px bg-line rv-grow-x" aria-hidden="true"></div>
         {howItWorks.map((step, i) => (
           <li class="relative text-center rv" style={`--i:${i}`}>
             <div class="w-[52px] h-[52px] mx-auto rounded-full border-2 border-crimson bg-white
@@ -268,7 +268,7 @@ const schemaNodes = [serviceNode({
               {i + 1}
             </div>
             <h3 class="text-[20px] mt-5 mb-2.5">{step.h}</h3>
-            <p class="text-[15px] text-muted m-0 mx-auto max-w-[26em]">{step.p}</p>
+            <p class="text-[15px] text-muted m-0 mx-auto max-w-[24em]">{step.p}</p>
           </li>
         ))}
       </ol>
@@ -279,35 +279,16 @@ const schemaNodes = [serviceNode({
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section class="band band-wash" aria-labelledby="pricing-h">
-    <div class="wrap">
-      <div class="max-w-[660px] mx-auto text-center mb-11">
-        <span class="eyebrow">Clear pricing</span>
-        <h2 id="pricing-h" class="text-[clamp(28px,3.3vw,40px)]">A flat rate, not a slice of your rent</h2>
-        <p class="mt-3.5 text-[17.5px] text-muted">
-          Published, and the same for everyone. When your rent goes up, the whole increase is yours.
-        </p>
-      </div>
-      <PricingTable id="home-pricing" />
-
-      <div class="max-w-[760px] mx-auto text-center mt-10">
-        <p class="text-[15px] text-muted">
-          No startup cost on occupied units.
-          <a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline"> See exactly what management costs &rarr;</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
   <!--
-    NO LEASING FEE BANNER. Andrew, 2026-11-05: a red band between pricing and the
-    scorecard that names the differentiator and what it saves up front. The saving
+    NO LEASING FEE BANNER. Andrew, 2026-11-05: a red band that names the
+    differentiator and what it saves up front. 2026-11-16: moved to sit directly
+    above Clear pricing, its red fading into the pricing band's wash so the two
+    read as one pricing story. The saving
     is typicalManager.leasingFee (75% of a month) on the portfolio's average rent,
     so it moves on its own when kpis.avgRent is updated.
   -->
-  <section class="bg-crimson text-white" aria-labelledby="noleasing-h">
-    <div class="wrap py-12 sm:py-14 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+  <section class="lf-band text-white" aria-labelledby="noleasing-h">
+    <div class="wrap pt-12 sm:pt-14 pb-24 sm:pb-28 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
       <div>
         <!-- The typical fee struck through, then our $0. Static (with a plain
              line-through) wherever scroll animation is off; see the style block. -->
@@ -329,6 +310,27 @@ const schemaNodes = [serviceNode({
         </p>
       </div>
       <a href="/pricing/" class="btn btn-on-dark justify-self-start lg:justify-self-end">See full pricing</a>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="band band-wash !pt-10" aria-labelledby="pricing-h">
+    <div class="wrap">
+      <div class="max-w-[660px] mx-auto text-center mb-11">
+        <span class="eyebrow">Clear pricing</span>
+        <h2 id="pricing-h" class="text-[clamp(28px,3.3vw,40px)]">A flat rate, not a slice of your rent</h2>
+        <p class="mt-3.5 text-[17.5px] text-muted">
+          Standard pricing for everyone. When your rent goes up, our pricing stays the same.
+        </p>
+      </div>
+      <PricingTable id="home-pricing" />
+
+      <div class="max-w-[760px] mx-auto text-center mt-10">
+        <p class="text-[15px] text-muted">
+          No startup cost on occupied units.
+          <a href="/pricing/" class="text-crimson font-semibold no-underline hover:underline"> See exactly what management costs &rarr;</a>
+        </p>
+      </div>
     </div>
   </section>
 
@@ -419,7 +421,7 @@ const schemaNodes = [serviceNode({
   </section>
 
   <!-- FAQ -->
-  <section class="band">
+  <section class="band band-wash">
     <div class="wrap">
       <div class="max-w-[660px] mx-auto text-center mb-9">
         <span class="eyebrow">Quick answers</span>
@@ -450,6 +452,14 @@ const schemaNodes = [serviceNode({
   /* The struck-through typical fee keeps a plain line-through by default, and
      hands it to the animated .rv-strike line only where that line can draw. */
   .lf-was { text-decoration: line-through; text-decoration-thickness: 2px; }
+  /* The red holds behind the copy, then fades into the pricing band's wash below. */
+  .lf-band {
+    background: linear-gradient(180deg,
+      var(--color-crimson) 0%,
+      var(--color-crimson) calc(100% - 150px),
+      color-mix(in srgb, var(--color-crimson) 55%, var(--color-wash-soft)) calc(100% - 70px),
+      var(--color-wash-soft) 100%);
+  }
   @media (prefers-reduced-motion: no-preference) {
     :global(.rv-js) .lf-was { text-decoration: none; }
   }
