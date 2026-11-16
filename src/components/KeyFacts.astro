@@ -4,7 +4,7 @@
  * where an extractor will meet them early.
  */
 interface Props { items: string[]; heading?: string }
-const { items, heading = 'The short version' } = Astro.props;
+const { items, heading = 'Quick facts' } = Astro.props;
 ---
 {items.length > 0 && (
   <section class="pb-4">

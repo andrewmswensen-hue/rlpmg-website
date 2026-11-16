@@ -1,18 +1,26 @@
 ---
-/** Onward links. Every page ends with somewhere useful to go next. */
+/**
+ * Onward links. Every page ends with somewhere useful to go next.
+ * Andrew, 2026-11-16: side-by-side square cards (five across on desktop when a
+ * page has five links; the row matches the count when it has fewer). The whole
+ * card is the link. Phones stack them as short rows.
+ */
 interface Props { links: { href: string; label: string; note?: string }[]; heading?: string }
 const { links, heading = 'Where to go next' } = Astro.props;
+const n = Math.min(Math.max(links.length, 1), 5);
+const lgCols = ['', 'lg:grid-cols-1', 'lg:grid-cols-2', 'lg:grid-cols-3', 'lg:grid-cols-4', 'lg:grid-cols-5'][n];
 ---
 {links.length > 0 && (
   <section class="band-tight border-t border-line">
-    <div class="wrap max-w-[880px]">
+    <div class="wrap">
       <h2 class="text-[21px] mb-5">{heading}</h2>
-      <ul class="grid gap-3 sm:grid-cols-2">
+      <ul class:list={['grid gap-4 sm:grid-cols-2', lgCols]}>
         {links.map((l) => (
           <li>
-            <a href={l.href} class="block card !p-4 no-underline card-hover">
-              <span class="block font-serif text-[17px] font-semibold text-navy">{l.label}</span>
-              {l.note && <span class="block text-[14px] text-muted mt-1">{l.note}</span>}
+            <a href={l.href} class="rl-card card card-hover no-underline">
+              <span class="block font-serif text-[18px] font-semibold text-navy leading-snug">{l.label}</span>
+              {l.note && <span class="block text-[14px] text-muted mt-2 leading-snug">{l.note}</span>}
+              <span class="rl-arrow" aria-hidden="true">&rarr;</span>
             </a>
           </li>
         ))}
@@ -20,3 +28,11 @@ const { links, heading = 'Where to go next' } = Astro.props;
     </div>
   </section>
 )}
+
+<style>
+  .rl-card { display: flex; flex-direction: column; height: 100%; padding: 22px !important; }
+  .rl-arrow { margin-top: auto; padding-top: 14px; font-family: var(--font-sans); font-size: 18px; color: var(--color-crimson); transition: transform .15s; }
+  .rl-card:hover .rl-arrow, .rl-card:focus-visible .rl-arrow { transform: translateX(4px); }
+  @media (min-width: 1024px) { .rl-card { aspect-ratio: 1 / 1; } }
+  @media (prefers-reduced-motion: reduce) { .rl-arrow { transition: none; } }
+</style>

@@ -86,7 +86,6 @@ const faq = [
 <Base {title} {description} {faq} {breadcrumbs}>
 
   <PageHero
-    eyebrow="For renters"
     title="Houses for rent in Columbus, Ohio"
     answer={answer}
     breadcrumbs={breadcrumbs}
@@ -112,7 +111,6 @@ const faq = [
   <section class="band-tight" aria-labelledby="listings-h">
     <div class="wrap">
       <div class="max-w-[880px]">
-        <span class="eyebrow">Available now</span>
         <h2 id="listings-h" class="text-[clamp(28px,3.3vw,40px)]">What is available right now</h2>
         <p class="text-[17px] text-muted mt-3 mb-6">
           Every home we have open across the Columbus metro. Pick one to see photos, book a showing, and apply.
@@ -138,7 +136,6 @@ const faq = [
   <!-- HOW TO SEE A HOME -->
   <section class="band band-wash" aria-labelledby="see-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Step one</span>
       <h2 id="see-h" class="text-[clamp(28px,3.3vw,40px)]">How do I see one of your homes?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Book the showing from the listing for that home, not a general contact form. No waiting on a callback.
@@ -175,7 +172,6 @@ const faq = [
   <!-- QUALIFYING -->
   <section class="band" aria-labelledby="qualify-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Before you pay a fee</span>
       <h2 id="qualify-h" class="text-[clamp(28px,3.3vw,40px)]">What do I need to qualify?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Five checks, the same for every applicant on every home. Check yourself against them before you pay anything.
@@ -197,7 +193,6 @@ const faq = [
   <!-- COST TO APPLY -->
   <section class="band band-wash" aria-labelledby="cost-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Money up front</span>
       <h2 id="cost-h" class="text-[clamp(28px,3.3vw,40px)]">What does it cost to apply, and what is due at move-in?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Money moves twice: the application fee when you submit, and move-in funds when you sign. Nothing is due in between.
@@ -247,7 +242,6 @@ const faq = [
   <!-- PETS -->
   <section class="band" aria-labelledby="pets-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Pet friendly rentals</span>
       <h2 id="pets-h" class="text-[clamp(28px,3.3vw,40px)]">Can I have a pet?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         In many of our homes, yes. Each listing says so. The owner sets the pet policy per property, so we
@@ -278,7 +272,6 @@ const faq = [
   <!-- RENTS -->
   <section class="band band-wash" aria-labelledby="rents-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">What things cost</span>
       <h2 id="rents-h" class="text-[clamp(28px,3.3vw,40px)]">What do homes rent for in the Columbus metro?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         From {usd(rentByBedroom['1'].median)} for a one bedroom to {usd(rentByBedroom['4'].median)} for a four
@@ -315,7 +308,6 @@ const faq = [
   <!-- WHERE -->
   <section class="band" aria-labelledby="where-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Where we lease</span>
       <h2 id="where-h" class="text-[clamp(28px,3.3vw,40px)]">Where do you have rentals?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         {areas.length} communities across Franklin, Delaware, Fairfield, Licking, Union, Madison and Pickaway counties.
@@ -352,7 +344,6 @@ const faq = [
 
   <section class="band band-wash">
     <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Renter questions about our Columbus homes" id="homes-faq" />
       <div class="mt-8">
         <Verified date="2026-09-09" />

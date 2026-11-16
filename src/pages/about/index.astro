@@ -88,7 +88,6 @@ const related = [
 <Base {title} {description} {faq} {breadcrumbs}>
 
   <PageHero
-    eyebrow="About us"
     title="About RL Property Management"
     answer={`${company.name} is a licensed Ohio brokerage founded in ${company.founded}, managing ${company.unitsManaged} ${company.propertyTypes} across the Columbus metro on flat pricing of ${priceRange()} per unit per month.`}
     breadcrumbs={breadcrumbs}
@@ -128,7 +127,6 @@ const related = [
 
   <section class="band band-wash" aria-labelledby="diff-h">
     <div class="wrap max-w-[940px]">
-      <span class="eyebrow">The difference</span>
       <h2 id="diff-h" class="text-[clamp(28px,3.3vw,40px)]">What makes RL Property Management different?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
         We publish what most managers keep private: prices, operating numbers, and who does the work.
@@ -192,7 +190,6 @@ const related = [
 
   <section class="band band-wash">
     <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Questions about the company" id="about-faq" />
       <div class="mt-8"><Verified date="2026-09-09" /></div>
     </div>

@@ -78,7 +78,6 @@ const faq = [
   <!-- HOW -->
   <section class="band-tight" aria-labelledby="how-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Where to pay</span>
       <h2 id="how-h" class="text-[clamp(28px,3.3vw,40px)]">How do I pay my rent?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Online, through the resident portal. Payments post to your ledger immediately, with a dated receipt.
@@ -98,7 +97,6 @@ const faq = [
   <!-- WHEN -->
   <section class="band band-wash" aria-labelledby="when-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">The dates</span>
       <h2 id="when-h" class="text-[clamp(28px,3.3vw,40px)]">When is rent due?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         On {rentPolicy.dueDate}. Late fees are assessed after {rentPolicy.lateFeesAfter}. Across the
@@ -126,7 +124,6 @@ const faq = [
   <!-- IF SHORT -->
   <section class="band" aria-labelledby="short-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">The hard month</span>
       <h2 id="short-h" class="text-[clamp(28px,3.3vw,40px)]">What if I am going to be short this month?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Tell us before {rentPolicy.lateFeesAfter}, in writing through the portal (not by text). Say how much
@@ -143,7 +140,6 @@ const faq = [
   <!-- MONTH TO MONTH -->
   <section class="band band-wash" aria-labelledby="mtm-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Renewals</span>
       <h2 id="mtm-h" class="text-[clamp(28px,3.3vw,40px)]">Why does month-to-month cost more?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Rent on a month-to-month tenancy is {rentPolicy.monthToMonthIncreasePct}% higher than on a signed
@@ -159,7 +155,6 @@ const faq = [
 
   <section class="band">
     <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Rent questions" id="rent-faq" />
       <div class="mt-8">
         <Verified date="2026-09-09" />

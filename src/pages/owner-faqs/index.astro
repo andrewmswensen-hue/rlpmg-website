@@ -107,7 +107,7 @@ const categories = [
   },
   {
     id: 'leasing',
-    heading: 'Leasing and resident screening',
+    heading: 'Leasing and tenant screening',
     items: [
       { q: 'How do you screen prospective residents?',
         a: 'Every applicant goes through a custom rental application and a third-party background check covering credit history, criminal history, rental history including prior evictions and landlord references, and verified income. The same criteria are applied to every applicant, inside fair housing law.' },
@@ -226,7 +226,6 @@ const schemaNodes = [
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
 
   <PageHero
-    eyebrow="Owner questions"
     title="Property management FAQs for Columbus, Ohio owners"
     answer={`Answers for Columbus rental owners, with the numbers attached. Management is a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, the leasing fee is ${usd(pricing.leasingFee)}, and owner funds go out on the ${rentPolicy.ownerDisbursementDay}th.`}
     breadcrumbs={breadcrumbs}

@@ -204,7 +204,6 @@ const faq = [
   <!-- THE CALCULATOR. Server-rendered with the defaults; the script below makes it live. -->
   <section id="calculator" class="band band-wash scroll-mt-24" aria-labelledby="calc-h">
     <div class="wrap max-w-[1060px]">
-      <span class="eyebrow">Your numbers</span>
       <h2 id="calc-h" class="text-[clamp(28px,3.3vw,40px)]">What will your vacancy cost?</h2>
       <p class="text-[17px] text-muted mt-3 mb-7 max-w-[44em]">
         Change any number and the result updates. Rent and days start at our portfolio medians. Every
@@ -351,7 +350,6 @@ const faq = [
   <!-- THE FORMULA -->
   <section class="band" aria-labelledby="formula-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">The formula</span>
       <h2 id="formula-h" class="text-[clamp(28px,3.3vw,40px)]">How do you calculate the cost of a vacant rental?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Divide monthly rent by {DAYS_IN_MONTH} for the daily cost, then multiply by the days the unit sits
@@ -382,7 +380,6 @@ const faq = [
   <!-- DAILY COST TABLE -->
   <section class="band band-wash" aria-labelledby="daily-h">
     <div class="wrap max-w-[940px]">
-      <span class="eyebrow">Start here</span>
       <h2 id="daily-h" class="text-[clamp(28px,3.3vw,40px)]">What does one vacant day cost in Columbus?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         Median rents across the {company.unitsManaged} units we manage. Find the row closest to your rent.
@@ -425,7 +422,6 @@ const faq = [
   <!-- THE GRID -->
   <section class="band" aria-labelledby="grid-h">
     <div class="wrap max-w-[940px]">
-      <span class="eyebrow">Lost rent by the day</span>
       <h2 id="grid-h" class="text-[clamp(28px,3.3vw,40px)]">What does a vacancy cost by the day?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         Lost rent only, before turn and vacant-unit costs. Find your rent and read across.
@@ -519,7 +515,6 @@ const faq = [
   <!-- THE RENT CUT TRADEOFF -->
   <section class="band" aria-labelledby="cut-h">
     <div class="wrap max-w-[940px]">
-      <span class="eyebrow">The decision this informs</span>
       <h2 id="cut-h" class="text-[clamp(28px,3.3vw,40px)]">Should you hold out for a higher rent?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         Only if the wait is short. {usd(RENT_CUT)} a month is {usd(RENT_CUT * 12)} over a twelve-month lease.
@@ -567,7 +562,6 @@ const faq = [
 
   <section class="band band-wash">
     <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Vacancy cost questions" id="vacancy-faq" />
       <div class="mt-8"><Verified date="2026-09-09" /></div>
       <p class="text-[13px] text-faint mt-3">

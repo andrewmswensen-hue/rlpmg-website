@@ -117,7 +117,6 @@ const schemaNodes = [
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
 
   <PageHero
-    eyebrow="Where we work"
     title="Property management in Westerville, Ohio"
     answer={`${company.name} manages single-family and small multifamily rentals in Westerville for a flat ${usd(pricing.plans[0].monthly)} to ${usd(pricing.plans[2].monthly)} per unit per month, with a ${usd(pricing.leasingFee)} leasing fee. Westerville runs its own electric utility, which changes every utility transfer.`}
     breadcrumbs={breadcrumbs}
@@ -193,7 +192,7 @@ const schemaNodes = [
   <!-- COURT -->
   <section class="band band-wash" aria-labelledby="court-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">If it goes wrong</span>
+      <span class="eyebrow">Evictions</span>
       <h2 id="court-h" class="text-[clamp(26px,3.2vw,38px)]">Which court hears an eviction in Westerville, Ohio?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Franklin County Municipal Court, 375 S. High St., 3rd floor, Columbus, OH 43215, for most addresses. The
@@ -300,7 +299,6 @@ const schemaNodes = [
   <!-- FAQ -->
   <section class="band band-wash" aria-labelledby="faq-section">
     <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
       <h2 id="faq-section" class="sr-only">Westerville property management questions</h2>
       <Faq items={faq} heading="Westerville property management questions" id="westerville-faq" />
       <p class="mt-7 text-[15.5px] text-muted">

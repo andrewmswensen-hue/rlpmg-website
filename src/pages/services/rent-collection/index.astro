@@ -82,7 +82,6 @@ const schemaNodes = [
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
 
   <PageHero
-    eyebrow="Rent collection"
     title="How rent gets collected, and what happens when it does not"
     answer={answer}
     breadcrumbs={breadcrumbs}
@@ -96,7 +95,6 @@ const schemaNodes = [
 
   <section class="band" aria-labelledby="policy-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">The policy</span>
       <h2 id="policy-h" class="text-[clamp(28px,3.3vw,40px)]">When is rent due?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         Rent is due {rentPolicy.dueDate}. Many residents pay between {rentPolicy.practicalWindow}, when paychecks
@@ -109,7 +107,6 @@ const schemaNodes = [
 
   <section class="band band-wash" aria-labelledby="timeline-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Month by month</span>
       <h2 id="timeline-h" class="text-[clamp(28px,3.3vw,40px)]">What does the collection month look like?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
         The same sequence every month, so no one decides in the moment what to do about a late resident.
@@ -127,7 +124,6 @@ const schemaNodes = [
 
   <section class="band" aria-labelledby="nonpay-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">The hard case</span>
       <h2 id="nonpay-h" class="text-[clamp(28px,3.3vw,40px)]">What happens if my tenant does not pay?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         The fixed process above ends in a filing, and the numbers are published:
@@ -147,7 +143,6 @@ const schemaNodes = [
 
   <section class="band band-wash" aria-labelledby="pay-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Your side of it</span>
       <h2 id="pay-h" class="text-[clamp(28px,3.3vw,40px)]">Why do owners get paid on the 10th and not the 6th?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         The month has to close first: payments clear, maintenance invoices post, and your statement matches
@@ -160,7 +155,6 @@ const schemaNodes = [
 
   <section class="band band-wash">
     <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Rent collection questions" id="rent-faq" />
       <LegalNote class="mb-5" />
       <div class="mt-8"><Verified date="2026-09-09" /></div>

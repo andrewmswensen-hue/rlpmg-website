@@ -66,7 +66,6 @@ const related = [
 <Base {title} {description} {faq} {breadcrumbs}>
 
   <PageHero
-    eyebrow="Reviews"
     title="Reviews of RL Property Management"
     answer={`${company.name} has a ${r.rating} star average across ${r.display} ${r.platform} reviews as of ${kpis.asOfLabel}. This page explains what a property management rating measures and how to read one.`}
     breadcrumbs={breadcrumbs}
@@ -99,7 +98,6 @@ const related = [
   <!-- THE QUOTES, NOT YET FILLED -->
   <section class="band-tight" aria-labelledby="quotes-h">
     <div class="wrap max-w-[940px]">
-      <span class="eyebrow">In their words</span>
       <h2 id="quotes-h" class="text-[clamp(28px,3.3vw,40px)]">What do clients and residents say?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
         Real quotes go here once collected, each with a first name and a city. We do not paraphrase
@@ -175,7 +173,6 @@ const related = [
 
   <section class="band-tight">
     <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Questions about reviews" id="reviews-faq" />
       <div class="mt-8"><Verified date="2026-09-09" /></div>
     </div>

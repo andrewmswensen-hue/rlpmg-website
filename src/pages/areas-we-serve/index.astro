@@ -177,7 +177,6 @@ const schemaNodes = [
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
 
   <PageHero
-    eyebrow="Where we work"
     title="Areas we serve across Central Ohio"
     answer={`${company.name} manages single-family and small multifamily rentals in ${markets.length} Central Ohio communities across seven counties, from Columbus out to Delaware, Newark, Lancaster and Marysville. Pricing is flat and the leasing fee is ${usd(pricing.leasingFee)} in every one of them.`}
     breadcrumbs={breadcrumbs}
@@ -206,7 +205,6 @@ const schemaNodes = [
         registration ordinance, historic district commissions and municipal water utility.
       </p>
       <div class="card !border-2 !border-navy !p-8 md:!p-10 mt-7">
-        <span class="eyebrow">The anchor page</span>
         <h3 class="text-[26px] mb-3">
           <a href="/property-management-columbus-ohio/" class="text-navy no-underline hover:text-crimson">
             Property management in Columbus, Ohio
@@ -233,7 +231,6 @@ const schemaNodes = [
   <!-- THE FULL LIST, BY COUNTY -->
   <section class="band band-wash" aria-labelledby="list-h">
     <div class="wrap max-w-[940px]">
-      <span class="eyebrow">The full list</span>
       <h2 id="list-h" class="text-[clamp(28px,3.3vw,40px)]">Which communities do we manage rental property in?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
         All {markets.length}, grouped by county. The county decides which court hears an eviction
@@ -271,7 +268,6 @@ const schemaNodes = [
   <!-- COURTS -->
   <section class="band" aria-labelledby="court-h">
     <div class="wrap max-w-[900px]">
-      <span class="eyebrow">Public record</span>
       <h2 id="court-h" class="text-[clamp(28px,3.3vw,40px)]">Which court hears an eviction for my address?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-7 max-w-[44em]">
         The municipal court for the county the property sits in, not the city on the mailing
@@ -311,7 +307,6 @@ const schemaNodes = [
   <!-- REGISTRATION -->
   <section class="band band-wash" aria-labelledby="reg-h">
     <div class="wrap max-w-[900px]">
-      <span class="eyebrow">Before you rent it out</span>
       <h2 id="reg-h" class="text-[clamp(28px,3.3vw,40px)]">Do I have to register my rental anywhere?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         In Franklin and Delaware counties, yes. There are two separate filings, and we handle them for you.
@@ -346,7 +341,6 @@ const schemaNodes = [
   <!-- HOW WE WORK A METRO THIS WIDE -->
   <section class="band" aria-labelledby="how-h">
     <div class="wrap max-w-[900px]">
-      <span class="eyebrow">One office, one team</span>
       <h2 id="how-h" class="text-[clamp(28px,3.3vw,40px)]">How do you cover a metro this wide from one office?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6 max-w-[44em]">
         In-house technicians who drive the whole footprint, dispatch routed by geography, and
@@ -371,7 +365,6 @@ const schemaNodes = [
 
   <section class="band band-wash">
     <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Questions about where we work" id="areas-faq" />
       <div class="mt-8">
         <Verified date="2026-09-09" />

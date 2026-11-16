@@ -6,6 +6,7 @@ import Faq from '../../../components/Faq.astro';
 import Verified from '../../../components/Verified.astro';
 import RelatedLinks from '../../../components/RelatedLinks.astro';
 import Cta from '../../../components/Cta.astro';
+import Photo from '../../../components/Photo.astro';
 import { company, pricing, kpis, rentPolicy, typicalManager, usd } from '../../../data/facts';
 import { serviceNode } from '../../../lib/schema';
 
@@ -44,6 +45,16 @@ const facts = [
   `Average rent under management ${kpi('avgRent')}`,
   'Photography is billed separately at $250 to $450, not included',
   `${usd(pricing.leaseRenewalFee)} lease renewal fee, charged on the renewal date`,
+];
+
+/** Solid step icons, simple filled shapes on a 24-unit grid (Andrew, 2026-11-16). */
+const stepIcons = [
+  '<path fill-rule="evenodd" d="M3 4.5A1.5 1.5 0 0 1 4.5 3h6.4a1.5 1.5 0 0 1 1.06.44l8.6 8.6a1.5 1.5 0 0 1 0 2.12l-6.4 6.4a1.5 1.5 0 0 1-2.12 0l-8.6-8.6A1.5 1.5 0 0 1 3 10.9Zm4.5 1.4a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z"/>',
+  '<rect x="3" y="3" width="14" height="6.5" rx="1.6"/><path d="M17 6.25h2.2c.7 0 1.3.6 1.3 1.3v3.2c0 .7-.6 1.3-1.3 1.3H12.5c-.6 0-1 .4-1 1V14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><rect x="10" y="13.5" width="3" height="8" rx="1.3"/>',
+  '<path fill-rule="evenodd" d="M9.2 4h5.6a1.5 1.5 0 0 1 1.3.75L17 6.5h2.5A2.5 2.5 0 0 1 22 9v9.5a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5V9a2.5 2.5 0 0 1 2.5-2.5H7l.9-1.75A1.5 1.5 0 0 1 9.2 4ZM12 9.5a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/>',
+  '<path d="M2.6 10.9 20.4 3.3c.6-.25 1.2.35.95.95L13.8 22c-.3.7-1.3.6-1.5-.1l-1.9-6.7-6.7-1.9c-.7-.2-.8-1.2-.1-1.5Z"/>',
+  '<path d="M3 10.7 11.1 3.6a1.4 1.4 0 0 1 1.8 0L21 10.7v9.8a1.5 1.5 0 0 1-1.5 1.5H15v-6.2a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1V22H4.5A1.5 1.5 0 0 1 3 20.5Z"/>',
+  '<path d="M6.5 2h7.4L19 7.1v13.4a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 20.5v-17A1.5 1.5 0 0 1 6.5 2Z"/><path d="m8.6 14.4 2.3 2.3 4.5-4.8" fill="none" stroke="#fff" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>',
 ];
 
 const steps = [
@@ -91,7 +102,6 @@ const schemaNodes = [
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
 
   <PageHero
-    eyebrow="Marketing and leasing"
     title="How a Columbus rental gets marketed and leased"
     answer={answer}
     breadcrumbs={breadcrumbs}
@@ -105,33 +115,39 @@ const schemaNodes = [
 
   <section class="band" aria-labelledby="cost-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">The cost of a vacancy</span>
       <h2 id="cost-h" class="text-[clamp(28px,3.3vw,40px)]">What does vacancy cost?</h2>
       <p class="text-[17.5px] text-muted mt-4">
         A full month of rent, while you still pay the mortgage, taxes, insurance and utilities. On the
         {kpi('avgRent')} average rent under our management, thirty extra days vacant costs more than a year of
-        flat management on {pricing.plans[0].name}.
+        our flat management at {usd(pricing.plans[0].monthly)} a month.
       </p>
       <p class="text-[17.5px] text-muted mt-4">
         A manager who charges {typicalManager.leasingFeePhrase} to lease a unit is paid more when your unit turns. At a
         {' '}{usd(pricing.leasingFee)} leasing fee, we are neutral about whether your resident renews.
+      </p>
+      <p class="mt-5 mb-0">
+        <a href="/tools/vacancy-cost-calculator/" class="font-sans text-[16px] font-semibold text-crimson no-underline hover:underline">Calculate the cost of a vacancy for your property &rarr;</a>
       </p>
     </div>
   </section>
 
   <section class="band band-wash" aria-labelledby="steps-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">The process</span>
       <h2 id="steps-h" class="text-[clamp(28px,3.3vw,40px)]">How do you market a rental property?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-8 max-w-[44em]">
         Six steps, in this order.
       </p>
       <ol class="grid gap-5">
         {steps.map((s, i) => (
-          <li class="card">
-            <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">Step {i + 1}</div>
-            <h3 class="text-[19.5px] mb-2">{s.h}</h3>
-            <p class="text-[15.5px] text-muted m-0">{s.b}</p>
+          <li class="card flex gap-5 items-start">
+            <span class="shrink-0 grid place-items-center w-12 h-12 rounded-[12px] bg-[#f9e8ec] text-crimson">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" set:html={stepIcons[i]} />
+            </span>
+            <div>
+              <div class="font-sans text-[12px] font-bold tracking-[.13em] uppercase text-faint mb-2">Step {i + 1}</div>
+              <h3 class="text-[19.5px] mb-2">{s.h}</h3>
+              <p class="text-[15.5px] text-muted m-0">{s.b}</p>
+            </div>
           </li>
         ))}
       </ol>
@@ -140,22 +156,48 @@ const schemaNodes = [
 
   <section class="band" aria-labelledby="photo-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Said plainly</span>
-      <h2 id="photo-h" class="text-[clamp(28px,3.3vw,40px)]">Is photography included?</h2>
+      <h2 id="photo-h" class="text-[clamp(28px,3.3vw,40px)]">Professional photography</h2>
       <p class="text-[17.5px] text-muted mt-4">
-        No. It is the one part of leasing not covered by the {usd(pricing.leasingFee)} fee.
+        Professional photos go a long way. Renters decide whether to tour from the first photo they see, and a
+        bright, level, well-lit room earns the click that a dark phone snapshot loses.
       </p>
-      <div class="card mt-6">
-        <h3 class="text-[18.5px] mb-2">{photoFee?.name}</h3>
-        <p class="text-[15.5px] text-muted m-0"><strong class="text-navy">{photoFee?.amount}</strong>. {photoFee?.note}</p>
+      <figure class="mt-7 mb-0">
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div>
+            <div class="rounded-[14px] overflow-hidden border border-line aspect-[3/2]">
+              <Photo src="living-room-snapshot" widths={[640, 1000, 1400]} ratio={1.5}
+                     sizes="(max-width: 640px) 92vw, 430px"
+                     alt="The same living room in a dim, tilted, yellow-tinted phone snapshot"
+                     imgClass="w-full h-full object-cover" />
+            </div>
+            <p class="font-sans text-[13px] font-semibold text-muted mt-2.5 mb-0">Phone snapshot</p>
+          </div>
+          <div>
+            <div class="rounded-[14px] overflow-hidden border border-line aspect-[3/2]">
+              <Photo src="empty-living-room" widths={[640, 1000, 1400]} ratio={1.5}
+                     sizes="(max-width: 640px) 92vw, 430px"
+                     alt="A bright living room with a gray sofa and tall windows, professionally photographed"
+                     imgClass="w-full h-full object-cover" />
+            </div>
+            <p class="font-sans text-[13px] font-semibold text-navy mt-2.5 mb-0">Professional photo</p>
+          </div>
+        </div>
+        <figcaption class="text-[13.5px] text-faint mt-3">The same room, shown two ways.</figcaption>
+      </figure>
+      <div class="card mt-7">
+        <h3 class="text-[18.5px] mb-2">Yours to keep</h3>
+        <p class="text-[15.5px] text-muted m-0">
+          Professional photography runs <strong class="text-navy">{photoFee?.amount}</strong> by property size,
+          billed separately from the {usd(pricing.leasingFee)} leasing fee. The photos are yours to keep, and we
+          reuse them at no charge for as long as they still show the property as it is.
+        </p>
       </div>
     </div>
   </section>
 
   <section class="band band-wash" aria-labelledby="stall-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Diagnosis</span>
-      <h2 id="stall-h" class="text-[clamp(28px,3.3vw,40px)]">Why is my rental not renting?</h2>
+      <h2 id="stall-h" class="text-[clamp(28px,3.3vw,40px)]">Why is my property not renting?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6">
         Almost always one of four things, and the inquiry data shows which.
       </p>
@@ -171,9 +213,8 @@ const schemaNodes = [
     </div>
   </section>
 
-  <section class="band band-wash">
+  <section class="band">
     <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Marketing and leasing questions" id="leasing-faq" />
       <div class="mt-8"><Verified date="2026-09-09" /></div>
     </div>

@@ -108,7 +108,6 @@ const schemaNodes = [
 <Base {title} {description} {faq} {breadcrumbs} {schemaNodes}>
 
   <PageHero
-    eyebrow="For portfolio owners"
     title="Property management for rental portfolios in Columbus"
     answer={`${company.name} manages ${company.unitsManaged} single-family and small multifamily units for Columbus investors. Flat pricing per door, a ${usd(pricing.leasingFee)} leasing fee, and a published discount for larger portfolios.`}
     breadcrumbs={breadcrumbs}
@@ -191,7 +190,6 @@ const schemaNodes = [
   <!-- WHY -->
   <section class="band band-wash" aria-labelledby="why-h">
     <div class="wrap">
-      <span class="eyebrow">What you are buying</span>
       <h2 id="why-h" class="text-[clamp(26px,3.2vw,38px)]">What should an investor look for in a manager?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[46em]">
         Six things, all checkable before you sign.
@@ -210,7 +208,6 @@ const schemaNodes = [
   <!-- SCORECARD -->
   <section class="band-tight" aria-labelledby="kpi-h">
     <div class="wrap max-w-[940px]">
-      <span class="eyebrow">Published, with definitions</span>
       <h2 id="kpi-h" class="text-[clamp(26px,3.2vw,38px)]">How is the portfolio performing?</h2>
       <p class="text-[17.5px] text-muted mt-4 max-w-[44em]">
         Every unit under management, as of {kpis.asOfLabel}, with each definition published.
@@ -233,7 +230,6 @@ const schemaNodes = [
   <!-- OUT OF STATE -->
   <section class="band band-wash" aria-labelledby="oos-h">
     <div class="wrap max-w-[880px]">
-      <span class="eyebrow">Remote owners</span>
       <h2 id="oos-h" class="text-[clamp(26px,3.2vw,38px)]">Can you manage for an out-of-state investor?</h2>
       <p class="text-[17.5px] text-muted mt-4 mb-6">
         Yes. Remote ownership works on reporting you can read without calling, approval limits that let routine
@@ -272,7 +268,6 @@ const schemaNodes = [
 
   <section class="band band-wash">
     <div class="wrap max-w-[820px]">
-      <span class="eyebrow">Real answers</span>
       <Faq items={faq} heading="Investor questions" id="investor-faq" />
       <div class="mt-7"><Verified date="2026-09-09" /></div>
     </div>
