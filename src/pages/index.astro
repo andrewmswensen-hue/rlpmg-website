@@ -85,10 +85,10 @@ const router = [
 ];
 
 const tools = [
-  { h: 'Rent vs. sell', p: 'Worth keeping as a rental or better to sell?', href: '/rent-vs-sell-calculator/' },
-  { h: 'Self-management', p: 'What your own time is costing you.', href: '/self-management-calculator/' },
-  { h: 'Vacancy cost', p: 'The daily cost of an empty unit.', href: '/tools/vacancy-cost-calculator/' },
-  { h: 'Market report', p: '2026 Columbus single-family rental data.', href: '/2026-columbus-market-report/' },
+  { h: 'Rent vs. sell', p: 'Worth keeping as a rental or better to sell?', cta: 'Compare rent vs. sell', href: '/rent-vs-sell-calculator/' },
+  { h: 'Self-management', p: 'See what your time, vacancy, and repairs really cost you.', cta: 'Calculate your cost', href: '/self-management-calculator/' },
+  { h: 'Vacancy cost', p: 'See what each empty day costs you, and what a faster lease saves.', cta: 'Calculate vacancy cost', href: '/tools/vacancy-cost-calculator/' },
+  { h: 'Market report', p: 'Get 2026 Columbus rents, yields, and trends by neighborhood.', cta: 'Read the report', href: '/2026-columbus-market-report/' },
 ];
 
 
@@ -228,13 +228,13 @@ const schemaNodes = [serviceNode({
       </div>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
-          <article class="card card-hover flex flex-col relative overflow-hidden">
+          <article class="card card-hover card-link flex flex-col relative overflow-hidden">
             <svg class="absolute right-3.5 bottom-3.5 w-[54px] h-[54px] text-crimson opacity-[.14] pointer-events-none"
                  viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"
                  set:html={serviceIcons[s.icon]} />
             <h3 class="relative text-[20px] mb-2">{s.h}</h3>
             <p class="relative text-[15px] text-muted mb-3.5 flex-1">{s.p}</p>
-            <a href={s.href} class="relative self-start pr-16 font-sans text-[14px] font-semibold text-crimson no-underline hover:underline">{s.cta} →</a>
+            <a href={s.href} class="card-link-a self-start pr-16 font-sans text-[14px] font-semibold text-crimson no-underline">{s.cta} →</a>
           </article>
         ))}
       </div>
@@ -282,13 +282,13 @@ const schemaNodes = [serviceNode({
   <!--
     NO LEASING FEE BANNER. Andrew, 2026-11-05: a red band that names the
     differentiator and what it saves up front. 2026-11-16: moved to sit directly
-    above Clear pricing, its red fading into the pricing band's wash so the two
-    read as one pricing story. The saving
+    above Clear pricing, solid red with a shallow V along the bottom edge that
+    points down at the pricing section. The saving
     is typicalManager.leasingFee (75% of a month) on the portfolio's average rent,
     so it moves on its own when kpis.avgRent is updated.
   -->
   <section class="lf-band text-white" aria-labelledby="noleasing-h">
-    <div class="wrap pt-12 sm:pt-14 pb-24 sm:pb-28 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+    <div class="wrap pt-10 sm:pt-11 pb-14 sm:pb-16 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
       <div>
         <!-- The typical fee struck through, then our $0. Static (with a plain
              line-through) wherever scroll animation is off; see the style block. -->
@@ -320,7 +320,8 @@ const schemaNodes = [serviceNode({
         <span class="eyebrow">Clear pricing</span>
         <h2 id="pricing-h" class="text-[clamp(28px,3.3vw,40px)]">A flat rate, not a slice of your rent</h2>
         <p class="mt-3.5 text-[17.5px] text-muted">
-          Standard pricing for everyone. When your rent goes up, our pricing stays the same.
+          Standard pricing for everyone. Even when your property's rent goes up, our pricing stays the same.
+          Discounted rates for multiple units.
         </p>
       </div>
       <PricingTable id="home-pricing" />
@@ -381,19 +382,19 @@ const schemaNodes = [serviceNode({
       </div>
       <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {tools.map((t) => (
-          <a href={t.href} class="card card-hover no-underline block">
+          <article class="card card-hover card-link flex flex-col relative">
             <h3 class="text-[18px] mb-2">{t.h}</h3>
-            <p class="text-[15px] text-muted mb-3">{t.p}</p>
-            <span class="font-sans text-[14px] font-semibold text-crimson">Run it →</span>
-          </a>
+            <p class="text-[15px] text-muted mb-3 flex-1">{t.p}</p>
+            <a href={t.href} class="card-link-a self-start font-sans text-[14px] font-semibold text-crimson no-underline">{t.cta} →</a>
+          </article>
         ))}
       </div>
     </div>
   </section>
 
   <!-- AREAS. Andrew, 2026-11-16: five regions instead of a 35-tile grid. Each
-       column opens to list its communities; every link stays in the HTML (inside
-       <details>), so search engines and AI crawlers still see all 35. -->
+       column is a solid red card listing its communities, always open, each with
+       an arrow link (Andrew's follow-up the same day). -->
   <section class="band" aria-labelledby="areas-h">
     <div class="wrap">
       <div class="max-w-[660px] mx-auto text-center mb-10">
@@ -403,26 +404,21 @@ const schemaNodes = [serviceNode({
           Each has its own page with the local court, utilities, and registration rules.
         </p>
       </div>
-      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-5 lg:items-start">
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
         {areaRegions.map((r) => {
           const list = linkedAreas.filter((a) => a.region === r);
           const named = namedAreas.filter((a) => a.region === r);
           return (
-            <details class="region-col">
-              <summary>
-                <span>
-                  <span class="block font-serif text-[19px] font-semibold text-navy leading-tight">{r}</span>
-                  <span class="block font-sans text-[13px] text-muted mt-1">{list.length + named.length} communities</span>
-                </span>
-                <span class="region-plus" aria-hidden="true"></span>
-              </summary>
+            <div class="region-col">
+              <h3 class="region-h">{r}</h3>
+              <p class="region-n">{list.length + named.length} communities</p>
               <ul class="region-list">
                 {list.map((a) => (
-                  <li><a href={a.href}>{a.name}</a></li>
+                  <li><a href={a.href}><span>{a.name}</span><span class="region-arrow" aria-hidden="true">&rarr;</span></a></li>
                 ))}
                 {named.map((a) => (<li><span>{a.name}</span></li>))}
               </ul>
-            </details>
+            </div>
           );
         })}
       </div>
@@ -461,38 +457,40 @@ const schemaNodes = [serviceNode({
 </Base>
 
 <style>
-  /* Where we work: five drop-down region columns. */
-  .region-col { background: #fff; border: 1px solid var(--color-line); border-radius: 14px; }
-  .region-col > summary {
-    list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
-    gap: 12px; padding: 16px 18px;
+  /* Where we work: five red region columns, always open. */
+  .region-col { background: var(--color-crimson); color: #fff; border-radius: 16px; padding: 20px 20px 18px; }
+  .region-h { font-size: 20px; line-height: 1.2; color: #fff !important; margin: 0; }
+  .region-n { font-family: var(--font-sans); font-size: 13px; color: rgb(255 255 255 / .78); margin: 4px 0 12px; }
+  .region-list { list-style: none; margin: 0; padding: 4px 0 0; border-top: 1px solid rgb(255 255 255 / .25); }
+  .region-list li { border-bottom: 1px solid rgb(255 255 255 / .14); }
+  .region-list li:last-child { border-bottom: 0; }
+  .region-list a, .region-list li > span {
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    padding: 9px 0; font-family: var(--font-sans); font-size: 15px; font-weight: 500;
+    color: #fff; text-decoration: none;
   }
-  .region-col > summary::-webkit-details-marker { display: none; }
-  .region-col > summary:focus-visible { outline: 2px solid var(--color-crimson); outline-offset: 2px; border-radius: 14px; }
-  .region-plus { position: relative; flex: 0 0 auto; width: 28px; height: 28px; border-radius: 999px; background: var(--color-wash-soft); }
-  .region-plus::before, .region-plus::after {
-    content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; border-radius: 2px;
-    background: var(--color-crimson); transform: translate(-50%, -50%); transition: transform .2s;
-  }
-  .region-plus::after { transform: translate(-50%, -50%) rotate(90deg); }
-  .region-col[open] .region-plus::after { transform: translate(-50%, -50%) rotate(0deg); }
-  .region-col:hover { border-color: var(--color-navy); }
-  @media (min-width: 1024px) { .region-col > summary { min-height: 88px; } }
-  .region-list { list-style: none; margin: 0; padding: 2px 18px 16px; border-top: 1px solid var(--color-line); }
-  .region-list li { padding-top: 10px; }
-  .region-list a { font-family: var(--font-sans); font-size: 15px; font-weight: 500; color: var(--color-navy); text-decoration: none; }
-  .region-list a:hover { color: var(--color-crimson); text-decoration: underline; }
-  @media (prefers-reduced-motion: reduce) { .region-plus::before, .region-plus::after { transition: none; } }
+  .region-arrow { flex: 0 0 auto; opacity: .7; transition: transform .15s, opacity .15s; }
+  .region-list a:hover .region-arrow, .region-list a:focus-visible .region-arrow { opacity: 1; transform: translateX(3px); }
+  .region-list a:hover span:first-child { text-decoration: underline; }
+  .region-list a:focus-visible { outline: 2px solid #fff; outline-offset: 2px; border-radius: 4px; }
+
+  /* Whole-card links: the CTA's click area stretches over the card. One real
+     link per card, so screen readers still hear one clear link. */
+  .card-link { cursor: pointer; }
+  .card-link-a::after { content: ""; position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+  .card-link:hover .card-link-a, .card-link-a:focus-visible { text-decoration: underline; }
+  .card-link:focus-within { outline: 2px solid var(--color-crimson); outline-offset: 3px; }
+  .card-link-a:focus-visible { outline: none; }
   /* The struck-through typical fee keeps a plain line-through by default, and
      hands it to the animated .rv-strike line only where that line can draw. */
   .lf-was { text-decoration: line-through; text-decoration-thickness: 2px; }
-  /* The red holds behind the copy, then fades into the pricing band's wash below. */
+  /* Solid red with a shallow V along the bottom edge pointing at Clear pricing. */
   .lf-band {
-    background: linear-gradient(180deg,
-      var(--color-crimson) 0%,
-      var(--color-crimson) calc(100% - 150px),
-      color-mix(in srgb, var(--color-crimson) 55%, var(--color-wash-soft)) calc(100% - 70px),
-      var(--color-wash-soft) 100%);
+    background: var(--color-crimson);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 26px), 50% 100%, 0 calc(100% - 26px));
+  }
+  @media (min-width: 1024px) {
+    .lf-band { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 38px), 50% 100%, 0 calc(100% - 38px)); }
   }
   @media (prefers-reduced-motion: no-preference) {
     :global(.rv-js) .lf-was { text-decoration: none; }
