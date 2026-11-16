@@ -282,13 +282,13 @@ const schemaNodes = [serviceNode({
   <!--
     NO LEASING FEE BANNER. Andrew, 2026-11-05: a red band that names the
     differentiator and what it saves up front. 2026-11-16: moved to sit directly
-    above Clear pricing, solid red with a shallow V along the bottom edge that
-    points down at the pricing section. The saving
+    above Clear pricing as a solid red band with a straight edge (the V edge was
+    tried and removed the same day). The saving
     is typicalManager.leasingFee (75% of a month) on the portfolio's average rent,
     so it moves on its own when kpis.avgRent is updated.
   -->
   <section class="lf-band text-white" aria-labelledby="noleasing-h">
-    <div class="wrap pt-10 sm:pt-11 pb-14 sm:pb-16 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
+    <div class="wrap py-10 sm:py-11 grid gap-6 lg:grid-cols-[1fr_auto] lg:items-center">
       <div>
         <!-- The typical fee struck through, then our $0. Static (with a plain
              line-through) wherever scroll animation is off; see the style block. -->
@@ -302,7 +302,7 @@ const schemaNodes = [serviceNode({
             <span class="rv-pop inline-block text-[26px] font-extrabold text-white leading-none tabular-nums">{usd(pricing.leasingFee)}</span>
           </span>
         </p>
-        <h2 id="noleasing-h" class="!text-white text-[clamp(28px,3.4vw,42px)] mb-3">No leasing fees. On every plan.</h2>
+        <h2 id="noleasing-h" class="!text-white text-[clamp(28px,3.4vw,42px)] mb-3">No leasing fees. Ever.</h2>
         <p class="text-[17.5px] text-white/90 max-w-[40em] m-0">
           Most Columbus managers charge about {typicalManager.leasingFeePhrase} every time they place a resident. At our
           average rent of {avgRent}, that is roughly {usd(leasingSaving)} you keep at every turnover, and it is
@@ -468,6 +468,8 @@ const schemaNodes = [serviceNode({
   /* Where we work: five red region columns, always open. */
   .region-col { background: var(--color-crimson); color: #fff; border-radius: 16px; padding: 20px 20px 18px; }
   .region-h { font-size: 20px; line-height: 1.2; color: #fff !important; margin: 0; }
+  /* Five columns: keep every region name on one line so the headers line up. */
+  @media (min-width: 1024px) { .region-h { white-space: nowrap; font-size: clamp(16px, 1.45vw, 20px); } }
   .region-n { display: block; grid-column: 1; font-family: var(--font-sans); font-size: 13px; color: rgb(255 255 255 / .78); margin: 4px 0 12px; }
   .region-sum { list-style: none; display: grid; grid-template-columns: 1fr auto; column-gap: 12px; align-items: start; }
   .region-sum::-webkit-details-marker { display: none; }
@@ -513,14 +515,7 @@ const schemaNodes = [serviceNode({
   /* The struck-through typical fee keeps a plain line-through by default, and
      hands it to the animated .rv-strike line only where that line can draw. */
   .lf-was { text-decoration: line-through; text-decoration-thickness: 2px; }
-  /* Solid red with a shallow V along the bottom edge pointing at Clear pricing. */
-  .lf-band {
-    background: var(--color-crimson);
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 26px), 50% 100%, 0 calc(100% - 26px));
-  }
-  @media (min-width: 1024px) {
-    .lf-band { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 38px), 50% 100%, 0 calc(100% - 38px)); }
-  }
+  .lf-band { background: var(--color-crimson); }
   @media (prefers-reduced-motion: no-preference) {
     :global(.rv-js) .lf-was { text-decoration: none; }
   }
