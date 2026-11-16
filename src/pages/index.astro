@@ -393,8 +393,9 @@ const schemaNodes = [serviceNode({
   </section>
 
   <!-- AREAS. Andrew, 2026-11-16: five regions instead of a 35-tile grid. Each
-       column is a solid red card listing its communities, always open, each with
-       an arrow link (Andrew's follow-up the same day). -->
+       column is a solid red card listing its communities with an arrow link
+       (Andrew's follow-up the same day). Open on tablet and desktop; on phones
+       a small script starts them closed so each taps open (no JS: open). -->
   <section class="band" aria-labelledby="areas-h">
     <div class="wrap">
       <div class="max-w-[660px] mx-auto text-center mb-10">
@@ -409,19 +410,26 @@ const schemaNodes = [serviceNode({
           const list = linkedAreas.filter((a) => a.region === r);
           const named = namedAreas.filter((a) => a.region === r);
           return (
-            <div class="region-col">
-              <h3 class="region-h">{r}</h3>
-              <p class="region-n">{list.length + named.length} communities</p>
+            <details class="region-col" open>
+              <summary class="region-sum">
+                <h3 class="region-h">{r}</h3>
+                <span class="region-plus" aria-hidden="true"></span>
+                <span class="region-n">{list.length + named.length} communities</span>
+              </summary>
               <ul class="region-list">
                 {list.map((a) => (
                   <li><a href={a.href}><span>{a.name}</span><span class="region-arrow" aria-hidden="true">&rarr;</span></a></li>
                 ))}
                 {named.map((a) => (<li><span>{a.name}</span></li>))}
               </ul>
-            </div>
+            </details>
           );
         })}
       </div>
+      <script is:inline>
+        if (matchMedia('(max-width: 639px)').matches)
+          document.querySelectorAll('details.region-col').forEach(function (d) { d.open = false; });
+      </script>
       <p class="text-center mt-8 mb-0">
         <a href="/areas-we-serve/" class="font-sans text-[15.5px] font-semibold text-crimson no-underline hover:underline">See all {areas.length} areas we serve &rarr;</a>
       </p>
@@ -460,7 +468,28 @@ const schemaNodes = [serviceNode({
   /* Where we work: five red region columns, always open. */
   .region-col { background: var(--color-crimson); color: #fff; border-radius: 16px; padding: 20px 20px 18px; }
   .region-h { font-size: 20px; line-height: 1.2; color: #fff !important; margin: 0; }
-  .region-n { font-family: var(--font-sans); font-size: 13px; color: rgb(255 255 255 / .78); margin: 4px 0 12px; }
+  .region-n { display: block; grid-column: 1; font-family: var(--font-sans); font-size: 13px; color: rgb(255 255 255 / .78); margin: 4px 0 12px; }
+  .region-sum { list-style: none; display: grid; grid-template-columns: 1fr auto; column-gap: 12px; align-items: start; }
+  .region-sum::-webkit-details-marker { display: none; }
+  .region-plus { position: relative; grid-column: 2; grid-row: 1 / span 2; align-self: center; width: 28px; height: 28px; border-radius: 999px; background: rgb(255 255 255 / .16); }
+  .region-plus::before, .region-plus::after {
+    content: ""; position: absolute; left: 50%; top: 50%; width: 12px; height: 2px; border-radius: 2px;
+    background: #fff; transform: translate(-50%, -50%); transition: transform .2s;
+  }
+  .region-plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .region-col[open] .region-plus::after { transform: translate(-50%, -50%) rotate(0deg); }
+  /* Phones: the summary is a tap target. Closed regions lose the bottom gap. */
+  @media (max-width: 639px) {
+    .region-sum { cursor: pointer; }
+    .region-col:not([open]) .region-n { margin-bottom: 0; }
+    .region-sum:focus-visible { outline: 2px solid #fff; outline-offset: 4px; border-radius: 8px; }
+  }
+  /* Tablet and desktop: always open, nothing to toggle. */
+  @media (min-width: 640px) {
+    .region-sum { pointer-events: none; }
+    .region-plus { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .region-plus::before, .region-plus::after { transition: none; } }
   .region-list { list-style: none; margin: 0; padding: 4px 0 0; border-top: 1px solid rgb(255 255 255 / .25); }
   .region-list li { border-bottom: 1px solid rgb(255 255 255 / .14); }
   .region-list li:last-child { border-bottom: 0; }
