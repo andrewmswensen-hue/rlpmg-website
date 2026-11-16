@@ -35,15 +35,15 @@ export const nav: NavItem[] = [
     columns: 3,
     groups: [
       {
-        heading: 'Filling the unit',
+        heading: 'Filling your unit',
         links: [
           { label: 'What we do', href: '/services/', note: 'Everything full service management covers.' },
           { label: 'Marketing and leasing', href: '/services/marketing-and-leasing/', note: 'How a vacant unit becomes a signed lease.' },
-          { label: 'Tenant screening', href: '/services/tenant-screening/', note: 'What we check, applied the same way every time.' },
+          { label: 'Tenant screening', href: '/services/tenant-screening/', note: 'What we check to find a qualified tenant.' },
         ],
       },
       {
-        heading: 'Running it',
+        heading: 'Managing your rental',
         links: [
           { label: 'Maintenance', href: '/services/maintenance/', note: 'In-house techs, vetted vendors, 24/7 emergencies.' },
           { label: 'Rent collection', href: '/services/rent-collection/', note: 'What happens when rent does not arrive.' },
@@ -52,18 +52,18 @@ export const nav: NavItem[] = [
         ],
       },
       {
-        heading: 'When it goes wrong',
+        heading: 'Protecting your investment',
         links: [
-          { label: 'Evictions', href: '/services/evictions/', note: 'The Franklin County process, and what it costs.' },
-          { label: 'Compliance', href: '/services/compliance/', note: 'Ohio landlord-tenant law and local ordinance.' },
           { label: 'Owner FAQs', href: '/owner-faqs/', note: 'The long answers, in one place.' },
+          { label: 'Compliance', href: '/services/compliance/', note: 'Ohio landlord-tenant law and local ordinance.' },
+          { label: 'Evictions', href: '/services/evictions/', note: 'The Franklin County process, and what it costs.' },
         ],
       },
     ],
     promo: {
       eyebrow: 'Clear pricing',
-      heading: 'We publish every fee',
-      body: 'Flat monthly management, a $0 leasing fee, and the complete schedule including the charges that only apply in bad months.',
+      heading: 'We publish all costs',
+      body: 'Flat monthly management, a $0 leasing fee, and every cost listed on one page before you sign.',
       cta: { label: 'See our pricing', href: '/pricing/' },
     },
   },
