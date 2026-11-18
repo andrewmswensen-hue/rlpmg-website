@@ -31,21 +31,21 @@ const description =
 const breadcrumbs = [{ name: 'Home', path: '/' }, { name: 'Client handbook', path: '/client-handbook/' }];
 
 const toc = [
-  ['rent', 'Rent Disbursement'],
-  ['contact', 'Contact Information'],
-  ['portal', 'Online Account Access'],
-  ['balance', 'Property Account Balance'],
-  ['reserve', 'Maintenance Reserve'],
-  ['vacant-utils', 'Vacant at Handover: Utilities'],
-  ['eviction', 'Rent Payments and Eviction'],
-  ['leasing', 'Vacancies and Leasing'],
-  ['fairhousing', 'Fair Housing and Screening'],
-  ['renewals', 'Lease Renewals and Rent Increases'],
-  ['maintenance', 'Maintenance and Repairs'],
-  ['utilities', 'Utility Setup and Billing'],
-  ['office', 'Office Information'],
-  ['fees', 'Additional Services and Fees'],
-  ['values', 'Our Core Values'],
+  ['rent', 'Rent disbursement'],
+  ['contact', 'Contact information'],
+  ['portal', 'Online account access'],
+  ['balance', 'Property account balance'],
+  ['reserve', 'Maintenance reserve'],
+  ['vacant-utils', 'Vacant at handover: utilities'],
+  ['eviction', 'Rent payments and eviction'],
+  ['leasing', 'Vacancies and leasing'],
+  ['fairhousing', 'Fair housing and screening'],
+  ['renewals', 'Lease renewals and rent increases'],
+  ['maintenance', 'Maintenance and repairs'],
+  ['utilities', 'Utility setup and billing'],
+  ['office', 'Office information'],
+  ['fees', 'Additional services and fees'],
+  ['values', 'Our core values'],
 ];
 
 const contacts = [
@@ -122,6 +122,16 @@ const evictionFees = [
     <p class="r-dl-sub">Prefer a printable copy? Download the full handbook as a PDF.</p>
   </div>
 
+  <!-- Phones and tablets: the sidebar contents is hidden below 1001px, so the same
+       list sits here as a tap-to-open panel (Andrew, 2026-11-18). -->
+  <details class="hb-mtoc" id="hb-contents">
+    <summary>
+      <span><span class="hb-mtoc-k">In this handbook</span> {toc.length} sections</span>
+      <span class="hb-mtoc-plus" aria-hidden="true"></span>
+    </summary>
+    <ol>{toc.map(([id, label], i) => <li><a href={`#${id}`}><span>{String(i + 1).padStart(2, '0')}</span>{label}</a></li>)}</ol>
+  </details>
+
   <div class="r-body">
 
     <!-- CONTENTS -->
@@ -146,18 +156,19 @@ const evictionFees = [
 
       <section class="r-section" id="rent">
         <span class="eyebrow">Section 01</span>
-        <h2 class="r-h2">Rent Disbursement</h2>
+        <h2 class="r-h2">Rent disbursement</h2>
         <span class="r-rule"></span>
         <p>
           We disburse funds electronically on the <b>{rentPolicy.ownerDisbursementDay}th of each month.</b>
           It takes about 2 to 3 business days to appear in your account. You will receive an automated email
           when the funds are issued.
         </p>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="contact">
         <span class="eyebrow">Section 02</span>
-        <h2 class="r-h2">Contact Information</h2>
+        <h2 class="r-h2">Contact information</h2>
         <span class="r-rule"></span>
         <p>
           After your client onboarding is complete, <b>you will be assigned to a Property Manager who is your
@@ -185,11 +196,12 @@ const evictionFees = [
             </div>
           ))}
         </div>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="portal">
         <span class="eyebrow">Section 03</span>
-        <h2 class="r-h2">Online Account Access</h2>
+        <h2 class="r-h2">Online account access</h2>
         <span class="r-rule"></span>
         <p>
           To log in to your owner portal, scroll to the bottom of our website and click Owner Login, or go
@@ -210,11 +222,12 @@ const evictionFees = [
           username or password, get in touch. The portal is a built-in feature of the property management
           software we use in the office, so it is always up to date.
         </p>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="balance">
         <span class="eyebrow">Section 04</span>
-        <h2 class="r-h2">Your Property Account Balance</h2>
+        <h2 class="r-h2">Your property account balance</h2>
         <span class="r-rule"></span>
         <p>
           Each property you have under management is allocated its own financial account in our system. As rent
@@ -229,11 +242,12 @@ const evictionFees = [
           If your property account balance ever goes into the negative, we may ask you to make an owner
           contribution to restore it. This is a State of Ohio regulatory requirement.
         </p>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="reserve">
         <span class="eyebrow">Section 05</span>
-        <h2 class="r-h2">Your Maintenance Reserve</h2>
+        <h2 class="r-h2">Your maintenance reserve</h2>
         <span class="r-rule"></span>
         <p>
           To make sure we can act quickly when something needs fixing, we set a target amount, or minimum
@@ -249,11 +263,12 @@ const evictionFees = [
           {' '}{rentPolicy.ownerDisbursementDay}th and the reserve is {usd(pricing.reserves.min)}, you receive
           the difference. If the balance is below the reserve, there is no disbursement that month.
         </p>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="vacant-utils">
         <span class="eyebrow">Section 06</span>
-        <h2 class="r-h2">If Your Unit Is Vacant at Handover</h2>
+        <h2 class="r-h2">If your unit is vacant at handover</h2>
         <span class="r-rule"></span>
         <p>
           When we take over a vacant property, the only bill we automatically take over paying on your behalf
@@ -272,11 +287,12 @@ const evictionFees = [
           {company.address.street}<br />
           {company.address.city}, {company.address.region} {company.address.postalCode}
         </div>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="eviction">
         <span class="eyebrow">Section 07</span>
-        <h2 class="r-h2">Rent Payments and Eviction</h2>
+        <h2 class="r-h2">Rent payments and eviction</h2>
         <span class="r-rule"></span>
         <p>
           Rent is due by {rentPolicy.dueDate}. In practice many residents pay between
@@ -308,11 +324,12 @@ const evictionFees = [
             </tbody>
           </table>
         </div>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="leasing">
         <span class="eyebrow">Section 08</span>
-        <h2 class="r-h2">Vacancies and Leasing</h2>
+        <h2 class="r-h2">Vacancies and leasing</h2>
         <span class="r-rule"></span>
         <p>
           {company.name} has a system for turning over rental property. It begins as soon as we receive notice
@@ -360,11 +377,12 @@ const evictionFees = [
           <li>If a resident moves in mid-month, we typically collect a full month&rsquo;s rent at move-in. Any prorated rent for the partial first month is applied to the second month, so the second payment may be lower than the first.</li>
           <li>Vacant unit inspections are conducted biweekly during the leasing period and weekly in winter for <b>{fee('Vacant unit inspection')?.amount}.</b></li>
         </ul>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="fairhousing">
         <span class="eyebrow">Section 09</span>
-        <h2 class="r-h2">Fair Housing Compliance and Tenant Screening</h2>
+        <h2 class="r-h2">Fair housing compliance and tenant screening</h2>
         <span class="r-rule"></span>
         <p>
           Owning and leasing rental property comes with important legal responsibilities. Fair housing laws
@@ -434,11 +452,12 @@ const evictionFees = [
           By following clear standards and documented procedures, we help reduce liability, prevent
           discrimination claims, and create a professional, transparent leasing process.
         </p>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="renewals">
         <span class="eyebrow">Section 10</span>
-        <h2 class="r-h2">Lease Renewals and Rent Increases</h2>
+        <h2 class="r-h2">Lease renewals and rent increases</h2>
         <span class="r-rule"></span>
         <p>
           The standard RL lease automatically renews on expiration unless the resident or the broker give 30
@@ -460,11 +479,12 @@ const evictionFees = [
           <b>Prefer longer leases?</b> Most property owners prefer 2-year or 3-year leases for stability. Let
           us know if that is you, so we can note it on your account.
         </div>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="maintenance">
         <span class="eyebrow">Section 11</span>
-        <h2 class="r-h2">Maintenance and Repairs</h2>
+        <h2 class="r-h2">Maintenance and repairs</h2>
         <span class="r-rule"></span>
         <p>
           Requests for maintenance and repairs come to our office from the residents and are handled by our
@@ -522,11 +542,12 @@ const evictionFees = [
           call center is authorized to dispatch certain repair companies if there is a true safety or building
           integrity issue.
         </p>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="utilities">
         <span class="eyebrow">Section 12</span>
-        <h2 class="r-h2">Utility Setup and Billing</h2>
+        <h2 class="r-h2">Utility setup and billing</h2>
         <span class="r-rule"></span>
         <p>
           By default we transfer water and sewer, electric and gas service into the property owner&rsquo;s name
@@ -546,11 +567,12 @@ const evictionFees = [
           for leasing. If our team visits and finds them not active as expected, a trip fee of
           {' '}<b>{fee('Utilities not active on arrival')?.amount}</b> applies for the time spent resolving it.
         </p>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="office">
         <span class="eyebrow">Section 13</span>
-        <h2 class="r-h2">Office Information</h2>
+        <h2 class="r-h2">Office information</h2>
         <span class="r-rule"></span>
         <p>
           Our office at <b>{company.address.street}, {company.address.city}, {company.address.region}
@@ -568,11 +590,12 @@ const evictionFees = [
           {company.address.city}, {company.address.region} {company.address.postalCode}<br />
           <a href={`tel:${company.phoneE164}`}>{company.phone}</a> &middot; {company.email}
         </div>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="fees">
         <span class="eyebrow">Section 14</span>
-        <h2 class="r-h2">Additional Services and Other Fees</h2>
+        <h2 class="r-h2">Additional services and other fees</h2>
         <span class="r-rule"></span>
         <p>
           Below is the full list of additional services we offer and the fees that apply. Many are optional or
@@ -595,11 +618,12 @@ const evictionFees = [
           schedule cannot drift apart. See the <a href="/pricing/">pricing page</a> for the three plans and
           what each includes.
         </p>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="values">
         <span class="eyebrow">Section 15</span>
-        <h2 class="r-h2">Our Core Values</h2>
+        <h2 class="r-h2">Our core values</h2>
         <span class="r-rule"></span>
         <p>
           At {company.name} we understand that owning rental properties can be both rewarding and challenging.
@@ -625,10 +649,11 @@ const evictionFees = [
           estate investments. They guide how we approach challenges, make decisions and deliver results,
           creating an experience that is reliable, thoughtful and tailored to your needs.
         </p>
+        <a class="hb-back" href="#hb-contents">Back to contents &uarr;</a>
       </section>
 
       <section class="r-section" id="help" style="border-bottom:0;">
-        <h2 class="r-h2">Questions About Anything in This Handbook?</h2>
+        <h2 class="r-h2">Questions about anything in this handbook?</h2>
         <span class="r-rule"></span>
         <p>
           Your assigned Property Manager is your first point of contact. For anything else, our team is a call
@@ -662,3 +687,78 @@ const evictionFees = [
     </main>
   </div>
 </Base>
+
+<!-- Desktop contents: highlight the section being read. Progressive: without
+     JavaScript the list still works as plain anchor links. -->
+<script is:inline>
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  var links = {};
+  document.querySelectorAll('.r-toc a[href^="#"]').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  var current;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting || !links[e.target.id]) return;
+      if (current) current.classList.remove('is-active');
+      current = links[e.target.id]; current.classList.add('is-active');
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  Object.keys(links).forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+})();
+</script>
+
+<style>
+  /* Paragraphs inside a section were touching; give them normal spacing. */
+  .r-section p + p { margin-top: .9em; }
+
+  /* Desktop contents: the section in view. */
+  .r-toc a.is-active { color: var(--color-crimson); }
+  .r-toc li:has(a.is-active) { box-shadow: inset 2px 0 0 var(--color-crimson); padding-left: 10px; margin-left: -12px; }
+
+  /* Phones and tablets: tap-to-open contents and back links. */
+  .hb-mtoc { display: none; }
+  .hb-back { display: none; }
+  @media (max-width: 1000px) {
+    .hb-mtoc {
+      display: block; margin: 18px auto 8px; width: min(880px, calc(100% - 32px));
+      background: #fff; border: 1px solid var(--color-line); border-radius: 14px;
+      box-shadow: 0 1px 2px rgb(18 49 67 / .05), 0 8px 24px rgb(18 49 67 / .06);
+      scroll-margin-top: 96px;
+    }
+    .hb-mtoc > summary {
+      list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; padding: 16px 18px; font-family: var(--font-sans); font-size: 15px; font-weight: 600; color: var(--color-navy);
+    }
+    .hb-mtoc > summary::-webkit-details-marker { display: none; }
+    .hb-mtoc-k { color: var(--color-crimson); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; margin-right: 8px; }
+    .hb-mtoc-plus { position: relative; width: 26px; height: 26px; border-radius: 999px; background: var(--color-wash-soft); flex: 0 0 auto; }
+    .hb-mtoc-plus::before, .hb-mtoc-plus::after {
+      content: ""; position: absolute; left: 50%; top: 50%; width: 11px; height: 2px; border-radius: 2px;
+      background: var(--color-crimson); transform: translate(-50%, -50%);
+    }
+    .hb-mtoc-plus::after { transform: translate(-50%, -50%) rotate(90deg); }
+    .hb-mtoc[open] .hb-mtoc-plus::after { transform: translate(-50%, -50%); }
+    .hb-mtoc ol { list-style: none; margin: 0; padding: 4px 18px 14px; border-top: 1px solid var(--color-line); }
+    .hb-mtoc li a {
+      display: flex; gap: 12px; padding: 10px 0; font-family: var(--font-sans); font-size: 15px; font-weight: 500;
+      color: var(--color-navy); text-decoration: none; border-bottom: 1px solid var(--color-line);
+    }
+    .hb-mtoc li:last-child a { border-bottom: 0; }
+    .hb-mtoc li a span { color: var(--color-crimson); font-weight: 700; font-size: 12px; font-variant-numeric: tabular-nums; padding-top: 2px; }
+    .hb-back {
+      display: inline-block; margin-top: 22px; font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+      color: var(--color-crimson); text-decoration: none;
+    }
+  }
+
+  /* Print: the handbook as a clean document. */
+  @media print {
+    :global(header), :global(footer), :global(.mobile-cta), :global(.r-dl), .r-toc, .hb-mtoc, .hb-back { display: none !important; }
+    :global(.r-hero) { background: none !important; min-height: 0 !important; padding: 0 0 12pt !important; }
+    :global(.r-hero *) { color: #000 !important; text-shadow: none !important; }
+    :global(.r-callout), :global(.r-table-wrap), :global(.r-mini), :global(.r-step) { break-inside: avoid; }
+    :global(.r-h2), :global(.r-h3) { break-after: avoid; }
+    :global(body) { font-size: 11pt; }
+    :global(a) { color: #000 !important; text-decoration: none !important; }
+  }
+</style>
